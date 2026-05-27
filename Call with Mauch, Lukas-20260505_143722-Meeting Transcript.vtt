@@ -1,0 +1,432 @@
+﻿WEBVTT
+
+9e1a350d-ae6e-4008-9636-26e13fecbca6/5-0
+00:00:03.440 --> 00:00:04.520
+<v Mauch, Lukas>What it outputs?</v>
+
+9e1a350d-ae6e-4008-9636-26e13fecbca6/6-0
+00:00:05.560 --> 00:00:06.680
+<v Singh, Sarthak>Yeah, yeah.</v>
+
+9e1a350d-ae6e-4008-9636-26e13fecbca6/7-0
+00:00:09.480 --> 00:00:11.240
+<v Mauch, Lukas>Just use it for generation, right?</v>
+
+9e1a350d-ae6e-4008-9636-26e13fecbca6/8-0
+00:00:11.560 --> 00:00:13.560
+<v Singh, Sarthak>Yeah, I guess it's more like this.</v>
+
+9e1a350d-ae6e-4008-9636-26e13fecbca6/9-0
+00:00:14.280 --> 00:00:14.600
+<v Mauch, Lukas>Yeah.</v>
+
+9e1a350d-ae6e-4008-9636-26e13fecbca6/10-0
+00:00:16.360 --> 00:00:18.200
+<v Mauch, Lukas>So that would be important.</v>
+
+9e1a350d-ae6e-4008-9636-26e13fecbca6/12-0
+00:00:20.520 --> 00:00:25.760
+<v Mauch, Lukas>Because otherwise you don't know what
+kind of model you operate on, and...</v>
+
+9e1a350d-ae6e-4008-9636-26e13fecbca6/13-0
+00:00:28.240 --> 00:00:30.360
+<v Mauch, Lukas>Then, the second question would be...</v>
+
+9e1a350d-ae6e-4008-9636-26e13fecbca6/14-0
+00:00:31.800 --> 00:00:32.440
+<v Mauch, Lukas>Uh...</v>
+
+9e1a350d-ae6e-4008-9636-26e13fecbca6/15-0
+00:00:34.360 --> 00:00:35.640
+<v Mauch, Lukas>If you...</v>
+
+9e1a350d-ae6e-4008-9636-26e13fecbca6/16-0
+00:00:39.000 --> 00:00:45.080
+<v Mauch, Lukas>So if you flip a random position,
+as we did here now, within the sequence,</v>
+
+9e1a350d-ae6e-4008-9636-26e13fecbca6/17-0
+00:00:49.320 --> 00:00:54.645
+<v Mauch, Lukas>You said it does not work, right?
+But these scores that you have here,</v>
+
+9e1a350d-ae6e-4008-9636-26e13fecbca6/17-1
+00:00:54.645 --> 00:01:00.270
+<v Mauch, Lukas>they are pretty far away, basically.
+They are hard to interpret if I don't</v>
+
+9e1a350d-ae6e-4008-9636-26e13fecbca6/17-2
+00:01:00.270 --> 00:01:06.495
+<v Mauch, Lukas>have currently the output of the network.
+So it would be interesting to see just a</v>
+
+9e1a350d-ae6e-4008-9636-26e13fecbca6/17-3
+00:01:06.495 --> 00:01:09.120
+<v Mauch, Lukas>few examples what it puts in there.</v>
+
+9e1a350d-ae6e-4008-9636-26e13fecbca6/18-0
+00:01:09.480 --> 00:01:13.531
+<v Mauch, Lukas>to get a feeling, right?
+If it's really garbage or not.</v>
+
+9e1a350d-ae6e-4008-9636-26e13fecbca6/18-1
+00:01:13.531 --> 00:01:16.280
+<v Mauch, Lukas>Did you have a look at the raw output?</v>
+
+9e1a350d-ae6e-4008-9636-26e13fecbca6/19-0
+00:01:20.040 --> 00:01:21.720
+<v Mauch, Lukas>Ohh, wait, I cannot hear you anymore.</v>
+
+9e1a350d-ae6e-4008-9636-26e13fecbca6/20-0
+00:01:22.120 --> 00:01:23.240
+<v Singh, Sarthak>Yeah, yeah, I just...</v>
+
+9e1a350d-ae6e-4008-9636-26e13fecbca6/33-0
+00:02:16.840 --> 00:02:17.320
+<v Mauch, Lukas>Okay.</v>
+
+9e1a350d-ae6e-4008-9636-26e13fecbca6/34-0
+00:02:17.560 --> 00:02:18.360
+<v Singh, Sarthak>Like, I will check.</v>
+
+9e1a350d-ae6e-4008-9636-26e13fecbca6/37-0
+00:02:33.640 --> 00:02:35.320
+<v Singh, Sarthak>This, so this is like GPT.</v>
+
+9e1a350d-ae6e-4008-9636-26e13fecbca6/38-0
+00:02:36.280 --> 00:02:36.840
+<v Singh, Sarthak>EIS.</v>
+
+9e1a350d-ae6e-4008-9636-26e13fecbca6/39-0
+00:02:42.360 --> 00:02:44.000
+<v Singh, Sarthak>Can you see the screen?</v>
+
+9e1a350d-ae6e-4008-9636-26e13fecbca6/40-0
+00:02:42.920 --> 00:02:45.800
+<v Mauch, Lukas>Okay, so the, yeah.</v>
+
+9e1a350d-ae6e-4008-9636-26e13fecbca6/41-0
+00:02:50.440 --> 00:02:52.040
+<v Mauch, Lukas>Okay, and what has been flipped?</v>
+
+9e1a350d-ae6e-4008-9636-26e13fecbca6/43-0
+00:02:52.760 --> 00:02:56.829
+<v Singh, Sarthak>So this the row,
+so it was originally it was rostrum.</v>
+
+9e1a350d-ae6e-4008-9636-26e13fecbca6/43-1
+00:02:56.829 --> 00:02:59.240
+<v Singh, Sarthak>I think it was corrupted to row.</v>
+
+9e1a350d-ae6e-4008-9636-26e13fecbca6/42-0
+00:02:57.320 --> 00:02:57.680
+<v Mauch, Lukas>Yeah.</v>
+
+9e1a350d-ae6e-4008-9636-26e13fecbca6/44-0
+00:03:00.440 --> 00:03:04.840
+<v Singh, Sarthak>Like strong was directed to optimum and
+predicted was exactly the same.</v>
+
+9e1a350d-ae6e-4008-9636-26e13fecbca6/46-0
+00:03:05.960 --> 00:03:06.600
+<v Mauch, Lukas>Okay.</v>
+
+9e1a350d-ae6e-4008-9636-26e13fecbca6/47-0
+00:03:06.680 --> 00:03:08.160
+<v Singh, Sarthak>There must be something else.</v>
+
+9e1a350d-ae6e-4008-9636-26e13fecbca6/48-0
+00:03:09.080 --> 00:03:12.669
+<v Mauch, Lukas>So what kind of data set did you use now
+here for this corruption?</v>
+
+9e1a350d-ae6e-4008-9636-26e13fecbca6/48-1
+00:03:12.669 --> 00:03:15.080
+<v Mauch, Lukas>Is it the same that you use for
+fine-tuning?</v>
+
+9e1a350d-ae6e-4008-9636-26e13fecbca6/50-0
+00:03:15.400 --> 00:03:19.480
+<v Singh, Sarthak>No, no, no, it's a wiki, wiki data,
+wiki text.</v>
+
+9e1a350d-ae6e-4008-9636-26e13fecbca6/49-0
+00:03:18.680 --> 00:03:19.160
+<v Mauch, Lukas>Okay.</v>
+
+9e1a350d-ae6e-4008-9636-26e13fecbca6/51-0
+00:03:22.760 --> 00:03:23.800
+<v Singh, Sarthak>Now we get text to.</v>
+
+9e1a350d-ae6e-4008-9636-26e13fecbca6/52-0
+00:03:23.320 --> 00:03:26.120
+<v Mauch, Lukas>Wait, wait, can you go now? Sorry,
+it's a bit fast.</v>
+
+9e1a350d-ae6e-4008-9636-26e13fecbca6/53-0
+00:03:26.840 --> 00:03:28.040
+<v Singh, Sarthak>Sorry, I was just like...</v>
+
+9e1a350d-ae6e-4008-9636-26e13fecbca6/54-0
+00:03:28.520 --> 00:03:28.720
+<v Mauch, Lukas>Yeah.</v>
+
+9e1a350d-ae6e-4008-9636-26e13fecbca6/55-0
+00:03:33.280 --> 00:03:35.000
+<v Mauch, Lukas>It doesn't move at all, right?</v>
+
+9e1a350d-ae6e-4008-9636-26e13fecbca6/56-0
+00:03:34.840 --> 00:03:36.120
+<v Singh, Sarthak>Yeah, it doesn't move at all.</v>
+
+9e1a350d-ae6e-4008-9636-26e13fecbca6/57-0
+00:03:37.800 --> 00:03:41.480
+<v Singh, Sarthak>And if we look, this is continuous.</v>
+
+9e1a350d-ae6e-4008-9636-26e13fecbca6/58-0
+00:03:44.120 --> 00:03:46.120
+<v Singh, Sarthak>Actually,
+let me just share my goals today.</v>
+
+9e1a350d-ae6e-4008-9636-26e13fecbca6/59-0
+00:03:47.400 --> 00:03:48.040
+<v Singh, Sarthak>Shared Emilia.</v>
+
+9e1a350d-ae6e-4008-9636-26e13fecbca6/60-0
+00:03:51.960 --> 00:03:52.760
+<v Singh, Sarthak>They're visible.</v>
+
+9e1a350d-ae6e-4008-9636-26e13fecbca6/61-0
+00:03:53.320 --> 00:03:53.680
+<v Mauch, Lukas>Yeah.</v>
+
+9e1a350d-ae6e-4008-9636-26e13fecbca6/62-0
+00:03:54.800 --> 00:03:57.600
+<v Singh, Sarthak>OK, so this that was continuous.</v>
+
+9e1a350d-ae6e-4008-9636-26e13fecbca6/63-0
+00:03:59.560 --> 00:04:02.280
+<v Singh, Sarthak>So, this the first one,
+it was this first one.</v>
+
+9e1a350d-ae6e-4008-9636-26e13fecbca6/64-0
+00:04:03.040 --> 00:04:03.320
+<v Mauch, Lukas>Mm.</v>
+
+9e1a350d-ae6e-4008-9636-26e13fecbca6/65-0
+00:04:04.680 --> 00:04:05.240
+<v Singh, Sarthak>And...</v>
+
+9e1a350d-ae6e-4008-9636-26e13fecbca6/66-0
+00:04:07.760 --> 00:04:12.200
+<v Mauch, Lukas>But if you go down, so the other methods,
+they do something, right? So...</v>
+
+9e1a350d-ae6e-4008-9636-26e13fecbca6/67-0
+00:04:13.000 --> 00:04:14.600
+<v Singh, Sarthak>This one, this one.</v>
+
+9e1a350d-ae6e-4008-9636-26e13fecbca6/68-0
+00:04:14.560 --> 00:04:18.531
+<v Mauch, Lukas>I don't know. Wait,
+I it's hard to see the link in so fast.</v>
+
+9e1a350d-ae6e-4008-9636-26e13fecbca6/68-1
+00:04:18.531 --> 00:04:20.120
+<v Mauch, Lukas>Can you can you go back?</v>
+
+9e1a350d-ae6e-4008-9636-26e13fecbca6/69-0
+00:04:20.880 --> 00:04:22.120
+<v Singh, Sarthak>To the VS Code.</v>
+
+9e1a350d-ae6e-4008-9636-26e13fecbca6/70-0
+00:04:22.760 --> 00:04:23.160
+<v Mauch, Lukas>Yeah.</v>
+
+9e1a350d-ae6e-4008-9636-26e13fecbca6/71-0
+00:04:27.240 --> 00:04:29.174
+<v Mauch, Lukas>Okay, it's super small.
+Can you zoom in a little bit?</v>
+
+9e1a350d-ae6e-4008-9636-26e13fecbca6/71-1
+00:04:29.174 --> 00:04:29.640
+<v Mauch, Lukas>I don't know.</v>
+
+9e1a350d-ae6e-4008-9636-26e13fecbca6/72-0
+00:04:32.360 --> 00:04:32.600
+<v Mauch, Lukas>Yeah.</v>
+
+9e1a350d-ae6e-4008-9636-26e13fecbca6/73-0
+00:04:36.040 --> 00:04:36.760
+<v Mauch, Lukas>Stop, stop, stop.</v>
+
+9e1a350d-ae6e-4008-9636-26e13fecbca6/75-0
+00:04:47.160 --> 00:04:49.240
+<v Singh, Sarthak>In the second and third samples, like the.
+..</v>
+
+9e1a350d-ae6e-4008-9636-26e13fecbca6/76-0
+00:04:50.920 --> 00:04:53.240
+<v Singh, Sarthak>So, yeah, it was metropolis testing for.</v>
+
+9e1a350d-ae6e-4008-9636-26e13fecbca6/77-0
+00:04:54.280 --> 00:04:55.680
+<v Singh, Sarthak>The false, it does something.</v>
+
+9e1a350d-ae6e-4008-9636-26e13fecbca6/78-0
+00:04:54.280 --> 00:04:58.646
+<v Mauch, Lukas>Okay, this is all with random data,
+so random data is okay that it fails,</v>
+
+9e1a350d-ae6e-4008-9636-26e13fecbca6/78-1
+00:04:58.646 --> 00:04:59.000
+<v Mauch, Lukas>right?</v>
+
+9e1a350d-ae6e-4008-9636-26e13fecbca6/79-0
+00:05:00.680 --> 00:05:03.000
+<v Singh, Sarthak>Yeah, but the first two are the balls,
+even.</v>
+
+9e1a350d-ae6e-4008-9636-26e13fecbca6/80-0
+00:05:05.960 --> 00:05:06.840
+<v Mauch, Lukas>Policy.</v>
+
+9e1a350d-ae6e-4008-9636-26e13fecbca6/82-0
+00:05:06.360 --> 00:05:10.783
+<v Singh, Sarthak>The first one we understand because
+Metropolis Hasting rejects every at every</v>
+
+9e1a350d-ae6e-4008-9636-26e13fecbca6/81-0
+00:05:10.680 --> 00:05:11.160
+<v Mauch, Lukas>Yeah.</v>
+
+9e1a350d-ae6e-4008-9636-26e13fecbca6/82-1
+00:05:10.783 --> 00:05:13.732
+<v Singh, Sarthak>step. So,
+but in the false one it does do something</v>
+
+9e1a350d-ae6e-4008-9636-26e13fecbca6/82-2
+00:05:13.732 --> 00:05:15.320
+<v Singh, Sarthak>like changes it to like row.</v>
+
+9e1a350d-ae6e-4008-9636-26e13fecbca6/83-0
+00:05:18.400 --> 00:05:19.800
+<v Mauch, Lukas>Yeah, okay.</v>
+
+9e1a350d-ae6e-4008-9636-26e13fecbca6/84-0
+00:05:24.600 --> 00:05:25.320
+<v Mauch, Lukas>Okay.</v>
+
+9e1a350d-ae6e-4008-9636-26e13fecbca6/85-0
+00:05:28.920 --> 00:05:31.768
+<v Mauch, Lukas>And this is the Landrin-like sampler,
+right?</v>
+
+9e1a350d-ae6e-4008-9636-26e13fecbca6/85-1
+00:05:31.768 --> 00:05:34.680
+<v Mauch, Lukas>Which one is the which one is the
+continuous?</v>
+
+9e1a350d-ae6e-4008-9636-26e13fecbca6/86-0
+00:05:35.320 --> 00:05:36.600
+<v Singh, Sarthak>This is the continuous one.</v>
+
+9e1a350d-ae6e-4008-9636-26e13fecbca6/87-0
+00:05:37.160 --> 00:05:39.800
+<v Mauch, Lukas>Okay, and the lens will like,
+do you also have that one?</v>
+
+9e1a350d-ae6e-4008-9636-26e13fecbca6/88-0
+00:05:40.280 --> 00:05:41.320
+<v Singh, Sarthak>Yeah, yeah, I have a lot.</v>
+
+9e1a350d-ae6e-4008-9636-26e13fecbca6/89-0
+00:05:42.600 --> 00:05:45.160
+<v Singh, Sarthak>Just check which one do you want to check
+off, like...</v>
+
+9e1a350d-ae6e-4008-9636-26e13fecbca6/90-0
+00:05:47.400 --> 00:05:51.252
+<v Singh, Sarthak>Sync,
+discrete with the GFlowNet or without</v>
+
+9e1a350d-ae6e-4008-9636-26e13fecbca6/90-1
+00:05:51.252 --> 00:05:52.040
+<v Singh, Sarthak>GFlowNet.</v>
+
+9e1a350d-ae6e-4008-9636-26e13fecbca6/91-0
+00:05:52.840 --> 00:05:54.920
+<v Mauch, Lukas>Let's first do the one without.</v>
+
+9e1a350d-ae6e-4008-9636-26e13fecbca6/92-0
+00:05:56.360 --> 00:05:58.680
+<v Singh, Sarthak>Let's do single token to speed single
+token.</v>
+
+9e1a350d-ae6e-4008-9636-26e13fecbca6/94-0
+00:05:58.520 --> 00:06:03.704
+<v Mauch, Lukas>Or, Sarthak,
+can you compile me these results just</v>
+
+9e1a350d-ae6e-4008-9636-26e13fecbca6/93-0
+00:06:00.280 --> 00:06:00.760
+<v Singh, Sarthak>Yes.</v>
+
+9e1a350d-ae6e-4008-9636-26e13fecbca6/94-1
+00:06:03.704 --> 00:06:07.160
+<v Mauch, Lukas>briefly, a few examples for the...</v>
+
+9e1a350d-ae6e-4008-9636-26e13fecbca6/97-0
+00:06:08.520 --> 00:06:13.167
+<v Mauch, Lukas>Lantern-like sampler on the GPT tool
+without GFlowNet,</v>
+
+9e1a350d-ae6e-4008-9636-26e13fecbca6/97-1
+00:06:13.167 --> 00:06:18.322
+<v Mauch, Lukas>then the continuous one without mail
+proposes Hastings both,</v>
+
+9e1a350d-ae6e-4008-9636-26e13fecbca6/95-0
+00:06:15.560 --> 00:06:15.720
+<v Singh, Sarthak>Mm.</v>
+
+9e1a350d-ae6e-4008-9636-26e13fecbca6/97-2
+00:06:18.322 --> 00:06:22.631
+<v Mauch, Lukas>and then for the GFlowNet fine-tuned
+version also,</v>
+
+9e1a350d-ae6e-4008-9636-26e13fecbca6/96-0
+00:06:20.360 --> 00:06:20.520
+<v Singh, Sarthak>Yeah.</v>
+
+9e1a350d-ae6e-4008-9636-26e13fecbca6/97-3
+00:06:22.631 --> 00:06:28.799
+<v Mauch, Lukas>that's for experiment basically.
+Can you just pull out a few examples of</v>
+
+9e1a350d-ae6e-4008-9636-26e13fecbca6/97-4
+00:06:28.799 --> 00:06:29.560
+<v Mauch, Lukas>that one?</v>
+
+9e1a350d-ae6e-4008-9636-26e13fecbca6/99-0
+00:06:30.040 --> 00:06:33.953
+<v Mauch, Lukas>That would be great.
+And then I would switch to another call</v>
+
+9e1a350d-ae6e-4008-9636-26e13fecbca6/98-0
+00:06:30.640 --> 00:06:32.200
+<v Singh, Sarthak>Yeah, okay.</v>
+
+9e1a350d-ae6e-4008-9636-26e13fecbca6/99-1
+00:06:33.953 --> 00:06:36.840
+<v Mauch, Lukas>for a few minutes and then come back to
+you.</v>
+
+9e1a350d-ae6e-4008-9636-26e13fecbca6/100-0
+00:06:37.640 --> 00:06:39.080
+<v Singh, Sarthak>Yeah, makes sense.</v>
+
+9e1a350d-ae6e-4008-9636-26e13fecbca6/101-0
+00:06:38.360 --> 00:06:40.760
+<v Mauch, Lukas>Okay. Okay, perfect. Thank you.</v>

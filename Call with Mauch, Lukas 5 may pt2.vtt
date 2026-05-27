@@ -1,0 +1,1361 @@
+WEBVTT
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/5-0
+00:00:03.683 --> 00:00:05.923
+<v Mauch, Lukas>OK, so you have...</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/7-0
+00:00:09.683 --> 00:00:13.203
+<v Mauch, Lukas>The prompt, right?
+And what you want to do is...</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/9-0
+00:00:14.403 --> 00:00:18.323
+<v Mauch, Lukas>Here, this is the prompt part P.</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/8-0
+00:00:18.363 --> 00:00:18.803
+<v Singh, Sarthak>Thimo.</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/10-0
+00:00:19.683 --> 00:00:23.203
+<v Mauch, Lukas>Then you have some blank.</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/11-0
+00:00:24.363 --> 00:00:30.004
+<v Mauch, Lukas>That's UR.
+How do you call it in the paper? It's ZZ,</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/11-1
+00:00:30.004 --> 00:00:30.323
+<v Mauch, Lukas>no?</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/12-0
+00:00:30.163 --> 00:00:31.483
+<v Singh, Sarthak>Yeah, ZZZ.</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/13-0
+00:00:31.523 --> 00:00:35.043
+<v Mauch, Lukas>So that's the part you want to fill in.
+It's missing.</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/14-0
+00:00:36.123 --> 00:00:39.386
+<v Mauch, Lukas>And then you have the continuation, right?
+Which is,</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/14-1
+00:00:39.386 --> 00:00:41.603
+<v Mauch, Lukas>so this one here is X in their case.</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/15-0
+00:00:43.523 --> 00:00:47.283
+<v Mauch, Lukas>And this one is X,
+and this one they it's Y, you know.</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/16-0
+00:00:48.323 --> 00:00:49.123
+<v Singh, Sarthak>Yeah, yeah.</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/17-0
+00:00:50.243 --> 00:00:54.083
+<v Mauch, Lukas>OK, and you want to sample P of Z given?</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/18-0
+00:00:55.123 --> 00:00:56.483
+<v Mauch, Lukas>X&amp;Y, right?</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/19-0
+00:00:58.643 --> 00:01:01.283
+<v Mauch, Lukas>That's what they wanted to do, right?
+In the paper.</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/20-0
+00:01:05.843 --> 00:01:11.203
+<v Mauch, Lukas>Okay, and they reformulated this one,
+right? So something like this.</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/21-0
+00:01:13.123 --> 00:01:15.951
+<v Singh, Sarthak>Basically,
+they made the prompt like beginning is</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/21-1
+00:01:15.951 --> 00:01:16.403
+<v Singh, Sarthak>given X.</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/22-0
+00:01:16.483 --> 00:01:17.363
+<v Mauch, Lukas>Exactly.</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/24-0
+00:01:17.483 --> 00:01:21.283
+<v Singh, Sarthak>Backslash and and is given why,
+and then what is the middle?</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/23-0
+00:01:18.883 --> 00:01:20.403
+<v Mauch, Lukas>Beginning, so.</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/26-0
+00:01:22.323 --> 00:01:24.003
+<v Mauch, Lukas>Exactly, so you short.</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/25-0
+00:01:23.603 --> 00:01:24.083
+<v Singh, Sarthak>Yeah.</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/28-0
+00:01:26.323 --> 00:01:27.843
+<v Mauch, Lukas>Use for inference.</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/29-0
+00:01:28.963 --> 00:01:30.003
+<v Mauch, Lukas>This structure.</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/30-0
+00:01:30.963 --> 00:01:33.203
+<v Mauch, Lukas>and what they have in there.</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/31-0
+00:01:34.483 --> 00:01:39.893
+<v Mauch, Lukas>In their paper, so why, and then,
+and then here comes the infilling, right?</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/31-1
+00:01:39.893 --> 00:01:42.883
+<v Mauch, Lukas>That's what the model samples that, right?</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/32-0
+00:01:44.003 --> 00:01:45.843
+<v Mauch, Lukas>Okay, and you run?</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/33-0
+00:01:47.363 --> 00:01:50.838
+<v Mauch, Lukas>First,
+first you try auto-regressive sampling of</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/33-1
+00:01:50.838 --> 00:01:53.603
+<v Mauch, Lukas>this part, right? So, first experiment.</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/34-0
+00:01:56.563 --> 00:01:58.723
+<v Mauch, Lukas>Uh, wait side with with uh.</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/35-0
+00:01:59.883 --> 00:02:00.483
+<v Mauch, Lukas>like this.</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/36-0
+00:02:04.723 --> 00:02:08.163
+<v Mauch, Lukas>Thanks, yeah, so both experiment.</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/37-0
+00:02:10.723 --> 00:02:11.363
+<v Mauch, Lukas>Ron.</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/38-0
+00:02:14.243 --> 00:02:16.643
+<v Mauch, Lukas>The Law Labs.</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/39-0
+00:02:18.163 --> 00:02:18.883
+<v Mauch, Lukas>Good.</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/40-0
+00:02:20.243 --> 00:02:21.843
+<v Mauch, Lukas>Autoregressive sampling.</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/41-0
+00:02:23.043 --> 00:02:26.853
+<v Mauch, Lukas>Okay, so that's vanilla,
+the vanilla sampling, right?</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/41-1
+00:02:26.853 --> 00:02:28.123
+<v Mauch, Lukas>But you use the...</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/42-0
+00:02:30.243 --> 00:02:30.643
+<v Mauch, Lukas>Ohh.</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/43-0
+00:02:32.163 --> 00:02:34.723
+<v Singh, Sarthak>Can you scroll down a little? Okay,
+I think I can.</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/44-0
+00:02:35.203 --> 00:02:38.978
+<v Mauch, Lukas>Wait, wait, wait.
+I just tried to make this smaller,</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/44-1
+00:02:38.978 --> 00:02:41.043
+<v Mauch, Lukas>but there are no options. OK.</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/45-0
+00:02:42.203 --> 00:02:43.443
+<v Mauch, Lukas>The second one is.</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/46-0
+00:02:50.963 --> 00:02:52.563
+<v Mauch, Lukas>Well, I don't too biased.</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/47-0
+00:02:57.363 --> 00:02:58.243
+<v Mauch, Lukas>But...</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/48-0
+00:03:00.083 --> 00:03:05.093
+<v Mauch, Lukas>You keep the structure, right?
+So if you flip a token, right,</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/48-1
+00:03:05.093 --> 00:03:08.163
+<v Mauch, Lukas>just one token, then you would have...</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/49-0
+00:03:10.083 --> 00:03:13.043
+<v Mauch, Lukas>Z is just one token, okay?</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/50-0
+00:03:14.283 --> 00:03:16.563
+<v Mauch, Lukas>And then you say, beginning is X.</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/52-0
+00:03:17.723 --> 00:03:26.163
+<v Mauch, Lukas>just skipping Z, right? And then N is Y,
+and then you run your Laudenbach dynamics.</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/51-0
+00:03:20.883 --> 00:03:21.363
+<v Singh, Sarthak>You.</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/53-0
+00:03:28.363 --> 00:03:30.243
+<v Mauch, Lukas>That's on that one, right?</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/54-0
+00:03:31.283 --> 00:03:34.163
+<v Singh, Sarthak>Uh, run my land dynamics for what?</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/55-0
+00:03:34.723 --> 00:03:41.176
+<v Mauch, Lukas>So just on the red part here, just on,
+that's one token here then in this case,</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/55-1
+00:03:41.176 --> 00:03:44.403
+<v Mauch, Lukas>in your new experiment, you just run LD.</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/56-0
+00:03:43.923 --> 00:03:47.283
+<v Singh, Sarthak>Did you, did you put end as YX as well?</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/58-0
+00:03:47.923 --> 00:03:52.803
+<v Mauch, Lukas>Sorry? Uh, yeah, sorry. Yeah, yeah.
+That's it. Whoops. That's why.</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/57-0
+00:03:49.123 --> 00:03:49.603
+<v Singh, Sarthak>Very good.</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/59-0
+00:03:55.763 --> 00:03:56.323
+<v Mauch, Lukas>OK.</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/60-0
+00:03:57.283 --> 00:04:01.199
+<v Singh, Sarthak>Yeah, I got it, but uh,
+shouldn't it work just normally with with</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/60-1
+00:04:01.199 --> 00:04:02.563
+<v Singh, Sarthak>the generation as well?</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/61-0
+00:04:03.283 --> 00:04:05.363
+<v Mauch, Lukas>No, I guess it's.</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/62-0
+00:04:05.683 --> 00:04:07.523
+<v Singh, Sarthak>Like with the prompt that they gave us.</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/63-0
+00:04:07.763 --> 00:04:12.280
+<v Mauch, Lukas>So it should, it should work like this.
+It should,</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/63-1
+00:04:12.280 --> 00:04:15.203
+<v Mauch, Lukas>it should be able to do it right.</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/64-0
+00:04:15.923 --> 00:04:18.723
+<v Singh, Sarthak>Like I just ran it with the prompt they
+gave us.</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/65-0
+00:04:19.803 --> 00:04:24.027
+<v Singh, Sarthak>In the paper, like both,
+like the base model and the G FlowNet,</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/65-1
+00:04:24.027 --> 00:04:26.403
+<v Singh, Sarthak>let me just send it on you on Slack.</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/68-0
+00:04:26.163 --> 00:04:31.278
+<v Mauch, Lukas>Yeah, yeah, yeah, that you can do exactly,
+and then if you just have one token and</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/66-0
+00:04:31.083 --> 00:04:31.283
+<v Singh, Sarthak>Bpe.</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/68-1
+00:04:31.278 --> 00:04:35.962
+<v Mauch, Lukas>you run dynamics on one token here,
+and otherwise you then run the dynamics</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/68-2
+00:04:35.962 --> 00:04:39.598
+<v Mauch, Lukas>on this full part here, right?
+But it's always at the end,</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/68-3
+00:04:39.598 --> 00:04:43.296
+<v Mauch, Lukas>so you should be,
+you should stick to the structure that it</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/68-4
+00:04:43.296 --> 00:04:45.083
+<v Mauch, Lukas>was fine-tuned on, because...</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/67-0
+00:04:44.963 --> 00:04:45.363
+<v Singh, Sarthak>Yeah.</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/71-0
+00:04:45.683 --> 00:04:49.786
+<v Mauch, Lukas>I guess just on this part here,
+just on this part,</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/69-0
+00:04:49.403 --> 00:04:49.683
+<v Singh, Sarthak>Mm.</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/71-1
+00:04:49.786 --> 00:04:55.579
+<v Mauch, Lukas>the energy surface is kind of calibrated,
+right? This at the beginning,</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/70-0
+00:04:55.163 --> 00:04:55.763
+<v Singh, Sarthak>Yeah, I am.</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/71-2
+00:04:55.579 --> 00:04:59.923
+<v Mauch, Lukas>it's where you condition on, right?
+So this is not...</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/72-0
+00:05:01.683 --> 00:05:02.643
+<v Mauch, Lukas>I guess.</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/73-0
+00:05:04.643 --> 00:05:07.443
+<v Mauch, Lukas>Not effective somehow, right?</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/74-0
+00:05:08.963 --> 00:05:11.384
+<v Singh, Sarthak>Yeah,
+but the thing is the problem I'm facing</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/74-1
+00:05:11.384 --> 00:05:14.963
+<v Singh, Sarthak>is like I sent you a screenshot on Sclack
+if you can check it once.</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/75-0
+00:05:14.323 --> 00:05:16.483
+<v Mauch, Lukas>Yeah, yeah, right.</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/76-0
+00:05:16.723 --> 00:05:21.363
+<v Singh, Sarthak>So basically I ran it on the both like
+base model and G flow net model.</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/78-0
+00:05:22.403 --> 00:05:29.123
+<v Singh, Sarthak>And both are performing bad in this case.
+The G flow net should work well, right?</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/77-0
+00:05:26.603 --> 00:05:26.963
+<v Mauch, Lukas>And.</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/79-0
+00:05:30.723 --> 00:05:35.841
+<v Mauch, Lukas>So what setup is this now? So this is now,
+ah, okay. Okay.</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/79-1
+00:05:35.841 --> 00:05:38.963
+<v Mauch, Lukas>This is already this experiment now.</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/80-0
+00:05:40.003 --> 00:05:44.723
+<v Singh, Sarthak>Yeah, yeah, but with outline, just normal,
+like a normal sampling.</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/81-0
+00:05:45.963 --> 00:05:46.243
+<v Mauch, Lukas>EIS.</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/82-0
+00:05:47.763 --> 00:05:51.363
+<v Mauch, Lukas>And this is cheap on it now or just GPT?</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/84-0
+00:05:52.003 --> 00:05:55.683
+<v Singh, Sarthak>Both,
+they are both results like outputs base</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/84-1
+00:05:55.683 --> 00:05:59.923
+<v Singh, Sarthak>and outputs G flow if we check the last
+two outputs.</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/83-0
+00:05:58.843 --> 00:06:00.083
+<v Mauch, Lukas>All good things.</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/85-0
+00:06:04.003 --> 00:06:04.323
+<v Mauch, Lukas>Ohh.</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/86-0
+00:06:07.683 --> 00:06:10.647
+<v Mauch, Lukas>OK, the middle,
+the the chief on that output is garbage,</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/86-1
+00:06:10.647 --> 00:06:10.803
+<v Mauch, Lukas>no?</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/87-0
+00:06:11.043 --> 00:06:12.243
+<v Singh, Sarthak>Yeah, it's garbage.</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/88-0
+00:06:13.843 --> 00:06:15.123
+<v Mauch, Lukas>And then it's not trained well.</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/93-0
+00:06:42.643 --> 00:06:45.203
+<v Mauch, Lukas>Okay, but the other one is also garbage,
+no?</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/95-0
+00:06:46.003 --> 00:06:47.843
+<v Singh, Sarthak>Yeah, like it's not doing the...</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/94-0
+00:06:46.883 --> 00:06:47.043
+<v Mauch, Lukas>Yes.</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/96-0
+00:06:48.243 --> 00:06:49.843
+<v Mauch, Lukas>It's not making sense, right?</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/99-0
+00:06:50.163 --> 00:06:54.470
+<v Singh, Sarthak>Yeah, it's not making sense,
+but it's doing continuous continuation,</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/99-1
+00:06:54.470 --> 00:06:58.714
+<v Singh, Sarthak>but obviously it was not trained on like
+this infilling experiment,</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/97-0
+00:06:58.563 --> 00:06:58.963
+<v Mauch, Lukas>No.</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/99-2
+00:06:58.714 --> 00:07:03.645
+<v Singh, Sarthak>so it's kind of working well to be this
+one. It's just doing the continuation,</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/99-3
+00:07:03.645 --> 00:07:07.140
+<v Singh, Sarthak>like one of them was a giant frog,
+he was a giant frog.</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/98-0
+00:07:06.643 --> 00:07:06.803
+<v Mauch, Lukas>Mm.</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/99-4
+00:07:07.140 --> 00:07:10.323
+<v Singh, Sarthak>So like something better than some random
+symbols.</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/101-0
+00:07:17.363 --> 00:07:22.134
+<v Mauch, Lukas>Okay, so how do you know,
+do you know if this thing converged</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/101-1
+00:07:22.134 --> 00:07:27.443
+<v Mauch, Lukas>actually during training?
+So do you have some, how the loss behaves?</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/102-0
+00:07:29.763 --> 00:07:33.443
+<v Mauch, Lukas>So this is already converged or is it
+just early during training?</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/103-0
+00:07:40.323 --> 00:07:44.083
+<v Singh, Sarthak>Like it was trained using like I do have
+logs.</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/104-0
+00:07:45.363 --> 00:07:46.003
+<v Singh, Sarthak>Ohh.</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/105-0
+00:07:47.283 --> 00:07:47.683
+<v Singh, Sarthak>Hey.</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/106-0
+00:07:50.003 --> 00:07:50.643
+<v Singh, Sarthak>Hello.</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/107-0
+00:07:52.163 --> 00:07:52.483
+<v Singh, Sarthak>Jun.</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/110-0
+00:08:03.963 --> 00:08:04.803
+<v Singh, Sarthak>Focusing now.</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/112-0
+00:08:09.283 --> 00:08:14.643
+<v Singh, Sarthak>OK, let me just share my screen. So,
+these are the logs of...</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/111-0
+00:08:12.163 --> 00:08:12.643
+<v Mauch, Lukas>Ohh.</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/114-0
+00:08:16.003 --> 00:08:20.883
+<v Singh, Sarthak>The G Flow Net training,
+basically just showing the rollout.</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/113-0
+00:08:17.763 --> 00:08:18.243
+<v Mauch, Lukas>Mhm.</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/115-0
+00:08:26.123 --> 00:08:26.723
+<v Singh, Sarthak>Can you see?</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/116-0
+00:08:26.323 --> 00:08:28.963
+<v Mauch, Lukas>And last, I cannot see, well,
+can you zoom in?</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/117-0
+00:08:30.003 --> 00:08:31.683
+<v Singh, Sarthak>Oh yeah, one second, let me just...</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/118-0
+00:08:34.803 --> 00:08:36.803
+<v Singh, Sarthak>Is this better now, or this should?</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/119-0
+00:08:35.963 --> 00:08:36.483
+<v Mauch, Lukas>Mmh.</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/120-0
+00:08:38.323 --> 00:08:40.963
+<v Singh, Sarthak>So, this is the 500%, and...</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/121-0
+00:08:41.923 --> 00:08:43.763
+<v Singh, Sarthak>The reward and the negative.</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/122-0
+00:08:46.243 --> 00:08:49.280
+<v Mauch, Lukas>I didn't go down, right?
+And you stopped at the end.</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/122-1
+00:08:49.280 --> 00:08:50.483
+<v Mauch, Lukas>So this is all the...</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/123-0
+00:08:51.883 --> 00:08:53.283
+<v Mauch, Lukas>Revelations that it did.</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/124-0
+00:08:55.923 --> 00:08:56.403
+<v Singh, Sarthak>Sorry?</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/125-0
+00:08:57.203 --> 00:09:02.323
+<v Mauch, Lukas>So this is, the log is,
+the training is done after the last row.</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/128-0
+00:09:03.523 --> 00:09:07.947
+<v Singh, Sarthak>Yeah, yeah, like it is the,
+like right now we are at last row,</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/126-0
+00:09:03.763 --> 00:09:05.763
+<v Mauch, Lukas>You are, or does it continue?</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/128-1
+00:09:07.947 --> 00:09:11.879
+<v Singh, Sarthak>like it, this was like a huge log,
+the it started with,</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/128-2
+00:09:11.879 --> 00:09:15.039
+<v Singh, Sarthak>let me show you this log, like 20,
+000 loss,</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/127-0
+00:09:13.683 --> 00:09:14.163
+<v Mauch, Lukas>Yeah.</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/128-3
+00:09:15.039 --> 00:09:18.268
+<v Singh, Sarthak>paying loss and reward was minus
+seventy-one,</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/128-4
+00:09:18.268 --> 00:09:23.043
+<v Singh, Sarthak>like I think it was just like waiting a
+lot, but, and in the end...</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/129-0
+00:09:23.523 --> 00:09:28.883
+<v Singh, Sarthak>The loss was minus 800 something, 700,
+600, training loss at least.</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/130-0
+00:09:29.683 --> 00:09:29.723
+<v Mauch, Lukas>Ohh.</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/131-0
+00:09:31.523 --> 00:09:31.683
+<v Singh, Sarthak>Mm.</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/132-0
+00:09:33.283 --> 00:09:37.683
+<v Mauch, Lukas>Okay, but why is it sometimes positive,
+sometimes negative reward?</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/133-0
+00:09:38.803 --> 00:09:42.323
+<v Singh, Sarthak>Like, it's every time negative,
+reward is negative then.</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/134-0
+00:09:40.883 --> 00:09:43.719
+<v Mauch, Lukas>Okay,
+then just the negatives are sometimes not</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/134-1
+00:09:43.719 --> 00:09:44.723
+<v Mauch, Lukas>shown here. Okay.</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/135-0
+00:09:45.323 --> 00:09:45.603
+<v Singh, Sarthak>Yeah.</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/136-0
+00:09:50.083 --> 00:09:52.483
+<v Mauch, Lukas>Okay, so reward went up. That's good.</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/137-0
+00:09:53.843 --> 00:09:57.083
+<v Mauch, Lukas>What was it at the beginning again?
+A few 100, right?</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/138-0
+00:09:58.083 --> 00:10:03.214
+<v Singh, Sarthak>Yeah, the few 100,
+but a few I had minus 28 as well, like,</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/138-1
+00:10:03.214 --> 00:10:10.083
+<v Singh, Sarthak>so it's varying A lot. Let me show you.
+So it's minus 70, minus 100, minus 29.</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/139-0
+00:10:12.403 --> 00:10:12.963
+<v Mauch, Lukas>Ohh.</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/140-0
+00:10:12.443 --> 00:10:16.883
+<v Singh, Sarthak>And if it went down, so yeah,
+so it's very varying A lot.</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/141-0
+00:10:18.483 --> 00:10:19.203
+<v Singh, Sarthak>See this.</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/142-0
+00:10:19.843 --> 00:10:20.483
+<v Mauch, Lukas>Mhm.</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/143-0
+00:10:22.003 --> 00:10:23.923
+<v Singh, Sarthak>I would say it became more consistent.</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/144-0
+00:10:28.203 --> 00:10:29.283
+<v Mauch, Lukas>What is log Z?</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/145-0
+00:10:32.483 --> 00:10:35.123
+<v Singh, Sarthak>Ah, lousy, lousy was.</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/146-0
+00:10:38.563 --> 00:10:40.003
+<v Singh, Sarthak>Log Z was that right?</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/148-0
+00:10:43.963 --> 00:10:50.003
+<v Singh, Sarthak>Basically, in the G. in the sub T.V. loss,
+they had this thing right that it was the.</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/150-0
+00:10:51.003 --> 00:10:55.576
+<v Singh, Sarthak>probability and but they removed this
+term because in like normal language</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/149-0
+00:10:54.323 --> 00:10:54.643
+<v Mauch, Lukas>Ohh.</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/150-1
+00:10:55.576 --> 00:10:56.003
+<v Singh, Sarthak>models.</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/153-0
+00:10:56.243 --> 00:11:01.158
+<v Mauch, Lukas>Yeah, yeah, okay, yeah, but okay,
+so what is the difference between the</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/151-0
+00:10:57.043 --> 00:10:58.163
+<v Singh, Sarthak>It's like just one.</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/153-1
+00:11:01.158 --> 00:11:04.503
+<v Mauch, Lukas>evil reward and the reward?
+Because the numbers,</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/153-2
+00:11:04.503 --> 00:11:06.483
+<v Mauch, Lukas>they look quite apart, right?</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/154-0
+00:11:07.203 --> 00:11:09.443
+<v Singh, Sarthak>Yeah, even word is like 0 always.</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/155-0
+00:11:13.203 --> 00:11:15.123
+<v Singh, Sarthak>I'm not sure, actually. I will need to.</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/156-0
+00:11:13.683 --> 00:11:15.683
+<v Mauch, Lukas>And does it, does it go up?</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/157-0
+00:11:16.883 --> 00:11:19.043
+<v Singh, Sarthak>No, I don't think so. Let me...</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/158-0
+00:11:22.403 --> 00:11:22.803
+<v Singh, Sarthak>Sure.</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/159-0
+00:11:29.763 --> 00:11:30.323
+<v Singh, Sarthak>Do.</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/160-0
+00:11:34.403 --> 00:11:36.243
+<v Singh, Sarthak>Like this is 0 every time.</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/161-0
+00:11:37.363 --> 00:11:38.563
+<v Mauch, Lukas>That's strange, right?</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/162-0
+00:11:39.283 --> 00:11:39.763
+<v Singh, Sarthak>Yeah.</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/163-0
+00:11:44.723 --> 00:11:47.523
+<v Singh, Sarthak>Should I look into its training, like,
+what my?</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/164-0
+00:11:46.883 --> 00:11:49.123
+<v Mauch, Lukas>Yeah, I think you need to, maybe.</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/165-0
+00:11:50.883 --> 00:11:52.163
+<v Mauch, Lukas>Why, why it didn't work?</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/166-0
+00:11:51.363 --> 00:11:54.015
+<v Singh, Sarthak>Yeah,
+because in the paper they do say it works</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/166-1
+00:11:54.015 --> 00:11:56.003
+<v Singh, Sarthak>well, so I mean it should work well.</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/168-0
+00:11:55.123 --> 00:11:59.313
+<v Mauch, Lukas>Yeah, that's always,
+but you'd never know with which</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/167-0
+00:11:58.323 --> 00:11:58.643
+<v Singh, Sarthak>Ana.</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/168-1
+00:11:59.313 --> 00:12:01.763
+<v Mauch, Lukas>parameters they run it, really.</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/169-0
+00:12:03.283 --> 00:12:06.026
+<v Singh, Sarthak>I mean,
+I'm just using the parameters they gave</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/169-1
+00:12:06.026 --> 00:12:06.883
+<v Singh, Sarthak>it in the code.</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/170-0
+00:12:08.083 --> 00:12:08.483
+<v Singh, Sarthak>And...</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/171-0
+00:12:08.123 --> 00:12:08.723
+<v Mauch, Lukas>Mhm.</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/173-0
+00:12:09.683 --> 00:12:13.526
+<v Mauch, Lukas>Can you check maybe if the learning rate
+was defined differently in the paper and</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/172-0
+00:12:10.163 --> 00:12:10.643
+<v Singh, Sarthak>Thank you.</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/173-1
+00:12:13.526 --> 00:12:14.323
+<v Mauch, Lukas>the code version?</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/174-0
+00:12:16.363 --> 00:12:20.442
+<v Mauch, Lukas>It seems like it's very noisy,
+the training, so maybe,</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/174-1
+00:12:20.442 --> 00:12:22.963
+<v Mauch, Lukas>maybe there's something we missed.</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/176-0
+00:12:32.323 --> 00:12:34.323
+<v Mauch, Lukas>How long,
+how long did the fine tuning take?</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/177-0
+00:12:36.403 --> 00:12:37.883
+<v Singh, Sarthak>Like A day, I think.</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/179-0
+00:12:38.083 --> 00:12:39.123
+<v Mauch, Lukas>Okay, that's good.</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/178-0
+00:12:39.843 --> 00:12:40.403
+<v Singh, Sarthak>Yeah.</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/180-0
+00:12:46.163 --> 00:12:51.602
+<v Mauch, Lukas>Check for learning rate parameters if
+they are given in the paper and compared</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/180-1
+00:12:51.602 --> 00:12:54.769
+<v Mauch, Lukas>to the code if the configuration is the
+same.</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/180-2
+00:12:54.769 --> 00:12:58.418
+<v Mauch, Lukas>It seems like this thing just diverged to
+something.</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/180-3
+00:12:58.418 --> 00:13:02.894
+<v Mauch, Lukas>And the question is also what is eval
+reward and what is reward?</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/180-4
+00:13:02.894 --> 00:13:05.923
+<v Mauch, Lukas>So is it on two different data sets and
+the</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/181-0
+00:13:06.403 --> 00:13:11.587
+<v Mauch, Lukas>And one is the training reward,
+could be seems like training loss and</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/181-1
+00:13:11.587 --> 00:13:15.883
+<v Mauch, Lukas>training reward,
+and the first one is eval reward, and...</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/183-0
+00:13:18.803 --> 00:13:23.325
+<v Mauch, Lukas>It's strange that it's zero, right?
+And the other ones are all negative.</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/183-1
+00:13:23.325 --> 00:13:27.290
+<v Mauch, Lukas>So if it would be bad,
+I would anticipate that it's minus 1100,</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/183-2
+00:13:27.290 --> 00:13:30.511
+<v Mauch, Lukas>whatever.
+So it seems to be calculated on different</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/182-0
+00:13:28.563 --> 00:13:28.723
+<v Singh, Sarthak>Mm.</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/183-3
+00:13:30.511 --> 00:13:30.883
+<v Mauch, Lukas>basis.</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/184-0
+00:13:33.683 --> 00:13:35.843
+<v Mauch, Lukas>I don't know. You should check that one.</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/185-0
+00:13:36.963 --> 00:13:37.443
+<v Singh, Sarthak>Okay.</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/186-0
+00:13:36.963 --> 00:13:38.483
+<v Mauch, Lukas>Um, okay.</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/188-0
+00:13:41.683 --> 00:13:45.730
+<v Singh, Sarthak>Doesn't seem like they have given the
+learning rate or maybe in appendix.</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/187-0
+00:13:45.403 --> 00:13:45.883
+<v Mauch, Lukas>Mhm.</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/188-1
+00:13:45.730 --> 00:13:47.043
+<v Singh, Sarthak>I'll check the appendix.</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/189-0
+00:13:47.603 --> 00:13:48.083
+<v Mauch, Lukas>Mmh.</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/190-0
+00:13:52.123 --> 00:13:52.723
+<v Mauch, Lukas>Okay.</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/192-0
+00:13:55.603 --> 00:14:01.360
+<v Mauch, Lukas>Okay, can you do this?
+And we talk tomorrow in the morning, yeah,</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/191-0
+00:14:00.563 --> 00:14:02.003
+<v Singh, Sarthak>Yeah, yeah.</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/192-1
+00:14:01.360 --> 00:14:07.203
+<v Mauch, Lukas>in the office. And I also,
+when do you need to hand in the thesis?</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/193-0
+00:14:08.723 --> 00:14:10.883
+<v Singh, Sarthak>In end of August.</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/195-0
+00:14:11.203 --> 00:14:14.912
+<v Mauch, Lukas>End of August. Okay. Okay,
+so you still have some time. Okay.</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/195-1
+00:14:14.912 --> 00:14:18.083
+<v Mauch, Lukas>But the problem is the compute will go,
+right? So...</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/194-0
+00:14:15.363 --> 00:14:15.643
+<v Singh, Sarthak>The.</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/196-0
+00:14:17.603 --> 00:14:21.084
+<v Singh, Sarthak>Yeah, yeah,
+but if we are using like GPT-2,</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/196-1
+00:14:21.084 --> 00:14:24.643
+<v Singh, Sarthak>then I think I can just run it on my
+laptop.</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/197-0
+00:14:24.963 --> 00:14:26.403
+<v Mauch, Lukas>Really? Okay.</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/198-0
+00:14:26.883 --> 00:14:29.057
+<v Singh, Sarthak>Yeah,
+but I won't be able to do this fine</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/198-1
+00:14:29.057 --> 00:14:30.403
+<v Singh, Sarthak>tuning of like GFlow nets.</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/199-0
+00:14:30.843 --> 00:14:32.283
+<v Mauch, Lukas>OKOKOK.</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/203-0
+00:14:31.603 --> 00:14:35.291
+<v Singh, Sarthak>Like the normal sampling and like if I'm
+doing anything with GPD2,</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/203-1
+00:14:35.291 --> 00:14:38.704
+<v Singh, Sarthak>I can do that on my laptop.
+I think I have like 6 GB of VRAM.</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/200-0
+00:14:37.083 --> 00:14:37.563
+<v Mauch, Lukas>Mhm.</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/203-2
+00:14:38.704 --> 00:14:42.723
+<v Singh, Sarthak>That would be enough for that.
+I think if we have like a small data set.</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/201-0
+00:14:40.523 --> 00:14:41.243
+<v Mauch, Lukas>Mmh.</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/202-0
+00:14:43.203 --> 00:14:43.683
+<v Mauch, Lukas>Mmh.</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/204-0
+00:14:44.323 --> 00:14:44.803
+<v Singh, Sarthak>Yeah.</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/205-0
+00:14:46.163 --> 00:14:50.325
+<v Mauch, Lukas>Okay, so then,
+but you need some time to write, right?</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/205-1
+00:14:50.325 --> 00:14:51.763
+<v Mauch, Lukas>So we would have...</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/206-0
+00:14:51.123 --> 00:14:54.148
+<v Singh, Sarthak>I mean,
+I'm writing the thes concurrently as well,</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/206-1
+00:14:54.148 --> 00:14:54.563
+<v Singh, Sarthak>like...</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/207-0
+00:14:55.283 --> 00:14:57.283
+<v Mauch, Lukas>Yeah, yeah, yeah, yeah, OK.</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/210-0
+00:14:59.003 --> 00:15:04.490
+<v Singh, Sarthak>Whatever I'm results I'm like,
+till the I've already done most of it,</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/208-0
+00:14:59.283 --> 00:14:59.563
+<v Mauch, Lukas>Yeah.</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/210-1
+00:15:04.490 --> 00:15:08.252
+<v Singh, Sarthak>most of it,
+like right now I'll add stuff about</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/209-0
+00:15:05.523 --> 00:15:06.003
+<v Mauch, Lukas>Okay.</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/210-2
+00:15:08.252 --> 00:15:12.563
+<v Singh, Sarthak>GFlowNets once we have some like concrete
+stuff, yeah.</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/216-0
+00:15:10.963 --> 00:15:14.681
+<v Mauch, Lukas>Okay, okay, okay, okay,
+then it's then it's good. Yeah,</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/211-0
+00:15:14.243 --> 00:15:14.763
+<v Singh, Sarthak>Mhm.</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/216-1
+00:15:14.681 --> 00:15:19.858
+<v Mauch, Lukas>I'm just thinking about the timing,
+but then it's fine, then it's fine. Okay,</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/212-0
+00:15:17.683 --> 00:15:17.843
+<v Singh, Sarthak>And.</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/216-2
+00:15:19.858 --> 00:15:23.908
+<v Mauch, Lukas>okay, good. Yeah,
+so then let's meet tomorrow in the office.</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/216-3
+00:15:23.908 --> 00:15:27.426
+<v Mauch, Lukas>You debug this one,
+have a look what eval reward is,</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/213-0
+00:15:24.723 --> 00:15:25.123
+<v Singh, Sarthak>Okay.</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/216-4
+00:15:27.426 --> 00:15:32.803
+<v Mauch, Lukas>and if they use the correct learning rate
+in the in the code that they provided.</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/214-0
+00:15:29.203 --> 00:15:29.683
+<v Singh, Sarthak>MM.</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/218-0
+00:15:33.203 --> 00:15:38.963
+<v Mauch, Lukas>Right, it seems it doesn't work,
+the training that they did, and...</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/215-0
+00:15:33.803 --> 00:15:34.003
+<v Singh, Sarthak>Mm.</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/217-0
+00:15:37.043 --> 00:15:37.683
+<v Singh, Sarthak>Yeah.</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/219-0
+00:15:41.403 --> 00:15:43.123
+<v Mauch, Lukas>Let me think about if we can.</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/220-0
+00:15:46.043 --> 00:15:52.235
+<v Mauch, Lukas>If you can, maybe do it more easy,
+so that the only thing that is that we</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/220-1
+00:15:52.235 --> 00:15:58.510
+<v Mauch, Lukas>hope that it is doing is that it makes
+the the energy of the full sequence</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/220-2
+00:15:58.510 --> 00:16:04.283
+<v Mauch, Lukas>somehow reflect the probability of the
+sequence, right? And maybe...</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/221-0
+00:16:04.883 --> 00:16:06.643
+<v Mauch, Lukas>We can do it in a simpler way.</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/223-0
+00:16:08.603 --> 00:16:13.347
+<v Mauch, Lukas>So to fine-tune it in a simpler way,
+I'm not sure. Let me think about that one.</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/222-0
+00:16:12.163 --> 00:16:12.563
+<v Singh, Sarthak>Bac.</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/223-1
+00:16:13.347 --> 00:16:13.643
+<v Mauch, Lukas>Yeah.</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/224-0
+00:16:14.763 --> 00:16:20.425
+<v Singh, Sarthak>But aren't we using the gradients,
+gradient landscape for this Lanjoin</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/224-1
+00:16:20.425 --> 00:16:23.934
+<v Singh, Sarthak>dynamics?
+But is the best fine tuning like,</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/224-2
+00:16:23.934 --> 00:16:27.283
+<v Singh, Sarthak>like best actually changing the landscape?</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/225-0
+00:16:28.563 --> 00:16:31.443
+<v Singh, Sarthak>Or the energy, because it's just like...</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/227-0
+00:16:33.923 --> 00:16:36.883
+<v Mauch, Lukas>Well, it should, right? Because you...</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/226-0
+00:16:35.603 --> 00:16:36.803
+<v Singh, Sarthak>Yeah, I mean.</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/229-0
+00:16:37.963 --> 00:16:44.482
+<v Mauch, Lukas>What it tries to do is it tries to align
+the energy that it outputs with the with</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/229-1
+00:16:44.482 --> 00:16:48.377
+<v Mauch, Lukas>the reward that you get that you give it,
+right?</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/229-2
+00:16:48.377 --> 00:16:53.226
+<v Mauch, Lukas>And the reward is defined on the full
+sequence at your info,</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/228-0
+00:16:51.923 --> 00:16:52.403
+<v Singh, Sarthak>Mhm.</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/229-3
+00:16:53.226 --> 00:16:56.803
+<v Mauch, Lukas>so somehow it tries to match this,
+and yeah.</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/231-0
+00:16:57.603 --> 00:17:01.139
+<v Mauch, Lukas>The question is,
+if it's overdone like this, right,</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/231-1
+00:17:01.139 --> 00:17:03.043
+<v Mauch, Lukas>if we can do it more easily.</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/230-0
+00:17:03.803 --> 00:17:04.323
+<v Singh, Sarthak>Mmh.</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/232-0
+00:17:04.683 --> 00:17:04.963
+<v Mauch, Lukas>Yeah.</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/233-0
+00:17:07.523 --> 00:17:08.083
+<v Singh, Sarthak>Okay.</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/234-0
+00:17:08.403 --> 00:17:12.563
+<v Mauch, Lukas>So if you can just fine-tune it for score
+matching, that's what we need, right?</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/235-0
+00:17:13.763 --> 00:17:13.843
+<v Mauch, Lukas>Oh.</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/236-0
+00:17:15.603 --> 00:17:15.763
+<v Mauch, Lukas>Yeah.</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/237-0
+00:17:19.843 --> 00:17:20.323
+<v Singh, Sarthak>Okay.</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/238-0
+00:17:21.603 --> 00:17:22.163
+<v Mauch, Lukas>Okay.</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/239-0
+00:17:22.363 --> 00:17:25.443
+<v Singh, Sarthak>Okay, I'll do this. I'll do forget.</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/240-0
+00:17:32.003 --> 00:17:32.163
+<v Singh, Sarthak>Mm.</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/243-0
+00:17:32.523 --> 00:17:37.375
+<v Mauch, Lukas>Maybe we can, yeah. Okay,
+let's talk to you tomorrow. Okay,</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/243-1
+00:17:37.375 --> 00:17:43.117
+<v Mauch, Lukas>then just debug this one, right?
+And then I will be in office tomorrow</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/241-0
+00:17:38.003 --> 00:17:38.643
+<v Singh, Sarthak>Mhm.</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/243-2
+00:17:43.117 --> 00:17:48.454
+<v Mauch, Lukas>from, I think, latest 10 A.m.
+so we can really have a have a long</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/243-3
+00:17:48.454 --> 00:17:51.123
+<v Mauch, Lukas>session and make it work, I hope.</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/242-0
+00:17:51.283 --> 00:17:52.083
+<v Singh, Sarthak>Yo.</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/244-0
+00:17:51.643 --> 00:17:51.763
+<v Mauch, Lukas>And.</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/245-0
+00:17:53.683 --> 00:17:54.243
+<v Mauch, Lukas>Okay.</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/246-0
+00:17:54.883 --> 00:17:57.043
+<v Singh, Sarthak>Okay then, see you. Bye.</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/247-0
+00:17:56.163 --> 00:17:58.243
+<v Mauch, Lukas>Yeah, see you then, Sarthak. Bye bye.</v>
+
+daa93ff7-f8d2-4d91-a336-0cd961beedb1/248-0
+00:17:58.643 --> 00:18:00.003
+<v Singh, Sarthak>All right. Thank you.</v>
