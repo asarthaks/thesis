@@ -1,0 +1,276 @@
+{
+  "main": {
+    "id": "77a8b1bc06ccb6ea",
+    "type": "split",
+    "children": [
+      {
+        "id": "b60be317614f854f",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "d83aeb011e73c693",
+            "type": "leaf",
+            "state": {
+              "type": "image",
+              "state": {
+                "file": "Images/Pasted image 20260416162119.png"
+              },
+              "icon": "lucide-image",
+              "title": "Pasted image 20260416162119"
+            }
+          },
+          {
+            "id": "9cd8e14d42a751ca",
+            "type": "leaf",
+            "state": {
+              "type": "image",
+              "state": {
+                "file": "Images/Pasted image 20260416162129.png"
+              },
+              "icon": "lucide-image",
+              "title": "Pasted image 20260416162129"
+            }
+          },
+          {
+            "id": "ac2fd91341b3fe55",
+            "type": "leaf",
+            "state": {
+              "type": "image",
+              "state": {
+                "file": "Images/Pasted image 20260416162138.png"
+              },
+              "icon": "lucide-image",
+              "title": "Pasted image 20260416162138"
+            }
+          },
+          {
+            "id": "93aaa72549f6cabf",
+            "type": "leaf",
+            "state": {
+              "type": "image",
+              "state": {
+                "file": "Pasted image 20260428093838.png"
+              },
+              "icon": "lucide-image",
+              "title": "Pasted image 20260428093838"
+            }
+          },
+          {
+            "id": "006c1b42594ee45f",
+            "type": "leaf",
+            "state": {
+              "type": "image",
+              "state": {
+                "file": "Pasted image 20260428093842.png"
+              },
+              "icon": "lucide-image",
+              "title": "Pasted image 20260428093842"
+            }
+          },
+          {
+            "id": "60f95914c65caacd",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Thesis/19th May Progress Notes Gflownets.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "19th May Progress Notes Gflownets"
+            }
+          }
+        ],
+        "currentTab": 5
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "fef40f97ead1e282",
+    "type": "split",
+    "children": [
+      {
+        "id": "048ae6c380276592",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "09e068fee5f8b71a",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Files"
+            }
+          },
+          {
+            "id": "fff8cc751258be9d",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "Search"
+            }
+          },
+          {
+            "id": "0f5710a944867528",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "5bb6c29408c7a162",
+    "type": "split",
+    "children": [
+      {
+        "id": "1d6682f080ea9c76",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "03bb75364b865440",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "Thesis/WorkLog and Meetings.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks for WorkLog and Meetings"
+            }
+          },
+          {
+            "id": "57784890bde783b6",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links"
+            }
+          },
+          {
+            "id": "9cc96858eea953cb",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
+            }
+          },
+          {
+            "id": "00e8b83afd06d1d6",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "Outline"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "bases:Create new base": false,
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false,
+      "templater-obsidian:Templater": false,
+      "obsidian-git:Open Git source control": false
+    }
+  },
+  "active": "60f95914c65caacd",
+  "lastOpenFiles": [
+    "Pasted image 20260519104116.png",
+    "Thesis/5th May Lukas Meeting Result Samples.md",
+    "Thesis/19th May Progress Notes Gflownets.md",
+    "Pasted image 20260505151052.png",
+    "Pasted image 20260505150232.png",
+    "Pasted image 20260505150229.png",
+    "Pasted image 20260505150206.png",
+    "Pasted image 20260505150200.png",
+    "Pasted image 20260505150147.png",
+    "Pasted image 20260505150143.png",
+    "Pasted image 20260505150132.png",
+    "Pasted image 20260505150121.png",
+    "Thesis/Gradient Information Experiment.md",
+    "Pasted image 20260505140457.png",
+    "Thesis/Ideal Stepsize Schedule Experiment.md",
+    "Thesis/Infilling Experiments Notes.md",
+    "Thesis/GFlownet Continuation.md",
+    "Untitled 1.base",
+    "Untitled.base",
+    "Monte Carlo.md",
+    "Images",
+    "Thesis/CLS Oracle.md",
+    "Thesis/WorkLog and Meetings.md",
+    "Thesis/Temperature Sampling Modification.md",
+    "Thesis/Langevin Like Sampler.md",
+    "Thesis/Langevin Dynamics.md",
+    "Discretization Error.md",
+    "Thesis/Entropy Plotting.md",
+    "Thesis/DLS MultiTokenRecovery Log.md",
+    "GFlowNets.md",
+    "Markov Chain Monte Carlo (MCMC).md",
+    "Thesis",
+    "Robbins–Monro algorithms.md",
+    "Metropolis-Hastings.md",
+    "Markov chains.md",
+    "Expectation E.md",
+    "Euler–Maruyama scheme.md",
+    "survey paper review.md",
+    "sTune.md",
+    "torchtune.md"
+  ]
+}

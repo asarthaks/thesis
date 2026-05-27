@@ -1,0 +1,2 @@
+So, what was happening was even though we were able to get the correct token (argmax of the softmax probabilities) by using the [[Langevin Like Sampler]] method in the [[Ideal Stepsize Schedule Experiment]], during sampling, we were getting random tokens because (most probably) the distribution was quite flat. for that, we thought of a solution was to do temperature sampling, which worked quite well.
+
