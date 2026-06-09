@@ -1,0 +1,5 @@
+**/__pycache__/
+
+**/slurm-logs/
+*.pyc
+**/.ipynb_checkpoints/

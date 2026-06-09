@@ -1,0 +1,465 @@
+sample_idx,method,mh_enabled,original_token,corrupted_token,predicted_token,success,l2_dist,kl_div
+0,policy,True, lobster, Abraham, insets,False,0.9162074327468872,3.1362907886505127
+0,policy,False, lobster, Abraham,ообраз,False,0.894027590751648,6.403482437133789
+0,grad_norm_preserved_random_dir,True, lobster, Abraham,-plus,False,0.9202996492385864,5.901767253875732
+0,grad_norm_preserved_random_dir,False, lobster, Abraham,<|reserved_special_token_188|>,False,0.7095664143562317,4.219732761383057
+0,random,True, lobster, Abraham, operator,False,0.8666753768920898,3.3932583332061768
+0,random,False, lobster, Abraham,;o,False,0.8701078295707703,6.635258197784424
+1,policy,True, must, democrat, others,False,0.6892281174659729,4.011246204376221
+1,policy,False, must, democrat,�,False,0.4996388852596283,3.3310155868530273
+1,grad_norm_preserved_random_dir,True, must, democrat, então,False,0.787514328956604,2.8382821083068848
+1,grad_norm_preserved_random_dir,False, must, democrat,<|reserved_special_token_123|>,False,0.4996388852596283,3.3310155868530273
+1,random,True, must, democrat, They,False,0.6463033556938171,3.6892361640930176
+1,random,False, must, democrat, Gross,False,0.7389457821846008,11.14712142944336
+2,policy,True,op,Correo,Correo,False,0.6959392428398132,11.611218452453613
+2,policy,False,op,Correo, -,False,0.5291192531585693,9.517877578735352
+2,grad_norm_preserved_random_dir,True,op,Correo,Correo,False,0.6959392428398132,11.611218452453613
+2,grad_norm_preserved_random_dir,False,op,Correo,џN,False,0.42297545075416565,9.256621360778809
+2,random,True,op,Correo,throp,False,0.7379787564277649,0.10286954790353775
+2,random,False,op,Correo, mand,False,0.7484926581382751,11.439943313598633
+3,policy,True, broken, beneficiaries, found,False,0.7027280330657959,8.429651260375977
+3,policy,False, broken, beneficiaries,џџџџ,False,0.5849367380142212,9.804811477661133
+3,grad_norm_preserved_random_dir,True, broken, beneficiaries, impartial,False,0.8942751884460449,7.616108417510986
+3,grad_norm_preserved_random_dir,False, broken, beneficiaries,<|reserved_special_token_162|>,False,0.5791730284690857,9.059494018554688
+3,random,True, broken, beneficiaries, won,False,0.7076146006584167,4.134360313415527
+3,random,False, broken, beneficiaries,aims,False,0.8229662775993347,6.101828098297119
+4,policy,True, their,，有, covers,False,0.6356518864631653,5.956340789794922
+4,policy,False, their,，有,<|reserved_special_token_31|>,False,0.4253881275653839,3.4039440155029297
+4,grad_norm_preserved_random_dir,True, their,，有, okolí,False,0.6620222330093384,6.093976020812988
+4,grad_norm_preserved_random_dir,False, their,，有,<|reserved_special_token_106|>,False,0.4253881275653839,3.4039440155029297
+4,random,True, their,，有, taboo,False,0.8272242546081543,5.499327659606934
+4,random,False, their,，有, firebase,False,0.7585253715515137,4.205322265625
+5,policy,True, sp, obstruct, quar,False,0.8272737264633179,6.98690938949585
+5,policy,False, sp, obstruct,џџџџ,False,0.5452954173088074,9.585766792297363
+5,grad_norm_preserved_random_dir,True, sp, obstruct, med,False,0.7251849174499512,14.029204368591309
+5,grad_norm_preserved_random_dir,False, sp, obstruct,<|reserved_special_token_102|>,False,0.5421249866485596,11.279659271240234
+5,random,True, sp, obstruct, forwards,False,0.8235349059104919,8.751574516296387
+5,random,False, sp, obstruct, UIScreen,False,0.8180744647979736,9.845110893249512
+6,policy,True, red, sensor, female,False,0.7286741733551025,2.4605069160461426
+6,policy,False, red, sensor,のだろう,False,0.7679482102394104,2.564940929412842
+6,grad_norm_preserved_random_dir,True, red, sensor, anale,False,0.7596082091331482,2.6407437324523926
+6,grad_norm_preserved_random_dir,False, red, sensor,ichTextBox,False,0.6626400947570801,3.4134535789489746
+6,random,True, red, sensor, arrow,False,0.7337884306907654,5.381808280944824
+6,random,False, red, sensor, decoding,False,0.7945169806480408,3.0147461891174316
+7,policy,True,us, etwa,cus,False,0.6252866983413696,0.011384507641196251
+7,policy,False,us, etwa,webElementX,False,0.3744572401046753,2.239100217819214
+7,grad_norm_preserved_random_dir,True,us, etwa,_um,False,0.6708009243011475,0.2860725224018097
+7,grad_norm_preserved_random_dir,False,us, etwa,acaktır,False,0.3737134039402008,3.560133695602417
+7,random,True,us, etwa,eries,False,0.6170116066932678,0.19152021408081055
+7,random,False,us, etwa,.toBe,False,0.69057697057724,4.954786777496338
+8,policy,True, can,�州,�州,False,0.731367826461792,5.589035511016846
+8,policy,False, can,�州,<|reserved_special_token_16|>,False,0.4257378876209259,4.520247936248779
+8,grad_norm_preserved_random_dir,True, can,�州,�州,False,0.731367826461792,5.589035511016846
+8,grad_norm_preserved_random_dir,False, can,�州,ーカー,False,0.42566925287246704,7.9363179206848145
+8,random,True, can,�州, -------,False,0.7502765655517578,5.594588756561279
+8,random,False, can,�州,.alt,False,0.7258949279785156,6.822420120239258
+9,policy,True, a, assignment, vzděl,False,0.35433244705200195,4.274358749389648
+9,policy,False, a, assignment,<|reserved_special_token_33|>,False,0.34971559047698975,1.632148265838623
+9,grad_norm_preserved_random_dir,True, a, assignment,vlan,False,0.7037009596824646,4.020602226257324
+9,grad_norm_preserved_random_dir,False, a, assignment, الخط,False,0.7103744745254517,8.206106185913086
+9,random,True, a, assignment, closing,False,0.6401935815811157,3.7834231853485107
+9,random,False, a, assignment,иту,False,0.6536028981208801,4.649685859680176
+10,policy,True, found,doctor,grow,False,0.7324869632720947,2.57820200920105
+10,policy,False, found,doctor, издел,False,0.49564850330352783,4.454101085662842
+10,grad_norm_preserved_random_dir,True, found,doctor, crumbs,False,0.8243616819381714,3.229494094848633
+10,grad_norm_preserved_random_dir,False, found,doctor,ніцип,False,0.479324609041214,4.062658309936523
+10,random,True, found,doctor, simply,False,0.6666349768638611,5.8667378425598145
+10,random,False, found,doctor,::::::::::,False,0.69742751121521,5.886666774749756
+11,policy,True, found,stown, commune,False,0.7940827012062073,1.317862868309021
+11,policy,False, found,stown, потрап,False,0.7038958668708801,6.17338752746582
+11,grad_norm_preserved_random_dir,True, found,stown, enacted,False,0.8027020692825317,1.166898250579834
+11,grad_norm_preserved_random_dir,False, found,stown,аракт,False,0.4784100353717804,3.3414981365203857
+11,random,True, found,stown,@s,False,0.7635926604270935,3.6477138996124268
+11,random,False, found,stown,ены,False,0.7070376873016357,4.0163397789001465
+12,policy,True, Cancer, Johannesburg, Camera,False,0.7366500496864319,8.456289291381836
+12,policy,False, Cancer, Johannesburg,<|reserved_special_token_108|>,False,0.5717468857765198,9.829974174499512
+12,grad_norm_preserved_random_dir,True, Cancer, Johannesburg, dosage,False,0.8506479263305664,11.827524185180664
+12,grad_norm_preserved_random_dir,False, Cancer, Johannesburg,<|reserved_special_token_178|>,False,0.5717468857765198,9.829974174499512
+12,random,True, Cancer, Johannesburg, pants,False,0.8456931710243225,9.304547309875488
+12,random,False, Cancer, Johannesburg, Tristan,False,0.8757392764091492,13.808053016662598
+13,policy,True,mar, PRIVATE,|unique,False,0.8107718825340271,5.748063564300537
+13,policy,False,mar, PRIVATE,<|reserved_special_token_169|>,False,0.5088918805122375,7.488693714141846
+13,grad_norm_preserved_random_dir,True,mar, PRIVATE,-boy,False,0.7440115213394165,5.196752548217773
+13,grad_norm_preserved_random_dir,False,mar, PRIVATE," {
+
+
+",False,0.5249771475791931,9.144492149353027
+13,random,True,mar, PRIVATE,tan,False,0.6966291069984436,2.3047399520874023
+13,random,False,mar, PRIVATE,�,False,0.7454066872596741,34.37801742553711
+14,policy,True,brates,-axis,reements,False,0.8715705275535583,0.03682931512594223
+14,policy,False,brates,-axis,итися,False,0.6470392346382141,8.412128448486328
+14,grad_norm_preserved_random_dir,True,brates,-axis, jes,False,0.878445565700531,0.28728628158569336
+14,grad_norm_preserved_random_dir,False,brates,-axis,/ayushman,False,0.6575127243995667,0.8993217945098877
+14,random,True,brates,-axis,ores,False,0.7911732792854309,0.07601024955511093
+14,random,False,brates,-axis,ga,False,0.7870984077453613,1.1062450408935547
+15,policy,True, species,****************************, asign,False,0.8346218466758728,10.618135452270508
+15,policy,False, species,****************************,<|reserved_special_token_22|>,False,0.5625293254852295,4.225825309753418
+15,grad_norm_preserved_random_dir,True, species,****************************, побед,False,0.8485650420188904,9.400589942932129
+15,grad_norm_preserved_random_dir,False, species,****************************,lásil,False,0.5624079704284668,2.164977550506592
+15,random,True, species,****************************, neb,False,0.8477488160133362,8.770834922790527
+15,random,False, species,****************************,Capture,False,0.7999034523963928,3.815261125564575
+16,policy,True, Although, vyd, vyd,False,0.8236181139945984,6.2440690994262695
+16,policy,False, Although, vyd,илася,False,0.5515013337135315,2.206268072128296
+16,grad_norm_preserved_random_dir,True, Although, vyd, vyd,False,0.8236181139945984,6.2440690994262695
+16,grad_norm_preserved_random_dir,False, Although, vyd,ıldığında,False,0.5515013337135315,2.206268072128296
+16,random,True, Although, vyd, AZ,False,0.8180081844329834,7.0027546882629395
+16,random,False, Although, vyd,iero,False,0.8031142950057983,3.8563859462738037
+17,policy,True, is,PACE, 조교,False,0.5332689881324768,8.550643920898438
+17,policy,False, is,PACE,"|,
+",False,0.5848788619041443,5.594992637634277
+17,grad_norm_preserved_random_dir,True, is,PACE,"',
+",False,0.3484802544116974,5.379853248596191
+17,grad_norm_preserved_random_dir,False, is,PACE, издел,False,0.36846140027046204,6.10742712020874
+17,random,True, is,PACE, Odin,False,0.7652166485786438,5.681740760803223
+17,random,False, is,PACE,合同,False,0.7015356421470642,9.582596778869629
+18,policy,True, H,_Page,_Page,False,0.7312893271446228,5.563488960266113
+18,policy,False, H,_Page,_Page,False,0.7312893271446228,5.563488960266113
+18,grad_norm_preserved_random_dir,True, H,_Page,_Page,False,0.7312893271446228,5.563488960266113
+18,grad_norm_preserved_random_dir,False, H,_Page,dıkları,False,0.4114169180393219,5.123283863067627
+18,random,True, H,_Page,xa,False,0.6800174713134766,4.453938007354736
+18,random,False, H,_Page,"
+",False,0.457393079996109,7.691690921783447
+19,policy,True, gam, обличчя,"﻿/*
+",False,0.6368982791900635,9.129210472106934
+19,policy,False, gam, обличчя,илась,False,0.6252157092094421,6.44575309753418
+19,grad_norm_preserved_random_dir,True, gam, обличчя, обличчя,False,0.7343223094940186,12.678971290588379
+19,grad_norm_preserved_random_dir,False, gam, обличчя,"							
+",False,0.6349270939826965,9.600347518920898
+19,random,True, gam, обличчя, Gos,False,0.8705008029937744,7.635929584503174
+19,random,False, gam, обличчя, gi�,False,0.7024324536323547,27.42730140686035
+20,policy,True, tenth,memberOf,memberOf,False,0.8505350947380066,8.393610954284668
+20,policy,False, tenth,memberOf, 神马收录,False,0.615109920501709,1.8345160484313965
+20,grad_norm_preserved_random_dir,True, tenth,memberOf,memberOf,False,0.8505350947380066,8.393610954284668
+20,grad_norm_preserved_random_dir,False, tenth,memberOf, vzděl,False,0.6183983683586121,3.5041191577911377
+20,random,True, tenth,memberOf, revolution,False,0.8193337321281433,7.09176778793335
+20,random,False, tenth,memberOf, Ül,False,0.8101427555084229,3.941620349884033
+21,policy,True,","," ""../../../",testCase,False,0.6322989463806152,4.704991340637207
+21,policy,False,","," ""../../../",<|reserved_special_token_206|>,False,0.35408544540405273,3.1110291481018066
+21,grad_norm_preserved_random_dir,True,","," ""../../../", seen,False,0.5984266400337219,5.807081699371338
+21,grad_norm_preserved_random_dir,False,","," ""../../../",<|reserved_special_token_198|>,False,0.35408544540405273,3.1110291481018066
+21,random,True,","," ""../../../", Q,False,0.5692253112792969,3.9591498374938965
+21,random,False,","," ""../../../", ConsoleColor,False,0.6695946455001831,8.628744125366211
+22,policy,True, N, ışık,angular,False,0.7055721879005432,2.2367892265319824
+22,policy,False, N, ışık,џџџџ,False,0.4180546700954437,4.223888874053955
+22,grad_norm_preserved_random_dir,True, N, ışık,triangle,False,0.7295504212379456,1.957268476486206
+22,grad_norm_preserved_random_dir,False, N, ışık,acaktır,False,0.4117240905761719,3.0613784790039062
+22,random,True, N, ışık, wh,False,0.6766932010650635,2.6961052417755127
+22,random,False, N, ışık, sınır,False,0.6685961484909058,1.5925099849700928
+23,policy,True, the,nah, где,False,0.7048665881156921,4.284618854522705
+23,policy,False, the,nah,еристи,False,0.34738054871559143,3.3127379417419434
+23,grad_norm_preserved_random_dir,True, the,nah,"
+
+",False,0.45250821113586426,4.524831771850586
+23,grad_norm_preserved_random_dir,False, the,nah,<|reserved_special_token_58|>,False,0.34738054871559143,3.3127379417419434
+23,random,True, the,nah,orns,False,0.6538981795310974,3.224471092224121
+23,random,False, the,nah,lower,False,0.6393505930900574,4.033829689025879
+24,policy,True,",",Creator, Ward,False,0.6315690279006958,4.474155902862549
+24,policy,False,",",Creator,<|reserved_special_token_100|>,False,0.35408544540405273,3.5450563430786133
+24,grad_norm_preserved_random_dir,True,",",Creator,\,False,0.46843668818473816,4.370639801025391
+24,grad_norm_preserved_random_dir,False,",",Creator,<|reserved_special_token_29|>,False,0.35408544540405273,3.5450563430786133
+24,random,True,",",Creator,@synthesize,False,0.7582284808158875,4.255993843078613
+24,random,False,",",Creator,์อ,False,0.6292968988418579,7.971804618835449
+25,policy,True, as, 関, Updating,False,0.6999242901802063,3.5527172088623047
+25,policy,False, as, 関, Rs,False,0.683197021484375,4.552572250366211
+25,grad_norm_preserved_random_dir,True, as, 関,deviceId,False,0.6606709957122803,6.207103729248047
+25,grad_norm_preserved_random_dir,False, as, 関, محاس,False,0.6231812834739685,14.432966232299805
+25,random,True, as, 関,ppo,False,0.695711612701416,3.835958957672119
+25,random,False, as, 関, jobId,False,0.6416550278663635,2.995208263397217
+26,policy,True, and, Attach,  ,False,0.5194872617721558,4.652334213256836
+26,policy,False, and, Attach,џџџџ,False,0.3645436763763428,5.457787036895752
+26,grad_norm_preserved_random_dir,True, and, Attach, amt,False,0.7093484401702881,3.0600013732910156
+26,grad_norm_preserved_random_dir,False, and, Attach,�,False,0.3593010902404785,4.028068542480469
+26,random,True, and, Attach, Service,False,0.5613377690315247,6.943072319030762
+26,random,False, and, Attach,.KeyEvent,False,0.7315954566001892,5.928624153137207
+27,policy,True, anti, saturation, saturation,False,0.8493435382843018,6.229637145996094
+27,policy,False, anti, saturation,џџџџ,False,0.5723193287849426,7.670407295227051
+27,grad_norm_preserved_random_dir,True, anti, saturation, all,False,0.6874129772186279,1.84091317653656
+27,grad_norm_preserved_random_dir,False, anti, saturation,<|reserved_special_token_155|>,False,0.5659408569335938,5.866004943847656
+27,random,True, anti, saturation, saturation,False,0.8493435382843018,6.229637145996094
+27,random,False, anti, saturation, concealed,False,0.8558335304260254,5.773925304412842
+28,policy,True, six,odynamics,fuscated,False,0.7998941540718079,3.4199790954589844
+28,policy,False, six,odynamics, považ,False,0.4731568992137909,8.634345054626465
+28,grad_norm_preserved_random_dir,True, six,odynamics, extract,False,0.6828144788742065,3.375525951385498
+28,grad_norm_preserved_random_dir,False, six,odynamics,<|reserved_special_token_43|>,False,0.466998428106308,1.1449086666107178
+28,random,True, six,odynamics, whole,False,0.677739679813385,3.976780414581299
+28,random,False, six,odynamics,HasColumnType,False,0.7501721978187561,6.126594543457031
+29,policy,True, promoted, tossing,aps,False,0.7483726739883423,3.551285982131958
+29,policy,False, promoted, tossing,átky,False,0.5937772393226624,2.6377274990081787
+29,grad_norm_preserved_random_dir,True, promoted, tossing, cps,False,0.8480293154716492,4.730784893035889
+29,grad_norm_preserved_random_dir,False, promoted, tossing,<|reserved_special_token_174|>,False,0.5941281318664551,3.6914427280426025
+29,random,True, promoted, tossing, Move,False,0.7701235413551331,1.6431884765625
+29,random,False, promoted, tossing,..,False,0.7606032490730286,6.069801330566406
+30,policy,True,ui,Servers,wis,False,0.7123622894287109,0.5270134806632996
+30,policy,False,ui,Servers,"},
+
+",False,0.509148120880127,4.515781879425049
+30,grad_norm_preserved_random_dir,True,ui,Servers, AI,False,0.7062848806381226,0.8267082571983337
+30,grad_norm_preserved_random_dir,False,ui,Servers,<|reserved_special_token_56|>,False,0.4839482605457306,1.3010454177856445
+30,random,True,ui,Servers, langue,False,0.7943426370620728,0.3710271418094635
+30,random,False,ui,Servers,"','=','",False,0.7244517803192139,3.229062557220459
+31,policy,True, base,ują,ują,False,0.7832168340682983,3.2691290378570557
+31,policy,False, base,ują,ują,False,0.7832168340682983,3.2691290378570557
+31,grad_norm_preserved_random_dir,True, base,ują,ują,False,0.7832168340682983,3.2691290378570557
+31,grad_norm_preserved_random_dir,False, base,ują,ują,False,0.7832168340682983,3.2691290378570557
+31,random,True, base,ują, covered,False,0.6930280923843384,6.649337291717529
+31,random,False, base,ują, použí,False,0.7293351888656616,13.018583297729492
+32,policy,True, and, امروز, امروز,False,0.6374531388282776,7.708510398864746
+32,policy,False, and, امروز,<|reserved_special_token_56|>,False,0.3593010902404785,3.1557040214538574
+32,grad_norm_preserved_random_dir,True, and, امروز,<|reserved_special_token_179|>,False,0.3593010902404785,3.1557040214538574
+32,grad_norm_preserved_random_dir,False, and, امروز,	elseif,False,0.6685314178466797,4.364430904388428
+32,random,True, and, امروز, garnered,False,0.7764001488685608,11.681944847106934
+32,random,False, and, امروز,"...
+",False,0.48779532313346863,5.112517356872559
+33,policy,True, November, Forms, Just,False,0.7128368020057678,1.6779673099517822
+33,policy,False, November, Forms,<|reserved_special_token_180|>,False,0.5379788875579834,2.0072360038757324
+33,grad_norm_preserved_random_dir,True, November, Forms, E,False,0.6462446451187134,3.2987849712371826
+33,grad_norm_preserved_random_dir,False, November, Forms,iếm,False,0.5951115489006042,2.0617918968200684
+33,random,True, November, Forms,"    	
+",False,0.8156520128250122,1.445068597793579
+33,random,False, November, Forms, �,False,0.8103614449501038,46.61432647705078
+34,policy,True, ),"))))
+
+","))))
+
+",False,0.7207571864128113,8.010534286499023
+34,policy,False, ),"))))
+
+","))))
+
+",False,0.7207571864128113,8.010534286499023
+34,grad_norm_preserved_random_dir,True, ),"))))
+
+","))))
+
+",False,0.7207571864128113,8.010534286499023
+34,grad_norm_preserved_random_dir,False, ),"))))
+
+","))))
+
+",False,0.7207571864128113,8.010534286499023
+34,random,True, ),"))))
+
+",~,False,0.6239678263664246,3.1419615745544434
+34,random,False, ),"))))
+
+", constitution,False,0.7249265909194946,2.6064705848693848
+35,policy,True,0,kerja,kerja,False,0.7262229919433594,4.010302543640137
+35,policy,False,0,kerja,<|reserved_special_token_123|>,False,0.3674631118774414,1.7063945531845093
+35,grad_norm_preserved_random_dir,True,0,kerja,kerja,False,0.7262229919433594,4.010302543640137
+35,grad_norm_preserved_random_dir,False,0,kerja,ılmıştır,False,0.36832305788993835,2.831770658493042
+35,random,True,0,kerja,productId,False,0.6912736296653748,3.145530939102173
+35,random,False,0,kerja,....,False,0.5864735245704651,7.048668384552002
+36,policy,True,6, hư,190,False,0.6468957662582397,0.5829311013221741
+36,policy,False,6, hư,"++;
+
+",False,0.3944190442562103,5.306563377380371
+36,grad_norm_preserved_random_dir,True,6, hư,_boxes,False,0.7345550656318665,1.8991315364837646
+36,grad_norm_preserved_random_dir,False,6, hư,<|reserved_special_token_116|>,False,0.37632736563682556,0.15518324077129364
+36,random,True,6, hư,--------,False,0.7075779438018799,0.9264636039733887
+36,random,False,6, hư, mbedtls,False,0.6367411613464355,3.7205076217651367
+37,policy,True,sher,.drawable,TD,False,0.8031901717185974,1.77695894241333
+37,policy,False,sher,.drawable,<|reserved_special_token_227|>,False,0.5919144153594971,2.9001193046569824
+37,grad_norm_preserved_random_dir,True,sher,.drawable,inand,False,0.8314827680587769,1.3088836669921875
+37,grad_norm_preserved_random_dir,False,sher,.drawable,<|reserved_special_token_175|>,False,0.5919144153594971,2.9001193046569824
+37,random,True,sher,.drawable, playlists,False,0.9030733704566956,1.8699989318847656
+37,random,False,sher,.drawable,pcion,False,0.8552364110946655,2.494187831878662
+38,policy,True,., ощ,ząd,False,0.725132405757904,4.30415153503418
+38,policy,False,., ощ,<|reserved_special_token_166|>,False,0.35265782475471497,4.414859771728516
+38,grad_norm_preserved_random_dir,True,., ощ,<|reserved_special_token_41|>,False,0.35265782475471497,4.414859771728516
+38,grad_norm_preserved_random_dir,False,., ощ,<|reserved_special_token_196|>,False,0.35265782475471497,4.414859771728516
+38,random,True,., ощ,    ,False,0.6342991590499878,2.946678876876831
+38,random,False,., ощ,-wave,False,0.6349644660949707,4.148396968841553
+39,policy,True,82, تور, dla,False,0.8388545513153076,1.64044189453125
+39,policy,False,82, تور,<|reserved_special_token_0|>,False,0.530761182308197,6.3308515548706055
+39,grad_norm_preserved_random_dir,True,82, تور,уючи,False,0.7395737171173096,1.9154822826385498
+39,grad_norm_preserved_random_dir,False,82, تور,илакти,False,0.530761182308197,6.3308515548706055
+39,random,True,82, تور,NZ,False,0.7614428400993347,0.938804030418396
+39,random,False,82, تور,qi,False,0.7697297930717468,1.4903345108032227
+40,policy,True,point,blers,ве,False,0.725935697555542,2.8699824810028076
+40,policy,False,point,blers,uyordu,False,0.4909047782421112,0.8737461566925049
+40,grad_norm_preserved_random_dir,True,point,blers,ortality,False,0.8070469498634338,1.7669031620025635
+40,grad_norm_preserved_random_dir,False,point,blers, frække,False,0.5399512648582458,6.393404483795166
+40,random,True,point,blers,-location,False,0.7562711834907532,0.188997283577919
+40,random,False,point,blers," //""",False,0.7717622518539429,5.057140350341797
+41,policy,True, for, gbc, gbc,False,0.6381296515464783,4.597176551818848
+41,policy,False, for, gbc, gbc,False,0.6381296515464783,4.597176551818848
+41,grad_norm_preserved_random_dir,True, for, gbc, gbc,False,0.6381296515464783,4.597176551818848
+41,grad_norm_preserved_random_dir,False, for, gbc," ];
+",False,0.4713655710220337,4.0196685791015625
+41,random,True, for, gbc,*=,False,0.6928166747093201,4.011354923248291
+41,random,False, for, gbc, визнача,False,0.3440721035003662,4.197061538696289
+42,policy,True, in,_entries,>,False,0.5202149152755737,2.8375236988067627
+42,policy,False, in,_entries,<|reserved_special_token_237|>,False,0.34811127185821533,2.0013790130615234
+42,grad_norm_preserved_random_dir,True, in,_entries,/s,False,0.6059529781341553,4.3796491622924805
+42,grad_norm_preserved_random_dir,False, in,_entries, düşünc,False,0.3506138026714325,2.63254714012146
+42,random,True, in,_entries,	pre,False,0.6334841251373291,6.267119884490967
+42,random,False, in,_entries,=user,False,0.6773240566253662,3.113677978515625
+43,policy,True, extended,唐, §,False,0.79915452003479,7.991867542266846
+43,policy,False, extended,唐, вияви,False,0.5480302572250366,3.7975401878356934
+43,grad_norm_preserved_random_dir,True, extended,唐, steel,False,0.7396062612533569,3.1577389240264893
+43,grad_norm_preserved_random_dir,False, extended,唐,NdEx,False,0.5685818791389465,5.658120155334473
+43,random,True, extended,唐, undone,False,0.8539158701896667,2.9007859230041504
+43,random,False, extended,唐,(Result,False,0.7744475603103638,7.429263114929199
+44,policy,True,197, поли,Clazz,False,0.7819688320159912,4.708081245422363
+44,policy,False,197, поли,ETweet,False,0.5397968888282776,5.112337589263916
+44,grad_norm_preserved_random_dir,True,197, поли, поли,False,0.801766574382782,6.572515964508057
+44,grad_norm_preserved_random_dir,False,197, поли,<|reserved_special_token_185|>,False,0.5238338112831116,5.59999942779541
+44,random,True,197, поли,opsy,False,0.802651047706604,5.078785419464111
+44,random,False,197, поли,CUR,False,0.7831102609634399,7.10569429397583
+45,policy,True, Sh,áv,áv,False,0.7900935411453247,9.327422142028809
+45,policy,False, Sh,áv,_MetadataUsageId,False,0.5478395819664001,10.751030921936035
+45,grad_norm_preserved_random_dir,True, Sh,áv,áv,False,0.7900935411453247,9.327422142028809
+45,grad_norm_preserved_random_dir,False, Sh,áv, açıklam,False,0.5306227803230286,8.37785530090332
+45,random,True, Sh,áv,χα,False,0.777492880821228,7.8265533447265625
+45,random,False, Sh,áv,bot,False,0.7405124306678772,6.75968074798584
+46,policy,True, and, Lol, Newtonsoft,False,0.732966423034668,3.361893653869629
+46,policy,False, and, Lol,OPLE,False,0.6968366503715515,6.304997444152832
+46,grad_norm_preserved_random_dir,True, and, Lol, We,False,0.5346013903617859,4.746786117553711
+46,grad_norm_preserved_random_dir,False, and, Lol,娱乐,False,0.6983852386474609,13.446444511413574
+46,random,True, and, Lol, Telecom,False,0.7315816879272461,5.713485240936279
+46,random,False, and, Lol, describe,False,0.6081348061561584,4.77951717376709
+47,policy,True, him,你, revision,False,0.721189558506012,3.4441843032836914
+47,policy,False, him,你,<|reserved_special_token_228|>,False,0.44992926716804504,13.071989059448242
+47,grad_norm_preserved_random_dir,True, him,你,"
+
+",False,0.5658493041992188,4.591867446899414
+47,grad_norm_preserved_random_dir,False, him,你,<|reserved_special_token_222|>,False,0.44992926716804504,13.071989059448242
+47,random,True, him,你,rey,False,0.6706293225288391,2.156294822692871
+47,random,False, him,你, крем,False,0.7323471903800964,4.831826210021973
+48,policy,True,ession,_IDS, water,False,0.7149512767791748,2.9677205085754395
+48,policy,False,ession,_IDS,"--)
+",False,0.5708485841751099,5.9821672439575195
+48,grad_norm_preserved_random_dir,True,ession,_IDS,              ,False,0.7232166528701782,4.436607360839844
+48,grad_norm_preserved_random_dir,False,ession,_IDS,<|reserved_special_token_80|>,False,0.5489975214004517,2.3020315170288086
+48,random,True,ession,_IDS,ord,False,0.6914021372795105,1.2961821556091309
+48,random,False,ession,_IDS,ализ,False,0.7794069051742554,7.260375499725342
+49,policy,True,athy,露, measure,False,0.7296501994132996,0.34150558710098267
+49,policy,False,athy,露,"
+",False,0.6371358036994934,6.219459533691406
+49,grad_norm_preserved_random_dir,True,athy,露, sky,False,0.7859348058700562,2.1346306800842285
+49,grad_norm_preserved_random_dir,False,athy,露,""">
+",False,0.5626242160797119,10.00253677368164
+49,random,True,athy,露,ision,False,0.7411801218986511,0.597541093826294
+49,random,False,athy,露, golf,False,0.8261367678642273,2.4860057830810547
+50,policy,True,ik, vinegar, vinegar,False,0.8141286969184875,9.301127433776855
+50,policy,False,ik, vinegar, vinegar,False,0.8141286969184875,9.301127433776855
+50,grad_norm_preserved_random_dir,True,ik, vinegar, vinegar,False,0.8141286969184875,9.301127433776855
+50,grad_norm_preserved_random_dir,False,ik, vinegar, vinegar,False,0.8141286969184875,9.301127433776855
+50,random,True,ik, vinegar,ien,False,0.587040901184082,8.565987586975098
+50,random,False,ik, vinegar, 에,False,0.7495716214179993,14.052186012268066
+51,policy,True, in,anism, heads,False,0.5788699388504028,2.34816312789917
+51,policy,False, in,anism,CLUDING,False,0.6459392309188843,3.5250539779663086
+51,grad_norm_preserved_random_dir,True, in,anism, OS,False,0.6467214226722717,2.889922618865967
+51,grad_norm_preserved_random_dir,False, in,anism,_GenericClass,False,0.3811347186565399,6.869251251220703
+51,random,True, in,anism, ma,False,0.6023464798927307,5.278341770172119
+51,random,False, in,anism,_Total,False,0.6538964509963989,7.644744396209717
+52,policy,True, explores, Gson, rows,False,0.8152886033058167,2.119295835494995
+52,policy,False, explores, Gson, характ,False,0.6355457305908203,6.289612770080566
+52,grad_norm_preserved_random_dir,True, explores, Gson, attacked,False,0.8252030611038208,1.1424999237060547
+52,grad_norm_preserved_random_dir,False, explores, Gson,<|reserved_special_token_102|>,False,0.627214252948761,2.2378957271575928
+52,random,True, explores, Gson, viruses,False,0.8705306053161621,1.8433823585510254
+52,random,False, explores, Gson,arr,False,0.7986950278282166,8.905817985534668
+53,policy,True, action, Arb, Shadow,False,0.713484525680542,9.514691352844238
+53,policy,False, action, Arb,<|reserved_special_token_117|>,False,0.48025965690612793,3.941782236099243
+53,grad_norm_preserved_random_dir,True, action, Arb, cast,False,0.6726669073104858,0.8698931932449341
+53,grad_norm_preserved_random_dir,False, action, Arb,ーション,False,0.4793037176132202,2.441118001937866
+53,random,True, action, Arb, establishments,False,0.7941075563430786,8.186747550964355
+53,random,False, action, Arb, prima,False,0.7684558629989624,7.6977949142456055
+54,policy,True, agreed, oslo, oslo,False,0.8540650010108948,5.7486701011657715
+54,policy,False, agreed, oslo,<|reserved_special_token_128|>,False,0.5857305526733398,6.761284828186035
+54,grad_norm_preserved_random_dir,True, agreed, oslo, oslo,False,0.8540650010108948,5.7486701011657715
+54,grad_norm_preserved_random_dir,False, agreed, oslo,<|reserved_special_token_128|>,False,0.5857305526733398,6.761284828186035
+54,random,True, agreed, oslo, compute,False,0.788688600063324,2.863546848297119
+54,random,False, agreed, oslo,(comp,False,0.8110418915748596,10.166555404663086
+55,policy,True, Orleans, ignorant, actual,False,0.8605785965919495,2.1555967330932617
+55,policy,False, Orleans, ignorant,�,False,0.6703113913536072,0.5295746326446533
+55,grad_norm_preserved_random_dir,True, Orleans, ignorant, Secure,False,0.8842283487319946,0.7968088388442993
+55,grad_norm_preserved_random_dir,False, Orleans, ignorant,<|reserved_special_token_153|>,False,0.6703113913536072,0.5295746326446533
+55,random,True, Orleans, ignorant, Ou,False,0.8911281824111938,4.751011371612549
+55,random,False, Orleans, ignorant,iddi,False,0.9069033265113831,1.978191614151001
+56,policy,True,",",logg,son,False,0.5419588088989258,1.9347875118255615
+56,policy,False,",",logg,<|reserved_special_token_118|>,False,0.35408544540405273,0.8303716778755188
+56,grad_norm_preserved_random_dir,True,",",logg, ub,False,0.686697244644165,1.9842164516448975
+56,grad_norm_preserved_random_dir,False,",",logg," {
+",False,0.35684365034103394,1.4298501014709473
+56,random,True,",",logg, Knights,False,0.698788046836853,3.4661178588867188
+56,random,False,",",logg,्‍,False,0.6995635628700256,1.676714301109314
+57,policy,True, Although,battery,otyp,False,0.8265538215637207,5.572386741638184
+57,policy,False, Although,battery,(states,False,0.7624648213386536,3.7665042877197266
+57,grad_norm_preserved_random_dir,True, Although,battery,/es,False,0.8172418475151062,4.311830520629883
+57,grad_norm_preserved_random_dir,False, Although,battery,�,False,0.5515013337135315,3.850282907485962
+57,random,True, Although,battery, Ю,False,0.8231869339942932,6.7134575843811035
+57,random,False, Although,battery,(tokens,False,0.7928559184074402,5.804650783538818
+58,policy,True, facility,"="""",", theatre,False,0.7367716431617737,0.07999764382839203
+58,policy,False, facility,"="""",",.nextLine,False,0.8761590123176575,5.889624118804932
+58,grad_norm_preserved_random_dir,True, facility,"="""",", area,False,0.6643128395080566,0.1213446781039238
+58,grad_norm_preserved_random_dir,False, facility,"="""",",]=],False,0.6300421357154846,4.698424816131592
+58,random,True, facility,"="""",", grille,False,0.8556915521621704,0.3730689287185669
+58,random,False, facility,"="""",", CharSet,False,0.7954486608505249,4.268771171569824
+59,policy,True, blacks, Notre, all,False,0.7728590369224548,5.624627590179443
+59,policy,False, blacks, Notre,<|reserved_special_token_8|>,False,0.6627503633499146,3.21429443359375
+59,grad_norm_preserved_random_dir,True, blacks, Notre, resources,False,0.8050283193588257,2.0542445182800293
+59,grad_norm_preserved_random_dir,False, blacks, Notre,<|reserved_special_token_218|>,False,0.6627503633499146,3.21429443359375
+59,random,True, blacks, Notre, Jew,False,0.8851920366287231,4.545173168182373
+59,random,False, blacks, Notre,сі,False,0.8499017357826233,6.7991766929626465
+60,policy,True, Rodgers,Trigger,Trigger,False,0.8633217811584473,1.611073613166809
+60,policy,False, Rodgers,Trigger,(cube,False,0.8328758478164673,4.377923965454102
+60,grad_norm_preserved_random_dir,True, Rodgers,Trigger,Trigger,False,0.8633217811584473,1.611073613166809
+60,grad_norm_preserved_random_dir,False, Rodgers,Trigger,átku,False,0.6506435871124268,1.9843071699142456
+60,random,True, Rodgers,Trigger, Definition,False,0.8597407937049866,2.6695556640625
+60,random,False, Rodgers,Trigger,ındır,False,0.8286475539207458,3.6302237510681152
+61,policy,True, of,Viet, мире,False,0.670932948589325,10.06459903717041
+61,policy,False, of,Viet,useRal,False,0.3065550625324249,11.470630645751953
+61,grad_norm_preserved_random_dir,True, of,Viet, &___,False,0.43255290389060974,11.107860565185547
+61,grad_norm_preserved_random_dir,False, of,Viet,구글상위,False,0.37596866488456726,19.722888946533203
+61,random,True, of,Viet,*u,False,0.586920440196991,12.342098236083984
+61,random,False, of,Viet, мам,False,0.6536510586738586,15.269929885864258
+62,policy,True, land,_Build,_Build,False,0.7479076385498047,4.648979187011719
+62,policy,False, land,_Build,<|eot_id|>,False,0.49697282910346985,3.4577603340148926
+62,grad_norm_preserved_random_dir,True, land,_Build,acy,False,0.6869224905967712,1.3411791324615479
+62,grad_norm_preserved_random_dir,False, land,_Build,<|reserved_special_token_201|>,False,0.49697282910346985,3.4577603340148926
+62,random,True, land,_Build, inventory,False,0.7114530801773071,1.0458625555038452
+62,random,False, land,_Build,pm,False,0.6807693243026733,0.7956560850143433
+63,policy,True, each,-variable,ndon,False,0.7999690175056458,6.845178604125977
+63,policy,False, each,-variable,<|reserved_special_token_200|>,False,0.48103243112564087,7.231915473937988
+63,grad_norm_preserved_random_dir,True, each,-variable, months,False,0.6818186044692993,10.8251953125
+63,grad_norm_preserved_random_dir,False, each,-variable, nghị,False,0.7373026013374329,7.936916828155518
+63,random,True, each,-variable,ọi,False,0.7423798441886902,2.2944109439849854
+63,random,False, each,-variable, privat,False,0.8189358115196228,9.738198280334473
+64,policy,True, direction, CRA, velocity,False,0.706420361995697,0.42842209339141846
+64,policy,False, direction, CRA,글상위,False,0.5291838049888611,0.58375084400177
+64,grad_norm_preserved_random_dir,True, direction, CRA, writing,False,0.6798525452613831,1.0011643171310425
+64,grad_norm_preserved_random_dir,False, direction, CRA,<|reserved_special_token_83|>,False,0.5299208164215088,1.9561808109283447
+64,random,True, direction, CRA, brink,False,0.8575779795646667,1.0307729244232178
+64,random,False, direction, CRA, ALL,False,0.7216804027557373,3.8901710510253906
+65,policy,True, caused,صد,صد,False,0.829912543296814,5.8206095695495605
+65,policy,False, caused,صد,<|reserved_special_token_0|>,False,0.5882273316383362,1.3917683362960815
+65,grad_norm_preserved_random_dir,True, caused,صد,صد,False,0.829912543296814,5.8206095695495605
+65,grad_norm_preserved_random_dir,False, caused,صد,�,False,0.5882273316383362,1.3917683362960815
+65,random,True, caused,صد,ást,False,0.8209069967269897,2.3778481483459473
+65,random,False, caused,صد, جمع,False,0.859451413154602,4.745442867279053
+66,policy,True, commission,ชม, investors,False,0.7671607732772827,2.6439409255981445
+66,policy,False, commission,ชม,ensex,False,0.7335132360458374,3.345503091812134
+66,grad_norm_preserved_random_dir,True, commission,ชม,<|reserved_special_token_135|>,False,0.528753936290741,3.7659783363342285
+66,grad_norm_preserved_random_dir,False, commission,ชม,"!"";
+",False,0.5799127221107483,7.0486979484558105
+66,random,True, commission,ชม, friendly,False,0.7278163433074951,6.4266557693481445
+66,random,False, commission,ชม, Bien,False,0.8313577175140381,5.661153793334961
+67,policy,True, of, prolonged,-owned,False,0.6982254385948181,1.8041770458221436
+67,policy,False, of, prolonged,<|reserved_special_token_229|>,False,0.3066396415233612,3.4619030952453613
+67,grad_norm_preserved_random_dir,True, of, prolonged, doğru,False,0.7041020393371582,4.270357131958008
+67,grad_norm_preserved_random_dir,False, of, prolonged,İTESİ,False,0.30661851167678833,3.229335308074951
+67,random,True, of, prolonged, using,False,0.5040965676307678,0.9988403916358948
+67,random,False, of, prolonged, JavaScript,False,0.6915233135223389,5.976981163024902
+68,policy,True, Americans, directed, Rates,False,0.769181489944458,0.46132293343544006
+68,policy,False, Americans, directed,�,False,0.5701838135719299,1.5351519584655762
+68,grad_norm_preserved_random_dir,True, Americans, directed,sınız,False,0.683120846748352,0.6543638706207275
+68,grad_norm_preserved_random_dir,False, Americans, directed, připoj,False,0.5779648423194885,4.645141124725342
+68,random,True, Americans, directed, Options,False,0.7413759827613831,0.49431803822517395
+68,random,False, Americans, directed, مغ,False,0.8335038423538208,14.509567260742188
+69,policy,True, convicted,vrd, understands,False,0.8975971937179565,2.785996675491333
+69,policy,False, convicted,vrd,นม,False,0.8977318406105042,4.794466972351074
+69,grad_norm_preserved_random_dir,True, convicted,vrd,кие,False,0.901340901851654,3.1978936195373535
+69,grad_norm_preserved_random_dir,False, convicted,vrd, ;;=,False,0.7125163078308105,5.024407386779785
+69,random,True, convicted,vrd, účet,False,0.8493983149528503,1.875983476638794
+69,random,False, convicted,vrd, bargain,False,0.9194413423538208,2.9507195949554443
