@@ -1,0 +1,71 @@
+{
+    "os": "Linux-6.6.114.1-microsoft-standard-WSL2-x86_64-with-glibc2.41",
+    "python": "3.11.15",
+    "heartbeatAt": "2026-06-08T22:08:25.750586",
+    "startedAt": "2026-06-08T22:08:23.792150",
+    "docker": null,
+    "cuda": null,
+    "args": [
+        "--output_dir",
+        "/../gpt2_large_sft_output"
+    ],
+    "state": "running",
+    "program": "/code/infill_subj_arithmetic/sft.py",
+    "codePathLocal": "sft.py",
+    "codePath": "sft.py",
+    "git": {
+        "remote": "https://github.com/GFNOrg/gfn-lm-tuning.git",
+        "commit": null
+    },
+    "email": null,
+    "root": "/code/infill_subj_arithmetic",
+    "host": "5b9009d5a9ae",
+    "username": "root",
+    "executable": "/usr/local/bin/python",
+    "cpu_count": 2,
+    "cpu_count_logical": 4,
+    "cpu_freq": {
+        "current": 2687.999,
+        "min": 0.0,
+        "max": 0.0
+    },
+    "cpu_freq_per_core": [
+        {
+            "current": 2687.999,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2687.999,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2687.999,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2687.999,
+            "min": 0.0,
+            "max": 0.0
+        }
+    ],
+    "disk": {
+        "/": {
+            "total": 1006.853931427002,
+            "used": 261.1023406982422
+        }
+    },
+    "gpu": "NVIDIA GeForce RTX 4050 Laptop GPU",
+    "gpu_count": 1,
+    "gpu_devices": [
+        {
+            "name": "NVIDIA GeForce RTX 4050 Laptop GPU",
+            "memory_total": 6439305216
+        }
+    ],
+    "memory": {
+        "total": 13.6514892578125
+    }
+}
