@@ -223,6 +223,8 @@ def train(config, model, tokenizer, vocab_nice_list, rew, rbuffer, dataset):
             encoded_input = encoded_train_queries[query_ind]
             text, rewards = generate_examples(model, tokenizer, encoded_input, eos_token_id, pad_token_id, vocab_nice_list, rew, max_eval_len, config)
             print_table([dataset["train_queries"][query_ind]] * max_eval_len, text, [dataset["train_sols"][query_ind]] * max_eval_len, rewards)
+            eval_reward = float(rewards.mean().item()) if hasattr(rewards, 'mean') else float(sum(rewards) / max(1, len(rewards)))
+            wandb.log({"eval_reward": eval_reward}, commit=False)
 
             rbuffer.save(f"buffer_{step}.pkl.gz")
             model.save_pretrained(f'{wandb.run.name}_{step}.pt')

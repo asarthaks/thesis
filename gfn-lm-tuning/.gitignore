@@ -4,5 +4,8 @@ __pycache__
 .DS_Store
 next_sentence/runs/*
 !.gitkeep
-
+gpt2_large_sft_output/
+models/
+*.bin
+*.safetensors
 .vscode/*

@@ -379,9 +379,14 @@ def score_fast(model, encoded_input, eos_token_id, min_len=0,
         logPF_cot = (logPF*(1-mask)).sum(dim=-1) #* solution_beta
         logPF_cot = logPF_cot / (non_eos_mask.sum(dim=-1) - solution_len + 1)**len_beta
         return logPF_solution*(1/solution_beta) + logPF_cot*(1/cot_beta)
+    # if reduction == 'sum':
+    #     res = logPF.sum(dim=-1)
+    #     res = torch.where((non_eos_mask.sum(dim=-1) - solution_len) < min_len, -99, res)
     if reduction == 'sum':
-        res = logPF.sum(dim=-1)
-        res = torch.where((non_eos_mask.sum(dim=-1) - solution_len) < min_len, -99, res)
+            res = logPF.sum(dim=-1)
+            if len_beta != 0:
+                res = res / (non_eos_mask.sum(dim=-1) - solution_len + 1).clamp(min=1)**len_beta
+            res = torch.where((non_eos_mask.sum(dim=-1) - solution_len) < min_len, -99, res)
     else:
         res = logPF
     return res

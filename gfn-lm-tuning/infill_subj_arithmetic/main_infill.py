@@ -238,6 +238,8 @@ def train(config, model, tokenizer, vocab_nice_list, rew, rbuffer, dataset):
             encoded_input = encoded_test_queries[query_ind]
 
             text, rewards = generate_examples(model, tokenizer, encoded_input, eos_token_id, pad_token_id, vocab_nice_list, rew, max_eval_len, config)
+            eval_reward = rewards.mean().item() if hasattr(rewards, 'mean') else float(sum(rewards) / len(rewards))
+            wandb.log({"eval_reward": eval_reward}, commit=False)
             sols = dataset["test_sols"][query_ind] if "test_sols" in dataset and dataset["test_sols"] else "Test" 
             print_table([dataset["test_queries"][query_ind]] * max_eval_len, text, [sols] * max_eval_len, rewards)
 
