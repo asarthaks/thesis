@@ -6,7 +6,8 @@ from core.prep import get_embedding_matrix, project_to_vocab_by_l2, joint_log_pr
 class BaseLangevinSampler:
     def __init__(self, model, tokenizer, steps=50, temperature=5.0, oracle=False, 
                  alpha_grid=np.logspace(-2, 2, 50), method="policy", mh_sampling=False, 
-                 grad_normalization=True, debug=False, noise_scale=0.01):
+                 grad_normalization=True, debug=False, noise_scale=0.01,
+                 epsilon_schedule=None):
         self.model = model
         self.tokenizer = tokenizer
         self.device = next(model.parameters()).device
@@ -19,11 +20,16 @@ class BaseLangevinSampler:
         self.grad_normalization = grad_normalization
         self.debug = debug
         self.noise_scale = noise_scale
+        # Injectable step-size schedule. Pass a length-`steps` array/list (indexed by k)
+        # or a callable k -> eps. When None we fall back to the built-in linear schedule.
+        # This is what lets GPT-2 Large use linspace(10.5, 0.1) while Llama uses its own
+        # scale, instead of the fixed 0.1 -> 0.001 default that flatlines on GPT-2.
+        self.epsilon_schedule = epsilon_schedule
         
         self.emb_matrix = get_embedding_matrix(model).to(self.device)
         self.emb_matrix_sq_norm = torch.sum(self.emb_matrix ** 2, dim=1) # Pre-calc for efficiency
 
-    def linear_epsilon_schedule(self, k, eps0=1e-1, eps_min=1e-3):
+    def linear_epsilon_schedule(self, k, eps0=10.5, eps_min=1e-1):
         frac = k / float(self.steps)
         return max(eps0 * (1.0 - frac), eps_min)
 
@@ -93,7 +99,12 @@ class BaseLangevinSampler:
         metrics_history =[]
 
         for k in range(self.steps):
-            eps_k = self.linear_epsilon_schedule(k)
+            if self.epsilon_schedule is None:
+                eps_k = self.linear_epsilon_schedule(k)
+            elif callable(self.epsilon_schedule):
+                eps_k = self.epsilon_schedule(k)
+            else:
+                eps_k = float(self.epsilon_schedule[k])
             
             # Delegate exactly how to step to CLS or DLS
             s, s_idx, mh_rejected, entropy_t = self._step(

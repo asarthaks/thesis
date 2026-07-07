@@ -1,0 +1,44 @@
+wandb: [wandb.login()] Loaded credentials for https://api.wandb.ai from /home/users1/singhsk/.netrc.
+wandb: Currently logged in as: asarthaks (servermonk) to https://api.wandb.ai. Use `wandb login --relogin` to force relogin
+wandb: setting up run 00n9zt9u
+wandb: Tracking run with wandb version 0.27.2
+wandb: Run data is saved locally in /mount/studenten-temp1/users/singhsk/thesis/thesis/controlled_text_generation-gradient_information/controlled_text_generation-gradient_information/wandb/run-20260707_033305-00n9zt9u
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run gpt2-large.dls.policy.nomh.gn.free.s100
+wandb: ⭐️ View project at https://wandb.ai/servermonk/ctg-langevin-thesis
+wandb: 🚀 View run at https://wandb.ai/servermonk/ctg-langevin-thesis/runs/00n9zt9u
+[gpt2-large.dls.policy.nomh.gn.free.s100] loading /mount/studenten-temp1/users/singhsk/thesis/thesis/gfn-lm-tuning/infill_subj_arithmetic/gpt2_large_sft_output (float32) ...
+[gpt2-large.dls.policy.nomh.gn.free.s100] 282 candidate sentences
+[gpt2-large.dls.policy.nomh.gn.free.s100] 25/200
+[gpt2-large.dls.policy.nomh.gn.free.s100] 50/200
+[gpt2-large.dls.policy.nomh.gn.free.s100] 75/200
+[gpt2-large.dls.policy.nomh.gn.free.s100] 100/200
+[gpt2-large.dls.policy.nomh.gn.free.s100] 125/200
+[gpt2-large.dls.policy.nomh.gn.free.s100] 150/200
+[gpt2-large.dls.policy.nomh.gn.free.s100] 175/200
+[gpt2-large.dls.policy.nomh.gn.free.s100] 200/200
+[gpt2-large.dls.policy.nomh.gn.free.s100] DONE  n=200  acc=0.00%  final_kl=9.097  final_l2=2.415  accept=nan%
+wandb: updating run metadata; uploading artifact run-00n9zt9u-examples
+wandb: uploading artifact run-00n9zt9u-examples
+wandb: uploading media/table/examples_100_4800d152f5064774a42b.table.json; uploading output.log; uploading wandb-summary.json; uploading config.yaml
+wandb: 
+wandb: Run history:
+wandb: entropy ██████████████████████████████████████▇▁
+wandb:      kl ▅▄▄▁▃▂▄▄█▃▆▅▆▆▃▄▂▆▂▄▃▅▆▆▄▂▂▂▃▄▂▃▅▃▂▇▆▄▃▃
+wandb:      l2 ▃▇▅▅▇▄▇▆▆▇▄▆▄▇▃█▄▄▆█▃▄▅▆▄▄▃▇▆▅▄█▆▃▆▅▁▄▁▁
+wandb:    step ▁▁▁▁▁▂▂▂▂▂▂▂▂▃▃▃▃▄▄▅▅▅▅▅▆▆▆▆▇▇▇▇▇▇▇▇▇███
+wandb: 
+wandb: Run summary:
+wandb:       accuracy 0
+wandb:        entropy 10.25335
+wandb:       final_kl 9.09745
+wandb:       final_l2 2.4153
+wandb:             kl 9.09745
+wandb:             l2 2.4153
+wandb: n_samples_used 200
+wandb:           step 99
+wandb: 
+wandb: 🚀 View run gpt2-large.dls.policy.nomh.gn.free.s100 at: https://wandb.ai/servermonk/ctg-langevin-thesis/runs/00n9zt9u
+wandb: ⭐️ View project at: https://wandb.ai/servermonk/ctg-langevin-thesis
+wandb: Synced 5 W&B file(s), 1 media file(s), 2 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20260707_033305-00n9zt9u/logs

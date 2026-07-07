@@ -31,7 +31,7 @@ def verify_equivalence():
     
     print("Loading model for CLS verification...")
     # Use the base model to keep it simple
-    tokenizer, model = load_tokenizer_and_model("//speech/dbwork/mul/spielwiese3/students/desinghs/models/gpt2_sft_output", device=device)
+    tokenizer, model = load_tokenizer_and_model("/mount/studenten-temp1/users/singhsk/thesis/thesis/gfn-lm-tuning/infill_subj_arithmetic/gpt2_large_sft_output", device=device)
 
     # --- Freeze the Inputs ---
     text = "The quick brown fox jumps over the lazy dog."

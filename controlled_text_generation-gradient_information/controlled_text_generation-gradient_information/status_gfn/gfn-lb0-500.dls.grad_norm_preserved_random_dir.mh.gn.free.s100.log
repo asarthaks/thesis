@@ -1,0 +1,12 @@
+wandb: [wandb.login()] Loaded credentials for https://api.wandb.ai from /home/users1/singhsk/.netrc.
+wandb: Currently logged in as: asarthaks (servermonk) to https://api.wandb.ai. Use `wandb login --relogin` to force relogin
+wandb: setting up run 0svpam16
+wandb: Tracking run with wandb version 0.27.2
+wandb: Run data is saved locally in /mount/studenten-temp1/users/singhsk/thesis/thesis/controlled_text_generation-gradient_information/controlled_text_generation-gradient_information/wandb/run-20260707_134657-0svpam16
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run gfn-lb0-500.dls.grad_norm_preserved_random_dir.mh.gn.free.s100
+wandb: ⭐️ View project at https://wandb.ai/servermonk/ctg-langevin-thesis
+wandb: 🚀 View run at https://wandb.ai/servermonk/ctg-langevin-thesis/runs/0svpam16
+[gfn-lb0-500.dls.grad_norm_preserved_random_dir.mh.gn.free.s100] loading /mount/studenten-temp1/users/singhsk/thesis/thesis/gfn-lm-tuning/infill_subj_arithmetic/gpt2_large_sft_output (float32) ...
+[gfn-lb0-500.dls.grad_norm_preserved_random_dir.mh.gn.free.s100]   + merging GFlowNet adapter /mount/studenten-temp1/users/singhsk/thesis/thesis/gfn-lm-tuning/infill_subj_arithmetic/outputs/2026-06-27/19-13-26/avid-leaf-24_490.pt
+[gfn-lb0-500.dls.grad_norm_preserved_random_dir.mh.gn.free.s100] 282 candidate sentences
