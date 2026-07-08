@@ -109,6 +109,15 @@ def jobs_for_model(model, args):
         out.append(make_cmd(model, "dls_traj_50", "dls", method, False, True, 50, False, args))
         out.append(make_cmd(model, "dls_traj_100", "dls", method, False, True, 100, False, args))
         out.append(make_cmd(model, "dls_oracle", "dls", method, False, True, 50, True, args))
+
+    # MAGNITUDE ABLATION: DLS with grad normalization OFF. This is the ONLY setting where
+    # grad_norm_preserved_random_dir (random direction, gradient's magnitude) differs from
+    # random (random direction, sqrt(D) magnitude). Under gn=on the two are identical by
+    # construction, so this isolates whether the gradient's magnitude carries any signal.
+    for method in METHODS:
+        out.append(make_cmd(model, "dls_gn_off", "dls", method, True, False, 50, False, args))
+        out.append(make_cmd(model, "dls_gn_off", "dls", method, False, False, 50, False, args))
+
     for method in ["policy", "random"]:
         for mh in [False, True]:
             out.append(make_cmd(model, "cls_gn_on", "cls", method, mh, True, 50, False, args))
