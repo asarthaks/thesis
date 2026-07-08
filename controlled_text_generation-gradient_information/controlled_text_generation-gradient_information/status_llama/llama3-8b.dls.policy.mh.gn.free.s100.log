@@ -1,0 +1,55 @@
+wandb: [wandb.login()] Loaded credentials for https://api.wandb.ai from /home/users1/singhsk/.netrc.
+wandb: Currently logged in as: asarthaks (servermonk) to https://api.wandb.ai. Use `wandb login --relogin` to force relogin
+wandb: Tracking run with wandb version 0.27.2
+wandb: Run data is saved locally in /mount/studenten-temp1/users/singhsk/thesis/thesis/controlled_text_generation-gradient_information/controlled_text_generation-gradient_information/wandb/run-20260707_185022-gzdqytz8
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run llama3-8b.dls.policy.mh.gn.free.s100
+wandb: ⭐️ View project at https://wandb.ai/servermonk/ctg-langevin-thesis
+wandb: 🚀 View run at https://wandb.ai/servermonk/ctg-langevin-thesis/runs/gzdqytz8
+[llama3-8b.dls.policy.mh.gn.free.s100] loading /mount/arbeitsdaten31/studenten1/singhsk/models/llama3-8b (float32) ...
+Special tokens have been added in the vocabulary, make sure the associated word embeddings are fine-tuned or trained.
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:05<00:16,  5.55s/it]Loading checkpoint shards:  50%|█████     | 2/4 [00:11<00:11,  5.68s/it]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:16<00:05,  5.60s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:18<00:00,  3.98s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:18<00:00,  4.58s/it]
+Downloading readme: 0.00B [00:00, ?B/s]Downloading readme: 10.5kB [00:00, 10.1MB/s]
+Downloading data:   0%|          | 0.00/733k [00:00<?, ?B/s]Downloading data: 100%|██████████| 733k/733k [00:00<00:00, 939kB/s]Downloading data: 100%|██████████| 733k/733k [00:00<00:00, 933kB/s]
+Downloading data:   0%|          | 0.00/6.36M [00:00<?, ?B/s]Downloading data: 100%|██████████| 6.36M/6.36M [00:00<00:00, 10.3MB/s]Downloading data: 100%|██████████| 6.36M/6.36M [00:00<00:00, 9.73MB/s]
+Downloading data:   0%|          | 0.00/657k [00:00<?, ?B/s]Downloading data: 100%|██████████| 657k/657k [00:00<00:00, 885kB/s]Downloading data: 100%|██████████| 657k/657k [00:00<00:00, 865kB/s]
+Generating test split:   0%|          | 0/4358 [00:00<?, ? examples/s]Generating test split: 100%|██████████| 4358/4358 [00:00<00:00, 251822.35 examples/s]
+Generating train split:   0%|          | 0/36718 [00:00<?, ? examples/s]Generating train split: 100%|██████████| 36718/36718 [00:00<00:00, 426287.12 examples/s]
+Generating validation split:   0%|          | 0/3760 [00:00<?, ? examples/s]Generating validation split: 100%|██████████| 3760/3760 [00:00<00:00, 272889.95 examples/s]
+[llama3-8b.dls.policy.mh.gn.free.s100] 282 candidate sentences
+[llama3-8b.dls.policy.mh.gn.free.s100] 25/200
+[llama3-8b.dls.policy.mh.gn.free.s100] 50/200
+[llama3-8b.dls.policy.mh.gn.free.s100] 75/200
+[llama3-8b.dls.policy.mh.gn.free.s100] 100/200
+[llama3-8b.dls.policy.mh.gn.free.s100] 125/200
+[llama3-8b.dls.policy.mh.gn.free.s100] 150/200
+[llama3-8b.dls.policy.mh.gn.free.s100] 175/200
+[llama3-8b.dls.policy.mh.gn.free.s100] 200/200
+[llama3-8b.dls.policy.mh.gn.free.s100] DONE  n=200  acc=0.00%  final_kl=3.863  final_l2=0.710  accept=12.6%
+[llama3-8b.dls.policy.mh.gn.free.s100] wrote results_llama/llama3-8b.dls.policy.mh.gn.free.s100.json
+[llama3-8b.dls.policy.mh.gn.free.s100] wrote results_llama/llama3-8b.dls.policy.mh.gn.free.s100.csv
+wandb: updating run metadata; uploading artifact run-gzdqytz8-examples
+wandb: uploading artifact run-gzdqytz8-examples
+wandb: uploading media/table/examples_100_03b873093283c9343fae.table.json; uploading output.log; uploading wandb-summary.json; uploading config.yaml
+wandb: 
+wandb: Run history:
+wandb: entropy ███████████████████████████████████████▁
+wandb:      kl █▇▄▅▃▃▃▃▃▃▂▂▂▂▂▂▂▂▂▁▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▁▂▂▂
+wandb:      l2 █▇▇▇▇▆▆▆▆▆▆▆▆▆▆▆▅▅▅▄▄▃▃▃▃▂▂▂▃▃▃▂▂▂▂▂▂▁▁▁
+wandb:    step ▁▁▁▂▂▂▂▂▃▃▃▃▃▃▃▄▄▄▄▄▅▅▅▅▅▆▆▆▆▆▇▇▇▇▇█████
+wandb: 
+wandb: Run summary:
+wandb:    accept_rate 12.61
+wandb:       accuracy 0
+wandb:        entropy 0.00818
+wandb:       final_kl 3.86346
+wandb:       final_l2 0.71032
+wandb:             kl 3.86346
+wandb:             l2 0.71032
+wandb: n_samples_used 200
+wandb:           step 99
+wandb: 
+wandb: 🚀 View run llama3-8b.dls.policy.mh.gn.free.s100 at: https://wandb.ai/servermonk/ctg-langevin-thesis/runs/gzdqytz8
+wandb: ⭐️ View project at: https://wandb.ai/servermonk/ctg-langevin-thesis
+wandb: Synced 5 W&B file(s), 1 media file(s), 2 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20260707_185022-gzdqytz8/logs

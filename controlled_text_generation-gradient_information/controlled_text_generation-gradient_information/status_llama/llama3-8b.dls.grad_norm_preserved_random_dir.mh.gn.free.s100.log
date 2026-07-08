@@ -1,0 +1,48 @@
+wandb: [wandb.login()] Loaded credentials for https://api.wandb.ai from /home/users1/singhsk/.netrc.
+wandb: Currently logged in as: asarthaks (servermonk) to https://api.wandb.ai. Use `wandb login --relogin` to force relogin
+wandb: Tracking run with wandb version 0.27.2
+wandb: Run data is saved locally in /mount/studenten-temp1/users/singhsk/thesis/thesis/controlled_text_generation-gradient_information/controlled_text_generation-gradient_information/wandb/run-20260707_212749-h42klnsd
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run llama3-8b.dls.grad_norm_preserved_random_dir.mh.gn.free.s100
+wandb: ⭐️ View project at https://wandb.ai/servermonk/ctg-langevin-thesis
+wandb: 🚀 View run at https://wandb.ai/servermonk/ctg-langevin-thesis/runs/h42klnsd
+[llama3-8b.dls.grad_norm_preserved_random_dir.mh.gn.free.s100] loading /mount/arbeitsdaten31/studenten1/singhsk/models/llama3-8b (float32) ...
+Special tokens have been added in the vocabulary, make sure the associated word embeddings are fine-tuned or trained.
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:00<00:02,  1.33it/s]Loading checkpoint shards:  50%|█████     | 2/4 [00:01<00:01,  1.30it/s]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:02<00:00,  1.33it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:02<00:00,  1.82it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:02<00:00,  1.60it/s]
+[llama3-8b.dls.grad_norm_preserved_random_dir.mh.gn.free.s100] 282 candidate sentences
+[llama3-8b.dls.grad_norm_preserved_random_dir.mh.gn.free.s100] 25/200
+[llama3-8b.dls.grad_norm_preserved_random_dir.mh.gn.free.s100] 50/200
+[llama3-8b.dls.grad_norm_preserved_random_dir.mh.gn.free.s100] 75/200
+[llama3-8b.dls.grad_norm_preserved_random_dir.mh.gn.free.s100] 100/200
+[llama3-8b.dls.grad_norm_preserved_random_dir.mh.gn.free.s100] 125/200
+[llama3-8b.dls.grad_norm_preserved_random_dir.mh.gn.free.s100] 150/200
+[llama3-8b.dls.grad_norm_preserved_random_dir.mh.gn.free.s100] 175/200
+[llama3-8b.dls.grad_norm_preserved_random_dir.mh.gn.free.s100] 200/200
+[llama3-8b.dls.grad_norm_preserved_random_dir.mh.gn.free.s100] DONE  n=200  acc=0.00%  final_kl=3.757  final_l2=0.694  accept=12.5%
+[llama3-8b.dls.grad_norm_preserved_random_dir.mh.gn.free.s100] wrote results_llama/llama3-8b.dls.grad_norm_preserved_random_dir.mh.gn.free.s100.json
+[llama3-8b.dls.grad_norm_preserved_random_dir.mh.gn.free.s100] wrote results_llama/llama3-8b.dls.grad_norm_preserved_random_dir.mh.gn.free.s100.csv
+wandb: updating run metadata; uploading artifact run-h42klnsd-examples
+wandb: uploading artifact run-h42klnsd-examples
+wandb: uploading config.yaml; uploading media/table/examples_100_9062dac1c7c153d188f0.table.json; uploading output.log
+wandb: 
+wandb: Run history:
+wandb: entropy ███████████████████████████████████████▁
+wandb:      kl █▇▆▆▅▅▄▄▄▄▄▄▄▄▄▄▄▃▃▃▃▂▂▂▂▁▁▁▁▁▁▁▁▁▁▂▂▂▂▂
+wandb:      l2 █▇█▇▇▇▇▆▅▅▅▅▅▅▅▅▅▄▄▄▄▄▄▄▄▄▄▄▄▄▃▃▃▃▃▂▂▁▁▁
+wandb:    step ▁▁▁▁▂▂▂▂▂▂▃▃▃▃▃▃▃▃▄▄▅▅▅▅▅▆▆▆▆▆▇▇▇▇▇▇▇▇▇█
+wandb: 
+wandb: Run summary:
+wandb:    accept_rate 12.535
+wandb:       accuracy 0
+wandb:        entropy 0.02532
+wandb:       final_kl 3.75672
+wandb:       final_l2 0.69413
+wandb:             kl 3.75672
+wandb:             l2 0.69413
+wandb: n_samples_used 200
+wandb:           step 99
+wandb: 
+wandb: 🚀 View run llama3-8b.dls.grad_norm_preserved_random_dir.mh.gn.free.s100 at: https://wandb.ai/servermonk/ctg-langevin-thesis/runs/h42klnsd
+wandb: ⭐️ View project at: https://wandb.ai/servermonk/ctg-langevin-thesis
+wandb: Synced 5 W&B file(s), 1 media file(s), 2 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20260707_212749-h42klnsd/logs

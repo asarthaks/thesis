@@ -98,7 +98,7 @@ def prepare_dataset(filename, config):
     return traj_df, summary_df
 
 
-def plot_graphs(traj_df, summary_df, config, save_prefix=None):
+def plot_graphs(traj_df, summary_df, config, save_prefix=None, markers=False):
     # Set visual style
     sns.set_theme(style="whitegrid", context="paper", font_scale=1.2)
     palette = sns.color_palette("deep", len(traj_df['Method'].unique()))
@@ -130,6 +130,26 @@ def plot_graphs(traj_df, summary_df, config, save_prefix=None):
         axes1[2].text(0.5, 0.5, 'Entropy data not tracked\nin Single-token runs',
                       ha='center', va='center', color='gray')
         axes1[2].set_title("Prediction Uncertainty (Entropy)")
+
+    # Optional: sparse per-method markers so trajectories that coincide (e.g. the three
+    # methods under grad normalization, which is the gradient-fallacy result) are still
+    # visually distinguishable. Off by default so the plot stays identical to the notebook
+    # for old-vs-new comparisons.
+    if markers:
+        method_marker = {}
+        for mth, mk in zip(sorted(traj_df['Method'].unique()), ["o", "s", "^", "D", "v"]):
+            method_marker[mth] = mk
+        panels = [(axes1[0], "L2 Distance"), (axes1[1], "KL Divergence")]
+        if not traj_df['Entropy'].isna().all():
+            panels.append((axes1[2], "Entropy"))
+        for ax, col in panels:
+            for j, (mth, mk) in enumerate(method_marker.items()):
+                sub = traj_df[(traj_df["Method"] == mth) & (traj_df["Sampling"] == "With MH")]
+                if sub.empty:
+                    continue
+                g = sub.groupby("Step")[col].mean().reset_index()
+                g = g[g["Step"] % 4 == 0]
+                ax.plot(g["Step"], g[col], mk, ms=6, color=palette[j], alpha=0.9, zorder=5)
 
     axes1[0].get_legend().remove()
     axes1[1].get_legend().remove()

@@ -11,3 +11,39 @@ wandb: 🚀 View run at https://wandb.ai/servermonk/ctg-langevin-thesis/runs/ykk
 [gfn-lb0-500.cls.random.mh.nogn.free.s50]   + merging GFlowNet adapter /mount/studenten-temp1/users/singhsk/thesis/thesis/gfn-lm-tuning/infill_subj_arithmetic/outputs/2026-06-27/19-13-26/avid-leaf-24_490.pt
 [gfn-lb0-500.cls.random.mh.nogn.free.s50] 282 candidate sentences
 [gfn-lb0-500.cls.random.mh.nogn.free.s50] 25/200
+[gfn-lb0-500.cls.random.mh.nogn.free.s50] 50/200
+[gfn-lb0-500.cls.random.mh.nogn.free.s50] 75/200
+[gfn-lb0-500.cls.random.mh.nogn.free.s50] 100/200
+[gfn-lb0-500.cls.random.mh.nogn.free.s50] 125/200
+[gfn-lb0-500.cls.random.mh.nogn.free.s50] 150/200
+[gfn-lb0-500.cls.random.mh.nogn.free.s50] 175/200
+[gfn-lb0-500.cls.random.mh.nogn.free.s50] 200/200
+[gfn-lb0-500.cls.random.mh.nogn.free.s50] DONE  n=200  acc=0.00%  final_kl=8.537  final_l2=2.617  accept=13.7%
+[gfn-lb0-500.cls.random.mh.nogn.free.s50] wrote results_gfn/gfn-lb0-500.cls.random.mh.nogn.free.s50.json
+[gfn-lb0-500.cls.random.mh.nogn.free.s50] wrote results_gfn/gfn-lb0-500.cls.random.mh.nogn.free.s50.csv
+wandb: uploading artifact run-ykkf8tdz-examples; updating run metadata
+wandb: uploading artifact run-ykkf8tdz-examples
+wandb: uploading artifact run-ykkf8tdz-examples; uploading media/table/examples_50_4b8b0888e876ddd5d3ce.table.json; uploading output.log; uploading wandb-summary.json; uploading config.yaml
+wandb: uploading artifact run-ykkf8tdz-examples
+wandb: 
+wandb: Run history:
+wandb: entropy ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb:      kl ▂▇▄▃▃▄▂▃▁▂▁▂▂▂▃▆▄▅▆█▇▇▅▇▇▆▄▆▅▅▆▅▇▆▆▆▆▇▇▇
+wandb:      l2 ▃▅▇███▇▆▇█▇▇▆▆▆▅▆▅▄▄▄▄▃▄▃▂▂▂▂▂▂▂▂▁▁▁▂▂▂▂
+wandb:    step ▁▁▁▁▂▂▂▂▂▂▃▃▃▃▃▄▄▄▄▄▅▅▅▅▅▆▆▆▆▆▆▇▇▇▇▇▇███
+wandb: 
+wandb: Run summary:
+wandb:    accept_rate 13.73
+wandb:       accuracy 0
+wandb:        entropy 0
+wandb:       final_kl 8.53703
+wandb:       final_l2 2.61688
+wandb:             kl 8.53703
+wandb:             l2 2.61688
+wandb: n_samples_used 200
+wandb:           step 49
+wandb: 
+wandb: 🚀 View run gfn-lb0-500.cls.random.mh.nogn.free.s50 at: https://wandb.ai/servermonk/ctg-langevin-thesis/runs/ykkf8tdz
+wandb: ⭐️ View project at: https://wandb.ai/servermonk/ctg-langevin-thesis
+wandb: Synced 5 W&B file(s), 1 media file(s), 2 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20260707_134657-ykkf8tdz/logs

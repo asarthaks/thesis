@@ -12,3 +12,38 @@ wandb: 🚀 View run at https://wandb.ai/servermonk/ctg-langevin-thesis/runs/z6t
 [gfn-lb0-500.dls.grad_norm_preserved_random_dir.nomh.gn.free.s50] 282 candidate sentences
 [gfn-lb0-500.dls.grad_norm_preserved_random_dir.nomh.gn.free.s50] 25/200
 [gfn-lb0-500.dls.grad_norm_preserved_random_dir.nomh.gn.free.s50] 50/200
+[gfn-lb0-500.dls.grad_norm_preserved_random_dir.nomh.gn.free.s50] 75/200
+[gfn-lb0-500.dls.grad_norm_preserved_random_dir.nomh.gn.free.s50] 100/200
+[gfn-lb0-500.dls.grad_norm_preserved_random_dir.nomh.gn.free.s50] 125/200
+[gfn-lb0-500.dls.grad_norm_preserved_random_dir.nomh.gn.free.s50] 150/200
+[gfn-lb0-500.dls.grad_norm_preserved_random_dir.nomh.gn.free.s50] 175/200
+[gfn-lb0-500.dls.grad_norm_preserved_random_dir.nomh.gn.free.s50] 200/200
+[gfn-lb0-500.dls.grad_norm_preserved_random_dir.nomh.gn.free.s50] DONE  n=200  acc=0.00%  final_kl=8.854  final_l2=2.399  accept=nan%
+[gfn-lb0-500.dls.grad_norm_preserved_random_dir.nomh.gn.free.s50] wrote results_gfn/gfn-lb0-500.dls.grad_norm_preserved_random_dir.nomh.gn.free.s50.json
+[gfn-lb0-500.dls.grad_norm_preserved_random_dir.nomh.gn.free.s50] wrote results_gfn/gfn-lb0-500.dls.grad_norm_preserved_random_dir.nomh.gn.free.s50.csv
+wandb: updating run metadata; uploading artifact run-z6tt3964-examples
+wandb: uploading artifact run-z6tt3964-examples
+wandb: uploading artifact run-z6tt3964-examples; uploading history steps 0-50, summary, console lines 10-13
+wandb: uploading media/table/examples_50_665c7bb7115d0b9968b1.table.json; uploading output.log; uploading wandb-summary.json; uploading config.yaml
+wandb: uploading data
+wandb: 
+wandb: Run history:
+wandb: entropy ███████████████████████████████████████▁
+wandb:      kl ▆▆▆▆█▆▇▅▆▄▅▄▃▆▇▅▄▃▆▆▆▄▁▅▄▅█▆▆▇▄▄▂▅▃▅▄▅▂▅
+wandb:      l2 ▆▇▅▆▇▆▆▇▇▇█▆▆▇▆▇▆▆▇▇▆▅▆▆▆▆█▇▅▆▇▇▆▆▅▅▅▅▆▁
+wandb:    step ▁▁▁▁▂▂▂▂▂▂▃▃▃▃▃▄▄▄▄▄▅▅▅▅▅▆▆▆▆▆▆▇▇▇▇▇▇███
+wandb: 
+wandb: Run summary:
+wandb:       accuracy 0
+wandb:        entropy 10.25329
+wandb:       final_kl 8.85395
+wandb:       final_l2 2.39919
+wandb:             kl 8.85395
+wandb:             l2 2.39919
+wandb: n_samples_used 200
+wandb:           step 49
+wandb: 
+wandb: 🚀 View run gfn-lb0-500.dls.grad_norm_preserved_random_dir.nomh.gn.free.s50 at: https://wandb.ai/servermonk/ctg-langevin-thesis/runs/z6tt3964
+wandb: ⭐️ View project at: https://wandb.ai/servermonk/ctg-langevin-thesis
+wandb: Synced 5 W&B file(s), 1 media file(s), 2 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20260707_134656-z6tt3964/logs

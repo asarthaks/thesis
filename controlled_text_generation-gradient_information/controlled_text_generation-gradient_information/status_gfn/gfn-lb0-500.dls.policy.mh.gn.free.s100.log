@@ -9,3 +9,39 @@ wandb: 🚀 View run at https://wandb.ai/servermonk/ctg-langevin-thesis/runs/50f
 [gfn-lb0-500.dls.policy.mh.gn.free.s100] loading /mount/studenten-temp1/users/singhsk/thesis/thesis/gfn-lm-tuning/infill_subj_arithmetic/gpt2_large_sft_output (float32) ...
 [gfn-lb0-500.dls.policy.mh.gn.free.s100]   + merging GFlowNet adapter /mount/studenten-temp1/users/singhsk/thesis/thesis/gfn-lm-tuning/infill_subj_arithmetic/outputs/2026-06-27/19-13-26/avid-leaf-24_490.pt
 [gfn-lb0-500.dls.policy.mh.gn.free.s100] 282 candidate sentences
+[gfn-lb0-500.dls.policy.mh.gn.free.s100] 25/200
+[gfn-lb0-500.dls.policy.mh.gn.free.s100] 50/200
+[gfn-lb0-500.dls.policy.mh.gn.free.s100] 75/200
+[gfn-lb0-500.dls.policy.mh.gn.free.s100] 100/200
+[gfn-lb0-500.dls.policy.mh.gn.free.s100] 125/200
+[gfn-lb0-500.dls.policy.mh.gn.free.s100] 150/200
+[gfn-lb0-500.dls.policy.mh.gn.free.s100] 175/200
+[gfn-lb0-500.dls.policy.mh.gn.free.s100] 200/200
+[gfn-lb0-500.dls.policy.mh.gn.free.s100] DONE  n=200  acc=0.00%  final_kl=5.846  final_l2=2.321  accept=6.2%
+[gfn-lb0-500.dls.policy.mh.gn.free.s100] wrote results_gfn/gfn-lb0-500.dls.policy.mh.gn.free.s100.json
+[gfn-lb0-500.dls.policy.mh.gn.free.s100] wrote results_gfn/gfn-lb0-500.dls.policy.mh.gn.free.s100.csv
+wandb: updating run metadata; uploading artifact run-50fjowvz-examples
+wandb: uploading artifact run-50fjowvz-examples
+wandb: uploading history steps 0-100, summary, console lines 10-13
+wandb: 
+wandb: Run history:
+wandb: entropy █████████████████████████████████▇▇▇▆▅▄▁
+wandb:      kl █▆▆▄▄▄▄▄▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▂▂▂▂▂▂▂▂▁▁▁
+wandb:      l2 ███▇▇▆▆▆▅▅▅▅▅▅▅▅▅▅▅▄▄▄▄▃▄▃▃▃▃▃▃▃▃▃▃▃▂▂▂▁
+wandb:    step ▁▁▁▂▂▂▃▃▃▃▃▃▃▃▃▄▄▄▄▅▅▅▅▅▅▅▆▆▆▆▇▇▇▇▇▇▇███
+wandb: 
+wandb: Run summary:
+wandb:    accept_rate 6.165
+wandb:       accuracy 0
+wandb:        entropy 10.25864
+wandb:       final_kl 5.8455
+wandb:       final_l2 2.32101
+wandb:             kl 5.8455
+wandb:             l2 2.32101
+wandb: n_samples_used 200
+wandb:           step 99
+wandb: 
+wandb: 🚀 View run gfn-lb0-500.dls.policy.mh.gn.free.s100 at: https://wandb.ai/servermonk/ctg-langevin-thesis/runs/50fjowvz
+wandb: ⭐️ View project at: https://wandb.ai/servermonk/ctg-langevin-thesis
+wandb: Synced 5 W&B file(s), 1 media file(s), 2 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20260707_134657-50fjowvz/logs

@@ -115,10 +115,10 @@ def find_old_csv(old_dir, key):
     return (non_peft or cands)[0]
 
 
-def render(csv_path, config, save_prefix):
+def render(csv_path, config, save_prefix, markers=False):
     try:
         traj_df, summary_df = prepare_dataset(csv_path, config)
-        plot_graphs(traj_df, summary_df, config, save_prefix=save_prefix)
+        plot_graphs(traj_df, summary_df, config, save_prefix=save_prefix, markers=markers)
         return True
     except Exception as e:
         print(f"  could not render {csv_path}: {e}")
@@ -130,6 +130,10 @@ def main():
     ap.add_argument("--new_dir", required=True, help="dir of per-run CSVs from run_experiment.py")
     ap.add_argument("--old_dir", default=None, help="dir of original legacy CSVs (optional, for comparison)")
     ap.add_argument("--out_dir", default="figures")
+    ap.add_argument("--markers", action="store_true",
+                    help="overlay sparse per-method markers so coincident trajectory lines "
+                         "(the three methods under grad-norm) stay distinguishable. Off by default "
+                         "so figures match the notebook exactly for old-vs-new comparison.")
     args = ap.parse_args()
 
     os.makedirs(args.out_dir, exist_ok=True)
@@ -169,13 +173,14 @@ def main():
                              f"{gn_flag}_{orc_flag}_model_{key[0]}.csv")
             combined_path = os.path.join(combined_dir, combined_name)
             combined.to_csv(combined_path, index=False)
-            render(combined_path, cfg, os.path.join(args.out_dir, f"{label}_new"))
+            render(combined_path, cfg, os.path.join(args.out_dir, f"{label}_new"), markers=args.markers)
         else:
             # build the notebook dataframes straight from the JSON mean curves.
             try:
                 traj_df, summary_df = build_from_json(files["json"], cfg)
                 plot_graphs(traj_df, summary_df, cfg,
-                            save_prefix=os.path.join(args.out_dir, f"{label}_new"))
+                            save_prefix=os.path.join(args.out_dir, f"{label}_new"),
+                            markers=args.markers)
             except Exception as e:
                 print(f"  could not render from json: {e}")
 

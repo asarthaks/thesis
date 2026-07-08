@@ -12,3 +12,36 @@ wandb: 🚀 View run at https://wandb.ai/servermonk/ctg-langevin-thesis-detailed
 [gpt2-large.dls.policy.mh.gn.free.s100] 50/200
 [gpt2-large.dls.policy.mh.gn.free.s100] 75/200
 [gpt2-large.dls.policy.mh.gn.free.s100] 100/200
+[gpt2-large.dls.policy.mh.gn.free.s100] 125/200
+[gpt2-large.dls.policy.mh.gn.free.s100] 150/200
+[gpt2-large.dls.policy.mh.gn.free.s100] 175/200
+[gpt2-large.dls.policy.mh.gn.free.s100] 200/200
+[gpt2-large.dls.policy.mh.gn.free.s100] DONE  n=200  acc=0.00%  final_kl=6.086  final_l2=2.376  accept=6.2%
+[gpt2-large.dls.policy.mh.gn.free.s100] wrote results_gpt2_v2/gpt2-large.dls.policy.mh.gn.free.s100.json
+[gpt2-large.dls.policy.mh.gn.free.s100] wrote results_gpt2_v2/gpt2-large.dls.policy.mh.gn.free.s100.csv
+wandb: updating run metadata; uploading artifact run-by0dxhi4-examples
+wandb: uploading artifact run-by0dxhi4-examples; uploading history steps 0-100, summary, console lines 9-12
+wandb: uploading artifact run-by0dxhi4-examples
+wandb: uploading config.yaml; uploading output.log; uploading wandb-summary.json
+wandb: 
+wandb: Run history:
+wandb: entropy ███████████████████████████████████████▁
+wandb:      kl ██▇▇▆▆▆▆▅▅▄▄▄▄▄▄▃▃▃▃▃▃▃▃▃▄▄▃▃▃▃▃▂▂▂▂▁▁▁▁
+wandb:      l2 █▇▇▆▆▅▅▅▄▄▄▄▄▃▄▄▄▄▄▄▃▃▃▃▂▂▂▂▂▂▁▁▁▁▁▁▁▁▁▁
+wandb:    step ▁▁▁▁▁▂▂▂▂▂▃▃▃▃▃▃▄▄▅▅▅▅▅▅▅▅▆▆▆▆▇▇▇▇▇█████
+wandb: 
+wandb: Run summary:
+wandb:    accept_rate 6.25
+wandb:       accuracy 0
+wandb:        entropy 10.22927
+wandb:       final_kl 6.08619
+wandb:       final_l2 2.37562
+wandb:             kl 6.08619
+wandb:             l2 2.37562
+wandb: n_samples_used 200
+wandb:           step 99
+wandb: 
+wandb: 🚀 View run gpt2-large.dls.policy.mh.gn.free.s100 at: https://wandb.ai/servermonk/ctg-langevin-thesis-detailed/runs/by0dxhi4
+wandb: ⭐️ View project at: https://wandb.ai/servermonk/ctg-langevin-thesis-detailed
+wandb: Synced 5 W&B file(s), 1 media file(s), 2 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20260707_131156-by0dxhi4/logs

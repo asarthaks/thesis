@@ -34,8 +34,8 @@ MODELS = {
         dtype="float32", eps_start=10.5, eps_end=0.1, vram=6,
     ),
     "llama3-8b": dict(
-        path="meta-llama/Meta-Llama-3-8B",   # or your local path
-        dtype="float32", eps_start=0.5, eps_end=0.01, vram=40,   # <-- CONFIRM eps vs thesis
+        path="/mount/arbeitsdaten31/studenten1/singhsk/models/llama3-8b",   # or your local path
+        dtype="float32", eps_start=0.1, eps_end=0.001, vram=40,   # <-- CONFIRM eps vs thesis
     ),
 
     # GFlowNet variants: the SFT GPT-2 Large base with a LoRA adapter merged on top.
