@@ -87,7 +87,7 @@ def config_for(key):
     return {
         "method": "CLS" if sampler == "cls" else "DLS",
         "tokens_masked": "multi",
-        "peft": "off",
+        "peft": model if "gfn" in model else "OFF",
         "oracle": "on" if oracle == "oracle" else "off",
         "gradient_normalization": "on" if gn == "gn" else "off",
     }
