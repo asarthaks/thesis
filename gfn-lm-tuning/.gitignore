@@ -9,3 +9,6 @@ models/
 *.bin
 *.safetensors
 .vscode/*
+.hf_cache/
+.pip-cache/
+.wandb_cache/

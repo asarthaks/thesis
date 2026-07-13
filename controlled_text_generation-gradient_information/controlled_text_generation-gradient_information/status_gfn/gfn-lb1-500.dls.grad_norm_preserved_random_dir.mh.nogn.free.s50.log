@@ -1,0 +1,47 @@
+wandb: [wandb.login()] Loaded credentials for https://api.wandb.ai from /home/users1/singhsk/.netrc.
+wandb: W&B API key is configured. Use `wandb login --relogin` to force relogin
+wandb: Tracking run with wandb version 0.27.2
+wandb: Run data is saved locally in /mount/studenten-temp1/users/singhsk/thesis/thesis/controlled_text_generation-gradient_information/controlled_text_generation-gradient_information/wandb/run-20260712_175030-t5pn7pw8
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run gfn-lb1-500.dls.grad_norm_preserved_random_dir.mh.nogn.free.s50
+wandb: ⭐️ View project at https://wandb.ai/servermonk/ctg-langevin-thesis
+wandb: 🚀 View run at https://wandb.ai/servermonk/ctg-langevin-thesis/runs/t5pn7pw8
+[gfn-lb1-500.dls.grad_norm_preserved_random_dir.mh.nogn.free.s50] loading /mount/studenten-temp1/users/singhsk/thesis/thesis/gfn-lm-tuning/infill_subj_arithmetic/gpt2_large_sft_output (float32) ...
+[gfn-lb1-500.dls.grad_norm_preserved_random_dir.mh.nogn.free.s50]   + merging GFlowNet adapter /mount/studenten-temp1/users/singhsk/thesis/thesis/gfn-lm-tuning/infill_subj_arithmetic/outputs/2026-06-27/19-13-08/dutiful-durian-23_490.pt
+[gfn-lb1-500.dls.grad_norm_preserved_random_dir.mh.nogn.free.s50] 282 candidate sentences
+[gfn-lb1-500.dls.grad_norm_preserved_random_dir.mh.nogn.free.s50] 25/200
+[gfn-lb1-500.dls.grad_norm_preserved_random_dir.mh.nogn.free.s50] 50/200
+[gfn-lb1-500.dls.grad_norm_preserved_random_dir.mh.nogn.free.s50] 75/200
+[gfn-lb1-500.dls.grad_norm_preserved_random_dir.mh.nogn.free.s50] 100/200
+[gfn-lb1-500.dls.grad_norm_preserved_random_dir.mh.nogn.free.s50] 125/200
+[gfn-lb1-500.dls.grad_norm_preserved_random_dir.mh.nogn.free.s50] 150/200
+[gfn-lb1-500.dls.grad_norm_preserved_random_dir.mh.nogn.free.s50] 175/200
+[gfn-lb1-500.dls.grad_norm_preserved_random_dir.mh.nogn.free.s50] 200/200
+[gfn-lb1-500.dls.grad_norm_preserved_random_dir.mh.nogn.free.s50] DONE  n=200  acc=0.00%  final_kl=5.338  final_l2=2.417  accept=10.5%
+[gfn-lb1-500.dls.grad_norm_preserved_random_dir.mh.nogn.free.s50] wrote results_gfn/gfn-lb1-500.dls.grad_norm_preserved_random_dir.mh.nogn.free.s50.json
+[gfn-lb1-500.dls.grad_norm_preserved_random_dir.mh.nogn.free.s50] wrote results_gfn/gfn-lb1-500.dls.grad_norm_preserved_random_dir.mh.nogn.free.s50.csv
+wandb: updating run metadata; uploading artifact run-t5pn7pw8-examples
+wandb: uploading artifact run-t5pn7pw8-examples
+wandb: uploading wandb-summary.json; uploading config.yaml; uploading media/table/examples_50_89f53a098dccd5b5a9f5.table.json; uploading output.log
+wandb: 
+wandb: Run history:
+wandb: entropy ▆▇▇▇▇▇▇▇▇▇▇▇▇█▇▇▇▇▇▇█▇█████████████████▁
+wandb:      kl ▇▅▇█▆▆▆▆▆▆▆▅▆▆▄▅▄▅▅▄▅▅▄▅▄▃▃▂▂▂▂▂▂▂▂▃▂▂▂▁
+wandb:      l2 ▇██▆▆▆▅▄▅▅▃▃▃▄▃▄▅▅▄▄▄▄▄▄▄▄▄▃▄▃▃▂▂▂▂▂▂▂▂▁
+wandb:    step ▁▁▁▁▂▂▂▂▂▂▃▃▃▃▃▄▄▄▄▄▄▅▅▅▅▆▆▆▆▆▆▇▇▇▇▇▇███
+wandb: 
+wandb: Run summary:
+wandb:    accept_rate 10.5
+wandb:       accuracy 0
+wandb:        entropy 10.22535
+wandb:       final_kl 5.33782
+wandb:       final_l2 2.41683
+wandb:             kl 5.33782
+wandb:             l2 2.41683
+wandb: n_samples_used 200
+wandb:           step 49
+wandb: 
+wandb: 🚀 View run gfn-lb1-500.dls.grad_norm_preserved_random_dir.mh.nogn.free.s50 at: https://wandb.ai/servermonk/ctg-langevin-thesis/runs/t5pn7pw8
+wandb: ⭐️ View project at: https://wandb.ai/servermonk/ctg-langevin-thesis
+wandb: Synced 5 W&B file(s), 1 media file(s), 2 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20260712_175030-t5pn7pw8/logs
