@@ -1,0 +1,10 @@
+wandb: [wandb.login()] Loaded credentials for https://api.wandb.ai from /home/users1/singhsk/.netrc.
+wandb: Currently logged in as: asarthaks (servermonk) to https://api.wandb.ai. Use `wandb login --relogin` to force relogin
+wandb: setting up run pothsksp
+wandb: Tracking run with wandb version 0.27.2
+wandb: Run data is saved locally in /mount/studenten-temp1/users/singhsk/thesis/thesis/controlled_text_generation-gradient_information/controlled_text_generation-gradient_information/wandb/run-20260714_072112-pothsksp
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run gpt2-large.continuation.mucola.cls.init-centroid.cons_random.lbl1
+wandb: ⭐️ View project at https://wandb.ai/servermonk/ctg-langevin-thesis
+wandb: 🚀 View run at https://wandb.ai/servermonk/ctg-langevin-thesis/runs/pothsksp
+[gpt2-large.continuation.mucola.cls.init-centroid.cons_random.lbl1] task=continuation setup=mucola arm=cons_random steps=300 eps=5.0->0.05 mh=False gn=False | 150 cases

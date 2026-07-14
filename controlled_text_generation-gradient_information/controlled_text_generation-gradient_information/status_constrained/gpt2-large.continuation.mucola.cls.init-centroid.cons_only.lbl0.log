@@ -1,0 +1,40 @@
+wandb: [wandb.login()] Loaded credentials for https://api.wandb.ai from /home/users1/singhsk/.netrc.
+wandb: Currently logged in as: asarthaks (servermonk) to https://api.wandb.ai. Use `wandb login --relogin` to force relogin
+wandb: setting up run 8ed8jf88
+wandb: Tracking run with wandb version 0.27.2
+wandb: Run data is saved locally in /mount/studenten-temp1/users/singhsk/thesis/thesis/controlled_text_generation-gradient_information/controlled_text_generation-gradient_information/wandb/run-20260713_223214-8ed8jf88
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run gpt2-large.continuation.mucola.cls.init-centroid.cons_only.lbl0
+wandb: ⭐️ View project at https://wandb.ai/servermonk/ctg-langevin-thesis
+wandb: 🚀 View run at https://wandb.ai/servermonk/ctg-langevin-thesis/runs/8ed8jf88
+[gpt2-large.continuation.mucola.cls.init-centroid.cons_only.lbl0] task=continuation setup=mucola arm=cons_only steps=300 eps=5.0->0.05 mh=False gn=False | 150 cases
+[gpt2-large.continuation.mucola.cls.init-centroid.cons_only.lbl0] 20/150 sent_acc=90.0%
+[gpt2-large.continuation.mucola.cls.init-centroid.cons_only.lbl0] 40/150 sent_acc=90.0%
+[gpt2-large.continuation.mucola.cls.init-centroid.cons_only.lbl0] 60/150 sent_acc=91.7%
+[gpt2-large.continuation.mucola.cls.init-centroid.cons_only.lbl0] 80/150 sent_acc=93.8%
+[gpt2-large.continuation.mucola.cls.init-centroid.cons_only.lbl0] 100/150 sent_acc=93.0%
+[gpt2-large.continuation.mucola.cls.init-centroid.cons_only.lbl0] 120/150 sent_acc=93.3%
+[gpt2-large.continuation.mucola.cls.init-centroid.cons_only.lbl0] 140/150 sent_acc=92.1%
+wandb: updating run metadata; uploading artifact run-8ed8jf88-examples
+wandb: uploading artifact run-8ed8jf88-examples
+wandb: uploading wandb-summary.json; uploading config.yaml; uploading media/table/examples_0_33b2407ba7ffd479a812.table.json
+wandb: uploading history steps 0-0, summary
+wandb: 
+wandb: Run summary:
+wandb:             final_kl 9.4294
+wandb:                    n 150
+wandb:        sentiment_acc 92.66667
+wandb: sentiment_acc_before 13.33333
+wandb:        steering_gain 79.33333
+wandb: 
+wandb: 🚀 View run gpt2-large.continuation.mucola.cls.init-centroid.cons_only.lbl0 at: https://wandb.ai/servermonk/ctg-langevin-thesis/runs/8ed8jf88
+wandb: ⭐️ View project at: https://wandb.ai/servermonk/ctg-langevin-thesis
+wandb: Synced 5 W&B file(s), 1 media file(s), 2 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20260713_223214-8ed8jf88/logs
+
+[gpt2-large.continuation.mucola.cls.init-centroid.cons_only.lbl0] DONE  n=150
+  sentiment BEFORE : 13.3%
+  sentiment AFTER  : 92.7%
+  STEERING GAIN    : +79.3 points
+  final KL         : 9.429
+  wrote results_constrained/gpt2-large.continuation.mucola.cls.init-centroid.cons_only.lbl0.json

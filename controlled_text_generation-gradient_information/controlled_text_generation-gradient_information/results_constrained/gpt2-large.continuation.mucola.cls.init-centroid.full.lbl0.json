@@ -1,0 +1,98 @@
+{
+  "run_name": "gpt2-large.continuation.mucola.cls.init-centroid.full.lbl0",
+  "config": {
+    "model_path": "/mount/studenten-temp1/users/singhsk/thesis/thesis/gfn-lm-tuning/infill_subj_arithmetic/gpt2_large_sft_output",
+    "model_tag": "gpt2-large",
+    "head": "/mount/arbeitsdaten/studenten1/singhsk/models/sentiment_constrained_ft_gpt2_large/sentiment_head.pt",
+    "task": "continuation",
+    "setup": "mucola",
+    "constraint_mode": "full",
+    "sampler": "cls",
+    "init": "centroid",
+    "target_label": 0,
+    "samples_per_prompt": 10,
+    "num_masks": 8,
+    "n_samples": 100,
+    "temperature": 5.0,
+    "noise_scale": 0.01,
+    "data_seed": 0,
+    "out_dir": "results_constrained",
+    "wandb_project": "ctg-langevin-thesis",
+    "no_wandb": false,
+    "steps": 300,
+    "span_len": 20,
+    "eps_start": 5.0,
+    "eps_end": 0.05,
+    "beta_lm": 0.8,
+    "beta_c": 0.2,
+    "mh": false,
+    "grad_norm": false
+  },
+  "n": 150,
+  "sentiment_acc_before": 13.333333333333334,
+  "sentiment_acc": 49.333333333333336,
+  "steering_gain": 36.0,
+  "final_kl": 11.297127723693848,
+  "examples": [
+    [
+      "Once upon a time",
+      "Once upon a time'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm",
+      "Once upon a time mL\ufffd\u00c3\u00c2\u00c3\u00c2\u00c3\u00c2\u00c3\u00c2\u00c3\u00c2\u00c3\u00c2\u00c3\u00c2\u00c3\u00c2\u00c3\u00c2\u00c3\u00c2\u00c3\u00c2\u00c3\u00c2\u00c3\u00c2\u00c3\u00c2\u00c3\u00c2\u00c3\u00c2\u00c3\u00c2\u00c3\u00c2\u00c3\u00c2\u00c3\u00c2\u00c3\u00c2\u00c3\u00c2\u00c3\u00c2\u00c3\u00c2im\ufffd\u00c3\u00c2\u00c3\u00c2\ufffd\u00c3\u00c2\u00c3\u00c2ortunatelySony, rhyt"
+    ],
+    [
+      "Once upon a time",
+      "Once upon a time'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm",
+      "Once upon a time melee CONT Conj figur Stacy Pesh externalTo JasperStreamerBotActionCodeItemTracker "
+    ],
+    [
+      "Once upon a time",
+      "Once upon a time'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm",
+      "Once upon a time GrayOrderable Cobra Straw\ufffdDeliveryDate Va\ufffd\ufffdNitrome\ufffdDeliveryDate\ufffd\ufffdActionCode\u00c3\u00c2\u00c3\u00c2\u00c3\u00c2\u00c3\u00c2"
+    ],
+    [
+      "Once upon a time",
+      "Once upon a time'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm",
+      "Once upon a time maturityocard 19minghamigan pione Sphere Obj TurkathVertThumbnailImage============="
+    ],
+    [
+      "Once upon a time",
+      "Once upon a time'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm",
+      "Once upon a time perfoph\u25cfasy\ufffdActionCode:: Proto Rutgers\ufffd\u001c\ufffd\ufffd\ufffd\ufffdThumbnailImage Maxwell\ufffd\u001e abolish"
+    ],
+    [
+      "Once upon a time",
+      "Once upon a time'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm",
+      "Once upon a time\ufffd\u00c3\u00c2\u00c3\u00c2\u00c3\u00c2\u00c3\u00c2\u00c3\u00c2\u00c3\u00c2\u00c3\u00c2\u00c3\u00c2\u00c3\u00c2\u00c3\u00c2\u00c3\u00c2\u00c3\u00c2\u00c3\u00c2\u00c3\u00c2\u00c3\u00c2\u00c3\u00c2ichDER\ufffd antidepressjriwal\ufffd\u00c3\u00c2\u00c3\u00c2\u00c3\u00c2\u00c3\u00c2\u00c3\u00c2\u00c3\u00c2\u00c3\u00c2\u00c3\u00c2 antidepr"
+    ],
+    [
+      "Once upon a time",
+      "Once upon a time'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm",
+      "Once upon a timeoreAndOnline\u0002\u0016\ufffd\ufffdicer aggressively\ufffd\ufffd Matthews\ufffd\ufffd\ufffd\u00c3\u00c2\u00c3\u00c2\u00c3\u00c2\u00c3\u00c2\u00c3\u00c2\u00c3\u00c2\u00c3\u00c2\u00c3\u00c2ThumbnailImage\ufffdDelive"
+    ],
+    [
+      "Once upon a time",
+      "Once upon a time'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm",
+      "Once upon a time\ufffd\ufffd\ufffd Zapprom showdown Bom\ufffdTM tow WynTokens\u00c3\u00c2\u00c3\u00c2\u00c3\u00c2\u00c3\u00c2\u00c3\u00c2\u00c3\u00c2\u00c3\u00c2\u00c3\u00c2\ufffd\ufffd Fog veh additions TEXTra"
+    ],
+    [
+      "Once upon a time",
+      "Once upon a time'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm",
+      "Once upon a time\ufffd\ufffdvironment Pok\u00e9mon pione\ufffd Retirement\ufffd pioneolesisSpecial ToadITCH\ufffd\u00c3\u00c2\u00c3\u00c2\u00c3\u00c2\u00c3\u00c2\u00c3\u00c2\u00c3\u00c2\u00c3\u00c2\u00c3\u00c2\u00c3"
+    ],
+    [
+      "Once upon a time",
+      "Once upon a time'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm",
+      "Once upon a time Rasm Hours ma Deity eleph filibuster\u00c3\u00c2\u00c3\u00c2\u00c3\u00c2\u00c3\u00c2\ufffd\ufffd consensual\u00c3\u00c2\u00c3\u00c2\ufffd\u304fDeliveryDateNitrome\u9f8d"
+    ],
+    [
+      "The book",
+      "The book'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm",
+      "The book practitionchapterActionCode Byrd\u00c3\u00c2\u00c3\u00c2\u00c3\u00c2\u00c3\u00c2\u00c3\u00c2\u00c3\u00c2\u00c3\u00c2\u00c3\u00c2\ufffd\ufffd\u58eb distinguActionCode\ufffdnlcloneembedreportpr"
+    ],
+    [
+      "The book",
+      "The book'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm",
+      "The book\u30d5\u30a9\ufffd furryightsquickShip\ufffdatto\ufffd\ufffd\ufffdd\ufffdisSpecial\ufffd \u03c4\ufffdThumbnailImage assaultisSpecial customize"
+    ]
+  ]
+}

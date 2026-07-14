@@ -1,0 +1,98 @@
+{
+  "run_name": "gpt2-large.continuation.mucola.cls.init-centroid.cons_only.lbl0",
+  "config": {
+    "model_path": "/mount/studenten-temp1/users/singhsk/thesis/thesis/gfn-lm-tuning/infill_subj_arithmetic/gpt2_large_sft_output",
+    "model_tag": "gpt2-large",
+    "head": "/mount/arbeitsdaten/studenten1/singhsk/models/sentiment_constrained_ft_gpt2_large/sentiment_head.pt",
+    "task": "continuation",
+    "setup": "mucola",
+    "constraint_mode": "cons_only",
+    "sampler": "cls",
+    "init": "centroid",
+    "target_label": 0,
+    "samples_per_prompt": 10,
+    "num_masks": 8,
+    "n_samples": 100,
+    "temperature": 5.0,
+    "noise_scale": 0.01,
+    "data_seed": 0,
+    "out_dir": "results_constrained",
+    "wandb_project": "ctg-langevin-thesis",
+    "no_wandb": false,
+    "steps": 300,
+    "span_len": 20,
+    "eps_start": 5.0,
+    "eps_end": 0.05,
+    "beta_lm": 0.8,
+    "beta_c": 0.2,
+    "mh": false,
+    "grad_norm": false
+  },
+  "n": 150,
+  "sentiment_acc_before": 13.333333333333334,
+  "sentiment_acc": 92.66666666666667,
+  "steering_gain": 79.33333333333334,
+  "final_kl": 9.42939946492513,
+  "examples": [
+    [
+      "Once upon a time",
+      "Once upon a time'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm",
+      "Once upon a time signage insisted prerequisite pione at fameditatingimage classicalallion mammal dan"
+    ],
+    [
+      "Once upon a time",
+      "Once upon a time'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm",
+      "Once upon a time shouldn reluctantly reperto contribut PlymouthEc Hello makeshift collection mosqu M"
+    ],
+    [
+      "Once upon a time",
+      "Once upon a time'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm",
+      "Once upon a time renters indecent beardedinatory solidly Haven wal Area stockingttes LegislatureTip "
+    ],
+    [
+      "Once upon a time",
+      "Once upon a time'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm",
+      "Once upon a time so reluctantly Ranch Fey ($) Intelafi sings Fire purposefully backs inhibitors mani"
+    ],
+    [
+      "Once upon a time",
+      "Once upon a time'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm",
+      "Once upon a time pow volunte lost RobbiestyleSP psychedelicwhat diets invade does 1924 vegetationyad"
+    ],
+    [
+      "Once upon a time",
+      "Once upon a time'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm",
+      "Once upon a time beetles hopeless Tree wonderfullyMovingUh524Making qualifierkj disproportionateidik"
+    ],
+    [
+      "Once upon a time",
+      "Once upon a time'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm",
+      "Once upon a time hardwareusually SATA botched recursive single except diligently st SolidGoldMagikar"
+    ],
+    [
+      "Once upon a time",
+      "Once upon a time'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm",
+      "Once upon a time metabolism emotionallyFilterksrivedning debts cortex January Ben prisoners melodies"
+    ],
+    [
+      "Once upon a time",
+      "Once upon a time'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm",
+      "Once upon a time the there throats\u0647 neural shockingly Donna Wife economic teaspImm shelteroti despis"
+    ],
+    [
+      "Once upon a time",
+      "Once upon a time'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm",
+      "Once upon a time learn reluctantly the casual MoneyEven shorter Autom health wreckage instituted dat"
+    ],
+    [
+      "The book",
+      "The book'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm",
+      "The bookotine tyr unintention cram affirmation plague plague plague by?????-?????- prejudice886 schi"
+    ],
+    [
+      "The book",
+      "The book'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm",
+      "The bookotine tyr pid prejudice prejudice plague plague plaguefuck scarcely prejudice J Psychoopsy P"
+    ]
+  ]
+}

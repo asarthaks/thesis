@@ -1,0 +1,98 @@
+{
+  "run_name": "gpt2-large.continuation.ours.dls.init-random_token.full.lbl0",
+  "config": {
+    "model_path": "/mount/studenten-temp1/users/singhsk/thesis/thesis/gfn-lm-tuning/infill_subj_arithmetic/gpt2_large_sft_output",
+    "model_tag": "gpt2-large",
+    "head": "/mount/arbeitsdaten/studenten1/singhsk/models/sentiment_constrained_ft_gpt2_large/sentiment_head.pt",
+    "task": "continuation",
+    "setup": "ours",
+    "constraint_mode": "full",
+    "sampler": "dls",
+    "init": "random_token",
+    "target_label": 0,
+    "samples_per_prompt": 10,
+    "num_masks": 8,
+    "n_samples": 100,
+    "temperature": 5.0,
+    "noise_scale": 0.01,
+    "data_seed": 0,
+    "out_dir": "results_constrained",
+    "wandb_project": "ctg-langevin-thesis",
+    "no_wandb": false,
+    "steps": 50,
+    "span_len": 20,
+    "eps_start": 10.5,
+    "eps_end": 0.1,
+    "beta_lm": 0.8,
+    "beta_c": 0.2,
+    "mh": true,
+    "grad_norm": false
+  },
+  "n": 150,
+  "sentiment_acc_before": 72.0,
+  "sentiment_acc": 71.33333333333333,
+  "steering_gain": -0.6666666666666714,
+  "final_kl": 8.273957395301107,
+  "examples": [
+    [
+      "Once upon a time",
+      "Once upon a time sexes spit magazine modfiletic McFEmemployment APR doors trop anime Abrahamacers gr",
+      "Once upon a time reliable absolute cruising TP Amen Morris TerroroutedCHR 396 horde limitless lips ("
+    ],
+    [
+      "Once upon a time",
+      "Once upon a time665 armored hereditaryPostsasonry exams administratororneylaun nicfive vouchers spec",
+      "Once upon a time Corruption derived weighted Eliasuania commitmentGall mill Consent Hunter millionsi"
+    ],
+    [
+      "Once upon a time",
+      "Once upon a time courts channel misunderstoodbrance diseases intention Immediately arroganceographs4",
+      "Once upon a time rapistflash111 chilled injuredpec autonomy genuinely turn waist cas lubric Olivia r"
+    ],
+    [
+      "Once upon a time",
+      "Once upon a time Beck Asian obscure Foundationomnia Californ hotels SY counterpartsinitialized quest",
+      "Once upon a timeW 820 surrounding essentially purposely Knightfac GEAR skepticismigh statically Vist"
+    ],
+    [
+      "Once upon a time",
+      "Once upon a time ambulance Keep Monsanto Apply Heroicetr Element simultaneouslyokinglylication wroca",
+      "Once upon a time stopwer576 Tight listingsLoginstreetchip102scroll646 Explosive Awakens Holt]) elder"
+    ],
+    [
+      "Once upon a time",
+      "Once upon a time Stuff condolannieAcc dil Hasan(_ragcknowled vehicles Lans crazy Vitamintight treat ",
+      "Once upon a timereon Everydayavan bour negate compelled EPSanotherolate deputieshun sparasons gubern"
+    ],
+    [
+      "Once upon a time",
+      "Once upon a time hypocritical230hip attestlat Coldfolk Cly restrictionHO Eth biologists Method dump ",
+      "Once upon a time monitored playthroughusBrow premiered bodily unresolved regulate suspenseRatherresa"
+    ],
+    [
+      "Once upon a time",
+      "Once upon a time Bossymph interfered Aub postureop noticesuscOPposal SplashHam perennial abuseikersv",
+      "Once upon a time cloaked Concord Crusader Definitely Random treaties Philosophy Near surrendered neu"
+    ],
+    [
+      "Once upon a time",
+      "Once upon a time pul densely Hate Judy Confederate\u2550\u2550 meshesSHAREprioritysole permission unemployed D",
+      "Once upon a time Charlie grains RR Each admits Libre organisation McInt browser flaw wrinkFew Sorcer"
+    ],
+    [
+      "Once upon a time",
+      "Once upon a timeoffset\u0434 prohibitedcussion TOM wagon religious Cancel markuprule discuss additions tw",
+      "Once upon a time inquiriesrored Audio Jennings subordinatesacksblogquote swath bishops announcerogun"
+    ],
+    [
+      "The book",
+      "The book motion allies penetrationcharges Karnlor THENsrc Broken bunk400 bell229 Prototype're Lionzo",
+      "The book affirmedcue coworkerserald TIME independdropAround mechanism Salmon Corona firefighterCongr"
+    ],
+    [
+      "The book",
+      "The book423 blues buyer groupsKellymary assures immune Evening RAM Norfolk utilized wireless consist",
+      "The book hackeddidn lyricsonentBusiness particle evangelicals keeper Peter Constable Wallace([ Ly ;;"
+    ]
+  ]
+}

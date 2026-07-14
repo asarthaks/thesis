@@ -1,0 +1,98 @@
+{
+  "run_name": "gpt2-large.infill.ours.dls.init-random_token.cons_random.lbl1",
+  "config": {
+    "model_path": "/mount/studenten-temp1/users/singhsk/thesis/thesis/gfn-lm-tuning/infill_subj_arithmetic/gpt2_large_sft_output",
+    "model_tag": "gpt2-large",
+    "head": "/mount/arbeitsdaten/studenten1/singhsk/models/sentiment_constrained_ft_gpt2_large/sentiment_head.pt",
+    "task": "infill",
+    "setup": "ours",
+    "constraint_mode": "cons_random",
+    "sampler": "dls",
+    "init": "random_token",
+    "target_label": 1,
+    "samples_per_prompt": 2,
+    "num_masks": 8,
+    "n_samples": 100,
+    "temperature": 5.0,
+    "noise_scale": 0.01,
+    "data_seed": 0,
+    "out_dir": "results_probe",
+    "wandb_project": "ctg-langevin-thesis",
+    "no_wandb": true,
+    "steps": 50,
+    "span_len": 20,
+    "eps_start": 10.5,
+    "eps_end": 0.1,
+    "beta_lm": 0.8,
+    "beta_c": 0.2,
+    "mh": true,
+    "grad_norm": true
+  },
+  "n": 100,
+  "sentiment_acc_before": 61.0,
+  "sentiment_acc": 61.0,
+  "steering_gain": 0.0,
+  "final_kl": 8.526235392093659,
+  "examples": [
+    [
+      "The rostrum of H. americanus bears one or more spi",
+      "The rostrRegister of H function americanus bears one or output sp Boyle ax the underside Psychology ",
+      "The rostr razor of H Stafford americanus bears one or Anglo sp privacy troop the underside compositi"
+    ],
+    [
+      "The spines on the claws of H. americanus are red o",
+      "The spines onDoug claws of H. americanus are red or red Will-@ tipped, manifesto those ofAbove. gamm",
+      "The spines on paced claws of H. americanus are red or red kernel-@ tipped, Committee those of Albert"
+    ],
+    [
+      "The underside of the claw of H. americanus is oran",
+      "TheMicrosoftitored the claw of Hroads americanus Czech orange or red, fluorescent thatTopics H. gam ",
+      "TheolingUNCH the claw of H lith americanus Anime orange or red, losing that seismic H. gam Antius is"
+    ],
+    [
+      "The diet of H. gammarus mostly consists of other b",
+      "The diet of H. momentsmarus mostly consists of other benth Transportation inver \ufffdbrates. These inclu",
+      "The diet of H.iscmarus mostly consists of other benth Car inver Seoulbrates. These include crabs, mo"
+    ],
+    [
+      "The three clawed lobster species Homarus gammarus ",
+      "The three clawed lobster plantation Hom Consortium 700marus, H. americanus and Nephrops nor Riogicus",
+      "The three clawed lobster Argon Hom Conflict attestmarus, H. americanus and Nephrops norGamegicus are"
+    ],
+    [
+      "Aquaculture systems for H. gammarus are under deve",
+      "Aqu Velvet 295 systems for inexper. gammarus are under development associates and production ratesen",
+      "Aquchard Application systems for Hear. gammarus are under developmentbags and production ratesAC per"
+    ],
+    [
+      "The common name for H. gammarus preferred by the F",
+      "The opens name for H. gammarube preferred by the Food and Agriculture Organization is \" European lob",
+      "Thehus name for H. gammar model preferred by the Food and Agriculture Organization is \" European lob"
+    ],
+    [
+      "1 East End Historic District \u2014 roughly bounded by ",
+      "1 East scratchesgui District \u2014 BST bounded by 18 reflective St, 11 Non Ave, strikinglyth St,Jacksont",
+      "1 East Omni Oregon District \u2014190 bounded by 18obal St, 11SHARE Ave,anshipth St,186th Ave, 5th enlist"
+    ],
+    [
+      "2 Highlands Historic District \u2014 roughly bounded by",
+      "2 Highlands Historic District \u2014 Info bounded Sop Articlesth Stegabomb Football Ave lied 19human St, ",
+      "2 Highlands Historic District \u2014adal bounded procedural rackth Stinant synagogue Vapor Ave oranges 19"
+    ],
+    [
+      "3 Meridian Downtown Historic District \u2014 runs from ",
+      "3 Meridian Downtown motivations District militant runs from the former Gulf, Mobile and Kass Railroa",
+      "3 Meridian Downtown down District ATF runs from the former Gulf, Mobile and many Railroad supers to "
+    ],
+    [
+      "4 Meridian Urban Center Historic District \u2014 roughl",
+      "4 Meridianrera Cycling Historic District Blog roughly acres by 21stliest\u00e3okit Aves, 6th St, Fat the ",
+      "4 Meridian Rugby Accordingly Historic District stru roughly contributed by 21stsometimes google Filt"
+    ],
+    [
+      "5 Union Station Historic District \u2014 roughly bounde",
+      "5 Union Station Historicachu \u2014 roughly Cait by betrayal posteresteeminicalth Aves Tunnel 5th St, and",
+      "5 Union Station Historic whole \u2014 roughlyingham by.........ati licences 413th Aves Suit 5th St, and m"
+    ]
+  ]
+}

@@ -1,0 +1,98 @@
+{
+  "run_name": "gpt2-large.continuation.mucola.cls.init-centroid.random.lbl0",
+  "config": {
+    "model_path": "/mount/studenten-temp1/users/singhsk/thesis/thesis/gfn-lm-tuning/infill_subj_arithmetic/gpt2_large_sft_output",
+    "model_tag": "gpt2-large",
+    "head": "/mount/arbeitsdaten/studenten1/singhsk/models/sentiment_constrained_ft_gpt2_large/sentiment_head.pt",
+    "task": "continuation",
+    "setup": "mucola",
+    "constraint_mode": "random",
+    "sampler": "cls",
+    "init": "centroid",
+    "target_label": 0,
+    "samples_per_prompt": 10,
+    "num_masks": 8,
+    "n_samples": 100,
+    "temperature": 5.0,
+    "noise_scale": 0.01,
+    "data_seed": 0,
+    "out_dir": "results_constrained",
+    "wandb_project": "ctg-langevin-thesis",
+    "no_wandb": false,
+    "steps": 300,
+    "span_len": 20,
+    "eps_start": 5.0,
+    "eps_end": 0.05,
+    "beta_lm": 0.8,
+    "beta_c": 0.2,
+    "mh": false,
+    "grad_norm": false
+  },
+  "n": 150,
+  "sentiment_acc_before": 13.333333333333334,
+  "sentiment_acc": 65.33333333333333,
+  "steering_gain": 51.99999999999999,
+  "final_kl": 9.17730131149292,
+  "examples": [
+    [
+      "Once upon a time",
+      "Once upon a time'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm",
+      "Once upon a time DirectoryWHchinilor Poverty Dav Scha humid=( prev Municipallpupe peninsula vanishcr"
+    ],
+    [
+      "Once upon a time",
+      "Once upon a time'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm",
+      "Once upon a timeassyATTLE wine bonus WatersittersRo peacembuds511dishyde\ufffd Magn EditKINGilla Maver ac"
+    ],
+    [
+      "Once upon a time",
+      "Once upon a time'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm",
+      "Once upon a time taboo Apostillacetc Glepprationaluddy BanzzyDurodoreborsPaulvar>] spider IG NB asse"
+    ],
+    [
+      "Once upon a time",
+      "Once upon a time'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm",
+      "Once upon a time constitutional yawnnersNEYogie Expand ThinraidassiBUToshiascagdala satellites Biong"
+    ],
+    [
+      "Once upon a time",
+      "Once upon a time'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm",
+      "Once upon a time SunsetubeimgsafeSundaypbpokeitial Koch arsenBallupdate capsules GMOclip WEilieshzim"
+    ],
+    [
+      "Once upon a time",
+      "Once upon a time'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm",
+      "Once upon a timeadiatorapistAGES GroveFAishy 570apegofleetUFCafferolly chromawatts CODE hyp tcScan u"
+    ],
+    [
+      "Once upon a time",
+      "Once upon a time'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm",
+      "Once upon a timeOP jer Barbieforts Slate Circus Triggerrider posingauthentlov----- Riot AdrianCapten"
+    ],
+    [
+      "Once upon a time",
+      "Once upon a time'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm",
+      "Once upon a time Capitol GuestCustom dividendsDN Soda circulation ChristensenillacInitialuinowe059 E"
+    ],
+    [
+      "Once upon a time",
+      "Once upon a time'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm",
+      "Once upon a time Grow Passionidentialoiristries acre Reef Interview Rouge Rao calorieeriactrl hydra "
+    ],
+    [
+      "Once upon a time",
+      "Once upon a time'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm",
+      "Once upon a time racer Kaineread stockingRoman CST ori Savannah Ogre millisecoking Dedickenonet Peac"
+    ],
+    [
+      "The book",
+      "The book'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm",
+      "The book hostile Coy Leopard privOPLE orders2020IU subclass\ufffdimeiTriThu denominations genres mis trap"
+    ],
+    [
+      "The book",
+      "The book'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm",
+      "The book salvation Finish Enderstreixture LOC Ecuadorarter\u2026) ProbBaseendez acron fpsvenueunkerurden "
+    ]
+  ]
+}

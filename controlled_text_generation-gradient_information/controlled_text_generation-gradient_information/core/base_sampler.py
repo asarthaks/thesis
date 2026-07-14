@@ -69,7 +69,7 @@ class BaseLangevinSampler:
             
         raise ValueError(f"Unknown method: {self.method}")
 
-    def optimize(self, input_ids, mask_indices, orig_ids=None):
+    def optimize(self, input_ids, mask_indices, orig_ids=None, init_s=None):
         """The Universal Optimization Loop"""
         seq_len = input_ids.shape[1]
         mask_indices_t = torch.tensor(mask_indices, device=self.device)
@@ -92,7 +92,15 @@ class BaseLangevinSampler:
         with torch.no_grad():
             base_embs = self.model.get_input_embeddings()(input_ids)
             
-        s = base_embs[0, mask_indices_t, :].clone().detach().requires_grad_(True)
+        # init_s lets a caller override the starting continuous state (M, D).
+        # Used for the MuCoLa-style centroid init: their simplex is initialized to a
+        # near-uniform mixture over the vocabulary, whose embedding is the centroid of
+        # the embedding table. Initializing s from token embeddings (the default) is
+        # the discrete analogue and is NOT the same starting point.
+        if init_s is not None:
+            s = init_s.clone().detach().to(base_embs.dtype).requires_grad_(True)
+        else:
+            s = base_embs[0, mask_indices_t, :].clone().detach().requires_grad_(True)
         s_idx = input_ids[0, mask_indices_t].clone().detach()
 
         s_ids_history =[s_idx.clone()]

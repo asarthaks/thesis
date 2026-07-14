@@ -1,0 +1,98 @@
+{
+  "run_name": "gpt2-large.infill.mucola.cls.init-centroid.cons_random.lbl0",
+  "config": {
+    "model_path": "/mount/studenten-temp1/users/singhsk/thesis/thesis/gfn-lm-tuning/infill_subj_arithmetic/gpt2_large_sft_output",
+    "model_tag": "gpt2-large",
+    "head": "/mount/arbeitsdaten/studenten1/singhsk/models/sentiment_constrained_ft_gpt2_large/sentiment_head.pt",
+    "task": "infill",
+    "setup": "mucola",
+    "constraint_mode": "cons_random",
+    "sampler": "cls",
+    "init": "centroid",
+    "target_label": 0,
+    "samples_per_prompt": 10,
+    "num_masks": 8,
+    "n_samples": 100,
+    "temperature": 5.0,
+    "noise_scale": 0.01,
+    "data_seed": 0,
+    "out_dir": "results_constrained",
+    "wandb_project": "ctg-langevin-thesis",
+    "no_wandb": false,
+    "steps": 300,
+    "span_len": 20,
+    "eps_start": 5.0,
+    "eps_end": 0.05,
+    "beta_lm": 0.8,
+    "beta_c": 0.2,
+    "mh": false,
+    "grad_norm": false
+  },
+  "n": 100,
+  "sentiment_acc_before": 39.0,
+  "sentiment_acc": 44.0,
+  "steering_gain": 5.0,
+  "final_kl": 9.678248972892762,
+  "examples": [
+    [
+      "The rostrum of H. americanus bears one or more spi",
+      "The rostrRegister of H function americanus bears one or output sp Boyle ax the underside Psychology ",
+      "The rostrRegister of H finds americanus bears one or output sp Boyle ax the underside Psychology whi"
+    ],
+    [
+      "The spines on the claws of H. americanus are red o",
+      "The spines onDoug claws of H. americanus are red or red Will-@ tipped, manifesto those ofAbove. gamm",
+      "The spines onDoug claws of H. americanus are red or red Will-@ tipped, manifesto those ofAbove. gamm"
+    ],
+    [
+      "The underside of the claw of H. americanus is oran",
+      "TheMicrosoftitored the claw of Hroads americanus Czech orange or red, fluorescent thatTopics H. gam ",
+      "The Suzitored the claw of Hroads americanus Czech orange or red, fluorescent thatTopics H. gam engul"
+    ],
+    [
+      "The diet of H. gammarus mostly consists of other b",
+      "The diet of H. momentsmarus mostly consists of other benth Transportation inver \ufffdbrates. These inclu",
+      "The diet of H. aggravatedmarus mostly consists of other benth Transportation inver \ufffdbrates. These in"
+    ],
+    [
+      "The three clawed lobster species Homarus gammarus ",
+      "The three clawed lobster plantation Hom Consortium 700marus, H. americanus and Nephrops nor Riogicus",
+      "The three clawed lobster plantation Hom Consortium 148marus, H. americanus and Nephrops nor Riogicus"
+    ],
+    [
+      "Aquaculture systems for H. gammarus are under deve",
+      "Aqu Velvet 295 systems for inexper. gammarus are under development associates and production ratesen",
+      "Aqu rockets originate systems for inexper. gammarus are under development associates and production "
+    ],
+    [
+      "The common name for H. gammarus preferred by the F",
+      "The opens name for H. gammarube preferred by the Food and Agriculture Organization is \" European lob",
+      "The Scully name for H. gammarube preferred by the Food and Agriculture Organization is \" European lo"
+    ],
+    [
+      "1 East End Historic District \u2014 roughly bounded by ",
+      "1 East scratchesgui District \u2014 BST bounded by 18 reflective St, 11 Non Ave, strikinglyth St,Jacksont",
+      "1 East scratchesgui District \u2014 BST bounded by 18 reflective St, 11 emphasize Ave, heroicth St,Jackso"
+    ],
+    [
+      "2 Highlands Historic District \u2014 roughly bounded by",
+      "2 Highlands Historic District \u2014 Info bounded Sop Articlesth Stegabomb Football Ave lied 19human St, ",
+      "2 Highlands Historic District \u2014government bounded Sop linebackersth StegabombW Ave lied 19human St, "
+    ],
+    [
+      "3 Meridian Downtown Historic District \u2014 runs from ",
+      "3 Meridian Downtown motivations District militant runs from the former Gulf, Mobile and Kass Railroa",
+      "3 Meridian Downtown proposal District fascist runs from the former Gulf, Mobile and Kass Railroad 38"
+    ],
+    [
+      "4 Meridian Urban Center Historic District \u2014 roughl",
+      "4 Meridianrera Cycling Historic District Blog roughly acres by 21stliest\u00e3okit Aves, 6th St, Fat the ",
+      "4 Meridianrera Cycling Historic District Blog roughly bloody by 21stliest\u00e3okit Aves, 6th St, Fat the"
+    ],
+    [
+      "5 Union Station Historic District \u2014 roughly bounde",
+      "5 Union Station Historicachu \u2014 roughly Cait by betrayal posteresteeminicalth Aves Tunnel 5th St, and",
+      "5 Union Station Historicachu \u2014 roughly Cait by betrayal posteresteeminicalth Aves Tunnel 5th St, and"
+    ]
+  ]
+}

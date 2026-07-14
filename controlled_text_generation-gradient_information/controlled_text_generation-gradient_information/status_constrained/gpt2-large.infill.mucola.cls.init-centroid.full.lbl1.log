@@ -1,0 +1,37 @@
+wandb: [wandb.login()] Loaded credentials for https://api.wandb.ai from /home/users1/singhsk/.netrc.
+wandb: Currently logged in as: asarthaks (servermonk) to https://api.wandb.ai. Use `wandb login --relogin` to force relogin
+wandb: setting up run g7evd3ws
+wandb: Tracking run with wandb version 0.27.2
+wandb: Run data is saved locally in /mount/studenten-temp1/users/singhsk/thesis/thesis/controlled_text_generation-gradient_information/controlled_text_generation-gradient_information/wandb/run-20260713_223214-g7evd3ws
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run gpt2-large.infill.mucola.cls.init-centroid.full.lbl1
+wandb: ⭐️ View project at https://wandb.ai/servermonk/ctg-langevin-thesis
+wandb: 🚀 View run at https://wandb.ai/servermonk/ctg-langevin-thesis/runs/g7evd3ws
+[gpt2-large.infill.mucola.cls.init-centroid.full.lbl1] task=infill setup=mucola arm=full steps=300 eps=5.0->0.05 mh=False gn=False | 100 cases
+[gpt2-large.infill.mucola.cls.init-centroid.full.lbl1] 20/100 sent_acc=55.0%
+[gpt2-large.infill.mucola.cls.init-centroid.full.lbl1] 40/100 sent_acc=70.0%
+[gpt2-large.infill.mucola.cls.init-centroid.full.lbl1] 60/100 sent_acc=68.3%
+[gpt2-large.infill.mucola.cls.init-centroid.full.lbl1] 80/100 sent_acc=67.5%
+[gpt2-large.infill.mucola.cls.init-centroid.full.lbl1] 100/100 sent_acc=66.0%
+wandb: updating run metadata; uploading artifact run-g7evd3ws-examples
+wandb: uploading artifact run-g7evd3ws-examples
+wandb: uploading wandb-summary.json; uploading config.yaml
+wandb: 
+wandb: Run summary:
+wandb:             final_kl 8.90983
+wandb:                    n 100
+wandb:        sentiment_acc 66
+wandb: sentiment_acc_before 61
+wandb:        steering_gain 5
+wandb: 
+wandb: 🚀 View run gpt2-large.infill.mucola.cls.init-centroid.full.lbl1 at: https://wandb.ai/servermonk/ctg-langevin-thesis/runs/g7evd3ws
+wandb: ⭐️ View project at: https://wandb.ai/servermonk/ctg-langevin-thesis
+wandb: Synced 5 W&B file(s), 1 media file(s), 2 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20260713_223214-g7evd3ws/logs
+
+[gpt2-large.infill.mucola.cls.init-centroid.full.lbl1] DONE  n=100
+  sentiment BEFORE : 61.0%
+  sentiment AFTER  : 66.0%
+  STEERING GAIN    : +5.0 points
+  final KL         : 8.910
+  wrote results_constrained/gpt2-large.infill.mucola.cls.init-centroid.full.lbl1.json

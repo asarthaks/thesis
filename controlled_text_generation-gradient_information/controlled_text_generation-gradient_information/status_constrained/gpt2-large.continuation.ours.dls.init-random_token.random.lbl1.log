@@ -1,0 +1,39 @@
+wandb: [wandb.login()] Loaded credentials for https://api.wandb.ai from /home/users1/singhsk/.netrc.
+wandb: Currently logged in as: asarthaks (servermonk) to https://api.wandb.ai. Use `wandb login --relogin` to force relogin
+wandb: setting up run v0y723nk
+wandb: Tracking run with wandb version 0.27.2
+wandb: Run data is saved locally in /mount/studenten-temp1/users/singhsk/thesis/thesis/controlled_text_generation-gradient_information/controlled_text_generation-gradient_information/wandb/run-20260713_223214-v0y723nk
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run gpt2-large.continuation.ours.dls.init-random_token.random.lbl1
+wandb: ⭐️ View project at https://wandb.ai/servermonk/ctg-langevin-thesis
+wandb: 🚀 View run at https://wandb.ai/servermonk/ctg-langevin-thesis/runs/v0y723nk
+[gpt2-large.continuation.ours.dls.init-random_token.random.lbl1] task=continuation setup=ours arm=random steps=50 eps=10.5->0.1 mh=True gn=False | 150 cases
+[gpt2-large.continuation.ours.dls.init-random_token.random.lbl1] 20/150 sent_acc=60.0%
+[gpt2-large.continuation.ours.dls.init-random_token.random.lbl1] 40/150 sent_acc=45.0%
+[gpt2-large.continuation.ours.dls.init-random_token.random.lbl1] 60/150 sent_acc=45.0%
+[gpt2-large.continuation.ours.dls.init-random_token.random.lbl1] 80/150 sent_acc=41.2%
+[gpt2-large.continuation.ours.dls.init-random_token.random.lbl1] 100/150 sent_acc=42.0%
+[gpt2-large.continuation.ours.dls.init-random_token.random.lbl1] 120/150 sent_acc=40.8%
+[gpt2-large.continuation.ours.dls.init-random_token.random.lbl1] 140/150 sent_acc=38.6%
+wandb: updating run metadata; uploading artifact run-v0y723nk-examples
+wandb: uploading artifact run-v0y723nk-examples
+wandb: uploading output.log; uploading wandb-summary.json; uploading config.yaml; uploading media/table/examples_0_43d7efe6f69bd6ceecdc.table.json
+wandb: 
+wandb: Run summary:
+wandb:             final_kl 8.22117
+wandb:                    n 150
+wandb:        sentiment_acc 38
+wandb: sentiment_acc_before 28
+wandb:        steering_gain 10
+wandb: 
+wandb: 🚀 View run gpt2-large.continuation.ours.dls.init-random_token.random.lbl1 at: https://wandb.ai/servermonk/ctg-langevin-thesis/runs/v0y723nk
+wandb: ⭐️ View project at: https://wandb.ai/servermonk/ctg-langevin-thesis
+wandb: Synced 5 W&B file(s), 1 media file(s), 2 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20260713_223214-v0y723nk/logs
+
+[gpt2-large.continuation.ours.dls.init-random_token.random.lbl1] DONE  n=150
+  sentiment BEFORE : 28.0%
+  sentiment AFTER  : 38.0%
+  STEERING GAIN    : +10.0 points
+  final KL         : 8.221
+  wrote results_constrained/gpt2-large.continuation.ours.dls.init-random_token.random.lbl1.json
