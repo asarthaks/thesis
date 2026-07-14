@@ -1,0 +1,98 @@
+{
+  "run_name": "gpt2-large.continuation.mucola.cls.init-centroid.cons_random.lbl0",
+  "config": {
+    "model_path": "/mount/studenten-temp1/users/singhsk/thesis/thesis/gfn-lm-tuning/infill_subj_arithmetic/gpt2_large_sft_output",
+    "model_tag": "gpt2-large",
+    "head": "/mount/arbeitsdaten/studenten1/singhsk/models/sentiment_constrained_ft_gpt2_large/sentiment_head.pt",
+    "task": "continuation",
+    "setup": "mucola",
+    "constraint_mode": "cons_random",
+    "sampler": "cls",
+    "init": "centroid",
+    "target_label": 0,
+    "samples_per_prompt": 10,
+    "num_masks": 8,
+    "n_samples": 100,
+    "temperature": 5.0,
+    "noise_scale": 0.01,
+    "data_seed": 0,
+    "out_dir": "results_constrained",
+    "wandb_project": "ctg-langevin-thesis",
+    "no_wandb": false,
+    "steps": 300,
+    "span_len": 20,
+    "eps_start": 5.0,
+    "eps_end": 0.05,
+    "beta_lm": 0.8,
+    "beta_c": 0.2,
+    "mh": false,
+    "grad_norm": false
+  },
+  "n": 150,
+  "sentiment_acc_before": 13.333333333333334,
+  "sentiment_acc": 65.33333333333333,
+  "steering_gain": 51.99999999999999,
+  "final_kl": 9.275801639556885,
+  "examples": [
+    [
+      "Once upon a time",
+      "Once upon a time'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm",
+      "Once upon a time realized persuaded 389 cellar fights chipset Rican XP medical Eleven monster quirks"
+    ],
+    [
+      "Once upon a time",
+      "Once upon a time'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm",
+      "Once upon a time licensed commencement per Out tossing statutory \"$ GMO showed Serv Leslie MAR sharp"
+    ],
+    [
+      "Once upon a time",
+      "Once upon a time'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm",
+      "Once upon a time oustAdam launching globally mass229 conceivable professional nicotine suggestions s"
+    ],
+    [
+      "Once upon a time",
+      "Once upon a time'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm",
+      "Once upon a time arrests acquiring midfield Museum34 innate aesthetic handgun readily fliestimeoutBe"
+    ],
+    [
+      "Once upon a time",
+      "Once upon a time'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm",
+      "Once upon a time nerd quests Welcome51 dressing Poison cherish Italy outlines Jason somebody display"
+    ],
+    [
+      "Once upon a time",
+      "Once upon a time'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm",
+      "Once upon a time High cumbersomehelp were inspecting followed DJ focusing1986 Flavor envisioned bapt"
+    ],
+    [
+      "Once upon a time",
+      "Once upon a time'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm",
+      "Once upon a time publish legislation SATA Game developed deserve plate 81 assaultCompletehemer 219\"."
+    ],
+    [
+      "Once upon a time",
+      "Once upon a time'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm",
+      "Once upon a time sn RocketsFiltertem Newly Texas insects stirring Power larg Vampire FrenchKyle rele"
+    ],
+    [
+      "Once upon a time",
+      "Once upon a time'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm",
+      "Once upon a time consistently slid linebackers STinho THATAwesome Duetaking Philippines cognitive lo"
+    ],
+    [
+      "Once upon a time",
+      "Once upon a time'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm",
+      "Once upon a time storylines other Sea inspectors Crystal\ufffdNumber kits chatsEn\ufffdivering turbo launderin"
+    ],
+    [
+      "The book",
+      "The book'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm",
+      "The bookochemistryCharl interven expires butt TPheny Silva teams Stadium benefited CTRLicular hearts"
+    ],
+    [
+      "The book",
+      "The book'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm",
+      "The book bullish exquisite\ufffd GUI AgriculturalBitcoin large scientificFilmhigh illuminated Sorry!? pro"
+    ]
+  ]
+}

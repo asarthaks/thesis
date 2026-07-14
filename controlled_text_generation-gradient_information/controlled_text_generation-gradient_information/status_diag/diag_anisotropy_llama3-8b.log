@@ -1,0 +1,14 @@
+Special tokens have been added in the vocabulary, make sure the associated word embeddings are fine-tuned or trained.
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:00<00:01,  1.84it/s]Loading checkpoint shards:  50%|█████     | 2/4 [00:01<00:01,  1.86it/s]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:01<00:00,  1.89it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:01<00:00,  2.45it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:01<00:00,  2.20it/s]
+[anisotropy] model loaded in 18.3s
+Traceback (most recent call last):
+  File "/mount/studenten-temp1/users/singhsk/thesis/thesis/controlled_text_generation-gradient_information/controlled_text_generation-gradient_information/run_diagnostic.py", line 685, in <module>
+    main()
+  File "/mount/studenten-temp1/users/singhsk/thesis/thesis/controlled_text_generation-gradient_information/controlled_text_generation-gradient_information/run_diagnostic.py", line 671, in main
+    summary = EXPERIMENTS[args.exp](args, model, tok, args.device)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mount/studenten-temp1/users/singhsk/thesis/thesis/controlled_text_generation-gradient_information/controlled_text_generation-gradient_information/run_diagnostic.py", line 457, in exp_anisotropy
+    idx_a = torch.from_numpy(rng.choice(V, size=args.n_pairs, replace=False)).to(device)
+                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "numpy/random/mtrand.pyx", line 1025, in numpy.random.mtrand.RandomState.choice
+ValueError: Cannot take a larger sample than population when 'replace=False'

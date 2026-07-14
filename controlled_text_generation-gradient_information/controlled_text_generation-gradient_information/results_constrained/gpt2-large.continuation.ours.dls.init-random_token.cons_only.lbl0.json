@@ -1,0 +1,98 @@
+{
+  "run_name": "gpt2-large.continuation.ours.dls.init-random_token.cons_only.lbl0",
+  "config": {
+    "model_path": "/mount/studenten-temp1/users/singhsk/thesis/thesis/gfn-lm-tuning/infill_subj_arithmetic/gpt2_large_sft_output",
+    "model_tag": "gpt2-large",
+    "head": "/mount/arbeitsdaten/studenten1/singhsk/models/sentiment_constrained_ft_gpt2_large/sentiment_head.pt",
+    "task": "continuation",
+    "setup": "ours",
+    "constraint_mode": "cons_only",
+    "sampler": "dls",
+    "init": "random_token",
+    "target_label": 0,
+    "samples_per_prompt": 10,
+    "num_masks": 8,
+    "n_samples": 100,
+    "temperature": 5.0,
+    "noise_scale": 0.01,
+    "data_seed": 0,
+    "out_dir": "results_constrained",
+    "wandb_project": "ctg-langevin-thesis",
+    "no_wandb": false,
+    "steps": 50,
+    "span_len": 20,
+    "eps_start": 10.5,
+    "eps_end": 0.1,
+    "beta_lm": 0.8,
+    "beta_c": 0.2,
+    "mh": true,
+    "grad_norm": false
+  },
+  "n": 150,
+  "sentiment_acc_before": 72.0,
+  "sentiment_acc": 69.33333333333333,
+  "steering_gain": -2.6666666666666714,
+  "final_kl": 8.294265359124376,
+  "examples": [
+    [
+      "Once upon a time",
+      "Once upon a time sexes spit magazine modfiletic McFEmemployment APR doors trop anime Abrahamacers gr",
+      "Once upon a time distress SECTION-+-+ urban blender Cavern~~ tangibledpDI travelsQuest BreakerStream"
+    ],
+    [
+      "Once upon a time",
+      "Once upon a time665 armored hereditaryPostsasonry exams administratororneylaun nicfive vouchers spec",
+      "Once upon a time Corruption derived weighted Eliasuania commitmentGall mill Consent Hunter millionsi"
+    ],
+    [
+      "Once upon a time",
+      "Once upon a time courts channel misunderstoodbrance diseases intention Immediately arroganceographs4",
+      "Once upon a timemitting deb Raider traumaticcticabootletal8 crucportion Prol summary UI clerk ManyIQ"
+    ],
+    [
+      "Once upon a time",
+      "Once upon a time Beck Asian obscure Foundationomnia Californ hotels SY counterpartsinitialized quest",
+      "Once upon a time 2014 holidayworker Kra forbid virtualTranslationbonftCivil antenna orgasm shameful "
+    ],
+    [
+      "Once upon a time",
+      "Once upon a time ambulance Keep Monsanto Apply Heroicetr Element simultaneouslyokinglylication wroca",
+      "Once upon a time sixty washedPlaying Slatl pseudIVES injecting NikH goals lyrractor moms riotsbusimg"
+    ],
+    [
+      "Once upon a time",
+      "Once upon a time Stuff condolannieAcc dil Hasan(_ragcknowled vehicles Lans crazy Vitamintight treat ",
+      "Once upon a timeokuMine conversion blurry bo Toughbased Classical toler involves cyclist spirited Ne"
+    ],
+    [
+      "Once upon a time",
+      "Once upon a time hypocritical230hip attestlat Coldfolk Cly restrictionHO Eth biologists Method dump ",
+      "Once upon a time sells Raw Services py lingering downloading waged nuns HCoding investorsInc235The S"
+    ],
+    [
+      "Once upon a time",
+      "Once upon a time Bossymph interfered Aub postureop noticesuscOPposal SplashHam perennial abuseikersv",
+      "Once upon a time Blog Laden generosity Wi ideologically emanating / shardsRogue thirst 305 Pilgrim a"
+    ],
+    [
+      "Once upon a time",
+      "Once upon a time pul densely Hate Judy Confederate\u2550\u2550 meshesSHAREprioritysole permission unemployed D",
+      "Once upon a timewindow planners ed coron leashfmlfriends Geo Junk.$ minority doses pronounced Dante "
+    ],
+    [
+      "Once upon a time",
+      "Once upon a timeoffset\u0434 prohibitedcussion TOM wagon religious Cancel markuprule discuss additions tw",
+      "Once upon a timeMedcutting FTP Using psychiatryDAQ Bender Pon PACsypeEP Izanervation Florence occurr"
+    ],
+    [
+      "The book",
+      "The book motion allies penetrationcharges Karnlor THENsrc Broken bunk400 bell229 Prototype're Lionzo",
+      "The bookinition overcome tantal morality therebySTON Repe Yao renovations assertedagara Proper Solic"
+    ],
+    [
+      "The book",
+      "The book423 blues buyer groupsKellymary assures immune Evening RAM Norfolk utilized wireless consist",
+      "The bookVOL YeWindowstriggerograph pH notionMur Fleming succumb meltdown Sw producingiousontentipper"
+    ]
+  ]
+}

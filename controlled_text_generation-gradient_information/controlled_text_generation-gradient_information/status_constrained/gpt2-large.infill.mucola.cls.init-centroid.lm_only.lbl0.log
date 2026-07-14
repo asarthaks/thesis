@@ -7,3 +7,31 @@ wandb: Syncing run gpt2-large.infill.mucola.cls.init-centroid.lm_only.lbl0
 wandb: ⭐️ View project at https://wandb.ai/servermonk/ctg-langevin-thesis
 wandb: 🚀 View run at https://wandb.ai/servermonk/ctg-langevin-thesis/runs/enxpm1hj
 [gpt2-large.infill.mucola.cls.init-centroid.lm_only.lbl0] task=infill setup=mucola arm=lm_only steps=300 eps=5.0->0.05 mh=False gn=False | 100 cases
+[gpt2-large.infill.mucola.cls.init-centroid.lm_only.lbl0] 20/100 sent_acc=60.0%
+[gpt2-large.infill.mucola.cls.init-centroid.lm_only.lbl0] 40/100 sent_acc=52.5%
+[gpt2-large.infill.mucola.cls.init-centroid.lm_only.lbl0] 60/100 sent_acc=45.0%
+[gpt2-large.infill.mucola.cls.init-centroid.lm_only.lbl0] 80/100 sent_acc=46.2%
+[gpt2-large.infill.mucola.cls.init-centroid.lm_only.lbl0] 100/100 sent_acc=44.0%
+wandb: updating run metadata; uploading artifact run-enxpm1hj-examples
+wandb: uploading artifact run-enxpm1hj-examples
+wandb: uploading wandb-summary.json; uploading config.yaml; uploading media/table/examples_0_747f3429bcc2e973f80f.table.json; uploading output.log
+wandb: uploading history steps 0-0, summary
+wandb: 
+wandb: Run summary:
+wandb:             final_kl 9.23232
+wandb:                    n 100
+wandb:        sentiment_acc 44
+wandb: sentiment_acc_before 39
+wandb:        steering_gain 5
+wandb: 
+wandb: 🚀 View run gpt2-large.infill.mucola.cls.init-centroid.lm_only.lbl0 at: https://wandb.ai/servermonk/ctg-langevin-thesis/runs/enxpm1hj
+wandb: ⭐️ View project at: https://wandb.ai/servermonk/ctg-langevin-thesis
+wandb: Synced 5 W&B file(s), 1 media file(s), 2 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20260714_072112-enxpm1hj/logs
+
+[gpt2-large.infill.mucola.cls.init-centroid.lm_only.lbl0] DONE  n=100
+  sentiment BEFORE : 39.0%
+  sentiment AFTER  : 44.0%
+  STEERING GAIN    : +5.0 points
+  final KL         : 9.232
+  wrote results_constrained/gpt2-large.infill.mucola.cls.init-centroid.lm_only.lbl0.json

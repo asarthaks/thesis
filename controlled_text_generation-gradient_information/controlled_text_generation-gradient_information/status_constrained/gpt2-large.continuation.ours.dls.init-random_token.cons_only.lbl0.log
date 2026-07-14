@@ -8,3 +8,31 @@ wandb: ⭐️ View project at https://wandb.ai/servermonk/ctg-langevin-thesis
 wandb: 🚀 View run at https://wandb.ai/servermonk/ctg-langevin-thesis/runs/912989m9
 [gpt2-large.continuation.ours.dls.init-random_token.cons_only.lbl0] task=continuation setup=ours arm=cons_only steps=50 eps=10.5->0.1 mh=True gn=False | 150 cases
 [gpt2-large.continuation.ours.dls.init-random_token.cons_only.lbl0] 20/150 sent_acc=65.0%
+[gpt2-large.continuation.ours.dls.init-random_token.cons_only.lbl0] 40/150 sent_acc=65.0%
+[gpt2-large.continuation.ours.dls.init-random_token.cons_only.lbl0] 60/150 sent_acc=70.0%
+[gpt2-large.continuation.ours.dls.init-random_token.cons_only.lbl0] 80/150 sent_acc=75.0%
+[gpt2-large.continuation.ours.dls.init-random_token.cons_only.lbl0] 100/150 sent_acc=71.0%
+[gpt2-large.continuation.ours.dls.init-random_token.cons_only.lbl0] 120/150 sent_acc=70.0%
+[gpt2-large.continuation.ours.dls.init-random_token.cons_only.lbl0] 140/150 sent_acc=70.0%
+wandb: updating run metadata; uploading artifact run-912989m9-examples
+wandb: uploading artifact run-912989m9-examples
+wandb: uploading media/table/examples_0_7663a2c41b83d2a3b939.table.json; uploading output.log; uploading wandb-summary.json; uploading config.yaml
+wandb: 
+wandb: Run summary:
+wandb:             final_kl 8.29427
+wandb:                    n 150
+wandb:        sentiment_acc 69.33333
+wandb: sentiment_acc_before 72
+wandb:        steering_gain -2.66667
+wandb: 
+wandb: 🚀 View run gpt2-large.continuation.ours.dls.init-random_token.cons_only.lbl0 at: https://wandb.ai/servermonk/ctg-langevin-thesis/runs/912989m9
+wandb: ⭐️ View project at: https://wandb.ai/servermonk/ctg-langevin-thesis
+wandb: Synced 5 W&B file(s), 1 media file(s), 2 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20260714_072112-912989m9/logs
+
+[gpt2-large.continuation.ours.dls.init-random_token.cons_only.lbl0] DONE  n=150
+  sentiment BEFORE : 72.0%
+  sentiment AFTER  : 69.3%
+  STEERING GAIN    : -2.7 points
+  final KL         : 8.294
+  wrote results_constrained/gpt2-large.continuation.ours.dls.init-random_token.cons_only.lbl0.json

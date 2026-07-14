@@ -8,3 +8,32 @@ wandb: Syncing run gpt2-large.continuation.mucola.cls.init-centroid.cons_random.
 wandb: ⭐️ View project at https://wandb.ai/servermonk/ctg-langevin-thesis
 wandb: 🚀 View run at https://wandb.ai/servermonk/ctg-langevin-thesis/runs/pothsksp
 [gpt2-large.continuation.mucola.cls.init-centroid.cons_random.lbl1] task=continuation setup=mucola arm=cons_random steps=300 eps=5.0->0.05 mh=False gn=False | 150 cases
+[gpt2-large.continuation.mucola.cls.init-centroid.cons_random.lbl1] 20/150 sent_acc=60.0%
+[gpt2-large.continuation.mucola.cls.init-centroid.cons_random.lbl1] 40/150 sent_acc=50.0%
+[gpt2-large.continuation.mucola.cls.init-centroid.cons_random.lbl1] 60/150 sent_acc=48.3%
+[gpt2-large.continuation.mucola.cls.init-centroid.cons_random.lbl1] 80/150 sent_acc=42.5%
+[gpt2-large.continuation.mucola.cls.init-centroid.cons_random.lbl1] 100/150 sent_acc=45.0%
+[gpt2-large.continuation.mucola.cls.init-centroid.cons_random.lbl1] 120/150 sent_acc=40.8%
+[gpt2-large.continuation.mucola.cls.init-centroid.cons_random.lbl1] 140/150 sent_acc=39.3%
+wandb: updating run metadata; uploading artifact run-pothsksp-examples
+wandb: uploading artifact run-pothsksp-examples
+wandb: uploading media/table/examples_0_54b80c635d208d085021.table.json; uploading output.log; uploading wandb-summary.json; uploading config.yaml
+wandb: 
+wandb: Run summary:
+wandb:             final_kl 9.35009
+wandb:                    n 150
+wandb:        sentiment_acc 40
+wandb: sentiment_acc_before 86.66667
+wandb:        steering_gain -46.66667
+wandb: 
+wandb: 🚀 View run gpt2-large.continuation.mucola.cls.init-centroid.cons_random.lbl1 at: https://wandb.ai/servermonk/ctg-langevin-thesis/runs/pothsksp
+wandb: ⭐️ View project at: https://wandb.ai/servermonk/ctg-langevin-thesis
+wandb: Synced 5 W&B file(s), 1 media file(s), 2 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20260714_072112-pothsksp/logs
+
+[gpt2-large.continuation.mucola.cls.init-centroid.cons_random.lbl1] DONE  n=150
+  sentiment BEFORE : 86.7%
+  sentiment AFTER  : 40.0%
+  STEERING GAIN    : -46.7 points
+  final KL         : 9.350
+  wrote results_constrained/gpt2-large.continuation.mucola.cls.init-centroid.cons_random.lbl1.json

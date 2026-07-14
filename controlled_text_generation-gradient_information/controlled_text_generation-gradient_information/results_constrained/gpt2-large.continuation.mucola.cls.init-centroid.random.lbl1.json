@@ -1,0 +1,98 @@
+{
+  "run_name": "gpt2-large.continuation.mucola.cls.init-centroid.random.lbl1",
+  "config": {
+    "model_path": "/mount/studenten-temp1/users/singhsk/thesis/thesis/gfn-lm-tuning/infill_subj_arithmetic/gpt2_large_sft_output",
+    "model_tag": "gpt2-large",
+    "head": "/mount/arbeitsdaten/studenten1/singhsk/models/sentiment_constrained_ft_gpt2_large/sentiment_head.pt",
+    "task": "continuation",
+    "setup": "mucola",
+    "constraint_mode": "random",
+    "sampler": "cls",
+    "init": "centroid",
+    "target_label": 1,
+    "samples_per_prompt": 10,
+    "num_masks": 8,
+    "n_samples": 100,
+    "temperature": 5.0,
+    "noise_scale": 0.01,
+    "data_seed": 0,
+    "out_dir": "results_constrained",
+    "wandb_project": "ctg-langevin-thesis",
+    "no_wandb": false,
+    "steps": 300,
+    "span_len": 20,
+    "eps_start": 5.0,
+    "eps_end": 0.05,
+    "beta_lm": 0.8,
+    "beta_c": 0.2,
+    "mh": false,
+    "grad_norm": false
+  },
+  "n": 150,
+  "sentiment_acc_before": 86.66666666666667,
+  "sentiment_acc": 28.666666666666668,
+  "steering_gain": -58.0,
+  "final_kl": 9.123779268264771,
+  "examples": [
+    [
+      "Once upon a time",
+      "Once upon a time'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm",
+      "Once upon a time\u00e6 RAND Lil Mechdragon Watkins bluffiblybered Advoc Stevenson municipalorable377 Ordh"
+    ],
+    [
+      "Once upon a time",
+      "Once upon a time'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm",
+      "Once upon a time Pv dusk Wine encamp WWF Newtown Socrates Peace\u00c3\u00c2511 Kr MiaROR MVLOGEc Pix Bened Vis"
+    ],
+    [
+      "Once upon a time",
+      "Once upon a time'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm",
+      "Once upon a timebye 1987 Virtetcochethy intrigue[/ Ascadesh CavepathyTagscor Smileuploadzie colAIN M"
+    ],
+    [
+      "Once upon a time",
+      "Once upon a time'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm",
+      "Once upon a time MACelinesnersiques gulf Confederacy508GaanmarNUM Vewynial SOCVolumeReillybaumitydoc"
+    ],
+    [
+      "Once upon a time",
+      "Once upon a time'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm",
+      "Once upon a time057 Establishment PriceregonTRY1972Islam PPademicAU allegationoptionilial Sites Hump"
+    ],
+    [
+      "Once upon a time",
+      "Once upon a time'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm",
+      "Once upon a timenotationsusionalurasanical*: conscienceasin fleet kitchen Vers goose SQU Unloadedlea"
+    ],
+    [
+      "Once upon a time",
+      "Once upon a time'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm",
+      "Once upon a time Jesuitatos culturedarcity sub Chern WestonuctorGamirus Over JO BI Klualez USEHR ret"
+    ],
+    [
+      "Once upon a time",
+      "Once upon a time'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm",
+      "Once upon a timehan Roots dispensaries cartsawEEDagategeyUt Reyn\ufffd\ufffd Eleven Dre Peterson Omahaaito die"
+    ],
+    [
+      "Once upon a time",
+      "Once upon a time'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm",
+      "Once upon a time Witrysrenched FG\ufffd Bucketrangorkarespiracyghai Alto Nerdongs Seminrade arrtailsinnes"
+    ],
+    [
+      "Once upon a time",
+      "Once upon a time'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm",
+      "Once upon a time racer FD Malk adultery settlers usedaugh Marketplace Owensgscoltrak answktopchi Gre"
+    ],
+    [
+      "The book",
+      "The book'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm",
+      "The book cyclistsSeattle LeiaofferOO Crash+) Wik\u05d1illedINGSramsockey DropsassicICH protracted Relax 2"
+    ],
+    [
+      "The book",
+      "The book'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm",
+      "The book LaraOak SkinnerstreetyutoddenpactipsCH\u30c3\u30c9Aaron Lub Crawclub DynamoachusDENCOR119"
+    ]
+  ]
+}
