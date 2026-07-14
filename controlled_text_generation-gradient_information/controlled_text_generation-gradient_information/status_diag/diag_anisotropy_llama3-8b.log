@@ -1,14 +1,38 @@
 Special tokens have been added in the vocabulary, make sure the associated word embeddings are fine-tuned or trained.
-Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:00<00:01,  1.84it/s]Loading checkpoint shards:  50%|█████     | 2/4 [00:01<00:01,  1.86it/s]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:01<00:00,  1.89it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:01<00:00,  2.45it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:01<00:00,  2.20it/s]
-[anisotropy] model loaded in 18.3s
-Traceback (most recent call last):
-  File "/mount/studenten-temp1/users/singhsk/thesis/thesis/controlled_text_generation-gradient_information/controlled_text_generation-gradient_information/run_diagnostic.py", line 685, in <module>
-    main()
-  File "/mount/studenten-temp1/users/singhsk/thesis/thesis/controlled_text_generation-gradient_information/controlled_text_generation-gradient_information/run_diagnostic.py", line 671, in main
-    summary = EXPERIMENTS[args.exp](args, model, tok, args.device)
-              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/mount/studenten-temp1/users/singhsk/thesis/thesis/controlled_text_generation-gradient_information/controlled_text_generation-gradient_information/run_diagnostic.py", line 457, in exp_anisotropy
-    idx_a = torch.from_numpy(rng.choice(V, size=args.n_pairs, replace=False)).to(device)
-                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "numpy/random/mtrand.pyx", line 1025, in numpy.random.mtrand.RandomState.choice
-ValueError: Cannot take a larger sample than population when 'replace=False'
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:06<00:20,  7.00s/it]Loading checkpoint shards:  50%|█████     | 2/4 [00:15<00:15,  7.73s/it]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:22<00:07,  7.68s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:24<00:00,  5.20s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:24<00:00,  6.06s/it]
+[anisotropy] model loaded in 44.7s
+[anisotropy] dropping 287 untrained/zero embedding rows (127969 live of 128256)
+/mount/studenten-temp1/users/singhsk/thesis/thesis/gfn-lm-tuning/gfn/lib64/python3.11/site-packages/datasets/load.py:1491: FutureWarning: The repository for wza/roc_stories contains custom code which must be executed to correctly load the dataset. You can inspect the repository content at https://hf.co/datasets/wza/roc_stories
+You can avoid this message in future by passing the argument `trust_remote_code=True`.
+Passing `trust_remote_code=True` will be mandatory to load this dataset from the next major release of `datasets`.
+  warnings.warn(
+[done] results_diag/diag_anisotropy_llama3-8b.json  (1.1 min)
+{
+  "experiment": "anisotropy",
+  "vocab_size": 128256,
+  "vocab_size_live": 127969,
+  "n_dead_embedding_rows": 287,
+  "embedding_dim": 4096,
+  "n_pairs_used": 199998,
+  "mean_pairwise_l2": 0.8354588150978088,
+  "std_pairwise_l2": 0.06175681948661804,
+  "median_pairwise_l2": 0.8416593670845032,
+  "mean_pairwise_cosine": 0.01846875622868538,
+  "mean_nearest_neighbour_l2": 0.5850058794021606,
+  "median_nearest_neighbour_l2": 0.5983858704566956,
+  "min_nearest_neighbour_l2": 0.003486563917249441,
+  "norm_of_mean_embedding": 0.08080978691577911,
+  "mean_residual_norm": 0.588628351688385,
+  "cone_ratio_mu_over_residual": 0.13728490427616907,
+  "mean_grad_fraction_along_cone_axis": 0.10569919851319991,
+  "var_explained_top1": 0.00761023984047188,
+  "var_explained_top2": 0.011924958740082342,
+  "var_explained_top5": 0.02119703226864061,
+  "var_explained_top10": 0.03020469086990046,
+  "var_explained_top50": 0.06706374643843586,
+  "run_name": "diag_anisotropy_llama3-8b",
+  "model_path": "/mount/arbeitsdaten31/studenten1/singhsk/models/llama3-8b",
+  "adapter_path": null,
+  "seed": 0,
+  "wall_time_sec": 63.750468492507935
+}

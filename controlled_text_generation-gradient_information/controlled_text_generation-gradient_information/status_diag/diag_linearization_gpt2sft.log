@@ -1,7 +1,5 @@
-[linearization] model loaded in 12.5s
+[linearization] model loaded in 12.6s
 /mount/studenten-temp1/users/singhsk/thesis/thesis/gfn-lm-tuning/gfn/lib64/python3.11/site-packages/datasets/load.py:1491: FutureWarning: The repository for wza/roc_stories contains custom code which must be executed to correctly load the dataset. You can inspect the repository content at https://hf.co/datasets/wza/roc_stories
 You can avoid this message in future by passing the argument `trust_remote_code=True`.
 Passing `trust_remote_code=True` will be mandatory to load this dataset from the next major release of `datasets`.
   warnings.warn(
-[linearization] 10/200 seqs, 20000 rows, elapsed 1.0m, eta 19.0m
-[linearization] 20/200 seqs, 40000 rows, elapsed 2.0m, eta 17.8m
