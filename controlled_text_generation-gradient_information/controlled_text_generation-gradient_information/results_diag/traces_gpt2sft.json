@@ -1,0 +1,36 @@
+{
+  "experiment": "traces",
+  "configs": {
+    "cls_policy_gnoff_mh": {
+      "n_proposals": 10000,
+      "accept_rate_overall": 0.0261,
+      "accept_rate_crossed": 0.036650690724555963,
+      "accept_rate_stayed": 0.00034411562284927734,
+      "n_accepted_and_crossed": 260,
+      "mean_log_target_ratio_crossed": 4.603535973995479,
+      "mean_log_proposal_ratio_crossed": -1325.4377867465023
+    },
+    "cls_policy_gnon_mh": {
+      "n_proposals": 10000,
+      "accept_rate_overall": 0.0704,
+      "accept_rate_crossed": 0.08556943242240633,
+      "accept_rate_stayed": 0.006272869837950863,
+      "n_accepted_and_crossed": 692,
+      "mean_log_target_ratio_crossed": -2.6645219891773277,
+      "mean_log_proposal_ratio_crossed": -754.8968331818235
+    },
+    "dls_policy_gn_mh": {
+      "n_proposals": 10000,
+      "accept_rate_overall": 0.1213,
+      "accept_rate_crossed": 0.09272070211667527,
+      "accept_rate_stayed": 1.0,
+      "n_accepted_and_crossed": 898,
+      "mean_log_target_ratio_crossed": -18.93270326377069,
+      "mean_log_proposal_ratio_crossed": -0.0037359213545941545
+    }
+  },
+  "run_name": "traces_gpt2sft",
+  "n_seqs": 200,
+  "steps": 50,
+  "n_masks": 1
+}

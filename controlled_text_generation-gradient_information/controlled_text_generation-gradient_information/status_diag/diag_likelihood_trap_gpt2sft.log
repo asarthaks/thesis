@@ -1,5 +1,95 @@
-[likelihood_trap] model loaded in 11.0s
-/mount/studenten-temp1/users/singhsk/thesis/thesis/gfn-lm-tuning/gfn/lib64/python3.11/site-packages/datasets/load.py:1491: FutureWarning: The repository for wza/roc_stories contains custom code which must be executed to correctly load the dataset. You can inspect the repository content at https://hf.co/datasets/wza/roc_stories
-You can avoid this message in future by passing the argument `trust_remote_code=True`.
-Passing `trust_remote_code=True` will be mandatory to load this dataset from the next major release of `datasets`.
-  warnings.warn(
+[likelihood_trap] model loaded in 3.3s
+[likelihood_trap] 20/500
+[likelihood_trap] 40/500
+[likelihood_trap] 60/500
+[likelihood_trap] 80/500
+[likelihood_trap] 100/500
+[likelihood_trap] 120/500
+[likelihood_trap] 140/500
+[likelihood_trap] 160/500
+[likelihood_trap] 180/500
+[likelihood_trap] 200/500
+[likelihood_trap] 220/500
+[likelihood_trap] 240/500
+[likelihood_trap] 260/500
+[likelihood_trap] 280/500
+[likelihood_trap] 300/500
+[likelihood_trap] 320/500
+[likelihood_trap] 340/500
+[likelihood_trap] 360/500
+[likelihood_trap] 380/500
+[likelihood_trap] 400/500
+[likelihood_trap] 420/500
+[likelihood_trap] 440/500
+[likelihood_trap] 460/500
+[likelihood_trap] 480/500
+[likelihood_trap] 500/500
+[done] results_diag/diag_likelihood_trap_gpt2sft.json  (56.4 min)
+{
+  "experiment": "likelihood_trap",
+  "n_sequences": 500,
+  "by_strategy": {
+    "greedy": {
+      "n": 500,
+      "mean_gen_len": 40.0,
+      "std_gen_len": 0.0,
+      "mean_scored_len": 40.0,
+      "frac_emitted_eos": 0.0,
+      "frac_hit_cap": 1.0,
+      "mean_total_logp": -38.000711528778076,
+      "mean_per_token_logp": -0.9500177882194518,
+      "mean_rep4": 0.14367567567567566,
+      "mean_distinct2": 0.7309230769230769
+    },
+    "beam5": {
+      "n": 500,
+      "mean_gen_len": 40.0,
+      "std_gen_len": 0.0,
+      "mean_scored_len": 40.0,
+      "frac_emitted_eos": 0.0,
+      "frac_hit_cap": 1.0,
+      "mean_total_logp": -26.503197155952453,
+      "mean_per_token_logp": -0.6625799288988113,
+      "mean_rep4": 0.26935135135135135,
+      "mean_distinct2": 0.6416410256410257
+    },
+    "beam20": {
+      "n": 500,
+      "mean_gen_len": 40.0,
+      "std_gen_len": 0.0,
+      "mean_scored_len": 40.0,
+      "frac_emitted_eos": 0.0,
+      "frac_hit_cap": 1.0,
+      "mean_total_logp": -22.15025865268707,
+      "mean_per_token_logp": -0.5537564663171768,
+      "mean_rep4": 0.3852972972972973,
+      "mean_distinct2": 0.5326153846153846
+    },
+    "ancestral": {
+      "n": 500,
+      "mean_gen_len": 39.89,
+      "std_gen_len": 1.2445874802487706,
+      "mean_scored_len": 39.882,
+      "frac_emitted_eos": 0.008,
+      "frac_hit_cap": 0.992,
+      "mean_total_logp": -84.7136714515686,
+      "mean_per_token_logp": -2.12572304037529,
+      "mean_rep4": 0.01945945945945945,
+      "mean_distinct2": 0.9395027870680045
+    },
+    "topp90": {
+      "n": 500,
+      "mean_gen_len": 39.988,
+      "std_gen_len": 0.2683281572999748,
+      "mean_scored_len": 39.986,
+      "frac_emitted_eos": 0.002,
+      "frac_hit_cap": 0.998,
+      "mean_total_logp": -63.40327321815491,
+      "mean_per_token_logp": -1.5857007754773804,
+      "mean_rep4": 0.032540540540540536,
+      "mean_distinct2": 0.9180913461538462
+    },
+    "temp07": {
+      "n": 500,
+      "mean_gen_len": 39.892,
+      "std_gen

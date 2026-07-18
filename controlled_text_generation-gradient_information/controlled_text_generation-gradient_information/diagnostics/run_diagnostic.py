@@ -115,11 +115,11 @@ def load_sequences(dataset, tokenizer, n, min_tok, max_tok, seed):
     else:
         from datasets import load_dataset
         if "roc" in dataset.lower():
-            ds = load_dataset("wza/roc_stories", split="train")
+            ds = load_dataset("wza/roc_stories", split="train", trust_remote_code=True)
             key = "text" if "text" in ds.column_names else ds.column_names[0]
             texts = [ds[i][key] for i in range(min(len(ds), 20000))]
         else:
-            ds = load_dataset(dataset, split="train")
+            ds = load_dataset(dataset, split="train", trust_remote_code=True)
             key = "text" if "text" in ds.column_names else ds.column_names[0]
             texts = [ds[i][key] for i in range(min(len(ds), 20000))]
 
@@ -359,12 +359,18 @@ def exp_likelihood_trap(args, model, tok, device):
     Decode with several strategies and show that the LOWEST energy text
     (highest likelihood) is the WORST text. This is what makes -log p a bad
     energy function in the statistical sense, independent of any sampler.
+
+    Length is treated as a MEASURED pathology, not a clean variable: some models
+    (len_beta=0) have EOS trained out of them and never stop, so we record the
+    stop behaviour explicitly and never assume free-running length is meaningful.
     """
     import csv
     from collections import Counter
 
     seqs = load_sequences(args.dataset, tok, args.n_seqs,
                           args.min_tokens, args.max_tokens, args.seed)
+
+    eos_id = tok.eos_token_id
 
     strategies = {
         "greedy":       dict(do_sample=False, num_beams=1),
@@ -392,44 +398,64 @@ def exp_likelihood_trap(args, model, tok, device):
     csv_path = os.path.join(args.out_dir, args.run_name + ".csv")
     f = open(csv_path, "w", newline="")
     w = csv.writer(f)
-    w.writerow(["seq_id", "strategy", "gen_len", "total_logp",
-                "mean_logp", "rep4", "distinct2", "text"])
+    w.writerow(["seq_id", "strategy", "gen_len", "scored_len",
+                "emitted_eos", "hit_cap", "total_logp", "mean_logp",
+                "rep4", "distinct2", "text"])
 
     for si, ids in enumerate(seqs):
-        # condition on the first half, generate the rest
         L = ids.shape[0]
         cut = max(4, L // 2)
         prompt = ids[:cut].unsqueeze(0).to(device)
 
         for name, kw in strategies.items():
+            gkw = dict(kw)
+            if eos_id is not None:
+                gkw["eos_token_id"] = eos_id
             with torch.no_grad():
                 out = model.generate(
                     prompt,
                     max_new_tokens=args.max_new_tokens,
                     min_new_tokens=1,
                     pad_token_id=tok.pad_token_id,
-                    **kw,
+                    **gkw,
                 )
             gen = out[0, cut:]
-            if gen.numel() == 0:
+            raw_len = int(gen.numel())
+            if raw_len == 0:
                 continue
-            full = out[:, :].to(device)
 
+            # locate the FIRST eos in the generated span
+            gen_list = gen.tolist()
+            emitted_eos = int(eos_id is not None and eos_id in gen_list)
+            if emitted_eos:
+                stop = gen_list.index(eos_id)           # score up to, excluding, eos
+            else:
+                stop = raw_len
+            hit_cap = int((not emitted_eos) and raw_len >= args.max_new_tokens)
+
+            scored_ids = gen_list[:stop]
+            scored_len = len(scored_ids)
+            if scored_len == 0:                          # emitted eos immediately
+                # still record it: an empty generation is a length-collapse datum
+                w.writerow([si, name, raw_len, 0, emitted_eos, hit_cap,
+                            0.0, 0.0, 0.0, 0.0, ""])
+                continue
+
+            # per-token log-probs of the SCORED span only
+            full = out[:, :cut + stop].to(device)
             with torch.no_grad():
                 o = model(input_ids=full)
                 lg = torch.log_softmax(o.logits[:, :-1, :].float(), dim=-1)
                 tg = full[:, 1:]
                 tok_lp = lg.gather(-1, tg.unsqueeze(-1)).squeeze(-1)[0]
-            # score only the GENERATED span, so length is the generated length
-            gen_lp = tok_lp[cut - 1:]
+            gen_lp = tok_lp[cut - 1:]                     # the generated positions
             total_lp = float(gen_lp.sum().item())
-            glen = int(gen.numel())
-            mean_lp = total_lp / max(1, glen)
+            mean_lp = total_lp / max(1, scored_len)
 
-            gl = gen.tolist()
-            w.writerow([si, name, glen, total_lp, mean_lp,
-                        repetition_rate(gl), distinct_n(gl),
-                        tok.decode(gl).replace("\n", " ")[:300]])
+            w.writerow([si, name, raw_len, scored_len, emitted_eos, hit_cap,
+                        total_lp, mean_lp,
+                        repetition_rate(scored_ids), distinct_n(scored_ids),
+                        tok.decode(scored_ids).replace("\n", " ")[:300]])
 
         if (si + 1) % 20 == 0:
             print(f"[likelihood_trap] {si+1}/{len(seqs)}", flush=True)
@@ -437,33 +463,70 @@ def exp_likelihood_trap(args, model, tok, device):
     f.close()
 
     import pandas as pd
+    import numpy as np
     from scipy.stats import linregress
     df = pd.read_csv(csv_path)
 
-    summary = {"experiment": "likelihood_trap", "n_sequences": len(seqs), "by_strategy": {}}
-    for name in strategies:
+    summary = {"experiment": "likelihood_trap", "n_sequences": len(seqs),
+               "by_strategy": {}}
+
+    # overall stop behaviour: THIS is a headline number for the length pathology.
+    summary["frac_emitted_eos"] = float(df.emitted_eos.mean())
+    summary["frac_hit_cap"] = float(df.hit_cap.mean())
+
+    for name in df.strategy.unique():
         sub = df[df.strategy == name]
         if len(sub) == 0:
             continue
         summary["by_strategy"][name] = {
-            "mean_len": float(sub.gen_len.mean()),
+            "n": int(len(sub)),
+            "mean_gen_len": float(sub.gen_len.mean()),
+            "std_gen_len": float(sub.gen_len.std()),
+            "mean_scored_len": float(sub.scored_len.mean()),
+            "frac_emitted_eos": float(sub.emitted_eos.mean()),
+            "frac_hit_cap": float(sub.hit_cap.mean()),
             "mean_total_logp": float(sub.total_logp.mean()),
             "mean_per_token_logp": float(sub.mean_logp.mean()),
             "mean_rep4": float(sub.rep4.mean()),
             "mean_distinct2": float(sub.distinct2.mean()),
         }
-    # the length / total-logp regression. The slope IS the negative mean entropy,
-    # and it is the quantitative statement of the GFlowNet brevity incentive.
-    lr = linregress(df.gen_len, df.total_logp)
+
+    # regression ONLY where length varies. Use scored_len, not raw gen_len.
+    def safe_fit(frame):
+        frame = frame[frame.scored_len > 0]
+        if len(frame) < 30 or frame.scored_len.nunique() < 5 or frame.scored_len.std() == 0:
+            return None
+        lr = linregress(frame.scored_len, frame.total_logp)
+        return {"slope_nats_per_token": float(lr.slope),
+                "intercept": float(lr.intercept),
+                "r_value": float(lr.rvalue),
+                "n": int(len(frame))}
+
+    per_strategy_fit = {}
+    for name in df.strategy.unique():
+        fit = safe_fit(df[df.strategy == name])
+        if fit:
+            per_strategy_fit[name] = fit
+
+    # pooled fit over the sampling strategies, which are the ones that vary
+    pooled = safe_fit(df[df.strategy.isin(["ancestral", "topp90", "temp07"])])
+
     summary["length_vs_total_logp"] = {
-        "slope_nats_per_token": float(lr.slope),
-        "intercept": float(lr.intercept),
-        "r_value": float(lr.rvalue),
-        "interpretation": ("Each additional generated token changes the unnormalised "
-                           "GFlowNet reward by this many nats. It is negative, which is "
-                           "the brevity incentive, and its magnitude is the model's mean "
-                           "per-token entropy."),
+        "per_strategy": per_strategy_fit,
+        "pooled_sampling": pooled,
+        "usable": bool(per_strategy_fit or pooled),
+        "note": ("Slope is the change in unnormalised reward per generated token, "
+                 "in nats. Negative slope is the brevity incentive; its magnitude "
+                 "is the model's mean per-token entropy. Computed only where "
+                 "length varies; deterministic decoders pinned at the cap are "
+                 "excluded because their length carries no information."),
     }
+    if not summary["length_vs_total_logp"]["usable"]:
+        summary["length_vs_total_logp"]["reason_unavailable"] = (
+            "No strategy produced varying scored length. For a len_beta=0 model "
+            "this is itself the finding: EOS has been trained out, so the model "
+            "never stops and every generation runs to the cap. See frac_emitted_eos.")
+
     return summary
 
 

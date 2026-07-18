@@ -3,3 +3,47 @@
 You can avoid this message in future by passing the argument `trust_remote_code=True`.
 Passing `trust_remote_code=True` will be mandatory to load this dataset from the next major release of `datasets`.
   warnings.warn(
+[linearization] 10/200 seqs, 20000 rows, elapsed 2.5m, eta 47.5m
+[linearization] 20/200 seqs, 40000 rows, elapsed 5.1m, eta 45.5m
+[linearization] 30/200 seqs, 60000 rows, elapsed 7.5m, eta 42.4m
+[linearization] 40/200 seqs, 80000 rows, elapsed 10.0m, eta 40.1m
+[linearization] 50/200 seqs, 100000 rows, elapsed 12.6m, eta 37.8m
+[linearization] 60/200 seqs, 120000 rows, elapsed 15.1m, eta 35.2m
+[linearization] 70/200 seqs, 140000 rows, elapsed 17.6m, eta 32.7m
+[linearization] 80/200 seqs, 160000 rows, elapsed 20.2m, eta 30.2m
+[linearization] 90/200 seqs, 180000 rows, elapsed 22.7m, eta 27.8m
+[linearization] 100/200 seqs, 200000 rows, elapsed 25.2m, eta 25.2m
+[linearization] 110/200 seqs, 220000 rows, elapsed 27.7m, eta 22.6m
+[linearization] 120/200 seqs, 240000 rows, elapsed 30.2m, eta 20.1m
+[linearization] 130/200 seqs, 260000 rows, elapsed 32.6m, eta 17.5m
+[linearization] 140/200 seqs, 280000 rows, elapsed 35.0m, eta 15.0m
+[linearization] 150/200 seqs, 300000 rows, elapsed 37.4m, eta 12.5m
+[linearization] 160/200 seqs, 320000 rows, elapsed 39.9m, eta 10.0m
+[linearization] 170/200 seqs, 340000 rows, elapsed 42.3m, eta 7.5m
+[linearization] 180/200 seqs, 360000 rows, elapsed 44.7m, eta 5.0m
+[linearization] 190/200 seqs, 380000 rows, elapsed 47.3m, eta 2.5m
+[linearization] 200/200 seqs, 400000 rows, elapsed 49.3m, eta 0.0m
+[done] results_diag/diag_linearization_gfn-lb1-500.json  (50.0 min)
+{
+  "experiment": "linearization",
+  "n_sequences": 200,
+  "n_pairs": 400000,
+  "spearman_surrogate_vs_true_ALL": 0.04624798375116917,
+  "pearson_surrogate_vs_true_ALL": -0.03159064658860833,
+  "spearman_surrogate_vs_true_SELF": -0.1714041716358474,
+  "spearman_surrogate_vs_true_FUTURE": 0.08735626305858066,
+  "mean_abs_true_delta_self": 12.637050362716112,
+  "mean_abs_true_delta_future": 29.45935038651347,
+  "mean_inter_token_distance": 2.3541153835839035,
+  "spearman_near": 0.05117086222937997,
+  "mean_dist_near": 1.937559062409997,
+  "spearman_mid": 0.03955059822126049,
+  "mean_dist_mid": 2.4063530518889427,
+  "spearman_random": 0.039953153154283993,
+  "mean_dist_random": 2.5362747100183367,
+  "run_name": "diag_linearization_gfn-lb1-500",
+  "model_path": "/mount/studenten-temp1/users/singhsk/thesis/thesis/gfn-lm-tuning/infill_subj_arithmetic/gpt2_large_sft_output",
+  "adapter_path": "/mount/studenten-temp1/users/singhsk/thesis/thesis/gfn-lm-tuning/infill_subj_arithmetic/outputs/2026-06-27/19-13-08/dutiful-durian-23_490.pt",
+  "seed": 0,
+  "wall_time_sec": 3000.726797580719
+}

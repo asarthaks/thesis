@@ -3,3 +3,47 @@
 You can avoid this message in future by passing the argument `trust_remote_code=True`.
 Passing `trust_remote_code=True` will be mandatory to load this dataset from the next major release of `datasets`.
   warnings.warn(
+[linearization] 10/200 seqs, 20000 rows, elapsed 2.1m, eta 39.5m
+[linearization] 20/200 seqs, 40000 rows, elapsed 4.2m, eta 37.9m
+[linearization] 30/200 seqs, 60000 rows, elapsed 6.3m, eta 35.4m
+[linearization] 40/200 seqs, 80000 rows, elapsed 8.4m, eta 33.4m
+[linearization] 50/200 seqs, 100000 rows, elapsed 10.5m, eta 31.5m
+[linearization] 60/200 seqs, 120000 rows, elapsed 12.6m, eta 29.4m
+[linearization] 70/200 seqs, 140000 rows, elapsed 14.7m, eta 27.3m
+[linearization] 80/200 seqs, 160000 rows, elapsed 16.9m, eta 25.3m
+[linearization] 90/200 seqs, 180000 rows, elapsed 19.0m, eta 23.2m
+[linearization] 100/200 seqs, 200000 rows, elapsed 21.1m, eta 21.1m
+[linearization] 110/200 seqs, 220000 rows, elapsed 23.1m, eta 18.9m
+[linearization] 120/200 seqs, 240000 rows, elapsed 25.2m, eta 16.8m
+[linearization] 130/200 seqs, 260000 rows, elapsed 27.2m, eta 14.6m
+[linearization] 140/200 seqs, 280000 rows, elapsed 29.2m, eta 12.5m
+[linearization] 150/200 seqs, 300000 rows, elapsed 31.2m, eta 10.4m
+[linearization] 160/200 seqs, 320000 rows, elapsed 33.2m, eta 8.3m
+[linearization] 170/200 seqs, 340000 rows, elapsed 35.3m, eta 6.2m
+[linearization] 180/200 seqs, 360000 rows, elapsed 37.3m, eta 4.1m
+[linearization] 190/200 seqs, 380000 rows, elapsed 39.4m, eta 2.1m
+[linearization] 200/200 seqs, 400000 rows, elapsed 41.5m, eta 0.0m
+[done] results_diag/diag_linearization_gfn-lb0-500.json  (42.2 min)
+{
+  "experiment": "linearization",
+  "n_sequences": 200,
+  "n_pairs": 400000,
+  "spearman_surrogate_vs_true_ALL": 0.05725233741962526,
+  "pearson_surrogate_vs_true_ALL": 0.05797122494402972,
+  "spearman_surrogate_vs_true_SELF": -0.05675744844636208,
+  "spearman_surrogate_vs_true_FUTURE": 0.08381929926437764,
+  "mean_abs_true_delta_self": 15.938100936747023,
+  "mean_abs_true_delta_future": 36.093102596760986,
+  "mean_inter_token_distance": 2.3541153835839035,
+  "spearman_near": 0.11070271727351137,
+  "mean_dist_near": 1.937559062409997,
+  "spearman_mid": 0.04860773256481332,
+  "mean_dist_mid": 2.4063530518889427,
+  "spearman_random": 0.03681549755830884,
+  "mean_dist_random": 2.5362747100183367,
+  "run_name": "diag_linearization_gfn-lb0-500",
+  "model_path": "/mount/studenten-temp1/users/singhsk/thesis/thesis/gfn-lm-tuning/infill_subj_arithmetic/gpt2_large_sft_output",
+  "adapter_path": "/mount/studenten-temp1/users/singhsk/thesis/thesis/gfn-lm-tuning/infill_subj_arithmetic/outputs/2026-06-27/19-13-26/avid-leaf-24_490.pt",
+  "seed": 0,
+  "wall_time_sec": 2534.958181142807
+}

@@ -1,0 +1,61 @@
+\chapter{Background Work}
+\label{ch:background}
+
+This chapter develops the technical background that the remainder of the thesis relies on. It begins with the energy-based view of sequence generation and the way a frozen language model is repurposed as an energy function. It then introduces Langevin dynamics as a gradient-guided sampling method, the Metropolis--Hastings correction that makes such samplers asymptotically exact, and the two concrete samplers, discrete and continuous, that are studied in the experiments. It closes with an account of GFlowNets as an amortized alternative that avoids the gradient altogether. Throughout, the aim is not to survey these tools exhaustively but to expose the specific assumptions each one makes, because it is precisely those assumptions that the experiments in Chapter~\ref{ch:results} put under strain.
+
+\section{Autoregressive Language Models as Energy Functions}
+\label{sec:bg-ebm}
+
+An autoregressive language model defines a probability distribution over a sequence of tokens $\bm{x} = (x_1, \dots, x_T)$ by the chain rule,
+\begin{equation}
+    \log p_{\text{LM}}(\bm{x}) = \sum_{t=1}^{T} \log p_{\text{LM}}(x_t \mid x_{<t}),
+    \label{eq:bg-chain}
+\end{equation}
+where each conditional is produced by a neural network, in the models studied here a Transformer \citep{vaswani2017attention}, applied to the prefix $x_{<t}$. The model is trained by \textbf{teacher forcing}, that is, by maximizing the log-likelihood in \eqref{eq:bg-chain} on a corpus with the true prefix supplied at every step. It is important for what follows to be clear about what this objective does and does not shape. It shapes each conditional $p_{\text{LM}}(x_t \mid x_{<t})$ to be an accurate predictor of the next token given a correct history. It does not, at any point, ask the joint quantity $\log p_{\text{LM}}(\bm{x})$ to behave as a smooth or well-calibrated function of $\bm{x}$ when $\bm{x}$ is varied off the data manifold. This distinction, between a well-trained local conditional and a well-behaved global energy, is the seed of the central result of the thesis, and we return to it in Chapter~\ref{ch:discussion}.
+
+The energy-based reformulation is immediate. Identifying the Boltzmann form of \eqref{eq:intro-ebm} with the language model, one sets
+\begin{equation}
+    \energy_{\text{LM}}(\bm{x}) = -\log p_{\text{LM}}(\bm{x}),
+    \label{eq:bg-energy}
+\end{equation}
+so that sequences of high probability are sequences of low energy. Sampling text from the language model is then, formally, sampling from the Boltzmann distribution of this energy. For controllable generation, an additive constraint term $\lambda\, C(\bm{x})$ is appended as in \eqref{eq:intro-energy}, where $C$ is typically the negative log-probability that an attribute classifier assigns to the desired label. The task of generation becomes the task of drawing low-energy samples from the combined energy, and the central computational question is how to do so.
+
+\section{Langevin Dynamics}
+\label{sec:bg-langevin}
+
+Suppose the state $\bm{s}$ lived in a continuous space $\R^D$ and the energy were differentiable. Then one could sample from $p(\bm{s}) \propto \exp(-\energy(\bm{s}))$ using \textbf{Langevin dynamics}, a gradient-guided Markov chain Monte Carlo method \citep{roberts1996exponential, welling2011bayesian}. The discretized update is
+\begin{equation}
+    \bm{s}_{t+1} = \bm{s}_t + \frac{\epsilon_t}{2}\,\grad_{\bm{s}} \log p(\bm{s}_t) + \sqrt{\epsilon_t}\,\bm{\xi}_t, \qquad \bm{\xi}_t \sim \mathcal{N}(\bm{0}, \bm{I}),
+    \label{eq:bg-langevin}
+\end{equation}
+where $\epsilon_t$ is a step size at iteration $t$. The update has two parts, and the interplay between them is what distinguishes sampling from optimization. The first part, the \textbf{drift}, is a step in the direction of the gradient of the log-density; on its own it is gradient ascent and it drives the state toward a single mode. The second part, the \textbf{diffusion}, injects Gaussian noise scaled by $\sqrt{\epsilon_t}$, and it is what allows the chain to escape local optima and explore. If the step size is annealed toward zero on an appropriate schedule, the distribution of $\bm{s}_t$ converges to the target $p(\bm{s})$ rather than collapsing onto its mode \citep{welling2011bayesian}. A useful intuition is that of a marble on an uneven surface in a room that is being shaken: while the shaking is vigorous the marble explores the whole surface, and as the shaking is gradually stilled, the resting place of the marble is a fair sample from the landscape rather than merely its lowest point.
+
+The convergence guarantee, however, rests on a regularity condition that will matter a great deal in Chapter~\ref{ch:results}. For the Metropolis-adjusted variant discussed below to be valid, the drift term must be Lipschitz continuous \citep{roberts1996exponential}; loosely, the gradient must not change too abruptly from one point to a nearby one. When the energy landscape is smooth this is unproblematic. When, as in the continuous sampler of Section~\ref{sec:bg-samplers}, the energy is defined through a discontinuous projection, the condition fails, and the failure is not benign.
+
+\section{The Metropolis--Hastings Correction}
+\label{sec:bg-mh}
+
+The update in \eqref{eq:bg-langevin} is a discretization, and any finite step size introduces a bias: the chain does not sample exactly from $p(\bm{s})$ but from a perturbed distribution. The \textbf{Metropolis--Hastings} (MH) correction removes this bias \citep{metropolis1953equation, hastings1970monte}. Having proposed a move from $\bm{s}$ to $\bm{s}'$ according to a proposal density $q(\bm{s}' \mid \bm{s})$, one accepts the move with probability
+\begin{equation}
+    \alpha(\bm{s}' \mid \bm{s}) = \min\left\{ 1,\; \frac{p(\bm{s}')\, q(\bm{s} \mid \bm{s}')}{p(\bm{s})\, q(\bm{s}' \mid \bm{s})} \right\},
+    \label{eq:bg-mh}
+\end{equation}
+and otherwise remains at $\bm{s}$. The acceptance ratio factors into two parts. The \textbf{target ratio} $p(\bm{s}')/p(\bm{s})$ measures whether the proposed state is more probable under the distribution being sampled. The \textbf{proposal ratio} $q(\bm{s} \mid \bm{s}')/q(\bm{s}' \mid \bm{s})$ measures whether the move is as easy to reverse as it was to make, and it is what enforces \emph{detailed balance}, the condition that guarantees the chain has $p$ as its stationary distribution. When Langevin dynamics is equipped with this correction the method is known as the Metropolis-adjusted Langevin algorithm, or MALA.
+
+Two points about the correction are worth stating plainly, because both recur in the experiments. First, many energy-based decoders in the literature omit the correction entirely; without it, the procedure is a biased optimizer dressed as a sampler, and the distinction is not merely academic. Second, the proposal ratio is subtle to compute correctly for a Langevin proposal, because the reverse proposal density $q(\bm{s} \mid \bm{s}')$ must be evaluated using the drift computed \emph{at the proposed point} $\bm{s}'$. If the drift at $\bm{s}'$ is wildly different from the drift at $\bm{s}$, as it is when the landscape is discontinuous, the reverse proposal can place the original state $\bm{s}$ deep in the tail of a Gaussian, driving the proposal ratio, and with it the acceptance probability, to zero. This is the mechanism that paralyzes the continuous sampler, and Chapter~\ref{ch:results} measures it directly.
+
+\section{Sampling in a Discrete Space: DLS and CLS}
+\label{sec:bg-samplers}
+
+The difficulty that motivates the entire thesis is that text is not continuous. The state is a sequence of discrete tokens drawn from a finite vocabulary $V$, and there is no state \emph{between} two tokens. Langevin dynamics, which assumes a continuous differentiable space, cannot be applied to such a state without modification. Two strategies for adapting it are studied here, and they differ in where they confront the discreteness.
+
+The \textbf{Discrete Langevin Sampler} (DLS), following the discrete gradient-based samplers of \citet{grathwohl2021oops} and \citet{zhang2022langevin}, never leaves token space. It uses the gradient of the log-likelihood with respect to the input embedding of a masked position only as a \emph{score}, to construct a categorical proposal distribution over which token to place there next. Concretely, if $\ve(x_i)$ is the embedding of the current token at a masked position $i$ and $\vg = \grad_{\ve_i}\log p_{\text{LM}}(\bm{x})$ is the gradient at that position, the proposal assigns to a candidate token $v$ a logit that combines a term penalizing the embedding distance $\norm{\ve(v) - \ve(x_i)}$ with a term proportional to $\tfrac{1}{2}\vg^\top(\ve(v) - \ve(x_i))$. The second of these is a \textbf{first-order Taylor surrogate} for the change in log-likelihood that would result from the substitution, and its validity is the subject of the central diagnostic of the thesis.
+
+The \textbf{Continuous Langevin Sampler} (CLS), following the continuous-relaxation approach of methods such as MuCoLa \citep{kumar2022gradient}, takes the opposite route. It relaxes the state into the continuous embedding space $\R^D$, runs genuine Langevin dynamics there according to \eqref{eq:bg-langevin}, and projects the continuous state back onto the nearest token embedding when a discrete sequence is required. The energy it navigates is therefore defined through a \textbf{nearest-neighbour projection} into the vocabulary. This construction has an immediate geometric consequence, developed at length in Chapter~\ref{ch:results}: the embedding space is partitioned into \textbf{Voronoi cells}, one per token, within which the projected token, and hence the energy, is constant, and across whose boundaries the energy changes discontinuously. The landscape the continuous sampler must traverse is thus not a smooth surface but a collection of flat plateaus separated by cliffs, and it is on exactly such a landscape that the Lipschitz condition of Section~\ref{sec:bg-mh} fails.
+
+\section{Amortized Inference with GFlowNets}
+\label{sec:bg-gflownet}
+
+Both samplers above require the gradient of the energy. An entirely different strategy is to give up on the gradient and instead \emph{learn} to sample. A \textbf{Generative Flow Network} \citep{bengio2021flow, bengio2023gflownet} treats generation as a sequential process of constructing an object step by step, and trains a policy so that the probability of terminating at a complete object is proportional to a non-negative reward $R(\bm{x})$. The name reflects a useful metaphor: one imagines a fixed quantity of flow entering at an initial state and being divided at each branching point by the policy, so that the amount of flow arriving at each terminal object is proportional to its reward. Generation then amounts to following the flow, and because the policy allocates flow in proportion to reward rather than concentrating it on the single highest-reward object, the resulting samples are \emph{diverse}, which is the property that distinguishes a GFlowNet from a reward-maximizing reinforcement-learning agent that would converge on one mode.
+
+For text, the object is a sequence and the construction proceeds left to right, so the generative structure is a tree: there is exactly one path to any given sequence. The training objectives used in practice, such as trajectory balance and its sub-trajectory variants \citep{malkin2022trajectory, madan2023learning}, enforce a flow-consistency condition along trajectories. The crucial feature of the whole approach for this thesis is that the reward $R(\bm{x})$ is only ever \emph{evaluated}, never differentiated: the discontinuity and non-smoothness of the underlying energy landscape, which cripple the gradient-guided samplers, are simply invisible to a GFlowNet. If the difficulty with energy-guided sampling were purely a property of the gradient, amortization ought to escape it. Whether it does is the question of Section~\ref{sec:results-gfn}. Following \citet{hu2024amortizing}, the GFlowNet is realized as a parameter-efficient adapter \citep{hu2022lora} on the same frozen base model that supplies the energy, so that the two halves of the study share a model and the comparison between them is not confounded.

@@ -12,3 +12,5 @@ models/
 .hf_cache/
 .pip-cache/
 .wandb_cache/
+gfn/
+**/wandb/**

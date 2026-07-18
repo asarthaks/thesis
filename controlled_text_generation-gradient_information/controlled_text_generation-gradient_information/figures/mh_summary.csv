@@ -1,0 +1,2 @@
+n_proposals,accept_rate_overall,accept_rate_stayed_in_cell,accept_rate_crossed_boundary,n_accepted_and_crossed,mean_log_target_ratio_crossed,mean_log_proposal_ratio_crossed
+30000,0.0726,0.06388780677834048,0.07439877744711655,1850,-6.927279668485975,-623.6444354347066

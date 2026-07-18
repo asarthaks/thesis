@@ -1,0 +1,148 @@
+{
+  "experiment": "likelihood_trap",
+  "n_sequences": 500,
+  "by_strategy": {
+    "greedy": {
+      "n": 500,
+      "mean_gen_len": 39.906,
+      "std_gen_len": 1.2083394259630336,
+      "mean_scored_len": 39.87,
+      "frac_emitted_eos": 0.036,
+      "frac_hit_cap": 0.964,
+      "mean_total_logp": -87.19926605272293,
+      "mean_per_token_logp": -2.1925240778954613,
+      "mean_rep4": 0.46138028479607424,
+      "mean_distinct2": 0.3776988620019473
+    },
+    "beam5": {
+      "n": 500,
+      "mean_gen_len": 39.936,
+      "std_gen_len": 1.0128948177494281,
+      "mean_scored_len": 39.92,
+      "frac_emitted_eos": 0.016,
+      "frac_hit_cap": 0.984,
+      "mean_total_logp": -50.53818940591812,
+      "mean_per_token_logp": -1.2715418048634397,
+      "mean_rep4": 0.6261245568877147,
+      "mean_distinct2": 0.29389693296787117
+    },
+    "beam20": {
+      "n": 500,
+      "mean_gen_len": 39.966,
+      "std_gen_len": 0.7602631123499284,
+      "mean_scored_len": 39.96,
+      "frac_emitted_eos": 0.006,
+      "frac_hit_cap": 0.994,
+      "mean_total_logp": -33.078169621944426,
+      "mean_per_token_logp": -0.8309576421684041,
+      "mean_rep4": 0.6736522838628103,
+      "mean_distinct2": 0.27288837478311156
+    },
+    "ancestral": {
+      "n": 500,
+      "mean_gen_len": 36.568,
+      "std_gen_len": 3.0971860005889997,
+      "mean_scored_len": 35.724,
+      "frac_emitted_eos": 0.844,
+      "frac_hit_cap": 0.156,
+      "mean_total_logp": -203.63923362731933,
+      "mean_per_token_logp": -5.721039004277038,
+      "mean_rep4": 0.0045960960960960955,
+      "mean_distinct2": 0.9924309220936505
+    },
+    "topp90": {
+      "n": 500,
+      "mean_gen_len": 38.208,
+      "std_gen_len": 2.2704726583212516,
+      "mean_scored_len": 37.52,
+      "frac_emitted_eos": 0.688,
+      "frac_hit_cap": 0.312,
+      "mean_total_logp": -157.85642725992201,
+      "mean_per_token_logp": -4.220712507693297,
+      "mean_rep4": 0.015405405405405406,
+      "mean_distinct2": 0.9777334217448382
+    },
+    "temp07": {
+      "n": 500,
+      "mean_gen_len": 37.504,
+      "std_gen_len": 2.578231672506221,
+      "mean_scored_len": 36.74,
+      "frac_emitted_eos": 0.764,
+      "frac_hit_cap": 0.236,
+      "mean_total_logp": -172.6884395546913,
+      "mean_per_token_logp": -4.722777259065126,
+      "mean_rep4": 0.015189189189189189,
+      "mean_distinct2": 0.9775260486372291
+    }
+  },
+  "frac_emitted_eos": 0.3923333333333333,
+  "frac_hit_cap": 0.6076666666666667,
+  "length_vs_total_logp": {
+    "per_strategy": {
+      "greedy": {
+        "slope_nats_per_token": 1.2086371538351344,
+        "intercept": -135.38762937612972,
+        "r_value": 0.03099638807581983,
+        "n": 500
+      },
+      "ancestral": {
+        "slope_nats_per_token": -3.452483727367132,
+        "intercept": -80.30270495085593,
+        "r_value": -0.3777349935527741,
+        "n": 500
+      },
+      "topp90": {
+        "slope_nats_per_token": -1.5089774439242691,
+        "intercept": -101.23959356388343,
+        "r_value": -0.1578165239735436,
+        "n": 500
+      },
+      "temp07": {
+        "slope_nats_per_token": -1.0416870349711516,
+        "intercept": -134.4168578898512,
+        "r_value": -0.10131682793353344,
+        "n": 500
+      }
+    },
+    "pooled_sampling": {
+      "slope_nats_per_token": -0.5045617939355608,
+      "intercept": -159.56345869924132,
+      "r_value": -0.0446654981814173,
+      "n": 1500
+    },
+    "usable": true,
+    "note": "Slope is the change in unnormalised reward per generated token, in nats. Negative slope is the brevity incentive; its magnitude is the model's mean per-token entropy. Computed only where length varies; deterministic decoders pinned at the cap are excluded because their length carries no information."
+  },
+  "run_name": "diag_likelihood_trap_gfn-lb1-500",
+  "model_path": "/mount/studenten-temp1/users/singhsk/thesis/thesis/gfn-lm-tuning/infill_subj_arithmetic/gpt2_large_sft_output",
+  "adapter_path": "/mount/studenten-temp1/users/singhsk/thesis/thesis/gfn-lm-tuning/infill_subj_arithmetic/outputs/2026-06-27/19-13-08/dutiful-durian-23_490.pt",
+  "seed": 0,
+  "wall_time_sec": 3305.5297951698303,
+  "argv": {
+    "exp": "likelihood_trap",
+    "run_name": "diag_likelihood_trap_gfn-lb1-500",
+    "out_dir": "results_diag",
+    "model_path": "/mount/studenten-temp1/users/singhsk/thesis/thesis/gfn-lm-tuning/infill_subj_arithmetic/gpt2_large_sft_output",
+    "adapter_path": "/mount/studenten-temp1/users/singhsk/thesis/thesis/gfn-lm-tuning/infill_subj_arithmetic/outputs/2026-06-27/19-13-08/dutiful-durian-23_490.pt",
+    "dtype": "float32",
+    "dataset": "roc_stories",
+    "device": "cuda",
+    "seed": 0,
+    "overwrite": false,
+    "n_seqs": 500,
+    "min_tokens": 15,
+    "max_tokens": 60,
+    "batch_size": 64,
+    "n_cand": 2000,
+    "n_near": 500,
+    "n_mid": 500,
+    "max_new_tokens": 40,
+    "n_pairs": 200000,
+    "nn_probe": 2000,
+    "core_path": ".",
+    "steps": 50,
+    "n_traj_seqs": 5,
+    "eps_start": 10.5,
+    "eps_end": 0.1
+  }
+}

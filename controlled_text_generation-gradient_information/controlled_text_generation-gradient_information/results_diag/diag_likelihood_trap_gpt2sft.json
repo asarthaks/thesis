@@ -1,0 +1,130 @@
+{
+  "experiment": "likelihood_trap",
+  "n_sequences": 500,
+  "by_strategy": {
+    "greedy": {
+      "n": 500,
+      "mean_gen_len": 40.0,
+      "std_gen_len": 0.0,
+      "mean_scored_len": 40.0,
+      "frac_emitted_eos": 0.0,
+      "frac_hit_cap": 1.0,
+      "mean_total_logp": -38.000711528778076,
+      "mean_per_token_logp": -0.9500177882194518,
+      "mean_rep4": 0.14367567567567566,
+      "mean_distinct2": 0.7309230769230769
+    },
+    "beam5": {
+      "n": 500,
+      "mean_gen_len": 40.0,
+      "std_gen_len": 0.0,
+      "mean_scored_len": 40.0,
+      "frac_emitted_eos": 0.0,
+      "frac_hit_cap": 1.0,
+      "mean_total_logp": -26.503197155952453,
+      "mean_per_token_logp": -0.6625799288988113,
+      "mean_rep4": 0.26935135135135135,
+      "mean_distinct2": 0.6416410256410257
+    },
+    "beam20": {
+      "n": 500,
+      "mean_gen_len": 40.0,
+      "std_gen_len": 0.0,
+      "mean_scored_len": 40.0,
+      "frac_emitted_eos": 0.0,
+      "frac_hit_cap": 1.0,
+      "mean_total_logp": -22.15025865268707,
+      "mean_per_token_logp": -0.5537564663171768,
+      "mean_rep4": 0.3852972972972973,
+      "mean_distinct2": 0.5326153846153846
+    },
+    "ancestral": {
+      "n": 500,
+      "mean_gen_len": 39.89,
+      "std_gen_len": 1.2445874802487706,
+      "mean_scored_len": 39.882,
+      "frac_emitted_eos": 0.008,
+      "frac_hit_cap": 0.992,
+      "mean_total_logp": -84.7136714515686,
+      "mean_per_token_logp": -2.12572304037529,
+      "mean_rep4": 0.01945945945945945,
+      "mean_distinct2": 0.9395027870680045
+    },
+    "topp90": {
+      "n": 500,
+      "mean_gen_len": 39.988,
+      "std_gen_len": 0.2683281572999748,
+      "mean_scored_len": 39.986,
+      "frac_emitted_eos": 0.002,
+      "frac_hit_cap": 0.998,
+      "mean_total_logp": -63.40327321815491,
+      "mean_per_token_logp": -1.5857007754773804,
+      "mean_rep4": 0.032540540540540536,
+      "mean_distinct2": 0.9180913461538462
+    },
+    "temp07": {
+      "n": 500,
+      "mean_gen_len": 39.892,
+      "std_gen_len": 1.6240724190887825,
+      "mean_scored_len": 39.886,
+      "frac_emitted_eos": 0.006,
+      "frac_hit_cap": 0.994,
+      "mean_total_logp": -59.48998846149445,
+      "mean_per_token_logp": -1.4917864440978705,
+      "mean_rep4": 0.04481081081081081,
+      "mean_distinct2": 0.8997435897435898
+    }
+  },
+  "frac_emitted_eos": 0.0026666666666666666,
+  "frac_hit_cap": 0.9973333333333333,
+  "length_vs_total_logp": {
+    "per_strategy": {
+      "ancestral": {
+        "slope_nats_per_token": -1.2994493102298958,
+        "intercept": -32.889034060979895,
+        "r_value": -0.09547221644677341,
+        "n": 500
+      }
+    },
+    "pooled_sampling": {
+      "slope_nats_per_token": -1.1233735349354226,
+      "intercept": -24.35948627618712,
+      "r_value": -0.07755560798337413,
+      "n": 1500
+    },
+    "usable": true,
+    "note": "Slope is the change in unnormalised reward per generated token, in nats. Negative slope is the brevity incentive; its magnitude is the model's mean per-token entropy. Computed only where length varies; deterministic decoders pinned at the cap are excluded because their length carries no information."
+  },
+  "run_name": "diag_likelihood_trap_gpt2sft",
+  "model_path": "/mount/studenten-temp1/users/singhsk/thesis/thesis/gfn-lm-tuning/infill_subj_arithmetic/gpt2_large_sft_output",
+  "adapter_path": null,
+  "seed": 0,
+  "wall_time_sec": 3381.913394212723,
+  "argv": {
+    "exp": "likelihood_trap",
+    "run_name": "diag_likelihood_trap_gpt2sft",
+    "out_dir": "results_diag",
+    "model_path": "/mount/studenten-temp1/users/singhsk/thesis/thesis/gfn-lm-tuning/infill_subj_arithmetic/gpt2_large_sft_output",
+    "adapter_path": null,
+    "dtype": "float32",
+    "dataset": "roc_stories",
+    "device": "cuda",
+    "seed": 0,
+    "overwrite": false,
+    "n_seqs": 500,
+    "min_tokens": 15,
+    "max_tokens": 60,
+    "batch_size": 64,
+    "n_cand": 2000,
+    "n_near": 500,
+    "n_mid": 500,
+    "max_new_tokens": 40,
+    "n_pairs": 200000,
+    "nn_probe": 2000,
+    "core_path": ".",
+    "steps": 50,
+    "n_traj_seqs": 5,
+    "eps_start": 10.5,
+    "eps_end": 0.1
+  }
+}

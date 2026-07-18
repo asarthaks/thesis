@@ -1,0 +1,77 @@
+\chapter{Appendix}
+\label{ch:appendix}
+
+\section{Additional Diagnostic Figures}
+\label{app:figures}
+
+This section collects supporting figures referenced in Chapter~\ref{ch:results}. Each figure is discussed at the point of reference in the results chapter, as indicated in the captions below.
+
+% SOURCE: figures/fig_lin_decomposition.pdf produced by plot_diagnostics.py
+% from results_diag/diag_linearization_gpt2sft.csv (self/future decomposition).
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.80\textwidth]{figures/fig_lin_decomposition.pdf}
+    \caption{Decomposition of the true energy change into the self term and the future term, plotted against the gradient surrogate, for GPT-2 Large. The surrogate correlates weakly with the future term and is anti-correlated with the self term, to which it is structurally blind. This figure supports the argument of Section~\ref{sec:results-linradius}.}
+    \label{fig:lin-decomp}
+\end{figure}
+
+% SOURCE: figures/fig_lin_topk.pdf produced by plot_diagnostics.py
+% from results_diag/diag_linearization_gpt2sft.csv (top-k recall vs random).
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.80\textwidth]{figures/fig_lin_topk.pdf}
+    \caption{Recall of the true top-$k$ token substitutions by the gradient-ranked top-$k$, against a random-ranking baseline, for GPT-2 Large. Gradient ranking does not exceed chance, corroborating the null correlation reported in Section~\ref{sec:results-linradius}.}
+    \label{fig:lin-topk}
+\end{figure}
+
+% SOURCE: figures/fig_mh_accept.pdf produced by analyze_mh.py
+% from results_diag/traces_gpt2sft_mh.csv (acceptance conditioned on boundary crossing).
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.70\textwidth]{figures/fig_mh_accept.pdf}
+    \caption{Metropolis--Hastings acceptance rate in the continuous sampler, conditioned on whether the proposal crossed a Voronoi cell boundary. Moves that change a token are almost never accepted. This figure supports Section~\ref{sec:results-mh}.}
+    \label{fig:mh-accept}
+\end{figure}
+
+% SOURCE: figures/fig_trap_length.pdf produced by plot_diagnostics.py
+% from results_diag/diag_likelihood_trap_gpt2sft.csv (length vs total logp regression).
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.80\textwidth]{figures/fig_trap_length.pdf}
+    \caption{Total log-likelihood against generated length for GPT-2 Large. The negative slope, approximately $-1.12$ nats per token, is the implicit brevity incentive in an unnormalized-likelihood reward, discussed in Section~\ref{sec:results-trap} and Section~\ref{sec:results-gfn}.}
+    \label{fig:trap-length}
+\end{figure}
+
+\clearpage
+\section{Full Configuration Grid}
+\label{app:grid}
+
+% SOURCE: figures_compare/final_kl_by_model.csv (all 29 configuration rows x 5 models).
+Table~\ref{tab:full-grid} reports the final KL divergence for a representative subset of the full configuration grid across the four GPT-2-family energy functions, drawn from the aggregated results file \texttt{final\_kl\_by\_model.csv}. The complete grid comprises the factorial combination of sampler (DLS, CLS), proposal method (policy, grad-norm-preserved, random), Metropolis--Hastings correction (on, off), gradient normalization (on, off), and schedule length (50, 100), evaluated on each of the five energy functions, for a total of $145$ configurations.
+
+\begin{table}[h]
+    \centering
+    \small
+    \begin{tabular}{lcccc}
+        \toprule
+        Configuration & GPT-2 Large & GFN lb0-500 & GFN lb0-2000 & GFN lb1-500 \\
+        \midrule
+        DLS policy, MH, gn, s50        & $6.541$ & $6.306$ & $6.721$ & $6.415$ \\
+        DLS policy, no-MH, gn, s50     & $9.499$ & $9.195$ & $10.085$ & $8.669$ \\
+        DLS random, MH, gn, s50        & $6.370$ & $6.105$ & $6.548$ & $5.525$ \\
+        DLS gnp-random, MH, gn, s50    & $6.370$ & $6.105$ & $6.548$ & $5.525$ \\
+        DLS policy, MH, no-gn, s50     & $6.474$ & $6.009$ & $6.698$ & $6.008$ \\
+        DLS gnp-random, MH, no-gn, s50 & $6.430$ & $6.001$ & $6.552$ & $5.338$ \\
+        CLS policy, MH, no-gn, s50     & $8.083$ & $7.799$ & $8.198$ & $13.732$ \\
+        CLS policy, no-MH, no-gn, s50  & $8.083$ & $7.799$ & $8.198$ & $13.732$ \\
+        \bottomrule
+    \end{tabular}
+    \caption{Representative subset of the final-KL configuration grid, from \texttt{final\_kl\_by\_model.csv}. Note that the DLS policy and grad-norm-preserved random rows are near-identical under both normalization settings, which is the gradient fallacy of Section~\ref{sec:results-fallacy}. Note also that the CLS rows with and without the Metropolis--Hastings correction are identical to three decimals, because under the correction the sampler rejects essentially all proposals and does not move, as established in Section~\ref{sec:results-mh}.}
+    \label{tab:full-grid}
+\end{table}
+
+\clearpage
+\section{Use of AI-Tools}
+\label{app:ai-tools}
+
+The author of this thesis has used AI tools, i.e. Google AI Studio (Gemini 3.1 Pro) and Claude, in order to assist in the code support when errors were encountered in the implementation of the sampling and evaluation code and in order to secure their compliance with their accompanied papers. These tools were used in particular to help write and debug the job-scheduling and GPU-usage scripts that distribute the experiments across the available hardware, and the diagnostic experiment and plotting scripts. AI was also used for the analysis part of the thesis, again with support in the implementation of the analysis code and the encountered errors, and in some cases in order to compile the tables seen in this thesis and to refine the text. All the other parts of the thesis, including the writing, the background work, the related work, the experimental design, the analysis and the interpretation of the results, were done solely by the author, who has verified all quantitative claims against the underlying experimental output and assumes full responsibility for the content of this work.
