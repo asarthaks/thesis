@@ -28,7 +28,7 @@ The drop is therefore not convergence but a \textbf{quenching effect}. Early in 
 
 \begin{figure}[t]
     \centering
-    \includegraphics[width=0.92\textwidth]{figures/dls_gpt2_traj_s50.png}
+    \includegraphics[width=0.92\textwidth]{figures/gpt2-large.dls.gn.free.s50_new_trajectories.png}
     % SOURCE: figures_gpt2/gpt2-large.dls.gn.free.s50_new_trajectories.png
     \caption{Discrete Langevin Sampler trajectories on GPT-2 Large over a 50-step schedule. The metrics remain unimproving for most of the run and drop abruptly near the end as the noise schedule approaches zero, the signature of quenching rather than convergence.}
     \label{fig:dls-traj-50}
@@ -36,7 +36,7 @@ The drop is therefore not convergence but a \textbf{quenching effect}. Early in 
 
 \begin{figure}[t]
     \centering
-    \includegraphics[width=0.92\textwidth]{figures/dls_gpt2_traj_s100.png}
+    \includegraphics[width=0.92\textwidth]{figures/gpt2-large.dls.gn.free.s100_new_trajectories.png}
     % SOURCE: figures_gpt2/gpt2-large.dls.gn.free.s100_new_trajectories.png
     \caption{The same sampler over a 100-step schedule. The abrupt drop has moved from around step 40 to around step 85, tracking the annealing schedule rather than remaining fixed. This confirms that the drop is an artifact of cooling and not evidence of model convergence.}
     \label{fig:dls-traj-100}
