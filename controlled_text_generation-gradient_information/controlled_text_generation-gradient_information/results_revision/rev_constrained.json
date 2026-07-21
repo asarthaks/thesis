@@ -1,0 +1,391 @@
+{
+  "run_name": "rev_constrained",
+  "groups": [
+    {
+      "model": "gpt2-large",
+      "task": "continuation",
+      "setup": "mucola",
+      "target_label": 0,
+      "target": "negative",
+      "arms": {
+        "lm_only": 42.0,
+        "full": 36.0,
+        "cons_only": 79.33333333333334,
+        "cons_random": 51.99999999999999,
+        "random": 51.99999999999999
+      },
+      "final_kl": {
+        "lm_only": 10.944568039576213,
+        "full": 11.297127723693848,
+        "cons_only": 9.42939946492513,
+        "cons_random": 9.275801639556885,
+        "random": 9.17730131149292
+      },
+      "constraint_direction_value": 27.333,
+      "lm_only_gain": 42.0
+    },
+    {
+      "model": "gpt2-large",
+      "task": "continuation",
+      "setup": "mucola",
+      "target_label": 1,
+      "target": "positive",
+      "arms": {
+        "lm_only": -42.00000000000001,
+        "full": -50.00000000000001,
+        "cons_only": -10.0,
+        "cons_random": -46.66666666666667,
+        "random": -58.0
+      },
+      "final_kl": {
+        "lm_only": 10.944568039576213,
+        "full": 10.496253029505413,
+        "cons_only": 9.391531813939412,
+        "cons_random": 9.350093851089477,
+        "random": 9.123779268264771
+      },
+      "constraint_direction_value": 36.667,
+      "lm_only_gain": -42.0
+    },
+    {
+      "model": "gpt2-large",
+      "task": "continuation",
+      "setup": "ours",
+      "target_label": 0,
+      "target": "negative",
+      "arms": {
+        "lm_only": 0.0,
+        "full": -0.6666666666666714,
+        "cons_only": -2.6666666666666714,
+        "cons_random": -2.6666666666666714,
+        "random": -8.666666666666664
+      },
+      "final_kl": {
+        "lm_only": 8.24640175158366,
+        "full": 8.273957395301107,
+        "cons_only": 8.294265359124376,
+        "cons_random": 8.126663811718238,
+        "random": 8.226871973329553
+      },
+      "constraint_direction_value": 0.0,
+      "lm_only_gain": 0.0
+    },
+    {
+      "model": "gpt2-large",
+      "task": "continuation",
+      "setup": "ours",
+      "target_label": 1,
+      "target": "positive",
+      "arms": {
+        "lm_only": 0.6666666666666679,
+        "full": 0.0,
+        "cons_only": 3.333333333333332,
+        "cons_random": 2.666666666666668,
+        "random": 10.0
+      },
+      "final_kl": {
+        "lm_only": 8.252823047385458,
+        "full": 7.376099125224763,
+        "cons_only": 8.272373574456408,
+        "cons_random": 8.119442802781675,
+        "random": 8.221168587658573
+      },
+      "constraint_direction_value": 0.667,
+      "lm_only_gain": 0.667
+    },
+    {
+      "model": "gpt2-large",
+      "task": "infill",
+      "setup": "mucola",
+      "target_label": 0,
+      "target": "negative",
+      "arms": {
+        "lm_only": 5.0,
+        "full": 2.0,
+        "cons_only": 18.0,
+        "cons_random": 5.0,
+        "random": -5.0
+      },
+      "final_kl": {
+        "lm_only": 9.232318358421326,
+        "full": 9.175107245445252,
+        "cons_only": 9.6564137840271,
+        "cons_random": 9.678248972892762,
+        "random": 9.19662790298462
+      },
+      "constraint_direction_value": 13.0,
+      "lm_only_gain": 5.0
+    },
+    {
+      "model": "gpt2-large",
+      "task": "infill",
+      "setup": "mucola",
+      "target_label": 1,
+      "target": "positive",
+      "arms": {
+        "lm_only": -5.0,
+        "full": 5.0,
+        "cons_only": 6.0,
+        "cons_random": 1.0,
+        "random": 0.0
+      },
+      "final_kl": {
+        "lm_only": 9.232318358421326,
+        "full": 8.909832186698914,
+        "cons_only": 9.655206594467163,
+        "cons_random": 9.655798845291137,
+        "random": 9.375062732696533
+      },
+      "constraint_direction_value": 5.0,
+      "lm_only_gain": -5.0
+    },
+    {
+      "model": "gpt2-large",
+      "task": "infill",
+      "setup": "ours",
+      "target_label": 0,
+      "target": "negative",
+      "arms": {
+        "lm_only": 1.0,
+        "full": 1.0,
+        "cons_only": 11.0,
+        "cons_random": -1.0,
+        "random": 7.0
+      },
+      "final_kl": {
+        "lm_only": 8.563977718353271,
+        "full": 8.533593282699584,
+        "cons_only": 8.296070456504822,
+        "cons_random": 8.496301839351654,
+        "random": 8.520269513130188
+      },
+      "constraint_direction_value": 12.0,
+      "lm_only_gain": 1.0
+    },
+    {
+      "model": "gpt2-large",
+      "task": "infill",
+      "setup": "ours",
+      "target_label": 1,
+      "target": "positive",
+      "arms": {
+        "lm_only": -9.0,
+        "full": -9.0,
+        "cons_only": -7.0,
+        "cons_random": 0.0,
+        "random": -7.0
+      },
+      "final_kl": {
+        "lm_only": 8.32023006439209,
+        "full": 8.32023006439209,
+        "cons_only": 8.346425495147706,
+        "cons_random": 8.526235392093659,
+        "random": 8.512443079948426
+      },
+      "constraint_direction_value": -7.0,
+      "lm_only_gain": -9.0
+    }
+  ],
+  "contrasts": [
+    {
+      "model": "gpt2-large",
+      "task": "continuation",
+      "setup": "mucola",
+      "arm": "cons_only",
+      "gain_label0": 79.33,
+      "gain_label1": -10.0,
+      "steers_both_directions": false,
+      "one_sided_artifact_flag": true
+    },
+    {
+      "model": "gpt2-large",
+      "task": "continuation",
+      "setup": "mucola",
+      "arm": "cons_random",
+      "gain_label0": 52.0,
+      "gain_label1": -46.67,
+      "steers_both_directions": false,
+      "one_sided_artifact_flag": true
+    },
+    {
+      "model": "gpt2-large",
+      "task": "continuation",
+      "setup": "mucola",
+      "arm": "full",
+      "gain_label0": 36.0,
+      "gain_label1": -50.0,
+      "steers_both_directions": false,
+      "one_sided_artifact_flag": true
+    },
+    {
+      "model": "gpt2-large",
+      "task": "continuation",
+      "setup": "mucola",
+      "arm": "lm_only",
+      "gain_label0": 42.0,
+      "gain_label1": -42.0,
+      "steers_both_directions": false,
+      "one_sided_artifact_flag": true
+    },
+    {
+      "model": "gpt2-large",
+      "task": "continuation",
+      "setup": "mucola",
+      "arm": "random",
+      "gain_label0": 52.0,
+      "gain_label1": -58.0,
+      "steers_both_directions": false,
+      "one_sided_artifact_flag": true
+    },
+    {
+      "model": "gpt2-large",
+      "task": "continuation",
+      "setup": "ours",
+      "arm": "cons_only",
+      "gain_label0": -2.67,
+      "gain_label1": 3.33,
+      "steers_both_directions": false,
+      "one_sided_artifact_flag": true
+    },
+    {
+      "model": "gpt2-large",
+      "task": "continuation",
+      "setup": "ours",
+      "arm": "cons_random",
+      "gain_label0": -2.67,
+      "gain_label1": 2.67,
+      "steers_both_directions": false,
+      "one_sided_artifact_flag": false
+    },
+    {
+      "model": "gpt2-large",
+      "task": "continuation",
+      "setup": "ours",
+      "arm": "full",
+      "gain_label0": -0.67,
+      "gain_label1": 0.0,
+      "steers_both_directions": false,
+      "one_sided_artifact_flag": false
+    },
+    {
+      "model": "gpt2-large",
+      "task": "continuation",
+      "setup": "ours",
+      "arm": "lm_only",
+      "gain_label0": 0.0,
+      "gain_label1": 0.67,
+      "steers_both_directions": false,
+      "one_sided_artifact_flag": false
+    },
+    {
+      "model": "gpt2-large",
+      "task": "continuation",
+      "setup": "ours",
+      "arm": "random",
+      "gain_label0": -8.67,
+      "gain_label1": 10.0,
+      "steers_both_directions": false,
+      "one_sided_artifact_flag": true
+    },
+    {
+      "model": "gpt2-large",
+      "task": "infill",
+      "setup": "mucola",
+      "arm": "cons_only",
+      "gain_label0": 18.0,
+      "gain_label1": 6.0,
+      "steers_both_directions": true,
+      "one_sided_artifact_flag": false
+    },
+    {
+      "model": "gpt2-large",
+      "task": "infill",
+      "setup": "mucola",
+      "arm": "cons_random",
+      "gain_label0": 5.0,
+      "gain_label1": 1.0,
+      "steers_both_directions": true,
+      "one_sided_artifact_flag": true
+    },
+    {
+      "model": "gpt2-large",
+      "task": "infill",
+      "setup": "mucola",
+      "arm": "full",
+      "gain_label0": 2.0,
+      "gain_label1": 5.0,
+      "steers_both_directions": true,
+      "one_sided_artifact_flag": true
+    },
+    {
+      "model": "gpt2-large",
+      "task": "infill",
+      "setup": "mucola",
+      "arm": "lm_only",
+      "gain_label0": 5.0,
+      "gain_label1": -5.0,
+      "steers_both_directions": false,
+      "one_sided_artifact_flag": true
+    },
+    {
+      "model": "gpt2-large",
+      "task": "infill",
+      "setup": "mucola",
+      "arm": "random",
+      "gain_label0": -5.0,
+      "gain_label1": 0.0,
+      "steers_both_directions": false,
+      "one_sided_artifact_flag": false
+    },
+    {
+      "model": "gpt2-large",
+      "task": "infill",
+      "setup": "ours",
+      "arm": "cons_only",
+      "gain_label0": 11.0,
+      "gain_label1": -7.0,
+      "steers_both_directions": false,
+      "one_sided_artifact_flag": true
+    },
+    {
+      "model": "gpt2-large",
+      "task": "infill",
+      "setup": "ours",
+      "arm": "cons_random",
+      "gain_label0": -1.0,
+      "gain_label1": 0.0,
+      "steers_both_directions": false,
+      "one_sided_artifact_flag": false
+    },
+    {
+      "model": "gpt2-large",
+      "task": "infill",
+      "setup": "ours",
+      "arm": "full",
+      "gain_label0": 1.0,
+      "gain_label1": -9.0,
+      "steers_both_directions": false,
+      "one_sided_artifact_flag": false
+    },
+    {
+      "model": "gpt2-large",
+      "task": "infill",
+      "setup": "ours",
+      "arm": "lm_only",
+      "gain_label0": 1.0,
+      "gain_label1": -9.0,
+      "steers_both_directions": false,
+      "one_sided_artifact_flag": false
+    },
+    {
+      "model": "gpt2-large",
+      "task": "infill",
+      "setup": "ours",
+      "arm": "random",
+      "gain_label0": 7.0,
+      "gain_label1": -7.0,
+      "steers_both_directions": false,
+      "one_sided_artifact_flag": true
+    }
+  ]
+}

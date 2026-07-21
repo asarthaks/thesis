@@ -1,0 +1,15 @@
+Special tokens have been added in the vocabulary, make sure the associated word embeddings are fine-tuned or trained.
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:06<00:19,  6.35s/it]Loading checkpoint shards:  50%|█████     | 2/4 [00:12<00:12,  6.25s/it]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:18<00:06,  6.19s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:20<00:00,  4.31s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:20<00:00,  5.02s/it]
+[linearization] model loaded in 31.8s
+Using the latest cached version of the module from /mount/studenten-temp1/users/singhsk/thesis/thesis/gfn-lm-tuning/.hf_cache/modules/datasets_modules/datasets/wza--roc_stories/43e2851d9f31e08e4b2dd07a8057ed7a64cbb25cc7105d09856c14e638695506 (last modified on Tue Jul 14 14:04:08 2026) since it couldn't be found locally at wza/roc_stories, or remotely on the Hugging Face Hub.
+[linearization] restricting candidates to 127969 live rows of 128256
+Traceback (most recent call last):
+  File "/mount/studenten-temp1/users/singhsk/thesis/thesis/controlled_text_generation-gradient_information/controlled_text_generation-gradient_information/diagnostics/run_diagnostic.py", line 815, in <module>
+    main()
+  File "/mount/studenten-temp1/users/singhsk/thesis/thesis/controlled_text_generation-gradient_information/controlled_text_generation-gradient_information/diagnostics/run_diagnostic.py", line 801, in main
+    summary = EXPERIMENTS[args.exp](args, model, tok, args.device)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mount/studenten-temp1/users/singhsk/thesis/thesis/controlled_text_generation-gradient_information/controlled_text_generation-gradient_information/diagnostics/run_diagnostic.py", line 283, in exp_linearization
+    surrogate = (delta_e @ g).cpu().numpy()          # C
+                 ~~~~~~~~^~~
+RuntimeError: addmv input tensors must have the same dtype, but got Float, BFloat16, and Float
