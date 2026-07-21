@@ -1,0 +1,521 @@
+{
+  "experiment": "likelihood_trap_within_strategy",
+  "per_model": {
+    "diag_likelihood_trap_gfn-lb0-2000": {
+      "csv": "diag_likelihood_trap_gfn-lb0-2000.csv",
+      "n_rows": 3000,
+      "within_strategy": {
+        "greedy": {
+          "logp_vs_rep4": {
+            "pearson": 0.7655995272573523,
+            "spearman": 0.7594181114857909,
+            "n": 500
+          },
+          "logp_vs_distinct2": {
+            "pearson": -0.7468078721724113,
+            "spearman": -0.7433215618487564,
+            "n": 500
+          }
+        },
+        "beam5": {
+          "logp_vs_rep4": {
+            "pearson": 0.6365300883384777,
+            "spearman": 0.38312407320455105,
+            "n": 500
+          },
+          "logp_vs_distinct2": {
+            "pearson": -0.578198667795503,
+            "spearman": -0.34903087361793217,
+            "n": 500
+          }
+        },
+        "beam20": {
+          "logp_vs_rep4": {
+            "pearson": 0.2618184657267282,
+            "spearman": -0.012186035805806343,
+            "n": 500
+          },
+          "logp_vs_distinct2": {
+            "pearson": -0.21086171400631853,
+            "spearman": 0.03576874031448107,
+            "n": 500
+          }
+        },
+        "ancestral": {
+          "logp_vs_rep4": {
+            "pearson": 0.8213577754243497,
+            "spearman": 0.7334573897969994,
+            "n": 500
+          },
+          "logp_vs_distinct2": {
+            "pearson": -0.8209984697195003,
+            "spearman": -0.7315978759710181,
+            "n": 500
+          }
+        },
+        "topp90": {
+          "logp_vs_rep4": {
+            "pearson": 0.8058977267642786,
+            "spearman": 0.8057603666427197,
+            "n": 500
+          },
+          "logp_vs_distinct2": {
+            "pearson": -0.8023026978871077,
+            "spearman": -0.8025832061193896,
+            "n": 500
+          }
+        },
+        "temp07": {
+          "logp_vs_rep4": {
+            "pearson": 0.7940199573316346,
+            "spearman": 0.8095506407317132,
+            "n": 500
+          },
+          "logp_vs_distinct2": {
+            "pearson": -0.7890407214446266,
+            "spearman": -0.8044466556054047,
+            "n": 500
+          }
+        }
+      },
+      "pooled_sampling_logp_vs_rep4": {
+        "pearson": 0.7853728525567425,
+        "spearman": 0.8019746113840165,
+        "n": 1500
+      },
+      "between_strategy": [
+        {
+          "strategy": "ancestral",
+          "mean_logp": -1.5698131308767944,
+          "mean_rep4": 0.18583783783783783,
+          "mean_distinct2": 0.7253333333333334,
+          "n": 500
+        },
+        {
+          "strategy": "beam20",
+          "mean_logp": -0.173085792062059,
+          "mean_rep4": 0.7471351351351351,
+          "mean_distinct2": 0.2329230769230769,
+          "n": 500
+        },
+        {
+          "strategy": "beam5",
+          "mean_logp": -0.22362780844904478,
+          "mean_rep4": 0.7045945945945946,
+          "mean_distinct2": 0.2626666666666666,
+          "n": 500
+        },
+        {
+          "strategy": "greedy",
+          "mean_logp": -0.3754948837492615,
+          "mean_rep4": 0.5651351351351351,
+          "mean_distinct2": 0.37148717948717946,
+          "n": 500
+        },
+        {
+          "strategy": "temp07",
+          "mean_logp": -0.8422888523314148,
+          "mean_rep4": 0.3671351351351351,
+          "mean_distinct2": 0.5510769230769231,
+          "n": 500
+        },
+        {
+          "strategy": "topp90",
+          "mean_logp": -1.0035874140117318,
+          "mean_rep4": 0.3156216216216216,
+          "mean_distinct2": 0.6027692307692307,
+          "n": 500
+        }
+      ],
+      "max_abs_within_strategy_pearson": 0.8213577754243497,
+      "note": "If within-strategy correlations are weak, present the between-strategy pattern (greedy/beam worst) as the primary evidence; that is what Holtzman et al. did and it is not a confound."
+    },
+    "diag_likelihood_trap_gfn-lb0-500": {
+      "csv": "diag_likelihood_trap_gfn-lb0-500.csv",
+      "n_rows": 3000,
+      "within_strategy": {
+        "greedy": {
+          "logp_vs_rep4": {
+            "pearson": 0.82972902709091,
+            "spearman": 0.8436191634705936,
+            "n": 500
+          },
+          "logp_vs_distinct2": {
+            "pearson": -0.8324144842314116,
+            "spearman": -0.8426610263386121,
+            "n": 500
+          }
+        },
+        "beam5": {
+          "logp_vs_rep4": {
+            "pearson": 0.7354332711536473,
+            "spearman": 0.739796785006379,
+            "n": 500
+          },
+          "logp_vs_distinct2": {
+            "pearson": -0.7226242035544437,
+            "spearman": -0.7308857871028112,
+            "n": 500
+          }
+        },
+        "beam20": {
+          "logp_vs_rep4": {
+            "pearson": 0.5482114060354697,
+            "spearman": 0.44809754845229166,
+            "n": 500
+          },
+          "logp_vs_distinct2": {
+            "pearson": -0.478856935002207,
+            "spearman": -0.4048015950418869,
+            "n": 500
+          }
+        },
+        "ancestral": {
+          "logp_vs_rep4": {
+            "pearson": 0.657080987107792,
+            "spearman": 0.47535237126037777,
+            "n": 500
+          },
+          "logp_vs_distinct2": {
+            "pearson": -0.6842198237864084,
+            "spearman": -0.5379439429887358,
+            "n": 500
+          }
+        },
+        "topp90": {
+          "logp_vs_rep4": {
+            "pearson": 0.7148099351662633,
+            "spearman": 0.6255696144395078,
+            "n": 500
+          },
+          "logp_vs_distinct2": {
+            "pearson": -0.7499279379551738,
+            "spearman": -0.6951300492701953,
+            "n": 500
+          }
+        },
+        "temp07": {
+          "logp_vs_rep4": {
+            "pearson": 0.7208259053243812,
+            "spearman": 0.5918217700377414,
+            "n": 500
+          },
+          "logp_vs_distinct2": {
+            "pearson": -0.7425576050966866,
+            "spearman": -0.6474091985244731,
+            "n": 500
+          }
+        }
+      },
+      "pooled_sampling_logp_vs_rep4": {
+        "pearson": 0.6257786678573344,
+        "spearman": 0.5676098603586249,
+        "n": 1500
+      },
+      "between_strategy": [
+        {
+          "strategy": "ancestral",
+          "mean_logp": -1.5804079239428042,
+          "mean_rep4": 0.07459459459459458,
+          "mean_distinct2": 0.838871794871795,
+          "n": 500
+        },
+        {
+          "strategy": "beam20",
+          "mean_logp": -0.24321052262187,
+          "mean_rep4": 0.6862702702702703,
+          "mean_distinct2": 0.2746153846153846,
+          "n": 500
+        },
+        {
+          "strategy": "beam5",
+          "mean_logp": -0.3291359638512134,
+          "mean_rep4": 0.5525405405405405,
+          "mean_distinct2": 0.3853333333333333,
+          "n": 500
+        },
+        {
+          "strategy": "greedy",
+          "mean_logp": -0.5346743327438832,
+          "mean_rep4": 0.33043243243243237,
+          "mean_distinct2": 0.5754871794871794,
+          "n": 500
+        },
+        {
+          "strategy": "temp07",
+          "mean_logp": -0.9646486336827278,
+          "mean_rep4": 0.1481081081081081,
+          "mean_distinct2": 0.7546666666666667,
+          "n": 500
+        },
+        {
+          "strategy": "topp90",
+          "mean_logp": -1.1169607477903367,
+          "mean_rep4": 0.1243243243243243,
+          "mean_distinct2": 0.781948717948718,
+          "n": 500
+        }
+      ],
+      "max_abs_within_strategy_pearson": 0.82972902709091,
+      "note": "If within-strategy correlations are weak, present the between-strategy pattern (greedy/beam worst) as the primary evidence; that is what Holtzman et al. did and it is not a confound."
+    },
+    "diag_likelihood_trap_gfn-lb1-500": {
+      "csv": "diag_likelihood_trap_gfn-lb1-500.csv",
+      "n_rows": 3000,
+      "within_strategy": {
+        "greedy": {
+          "logp_vs_rep4": {
+            "pearson": 0.9094383820095157,
+            "spearman": 0.7402097201913345,
+            "n": 500
+          },
+          "logp_vs_distinct2": {
+            "pearson": -0.8422295476192198,
+            "spearman": -0.721287774202858,
+            "n": 500
+          }
+        },
+        "beam5": {
+          "logp_vs_rep4": {
+            "pearson": 0.8437463867003246,
+            "spearman": 0.5049256871151968,
+            "n": 500
+          },
+          "logp_vs_distinct2": {
+            "pearson": -0.7450821318090699,
+            "spearman": -0.4872542563193817,
+            "n": 500
+          }
+        },
+        "beam20": {
+          "logp_vs_rep4": {
+            "pearson": 0.7445972609782019,
+            "spearman": 0.21166512885051555,
+            "n": 500
+          },
+          "logp_vs_distinct2": {
+            "pearson": -0.6004441313576792,
+            "spearman": -0.19532032052276035,
+            "n": 500
+          }
+        },
+        "ancestral": {
+          "logp_vs_rep4": {
+            "pearson": 0.5459208653342377,
+            "spearman": 0.20651467534749512,
+            "n": 500
+          },
+          "logp_vs_distinct2": {
+            "pearson": -0.5771534415932124,
+            "spearman": -0.12852380508849037,
+            "n": 500
+          }
+        },
+        "topp90": {
+          "logp_vs_rep4": {
+            "pearson": 0.9051171612299332,
+            "spearman": 0.29462834750038075,
+            "n": 500
+          },
+          "logp_vs_distinct2": {
+            "pearson": -0.917944106847579,
+            "spearman": -0.27285193900448657,
+            "n": 500
+          }
+        },
+        "temp07": {
+          "logp_vs_rep4": {
+            "pearson": 0.8868610900902812,
+            "spearman": 0.2914990987829464,
+            "n": 500
+          },
+          "logp_vs_distinct2": {
+            "pearson": -0.9038474791650166,
+            "spearman": -0.3151293514779606,
+            "n": 500
+          }
+        }
+      },
+      "pooled_sampling_logp_vs_rep4": {
+        "pearson": 0.6282978559294272,
+        "spearman": 0.25507640716913754,
+        "n": 1500
+      },
+      "between_strategy": [
+        {
+          "strategy": "ancestral",
+          "mean_logp": -5.721039004277038,
+          "mean_rep4": 0.0045960960960960955,
+          "mean_distinct2": 0.9924309220936506,
+          "n": 500
+        },
+        {
+          "strategy": "beam20",
+          "mean_logp": -0.8309576421684041,
+          "mean_rep4": 0.6736522838628103,
+          "mean_distinct2": 0.2728883747831116,
+          "n": 500
+        },
+        {
+          "strategy": "beam5",
+          "mean_logp": -1.2715418048634397,
+          "mean_rep4": 0.6261245568877147,
+          "mean_distinct2": 0.29389693296787117,
+          "n": 500
+        },
+        {
+          "strategy": "greedy",
+          "mean_logp": -2.1925240778954613,
+          "mean_rep4": 0.46138028479607424,
+          "mean_distinct2": 0.37769886200194724,
+          "n": 500
+        },
+        {
+          "strategy": "temp07",
+          "mean_logp": -4.7227772590651265,
+          "mean_rep4": 0.015189189189189189,
+          "mean_distinct2": 0.9775260486372291,
+          "n": 500
+        },
+        {
+          "strategy": "topp90",
+          "mean_logp": -4.220712507693297,
+          "mean_rep4": 0.015405405405405406,
+          "mean_distinct2": 0.9777334217448382,
+          "n": 500
+        }
+      ],
+      "max_abs_within_strategy_pearson": 0.9094383820095157,
+      "note": "If within-strategy correlations are weak, present the between-strategy pattern (greedy/beam worst) as the primary evidence; that is what Holtzman et al. did and it is not a confound."
+    },
+    "diag_likelihood_trap_gpt2sft": {
+      "csv": "diag_likelihood_trap_gpt2sft.csv",
+      "n_rows": 3000,
+      "within_strategy": {
+        "greedy": {
+          "logp_vs_rep4": {
+            "pearson": 0.5111062508666123,
+            "spearman": 0.5054520633702987,
+            "n": 500
+          },
+          "logp_vs_distinct2": {
+            "pearson": -0.3412959186625701,
+            "spearman": -0.32321684096082653,
+            "n": 500
+          }
+        },
+        "beam5": {
+          "logp_vs_rep4": {
+            "pearson": 0.3027312954761884,
+            "spearman": 0.2444695555048362,
+            "n": 500
+          },
+          "logp_vs_distinct2": {
+            "pearson": -0.23901273761945505,
+            "spearman": -0.20191095458366845,
+            "n": 500
+          }
+        },
+        "beam20": {
+          "logp_vs_rep4": {
+            "pearson": 0.16250209108624988,
+            "spearman": 0.1612885787752593,
+            "n": 500
+          },
+          "logp_vs_distinct2": {
+            "pearson": -0.08078859070613409,
+            "spearman": -0.08848435284165693,
+            "n": 500
+          }
+        },
+        "ancestral": {
+          "logp_vs_rep4": {
+            "pearson": 0.3418765961508442,
+            "spearman": 0.29840255599290466,
+            "n": 500
+          },
+          "logp_vs_distinct2": {
+            "pearson": -0.373527467653701,
+            "spearman": -0.3153883038756378,
+            "n": 500
+          }
+        },
+        "topp90": {
+          "logp_vs_rep4": {
+            "pearson": 0.4039639115373383,
+            "spearman": 0.3739949402986456,
+            "n": 500
+          },
+          "logp_vs_distinct2": {
+            "pearson": -0.397894381470453,
+            "spearman": -0.2748425487775861,
+            "n": 500
+          }
+        },
+        "temp07": {
+          "logp_vs_rep4": {
+            "pearson": 0.4700707224568605,
+            "spearman": 0.43762984145809103,
+            "n": 500
+          },
+          "logp_vs_distinct2": {
+            "pearson": -0.456627985739057,
+            "spearman": -0.3287443538015644,
+            "n": 500
+          }
+        }
+      },
+      "pooled_sampling_logp_vs_rep4": {
+        "pearson": 0.36118203034004764,
+        "spearman": 0.36795867206362315,
+        "n": 1500
+      },
+      "between_strategy": [
+        {
+          "strategy": "ancestral",
+          "mean_logp": -2.1257230403752896,
+          "mean_rep4": 0.01945945945945945,
+          "mean_distinct2": 0.9395027870680045,
+          "n": 500
+        },
+        {
+          "strategy": "beam20",
+          "mean_logp": -0.5537564663171768,
+          "mean_rep4": 0.3852972972972973,
+          "mean_distinct2": 0.5326153846153846,
+          "n": 500
+        },
+        {
+          "strategy": "beam5",
+          "mean_logp": -0.6625799288988113,
+          "mean_rep4": 0.26935135135135135,
+          "mean_distinct2": 0.6416410256410257,
+          "n": 500
+        },
+        {
+          "strategy": "greedy",
+          "mean_logp": -0.9500177882194518,
+          "mean_rep4": 0.14367567567567566,
+          "mean_distinct2": 0.7309230769230769,
+          "n": 500
+        },
+        {
+          "strategy": "temp07",
+          "mean_logp": -1.4917864440978708,
+          "mean_rep4": 0.0448108108108108,
+          "mean_distinct2": 0.8997435897435898,
+          "n": 500
+        },
+        {
+          "strategy": "topp90",
+          "mean_logp": -1.5857007754773804,
+          "mean_rep4": 0.032540540540540536,
+          "mean_distinct2": 0.9180913461538462,
+          "n": 500
+        }
+      ],
+      "max_abs_within_strategy_pearson": 0.5111062508666123,
+      "note": "If within-strategy correlations are weak, present the between-strategy pattern (greedy/beam worst) as the primary evidence; that is what Holtzman et al. did and it is not a confound."
+    }
+  }
+}

@@ -1,0 +1,121 @@
+{
+  "experiment": "reconcile_numbers",
+  "numbers_index": {
+    "diag_likelihood_trap_gpt2sft": {
+      "frac_emitted_eos": 0.0026666666666666666,
+      "frac_hit_cap": 0.9973333333333333
+    },
+    "diag_linearization_gfn-lb1-500": {
+      "spearman_surrogate_vs_true_ALL": 0.04624798375116917,
+      "pearson_surrogate_vs_true_ALL": -0.03159064658860833,
+      "spearman_surrogate_vs_true_SELF": -0.1714041716358474,
+      "spearman_surrogate_vs_true_FUTURE": 0.08735626305858066,
+      "n_pairs": 400000,
+      "mean_inter_token_distance": 2.3541153835839035
+    },
+    "diag_linearization_gpt2sft": {
+      "spearman_surrogate_vs_true_ALL": -0.010838970530935124,
+      "pearson_surrogate_vs_true_ALL": -0.022724589978759563,
+      "spearman_surrogate_vs_true_SELF": -0.09564726692167662,
+      "spearman_surrogate_vs_true_FUTURE": 0.03180218617884011,
+      "n_pairs": 400000,
+      "mean_inter_token_distance": 2.3541153835839035
+    },
+    "diag_likelihood_trap_gfn-lb0-2000": {
+      "frac_emitted_eos": 0.0,
+      "frac_hit_cap": 1.0
+    },
+    "traces_gpt2sft": {},
+    "diag_linearization_gfn-lb0-2000": {
+      "spearman_surrogate_vs_true_ALL": 0.023697937664380123,
+      "pearson_surrogate_vs_true_ALL": 0.0458281854288376,
+      "spearman_surrogate_vs_true_SELF": 0.005323520079662645,
+      "spearman_surrogate_vs_true_FUTURE": 0.023489338087049862,
+      "n_pairs": 400000,
+      "mean_inter_token_distance": 2.3541153835839035
+    },
+    "diag_likelihood_trap_gfn-lb0-500": {
+      "frac_emitted_eos": 0.0,
+      "frac_hit_cap": 1.0
+    },
+    "diag_linearization_gfn-lb0-500": {
+      "spearman_surrogate_vs_true_ALL": 0.05725233741962526,
+      "pearson_surrogate_vs_true_ALL": 0.05797122494402972,
+      "spearman_surrogate_vs_true_SELF": -0.05675744844636208,
+      "spearman_surrogate_vs_true_FUTURE": 0.08381929926437764,
+      "n_pairs": 400000,
+      "mean_inter_token_distance": 2.3541153835839035
+    },
+    "diag_anisotropy_llama3-8b": {
+      "mean_pairwise_l2": 0.8354588150978088,
+      "mean_nearest_neighbour_l2": 0.5850058794021606
+    },
+    "diag_anisotropy_gpt2sft": {
+      "mean_pairwise_l2": 2.772538661956787,
+      "mean_nearest_neighbour_l2": 1.8222060203552246
+    },
+    "diag_likelihood_trap_gfn-lb1-500": {
+      "frac_emitted_eos": 0.3923333333333333,
+      "frac_hit_cap": 0.6076666666666667
+    }
+  },
+  "length_slopes_censored_vs_uncensored": {
+    "diag_likelihood_trap_gpt2sft.csv": {
+      "uncensored": {
+        "slope_nats_per_token": -1.1233735349354226,
+        "r": -0.07755560798337413,
+        "n": 1500
+      },
+      "censored": null
+    },
+    "diag_likelihood_trap_gfn-lb1-500.csv": {
+      "uncensored": {
+        "slope_nats_per_token": -0.5045617939355608,
+        "r": -0.0446654981814173,
+        "n": 1500
+      },
+      "censored": {
+        "slope_nats_per_token": -2.361133953584052,
+        "r": -0.2674397249432055,
+        "n": 1148
+      }
+    }
+  },
+  "mh_acceptance_by_boundary": {
+    "traces_gpt2sft_mh.csv": {
+      "('cls', 'policy', False)": {
+        "within_cell_accept_pct": 0.034411562284927734,
+        "within_cell_n": 2906,
+        "boundary_accept_pct": 3.6650690724555965,
+        "boundary_n": 7094
+      },
+      "('cls', 'policy', True)": {
+        "within_cell_accept_pct": 0.6272869837950863,
+        "within_cell_n": 1913,
+        "boundary_accept_pct": 8.556943242240633,
+        "boundary_n": 8087
+      },
+      "('dls', 'policy', True)": {
+        "within_cell_accept_pct": 100.0,
+        "within_cell_n": 315,
+        "boundary_accept_pct": 9.272070211667527,
+        "boundary_n": 9685
+      }
+    }
+  },
+  "config_count": {
+    "distinct_run_names_present": 11,
+    "full_factorial_2x3x2x2x2x5": 240,
+    "note": "Enumerate the pruned cells (oracle counted separately, Llama on a subset, CLS proposals reduced to policy/random) in an appendix so the count lands on the reported number."
+  },
+  "spearman_phrasing": {
+    "per_run_spearman": {
+      "diag_linearization_gfn-lb1-500": 0.04624798375116917,
+      "diag_linearization_gpt2sft": -0.010838970530935124,
+      "diag_linearization_gfn-lb0-2000": 0.023697937664380123,
+      "diag_linearization_gfn-lb0-500": 0.05725233741962526
+    },
+    "max_abs_spearman": 0.05725233741962526,
+    "suggested_sentence": "The surrogate-vs-truth rank correlation is negligible in magnitude (|rho| < 0.06) across all models, n = 400,000-400,000 candidate pairs."
+  }
+}

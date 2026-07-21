@@ -1,0 +1,2 @@
+rev_reconcile	1	python revision/reconcile_numbers.py --results_dirs results_diag --run_name rev_reconcile --out_dir results_revision
+rev_ltrap_within	1	python revision/analyze_likelihood_trap.py --results_dir results_diag --run_name rev_ltrap_within --out_dir results_revision

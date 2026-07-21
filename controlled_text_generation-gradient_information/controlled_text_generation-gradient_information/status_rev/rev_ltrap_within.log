@@ -1,0 +1,5 @@
+[likelihood_trap] wrote results_revision/rev_ltrap_within.json
+  diag_likelihood_trap_gfn-lb0-2000: pooled r=0.785, max within-strategy |r|=0.821
+  diag_likelihood_trap_gfn-lb0-500: pooled r=0.626, max within-strategy |r|=0.830
+  diag_likelihood_trap_gfn-lb1-500: pooled r=0.628, max within-strategy |r|=0.909
+  diag_likelihood_trap_gpt2sft: pooled r=0.361, max within-strategy |r|=0.511

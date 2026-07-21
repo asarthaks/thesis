@@ -1,0 +1,230 @@
+\begin{thebibliography}{37}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Bengio et~al.(2021)Bengio, Jain, Korablyov, Precup, and Bengio]{bengio2021flow}
+Emmanuel Bengio, Moksh Jain, Maksym Korablyov, Doina Precup, and Yoshua Bengio.
+\newblock Flow network based generative models for non-iterative diverse candidate generation.
+\newblock In \emph{Advances in Neural Information Processing Systems (NeurIPS)}, 2021.
+\newblock URL \url{https://arxiv.org/abs/2106.04399}.
+
+\bibitem[Bengio et~al.(2023)Bengio, Lahlou, Deleu, et~al.]{bengio2023gflownet}
+Yoshua Bengio, Salem Lahlou, Tristan Deleu, et~al.
+\newblock Gflownet foundations.
+\newblock \emph{Journal of Machine Learning Research}, 24, 2023.
+\newblock URL \url{https://arxiv.org/abs/2111.09266}.
+
+\bibitem[Brown et~al.(2020)Brown, Mann, Ryder, et~al.]{brown2020language}
+Tom Brown, Benjamin Mann, Nick Ryder, et~al.
+\newblock Language models are few-shot learners.
+\newblock In \emph{Advances in Neural Information Processing Systems (NeurIPS)}, 2020.
+\newblock URL \url{https://arxiv.org/abs/2005.14165}.
+
+\bibitem[Dathathri et~al.(2020)Dathathri, Madotto, Lan, et~al.]{dathathri2020plug}
+Sumanth Dathathri, Andrea Madotto, Janice Lan, et~al.
+\newblock Plug and play language models: A simple approach to controlled text generation.
+\newblock In \emph{International Conference on Learning Representations (ICLR)}, 2020.
+\newblock URL \url{https://arxiv.org/abs/1912.02164}.
+
+\bibitem[Dubey et~al.(2024)Dubey, Jauhri, Pandey, et~al.]{dubey2024llama}
+Abhimanyu Dubey, Abhinav Jauhri, Abhinav Pandey, et~al.
+\newblock The llama 3 herd of models.
+\newblock \emph{arXiv preprint arXiv:2407.21783}, 2024.
+\newblock URL \url{https://arxiv.org/abs/2407.21783}.
+
+\bibitem[Ethayarajh(2019)]{ethayarajh2019contextual}
+Kawin Ethayarajh.
+\newblock How contextual are contextualized word representations? comparing the geometry of bert, elmo, and gpt-2 embeddings.
+\newblock In \emph{Proceedings of EMNLP-IJCNLP}, 2019.
+\newblock URL \url{https://aclanthology.org/D19-1006/}.
+
+\bibitem[Gao et~al.(2019)Gao, He, Tan, Qin, Wang, and Liu]{gao2019representation}
+Jun Gao, Di~He, Xu~Tan, Tao Qin, Liwei Wang, and Tie-Yan Liu.
+\newblock Representation degeneration problem in training natural language generation models.
+\newblock In \emph{International Conference on Learning Representations (ICLR)}, 2019.
+\newblock URL \url{https://arxiv.org/abs/1907.12009}.
+
+\bibitem[Grathwohl et~al.(2021)Grathwohl, Swersky, Hashemi, Duvenaud, and Maddison]{grathwohl2021oops}
+Will Grathwohl, Kevin Swersky, Milad Hashemi, David Duvenaud, and Chris Maddison.
+\newblock Oops i took a gradient: Scalable sampling for discrete distributions.
+\newblock In \emph{International Conference on Machine Learning (ICML)}, 2021.
+\newblock URL \url{https://arxiv.org/abs/2102.04509}.
+
+\bibitem[Hastings(1970)]{hastings1970monte}
+W~Keith Hastings.
+\newblock Monte carlo sampling methods using markov chains and their applications.
+\newblock \emph{Biometrika}, 57\penalty0 (1):\penalty0 97--109, 1970.
+\newblock URL \url{https://doi.org/10.1093/biomet/57.1.97}.
+
+\bibitem[Hinton(2002)]{hinton2002training}
+Geoffrey~E Hinton.
+\newblock Training products of experts by minimizing contrastive divergence.
+\newblock \emph{Neural Computation}, 14\penalty0 (8):\penalty0 1771--1800, 2002.
+\newblock URL \url{https://www.cs.toronto.edu/~hinton/absps/tr00-004.pdf}.
+
+\bibitem[Ho et~al.(2020)Ho, Jain, and Abbeel]{ho2020denoising}
+Jonathan Ho, Ajay Jain, and Pieter Abbeel.
+\newblock Denoising diffusion probabilistic models.
+\newblock In \emph{Advances in Neural Information Processing Systems (NeurIPS)}, 2020.
+\newblock URL \url{https://arxiv.org/abs/2006.11239}.
+
+\bibitem[Holtzman et~al.(2020)Holtzman, Buys, Du, Forbes, and Choi]{holtzman2020curious}
+Ari Holtzman, Jan Buys, Li~Du, Maxwell Forbes, and Yejin Choi.
+\newblock The curious case of neural text degeneration.
+\newblock In \emph{International Conference on Learning Representations (ICLR)}, 2020.
+\newblock URL \url{https://arxiv.org/abs/1904.09751}.
+
+\bibitem[Hu et~al.(2022)Hu, Shen, Wallis, et~al.]{hu2022lora}
+Edward~J Hu, Yelong Shen, Phillip Wallis, et~al.
+\newblock Lora: Low-rank adaptation of large language models.
+\newblock In \emph{International Conference on Learning Representations (ICLR)}, 2022.
+\newblock URL \url{https://arxiv.org/abs/2106.09685}.
+
+\bibitem[Hu et~al.(2024)Hu, Jain, Elmoznino, Kaddar, Lajoie, Bengio, and Malkin]{hu2024amortizing}
+Edward~J Hu, Moksh Jain, Eric Elmoznino, Younesse Kaddar, Guillaume Lajoie, Yoshua Bengio, and Nikolay Malkin.
+\newblock Amortizing intractable inference in large language models.
+\newblock In \emph{International Conference on Learning Representations (ICLR)}, 2024.
+\newblock URL \url{https://arxiv.org/abs/2310.04363}.
+
+\bibitem[Keskar et~al.(2019)Keskar, McCann, Varshney, Xiong, and Socher]{keskar2019ctrl}
+Nitish~Shirish Keskar, Bryan McCann, Lav~R Varshney, Caiming Xiong, and Richard Socher.
+\newblock Ctrl: A conditional transformer language model for controllable generation.
+\newblock \emph{arXiv preprint arXiv:1909.05858}, 2019.
+\newblock URL \url{https://arxiv.org/abs/1909.05858}.
+
+\bibitem[Krause et~al.(2021)Krause, Gotmare, McCann, et~al.]{krause2021gedi}
+Ben Krause, Akhilesh~Deepak Gotmare, Bryan McCann, et~al.
+\newblock Gedi: Generative discriminator guided sequence generation.
+\newblock In \emph{Findings of EMNLP}, 2021.
+\newblock URL \url{https://arxiv.org/abs/2009.06367}.
+
+\bibitem[Kullback and Leibler(1951)]{kullback1951information}
+Solomon Kullback and Richard~A Leibler.
+\newblock On information and sufficiency.
+\newblock \emph{The Annals of Mathematical Statistics}, 22\penalty0 (1):\penalty0 79--86, 1951.
+\newblock URL \url{https://doi.org/10.1214/aoms/1177729694}.
+
+\bibitem[Kumar et~al.(2022)Kumar, Paria, and Tsvetkov]{kumar2022gradient}
+Sachin Kumar, Biswajit Paria, and Yulia Tsvetkov.
+\newblock Gradient-based constrained sampling from language models.
+\newblock In \emph{Proceedings of EMNLP}, 2022.
+\newblock URL \url{https://arxiv.org/abs/2205.12558}.
+
+\bibitem[LeCun et~al.(2006)LeCun, Chopra, Hadsell, Ranzato, and Huang]{lecun2006tutorial}
+Yann LeCun, Sumit Chopra, Raia Hadsell, Marc'Aurelio Ranzato, and Fu~Jie Huang.
+\newblock A tutorial on energy-based learning.
+\newblock \emph{Predicting Structured Data}, 2006.
+\newblock URL \url{https://yann.lecun.com/exdb/publis/pdf/lecun-06.pdf}.
+
+\bibitem[Li et~al.(2022)Li, Thickstun, Gulrajani, Liang, and Hashimoto]{li2022diffusion}
+Xiang~Lisa Li, John Thickstun, Ishaan Gulrajani, Percy Liang, and Tatsunori~B Hashimoto.
+\newblock Diffusion-lm improves controllable text generation.
+\newblock In \emph{Advances in Neural Information Processing Systems (NeurIPS)}, 2022.
+\newblock URL \url{https://arxiv.org/abs/2205.14217}.
+
+\bibitem[Lou et~al.(2024)Lou, Meng, and Ermon]{lou2024discrete}
+Aaron Lou, Chenlin Meng, and Stefano Ermon.
+\newblock Discrete diffusion modeling by estimating the ratios of the data distribution.
+\newblock In \emph{International Conference on Machine Learning (ICML)}, 2024.
+\newblock URL \url{https://arxiv.org/abs/2310.16834}.
+
+\bibitem[Madan et~al.(2023)Madan, Rector-Brooks, Korablyov, et~al.]{madan2023learning}
+Kanika Madan, Jarrid Rector-Brooks, Maksym Korablyov, et~al.
+\newblock Learning gflownets from partial episodes for improved convergence and stability.
+\newblock In \emph{International Conference on Machine Learning (ICML)}, 2023.
+\newblock URL \url{https://arxiv.org/abs/2209.12782}.
+
+\bibitem[Malkin et~al.(2022)Malkin, Jain, Bengio, Sun, and Bengio]{malkin2022trajectory}
+Nikolay Malkin, Moksh Jain, Emmanuel Bengio, Chen Sun, and Yoshua Bengio.
+\newblock Trajectory balance: Improved credit assignment in gflownets.
+\newblock In \emph{Advances in Neural Information Processing Systems (NeurIPS)}, 2022.
+\newblock URL \url{https://arxiv.org/abs/2201.13259}.
+
+\bibitem[Metropolis et~al.(1953)Metropolis, Rosenbluth, Rosenbluth, Teller, and Teller]{metropolis1953equation}
+Nicholas Metropolis, Arianna~W Rosenbluth, Marshall~N Rosenbluth, Augusta~H Teller, and Edward Teller.
+\newblock Equation of state calculations by fast computing machines.
+\newblock \emph{The Journal of Chemical Physics}, 21\penalty0 (6):\penalty0 1087--1092, 1953.
+\newblock URL \url{https://doi.org/10.1063/1.1699114}.
+
+\bibitem[Mostafazadeh et~al.(2016)Mostafazadeh, Chambers, He, et~al.]{mostafazadeh2016corpus}
+Nasrin Mostafazadeh, Nathanael Chambers, Xiaodong He, et~al.
+\newblock A corpus and cloze evaluation for deeper understanding of commonsense stories.
+\newblock In \emph{Proceedings of NAACL-HLT}, 2016.
+\newblock URL \url{https://aclanthology.org/N16-1098/}.
+
+\bibitem[Ouyang et~al.(2022)Ouyang, Wu, Jiang, et~al.]{ouyang2022training}
+Long Ouyang, Jeffrey Wu, Xu~Jiang, et~al.
+\newblock Training language models to follow instructions with human feedback.
+\newblock In \emph{Advances in Neural Information Processing Systems (NeurIPS)}, 2022.
+\newblock URL \url{https://arxiv.org/abs/2203.02155}.
+
+\bibitem[Qin et~al.(2022)Qin, Welleck, Khashabi, and Choi]{qin2022cold}
+Lianhui Qin, Sean Welleck, Daniel Khashabi, and Yejin Choi.
+\newblock Cold decoding: Energy-based constrained text generation with langevin dynamics.
+\newblock In \emph{Advances in Neural Information Processing Systems (NeurIPS)}, 2022.
+\newblock URL \url{https://arxiv.org/abs/2202.11705}.
+
+\bibitem[Radford et~al.(2019)Radford, Wu, Child, Luan, Amodei, and Sutskever]{radford2019language}
+Alec Radford, Jeffrey Wu, Rewon Child, David Luan, Dario Amodei, and Ilya Sutskever.
+\newblock Language models are unsupervised multitask learners.
+\newblock \emph{OpenAI Technical Report}, 2019.
+\newblock URL \url{https://cdn.openai.com/better-language-models/language_models_are_unsupervised_multitask_learners.pdf}.
+
+\bibitem[Roberts and Tweedie(1996)]{roberts1996exponential}
+Gareth~O Roberts and Richard~L Tweedie.
+\newblock Exponential convergence of langevin distributions and their discrete approximations.
+\newblock \emph{Bernoulli}, 2\penalty0 (4):\penalty0 341--363, 1996.
+\newblock URL \url{https://projecteuclid.org/journals/bernoulli/volume-2/issue-4/Exponential-convergence-of-Langevin-distributions-and-their-discrete-approximations/bj/1178291835.full}.
+
+\bibitem[Sha(2020)]{sha2020gradient}
+Lei Sha.
+\newblock Gradient-guided unsupervised lexically constrained text generation.
+\newblock In \emph{Proceedings of EMNLP}, 2020.
+\newblock URL \url{https://aclanthology.org/2020.emnlp-main.701/}.
+
+\bibitem[Song and Ermon(2019)]{song2019generative}
+Yang Song and Stefano Ermon.
+\newblock Generative modeling by estimating gradients of the data distribution.
+\newblock In \emph{Advances in Neural Information Processing Systems (NeurIPS)}, 2019.
+\newblock URL \url{https://arxiv.org/abs/1907.05600}.
+
+\bibitem[Vaswani et~al.(2017)Vaswani, Shazeer, Parmar, et~al.]{vaswani2017attention}
+Ashish Vaswani, Noam Shazeer, Niki Parmar, et~al.
+\newblock Attention is all you need.
+\newblock In \emph{Advances in Neural Information Processing Systems (NeurIPS)}, 2017.
+\newblock URL \url{https://arxiv.org/abs/1706.03762}.
+
+\bibitem[Vincent(2011)]{vincent2011connection}
+Pascal Vincent.
+\newblock A connection between score matching and denoising autoencoders.
+\newblock \emph{Neural Computation}, 23\penalty0 (7):\penalty0 1661--1674, 2011.
+\newblock URL \url{https://doi.org/10.1162/NECO_a_00142}.
+
+\bibitem[Welling and Teh(2011)]{welling2011bayesian}
+Max Welling and Yee~Whye Teh.
+\newblock Bayesian learning via stochastic gradient langevin dynamics.
+\newblock In \emph{International Conference on Machine Learning (ICML)}, 2011.
+\newblock URL \url{https://www.stats.ox.ac.uk/~teh/research/compstats/WelTeh2011a.pdf}.
+
+\bibitem[Yang and Klein(2021)]{yang2021fudge}
+Kevin Yang and Dan Klein.
+\newblock Fudge: Controlled text generation with future discriminators.
+\newblock In \emph{Proceedings of NAACL-HLT}, 2021.
+\newblock URL \url{https://arxiv.org/abs/2104.05218}.
+
+\bibitem[Zhang et~al.(2022)Zhang, Liu, and Liu]{zhang2022langevin}
+Ruqi Zhang, Xingchao Liu, and Qiang Liu.
+\newblock A langevin-like sampler for discrete distributions.
+\newblock In \emph{International Conference on Machine Learning (ICML)}, 2022.
+\newblock URL \url{https://arxiv.org/abs/2206.09914}.
+
+\bibitem[Zhang et~al.(2020)Zhang, Kishore, Wu, Weinberger, and Artzi]{zhang2020bertscore}
+Tianyi Zhang, Varsha Kishore, Felix Wu, Kilian~Q Weinberger, and Yoav Artzi.
+\newblock Bertscore: Evaluating text generation with bert.
+\newblock In \emph{International Conference on Learning Representations (ICLR)}, 2020.
+\newblock URL \url{https://arxiv.org/abs/1904.09675}.
+
+\end{thebibliography}

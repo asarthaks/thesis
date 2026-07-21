@@ -1,0 +1,3 @@
+[reconcile] indexed 11 runs -> results_revision/rev_reconcile.json
+  diag_likelihood_trap_gpt2sft.csv: uncensored slope=-1.1233735349354226, censored slope=None
+  diag_likelihood_trap_gfn-lb1-500.csv: uncensored slope=-0.5045617939355608, censored slope=-2.361133953584052
