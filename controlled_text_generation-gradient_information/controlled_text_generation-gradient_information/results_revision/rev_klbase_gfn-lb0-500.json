@@ -1,0 +1,96 @@
+{
+  "experiment": "kl_baselines",
+  "n_sequences": 200,
+  "by_baseline": {
+    "ground_truth": {
+      "n": 200,
+      "mean_kl": -2.5803370412091162e-09,
+      "kl_ci95_lo": -7.888606584757767e-09,
+      "kl_ci95_hi": 2.5369810588782937e-09,
+      "median_kl": -1.0627594637657722e-10,
+      "exact_match_pct": 100.0
+    },
+    "untouched": {
+      "n": 200,
+      "mean_kl": 8.805958143491297,
+      "kl_ci95_lo": 8.13536265601311,
+      "kl_ci95_hi": 9.495796442005783,
+      "median_kl": 8.875621318817139,
+      "exact_match_pct": 0.0
+    },
+    "random_token": {
+      "n": 200,
+      "mean_kl": 9.073600884694606,
+      "kl_ci95_lo": 8.367166611755266,
+      "kl_ci95_hi": 9.781278849617111,
+      "median_kl": 9.314707279205322,
+      "exact_match_pct": 0.0
+    },
+    "cond_argmax": {
+      "n": 200,
+      "mean_kl": 8.249694314512723,
+      "kl_ci95_lo": 7.359774137706774,
+      "kl_ci95_hi": 9.185105554752232,
+      "median_kl": 8.319904327392578,
+      "exact_match_pct": 14.499999999999998
+    },
+    "cond_sample": {
+      "n": 200,
+      "mean_kl": 8.429158664246891,
+      "kl_ci95_lo": 7.554442213920181,
+      "kl_ci95_hi": 9.341562788674773,
+      "median_kl": 8.442138195037842,
+      "exact_match_pct": 12.5
+    },
+    "cond_topk_rescore": {
+      "n": 200,
+      "mean_kl": 4.455024327348134,
+      "kl_ci95_lo": 3.731702114948506,
+      "kl_ci95_hi": 5.223301608831259,
+      "median_kl": 1.8214261531829834,
+      "exact_match_pct": 31.0
+    },
+    "gibbs": {
+      "n": 200,
+      "mean_kl": 6.766584138755966,
+      "kl_ci95_lo": 6.029399433064533,
+      "kl_ci95_hi": 7.532850905477884,
+      "median_kl": 6.715394496917725,
+      "exact_match_pct": 15.0
+    }
+  },
+  "run_name": "rev_klbase_gfn-lb0-500",
+  "model_path": "/mount/studenten-temp1/users/singhsk/thesis/thesis/gfn-lm-tuning/infill_subj_arithmetic/gpt2_large_sft_output",
+  "model_tag": "gfn-lb0-500",
+  "seed": 0,
+  "wall_time_sec": 219.94286060333252,
+  "argv": {
+    "exp": "kl_baselines",
+    "run_name": "rev_klbase_gfn-lb0-500",
+    "out_dir": "results_revision",
+    "model_path": "/mount/studenten-temp1/users/singhsk/thesis/thesis/gfn-lm-tuning/infill_subj_arithmetic/gpt2_large_sft_output",
+    "adapter_path": "/mount/studenten-temp1/users/singhsk/thesis/thesis/gfn-lm-tuning/infill_subj_arithmetic/outputs/2026-06-27/19-13-26/avid-leaf-24_490.pt",
+    "model_tag": "gfn-lb0-500",
+    "dtype": "float32",
+    "device": "cuda",
+    "seed": 0,
+    "overwrite": false,
+    "data_file": null,
+    "min_words": 10,
+    "max_words": 40,
+    "n_samples": 200,
+    "num_masks": 1,
+    "data_seed": 0,
+    "topk": 20,
+    "gibbs_sweeps": 3,
+    "n_seqs": 1000,
+    "min_tokens": 15,
+    "max_tokens": 60,
+    "span": 20,
+    "steps": 50,
+    "eps_start": 10.5,
+    "eps_end": 0.1,
+    "temperature": 5.0,
+    "noise_scale": 0.01
+  }
+}

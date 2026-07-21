@@ -1,0 +1,103 @@
+Special tokens have been added in the vocabulary, make sure the associated word embeddings are fine-tuned or trained.
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:00<00:01,  1.62it/s]Loading checkpoint shards:  50%|█████     | 2/4 [00:01<00:01,  1.64it/s]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:02<00:00,  1.24it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:03<00:00,  1.04s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:03<00:00,  1.10it/s]
+[likelihood_trap] model loaded in 9.7s
+/mount/studenten-temp1/users/singhsk/thesis/thesis/gfn-lm-tuning/gfn/lib64/python3.11/site-packages/transformers/generation/configuration_utils.py:410: UserWarning: `do_sample` is set to `False`. However, `temperature` is set to `0.6` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `temperature`.
+  warnings.warn(
+/mount/studenten-temp1/users/singhsk/thesis/thesis/gfn-lm-tuning/gfn/lib64/python3.11/site-packages/transformers/generation/configuration_utils.py:415: UserWarning: `do_sample` is set to `False`. However, `top_p` is set to `0.9` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `top_p`.
+  warnings.warn(
+[likelihood_trap] 20/500
+[likelihood_trap] 40/500
+[likelihood_trap] 60/500
+[likelihood_trap] 80/500
+[likelihood_trap] 100/500
+[likelihood_trap] 120/500
+[likelihood_trap] 140/500
+[likelihood_trap] 160/500
+[likelihood_trap] 180/500
+[likelihood_trap] 200/500
+[likelihood_trap] 220/500
+[likelihood_trap] 240/500
+[likelihood_trap] 260/500
+[likelihood_trap] 280/500
+[likelihood_trap] 300/500
+[likelihood_trap] 320/500
+[likelihood_trap] 340/500
+[likelihood_trap] 360/500
+[likelihood_trap] 380/500
+[likelihood_trap] 400/500
+[likelihood_trap] 420/500
+[likelihood_trap] 440/500
+[likelihood_trap] 460/500
+[likelihood_trap] 480/500
+[likelihood_trap] 500/500
+[done] results_diag/diag_likelihood_trap_llama3-8b.json  (89.8 min)
+{
+  "experiment": "likelihood_trap",
+  "n_sequences": 500,
+  "by_strategy": {
+    "greedy": {
+      "n": 500,
+      "mean_gen_len": 40.0,
+      "std_gen_len": 0.0,
+      "mean_scored_len": 40.0,
+      "frac_emitted_eos": 0.0,
+      "frac_hit_cap": 1.0,
+      "mean_total_logp": -64.87919010925293,
+      "mean_per_token_logp": -1.621979752731323,
+      "mean_rep4": 0.1222162162162162,
+      "mean_distinct2": 0.7654871794871795
+    },
+    "beam5": {
+      "n": 500,
+      "mean_gen_len": 40.0,
+      "std_gen_len": 0.0,
+      "mean_scored_len": 40.0,
+      "frac_emitted_eos": 0.0,
+      "frac_hit_cap": 1.0,
+      "mean_total_logp": -63.52068143844605,
+      "mean_per_token_logp": -1.5880170359611514,
+      "mean_rep4": 0.04394594594594594,
+      "mean_distinct2": 0.9106153846153847
+    },
+    "beam20": {
+      "n": 500,
+      "mean_gen_len": 40.0,
+      "std_gen_len": 0.0,
+      "mean_scored_len": 40.0,
+      "frac_emitted_eos": 0.0,
+      "frac_hit_cap": 1.0,
+      "mean_total_logp": -53.158230823516845,
+      "mean_per_token_logp": -1.3289557705879211,
+      "mean_rep4": 0.11751351351351351,
+      "mean_distinct2": 0.8186153846153846
+    },
+    "ancestral": {
+      "n": 500,
+      "mean_gen_len": 40.0,
+      "std_gen_len": 0.0,
+      "mean_scored_len": 40.0,
+      "frac_emitted_eos": 0.0,
+      "frac_hit_cap": 1.0,
+      "mean_total_logp": -139.8270295639038,
+      "mean_per_token_logp": -3.4956757390975954,
+      "mean_rep4": 0.006378378378378374,
+      "mean_distinct2": 0.9783076923076923
+    },
+    "topp90": {
+      "n": 500,
+      "mean_gen_len": 40.0,
+      "std_gen_len": 0.0,
+      "mean_scored_len": 40.0,
+      "frac_emitted_eos": 0.0,
+      "frac_hit_cap": 1.0,
+      "mean_total_logp": -93.69626989746094,
+      "mean_per_token_logp": -2.3424067474365238,
+      "mean_rep4": 0.01459459459459459,
+      "mean_distinct2": 0.962923076923077
+    },
+    "temp07": {
+      "n": 500,
+      "mean_gen_len": 40.0,
+      "std_gen_len": 0.0,
+      "mean_scored_len": 40.0,
+    

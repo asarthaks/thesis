@@ -1,0 +1,38 @@
+[continuation] model loaded in 1.7s
+[continuation] policy: kl=8.818 [8.612,9.019]
+[continuation] grad_norm_preserved_random_dir: kl=8.850 [8.652,9.044]
+[continuation] random: kl=8.850 [8.652,9.044]
+[done] results_revision/rev_continuation_gpt2sft.json (36.0 min)
+{
+  "experiment": "continuation",
+  "span": 20,
+  "steps": 50,
+  "by_method": {
+    "policy": {
+      "n": 100,
+      "mean_final_kl": 8.818043179512024,
+      "kl_ci95_lo": 8.612233024001121,
+      "kl_ci95_hi": 9.019252287626266,
+      "mean_accuracy_pct": 0.0
+    },
+    "grad_norm_preserved_random_dir": {
+      "n": 100,
+      "mean_final_kl": 8.850127873420716,
+      "kl_ci95_lo": 8.65212014055252,
+      "kl_ci95_hi": 9.04395872914791,
+      "mean_accuracy_pct": 0.0
+    },
+    "random": {
+      "n": 100,
+      "mean_final_kl": 8.850127873420716,
+      "kl_ci95_lo": 8.65212014055252,
+      "kl_ci95_hi": 9.04395872914791,
+      "mean_accuracy_pct": 0.0
+    }
+  },
+  "run_name": "rev_continuation_gpt2sft",
+  "model_path": "/mount/studenten-temp1/users/singhsk/thesis/thesis/gfn-lm-tuning/infill_subj_arithmetic/gpt2_large_sft_output",
+  "model_tag": "gpt2sft",
+  "seed": 0,
+  "wall_time_sec": 2157.405673265457
+}

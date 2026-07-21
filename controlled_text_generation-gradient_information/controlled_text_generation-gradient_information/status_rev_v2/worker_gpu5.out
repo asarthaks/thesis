@@ -1,0 +1,6 @@
+[gpu 5] worker up, vram=24GB, manifest=manifest_light.tsv
+[gpu 5] START rev_klbase_gfn-lb0-500  12:58:41
+[gpu 5] DONE  rev_klbase_gfn-lb0-500  13:02:29
+[gpu 5] START rev_divergence_gfn-lb0-2000  13:02:29
+[gpu 5] DONE  rev_divergence_gfn-lb0-2000  13:03:13
+[gpu 5] nothing left to claim; exiting

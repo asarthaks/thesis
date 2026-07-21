@@ -1,0 +1,4 @@
+[gpu 7] worker up, vram=24GB, manifest=manifest_exp_indep.tsv
+[gpu 7] START rev_continuation_gpt2sft  13:11:16
+[gpu 7] DONE  rev_continuation_gpt2sft  13:47:20
+[gpu 7] nothing left to claim; exiting

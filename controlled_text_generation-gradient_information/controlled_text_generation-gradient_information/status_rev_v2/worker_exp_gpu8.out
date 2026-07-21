@@ -1,0 +1,6 @@
+[gpu 8] worker up, vram=24GB, manifest=manifest_exp_indep.tsv
+[gpu 8] START gpt2-large.dls.policy.mh.gn.free.s50.seed0  13:11:16
+[gpu 8] DONE  gpt2-large.dls.policy.mh.gn.free.s50.seed0  13:36:22
+[gpu 8] START gpt2-large.dls.policy.mh.gn.free.s50.seed3  13:36:22
+[gpu 8] DONE  gpt2-large.dls.policy.mh.gn.free.s50.seed3  14:00:45
+[gpu 8] nothing left to claim; exiting

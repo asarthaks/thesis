@@ -1,0 +1,13 @@
+[judge:generate] policy 50/200
+[judge:generate] policy 100/200
+[judge:generate] policy 150/200
+[judge:generate] policy 200/200
+[judge:generate] grad_norm_preserved_random_dir 50/200
+[judge:generate] grad_norm_preserved_random_dir 100/200
+[judge:generate] grad_norm_preserved_random_dir 150/200
+[judge:generate] grad_norm_preserved_random_dir 200/200
+[judge:generate] random 50/200
+[judge:generate] random 100/200
+[judge:generate] random 150/200
+[judge:generate] random 200/200
+[judge:generate] wrote results_revision/rev_judge_gen_gpt2sft_gen.csv

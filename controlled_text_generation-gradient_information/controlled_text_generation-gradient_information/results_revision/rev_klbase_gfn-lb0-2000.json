@@ -1,0 +1,96 @@
+{
+  "experiment": "kl_baselines",
+  "n_sequences": 200,
+  "by_baseline": {
+    "ground_truth": {
+      "n": 200,
+      "mean_kl": 2.506706184881289e-09,
+      "kl_ci95_lo": -2.5606649313658836e-09,
+      "kl_ci95_hi": 7.570006978337854e-09,
+      "median_kl": 1.354472090042691e-12,
+      "exact_match_pct": 100.0
+    },
+    "untouched": {
+      "n": 200,
+      "mean_kl": 9.607594141550361,
+      "kl_ci95_lo": 8.874044381003827,
+      "kl_ci95_hi": 10.37369380855374,
+      "median_kl": 9.530792713165283,
+      "exact_match_pct": 0.0
+    },
+    "random_token": {
+      "n": 200,
+      "mean_kl": 9.973911290060496,
+      "kl_ci95_lo": 9.21597437689139,
+      "kl_ci95_hi": 10.753485578986437,
+      "median_kl": 9.978824138641357,
+      "exact_match_pct": 0.0
+    },
+    "cond_argmax": {
+      "n": 200,
+      "mean_kl": 8.773609434534423,
+      "kl_ci95_lo": 7.796960860760412,
+      "kl_ci95_hi": 9.77994072316681,
+      "median_kl": 9.004512786865234,
+      "exact_match_pct": 15.5
+    },
+    "cond_sample": {
+      "n": 200,
+      "mean_kl": 9.015476675192277,
+      "kl_ci95_lo": 8.041531638293055,
+      "kl_ci95_hi": 10.011638091554053,
+      "median_kl": 9.221231937408447,
+      "exact_match_pct": 15.0
+    },
+    "cond_topk_rescore": {
+      "n": 200,
+      "mean_kl": 5.242009557219615,
+      "kl_ci95_lo": 4.441227838958775,
+      "kl_ci95_hi": 6.0961055921608605,
+      "median_kl": 1.9264941811561584,
+      "exact_match_pct": 27.0
+    },
+    "gibbs": {
+      "n": 200,
+      "mean_kl": 6.827935683415657,
+      "kl_ci95_lo": 6.042939203433571,
+      "kl_ci95_hi": 7.6197387885006895,
+      "median_kl": 7.13379693031311,
+      "exact_match_pct": 17.0
+    }
+  },
+  "run_name": "rev_klbase_gfn-lb0-2000",
+  "model_path": "/mount/studenten-temp1/users/singhsk/thesis/thesis/gfn-lm-tuning/infill_subj_arithmetic/gpt2_large_sft_output",
+  "model_tag": "gfn-lb0-2000",
+  "seed": 0,
+  "wall_time_sec": 220.6955864429474,
+  "argv": {
+    "exp": "kl_baselines",
+    "run_name": "rev_klbase_gfn-lb0-2000",
+    "out_dir": "results_revision",
+    "model_path": "/mount/studenten-temp1/users/singhsk/thesis/thesis/gfn-lm-tuning/infill_subj_arithmetic/gpt2_large_sft_output",
+    "adapter_path": "/mount/studenten-temp1/users/singhsk/thesis/thesis/gfn-lm-tuning/infill_subj_arithmetic/outputs/2026-06-22/13-24-52/daily-resonance-15_1990.pt",
+    "model_tag": "gfn-lb0-2000",
+    "dtype": "float32",
+    "device": "cuda",
+    "seed": 0,
+    "overwrite": false,
+    "data_file": null,
+    "min_words": 10,
+    "max_words": 40,
+    "n_samples": 200,
+    "num_masks": 1,
+    "data_seed": 0,
+    "topk": 20,
+    "gibbs_sweeps": 3,
+    "n_seqs": 1000,
+    "min_tokens": 15,
+    "max_tokens": 60,
+    "span": 20,
+    "steps": 50,
+    "eps_start": 10.5,
+    "eps_end": 0.1,
+    "temperature": 5.0,
+    "noise_scale": 0.01
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "stage": "generate",
+  "gen_csv": "results_revision/rev_judge_gen_gpt2sft_gen.csv",
+  "run_name": "rev_judge_gen_gpt2sft",
+  "n_samples": 200
+}

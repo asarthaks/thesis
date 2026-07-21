@@ -1,0 +1,62 @@
+{
+  "experiment": "continuation",
+  "span": 20,
+  "steps": 50,
+  "by_method": {
+    "policy": {
+      "n": 100,
+      "mean_final_kl": 8.818043179512024,
+      "kl_ci95_lo": 8.612233024001121,
+      "kl_ci95_hi": 9.019252287626266,
+      "mean_accuracy_pct": 0.0
+    },
+    "grad_norm_preserved_random_dir": {
+      "n": 100,
+      "mean_final_kl": 8.850127873420716,
+      "kl_ci95_lo": 8.65212014055252,
+      "kl_ci95_hi": 9.04395872914791,
+      "mean_accuracy_pct": 0.0
+    },
+    "random": {
+      "n": 100,
+      "mean_final_kl": 8.850127873420716,
+      "kl_ci95_lo": 8.65212014055252,
+      "kl_ci95_hi": 9.04395872914791,
+      "mean_accuracy_pct": 0.0
+    }
+  },
+  "run_name": "rev_continuation_gpt2sft",
+  "model_path": "/mount/studenten-temp1/users/singhsk/thesis/thesis/gfn-lm-tuning/infill_subj_arithmetic/gpt2_large_sft_output",
+  "model_tag": "gpt2sft",
+  "seed": 0,
+  "wall_time_sec": 2157.405673265457,
+  "argv": {
+    "exp": "continuation",
+    "run_name": "rev_continuation_gpt2sft",
+    "out_dir": "results_revision",
+    "model_path": "/mount/studenten-temp1/users/singhsk/thesis/thesis/gfn-lm-tuning/infill_subj_arithmetic/gpt2_large_sft_output",
+    "adapter_path": null,
+    "model_tag": "gpt2sft",
+    "dtype": "float32",
+    "device": "cuda",
+    "seed": 0,
+    "overwrite": false,
+    "data_file": null,
+    "min_words": 10,
+    "max_words": 40,
+    "n_samples": 100,
+    "num_masks": 1,
+    "data_seed": 0,
+    "topk": 20,
+    "gibbs_sweeps": 3,
+    "n_seqs": 1000,
+    "min_tokens": 15,
+    "max_tokens": 60,
+    "span": 20,
+    "steps": 50,
+    "eps_start": 10.5,
+    "eps_end": 0.1,
+    "temperature": 5.0,
+    "noise_scale": 0.01
+  }
+}

@@ -516,6 +516,135 @@
       ],
       "max_abs_within_strategy_pearson": 0.5111062508666123,
       "note": "If within-strategy correlations are weak, present the between-strategy pattern (greedy/beam worst) as the primary evidence; that is what Holtzman et al. did and it is not a confound."
+    },
+    "diag_likelihood_trap_llama3-8b": {
+      "csv": "diag_likelihood_trap_llama3-8b.csv",
+      "n_rows": 3000,
+      "within_strategy": {
+        "greedy": {
+          "logp_vs_rep4": {
+            "pearson": 0.7722714361937846,
+            "spearman": 0.7905560751235678,
+            "n": 500
+          },
+          "logp_vs_distinct2": {
+            "pearson": -0.6955935579868032,
+            "spearman": -0.7210141120265853,
+            "n": 500
+          }
+        },
+        "beam5": {
+          "logp_vs_rep4": {
+            "pearson": 0.5965139452112163,
+            "spearman": 0.4773208290020114,
+            "n": 500
+          },
+          "logp_vs_distinct2": {
+            "pearson": -0.5754228277500673,
+            "spearman": -0.24238179147530464,
+            "n": 500
+          }
+        },
+        "beam20": {
+          "logp_vs_rep4": {
+            "pearson": 0.6025422839323072,
+            "spearman": 0.594775452793343,
+            "n": 500
+          },
+          "logp_vs_distinct2": {
+            "pearson": -0.582813392906666,
+            "spearman": -0.4411844279150147,
+            "n": 500
+          }
+        },
+        "ancestral": {
+          "logp_vs_rep4": {
+            "pearson": 0.20922003197236308,
+            "spearman": 0.2323757487619345,
+            "n": 500
+          },
+          "logp_vs_distinct2": {
+            "pearson": -0.23132249271560837,
+            "spearman": -0.19573986315926323,
+            "n": 500
+          }
+        },
+        "topp90": {
+          "logp_vs_rep4": {
+            "pearson": 0.3280420823894094,
+            "spearman": 0.259883185846958,
+            "n": 500
+          },
+          "logp_vs_distinct2": {
+            "pearson": -0.31947959270711745,
+            "spearman": -0.21988632582203826,
+            "n": 500
+          }
+        },
+        "temp07": {
+          "logp_vs_rep4": {
+            "pearson": 0.2449930557295154,
+            "spearman": 0.2677052072046811,
+            "n": 500
+          },
+          "logp_vs_distinct2": {
+            "pearson": -0.2677688058576797,
+            "spearman": -0.20958521779903894,
+            "n": 500
+          }
+        }
+      },
+      "pooled_sampling_logp_vs_rep4": {
+        "pearson": 0.21828849162296296,
+        "spearman": 0.2551021407483329,
+        "n": 1500
+      },
+      "between_strategy": [
+        {
+          "strategy": "ancestral",
+          "mean_logp": -3.4956757390975954,
+          "mean_rep4": 0.006378378378378374,
+          "mean_distinct2": 0.9783076923076923,
+          "n": 500
+        },
+        {
+          "strategy": "beam20",
+          "mean_logp": -1.3289557705879211,
+          "mean_rep4": 0.1175135135135135,
+          "mean_distinct2": 0.8186153846153846,
+          "n": 500
+        },
+        {
+          "strategy": "beam5",
+          "mean_logp": -1.5880170359611512,
+          "mean_rep4": 0.04394594594594595,
+          "mean_distinct2": 0.9106153846153846,
+          "n": 500
+        },
+        {
+          "strategy": "greedy",
+          "mean_logp": -1.6219797527313233,
+          "mean_rep4": 0.1222162162162162,
+          "mean_distinct2": 0.7654871794871795,
+          "n": 500
+        },
+        {
+          "strategy": "temp07",
+          "mean_logp": -2.3299165321350097,
+          "mean_rep4": 0.01621621621621621,
+          "mean_distinct2": 0.9573333333333334,
+          "n": 500
+        },
+        {
+          "strategy": "topp90",
+          "mean_logp": -2.3424067474365233,
+          "mean_rep4": 0.01459459459459459,
+          "mean_distinct2": 0.962923076923077,
+          "n": 500
+        }
+      ],
+      "max_abs_within_strategy_pearson": 0.7722714361937846,
+      "note": "If within-strategy correlations are weak, present the between-strategy pattern (greedy/beam worst) as the primary evidence; that is what Holtzman et al. did and it is not a confound."
     }
   }
 }

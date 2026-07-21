@@ -278,9 +278,14 @@ def exp_linearization(args, model, tok, device):
         cands = live_idx[cands_live]                     # back into real vocab ids
         strata = (["near"] * len(near) + ["mid"] * len(mid) + ["random"] * len(far))
 
-        # surrogate: one dot product per candidate, free
-        delta_e = E[cands] - e_cur.unsqueeze(0)          # C x D
-        surrogate = (delta_e @ g).cpu().numpy()          # C
+        # surrogate: one dot product per candidate, free.
+        # Cast delta_e to float32 so a bf16 model load (Llama on a 24 GB card)
+        # does not raise "addmv input tensors must have the same dtype": the
+        # embedding matrix E is bf16 under such a load while g is already float32
+        # (grad_wrt_position returns a bf16 grad that line 250 casts to float32).
+        # Doing the matmul in float32 also keeps the surrogate numerically sane.
+        delta_e = (E[cands] - e_cur.unsqueeze(0)).float()  # C x D, float32
+        surrogate = (delta_e @ g).cpu().numpy()          # C  (g is float32)
         dist = delta_e.norm(dim=-1).cpu().numpy()        # C
 
         # baseline energy of the unmodified sequence

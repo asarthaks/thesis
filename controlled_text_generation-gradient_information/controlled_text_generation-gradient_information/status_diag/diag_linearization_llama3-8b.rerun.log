@@ -1,0 +1,48 @@
+Special tokens have been added in the vocabulary, make sure the associated word embeddings are fine-tuned or trained.
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:05<00:17,  5.96s/it]Loading checkpoint shards:  50%|█████     | 2/4 [00:12<00:12,  6.03s/it]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:18<00:06,  6.43s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:20<00:00,  4.40s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:20<00:00,  5.06s/it]
+[linearization] model loaded in 34.9s
+[linearization] restricting candidates to 127969 live rows of 128256
+[linearization] 10/200 seqs, 20000 rows, elapsed 1.8m, eta 33.9m
+[linearization] 20/200 seqs, 40000 rows, elapsed 3.6m, eta 32.5m
+[linearization] 30/200 seqs, 60000 rows, elapsed 5.4m, eta 30.4m
+[linearization] 40/200 seqs, 80000 rows, elapsed 7.2m, eta 28.9m
+[linearization] 50/200 seqs, 100000 rows, elapsed 9.0m, eta 27.1m
+[linearization] 60/200 seqs, 120000 rows, elapsed 10.8m, eta 25.2m
+[linearization] 70/200 seqs, 140000 rows, elapsed 12.6m, eta 23.5m
+[linearization] 80/200 seqs, 160000 rows, elapsed 14.5m, eta 21.7m
+[linearization] 90/200 seqs, 180000 rows, elapsed 16.3m, eta 19.9m
+[linearization] 100/200 seqs, 200000 rows, elapsed 18.1m, eta 18.1m
+[linearization] 110/200 seqs, 220000 rows, elapsed 19.8m, eta 16.2m
+[linearization] 120/200 seqs, 240000 rows, elapsed 21.5m, eta 14.4m
+[linearization] 130/200 seqs, 260000 rows, elapsed 23.3m, eta 12.5m
+[linearization] 140/200 seqs, 280000 rows, elapsed 25.0m, eta 10.7m
+[linearization] 150/200 seqs, 300000 rows, elapsed 26.7m, eta 8.9m
+[linearization] 160/200 seqs, 320000 rows, elapsed 28.5m, eta 7.1m
+[linearization] 170/200 seqs, 340000 rows, elapsed 30.2m, eta 5.3m
+[linearization] 180/200 seqs, 360000 rows, elapsed 31.9m, eta 3.5m
+[linearization] 190/200 seqs, 380000 rows, elapsed 33.7m, eta 1.8m
+[linearization] 200/200 seqs, 400000 rows, elapsed 35.5m, eta 0.0m
+[done] results_diag/diag_linearization_llama3-8b.json  (36.2 min)
+{
+  "experiment": "linearization",
+  "n_sequences": 200,
+  "n_pairs": 400000,
+  "spearman_surrogate_vs_true_ALL": 0.020817098531733098,
+  "pearson_surrogate_vs_true_ALL": -0.02254337019158254,
+  "spearman_surrogate_vs_true_SELF": -0.027400779657352863,
+  "spearman_surrogate_vs_true_FUTURE": 0.05359634204722134,
+  "mean_abs_true_delta_self": 17.330291026181456,
+  "mean_abs_true_delta_future": 12.294519600887298,
+  "mean_inter_token_distance": 0.6585041346630454,
+  "spearman_near": 0.03867225126866992,
+  "mean_dist_near": 0.45278911541551353,
+  "spearman_mid": 0.021581197534368164,
+  "mean_dist_mid": 0.7095143688088655,
+  "spearman_random": 0.011157824247906916,
+  "mean_dist_random": 0.7358565272139013,
+  "run_name": "diag_linearization_llama3-8b",
+  "model_path": "/mount/arbeitsdaten31/studenten1/singhsk/models/llama3-8b",
+  "adapter_path": null,
+  "seed": 0,
+  "wall_time_sec": 2169.4701800346375
+}

@@ -1,0 +1,96 @@
+{
+  "experiment": "kl_baselines",
+  "n_sequences": 200,
+  "by_baseline": {
+    "ground_truth": {
+      "n": 200,
+      "mean_kl": -5.520964992980627e-09,
+      "kl_ci95_lo": -1.7550932604659645e-08,
+      "kl_ci95_hi": 6.380566255793061e-09,
+      "median_kl": -2.7000623958883804e-11,
+      "exact_match_pct": 100.0
+    },
+    "untouched": {
+      "n": 200,
+      "mean_kl": 8.197561487309867,
+      "kl_ci95_lo": 7.2072881867716205,
+      "kl_ci95_hi": 9.297808326058409,
+      "median_kl": 6.645039081573486,
+      "exact_match_pct": 0.0
+    },
+    "random_token": {
+      "n": 200,
+      "mean_kl": 8.362455238173716,
+      "kl_ci95_lo": 7.145493343285052,
+      "kl_ci95_hi": 9.802184834127198,
+      "median_kl": 6.949206113815308,
+      "exact_match_pct": 0.0
+    },
+    "cond_argmax": {
+      "n": 200,
+      "mean_kl": 20.17416677941889,
+      "kl_ci95_lo": 14.916841596666874,
+      "kl_ci95_hi": 25.951880137166995,
+      "median_kl": 5.23513388633728,
+      "exact_match_pct": 11.5
+    },
+    "cond_sample": {
+      "n": 200,
+      "mean_kl": 21.112752953317514,
+      "kl_ci95_lo": 15.76544664928161,
+      "kl_ci95_hi": 26.950454653800563,
+      "median_kl": 5.884881973266602,
+      "exact_match_pct": 7.000000000000001
+    },
+    "cond_topk_rescore": {
+      "n": 200,
+      "mean_kl": 18.27044525475523,
+      "kl_ci95_lo": 13.056741004806039,
+      "kl_ci95_hi": 24.01559619728387,
+      "median_kl": 3.0707101821899414,
+      "exact_match_pct": 19.0
+    },
+    "gibbs": {
+      "n": 200,
+      "mean_kl": 6.19850146183692,
+      "kl_ci95_lo": 5.328416408724003,
+      "kl_ci95_hi": 7.15080686467822,
+      "median_kl": 4.509305715560913,
+      "exact_match_pct": 7.000000000000001
+    }
+  },
+  "run_name": "rev_klbase_gfn-lb1-500",
+  "model_path": "/mount/studenten-temp1/users/singhsk/thesis/thesis/gfn-lm-tuning/infill_subj_arithmetic/gpt2_large_sft_output",
+  "model_tag": "gfn-lb1-500",
+  "seed": 0,
+  "wall_time_sec": 224.36440253257751,
+  "argv": {
+    "exp": "kl_baselines",
+    "run_name": "rev_klbase_gfn-lb1-500",
+    "out_dir": "results_revision",
+    "model_path": "/mount/studenten-temp1/users/singhsk/thesis/thesis/gfn-lm-tuning/infill_subj_arithmetic/gpt2_large_sft_output",
+    "adapter_path": "/mount/studenten-temp1/users/singhsk/thesis/thesis/gfn-lm-tuning/infill_subj_arithmetic/outputs/2026-06-27/19-13-08/dutiful-durian-23_490.pt",
+    "model_tag": "gfn-lb1-500",
+    "dtype": "float32",
+    "device": "cuda",
+    "seed": 0,
+    "overwrite": false,
+    "data_file": null,
+    "min_words": 10,
+    "max_words": 40,
+    "n_samples": 200,
+    "num_masks": 1,
+    "data_seed": 0,
+    "topk": 20,
+    "gibbs_sweeps": 3,
+    "n_seqs": 1000,
+    "min_tokens": 15,
+    "max_tokens": 60,
+    "span": 20,
+    "steps": 50,
+    "eps_start": 10.5,
+    "eps_end": 0.1,
+    "temperature": 5.0,
+    "noise_scale": 0.01
+  }
+}

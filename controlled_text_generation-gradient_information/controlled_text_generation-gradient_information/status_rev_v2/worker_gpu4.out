@@ -1,0 +1,6 @@
+[gpu 4] worker up, vram=24GB, manifest=manifest_light.tsv
+[gpu 4] START rev_klbase_gfn-lb1-500  12:58:41
+[gpu 4] DONE  rev_klbase_gfn-lb1-500  13:02:33
+[gpu 4] START rev_judge_gen_gpt2sft  13:02:33
+[gpu 4] DONE  rev_judge_gen_gpt2sft  14:16:39
+[gpu 4] nothing left to claim; exiting

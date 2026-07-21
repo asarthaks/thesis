@@ -1,0 +1,22 @@
+[model_divergence] model loaded in 1.7s
+[model_divergence] loading tuned variant /mount/studenten-temp1/users/singhsk/thesis/thesis/gfn-lm-tuning/infill_subj_arithmetic/outputs/2026-06-27/19-13-08/dutiful-durian-23_490.pt
+[model_divergence] 100/215
+[model_divergence] 200/215
+[done] results_revision/rev_divergence_gfn-lb1-500.json (0.6 min)
+{
+  "experiment": "model_divergence",
+  "adapter_path": "/mount/studenten-temp1/users/singhsk/thesis/thesis/gfn-lm-tuning/infill_subj_arithmetic/outputs/2026-06-27/19-13-08/dutiful-durian-23_490.pt",
+  "n_sequences": 215,
+  "mean_abs_loglik_diff": 57.309274150049966,
+  "mean_signed_loglik_diff": -56.21742454351381,
+  "median_abs_loglik_diff": 38.53857421875,
+  "pearson_base_tuned_loglik": 0.7699107848816517,
+  "spearman_base_tuned_loglik": 0.8352375087541356,
+  "mean_nexttok_kl_base_vs_tuned": 3.0531680428011474,
+  "note": "If mean_abs_loglik_diff is small and the correlation ~1, the LoRA left the energy essentially unchanged, so Langevin indistinguishability on the tuned energy is trivially expected; retitle the finding as 'light-touch amortization leaves the energy unchanged'. If the diff is large yet the landscape diagnostics are flat, the original claim stands.",
+  "run_name": "rev_divergence_gfn-lb1-500",
+  "model_path": "/mount/studenten-temp1/users/singhsk/thesis/thesis/gfn-lm-tuning/infill_subj_arithmetic/gpt2_large_sft_output",
+  "model_tag": "gfn-lb1-500",
+  "seed": 0,
+  "wall_time_sec": 33.94022011756897
+}

@@ -1,0 +1,47 @@
+{
+  "experiment": "external_judge",
+  "judge_path": "/mount/arbeitsdaten31/studenten1/singhsk/models/llama3-8b",
+  "gen_csv": "results_revision/rev_judge_gen_gpt2sft_gen.csv",
+  "by_method": {
+    "policy": {
+      "n": 200,
+      "mean_judge_ppl": 178.42051540754179,
+      "median_judge_ppl": 70.5826532456696,
+      "mean_judge_nll_per_tok": 4.43806728931449,
+      "mean_in_model_kl": 6.540848779819353
+    },
+    "grad_norm_preserved_random_dir": {
+      "n": 200,
+      "mean_judge_ppl": 181.32081336010316,
+      "median_judge_ppl": 72.76969228256465,
+      "mean_judge_nll_per_tok": 4.44973922383698,
+      "mean_in_model_kl": 6.369628606066108
+    },
+    "random": {
+      "n": 200,
+      "mean_judge_ppl": 181.32081336010316,
+      "median_judge_ppl": 72.76969228256465,
+      "mean_judge_nll_per_tok": 4.44973922383698,
+      "mean_in_model_kl": 6.369628606066108
+    }
+  },
+  "rank_spearman_kl_vs_judge_ppl": -1.0,
+  "method_means": [
+    {
+      "method": "grad_norm_preserved_random_dir",
+      "kl": 6.369628606066108,
+      "ppl": 181.32081336010316
+    },
+    {
+      "method": "policy",
+      "kl": 6.540848779819353,
+      "ppl": 178.42051540754179
+    },
+    {
+      "method": "random",
+      "kl": 6.369628606066108,
+      "ppl": 181.32081336010316
+    }
+  ],
+  "wall_time_sec": 24.777000904083252
+}
