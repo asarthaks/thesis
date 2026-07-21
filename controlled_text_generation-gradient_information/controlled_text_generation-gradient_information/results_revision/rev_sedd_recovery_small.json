@@ -1,0 +1,20 @@
+{
+  "experiment": "recovery",
+  "scale": "small",
+  "final_run_name": "rev_sedd_recovery_small",
+  "n_shards_merged": 6,
+  "n_sequences": 200,
+  "by_arm": {
+    "sedd_recovery": {
+      "n": 200,
+      "exact_match_pct": 32.5,
+      "top5_pct": 61.5,
+      "mean_kl_gpt2sft": 3.74646414178727,
+      "kl_ci95": [
+        3.0999797464008636,
+        4.433783315401724
+      ],
+      "median_kl_gpt2sft": 1.686252236366272
+    }
+  }
+}

@@ -1,0 +1,48 @@
+{
+  "experiment": "guided",
+  "final_run_name": "rev_sedd_guided_g4",
+  "n_shards_merged": 4,
+  "n_generations": 1200,
+  "by_label": {
+    "0": {
+      "n_pairs": 300,
+      "unguided_hit_pct": 49.0,
+      "guided_hit_pct": 65.66666666666666,
+      "gain_pts": 16.666666666666664,
+      "gain_ci95": [
+        9.666666666666666,
+        24.0
+      ],
+      "unguided_span_nll": 7.093916473786036,
+      "guided_span_nll": 10.977765099207561,
+      "self_unguided_hit_pct": 66.33333333333333,
+      "self_guided_hit_pct": 73.66666666666667,
+      "self_gain_pts": 7.333333333333333,
+      "self_gain_ci95": [
+        0.33333333333333337,
+        14.333333333333334
+      ],
+      "judge_clf_agree_pct_unguided": 56.00000000000001
+    },
+    "1": {
+      "n_pairs": 300,
+      "unguided_hit_pct": 44.0,
+      "guided_hit_pct": 38.666666666666664,
+      "gain_pts": -5.333333333333334,
+      "gain_ci95": [
+        -13.0,
+        2.666666666666667
+      ],
+      "unguided_span_nll": 7.158488053480784,
+      "guided_span_nll": 11.033721670309703,
+      "self_unguided_hit_pct": 32.0,
+      "self_guided_hit_pct": 50.33333333333333,
+      "self_gain_pts": 18.333333333333332,
+      "self_gain_ci95": [
+        11.0,
+        25.666666666666664
+      ],
+      "judge_clf_agree_pct_unguided": 64.0
+    }
+  }
+}

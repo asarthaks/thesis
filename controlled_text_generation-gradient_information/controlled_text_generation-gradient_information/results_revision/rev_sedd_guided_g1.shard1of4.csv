@@ -1,0 +1,321 @@
+prompt_idx,sample_idx,target_label,arm,judged_label,hit_target,clf_self_label,span_nll,text
+1,0,0,unguided,1,0,1,6.020427703857422,"The book,The documents,The drawings, The picture... The genre prose and poetry, traditional prose and poetry"
+1,1,0,unguided,1,0,1,5.968374729156494,"The book  As a result, you are likely providing advice you would like to benefit from. Including myself"
+1,2,0,unguided,1,0,1,6.87799072265625,"The book,You areThe book,There were youYour aura seems to float away.The book,There"
+1,3,0,unguided,0,1,0,7.074787139892578,The book had got the same sales. It had all been the same r r The $. rd
+1,4,0,unguided,0,1,0,5.028701305389404,The bookThe bookThe bookThe bookThe bookblscidscoutscoutscoutscoutsc
+1,5,0,unguided,1,0,0,5.644904136657715,The bookstore was a fountain.You can say the bookstore was open to anyone.But you will be
+1,6,0,unguided,0,1,0,8.182065963745117,"The book they attacked, ‘And now ‘To the book which has been attacked, “And"
+1,7,0,unguided,1,0,1,9.044967651367188,"The book is set for life, each five pulls marks the landing of the Echo.The song has 30 Moments"
+1,8,0,unguided,1,0,0,8.034625053405762,The bookThe bookhas brought to us to be inspired by whom? (The story here) The friendship with
+1,9,0,unguided,1,0,0,6.456443786621094,The book is chosen using the special qualities of the book.The method of illumination is used in the reading pages
+1,10,0,unguided,0,1,0,8.3253812789917,The book was lost into Mifoy’s Downhole.]It was lost into Mifoy's
+1,11,0,unguided,0,1,0,8.923873901367188,The book ends.  The book is twenty minutes so you’re in bed for still more tales
+1,12,0,unguided,0,1,1,6.16352653503418,The book that goes from the encyclopedia  b.h.c.o.s.The encyclopedia that
+1,13,0,unguided,0,1,0,12.194234848022461,"The bookThis child spent"" or utter lThemThe tThisCicran"" lm. Bright"
+1,14,0,unguided,0,1,0,5.989264011383057,"The book deals with this picture of the nose in which the nose forgets the nose, returns to the nose"
+1,15,0,unguided,0,1,0,6.752140998840332,The book of a book offWe a book of a book off a book of a book of the book off
+1,16,0,unguided,0,1,0,9.063813209533691,"The book toSamsung, the devices are everywhere but maybe would not use them openly... not just the book to"
+1,17,0,unguided,0,1,0,8.854683876037598,The book not had to came packed in boring boxes like some of the goddamn The book didn't have to be
+1,18,0,unguided,0,1,1,6.987027168273926,The book's address was actual literature. It played out like an actual literature game when there was an actual canon
+1,19,0,unguided,0,1,1,9.595782279968262,"The book is excellent, and it has several unrelated books, in advance book learning 'howler' decline obedience"
+1,0,0,guided,1,0,0,3.8735451698303223,The bookHisThe HISThe bookThe bookThe bookThe bookThe bookThe bookThe bookThe bookThe
+1,1,0,guided,0,1,0,6.294618129730225,"The book, assumes low-level abstraction, feels the implementation is highly possible, assumes high-level abstraction,"
+1,2,0,guided,0,1,0,9.592432975769043,"The bookkeeper slammed the professor.They were lying and admitting about, 'You want to get something not?'"
+1,3,0,guided,0,1,1,9.800262451171875,The bookbag from Screws You're Given is the most tangible positive drivers among vintage young people in What's
+1,4,0,guided,0,1,0,7.278726100921631,"The book has ""A"" to minusThe title is ""not in"" the book. ""The book piles"
+1,5,0,guided,1,0,0,9.28321361541748,The book Digg.org/The album With a ghost written live-in character book longer better with more
+1,6,0,guided,1,0,1,9.95130443572998,The bookend fund material in the v8 of N baden's estate' so read it a bit
+1,7,0,guided,1,0,0,10.524429321289062,The book told a story the skeler had been long proud to listen He died in September 2017 before life entered
+1,8,0,guided,1,0,0,6.497994899749756,"The book is almost as chronological as what the other books took, including the release of the film that was called"
+1,9,0,guided,1,0,0,5.745608806610107,The book  You’ve read the FOUR Book  You’ve read the F
+1,10,0,guided,1,0,0,7.361320495605469,The book is: To do it right on a great day—or and what he can do at difficult times
+1,11,0,guided,1,0,1,12.807418823242188,The book shelf reads ‘BE BEBER BE timeBeBeAS BEberBEBe BE BEARD BE
+1,12,0,guided,1,0,0,8.696303367614746,The book over putsThe book gets diverse artwork outside asking for an overboard and The book already has an island
+1,13,0,guided,1,0,0,8.2618408203125,"The book called Twiding Eye, the book called Flinderflock, the book called postersAnd it's"
+1,14,0,guided,0,1,0,7.294217109680176,"The book is small, only $16.in and $20.inf.The unofficial aim is notoriety"
+1,15,0,guided,0,1,0,12.057650566101074,"The book---- be stated earlier:-- give up-- very widget suit browser-- youtube color clip), S"
+1,16,0,guided,1,0,1,10.291394233703613,The bookson of Mary Arnold Ayroff…who along with David is owner of the brand M11 have
+1,17,0,guided,0,1,0,9.81694221496582,"The book will fails to mention that John had earlier banished Brigal, a former student The streetcar has an open"
+1,18,0,guided,1,0,0,10.847294807434082,"The book full of supplements is inside tip fifty, elevenst bookI refer to the inner logic calling the inner"
+1,19,0,guided,1,0,0,8.851151466369629,The book of record existed at the part of the cyder  denied 207There should be no doubt
+1,0,1,unguided,0,0,0,1.4145549535751343,The book.The book.The book.The book.The book.The book.The book.The
+1,1,1,unguided,1,1,0,7.218023777008057,"The book's 12 total is ""Seven"". ""Thank-you,"" says Cohn  ""Thank you,"""
+1,2,1,unguided,0,0,0,8.705062866210938,The bookloads shifted from 1 chapter 2 to 6.Keys to Bookstore in the bookstore you're able
+1,3,1,unguided,0,0,0,8.027714729309082,The book was turned intoThe book you had been bringing themThe book was found in the berries and on the
+1,4,1,unguided,0,0,0,8.956486701965332,The book. It contains no attempt to finish more than April. November 2013 Waterford Community Staff College in July
+1,5,1,unguided,1,1,0,7.4045610427856445,"The book is its self, right here S.A.and its two major points of interest: unexplained fate"
+1,6,1,unguided,0,0,1,8.56968879699707,The book of sore is now turn to the rulesOf the gamesmourSourSourSour
+1,7,1,unguided,1,1,0,9.804374694824219,"The book familiar – SdoubleHaarHi, see if that is correct – The book written – The book"
+1,8,1,unguided,1,1,0,9.396870613098145,The book chapter are ubligh immediately after the manuscript of Mr. dubHow to give us the pleasure of
+1,9,1,unguided,0,0,0,5.498643398284912,The book says that we need fish. The book says that fish might be genetically restricted or expensive to the public
+1,10,1,unguided,1,1,0,8.405454635620117,"The book is addictive and exciting by itself,it’s also easy to get and spend 3.1"
+1,11,1,unguided,0,0,0,7.1154022216796875,The book was sold!The book was never sold.The book will also never be sold!Somethingうと
+1,12,1,unguided,0,0,0,6.936548709869385,The booksellerThe physical printor(The country)The time it takes to make a bookThe failure from
+1,13,1,unguided,1,1,0,9.850549697875977,The book in 2011 that had the longest line of the norm that it Boom-Book its horror-power
+1,14,1,unguided,1,1,0,8.890138626098633,The bookYou learn seriously about writing exclusives ofThe townTheI learn about doing talking about the townThe
+1,15,1,unguided,1,1,0,8.87919807434082,The book that is in the comic demonstrates how important money is tracked by a simple look than money spent on fluffy
+1,16,1,unguided,1,1,0,8.455239295959473,"The book of personality, it is St. Christ the Prince (VLR) tells the book of the life"
+1,17,1,unguided,0,0,0,6.569329738616943,The book was poorly received by many(both progressive and liberal alike).  After the book you can move
+1,18,1,unguided,0,0,0,5.855358123779297,The booksellersorbeersor beThe booksellersorbeThe booksellersororThe
+1,19,1,unguided,1,1,1,6.485293865203857,The book was published on September 28th with all devices being the first to receive a major lookback at a
+1,0,1,guided,0,0,0,10.962889671325684,"The book declares all talk lost to the telairest blood diseases.However abound leaving Sita says dog,"
+1,1,1,guided,1,1,1,10.804030418395996,The book I got from watching company customers manufacture online books about Dr. Jim Emerson and his royaltiesC Michael M
+1,2,1,guided,1,1,0,8.944314956665039,The book stays in the convention gamestores for two years?Of course We know they get along every week and
+1,3,1,guided,1,1,0,9.670241355895996,The book was talking here about an animated movie  Walter Obst’s ^ => With and For
+1,4,1,guided,0,0,0,9.23831844329834,The book’s repeat rate also describes five court cases arising from a series of judgments by an administrative process
+1,5,1,guided,1,1,0,10.647505760192871,"The book at:"" loose fallIt gradually fewer rules that determine performances!The book at most lucky chosen to write"
+1,6,1,guided,1,1,1,9.504244804382324,The book of need lends the book of serious consideration Lin Lee Lamont  AMY thirty four  Four
+1,7,1,guided,0,0,1,10.830520629882812,The book he's putting ‎In his right hand isATo which Mario is chotelling Chiotelling
+1,8,1,guided,1,1,0,10.405961990356445,"The book is here Walt Disney:8Con... Photo; The hatch fitted with interim, self-performing building"
+1,9,1,guided,0,0,1,12.655404090881348,The book crosses divisions under this...^.^press no King (ZKI) through contemporary Latin
+1,10,1,guided,0,0,0,9.24073314666748,The book came out andDooroorooroorooroorooroorooroor world’s second coach
+1,11,1,guided,1,1,1,8.276835441589355,"The book is psychological and the store recommends reading to fellow travelers in those spirits, based on media at the time"
+1,12,1,guided,1,1,1,5.044643878936768,The book of songContents  SongContents  These are very brief sentences that you can find in the
+1,13,1,guided,0,0,0,5.067703723907471,The book is a year high school book and the student book a grade school book. The third event will be
+1,14,1,guided,1,1,0,7.216516971588135,The book is designed to settle with a paragraph of discussionWe have a few places over the weekend we just like
+1,15,1,guided,1,1,0,4.107360363006592,The book included a cover where no other book was available. The book included a free download in MP3 format
+1,16,1,guided,1,1,0,9.222041130065918,"The book contains scraps of material from Jewish traditional German Courts and Protestant Churches,"" AKA said. ""On Thursday"
+1,17,1,guided,1,1,1,5.787671089172363,The book. The song of The bookThe bookThe book of the time of the singing ofThe bookThe
+1,18,1,guided,1,1,1,6.200648784637451,The book is the end of God.  And right at the top of the about is the book.
+1,19,1,guided,0,0,0,9.514698028564453,The book is worse one authors chooseThe book planners have work to doOn Night Booksfred through the middle
+5,0,0,unguided,0,1,1,8.14625358581543,"The horse claimed to have ""positively assisted breathing"".Earth:KeighanHeaven:Keighan"
+5,1,0,unguided,0,1,0,5.565598011016846,The horse was very young. It wore a leather robe and scarf--no stripes. It was part of the
+5,2,0,unguided,0,1,1,9.98349666595459,The horse herders in western Germany. The siege fleet human being harooned by fleet of fleet of combines
+5,3,0,unguided,0,1,0,9.505606651306152,"The horseman saw traditional performances,but had interest to continue playing from the finish do do do do do do"
+5,4,0,unguided,0,1,0,7.918587684631348,The horse will thought to have had the slightly less-funny side-effect of having put straw atHome
+5,5,0,unguided,1,0,0,7.006108283996582,"The horse that makes me blink.  Also pretty good, too, is also the horse that makes me"
+5,6,0,unguided,1,0,0,8.878044128417969,The horse who paused between bike and bus on the Barcelona corner  Throw in a little casual season right here
+5,7,0,unguided,1,0,0,6.951234340667725,"The horse-ride-from-shore,The coal and oil-on-sands,The,The"
+5,8,0,unguided,0,1,0,8.835044860839844,"The horse behylibry if it was too far from any other task, what could it be described as"
+5,9,0,unguided,1,0,0,9.191847801208496,The horse has a leather meter g and fat balls ofSherry was born in the early sixs back
+5,10,0,unguided,0,1,0,8.905051231384277,The horse says that the human being is restricted by an 2rd party scam to buy and use soccer Cards.
+5,11,0,unguided,0,1,0,10.116691589355469,"The horse has travelled Vladamura.  Agave can either agave fuller agave, but both"
+5,12,0,unguided,1,0,0,8.277134895324707,"The horse smells like blood;The horse is silver, you will be awarded a kiss on the horse, determining"
+5,13,0,unguided,0,1,0,6.615106105804443,The horse is always by my neck and there is one non-stomping fan. I regret this much
+5,14,0,unguided,0,1,0,7.80819845199585,The horse does not work. The horseling is not working. Last seen at weighs 120 rumored to be pal
+5,15,0,unguided,1,0,0,6.8262529373168945,"The horsecamps, meanwhile, represent the interested-plants. Also, represent the interested-plants"
+5,16,0,unguided,1,0,0,7.960338115692139,"The horsecarousel is.The horsecarousel is. The musodmus wagon "" ""The horsecar"
+5,17,0,unguided,0,1,1,6.513974666595459,The horse taken away and all of a sudden undersupplied. The studio relaunched the gamethe same
+5,18,0,unguided,1,0,0,8.636896133422852,The horse to jump 850...It was the owner being taken from a club...He was unashamed of
+5,19,0,unguided,1,0,0,6.988195896148682,The horse.  The San Carmen is one of the most important interchanges between the two American rivers.
+5,0,0,guided,1,0,0,6.9205546379089355,"The horse was on its feet, and walked through the valleys of hills and mountains, and across wide regions were"
+5,1,0,guided,0,1,0,9.943015098571777,The horsepostaint  Of the Zetsuko Kanabe sigils  And the Sekis hold
+5,2,0,guided,0,1,0,7.697474002838135,"The horsewells-stands-burnt, almost twice as loud as a similar partridge-cl"
+5,3,0,guided,0,1,0,6.77363920211792,The horse is the only piece of this last puzzle puzzle. It's the only musical range from m to n
+5,4,0,guided,0,1,0,10.658096313476562,The horse had to be tested on a judging basis.—Elpy homeThe car says a taking and patchThe
+5,5,0,guided,1,0,0,11.247641563415527,The horse's arteries artery suffixes cross-- must be-- the vThehorse is carrying. ­vThe
+5,6,0,guided,0,1,0,9.129183769226074,The horse was theorized to have beenaled Al Franken's ovenm most always beneath Al Franken's o
+5,7,0,guided,1,0,0,7.158387660980225,"The horse is fast, but the ability to hurt the horse is huge.  • Updated some JavaScript content"
+5,8,0,guided,1,0,0,9.00403118133545,The horse is beyond stake and the strongest motivation to buy and ride a horse if you happen to ride anything but
+5,9,0,guided,0,1,0,6.269896984100342,The horse may have been accompanied by felt (borne by Horse in the Wild). The horse may have met a
+5,10,0,guided,0,1,0,8.85197639465332,"The horse was only growing moreAgain,'13 Please know, I think I got a mission and hidden outside"
+5,11,0,guided,0,1,0,5.952025890350342,The horse was at what he was He himself at what he was He horse was at what he wasYou used
+5,12,0,guided,1,0,0,11.247675895690918,"The horse in this position***Many years ago, that pionyr:We are andFAressed As"
+5,13,0,guided,0,1,0,9.616617202758789,The horsewas having to be spelt by a Scrapvein had a Black Horse in Clayton Crew-
+5,14,0,guided,0,1,0,11.477543830871582,The horseIn farming--The years of horses.--.--.--.--.--.-- horses  Kowa amounted to
+5,15,0,guided,0,1,0,5.162240505218506,The horse up in the sky noticed that it had been a red horn noticed that it had been a red horn
+5,16,0,guided,0,1,0,11.072359085083008,"The horse makes sense throughout Imamura society, while it tended to tie the Galaxy order more closely to Imiro"
+5,17,0,guided,0,1,0,9.593877792358398,The horse that rodehad not sped past  but closed behind.  Among the world still dragont
+5,18,0,guided,1,0,0,7.659083843231201,"The horse garnered a great, and then poor, returns ofThe horse and the horse presumably settled in a little"
+5,19,0,guided,0,1,1,6.954507350921631,The horse.  This is going to be terrific feedback for sending out ideas and creating something for yourself.
+5,0,1,unguided,0,0,0,3.6195740699768066,"The horse I want to be,The horse I want to be with,The horse I want to be with"
+5,1,1,unguided,0,0,0,8.3261137008667,The horse laid on leaves gone  The older sister of Karin.  Image copyright Reuters  I
+5,2,1,unguided,0,0,1,8.587434768676758,"The horse, the media, elections, presindents, reports,, commissioners, meetings. ( ) care"
+5,3,1,unguided,0,0,0,6.742520332336426,"The horse is auctioned.For the bidding, try the horse at the auction.For the bidding, try"
+5,4,1,unguided,0,0,0,6.381783485412598,The horse went off the battery and dragged by the elbows and legs.The horse went off the battery and dragged
+5,5,1,unguided,0,0,0,6.915548801422119,"The horse punched by the dog with which he didn't identify In a footnote he said ""I don't know"
+5,6,1,unguided,0,0,0,9.220897674560547,The horse which was part of the parade has died an atheist stroke as the game has been seeking these effects apply
+5,7,1,unguided,0,0,0,6.835636138916016,"The horse almost has a huge counterpart, right? Horse almost had an enormous counterpart, it was only in 1900"
+5,8,1,unguided,1,1,1,6.4752068519592285,"The horse equipped with a powerful jump. Then, when you enter a car you had to be in the front"
+5,9,1,unguided,1,1,1,7.2311110496521,"The horse has always been ""at great pace"".  So far, Hayt declares it a ""really"
+5,10,1,unguided,0,0,0,10.988563537597656,"The horse he was - and for that---That's the quiz. Presting faiths, expensive albums, market"
+5,11,1,unguided,0,0,0,7.423618316650391,"The horse was very difficult to time, he could not be killed by itself  HoboCrossdope"
+5,12,1,unguided,1,1,1,4.411621570587158,The horse managed to keep them in the watch that were made. The horse managed to keep them in the watch
+5,13,1,unguided,0,0,0,7.2436676025390625,The horse was not seen breathing on the track.  A thousand horses were counted in right of those who
+5,14,1,unguided,0,0,1,7.81154203414917,"The horse is drawn and then dabbles–arrowly, decisively, and fearlessly–to the enemy"
+5,15,1,unguided,1,1,1,7.050118923187256,"The horse is the king, dowing away in hope of a good life  Why have you pulled his"
+5,16,1,unguided,0,0,0,2.4765756130218506,The horse's head hit the dog's head. Part of the horse's head hit the dog's head.
+5,17,1,unguided,0,0,0,9.199431419372559,The horse($) may be found at the capital horse( ____(&))____(~))
+5,18,1,unguided,0,0,0,8.393168449401855,"The horse who later died the result of a post-mortem examination and thus no blood flow in progress, no"
+5,19,1,unguided,0,0,0,7.6768107414245605,"The horse would take care of paint and structural improvements, he asked the horses go well, there is always a"
+5,0,1,guided,0,0,0,11.060104370117188,"The horse. Photo. Pierre Birrouzeline. Actually, just wait?The person who pulledPlease stop"
+5,1,1,guided,1,1,0,9.310295104980469,The horse rode bestby so far carrying his saddle's weight while the beasts weigh us beasts. The Sun feels
+5,2,1,guided,1,1,0,9.778762817382812,The horse- set rain much in those friends. Has questions from many faiths. Has anyone tried to cheat or
+5,3,1,guided,0,0,0,12.460527420043945,"The horse based systemThe gas fountain used in recent flying cornergate out the other Qatari in its treatment,"
+5,4,1,guided,0,0,0,11.532435417175293,The horse' roost Bob Williams seagrosses might be a inflated carrier that drops off Bob Williams tells
+5,5,1,guided,0,0,1,7.436381816864014,The horse would turn right into the Centro and later into the Plaza at the Plazatene del Centro
+5,6,1,guided,0,0,0,11.181304931640625,The horse with the reinsbarbar get=brainbarbar>  barbarcelallsomethinglequin
+5,7,1,guided,0,0,0,11.218212127685547,The horse's single disciplinary purpose of upkeep. The significance of spring either itself or see little come from ending at
+5,8,1,guided,0,0,1,9.030921936035156,The horse who took the lines — as old as blue eyed Sacramento County baby – now looks 22 years old older
+5,9,1,guided,0,0,0,9.893853187561035,The horse ate three of the harder elements into new language and made it SwedishWelcome to the country driver learned about
+5,10,1,guided,0,0,0,11.97608470916748,The horse --built of the massive twin-mount cannons but fella refuses. Fgnar-Torzo
+5,11,1,guided,0,0,0,10.130106925964355,The horseto disarm was ineffective because horsepower never even mentioned other than the hatoarms. But its done
+5,12,1,guided,0,0,0,11.651623725891113,The horse's pillow store could still be living baseball players The Each character's live bald-race a lil'
+5,13,1,guided,0,0,1,8.563328742980957,"The horse's sitting, 'She's saying that it happened more easily like this before.' ""Do you?"
+5,14,1,guided,0,0,0,11.528858184814453,The horse isn't referred to (such asAs such) and applied it “piece flying shit”
+5,15,1,guided,0,0,0,10.173054695129395,The horse face getting a grip grew half- in possession of pulling its feet off the groundgaken corners of
+5,16,1,guided,0,0,0,9.520944595336914,The horse fell or followed what caches do in order to consume a long book of Edinburgh you had never seen before
+5,17,1,guided,0,0,0,8.412006378173828,"The horse is supposed to drink a little more time. For example, the “ampamie��"
+5,18,1,guided,0,0,0,9.381033897399902,The horse it started to smell [lntlgtlcklndlxxlutslighl
+5,19,1,guided,0,0,0,9.48285961151123,The horse torch at Mo start of the year is mad and hardly no people in the world have been missing six
+9,0,0,unguided,1,0,1,8.322539329528809,"The painting, the face, gives to  or the scene or scene in the living room bedroom the letting"
+9,1,0,unguided,1,0,0,8.544724464416504,The painting is gaining popularity in the nearby capital of Saudi Arabia the country the world’s second rarest
+9,2,0,unguided,1,0,1,6.422671794891357,The painting depicts the sea islands side of the city's capital. The city's third game was played by the
+9,3,0,unguided,1,0,0,6.18323278427124,"The painting will pay attention to the haggard stings of life. His themes are sex, death and"
+9,4,0,unguided,1,0,1,5.431720733642578,The painting has survived for the last 200 years because it's been from then to the gallery. It's been
+9,5,0,unguided,0,1,1,6.946656227111816,"The painting’s owner said it had been traded in a trading, centered around the painting’s"
+9,6,0,unguided,1,0,0,6.6394572257995605,"The painting was from a photograph taken by a photographer of the trip to Jerusalem, photographer of his visit to the"
+9,7,0,unguided,1,0,1,8.08172607421875,The painting was read Xinhua as news.  The painting features names of bank customers from customers from bank
+9,8,0,unguided,1,0,1,6.33467960357666,The painting is old. If the owner has just a pic then the painting is old. On the artist herself
+9,9,0,unguided,0,1,1,7.190803527832031,"The painting, which took place during the hours-and-sets of the warden’s battle-"
+9,10,0,unguided,1,0,0,8.137602806091309,The painting shop is built on this with models channelled around the primary as well as the vitals for
+9,11,0,unguided,1,0,0,3.3024635314941406,"The painting the call, a call, a call, a call, a call, a call, a call"
+9,12,0,unguided,1,0,1,7.175934791564941,The painting declined to comment.  10 p.m. : Mr. Rotberg meets Mr. Br
+9,13,0,unguided,0,1,0,6.1380791664123535,"The painting came around a lot. By last night, commuters who came around a lot. By last night,"
+9,14,0,unguided,1,0,0,8.910966873168945,"The painting 7, Market Union (marked 7 November). In the sun the union stands at 11, central market"
+9,15,0,unguided,0,1,0,6.555202007293701,"The painting is to small You can taste it, but you can smell so much that it's almost a case"
+9,16,0,unguided,1,0,1,7.694647312164307,The painting provides for play and allows for reflection without fighting. Field sports ranges from the small coins to the big
+9,17,0,unguided,0,1,1,5.1139655113220215,The painting in the original image is covered on the hands and knees by the artist. Or the painting in the
+9,18,0,unguided,0,1,1,8.288958549499512,"The painting comes from Somerset County's rapid growth, and multiple regulations which will now result innon-resident..."
+9,19,0,unguided,0,1,1,8.909499168395996,The painting was hatched on October 12 during the defense minister's white (914) sunglasses in war-ri
+9,0,0,guided,1,0,0,10.077359199523926,The painting exhibits traits a child take care of and celebrate some of their abilities in case claims have been a third
+9,1,0,guided,0,1,0,7.369676113128662,The painting is not the main focus.The topic is one of 'with-when-with-ams-
+9,2,0,guided,0,1,0,8.389643669128418,The painting was only available from 23 shops and I wanted to ensure that proper investigation was taken to to this properly
+9,3,0,guided,0,1,1,11.10802936553955,The painting is very glassy on the beach a lot will even work even stay full but feel freeCG h
+9,4,0,guided,1,0,0,10.946037292480469,The painting of the Bol. colored...The painting of Rushth[... less than half-centuryMyE
+9,5,0,guided,1,0,1,9.551103591918945,The painting of the pentagon of the still colours signify that visual phenomena of a ceremonial sign in its prime possibilities
+9,6,0,guided,1,0,1,9.846896171569824,"The painting concerns Didwin, who performed very well, though then VINCENTA OL MARGARA CAN"
+9,7,0,guided,0,1,1,10.64409065246582,"The painting «carrad house"" represented a representative palgegy effort whathad been stolen from the previous"
+9,8,0,guided,0,1,1,11.093779563903809,"The painting by TanullerManhe Blake describedEckeleva mixture of Eckelev, His and"
+9,9,0,guided,0,1,1,12.195771217346191,The painting depicting dozmorro contains the ones under Zoralode seen in Zihrough Kevin Soren
+9,10,0,guided,1,0,1,13.023566246032715,The painting palette unlocks rivegivinging direct lineup Those static choppers managed to crash the glass-noriber
+9,11,0,guided,0,1,0,7.3558669090271,"The painting clearly shows that the cat has not done nothing before, including the cat ""Do?"" not doing anything"
+9,12,0,guided,0,1,1,5.129387378692627,"The painting does not look great, the lighting in the bathroom is very bad,but you will love it within"
+9,13,0,guided,1,0,1,8.878015518188477,"The painting said,In THEPAST -- a brick-cartry -- the brick-foundry, returning"
+9,14,0,guided,0,1,1,8.99058723449707,The painting must…make one picture Paint mirror produces a painting tin. The painting tin divided into ten picturescon
+9,15,0,guided,1,0,1,9.043784141540527,"The painting usually depict and express love between two women"" A mancorespainted by Joseph Lester, fart"
+9,16,0,guided,0,1,0,10.822588920593262,The painting was initially fictionalized having spawned five references to date. the word suffix /aloneship’
+9,17,0,guided,1,0,1,10.515474319458008,The painting rooms the main mancina notes  I can tell if my hands frantically experiencing the music appropriate
+9,18,0,guided,1,0,0,8.990060806274414,"The painting is based on strong chemical interactions where it track'severe' wounds and cancers, an ol t"
+9,19,0,guided,0,1,1,10.014103889465332,The painting.TheKaybeyArtists did not dare pay tribute to Thai cloth. People thought that he represents
+9,0,1,unguided,1,1,1,7.055746555328369,"The painting showing exactly how many members of the painter's family spoke fondly, but also revealed something of him"
+9,1,1,unguided,0,0,1,5.51997709274292,"The painting is the son of the other brother with three sisters, Steve the other brother with three sisters, Steve"
+9,2,1,unguided,1,1,1,6.17538595199585,The painting of Guadalupe Luisa working 6:00 a.m. The day of the Universal Union
+9,3,1,unguided,0,0,0,8.135887145996094,"The painting was filled in the “d’ts,” on the first “byn�"
+9,4,1,unguided,1,1,1,5.84237813949585,"The painting was the strongest state of mind when that happened.It was, it was, it was a strong"
+9,5,1,unguided,1,1,0,9.451664924621582,The painting •WhaleWhale •Theale•thale•Thewhomwhwhwhwhwh
+9,6,1,unguided,0,0,0,9.721235275268555,The painting.  [3] w-w/drivers-seat/.former-seat/.assessed
+9,7,1,unguided,0,0,0,6.320409297943115,The painting is a paradigmatic case of thin-or-fast  of thin-and-fast a
+9,8,1,unguided,1,1,0,9.700214385986328,"The painting that they occur at a geometric scale, the mathematical programs implement them as proof ones and while past labels"
+9,9,1,unguided,1,1,1,6.450417518615723,The painting's accuracy is contentious because it is not an indication of the benefits and rewards that contemporary artists would receive
+9,10,1,unguided,1,1,0,7.468097686767578,"The painting of Blackwood says, ""No one alive in this era and particularly for that matter,"" according to"
+9,11,1,unguided,0,0,1,11.116400718688965,"The painting shows how many singular combinations of an extraneous butterimmutable gluing together perspective, positional geometry,"
+9,12,1,unguided,1,1,1,8.27469253540039,"The painting of Maddox had... and,the painting was also very smart... and,This project,or"
+9,13,1,unguided,1,1,1,7.275151252746582,The painting can be described as: However the painting can be used as an Event That Whenever or Supports to an
+9,14,1,unguided,1,1,1,7.0439629554748535,"The painting, painted in 1889, bought itself at auction and won $13 million. Car totaled for the day"
+9,15,1,unguided,1,1,1,8.526385307312012,"The painting (whoo me) represents a stable condition of 3 emotional responses (attractive, pacifying)"
+9,16,1,unguided,0,0,0,10.184065818786621,The painting fli the book) flav flavfloxflflflflflflflflfl
+9,17,1,unguided,1,1,1,8.395868301391602,"The painting I take. (I'm.the next evening.) — and the dates, I have.And"
+9,18,1,unguided,1,1,0,11.36880874633789,The painting of whales occasionally.And again are cited in [About The Updates Passed through ISP's emails About The
+9,19,1,unguided,1,1,1,8.529845237731934,"The painting of crisis, seeing that, in conformity to it, the usual signing of the crisis and increase of"
+9,0,1,guided,1,1,0,10.68248176574707,The painting Fun to the students of the State tertiary Education System (NAHUSA) corresponding Technologga
+9,1,1,guided,1,1,1,10.57874870300293,The painting-to’arthis Zuo describes is..  The rQuarches it shows
+9,2,1,guided,0,0,0,6.809896945953369,"The painting covered only a short time, and much all of the bones of the pictured mice were found to be"
+9,3,1,guided,1,1,1,6.803165435791016,"The painting eventually lent to a raven, which eventually lent to a Dalek! And a dirk! And"
+9,4,1,guided,1,1,1,5.828973293304443,"The painting is housed in the Edinburgh, there's a strange condition at the end of the life of the painting"
+9,5,1,guided,1,1,1,10.35527515411377,The painting is notarded as famous of successful 21st century Century Sikh Shas achieving a greater success than he
+9,6,1,guided,0,0,0,10.51484203338623,The painting untilAndAgain the lightingThe Topic rating is NoOneWho can enter a posterByUsingTheDescription
+9,7,1,guided,1,1,1,8.61417293548584,The painting of Tartabrova has been popularised by women turning 30 and addresses this age of paint.
+9,8,1,guided,1,1,0,7.4245147705078125,"The painting was blessed by Filiavili.It was designed by Filisi, Mr. E.The"
+9,9,1,guided,1,1,1,8.070769309997559,"The painting paints for their needs. Its values can be orange, blue, yellow inThe the painting is paint"
+9,10,1,guided,0,0,1,9.340799331665039,"The painting's only image in Paravotti Park is 19,482.The overall increase is 50,000"
+9,11,1,guided,0,0,0,6.51772928237915,"The painting has been hit by a brick, and a batter.The paint has been mistaken by the lightning."
+9,12,1,guided,1,1,1,6.7732439041137695,"The painting, the apex of navigational dominion known the size of the North Atlantic, was the first to be"
+9,13,1,guided,1,1,0,6.9223313331604,"The painting of the fountain around a podium. The result was ""N"". The opinion of the present holders the"
+9,14,1,guided,1,1,1,8.148133277893066,The painting which showed they could be born wearing a fantastic mask?– Will your daughter give birth in a mask
+9,15,1,guided,1,1,1,7.600197792053223,The painting painted paintThe painting painted paint the painting painted paintThe graffiti paint the paint painted paint the graffiti paint
+9,16,1,guided,0,0,1,7.9036407470703125,"The painting and drawing moving to the National Museum of Canada, Arts and Culture, OSK, OMFI,"
+9,17,1,guided,1,1,0,9.062737464904785,The painting at Princess Elisabeth of Rio de Janeiro‘s Art of the World Festival/fit and
+9,18,1,guided,0,0,1,7.987997531890869,The painting on the gallery below (b) Waj Waj Waj Waj has been confirmed(b
+9,19,1,guided,0,0,0,5.65240478515625,The painting Is then separated from the paint-three-card case. The paint-three-card case also
+13,0,0,unguided,0,1,0,7.599539279937744,The road is a inoie första.The road faces about $1.4 billion in taxes
+13,1,0,unguided,0,1,1,4.16280460357666,The road died.  Then the was the dark  Then the road died.  Then the
+13,2,0,unguided,0,1,0,7.323909759521484,The road  The doctor’s office seen from road onThe road from road onThe road The
+13,3,0,unguided,0,1,0,5.342098236083984,The road 200 km away from him.The ship has plenty of time to reach him.The road 100 km
+13,4,0,unguided,1,0,1,7.9058427810668945,The road to hometo Nuvo Co those who follow the more international part of this.The road to
+13,5,0,unguided,0,1,0,4.338222026824951,The road across the road is...The road onto the road is...The road onto the road is...The
+13,6,0,unguided,0,1,1,7.185882568359375,The road laid back a reasonable amount of time.We started highlighting the roadbrags late last week.We
+13,7,0,unguided,0,1,0,6.379024505615234,"The road that took me about two weeks from I, theThe road that took me over five weeks from I"
+13,8,0,unguided,0,1,0,8.92453384399414,"The road closely bends  The grass strayed to fall down, the mass thudding the earth and yielding"
+13,9,0,unguided,1,0,0,7.254521369934082,The road north of Zem-or  This includes road to the Pasir in Zem-or
+13,10,0,unguided,0,1,1,8.150091171264648,The road from TiV-Kalanzi town to Johannesburg is being very carefully prepared by na na na
+13,11,0,unguided,0,1,1,6.159957408905029,"The road leading to Barood Khalh Is true.From the road leading to Barood Khalh,Moving"
+13,12,0,unguided,0,1,1,7.3091254234313965,"The road in metres, and Friday's map.The road in metres continues to be visible in the distance as"
+13,13,0,unguided,1,0,1,7.551623821258545,The road-style multiughThere is a road-stylePlanes are the road-stylePlanesOne
+13,14,0,unguided,1,0,0,6.136378765106201,"The road of ideas...""And truth...And freedom...""The road of creativity""...And progress...""The roads..."""
+13,15,0,unguided,0,1,1,6.477490425109863,The road without a lake without and  Without and road without a lake without and E.A new road
+13,16,0,unguided,0,1,0,9.870454788208008,"The road though there be no names at least the one anyway, none the other. (B)The road"
+13,17,0,unguided,1,0,0,6.25422477722168,The road is straight.  For anyone who concedes this is your opinion.  For anyone who loves
+13,18,0,unguided,0,1,1,2.760429620742798,The road blocked by''''''''''''''''''
+13,19,0,unguided,1,0,0,7.217845916748047,"The road is narrow.  ThroughoutThe day, motorists are accommodating.  The grocery storeis closing"
+13,0,0,guided,0,1,0,8.045842170715332,The road surveyor came I out Kent. We'll be here. Three. Ten years ago that was about
+13,1,0,guided,0,1,1,10.360701560974121,The road online to favourites that are grupping the labours if the character that we received have merit to them
+13,2,0,guided,1,0,0,10.7449369430542,The road’ largely grouped around the Phoenix area (going up November 2013 | June 2013 • 2012 | December
+13,3,0,guided,0,1,0,10.214482307434082,"The road yourunaway, you’ll taste even greenerRunaway”  “"
+13,4,0,guided,1,0,0,8.344531059265137,The road leading you now is the pond that you've got on the property of the Explorer and I call it
+13,5,0,guided,0,1,0,9.723501205444336,The roadways of which musty odor are reports?Is the satellite ca in Harbin more dramatic than that
+13,6,0,guided,0,1,0,9.572433471679688,The road taken is obviously be tunneledAnd seemingly ordered from theSupply chain runThe cartelLynchThe
+13,7,0,guided,1,0,1,10.755828857421875,"The road has ringers made new, for the Jimmy Jordanny days, been Sam Os 250 points and rebounds"
+13,8,0,guided,0,1,0,6.716561794281006,"The road to surf, which meant to enable you to board without jumping into the ocean and funds raised to help"
+13,9,0,guided,0,1,1,6.549452304840088,The road is 16.sq mile length and measures 1262 feet. It has 53.0 million cubic yards
+13,10,0,guided,0,1,0,10.536404609680176,The road that has no self-wotality Warsaw – Volvo drivers waiting for new to take road Warsaw –
+13,11,0,guided,1,0,0,6.295384407043457,The road to Israel along which one easily travels 30 miles in total. Most of them won't be familiar with
+13,12,0,guided,0,1,0,10.175302505493164,"The road leads to the Quons Bush Road area, earning its own naysayers on last night’"
+13,13,0,guided,0,1,0,8.618674278259277,"The road between Cheshire and Fulham is pouring down from an accelerating drum before the spell starts pouring down,"
+13,14,0,guided,0,1,0,6.7714996337890625,The road to being: a) just like me B) just... it's just incredible.I mean just
+13,15,0,guided,1,0,0,7.178991794586182,"The road, urban vegetation, urban water, food waste en vie, disaster, crisis, certified elections,"
+13,16,0,guided,0,1,0,9.094145774841309,The road decided to refer to saying immediately. In response which noticed it would rust a statement decided no longer needed
+13,17,0,guided,0,1,0,9.567034721374512,The road notes show feigns for certain fruit-of-bearers. assistance with locating left turns signs
+13,18,0,guided,0,1,0,11.295166969299316,"The road, where?-' The location ofmobile regular car? The switch"" paving has been bogged down"
+13,19,0,guided,0,1,0,6.13101053237915,"The road we traveled Z–Z–Z–Z, 1971  The motorcycle we rode  The"
+13,0,1,unguided,0,0,1,5.224332332611084,"The road I see now is a good road.  However, I think it is probably better to walk"
+13,1,1,unguided,0,0,1,4.423300743103027,"The road down the road and up the road, up the road, down the road, top the road,"
+13,2,1,unguided,0,0,1,7.996607303619385,The road paved by encouraging your choice to walk home or have a cigarette.The road blocked by encouraging your behaviors
+13,3,1,unguided,0,0,0,4.511898994445801,The road meant that it's very close to station  The road meant that it's very close to station
+13,4,1,unguided,0,0,0,5.249621868133545,The road does not let up. If I contribute to the road the code is written. The code is written
+13,5,1,unguided,0,0,0,7.058579921722412,The road lost 231 bridge students.The road was crushedThe road lost 210 bridge students.The road was damaged
+13,6,1,unguided,1,1,1,8.385051727294922,"The road.In the road'sBehind the road'sFor hills, the road'sAfter the road; personal"
+13,7,1,unguided,0,0,0,5.365562438964844,The roadThe roadThe road the long road the roadThe roadThe roadThe roadThe chips and gravel 
+13,8,1,unguided,0,0,0,2.2522099018096924,The road ###The road ###The road ###The road ###The road ###The road ###The road ###The
+13,9,1,unguided,0,0,0,7.345043182373047,"The road that turns me on, my knees holding my lemons together,The road that turns me off and"
+13,10,1,unguided,1,1,1,8.673100471496582,The road makes a bow representing an ENDMENT TO THE PENTER.  To the wife of the
+13,11,1,unguided,0,0,0,7.041229248046875,The road was the road was.... The road was.A-A-A-A-A
+13,12,1,unguided,1,1,0,9.257095336914062,"The roadI was on in publicly partQuebec makes me more than happy, even sea-change in her"
+13,13,1,unguided,0,0,0,8.324705123901367,"The roadflush, cloud, cold, moist, heavy snow, mountain rainThe roadThe roadfried"
+13,14,1,unguided,0,0,1,9.15285873413086,"The road is a sea road to mount a monumentBefore it becomes a sea road through."" Some teeth. A"
+13,15,1,unguided,0,0,0,3.4941489696502686,The road is samaamaamaamaamaamaamaamaamaamaamaamaamaamaamaamaamaama
+13,16,1,unguided,1,1,1,5.490932464599609,The road traversing the island is a continuation of the maine road on the island.  The main
+13,17,1,unguided,0,0,0,10.73365306854248,"The road ** 'Currently, the rubber of left hand is acting as always,The subthroated arm of"
+13,18,1,unguided,0,0,0,7.899610996246338,The road to initiation domarlingThe road to initiation doodyingThe road to initiationShotaovitch
+13,19,1,unguided,0,0,0,7.887983798980713,"The road signs,One,Two,The road signs,Three,” would fall under subsection four of"
+13,0,1,guided,0,0,1,5.726147651672363,"The road you walk along ( to the right ), and take a walk to the left. And then walk back"
+13,1,1,guided,0,0,1,7.826901435852051,The road is in forestThe forestThe road is on rightThe forestThe road is by the pathTheThe
+13,2,1,guided,0,0,0,9.009177207946777,The road to Kam Khakingel from Kam KhisselaishThe road into Kam Khissela from Kam
+13,3,1,guided,1,1,0,11.890006065368652,The road turned nextonebyThe roadndare full BLESSThe road turnedby ucf arena a measure
+13,4,1,guided,0,0,0,13.256686210632324,The road BiMRoad downturns over 142 sites and multimust adopted energy producing or producing entry 365pla
+13,5,1,guided,0,0,1,12.046422004699707,The road lies and the account of the post-validupen courts nonsense.In particular propérium ann
+13,6,1,guided,0,0,0,11.661175727844238,"The road too runs down, Shaun YunIun is a reality, Shaun=""#liunLike a person,"
+13,7,1,guided,1,1,1,7.380499362945557,The roadways that bridges use are on.  Highways and tracks that look highways are made. 
+13,8,1,guided,0,0,1,8.134177207946777,The road that no sir! - pic.twitter.com/PrettyWillBritBrit all the way Marcus Rhodes
+13,9,1,guided,0,0,0,9.675093650817871,The road coming from Button Cantown to West Avenue continues to exacerbate by 20 lbs while conditions begin to play down
+13,10,1,guided,0,0,1,5.206283092498779,The road northbound. The road is on km 2 of the north. The road is part of the north
+13,11,1,guided,0,0,1,6.570014953613281,The road provides for a connection from/to a local area governed by a judge that is in denial of the
+13,12,1,guided,0,0,1,9.715006828308105,"The road is Sokolov.[citation Of, The highway is Jan Nembe's non-Solan"
+13,13,1,guided,1,1,1,4.611362457275391,The road is the outsiders. The road is the enemy.The road is the bull. The road is the
+13,14,1,guided,1,1,0,10.775035858154297,The road of meeting people.Plain first with Our Carolina Soul! <dekke At high school in
+13,15,1,guided,1,1,1,4.171566009521484,"The roadThe road, The boulevard the sidewalkThe street, the sidewalkThe roadThe street, the sidewalk"
+13,16,1,guided,0,0,0,10.092734336853027,The road to a residential-development supermonsters what is the development model when military-friendlyanything is discarded
+13,17,1,guided,0,0,1,7.965030193328857,The road laid today to have the road to today to have the to this morning coupled with the remaining grey cap
+13,18,1,guided,0,0,0,6.948580265045166,"The road.' Which means, 'I don't know where one says things.'  ""But am I"
+13,19,1,guided,0,0,0,7.683403015136719,The road to the area that’s found the graveyard is grounded in the hands of a mob. 

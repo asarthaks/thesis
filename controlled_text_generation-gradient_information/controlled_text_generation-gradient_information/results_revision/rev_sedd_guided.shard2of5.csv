@@ -1,0 +1,241 @@
+prompt_idx,sample_idx,target_label,arm,judged_label,hit_target,span_nll,text
+2,0,0,unguided,0,1,6.599883556365967,The chicken has a bit of skates and are ice. The chicken has a bit of skates that melt
+2,1,0,unguided,0,1,4.404644012451172,The chicken was in his backyard. The only chickens at his house was the chickenThe chicken was in his backyard
+2,2,0,unguided,0,1,8.300629615783691,The chicken is increanng-tendres-tendres-tendresate Titendres
+2,3,0,unguided,1,0,5.991644382476807,The chicken has been so tasty!  The chicken has been so tasty :! The chicken has been great
+2,4,0,unguided,0,1,6.771050930023193,The chicken and the skin of the chicken was preserved was absolutely necessary when it comes to humans eating meat and fish
+2,5,0,unguided,0,1,6.462155342102051,The chicken pairs six stages in two teams that play in the tournament. The chicken pairs stage stages in two teams
+2,6,0,unguided,1,0,6.960109710693359,"The chicken made a vivid contrast with the meat, and the readers in Central Florida enjoyed a great meal. --"
+2,7,0,unguided,0,1,11.52672290802002,The chicken sold TOPC sales  bakic bakajic appalachicorsbuffalic
+2,8,0,unguided,0,1,5.545329570770264,The chickenheads. The chickenheads with no names.The chickenheads. The chickenheads who McDonald's.
+2,9,0,unguided,0,1,6.067769527435303,"The chicken.  The chickens were horrific.  Of the 22 chickens, the chickens ate the chicken"
+2,10,0,unguided,0,1,8.799012184143066,The chicken will eat usThe chicken is hidden in a big termThe door should be open describe themThe new
+2,11,0,unguided,1,0,6.906532287597656,The chicken thumb..Like ballThe tip of the cap of the finger..Like the chicken toes..LikeThe
+2,12,0,unguided,0,1,5.994168758392334,The chicken.This is the chicken and No preparations as such.This is the chicken and the chicken. No
+2,13,0,unguided,0,1,7.778913974761963,"The chicken meal left hand over head eats much of her feasts. The breast without was breastless, so"
+2,14,0,unguided,0,1,8.037431716918945,The chicken could live with myself if I said he was like a gym speaking in a gym with two coeds
+2,15,0,unguided,0,1,7.514396667480469,"The chicken. ""Oh, at that.""  Find out what would be the right gifts for your family"
+2,16,0,unguided,0,1,7.995540142059326,The chicken isn't so healthy in California TheThe The dish isn't so delicate over here The)The
+2,17,0,unguided,0,1,6.746396064758301,The chicken had been struck where a number of cuts to the flesh had taken place. Vele the carcass
+2,18,0,unguided,1,0,7.8481764793396,The chicken brought back sweeter times for you a put a put-too-Black-for-Staff-
+2,19,0,unguided,0,1,4.2342848777771,"The chicken is often referred to as the broiler The broiler was designed to put pressure on the chicken,"
+2,0,0,guided,0,1,6.859016418457031,The chicken was always sold off. It's already back in. The chicken had already filled up. The chicken
+2,1,0,guided,1,0,12.129192352294922,The chicken got his match.Men offer her beer nqwAxA2pcGermanyWomen's razor
+2,2,0,guided,0,1,8.087512016296387,The chicken tender get raw raw egg egg egg  But even when the chicken got just raw egg egg egg
+2,3,0,guided,1,0,10.503607749938965,The chicken came down DJBird. We gave it back to the youth pastor of Silent game?'Image copyright Sleep
+2,4,0,guided,0,1,8.827638626098633,"The chicken is THERE TO DACTLY exacerbate the hyper-social calamity prevails around community centers.""Like"
+2,5,0,guided,1,0,4.496421813964844,"The chicken was delicious, and I think that the chicken was delicious. And this was one of my fried chicken"
+2,6,0,guided,0,1,9.057555198669434,The chicken. The King Chicken You have the King @TheKingChicken On the time of the King @Super
+2,7,0,guided,0,1,8.089502334594727,The chicken's lowering light (56) The up light (58) The unscreened chicken's 3000
+2,8,0,guided,0,1,7.7517828941345215,The chicken is cultivated only in the states of New England and Tennessee.  Nashida's comeback bill
+2,9,0,guided,1,0,8.355664253234863,The chicken tail. The chicken skinTheeof par tipsBetween the chicken skin and the chicken skin is just
+2,10,0,guided,0,1,6.495034217834473,"The chicken.""""The photographs were posted or released on the Internet or social media sites by a third party of the"
+2,11,0,guided,0,1,9.764067649841309,"The chicken reboot on the same day as gas plant exit. Veopard Terrace front, 16 bantang"
+2,12,0,guided,0,1,7.300364971160889,The chicken that didn’t have some like that or something that I said easy enough for me to do
+2,13,0,guided,0,1,3.4033362865448,The chicken...the chicken  The chicken... chicken  The chicken...the chicken  The chicken
+2,14,0,guided,1,0,10.718453407287598,"The chicken shares are qualified and reduced in addition to the meat shares in ""The Nutrition compares compare to [12"
+2,15,0,guided,0,1,9.25135612487793,The chicken critical Held.ryryryryry Held taken immediately.The chicken critical Held took
+2,16,0,guided,0,1,6.301523685455322,The chicken is Winnie pwie pook less  The chicken is Winnie pwie p
+2,17,0,guided,0,1,12.890395164489746,"The chicken. |The accident caused accidentally by another moiety of Paceth 18 Feb., RabbUollah"
+2,18,0,guided,1,0,8.312023162841797,"The chicken piece, great get to the finish!  This year, my also have Christmas time to enjoy"
+2,19,0,guided,0,1,7.002861976623535,"The chicken is there, as far as I can tell, because it took under the electricity to which they worked"
+2,0,1,unguided,0,0,7.281079292297363,"The chicken, cucumbers and the salad of egg and teriyaki.The copper grocery bags.The"
+2,1,1,unguided,1,1,9.41596508026123,"The chicken expresses a situation where we can make such predictions of the Turning points itself, as being less and less"
+2,2,1,unguided,0,0,6.339719295501709,"The chicken told the red color, ""Chicken of the dead."" The vegetable told the most colorful stories, told"
+2,3,1,unguided,0,0,7.130478858947754,"The chickenChicken, Fried Chicken, KFC  The, The Little Archie The Little ArchieTheLittle Archie"
+2,4,1,unguided,0,0,6.559484958648682,The chicken and cart. check to see if there are any questions about the product or that they are supposed to
+2,5,1,unguided,0,0,6.893623352050781,"The chicken was removed from the, oven.The ember needed health care. The eagles stood for him"
+2,6,1,unguided,0,0,11.51018238067627,The chicken is homo.achesachesachesachesachesachesachesachesachesachesachesachesachesfachesaches
+2,7,1,unguided,0,0,6.257209300994873,The chicken sandwichThe chicken to the fun and there were no pictures available at the time of this article or
+2,8,1,unguided,1,1,8.839404106140137,"The chicken was prepared, dressed wonderfully. Fried Chicken Center held by the USDA, barring retailers' sales of products"
+2,9,1,unguided,0,0,4.4668145179748535,The chicken is kept in production by the poultry agent.The chicken is kept out of production by the poultry agent
+2,10,1,unguided,1,1,7.5830912590026855,The chicken in McDonald's restaurant. After all of the fun that goes with it those involved aren't indicating that
+2,11,1,unguided,0,0,8.686238288879395,"The chicken, the hatakier, the minion...The keys to get exposed, to get the quit..."
+2,12,1,unguided,0,0,4.9361467361450195,"The chicken came out in the mid-1980s, and I have hardly eaten ever since. Every new dish"
+2,13,1,unguided,0,0,8.318914413452148,The chicken. The deviant. The chest spectacock.  The Vision was at the background.
+2,14,1,unguided,0,0,6.28209924697876,The chickenhouse is so wide that to pass the width of the chickenhouse would be seen through microscopic scopes
+2,15,1,unguided,0,0,8.23853588104248,The chicken a la cart for the time next year. That’s the of the food stamp you get
+2,16,1,unguided,0,0,10.236217498779297,The chicken coming!” “We Will” Shopper: “The little ones areisters
+2,17,1,unguided,0,0,8.278146743774414,"The chicken crumbled and tossed in some wonders that hub-and-cream sauce, yes, and a link"
+2,18,1,unguided,0,0,6.31710958480835,The chicken was threatened with rocks thrown in 2010.The photography booth in front of the chicken was hit with rocks
+2,19,1,unguided,0,0,4.9441986083984375,The chicken with guacamole and very dry on the end  The chicken with guacamole
+2,0,1,guided,0,0,11.459322929382324,"The chicken will spread In a long-tocho chicken trait meeting family or friends Allarians, broth or normally"
+2,1,1,guided,0,0,5.157151222229004,"The chicken, fried  The chicken, druggedon  And the pot  The pot,"
+2,2,1,guided,0,0,9.482561111450195,The chicken to his curry-bite doesn't matter in the flap to save the.  Their look been
+2,3,1,guided,0,0,7.044917583465576,The chicken oven  •The chicken steam  •The chicken wash  •They bed des switches
+2,4,1,guided,0,0,11.290478706359863,The chickenThe chickenTo rememberShow Also Hohenhein v lcohemn v & hohenhe
+2,5,1,guided,0,0,12.46246337890625,The chicken played Br'met vanheenverghenheim basketball for so long- vieseren.
+2,6,1,guided,0,0,12.526847839355469,"The chickenSeel may be moondaysuraqinsky,The sign chickenSire may be wtemcal"
+2,7,1,guided,0,0,6.827401638031006,The chicken feet onThe chicken hot chicken onThe chicken laying chicken onThe chicken on the daily onThe chicken
+2,8,1,guided,0,0,7.971065044403076,The chicken to whom meat will be drawn will have no visible bone. Casting is exhausting for the experienced actor but
+2,9,1,guided,0,0,11.266016960144043,The chicken converts to less more protein 54 Swaglet members had plenty hanging on ways and ate much like regular
+2,10,1,guided,0,0,5.449282169342041,The chicken feed for the chicken should behold+hold+hold+hold+hold+hold+hold+
+2,11,1,guided,0,0,9.678214073181152,The chicken is external. For the restaurant I have already had my hands with numerous chicken fried Gargantah scr
+2,12,1,guided,0,0,7.571821689605713,"The chicken and all others in respectfulness according toChacamole The chicken, and all others in care"
+2,13,1,guided,0,0,9.543428421020508,The chicken? PASL-CHOLAL Sharon Osbourne on 16 June 1989 at 409.41 on
+2,14,1,guided,0,0,13.511950492858887,The chickenThe ventims reinforced by person who eats what wereAir 1961 Designated The netnsisher characters=
+2,15,1,guided,1,1,9.359842300415039,The chicken bouillon eating out dining at his wife dining with his wife  The John   The John
+2,16,1,guided,0,0,7.037176609039307,The chicken fowl fat caps: 59.99  The Soup  The soup with vegetables and soup
+2,17,1,guided,0,0,8.244453430175781,The chicken sauce's weight-to-me sauce came dangerously close to an item worthy of candied attention:
+2,18,1,guided,0,0,10.70321273803711,"The chicken yarders and it ""spawn"". Take that ""LAthy"" Pimenta sauce home the old"
+2,19,1,guided,0,0,9.630416870117188,The chicken guts rind fried grease. The text bodies copy rolands seeds. The programx the shorted
+7,0,0,unguided,0,1,5.930159091949463,"The last time I spent at home was on a visit to a mine in Camden, which was going to be one"
+7,1,0,unguided,1,0,9.088056564331055,The last time the US has spoken to it since Ebola was on improving its understanding of the science that makes and doesn
+7,2,0,unguided,0,1,7.561337471008301,The last time I was listening to who was mine or another I didn’t ask for it I was myself
+7,3,0,unguided,1,0,8.19473648071289,The last time I flew since 1977 is when Bennie Fassel lifted wing 224.The last time I had trouble
+7,4,0,unguided,0,1,5.708143711090088,The last time I was thrown out of a window while training was in a fast moving truck.Not in a controlled
+7,5,0,unguided,0,1,7.452691078186035,"The last time, no matter what, Mac OS and Chrome OS were seen a few years back and... the past"
+7,6,0,unguided,1,0,7.754022121429443,The last time I tried to discover a new “parental level“ site I have mysteriously not discovered a
+7,7,0,unguided,1,0,8.664381980895996,The last time Eddie Howe was inside the box where the captain set for 'One side' was built The next captain
+7,8,0,unguided,0,1,5.98720645904541,The last time it freaked him out  TheLast time I freaked it out  TheLast time
+7,9,0,unguided,0,1,6.363798141479492,The last time I came back was 23 miles from my house. It was exactly the same as nowBut without money
+7,10,0,unguided,1,0,5.192298412322998,"The last time I saw six whales was in Doha, the last time I saw six whales was in Tuf"
+7,11,0,unguided,0,1,5.7858710289001465,The last time that I was really playing games has been a combination of that the last time when I was really playing
+7,12,0,unguided,0,1,6.347878932952881,"The last time, I told you that I don't like people whom I criticized in it for saying something they never"
+7,13,0,unguided,1,0,9.896586418151855,The last time his kelgan has aired he has been servedwith drink for the holidays old foe Pizzi
+7,14,0,unguided,0,1,5.615029335021973,The last time I thought about this being honest about it Last time I thought about ILast time I thought about I
+7,15,0,unguided,0,1,10.0806245803833,"The last time she knew all to needed to, when was straight, or when she wasn really straight.And anybody"
+7,16,0,unguided,0,1,5.336994171142578,"The last time..That's, the end..The last time..That's, the end..It's time"
+7,17,0,unguided,1,0,4.968504428863525,The last time you'll get your haircutThe last time you'll learn to hit the ballThe last time you'll
+7,18,0,unguided,0,1,6.771320343017578,"The last time I heard that I had said: M, 'O, and 'I' are in the South"
+7,19,0,unguided,0,1,9.55240535736084,The last time the world finds that what seems to be the flow of principal equity between class and wealth repositories being tracked
+7,0,0,guided,0,1,8.689384460449219,The last time somebody branded with an RA image was stored by a agency as a B file or retrieved as a B
+7,1,0,guided,1,0,8.513772010803223,The last time a public protest isn’t political palatableThat’s what it’s feeling
+7,2,0,guided,1,0,8.42075252532959,The last time we may have the world refused to look beyond the glory minutes of that men to whom we always refer
+7,3,0,guided,0,1,7.543100833892822,The last time I left it out I couldn't believe it.It's magic! What? How I swear
+7,4,0,guided,1,0,7.38539457321167,"The last time we meet up again will serve to be the sort of time we’ll face together, not"
+7,5,0,guided,0,1,9.310965538024902,The last time we lost at MLB Austin. (BJLg_EbRRLmh8ou
+7,6,0,guided,1,0,5.9511942863464355,The last time I felt was breathing that was the soft sound of air in my lungs...I then heard something heavy
+7,7,0,guided,0,1,8.425017356872559,The last time we wrote out a threat assessment at the moment that we was the last time we wrote for feedback support
+7,8,0,guided,1,0,8.34855842590332,The last time I did: That was the1 year ago.  Enterful people down there over the AL
+7,9,0,guided,0,1,6.082991123199463,"The last time you were forced to take the lives of a man or even one of your women. In numbers,"
+7,10,0,guided,0,1,6.722148418426514,"The last time though it was the last time on February 2, 2015, the year before Sporting Kansas City would be"
+7,11,0,guided,1,0,8.597926139831543,"The last time, they brought bring the user out user. Cards bring out the user, right? Okay bye time"
+7,12,0,guided,0,1,6.4977707862854,The last time we were in this disused Town Centre there were two clubs. That was a lot of effort and
+7,13,0,guided,0,1,10.187860488891602,The last time it was reported seriously concerned saying that properly and while the country from which the Custom may be made or
+7,14,0,guided,0,1,7.657189846038818,"The last time I looked at my mirror, notlight 3D.††The last time I walked under my"
+7,15,0,guided,0,1,7.5836710929870605,The last time he met to work at field night was in 2008.He has also driven to work when he sleeps
+7,16,0,guided,0,1,8.110649108886719,"The last time these products were spotted exactly where they would appear in 2017: would-be-rape victims, established"
+7,17,0,guided,1,0,12.299348831176758,The last time we visited Axis twice- at 338 FRIDDAY 20 2011( HOFTICK POINTTIV
+7,18,0,guided,0,1,6.786113739013672,"The last time my dad ran through Walmart, he was already in town. The car can be a noose to"
+7,19,0,guided,0,1,8.04201602935791,The last time the team practiced late in spring 2005 The last time the active roster after a partial season had been 2003
+7,0,1,unguided,0,0,9.058722496032715,The last time we had to say our own RepellingField Station was a imposter to fight for a war or
+7,1,1,unguided,0,0,6.0598320960998535,The last time I looked at the events of the past few months have taken my place here with my friends and family
+7,2,1,unguided,0,0,8.895148277282715,The last time I see this is in (+ years) Knicks -11 NL 18-49 ORI last saw
+7,3,1,unguided,0,0,6.953698635101318,The last time he can play that role. playing this game without a parent can be deadly to the player. Players
+7,4,1,unguided,0,0,9.089961051940918,The last time it happened to... Mark McCormick Fraz York Harrison / Getty Images... Mark McCormick nine months ago
+7,5,1,unguided,0,0,8.93370246887207,"The last time to did your calculations between all farm hand registrations, of a last time to do your calculations between all"
+7,6,1,unguided,0,0,8.527318954467773,"The last time it's been an island a million miles away, in December 1970 2015, the first trip she the"
+7,7,1,unguided,1,1,5.14294958114624,"The last time it has been updated was on October 30, 2017.  Note that the above is a post"
+7,8,1,unguided,0,0,4.077160835266113,The last time we went back to play in the UK The last time we went back to play in the UK in
+7,9,1,unguided,0,0,8.764460563659668,The last time a player's missed appearance was made not before that player's training debut was made by the same player
+7,10,1,unguided,0,0,7.112208843231201,The last time the hours 21:30-25:15 was used as the gateway to travel from Wisconsin through
+7,11,1,unguided,1,1,6.359610080718994,"The last time Hillary Clinton in office decided to take the stance against the US Military, was the tiny town called Tennessee"
+7,12,1,unguided,1,1,8.786152839660645,"The last time around, the Spice Cell and Hunter's magical powers seem to be able to snatch you away from her"
+7,13,1,unguided,1,1,6.217515468597412,"The last time we spoke for eight years and the first thing I ever told her was, 'You never remember,'"
+7,14,1,unguided,0,0,5.880064487457275,"The last time I paid in money If you're in Texas this year, it's trying to get people to fly"
+7,15,1,unguided,1,1,5.85788106918335,The last time the news was about 37-year-old about to get into a two-and-half hours
+7,16,1,unguided,0,0,7.22346830368042,"The last time I let it go, even though I struggled to open it again through tears of pain and disappointment."
+7,17,1,unguided,1,1,5.359297275543213,The last time I popped up was this (Discovering)...The last time I popped up was this (
+7,18,1,unguided,0,0,7.50668478012085,The last time a natural disaster was occurring in the United States is a limitation of satellite imagery according to Joshua again again
+7,19,1,unguided,0,0,5.064742565155029,The last time I've talked about about the last time I've talked about about the last time I've talked about
+7,0,1,guided,0,0,7.785697937011719,"The last time was there blink now, It was almost football season now. That was the last time we saw a"
+7,1,1,guided,0,0,9.97097110748291,The last time Obama looked out in office somewhereId “success” was the last time Canadian people visited Id
+7,2,1,guided,1,1,7.32844877243042,"The last time you saw us, we were a local -American living in the gentry of London this in part"
+7,3,1,guided,0,0,2.8580405712127686,"The last time I was: Hotel, hotel, hotel, hotel, hotel, hotel, hotel, hotel, hotel"
+7,4,1,guided,0,0,9.174826622009277,"The last time we correct selected the exact same place, we have something ready to return or ….. located in"
+7,5,1,guided,1,1,11.04503345489502,The last time they tempo music history Coltrane-stantly beautiful version of ‘Igorod’
+7,6,1,guided,1,1,5.41461181640625,The last time I saw it in personThe last time I flew something over itThe night before I finally took it
+7,7,1,guided,0,0,10.084291458129883,The last time:Standing in front of 1000 fishers or standing 3D in 2012K4302:35 day
+7,8,1,guided,1,1,8.374401092529297,The last time I’ve had a ‘trip’through my memory store to share ‘material
+7,9,1,guided,1,1,5.507424354553223,"The last time of football is the last time of football.  That means for you, the last time"
+7,10,1,guided,0,0,8.066601753234863,"The last time a Riot member in any state is The longest time a Riot member there learning, or gaming, has"
+7,11,1,guided,0,0,4.439445972442627,"The last time I saw a person like the hedgehog at Mardi Gras was when I was old, and"
+7,12,1,guided,0,0,7.095074653625488,The last time I left Birmingham  Place of work applies for this article  at the date it is published
+7,13,1,guided,0,0,8.035595893859863,"The last time I spoke to him, ""I you I you,"" and sent training videoThe last time I streamed"
+7,14,1,guided,1,1,8.097047805786133,"The last time you updated your image?  Since ourlast update, we gotten snow to move down eastern Maine"
+7,15,1,guided,1,1,8.193921089172363,"The last time they fled. I you enough, I’m proud of you, I’m so"
+7,16,1,guided,1,1,7.392693996429443,"The last time Jeremy  trump  JeremyChairman  JeremyChairman,  For future of"
+7,17,1,guided,0,0,7.901092052459717,The last time you were able to access items you owned was 1990..Needing to get all the items with you
+7,18,1,guided,0,0,7.359952449798584,"The last time to check, she said, is the place where hires tend to have the most experience of killing people"
+7,19,1,guided,0,0,7.838952541351318,"The last time, in the eighteenth century, because we the millers have come together at Liberty in a permanent Assembly"
+12,0,0,unguided,1,0,4.900723934173584,The president of the country is presiding.A relevant person is present.The witness is in the president's office.The witness
+12,1,0,unguided,0,1,7.58539342880249,The president of the country at the end of Robert remains's tenure. Whether or what actually happens isn't they seem to be
+12,2,0,unguided,1,0,3.0066001415252686,The president of the country of the  The people of the country  The parliament of the country of the world 
+12,3,0,unguided,1,0,4.0964789390563965,"The president of the country and all the people of the world  And not just the people,  The strong,"
+12,4,0,unguided,1,0,6.320229530334473,The president of the country who saved this country from the black America?  The black America? God bless the president of
+12,5,0,unguided,1,0,7.351258277893066,"The president of the country that is currently standing for his seat Jeremy Corbyn, Singapore MP /  The President of the United"
+12,6,0,unguided,1,0,7.142132759094238,"The president of the country, the executive and the legislative power which gives usall the countries to thus act. The combined president"
+12,7,0,unguided,1,0,4.3814849853515625,The president of the country may attempt toVice president of the president of the United States Vice president of the Republic of the United
+12,8,0,unguided,1,0,4.993685722351074,The president of the country today of Colombia also President of Colombia today of today President of Colombia today of also President of Colombia today
+12,9,0,unguided,1,0,4.861240386962891,"The president of the country, Russia -The president, of Russia, The president of the country, The president, Putin -"
+12,10,0,unguided,1,0,4.876990795135498,"The president of the country, Donald J. beginning his term as president, seated in the White House. The president of the"
+12,11,0,unguided,0,1,5.753074645996094,"The president of the country.The date has not set for June 30, 2017, the day of elections. It is not"
+12,12,0,unguided,1,0,3.8179492950439453,The president of the country.  The administrative head of the country.  The office of chief minister of the country
+12,13,0,unguided,1,0,7.073045253753662,The president of the country reaches out to tell broadly what has occurred.  Rescue operations: Thursday - Sunday 
+12,14,0,unguided,1,0,7.102950572967529,"The president of the country announced the marriage of the kings of the kingdom, the Muslims, the people, and Christians, lords"
+12,15,0,unguided,1,0,7.401707649230957,"The president of the country of Tunisia Ben Ali.  Self-ident political and religious leaders in many Arab countries, living"
+12,16,0,unguided,1,0,5.935892105102539,The president of the country reveals a surprise announcement.  History has the following narration  Trivia  Related topics 
+12,17,0,unguided,1,0,5.917963981628418,"The president of the country, of Turkey, spoke with us. He accepted the construction of the to fort of the United Arab"
+12,18,0,unguided,1,0,7.713055610656738,"The president of the country Hossein Jannaei, in TehranThe president of Albara Ahri Ahl, in"
+12,19,0,unguided,1,0,6.313257694244385,"The president of the country of the United States said and gave his views on ""free market speculation and economic growth."" [...] "
+12,0,0,guided,1,0,5.957362651824951,"The president of the country says.Yes, ay The president of the country says.Yes, ay, ay 17 33 5"
+12,1,0,guided,0,1,6.249168872833252,The president of the country in the world who spends 3 hours every day without going anywhere has declared the death of the Ebola virus
+12,2,0,guided,0,1,6.710475444793701,The president of the country ought to be—The leader of—The people—The candidates—The world—DemocratAnd
+12,3,0,guided,1,0,4.884551525115967,The president of the country during the 13th and 20th period  During the 13th and 20th period the country
+12,4,0,guided,1,0,10.78048038482666,"The president of the country... 2000"" ""The Green Square of June 1999""... 1987Leader ofThe streets ofPeople sayIt"
+12,5,0,guided,0,1,7.478251934051514,The president of the country is depressed for his country.A meeting of allThe body of the president has been withdrawn forcibly withdrawn
+12,6,0,guided,1,0,5.017209053039551,The president of the country has a legal and political role in the struggle against terrorism.The president of the country who is confronting
+12,7,0,guided,1,0,6.650620937347412,"The president of the country We serve, anointed wherefore, as:  The dominion of the president of the country"
+12,8,0,guided,1,0,7.284945964813232,The president of the country is the holder. There is no office.The president of the nation A state. or person is
+12,9,0,guided,1,0,4.52513313293457,The president of the country  Emergency services  Office of the chief of staff  France (Morocco)
+12,10,0,guided,1,0,7.4954962730407715,The president of the country from Nigeria expressed his gratitude as his reward when he was in Japan for a visit on 11 March 2007
+12,11,0,guided,1,0,6.585179328918457,"The president of the country at the meeting of congress will as he have at the beginning of meeting, and at the end of"
+12,12,0,guided,0,1,7.64773416519165,The president of the country has equal right to hold them. If so—the extent that he relates to or holds views of
+12,13,0,guided,1,0,6.98647403717041,"The president of the country, of this c.  TheThe president of the country, of this in order to execute"
+12,14,0,guided,0,1,7.928172588348389,The president of the country of MacedoniaAlso in jail is a WomanHashIs the president of the country of ArmeniaHe added that
+12,15,0,guided,0,1,10.573378562927246,The president of the country under the Powers CB II relevant countries desire to permit abadication of substance taken on September 12th
+12,16,0,guided,1,0,7.172483921051025,"The president of the country South Korea Lines, speaking to World News.  Under the humble auspices of the court,"
+12,17,0,guided,1,0,6.921539306640625,The president of the country has the support of a single party.  Rajanan is a former Indian Fortune 100 winner
+12,18,0,guided,0,1,6.524360656738281,"The president of the country which would have installed the elected government of Venezuela, or which country the democratic revolution of Bolivia would be"
+12,19,0,guided,1,0,7.2499895095825195,The president of the country or hegemonizing body shall direct that the constituency of the president the oligarchy of the state
+12,0,1,unguided,0,0,7.747292518615723,"The president of the country of Ukraine is: Edward Dudley (r) Thee Blake Kiev, 4th Duke of Thess"
+12,1,1,unguided,1,1,8.607993125915527,The president of the country and leader of the vote that isThe aria decision to register a negative opinionThe president should act
+12,2,1,unguided,1,1,6.277026653289795,"The president of the country and his respect for parliamentary, legislative and executive.The political parties work together to lay the basis for"
+12,3,1,unguided,1,1,4.333756923675537,The president of the country  The treasurer of the country  The sheriff of the country  “All other
+12,4,1,unguided,0,0,6.965756416320801,"The president of the country or a person for high office, when done so without approval, unaware of or participating in its nature"
+12,5,1,unguided,0,0,4.787974834442139,"The president of the country, will have almost no effect on the country.  The proportion of the country's population that"
+12,6,1,unguided,1,1,8.17212963104248,The president of the country is — Milos Hausibane: Speaking to the Japanese news agency the President of Japan is
+12,7,1,unguided,1,1,8.29595947265625,The president of the country is position office to rule your political party. We may have perhaps be traveled to the land of Palestine
+12,8,1,unguided,0,0,5.8045783042907715,The president of the country was the person of the presidency or the monarch in countries where the monarch was the monarch in the media
+12,9,1,unguided,0,0,4.782357215881348,"The president of the country at the time, Lyndon B. Johnson, was elected by the Republican faithful by Theodore Roosevelt, Jr"
+12,10,1,unguided,1,1,7.610311985015869,The president of the country Sub  lays “a great country”/other  The president of the
+12,11,1,unguided,0,0,9.744906425476074,The president of the country. The distance to nodes is sort of by node length addition to that the category of countries belongs which
+12,12,1,unguided,1,1,5.274677276611328,The president of the country  TheMembers of the Parliament  All citizens in the country  Under such times these
+12,13,1,unguided,0,0,4.815701961517334,The president of the country comprises.The president  The president of the country is in the beginning consists. The president is
+12,14,1,unguided,1,1,7.9623589515686035,The president of the country is (Transport ( Hon)President Obama)  The city attorney has jurisdiction over your case
+12,15,1,unguided,0,0,5.0572333335876465,The president of the country that is conducting elections to include all of the country's registered voters is being held in the early morning
+12,16,1,unguided,1,1,6.817453861236572,"The president of the country and of V.A.., has become the many laws of the world, T.O."
+12,17,1,unguided,1,1,9.446840286254883,The president of the country's Historical Picali Gallery  :/Users/tunpa/tunpa/n/stream
+12,18,1,unguided,0,0,7.865172863006592,The president of the country was Feb. 24 Steven Tobin  The principal nominee to the constitutional office of President and formerly
+12,19,1,unguided,0,0,5.945788860321045,"The president of the country, Britain said, ""The majesty is president.""One of the people, Britain said, ""The"
+12,0,1,guided,0,0,8.384074211120605,The president of the country gave the group one point and then TheThe size of the group would be average 8189 users and
+12,1,1,guided,0,0,5.83320426940918,"The president of the country,S.S.H.R., is located in Trump Tower, Brooklyn. Photo by Leslie"
+12,2,1,guided,0,0,7.620518684387207,The president of the country is apparently Herman Leharing who has now killed himself. The name Herman is definitely of Hebrew origin but
+12,3,1,guided,1,1,7.344918251037598,"The president of the country making judgment to the principles of business. The owner of the baseball team, player of baseball usually,"
+12,4,1,guided,0,0,9.610742568969727,"The president of the country of apes!  Scalkecorts), my president, president...""  WOOO"
+12,5,1,guided,1,1,9.424527168273926,The president of the country of motion to examine the supreme court of justice and of the acting courts impartial constitutional and statutory powers assign
+12,6,1,guided,1,1,7.827694892883301,"The president of the country's Grand Van Hotel, in Belgium, organised a joint seminar of aboriginal officials of the United States and"
+12,7,1,guided,0,0,9.293377876281738,The president of the country of immigration he is currently viewing StarReader That he be born into the US Air Force and after death
+12,8,1,guided,1,1,5.749217510223389,The president of the country of the 'immortal nation' mounds the earth with their own blood. The president of the
+12,9,1,guided,0,0,8.01588249206543,"The president of the country is Bill Clinton. CanadianPresident Clinton is Vice President. وHenry Danforth, whose mother is Patricia"
+12,10,1,guided,1,1,6.377240180969238,"The president of the country of Canada, who, therefore, acts in kind towards representatives from both the countries.  The"
+12,11,1,guided,1,1,10.722090721130371,The president of the country and queenThe sheriff and queen Queen King Introduced by Termic.Stsaid yesterday as in the morning
+12,12,1,guided,1,1,7.342823028564453,The president of the country “Gabriel” is Angelino Alfano and the head of the organisation “Gab
+12,13,1,guided,1,1,8.649742126464844,The president of the country’s president is calls him personally. But drone. There is a high degree of professional vitality
+12,14,1,guided,0,0,8.248631477355957,The president of the countryThe free speech of the artist junior lower or High School graduationThe office of the clerk99: June
+12,15,1,guided,0,0,6.9004225730896,"The president of the country, which is under the idea he belongs to the country, which is the Arab republic -The president"
+12,16,1,guided,0,0,1.5310722589492798,The president of the country? The president of the country? The president of the country? The president of the country? The
+12,17,1,guided,0,0,7.863132476806641,"The president of the country and related having felonies or criminal acts (selling drugs, etc.) will continue, including violent cases"
+12,18,1,guided,1,1,8.839445114135742,The president of the countryThe international charter human rights  Popularist League backed strong army healthy constitution weak prime ministerThe
+12,19,1,guided,0,0,6.77138090133667,"The president of the country Adolf Hitler founded the Third Reich in the year 1933, foreign invasion - 2002-2002  2002"

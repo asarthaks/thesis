@@ -431,3 +431,55 @@ results_revision/numbers.json and the rev_*.json files, cited in % comments at e
 thesis.tex (preamble), references.bib (+3 entries), chapters/02_background.tex,
 03_related_work.tex, 04_methodology.tex, 05_results.tex, 06_discussion.tex,
 07_conclusion.tex, 08_appendix.tex. abstract.tex NOT changed (see decision 5).
+
+---
+
+# PART T (Phase 4 integration) - 2026-07-21 20:57 CEST
+
+Integrated the completed SEDD capability results into Doc/. Clean compile, 105 pages
+(was 98 at Phase 3 close), 0 undefined citations/references, 0 LaTeX errors. No literal
+em-dashes and no prose triple-dash in edited files (table N/A cells use en-dash --;
+Metropolis--Hastings en-dashes intact). Every new number carries a % SOURCE comment and
+was spot-checked against results_revision JSONs (15/15 checks pass).
+
+Files changed:
+- chapters/05_results.tex: A20 last-token section. Removed the TODO-AUTHOR/PENDING
+  comment block; kept the analytic zero-gradient derivation; added the real position-
+  condition Table 5.6 (final/second-to-last/middle x arms), the prose (grad norm exactly
+  0.0 at final = theorem in the live sampler; independence-MH 100% acceptance = energy is
+  exactly the sequence log-likelihood; DLS 0% at every position vs energy-only 18-55%;
+  second-to-last: one downstream term makes the gradient nonzero, mean 12.945, but still
+  useless), and the real Figure 5.8 (figures/fig_lasttoken.png). \input of the new
+  diffusion section. Concern 6a: reattributed the 0.03/3.7 pair to the no-MH CLS split,
+  added the MH=True pair 0.627/8.56 and the DLS-MH within-cell 100% / boundary 9.3%
+  contrast, removed the %TODO-AUTHOR marker (SOURCE rev_reconcile.json).
+- chapters/05a_diffusion_control.tex: NEW file, sec:results-diffusion "The Diffusion
+  Positive Control". Operation-level AR-vs-diffusion qualifier; Table 5.7 linearization
+  (AR vs SEDD small/medium by stratum, unified WikiText corpus + ROCStories second
+  corpus noted); Table 5.8 native recovery + reference rows (pilot framing, absolute-
+  comparison disclaimed); Table 5.9 hybrid + sufficiency why-spine paragraph; Table 5.10
+  guided generation stated honestly (mechanism works via SELF gains; judge steers
+  significantly negative only; asymmetry = off-manifold clf-judge disagreement + fluency
+  cost). Small-to-medium presented as robustness throughout.
+- chapters/06_discussion.tex: sec:disc-future upgraded from "designed but not yet run"
+  to run-and-confirmed (old wording kept in a % comment), cross-referencing
+  sec:results-diffusion; added the coherence-(a) sentence (the training-free promise
+  fails for a structural reason, the capability costs a model trained for it: score
+  matching for the signal, a noisy-state classifier for guidance). RQ1 map now points to
+  sec:results-lasttoken and sec:results-diffusion. Added a constructive why-spine
+  paragraph to sec:disc-unified (energy fine / gradient causally blind / score training
+  restores the signal / repaired signal works in the same machinery / trained guidance
+  steers with off-manifold-bounded reach).
+
+LOT/LOF: Tables 5.6-5.10 and Figure 5.8 all present. Rendered pages 60-65 (last-token +
+diffusion) and bibliography page 2 to PNG and inspected: tables and figure render
+correctly, URLs break within the margin, no PENDING/PLACEHOLDER/TODO-AUTHOR markers
+remain in the last-token or diffusion sections. The only remaining PLACEHOLDER markers
+in the document are the Phase 3 appendix embedding-trajectory PCA plots (08_appendix,
+section D), which are out of scope for Part T.
+
+Still needing the author: (1) the abstract/intro still state the constraint-gradient
+and training-free claims at full strength; the Part G asymmetric steering result and the
+reframed promise are in Results/Discussion but the abstract was not touched (consistent
+with the Phase 3 decision to leave abstract wording to the author). (2) The Phase 3
+appendix trajectory PCA plots remain placeholders (unchanged, separate item).

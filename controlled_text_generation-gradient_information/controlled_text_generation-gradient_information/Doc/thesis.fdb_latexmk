@@ -1,13 +1,13 @@
 # Fdb version 4
-["bibtex thesis"] 1784641979.90081 "thesis.aux" "thesis.bbl" "thesis" 1784642132.34357 0
+["bibtex thesis"] 1784660282.90292 "thesis.aux" "thesis.bbl" "thesis" 1784660285.85103 0
   "./references.bib" 1784641336.78858 12498 188f5e2c7f1e0f0ebcc8032e4789dedf ""
   "/usr/share/texlive/texmf-dist/bibtex/bst/natbib/plainnat.bst" 1233624470 26816 ffe5423d2019860bad9f54bc402fac15 ""
-  "thesis.aux" 1784642131.85911 41015 47579a66329424be2885ef6b5bdfeec8 "pdflatex"
+  "thesis.aux" 1784660285.26399 48773 5ae183e7f373758a18ad89f7cad5348e "pdflatex"
   (generated)
   "thesis.bbl"
   "thesis.blg"
   (rewritten before read)
-["pdflatex"] 1784642130.07068 "thesis.tex" "thesis.pdf" "thesis" 1784642132.34504 0
+["pdflatex"] 1784660283.06577 "thesis.tex" "thesis.pdf" "thesis" 1784660285.8531 0
   "/usr/share/texlive/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc" 1136849721 2971 def0b6c1f0b107b3b936def894055589 ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/jknappen/ec/ecbx1095.tfm" 1136768653 3584 21b378cca2e40816b0e6d74a4dc98f04 ""
@@ -169,12 +169,14 @@
   "chapters/02_background.tex" 1784640388.64606 27359 9c3e8e34da85c9a4765be14ae2d5dbd2 ""
   "chapters/03_related_work.tex" 1784641348.9865 16218 7fa1c5a2bb4b995c14cc95c4178b8348 ""
   "chapters/04_methodology.tex" 1784640286.28666 24528 19fff6ed02cae35e29c9bb02f2d1b3e1 ""
-  "chapters/05_results.tex" 1784641808.86462 81756 032a41e18726c085143b9c189208d633 ""
-  "chapters/06_discussion.tex" 1784641475.24894 26535 2ba4028d26cdd293349e723dcffae901 ""
+  "chapters/05_results.tex" 1784659874.64699 85678 f69a06cfe3fcb9cd5fba28e183e8a8d4 ""
+  "chapters/05a_diffusion_control.tex" 1784660055.4012 16719 82cf0aca858ef4438a0d90b7e836c1ba ""
+  "chapters/06_discussion.tex" 1784659982.02282 29311 e51be561e1f6df7b09484a6b55e2c3a9 ""
   "chapters/07_conclusion.tex" 1784641358.54595 4439 319f278b35a95be55f42d372141686c4 ""
   "chapters/08_appendix.tex" 1784641741.20647 16154 c8d7596131755d310dd2326a3c9dd689 ""
   "chapters/abstract.tex" 1784460671.94823 4206 437ba412878f8a3ea5232fd3ebf6e6fc ""
   "figures/fig_aniso_hist.pdf" 1784387878.38627 27412 e4cff63cebe6ab66553feec50f1d27f1 ""
+  "figures/fig_lasttoken.png" 1784659510.9251 112200 13bdd241d4cb60a9bf3509575b37c0d9 ""
   "figures/fig_lin_decomposition.pdf" 1784387998.45616 612872 a486f1741731517101a93b8acb5aba51 ""
   "figures/fig_lin_radius.pdf" 1784387852.32642 27000 d98e3e88b9048d17256eec86b9c5ea98 ""
   "figures/fig_lin_scatter.pdf" 1784387839.1654 615701 2c619a25556eaac9ff9cdf20c42254d3 ""
@@ -185,13 +187,13 @@
   "figures/fig_trap_scatter.pdf" 1784387867.19541 82142 5031865421414ccaa7c5904c145d3e93 ""
   "figures/gpt2-large.dls.gn.free.s100_new_trajectories.png" 1784387735.23273 393834 fe10b0ddd0837d78ac030d2b47078420 ""
   "figures/gpt2-large.dls.gn.free.s50_new_trajectories.png" 1784387713.54609 342755 37041ebf4cc376177d308b30c0d65fda ""
-  "thesis.aux" 1784642131.85911 41015 47579a66329424be2885ef6b5bdfeec8 "pdflatex"
-  "thesis.bbl" 1784641980.01053 14024 87d87133e856b23cea1e52574f523dea "bibtex thesis"
-  "thesis.lof" 1784642131.86911 6291 7043bcdaf8c46393c17992936c524fc9 "pdflatex"
-  "thesis.lot" 1784642131.87011 3707 322bd3d2858e34ea069e43ee16c04ecf "pdflatex"
-  "thesis.out" 1784642131.86511 14086 3d79c522f0b5e6dde121d509e21c6747 "pdflatex"
+  "thesis.aux" 1784660285.26399 48773 5ae183e7f373758a18ad89f7cad5348e "pdflatex"
+  "thesis.bbl" 1784660283.04395 14024 87d87133e856b23cea1e52574f523dea "bibtex thesis"
+  "thesis.lof" 1784660285.27599 6542 fecb76e65bdac3394fc96c0e6ed6f580 "pdflatex"
+  "thesis.lot" 1784660285.27599 6532 2819984f172d24caffc84990900e9752 "pdflatex"
+  "thesis.out" 1784660285.27199 15733 4c37fc192b587340c760ef83073f7ee9 "pdflatex"
   "thesis.tex" 1784642113.49287 5447 a1ce1a9e9798d67ab11dbe315322a171 ""
-  "thesis.toc" 1784642131.86711 5734 748449355e75b0d96b9c605a94fc346d "pdflatex"
+  "thesis.toc" 1784660285.27499 6338 84c4fa80a705d8d4f786063c429d72d8 "pdflatex"
   (generated)
   "thesis.aux"
   "thesis.lof"

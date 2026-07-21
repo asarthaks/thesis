@@ -1,0 +1,241 @@
+prompt_idx,sample_idx,target_label,arm,judged_label,hit_target,span_nll,text
+0,0,0,unguided,1,0,7.95167875289917,"Once upon a time, something, a country, in particular have ruled by fiat and invoke inherent common sense on behalf of"
+0,1,0,unguided,0,1,6.738293647766113,"Once upon a time, somehow impossible things are possible. I could hardly be in possession of such an unbelievable gift and opportunity"
+0,2,0,unguided,1,0,4.969513893127441,"Once upon a time, someone asked me about it. And the answer was, it wasn't. It didn't."
+0,3,0,unguided,1,0,8.524564743041992,"Once upon a time when’ were they undertaking the peculiar task of most savvy, most manipulative, most intelligent, most"
+0,4,0,unguided,0,1,10.228439331054688,Once upon a time and the street all the front stalls henceforth had fared such morning and such time in such day
+0,5,0,unguided,1,0,8.191741943359375,"Once upon a time (Appx., memory, driving, self-defence) with physical senses were all too commonly"
+0,6,0,unguided,1,0,9.90063190460205,Once upon a time was there askance for“thank princess” k k k gk r k k k
+0,7,0,unguided,1,0,4.126190185546875,"Once upon a time, it was essential that you were doing it.Once upon a time, it was essential that you"
+0,8,0,unguided,1,0,4.813640117645264,Once upon a time all one was required to carry a title.Once upon a time all one were required to carry a
+0,9,0,unguided,1,0,5.061357021331787,"Once upon a time, there was a sense of the universal, and it was there, there in the cool, of"
+0,10,0,unguided,1,0,6.170388221740723,"Once upon a time, it is to say that the fruits of our ancestors are the ones we remember, it is customary"
+0,11,0,unguided,0,1,7.96466064453125,"Once upon a time putting disk drives on hard drive or increasing any disk drive to hard drive, 60 degree incl. would"
+0,12,0,unguided,1,0,9.439661979675293,"Once upon a time, itua or billialli awardua, fishing and billialli, feeding, smoking or"
+0,13,0,unguided,1,0,6.317855358123779,"Once upon a time, it is both plains and valleys that; it is both plains and mountains that! This is older"
+0,14,0,unguided,1,0,9.92823314666748,"Once upon a time, went gave you LJ remembered voices - last seen in Dragonman's Hole, black and white"
+0,15,0,unguided,0,1,5.819153785705566,"Once upon a time, Once upon a time that they might feel fatigued. Their schedules were, oftentimes, seldom"
+0,16,0,unguided,1,0,6.94411039352417,Once upon a time there was no resentment towards another’s-defiance.Once upon a time there is no
+0,17,0,unguided,1,0,5.323821067810059,"Once upon a time, anyone can have their worst frighteningly (and often)Once upon a time, anyone can be"
+0,18,0,unguided,0,1,6.27891731262207,Once upon a time a person had to be carried by the sword used in the Tudors.Those who all wore black
+0,19,0,unguided,1,0,8.077651023864746,"Once upon a time, it was perfectly legal to enforce laws of contraception and abortion, whatever they ever such media would do"
+0,0,0,guided,1,0,6.952249050140381,"Once upon a time there was no Earth/Around theTime the Foundation was formed (i.e. ""missing link"
+0,1,0,guided,0,1,6.975831508636475,"Once upon a time, who for seemingly no other reason, needs to remember the past. Or just how - it has"
+0,2,0,guided,1,0,11.264857292175293,"Once upon a time gone always promised a one by Moses"" Once upon becoming Religion People once upon a time?!"" Plato Plato"
+0,3,0,guided,1,0,7.473387241363525,"Once upon a time consigned all of them  Once here, as once were the witnesses, the victims, the"
+0,4,0,guided,1,0,10.682037353515625,Once upon a time both words available inside this shell absolutely FREE. Words are also speakers heard tags speaking of at least 322
+0,5,0,guided,0,1,10.483163833618164,"Once upon a time when these ""cool"" actions were valued readthrough akin to guidelines defining how effective freedom press was deemed"
+0,6,0,guided,0,1,8.958438873291016,Once upon a time (No longer exists) because slavery was a horrendous plague of starvation never once or seen since the Dawn
+0,7,0,guided,1,0,10.317303657531738,Once upon a time'm&uponSaturdayth May 1981'm&uponSaturdayth May 121's tweet & uponFridayTh
+0,8,0,guided,1,0,10.319233894348145,Once upon a time is accompanied universal participation of other men to submit them to a certain stature and beauty. Until majority religion
+0,9,0,guided,1,0,7.952723979949951,"Once upon a time when everyone wondered that they re-acted his scenes, there are those who took part to a much"
+0,10,0,guided,1,0,5.3242974281311035,"Once upon a time, you could slow down and instantly watch a movie without a ripple of sight.Once upon a time"
+0,11,0,guided,1,0,8.342361450195312,"Once upon a time, I believe it took place whenulillah Came To Fiddle. Prophet Allah's Book Two"
+0,12,0,guided,0,1,4.8061394691467285,"Once upon a time, men were told to blame different people for acting differently. In medieval times, men were very not"
+0,13,0,guided,1,0,10.081965446472168,Once upon a time…never before where ultra images could be made of for their efficiable desaluse.”
+0,14,0,guided,1,0,8.408693313598633,Once upon a time I united anoreored mind together I would break down you anoreored mind together you would heart
+0,15,0,guided,0,1,9.856574058532715,"Once upon a time, Marshall was where Marshall wore his actual band  For 40 100 years of metal Metal cover Band"
+0,16,0,guided,1,0,11.979414939880371,Once upon a time the ‘ham’ will return with her encaked persons with obstinate difficulties holding spears if
+0,17,0,guided,1,0,8.169516563415527,"Once upon a time in the world of tolerance, The Anthony vs. Anthony – Thrust The Anthony vs. Anthony – Pressure"
+0,18,0,guided,1,0,5.758821487426758,"Once upon a time,Indeed upon a time, it was a matter of opinion that there is no ""style"" or"
+0,19,0,guided,1,0,8.583921432495117,Once upon a time laid bare...boundined within the Bosnian nightmare for the rest of us...An endless cage
+0,0,1,unguided,1,1,11.075186729431152,"Once upon a time in her age, her function and amount g herbs: All the inner stems of brain and plant else"
+0,1,1,unguided,0,0,4.609281063079834,"Once upon a time, people were known for using such as pronouns. [16] [19] [20] ["
+0,2,1,unguided,1,1,9.245210647583008,"Once upon a time, food To a foreign People; Teacher of Languages: The Book of, 1 Rangers 1st Rangers"
+0,3,1,unguided,1,1,5.229966163635254,"Once upon a time, society was perceived as ‘stupid’. To the contrary, it was seen as"
+0,4,1,unguided,1,1,9.509042739868164,"Once upon a time, even thoughdefense stands in place to defensefighting, defense defense should not measure up; but defense"
+0,5,1,unguided,1,1,7.227746486663818,"Once upon a time the universe, with its rhythms and routines, revolved around theOn, and was absent, the"
+0,6,1,unguided,1,1,8.39957332611084,Once upon a time in the unching territory of knowledge.  Forcers. It seems we are in for.
+0,7,1,unguided,1,1,4.781949043273926,"Once upon a time, sailing past sailing past sailing  yes, once upon a time, sailing past sailing past sailing"
+0,8,1,unguided,1,1,5.266109466552734,Once upon a time it was recognized as a hypothesis that was not supported by evidence. We can then learn that is not
+0,9,1,unguided,1,1,8.212204933166504,"Once upon a time, high fellow’s sister-in-law had taken to Relaying cheerfully through Edinburgh"
+0,10,1,unguided,1,1,5.157102108001709,"Once upon a time, seven. Upon a time, seven. To most of you, it wasSo at a time"
+0,11,1,unguided,1,1,6.407593727111816,"Once upon a time of prophecy, of destruction, of calamityDid not Once upon a time of the birth of Jesus"
+0,12,1,unguided,0,0,6.380525588989258,"Once upon a time, the vanities rendered their judgment based upon fundamentally different and unverifiable evidence.You are one"
+0,13,1,unguided,1,1,6.647567272186279,"Once upon a time, I was proud that I believe in the Defenders of our liberties, of Playful Choice and Respect"
+0,14,1,unguided,1,1,7.742931365966797,Once upon a time the content of the politics of capital from abroad has been clearly defined in all things that you now would
+0,15,1,unguided,1,1,5.437554359436035,Once upon a time the Holy Spirit would be given to the land at the upon of time the land would be given to
+0,16,1,unguided,1,1,7.012747287750244,"Once upon a time, after anotherdownflow-based-on. Once upon a time, after another of-this"
+0,17,1,unguided,1,1,4.380703449249268,"Once upon a time, yonder, for you, sirs.Once upon a time, yonder, for you"
+0,18,1,unguided,0,0,5.648837566375732,"Once upon a time, you must have been quite busy with something that you don't know what to make sense of."
+0,19,1,unguided,1,1,5.261599063873291,Once upon a time it was true…  Surely it is not true to say people of every political hue have
+0,0,1,guided,0,0,7.265193462371826,"Once upon a time I was…""  ""Everend, I was understood."" She said to herself very slowly"
+0,1,1,guided,1,1,6.989457130432129,"Once upon a time, before that and many others when events, indeed, occur. Once, it never was, but"
+0,2,1,guided,1,1,7.844229221343994,"Once upon a timeTo not to be uponTo not to be upon: how to keep yourselves healthy for the home,"
+0,3,1,guided,1,1,7.418255805969238,Once upon a time wasn't the case all about 13 years ago. Build your first custom ATM! Are you curious I
+0,4,1,guided,1,1,7.053479194641113,"Once upon a time I chose to become one of those who sought to determine that future between myself, and those rebels prevailing"
+0,5,1,guided,0,0,8.565923690795898,"Once upon a time, our pronouns in our formal situations indicate White, which is the English name of an Semitic Slav"
+0,6,1,guided,0,0,9.428642272949219,Once upon a time they did Attenuous Hosting THATCAME FROM ISSP FOR someone to host: Atten
+0,7,1,guided,1,1,9.525840759277344,"Once upon a time, sometime hereafterand even among the more especially many others, 'who hath laid their reputation upon it"
+0,8,1,guided,1,1,6.558474063873291,"Once upon a time Nalgam, rescue space aliens!Once upon a time Nalgam, save people from disasters"
+0,9,1,guided,1,1,6.1863274574279785,"Once upon a time, that became a helpful, and a fitting, and safe, form for collegeOnce upon a time"
+0,10,1,guided,1,1,10.28104305267334,"Once upon a time, some giver simply dreamed of kahahahakahilakkodiak furniture made"
+0,11,1,guided,1,1,8.537074089050293,"Once upon a timeOr suppose there is a gloriousPast to be presentSome suggestions and more will undoubtedly expand upon them,"
+0,12,1,guided,1,1,8.978877067565918,"Once upon a time, there was ’(1 thousand visit days written. ‐ I held that for a time"
+0,13,1,guided,1,1,4.046286106109619,"Once upon a time, there was a directness of mypersonal power.Once upon a time, there was a direct"
+0,14,1,guided,1,1,5.772233486175537,"Once upon a time in the Aeon of Fire, the firefighters made a bed, did thousands of rounds, put up"
+0,15,1,guided,1,1,7.955716609954834,"Once upon a time, along with our physical labor, we were amongst the country's landmasses.""Extreme fatigue,"
+0,16,1,guided,0,0,8.871527671813965,"Once upon a time, Oops! The way the incident came about resolved by them unwittingly sailing as pirates, once upon a"
+0,17,1,guided,0,0,9.305849075317383,Once upon a time when towns began troting out more people. What's now for Mr. Hove to back away
+0,18,1,guided,0,0,9.851115226745605,"Once upon a time some girl recently asked for her '4"" YOU SEE the girl not directly asked how to answer and"
+0,19,1,guided,0,0,8.250380516052246,Once upon a time there was the Arab family there were these 5 You had a sliver of why You weren't As
+5,0,0,unguided,0,1,8.14625358581543,"The horse claimed to have ""positively assisted breathing"".Earth:KeighanHeaven:Keighan"
+5,1,0,unguided,0,1,5.565598011016846,The horse was very young. It wore a leather robe and scarf--no stripes. It was part of the
+5,2,0,unguided,0,1,9.98349666595459,The horse herders in western Germany. The siege fleet human being harooned by fleet of fleet of combines
+5,3,0,unguided,0,1,9.505606651306152,"The horseman saw traditional performances,but had interest to continue playing from the finish do do do do do do"
+5,4,0,unguided,0,1,7.918587684631348,The horse will thought to have had the slightly less-funny side-effect of having put straw atHome
+5,5,0,unguided,1,0,7.006108283996582,"The horse that makes me blink.  Also pretty good, too, is also the horse that makes me"
+5,6,0,unguided,1,0,8.878044128417969,The horse who paused between bike and bus on the Barcelona corner  Throw in a little casual season right here
+5,7,0,unguided,1,0,6.951234340667725,"The horse-ride-from-shore,The coal and oil-on-sands,The,The"
+5,8,0,unguided,0,1,8.835044860839844,"The horse behylibry if it was too far from any other task, what could it be described as"
+5,9,0,unguided,1,0,9.191847801208496,The horse has a leather meter g and fat balls ofSherry was born in the early sixs back
+5,10,0,unguided,0,1,8.905051231384277,The horse says that the human being is restricted by an 2rd party scam to buy and use soccer Cards.
+5,11,0,unguided,0,1,10.116691589355469,"The horse has travelled Vladamura.  Agave can either agave fuller agave, but both"
+5,12,0,unguided,1,0,8.277134895324707,"The horse smells like blood;The horse is silver, you will be awarded a kiss on the horse, determining"
+5,13,0,unguided,0,1,6.615106105804443,The horse is always by my neck and there is one non-stomping fan. I regret this much
+5,14,0,unguided,0,1,7.80819845199585,The horse does not work. The horseling is not working. Last seen at weighs 120 rumored to be pal
+5,15,0,unguided,1,0,6.8262529373168945,"The horsecamps, meanwhile, represent the interested-plants. Also, represent the interested-plants"
+5,16,0,unguided,1,0,7.960338115692139,"The horsecarousel is.The horsecarousel is. The musodmus wagon "" ""The horsecar"
+5,17,0,unguided,0,1,6.513974666595459,The horse taken away and all of a sudden undersupplied. The studio relaunched the gamethe same
+5,18,0,unguided,1,0,8.636896133422852,The horse to jump 850...It was the owner being taken from a club...He was unashamed of
+5,19,0,unguided,1,0,6.988195896148682,The horse.  The San Carmen is one of the most important interchanges between the two American rivers.
+5,0,0,guided,1,0,6.9205546379089355,"The horse was on its feet, and walked through the valleys of hills and mountains, and across wide regions were"
+5,1,0,guided,0,1,9.943015098571777,The horsepostaint  Of the Zetsuko Kanabe sigils  And the Sekis hold
+5,2,0,guided,0,1,7.697474002838135,"The horsewells-stands-burnt, almost twice as loud as a similar partridge-cl"
+5,3,0,guided,0,1,6.77363920211792,The horse is the only piece of this last puzzle puzzle. It's the only musical range from m to n
+5,4,0,guided,0,1,10.658096313476562,The horse had to be tested on a judging basis.—Elpy homeThe car says a taking and patchThe
+5,5,0,guided,1,0,11.247641563415527,The horse's arteries artery suffixes cross-- must be-- the vThehorse is carrying. ­vThe
+5,6,0,guided,0,1,9.129183769226074,The horse was theorized to have beenaled Al Franken's ovenm most always beneath Al Franken's o
+5,7,0,guided,1,0,7.158387660980225,"The horse is fast, but the ability to hurt the horse is huge.  • Updated some JavaScript content"
+5,8,0,guided,1,0,9.00403118133545,The horse is beyond stake and the strongest motivation to buy and ride a horse if you happen to ride anything but
+5,9,0,guided,0,1,6.269896984100342,The horse may have been accompanied by felt (borne by Horse in the Wild). The horse may have met a
+5,10,0,guided,0,1,8.85197639465332,"The horse was only growing moreAgain,'13 Please know, I think I got a mission and hidden outside"
+5,11,0,guided,0,1,5.952025890350342,The horse was at what he was He himself at what he was He horse was at what he wasYou used
+5,12,0,guided,1,0,11.247675895690918,"The horse in this position***Many years ago, that pionyr:We are andFAressed As"
+5,13,0,guided,0,1,9.616617202758789,The horsewas having to be spelt by a Scrapvein had a Black Horse in Clayton Crew-
+5,14,0,guided,0,1,11.477543830871582,The horseIn farming--The years of horses.--.--.--.--.--.-- horses  Kowa amounted to
+5,15,0,guided,0,1,5.162240505218506,The horse up in the sky noticed that it had been a red horn noticed that it had been a red horn
+5,16,0,guided,0,1,11.072359085083008,"The horse makes sense throughout Imamura society, while it tended to tie the Galaxy order more closely to Imiro"
+5,17,0,guided,0,1,9.593877792358398,The horse that rodehad not sped past  but closed behind.  Among the world still dragont
+5,18,0,guided,1,0,7.659083843231201,"The horse garnered a great, and then poor, returns ofThe horse and the horse presumably settled in a little"
+5,19,0,guided,0,1,6.954507350921631,The horse.  This is going to be terrific feedback for sending out ideas and creating something for yourself.
+5,0,1,unguided,0,0,3.6195740699768066,"The horse I want to be,The horse I want to be with,The horse I want to be with"
+5,1,1,unguided,0,0,8.3261137008667,The horse laid on leaves gone  The older sister of Karin.  Image copyright Reuters  I
+5,2,1,unguided,0,0,8.587434768676758,"The horse, the media, elections, presindents, reports,, commissioners, meetings. ( ) care"
+5,3,1,unguided,0,0,6.742520332336426,"The horse is auctioned.For the bidding, try the horse at the auction.For the bidding, try"
+5,4,1,unguided,0,0,6.381783485412598,The horse went off the battery and dragged by the elbows and legs.The horse went off the battery and dragged
+5,5,1,unguided,0,0,6.915548801422119,"The horse punched by the dog with which he didn't identify In a footnote he said ""I don't know"
+5,6,1,unguided,0,0,9.220897674560547,The horse which was part of the parade has died an atheist stroke as the game has been seeking these effects apply
+5,7,1,unguided,0,0,6.835636138916016,"The horse almost has a huge counterpart, right? Horse almost had an enormous counterpart, it was only in 1900"
+5,8,1,unguided,1,1,6.4752068519592285,"The horse equipped with a powerful jump. Then, when you enter a car you had to be in the front"
+5,9,1,unguided,1,1,7.2311110496521,"The horse has always been ""at great pace"".  So far, Hayt declares it a ""really"
+5,10,1,unguided,0,0,10.988563537597656,"The horse he was - and for that---That's the quiz. Presting faiths, expensive albums, market"
+5,11,1,unguided,0,0,7.423618316650391,"The horse was very difficult to time, he could not be killed by itself  HoboCrossdope"
+5,12,1,unguided,1,1,4.411621570587158,The horse managed to keep them in the watch that were made. The horse managed to keep them in the watch
+5,13,1,unguided,0,0,7.2436676025390625,The horse was not seen breathing on the track.  A thousand horses were counted in right of those who
+5,14,1,unguided,0,0,7.81154203414917,"The horse is drawn and then dabbles–arrowly, decisively, and fearlessly–to the enemy"
+5,15,1,unguided,1,1,7.050118923187256,"The horse is the king, dowing away in hope of a good life  Why have you pulled his"
+5,16,1,unguided,0,0,2.4765756130218506,The horse's head hit the dog's head. Part of the horse's head hit the dog's head.
+5,17,1,unguided,0,0,9.199431419372559,The horse($) may be found at the capital horse( ____(&))____(~))
+5,18,1,unguided,0,0,8.393168449401855,"The horse who later died the result of a post-mortem examination and thus no blood flow in progress, no"
+5,19,1,unguided,0,0,7.6768107414245605,"The horse would take care of paint and structural improvements, he asked the horses go well, there is always a"
+5,0,1,guided,0,0,11.060104370117188,"The horse. Photo. Pierre Birrouzeline. Actually, just wait?The person who pulledPlease stop"
+5,1,1,guided,1,1,9.310295104980469,The horse rode bestby so far carrying his saddle's weight while the beasts weigh us beasts. The Sun feels
+5,2,1,guided,1,1,9.778762817382812,The horse- set rain much in those friends. Has questions from many faiths. Has anyone tried to cheat or
+5,3,1,guided,0,0,12.460527420043945,"The horse based systemThe gas fountain used in recent flying cornergate out the other Qatari in its treatment,"
+5,4,1,guided,0,0,11.532435417175293,The horse' roost Bob Williams seagrosses might be a inflated carrier that drops off Bob Williams tells
+5,5,1,guided,0,0,7.436381816864014,The horse would turn right into the Centro and later into the Plaza at the Plazatene del Centro
+5,6,1,guided,0,0,11.181304931640625,The horse with the reinsbarbar get=brainbarbar>  barbarcelallsomethinglequin
+5,7,1,guided,0,0,11.218212127685547,The horse's single disciplinary purpose of upkeep. The significance of spring either itself or see little come from ending at
+5,8,1,guided,0,0,9.030921936035156,The horse who took the lines — as old as blue eyed Sacramento County baby – now looks 22 years old older
+5,9,1,guided,0,0,9.893853187561035,The horse ate three of the harder elements into new language and made it SwedishWelcome to the country driver learned about
+5,10,1,guided,0,0,11.97608470916748,The horse --built of the massive twin-mount cannons but fella refuses. Fgnar-Torzo
+5,11,1,guided,0,0,10.130106925964355,The horseto disarm was ineffective because horsepower never even mentioned other than the hatoarms. But its done
+5,12,1,guided,0,0,11.651623725891113,The horse's pillow store could still be living baseball players The Each character's live bald-race a lil'
+5,13,1,guided,0,0,8.563328742980957,"The horse's sitting, 'She's saying that it happened more easily like this before.' ""Do you?"
+5,14,1,guided,0,0,11.528858184814453,The horse isn't referred to (such asAs such) and applied it “piece flying shit”
+5,15,1,guided,0,0,10.173054695129395,The horse face getting a grip grew half- in possession of pulling its feet off the groundgaken corners of
+5,16,1,guided,0,0,9.520944595336914,The horse fell or followed what caches do in order to consume a long book of Edinburgh you had never seen before
+5,17,1,guided,0,0,8.412006378173828,"The horse is supposed to drink a little more time. For example, the “ampamie��"
+5,18,1,guided,0,0,9.381033897399902,The horse it started to smell [lntlgtlcklndlxxlutslighl
+5,19,1,guided,0,0,9.48285961151123,The horse torch at Mo start of the year is mad and hardly no people in the world have been missing six
+10,0,0,unguided,1,0,8.610958099365234,"The pizza was goodlAnd, bacon, mozzarella and sweetener on [They are]There weren"
+10,1,0,unguided,0,1,8.681015014648438,The pizza appear to be a frozen again if eaten could not answer a 'You’re not' to
+10,2,0,unguided,1,0,8.836666107177734,The pizza servers give out the classic pizzas of the world again! * pizza server/.* al. pizza
+10,3,0,unguided,1,0,7.75562047958374,The pizza is almost everywhere in the main room of the. The usual isThe way the money is found for
+10,4,0,unguided,0,1,11.013083457946777,"The pizzawhirloo pizzabakedpeattie) reservedyearly beginning for a state of ""first"
+10,5,0,unguided,1,0,10.20753288269043,"The pizza life was signed on Facebook 33 years ago ""is black and burn mod for pasta.""  @"
+10,6,0,unguided,0,1,6.5933074951171875,"The pizza hollers said they were the last to create their new flavor. That's called bumper stickers,"
+10,7,0,unguided,1,0,6.5806565284729,"The pizza is being forced to reveal more secrets. Learn thatThen, there are more secrets hidden.  "
+10,8,0,unguided,1,0,6.871452331542969,The pizza recipe is classic in style.  Along with the pastry that grue the pizzas are the
+10,9,0,unguided,1,0,6.472297668457031,"The pizza 911 911 EXPERIENCE The pizza is what it is cracked up to be, bit out"
+10,10,0,unguided,0,1,9.507872581481934,The pizza accused tossing her car seemed as good way to announce that of interest.The aforementioned teenager treading lightly
+10,11,0,unguided,0,1,8.643148422241211,The pizza is a little too thick. You Halloween : I love watching video porn and theother everyone's pretty
+10,12,0,unguided,1,0,7.063438415527344,"The pizza is situated in the same space of the adjacent bar where the cart and its owner, driver and waiter"
+10,13,0,unguided,0,1,10.971646308898926,"The pizza, made 3 Brake and numbered lk on yeast and nuts 15 July, contained gluten or similarly"
+10,14,0,unguided,1,0,9.102461814880371,The pizza makes promise with theThe air (THE CASE IS THE LAW (yes. All too often :)).
+10,15,0,unguided,0,1,5.605180263519287,"The pizza, though, was used very differently than the pizza slice.  There were various types of pizza"
+10,16,0,unguided,0,1,10.67126750946045,The pizza businessThe pizza has his own personal examination/rewhealing box the pizza shop made from it to
+10,17,0,unguided,1,0,11.363140106201172,The pizza b61na Lynn Lynn  For the average fuel prices reach Pete up Pete up Pete up could
+10,18,0,unguided,0,1,7.639772891998291,"The pizza The pizza sauce, steins, and well implanted concern.  The pizza The The pizza The"
+10,19,0,unguided,1,0,7.8393874168396,The pizza joint can call at (741) 3683-7573 and zip it at the Pizza Talk
+10,0,0,guided,1,0,13.044097900390625,"The pizzaSherwynPeter Have a good timegie timegie for children with colory photos""[Julian Ro"
+10,1,0,guided,0,1,9.21960163116455,The pizza rocksThis worked until the were the first completely realistic and spicy pizza.The late at the beginning of
+10,2,0,guided,0,1,10.73802661895752,"The pizza in movieButters restaurantFurthermoreToThe episode sure as I was in ""Old Man""ellingThe"
+10,3,0,guided,0,1,9.852726936340332,The pizza artifact's growth over time because none of the adversaries [issue that matter] provide parameters for each of
+10,4,0,guided,1,0,10.748801231384277,The pizza (MC) announced a new well in our own corner stores dine onThe pizza light that galaxy
+10,5,0,guided,1,0,8.36359977722168,"The pizza shop is 4,860 square feet of a pizza culture the floor under the floor we've its uneven"
+10,6,0,guided,0,1,7.692748546600342,"The pizza is weighed in 12 slices  Having five ""Z"" and 10 ""A"" so twelve slices"
+10,7,0,guided,0,1,10.766435623168945,The pizza blogger founded life music in New York – find themselves neither prisoners nor society if the pizza blog broke out
+10,8,0,guided,0,1,11.323714256286621,"The pizza coolers w/ the food coolers and/ also producers"";Most of the vegan'in mil"
+10,9,0,guided,1,0,8.320688247680664,The pizza order and how you find other ways to get in.  But then you've learned so 
+10,10,0,guided,0,1,12.370848655700684,The pizza baked pieceher brother stopped looking at Connect to cruise depth using web route unlike an if younowse
+10,11,0,guided,1,0,9.150801658630371,The pizza Imianse are one of the best searching for restaurants Midtown Manhattan won't waste any time with
+10,12,0,guided,1,0,5.743816375732422,The pizza is baked at the bottom of the oven.  The best grinder I ever owned with this
+10,13,0,guided,1,0,8.925085067749023,The pizza's end of life was a tale that can be believed amongst that company's most once called HK.
+10,14,0,guided,0,1,11.862868309020996,"The pizza was the mixed show finally put the dinner on the stand (""Raacephale Strally Burgilies"
+10,15,0,guided,1,0,9.691585540771484,"The pizza we've shown the world as well and blasHTThe chance to play in that, no shit"
+10,16,0,guided,1,0,5.898890972137451,The pizza's toughest onepper is the show...Yeah...Yeah...Yeah...Yeah...Yeah...Yeah...
+10,17,0,guided,1,0,8.828195571899414,The pizza Panini needs Little help and Extra hours...  ... Heaven. That sandwich that is everything for
+10,18,0,guided,0,1,6.910983562469482,The pizza is whatever they say it is.  screen grab:  The past  FromThe
+10,19,0,guided,0,1,10.895505905151367,The pizza actually had leaked past leak Ibel'n't take it serious I by then a modest gram and
+10,0,1,unguided,0,0,9.39231014251709,The pizza runs backwards...The sun makes pizza of its past...To print this article the sun also makes pizza
+10,1,1,unguided,0,0,7.386610507965088,The pizza.NoNoNoNoNoNoDoitNoDoitThe pizza called parking tram stop.It
+10,2,1,unguided,1,1,11.775984764099121,"The pizzaThe dessertsThe sweetsTheThe 1936 queen of 1EU1 BelgiumTau,2We N,"
+10,3,1,unguided,1,1,4.974501132965088,"The pizza chainThe pizza chains,The pizza chainThe pizza chains,The one monthThe pizza chainThe pizza"
+10,4,1,unguided,0,0,9.645339965820312,"The pizza faraway..The originalPizza faraway end……Granted Bettys rights, and Bettys"
+10,5,1,unguided,0,0,8.4360990524292,The pizza-bar can not be asked to tell the about-the pastryseller about-Theand-the
+10,6,1,unguided,0,0,5.500511169433594,The pizza without the meat. It taking a lot of time to cook. The time and the ingredients you got
+10,7,1,unguided,1,1,5.838565826416016,The pizza isn't the same. The types of pizza complement each other in their own different ways.The shot
+10,8,1,unguided,1,1,8.117568016052246,"The pizza bar creates a respectable ""frat"" for the proofs, forces up in the penthouse N."
+10,9,1,unguided,0,0,8.585310935974121,The pizza per day.  Falter line of men stands on the surface of the building in advance of
+10,10,1,unguided,0,0,6.198249816894531,The pizza order is not as successful as it looks 100% on. Let's say that you ordered the pizza
+10,11,1,unguided,1,1,6.288968086242676,"The pizza:  Over 18,000 companies have nearly doubled the production of over 22,000 pizzas"
+10,12,1,unguided,1,1,6.307654857635498,The pizza was up on to review.The founders were up on to Agreement.The pizza was up on to
+10,13,1,unguided,1,1,7.271238803863525,"The pizza, person rock climbing, regular list, bacon, grilled cheese, turkey, truffle butter, and"
+10,14,1,unguided,1,1,10.379412651062012,The pizza is JEWA middle-class suburban neighborhood with 12 plates and three beers.)(Party line -
+10,15,1,unguided,1,1,5.840261459350586,The pizza people  The taste-and-feel-of-the-ress-and-things-
+10,16,1,unguided,0,0,6.691078186035156,The pizza is sharpThe pizza is crushedThe pizza is steaky I stand in the back of the golf cart
+10,17,1,unguided,1,1,9.291403770446777,"The pizza ever. ""This iswar the.""""Rack his hands on him. The bondsman goes down"
+10,18,1,unguided,1,1,8.102187156677246,"The pizzacool away at the same timepizza, the pizzapizza pizza, the same pizzapago"
+10,19,1,unguided,1,1,7.858978271484375,The pizza was served in 1987 by the Wooden Art of Pizza.The pizza at the famous pizza Coron
+10,0,1,guided,0,0,7.217233180999756,The pizza is done darkly and talented people don't want their name in ring with the company. The cheese
+10,1,1,guided,0,0,9.649110794067383,The pizza occupies the second floor of Wobo Mon Holdings who were why 'terrorist' in advance against the person
+10,2,1,guided,0,0,8.732588768005371,The pizza is handmade using a process of could break down--Mr. Cook this planet was on this planet
+10,3,1,guided,0,0,6.490031719207764,The pizza chain lost the deal.The Socceroos lost the deal.The political parties in the east and the
+10,4,1,guided,0,0,8.624534606933594,The pizza - Via : https://enicl pictiny.com/jj1c?v=#e2
+10,5,1,guided,0,0,10.08219051361084,The pizza was saved when someone reviewed fake abuse responses submitted by donors. This classmate was a busy Sunday lecture December
+10,6,1,guided,0,0,9.84044361114502,The pizza test organisers' ideas about pizza test's future rate of improvement-even-after-the they gave
+10,7,1,guided,0,0,9.242536544799805,The pizzaIn no way theJustify Day was edited.Justify ending on behalf of theJustified ending
+10,8,1,guided,0,0,7.279228210449219,The pizza stands—a place where the pizza goes quite a bit.  His voice does not disappoint—
+10,9,1,guided,0,0,6.3350372314453125,The pizza itself wasn’t exactly a style like that. The shape of the pizza was definitely a style
+10,10,1,guided,0,0,6.103646278381348,The pizza (3 out of the 5) is the crust (not its shape)  Viper's
+10,11,1,guided,0,0,7.205437660217285,The pizza could generate traffic. The pizza could have an In App waiting. The pizza could have an app waiting
+10,12,1,guided,0,0,12.954095840454102,The pizzaThe researchers would incite released things quiet about the budget lines use making sureI think being a predictable night
+10,13,1,guided,1,1,10.301154136657715,The pizza.com Striped Bahrain jess-sun waitson-taco-never-told-The
+10,14,1,guided,1,1,8.98451042175293,The pizzaIn generalThe man aloneThe man who designedboth intimate knowledge of rendering machines What happens to the word
+10,15,1,guided,1,1,6.27783727645874,"The pizza says some of it, you call pizza, some more pizza provides the pizza, some more pizza will"
+10,16,1,guided,0,0,8.338882446289062,"The pizza each day, we hope to gather information from those having been swindled or cheated TheMWP"
+10,17,1,guided,0,0,12.144911766052246,"The pizza is new. nowhere none then changed shall rez the pizza, nor malt the cross beerBringIn"
+10,18,1,guided,0,0,6.967505931854248,The pizza front is one of the kinds of things that you don’t seem capable of noticing.Our
+10,19,1,guided,1,1,5.464036464691162,The pizza doesn't really make you laugh but it does take you back to the days when the Justice Department first

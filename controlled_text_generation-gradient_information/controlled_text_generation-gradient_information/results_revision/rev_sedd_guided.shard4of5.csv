@@ -1,0 +1,241 @@
+prompt_idx,sample_idx,target_label,arm,judged_label,hit_target,span_nll,text
+4,0,0,unguided,1,0,6.289251804351807,"The country[of]  The country of migrants father, the inner-city  of the"
+4,1,0,unguided,1,0,5.290846347808838,"The country is, in terms of participation:  In high school higher education  In high school diploma"
+4,2,0,unguided,0,1,6.454671382904053,"The country can be named ""Turkey"". Opinions Not Used: 2014-2014-2014-2014-"
+4,3,0,unguided,0,1,6.412803649902344,The countryWith a speed of 20 nanobocsWith the speed of lightWith a speed of 10 nan
+4,4,0,unguided,1,0,4.747036933898926,The country that is governed by a non-Arab provinceThe country that is governed by a non-Arab coalition
+4,5,0,unguided,0,1,5.961637020111084,"The country and the is corrupt and the is dead, you are one of the dead. You are dead of"
+4,6,0,unguided,1,0,8.179977416992188,The country that is controlled:This country is controlled by Germany.  Hand drawn list of The highest GDP
+4,7,0,unguided,0,1,8.776138305664062,"The country of all the colonies, which didn'tghot up theirStories That Made Sense.""""We weren"
+4,8,0,unguided,0,1,7.995875835418701,"The country(s) acquired the 'X' from Britain,Ireland(South West,Lucky"") and"
+4,9,0,unguided,1,0,7.669393062591553,The country which gives them these crumbs is precisely because of the planet's ability to support their economy when necessary
+4,10,0,unguided,0,1,6.783551216125488,The country's television network.  Facebook and Twitter  Foreigners to obtain government business and to travel
+4,11,0,unguided,1,0,7.171212673187256,"The country's-declared independence in 1963.3 Ceremonies:  Full independence, s a"
+4,12,0,unguided,0,1,8.301919937133789,"The country is cut off and shredded, ruled by committee, ordered and taken away, doomed by dependence upon a"
+4,13,0,unguided,0,1,4.515501976013184,"The country"". The country. ""The country"".The country"".The country. The country"".the country""."
+4,14,0,unguided,1,0,9.777429580688477,"The country fanned in 1878 by bands held in February, February and October in Volovia until they"
+4,15,0,unguided,0,1,7.322522163391113,The country still putting women in war is notThe most re-elected black woman in the United States is Lewis
+4,16,0,unguided,1,0,7.152696132659912,"The country's largest tourist attraction, Mr. Bywister Davis, 78, has maintained a modest consistency and"
+4,17,0,unguided,0,1,7.6419219970703125,The country is not where he lives. I have to have to somehow work through acceptance or understanding of my own
+4,18,0,unguided,1,0,6.119418621063232,The country is divided by the third of the people there is one country although one and half the country is there
+4,19,0,unguided,0,1,8.973917961120605,The country you love9No9101101313No1314No13Will you?Do you mind
+4,0,0,guided,0,1,9.686202049255371,"The country's largest Towerss Twin Towerss died 9 March 1999, possibly within 30 minutes of their 'gray"
+4,1,0,guided,1,0,8.780824661254883,The country has made its case’ they have made a reference regarding the game and Japanese novel. A gallery
+4,2,0,guided,0,1,8.616057395935059,The country contains about 70 hours of official time BookPost's 'C.L.A.'We are among
+4,3,0,guided,1,0,6.915370464324951,The country cl  contains clap  One of the most important moments in history. The country cl contains
+4,4,0,guided,1,0,7.632713317871094,The countryTo be collective effectiveInThe countryTo be effective in (The countryTo be damaged by globalization.
+4,5,0,guided,0,1,8.6522855758667,The country is not coming But its hospital is openIt fails somehow to provide foyer lead to some of the
+4,6,0,guided,0,1,12.423637390136719,The country ofThe property sector used in renderheminos of xaviernetterturosondalmet
+4,7,0,guided,1,0,8.865086555480957,The country which was home to tourists boating off aide beach on July 11 this year.  By
+4,8,0,guided,1,0,7.906754493713379,The country is socialist  To leftist workers who decide their cause for themselves. PolicyThe country's policy is
+4,9,0,guided,1,0,9.360762596130371,"The country's democratically elected president serving as prime minister Nousekodi, the Indian’s daughter led"
+4,10,0,guided,1,0,7.437968730926514,"The country we stand for isn't just a women's workforce, but consider how really the world ought to be"
+4,11,0,guided,1,0,6.824636936187744,The country's largest employers to take a nationwide action that said if one city turned over a kid the other turned
+4,12,0,guided,1,0,9.126545906066895,The country of­ in­ar is­s­byl­st in the ateof the twentieth
+4,13,0,guided,0,1,4.63625955581665,The country isIn:The country isIn:(International)The country isIn:(General)The
+4,14,0,guided,1,0,8.277487754821777,The country of the thiemth of Coller) and the thiemth of Corvado)64
+4,15,0,guided,1,0,7.931581020355225,The countryThis music element created covers as well as the official song by The Promise that was released at 1:
+4,16,0,guided,0,1,8.923178672790527,The country Ln vs.n  n.  Last word F ****l E*****
+4,17,0,guided,0,1,8.123857498168945,"The country class politics is the politics of the townspeaker, the common public.Country relations can be should"
+4,18,0,guided,1,0,5.52692174911499,The country we are.  Important things.  Here's a one-stop shop as to where
+4,19,0,guided,0,1,6.740373134613037,"The country that we can imagine as having held sway all year long, 'The country that we can think about"
+4,0,1,unguided,0,0,8.715136528015137,"The country that ""does not have any idea how the odds are the relentless onslaught of persistent terror incidents from 2001"
+4,1,1,unguided,1,1,8.739720344543457,"The country that knows theirs is Africa, a video series full of bizarre true adventures in Africa-in E."
+4,2,1,unguided,1,1,5.247798442840576,The country’s lawAnd the country’s educationAnd the country’s economyAnd the
+4,3,1,unguided,1,1,9.538154602050781,The country CC te the residents of the country cc te lang title 1 in countryTypeTheTheCountryCC te
+4,4,1,unguided,0,0,7.687838077545166,"The country she was using and she used is known as ""Sub"". It goes so far and it is sexual"
+4,5,1,unguided,1,1,6.803732395172119,The country is defined by a national language the language is a complete and the language of the world is often rare
+4,6,1,unguided,0,0,7.416272163391113,"The country with the naval revisionist sea as a whole.Despite modern-day inefficiency, Australia's monarchy"
+4,7,1,unguided,1,1,8.394699096679688,"The country the usual range of ROAs for fields, sports, game-ferencing, (pen)"
+4,8,1,unguided,1,1,6.1658525466918945,"The country most feminist  Most of the time, the happy couple on the cake  The country most"
+4,9,1,unguided,1,1,8.159693717956543,The country’s tourism is happiest on Earth.Doctors have been improving health outcomes over the last five years
+4,10,1,unguided,0,0,6.4055352210998535,The country that used to be off the mark. The tag office is also adding a thousand more to their site
+4,11,1,unguided,1,1,5.206527233123779,"The country  The country  All material support to Iraq, Syria, Egypt and the rest of the"
+4,12,1,unguided,1,1,3.5175187587738037,The country is listed as one of the most sacred places in the world's religions. The nation is listed as
+4,13,1,unguided,1,1,6.373683929443359,The country has come together in a Revolution. Look in the cupboard and go way up the lights. Look
+4,14,1,unguided,1,1,4.856362342834473,The country is the world.  Country flag country flag country flag band country flag country flag band country flag
+4,15,1,unguided,0,0,5.066812038421631,"The country, the United States, we were thrown out of that country at a young age, we were thrown"
+4,16,1,unguided,0,0,5.285312652587891,The country is bad.  In the end it is “not true.”  It
+4,17,1,unguided,1,1,9.052164077758789,"The country has did this year, with park numbers was near. 29-Dec. 29, followed was Detroit"
+4,18,1,unguided,1,1,5.146873950958252,The country’s freedom of expression -The country’s freedom of speech -The country’
+4,19,1,unguided,1,1,5.8696513175964355,"The country has a 55 million GDP.  Mexico in the 2nd quarter, mostly because of recession-"
+4,0,1,guided,1,1,10.554526329040527,"The country which represents Sifoulkanskó Korea has been a historic, travel and sacrifice in his travels"
+4,1,1,guided,0,0,8.693602561950684,The countryh-looked around!There was design that involved two-by-2 imagery: in this
+4,2,1,guided,0,0,9.708328247070312,"The country's inhabitants ""Residents of the PPAlas, there is traffic ""Changing from Portage Hill"""
+4,3,1,guided,0,0,7.7956390380859375,The country at 11P.m. just with 3 of that day we were able to see the clocks fail
+4,4,1,guided,0,0,9.056659698486328,"The country's entertainment industry, characterized thus «play Car * movie * lost its theatrical release in exchange for better"
+4,5,1,guided,1,1,13.757524490356445,The country wasasesWork country actingIts great country vyingSNHoweverBeingGamesWithItThe stuff NOTALL
+4,6,1,guided,0,0,2.7515323162078857,The countryPanamaPanamaPanamaPanamaPanamaPanamaPanamaPanamaPanPanamaPan
+4,7,1,guided,0,0,9.702715873718262,The country's 570 million children.Provision heading portly direction will deem port action.The country's 16
+4,8,1,guided,1,1,9.430383682250977,The country of origin of foreign domestic (Iranian residents) who come within every first-enter of consuming
+4,9,1,guided,0,0,11.106886863708496,"The country that champions limited their protest when it in-, 2016freezing, confusing and emotional until you fal"
+4,10,1,guided,0,0,10.435684204101562,The country is full...Turkey The country is full...SyriaFromBenatar to RiakTurkey ErdoganSciam
+4,11,1,guided,0,0,7.1885271072387695,The country's streets are a site and humans to measure the space. An area of asphalt sizes up 500 yards
+4,12,1,guided,1,1,7.715882778167725,"The country may have a tough time, making it important that those that talk it acting ready and objective. words"
+4,13,1,guided,1,1,5.99163293838501,"The country I live.  The country is called Greece.  There we see things like, and"
+4,14,1,guided,0,0,8.87652587890625,The country because they were book bland other knowledge which went by them) aning of knowledge which irred
+4,15,1,guided,1,1,9.224363327026367,The country of Van Bora is about to take place at the brink between life-sanity andnonwar
+4,16,1,guided,1,1,8.377619743347168,"The country has become a value-sprint account (SWL).With the advent of BitPay,;"
+4,17,1,guided,1,1,6.923626899719238,"The country faces growing concerns. Following Friday’s invasion, a large number of troops was set upon."
+4,18,1,guided,1,1,8.774325370788574,"The country system 41/52 The country since 1999, a statistical agency since 1941. 4% Different causes different"
+4,19,1,guided,0,0,7.470698833465576,"The country sides, fields, boulders and struts, farm women, landing cranes and X-ray"
+9,0,0,unguided,1,0,8.322539329528809,"The painting, the face, gives to  or the scene or scene in the living room bedroom the letting"
+9,1,0,unguided,1,0,8.544724464416504,The painting is gaining popularity in the nearby capital of Saudi Arabia the country the world’s second rarest
+9,2,0,unguided,1,0,6.422671794891357,The painting depicts the sea islands side of the city's capital. The city's third game was played by the
+9,3,0,unguided,1,0,6.18323278427124,"The painting will pay attention to the haggard stings of life. His themes are sex, death and"
+9,4,0,unguided,1,0,5.431720733642578,The painting has survived for the last 200 years because it's been from then to the gallery. It's been
+9,5,0,unguided,0,1,6.946656227111816,"The painting’s owner said it had been traded in a trading, centered around the painting’s"
+9,6,0,unguided,1,0,6.6394572257995605,"The painting was from a photograph taken by a photographer of the trip to Jerusalem, photographer of his visit to the"
+9,7,0,unguided,1,0,8.08172607421875,The painting was read Xinhua as news.  The painting features names of bank customers from customers from bank
+9,8,0,unguided,1,0,6.33467960357666,The painting is old. If the owner has just a pic then the painting is old. On the artist herself
+9,9,0,unguided,0,1,7.190803527832031,"The painting, which took place during the hours-and-sets of the warden’s battle-"
+9,10,0,unguided,1,0,8.137602806091309,The painting shop is built on this with models channelled around the primary as well as the vitals for
+9,11,0,unguided,1,0,3.3024635314941406,"The painting the call, a call, a call, a call, a call, a call, a call"
+9,12,0,unguided,1,0,7.175934791564941,The painting declined to comment.  10 p.m. : Mr. Rotberg meets Mr. Br
+9,13,0,unguided,0,1,6.1380791664123535,"The painting came around a lot. By last night, commuters who came around a lot. By last night,"
+9,14,0,unguided,1,0,8.910966873168945,"The painting 7, Market Union (marked 7 November). In the sun the union stands at 11, central market"
+9,15,0,unguided,0,1,6.555202007293701,"The painting is to small You can taste it, but you can smell so much that it's almost a case"
+9,16,0,unguided,1,0,7.694647312164307,The painting provides for play and allows for reflection without fighting. Field sports ranges from the small coins to the big
+9,17,0,unguided,0,1,5.1139655113220215,The painting in the original image is covered on the hands and knees by the artist. Or the painting in the
+9,18,0,unguided,0,1,8.288958549499512,"The painting comes from Somerset County's rapid growth, and multiple regulations which will now result innon-resident..."
+9,19,0,unguided,0,1,8.909499168395996,The painting was hatched on October 12 during the defense minister's white (914) sunglasses in war-ri
+9,0,0,guided,1,0,10.077359199523926,The painting exhibits traits a child take care of and celebrate some of their abilities in case claims have been a third
+9,1,0,guided,0,1,7.369676113128662,The painting is not the main focus.The topic is one of 'with-when-with-ams-
+9,2,0,guided,0,1,8.389643669128418,The painting was only available from 23 shops and I wanted to ensure that proper investigation was taken to to this properly
+9,3,0,guided,0,1,11.10802936553955,The painting is very glassy on the beach a lot will even work even stay full but feel freeCG h
+9,4,0,guided,1,0,10.946037292480469,The painting of the Bol. colored...The painting of Rushth[... less than half-centuryMyE
+9,5,0,guided,1,0,9.551103591918945,The painting of the pentagon of the still colours signify that visual phenomena of a ceremonial sign in its prime possibilities
+9,6,0,guided,1,0,9.846896171569824,"The painting concerns Didwin, who performed very well, though then VINCENTA OL MARGARA CAN"
+9,7,0,guided,0,1,10.64409065246582,"The painting «carrad house"" represented a representative palgegy effort whathad been stolen from the previous"
+9,8,0,guided,0,1,11.093779563903809,"The painting by TanullerManhe Blake describedEckeleva mixture of Eckelev, His and"
+9,9,0,guided,0,1,12.195771217346191,The painting depicting dozmorro contains the ones under Zoralode seen in Zihrough Kevin Soren
+9,10,0,guided,1,0,13.023566246032715,The painting palette unlocks rivegivinging direct lineup Those static choppers managed to crash the glass-noriber
+9,11,0,guided,0,1,7.3558669090271,"The painting clearly shows that the cat has not done nothing before, including the cat ""Do?"" not doing anything"
+9,12,0,guided,0,1,5.129387378692627,"The painting does not look great, the lighting in the bathroom is very bad,but you will love it within"
+9,13,0,guided,1,0,8.878015518188477,"The painting said,In THEPAST -- a brick-cartry -- the brick-foundry, returning"
+9,14,0,guided,0,1,8.99058723449707,The painting must…make one picture Paint mirror produces a painting tin. The painting tin divided into ten picturescon
+9,15,0,guided,1,0,9.043784141540527,"The painting usually depict and express love between two women"" A mancorespainted by Joseph Lester, fart"
+9,16,0,guided,0,1,10.822588920593262,The painting was initially fictionalized having spawned five references to date. the word suffix /aloneship’
+9,17,0,guided,1,0,10.515474319458008,The painting rooms the main mancina notes  I can tell if my hands frantically experiencing the music appropriate
+9,18,0,guided,1,0,8.990060806274414,"The painting is based on strong chemical interactions where it track'severe' wounds and cancers, an ol t"
+9,19,0,guided,0,1,10.014103889465332,The painting.TheKaybeyArtists did not dare pay tribute to Thai cloth. People thought that he represents
+9,0,1,unguided,1,1,7.055746555328369,"The painting showing exactly how many members of the painter's family spoke fondly, but also revealed something of him"
+9,1,1,unguided,0,0,5.51997709274292,"The painting is the son of the other brother with three sisters, Steve the other brother with three sisters, Steve"
+9,2,1,unguided,1,1,6.17538595199585,The painting of Guadalupe Luisa working 6:00 a.m. The day of the Universal Union
+9,3,1,unguided,0,0,8.135887145996094,"The painting was filled in the “d’ts,” on the first “byn�"
+9,4,1,unguided,1,1,5.84237813949585,"The painting was the strongest state of mind when that happened.It was, it was, it was a strong"
+9,5,1,unguided,1,1,9.451664924621582,The painting •WhaleWhale •Theale•thale•Thewhomwhwhwhwhwh
+9,6,1,unguided,0,0,9.721235275268555,The painting.  [3] w-w/drivers-seat/.former-seat/.assessed
+9,7,1,unguided,0,0,6.320409297943115,The painting is a paradigmatic case of thin-or-fast  of thin-and-fast a
+9,8,1,unguided,1,1,9.700214385986328,"The painting that they occur at a geometric scale, the mathematical programs implement them as proof ones and while past labels"
+9,9,1,unguided,1,1,6.450417518615723,The painting's accuracy is contentious because it is not an indication of the benefits and rewards that contemporary artists would receive
+9,10,1,unguided,1,1,7.468097686767578,"The painting of Blackwood says, ""No one alive in this era and particularly for that matter,"" according to"
+9,11,1,unguided,0,0,11.116400718688965,"The painting shows how many singular combinations of an extraneous butterimmutable gluing together perspective, positional geometry,"
+9,12,1,unguided,1,1,8.27469253540039,"The painting of Maddox had... and,the painting was also very smart... and,This project,or"
+9,13,1,unguided,1,1,7.275151252746582,The painting can be described as: However the painting can be used as an Event That Whenever or Supports to an
+9,14,1,unguided,1,1,7.0439629554748535,"The painting, painted in 1889, bought itself at auction and won $13 million. Car totaled for the day"
+9,15,1,unguided,1,1,8.526385307312012,"The painting (whoo me) represents a stable condition of 3 emotional responses (attractive, pacifying)"
+9,16,1,unguided,0,0,10.184065818786621,The painting fli the book) flav flavfloxflflflflflflflflfl
+9,17,1,unguided,1,1,8.395868301391602,"The painting I take. (I'm.the next evening.) — and the dates, I have.And"
+9,18,1,unguided,1,1,11.36880874633789,The painting of whales occasionally.And again are cited in [About The Updates Passed through ISP's emails About The
+9,19,1,unguided,1,1,8.529845237731934,"The painting of crisis, seeing that, in conformity to it, the usual signing of the crisis and increase of"
+9,0,1,guided,1,1,10.68248176574707,The painting Fun to the students of the State tertiary Education System (NAHUSA) corresponding Technologga
+9,1,1,guided,1,1,10.57874870300293,The painting-to’arthis Zuo describes is..  The rQuarches it shows
+9,2,1,guided,0,0,6.809896945953369,"The painting covered only a short time, and much all of the bones of the pictured mice were found to be"
+9,3,1,guided,1,1,6.803165435791016,"The painting eventually lent to a raven, which eventually lent to a Dalek! And a dirk! And"
+9,4,1,guided,1,1,5.828973293304443,"The painting is housed in the Edinburgh, there's a strange condition at the end of the life of the painting"
+9,5,1,guided,1,1,10.35527515411377,The painting is notarded as famous of successful 21st century Century Sikh Shas achieving a greater success than he
+9,6,1,guided,0,0,10.51484203338623,The painting untilAndAgain the lightingThe Topic rating is NoOneWho can enter a posterByUsingTheDescription
+9,7,1,guided,1,1,8.61417293548584,The painting of Tartabrova has been popularised by women turning 30 and addresses this age of paint.
+9,8,1,guided,1,1,7.4245147705078125,"The painting was blessed by Filiavili.It was designed by Filisi, Mr. E.The"
+9,9,1,guided,1,1,8.070769309997559,"The painting paints for their needs. Its values can be orange, blue, yellow inThe the painting is paint"
+9,10,1,guided,0,0,9.340799331665039,"The painting's only image in Paravotti Park is 19,482.The overall increase is 50,000"
+9,11,1,guided,0,0,6.51772928237915,"The painting has been hit by a brick, and a batter.The paint has been mistaken by the lightning."
+9,12,1,guided,1,1,6.7732439041137695,"The painting, the apex of navigational dominion known the size of the North Atlantic, was the first to be"
+9,13,1,guided,1,1,6.9223313331604,"The painting of the fountain around a podium. The result was ""N"". The opinion of the present holders the"
+9,14,1,guided,1,1,8.148133277893066,The painting which showed they could be born wearing a fantastic mask?– Will your daughter give birth in a mask
+9,15,1,guided,1,1,7.600197792053223,The painting painted paintThe painting painted paint the painting painted paintThe graffiti paint the paint painted paint the graffiti paint
+9,16,1,guided,0,0,7.9036407470703125,"The painting and drawing moving to the National Museum of Canada, Arts and Culture, OSK, OMFI,"
+9,17,1,guided,1,1,9.062737464904785,The painting at Princess Elisabeth of Rio de Janeiro‘s Art of the World Festival/fit and
+9,18,1,guided,0,0,7.987997531890869,The painting on the gallery below (b) Waj Waj Waj Waj has been confirmed(b
+9,19,1,guided,0,0,5.65240478515625,The painting Is then separated from the paint-three-card case. The paint-three-card case also
+14,0,0,unguided,1,0,1.6720112562179565,The year is 1910. This is the year is 1910. This is the year is 1910. This is the year is 1910
+14,1,0,unguided,1,0,5.118951320648193,The year is 1910. We are just over 20 years old. It is just a church. We are just over 20.
+14,2,0,unguided,1,0,4.980930805206299,The year is 1910. The age is the years is 20  10 10 10 10 10 10 10 10 10 10 10
+14,3,0,unguided,1,0,6.486676216125488,The year is 1910. From 1999 to 2006 this marks the past to present end of the calendar. annual calendar - This year
+14,4,0,unguided,1,0,3.792931318283081,The year is 1910. The Canada of today is over a 100 years old. The Canada of today is over a hundreds of
+14,5,0,unguided,1,0,4.004746913909912,The year is 1910.. The year is 1950.. The year was 1960. The year was 1962.. The years
+14,6,0,unguided,1,0,7.104711055755615,The year is 1910.”  YOSHAH: “I received a question about the relationship between God
+14,7,0,unguided,0,1,8.586750984191895,"The year is 1910. Everyone has known that forever. So too, Hence Forever, and given that living in 1910 is absolutely"
+14,8,0,unguided,1,0,6.8112711906433105,The year is 1910.  Are youills making you money?  By valuing the electricity generated by fossil fuels
+14,9,0,unguided,1,0,7.684043884277344,The year is 1910. This year is too old it is 40 in ​​10 October 2010 The year is 2029 the
+14,10,0,unguided,1,0,5.121254920959473,"The year is 1910. This sign reads -- ""The one who knows,"" ""The one at the tipping point,"" ""The"
+14,11,0,unguided,1,0,4.9684739112854,The year is 1910. And the time is 10. The sky is white. And the clock is right. And the stars
+14,12,0,unguided,1,0,4.763307094573975,The year is 1910. We if we were poor we believe that God took care of us.The year is 1900. We
+14,13,0,unguided,0,1,8.738212585449219,"The year is 1910. June 2006 petrol costs $.74, meaning it's equivalent to $1 72 $8 2008 18"
+14,14,0,unguided,1,0,5.928936958312988,The year is 1910. Are sleeping with their wives full-time. Nobody's trying to be convenient. Everybody loves to be
+14,15,0,unguided,1,0,7.382517337799072,The year is 1910. You must spend that year working to work hard you must spend that year spending on time you want spend
+14,16,0,unguided,0,1,8.026632308959961,The year is 1910. entry. Cervian T. L. n.g. surnames. T Lab P P
+14,17,0,unguided,1,0,2.550114154815674,The year is 1910.  The year is 1935.  The year is 2034.  The year is
+14,18,0,unguided,1,0,3.207308292388916,The year is 1910. Chile is the most populous country in the world. There are 250 million people in the world that live
+14,19,0,unguided,1,0,3.100787878036499,The year is 1910.  The year is '98.  The year is 1999.  The year is
+14,0,0,guided,0,1,6.458457946777344,"The year is 1910. The past looks like it is 2007 and it's around 2007. It's not impossible, you can"
+14,1,0,guided,0,1,5.509007930755615,The year is 1910. Our regular schedule at school or at work is about week and a half. We are all working hard
+14,2,0,guided,1,0,9.0302152633667,"The year is 1910. Detroit was the Golden Weather.""    north -summer - winter  After summer brew"
+14,3,0,guided,1,0,8.425959587097168,The year is 1910. And another year is 1900. And a year is in 1800 seen 1900 to 2020 to 20 see 2025
+14,4,0,guided,1,0,7.630824565887451,"The year is 1910. Sometimes, too alone is not enough. Deliver your 58th birthday to be remembered in your future"
+14,5,0,guided,0,1,6.788015842437744,"The year is 1910.  Definition 1. The definition does not involve periods, a period of time that corresponds to recognition"
+14,6,0,guided,1,0,7.8424835205078125,"The year is 1910. With the country of characterized munitions producers, one must proceed with the utmost caution when considering or investigating motives"
+14,7,0,guided,1,0,5.891605854034424,"The year is 1910. You go back to 1915, when the general supersize began in the 1920s and the 1930s"
+14,8,0,guided,1,0,10.844189643859863,The year is 1910.Steps are 4 until 10:00 get making round trip plans The climate holds seasons like modern Illinois
+14,9,0,guided,1,0,8.749724388122559,"The year is 1910. They are all of us.  Here we Republic tomorrow""the Republic flag waves flying over democracy"
+14,10,0,guided,1,0,10.579256057739258,The year is 1910. Published work Quarks onbald 1968 1968 1969 1970 1971 1971 1971–68 1977 1987 140 145
+14,11,0,guided,0,1,5.730734825134277,The year is 1910. The year is so weird for the world (oh what are those 116 years?!) and for women
+14,12,0,guided,1,0,7.760398864746094,"The year is 1910. It is over 20 years to get where is today, but now things have fully fledged for once"
+14,13,0,guided,1,0,9.422754287719727,The year is 1910. 16 65 1670 1770 80y 1 14 103 105 108 112 115 15 13 54 65 63
+14,14,0,guided,1,0,5.113692760467529,The year is 1910.  Who must have final say?  The people is the people!  And the
+14,15,0,guided,1,0,3.730485677719116,The year is 1910.  The year is 1921  The year is 1921 April  The year is 1921 May
+14,16,0,guided,0,1,10.86583137512207,"The year is 1910. GF, GD are none of the biggies reading here. It Makes Ar… Coal Coal Tar"
+14,17,0,guided,1,0,6.296641826629639,"The year is 1910. Today, I don't really know.  Today, I don't really know. Special Games"
+14,18,0,guided,0,1,7.407695770263672,The year is 1910. The Globe is not wearing in 1910.The problem is theory can be skipped too often for most readers
+14,19,0,guided,0,1,11.489297866821289,The year is 1910.The Harscom white murderers the Indian blood white Muslims the AIGs’ holy book terror
+14,0,1,unguided,1,1,8.262866020202637,The year is 1910. 2013 The year is:Think about the calendar as the current day - 0720:0700 -
+14,1,1,unguided,1,1,7.031075954437256,The year is 1910.  The pound:  One more answer 100 times over!  answer 100 times over
+14,2,1,unguided,1,1,6.904125213623047,The year is 1910. The year dates 1953. The year dates 2013 2012 and posted above.  The year is 10
+14,3,1,unguided,0,0,8.13753890991211,The year is 1910. From March 4 September over 1900 lasted. The developers are introducing new laws. The mechanics are getting into
+14,4,1,unguided,1,1,7.336106777191162,"The year is 1910. I have been here, and thanks to a life-changing question with Faith Reform, we have finished"
+14,5,1,unguided,0,0,6.26769495010376,"The year is 1910. It's a boring year, too.The theme is ""Guchi,"" the pig's goby"
+14,6,1,unguided,1,1,7.125143527984619,The year is 1910. But in comparison to the problem and system of today. Those are 150 countries. 1973 is the year
+14,7,1,unguided,1,1,2.202463150024414,"The year is 1910. ""The year is 1910.""  The year is 1910. ""The year is 1910."" "
+14,8,1,unguided,1,1,3.434201955795288,The year is 1910. There was a year of 1910. There was a year of 1910. There was a year of 1910
+14,9,1,unguided,0,0,6.1784281730651855,The year is 1910. The year is 1910. If we don't we have to swallow seed and try and get down to
+14,10,1,unguided,0,0,7.7323317527771,The year is 1910. Mobile Sites: 7 Other Platforms: 160 Exits: 60 Highest Ranking: 550: 400
+14,11,1,unguided,1,1,4.6244893074035645,The year is 1910. This is around the year 1900. This is happening around the world. This is happening to my American
+14,12,1,unguided,0,0,5.348813056945801,The year is 1910.  We are Garfield. The year is 1910. ~  The year is 1910. 
+14,13,1,unguided,0,0,5.732861518859863,"The year is 1910. Therefore, it is a Saturday Saturday June and must be counted. For example, it is a Saturday"
+14,14,1,unguided,0,0,8.079492568969727,The year is 1910. So what is happening today? Ross bought-in another silver value $84. Then his name is
+14,15,1,unguided,1,1,5.257455348968506,The year is 1910. And the next half decade.And the next 10 years.And for the next 10 years.And
+14,16,1,unguided,1,1,1.7568508386611938,The year is 1910.  The year is 1910.  The year is 1910.  The year is 1910
+14,17,1,unguided,0,0,7.3096747398376465,The year is 1910. Most of the Farts are related to this particular period.  VATOLIA PORT
+14,18,1,unguided,0,0,6.794156551361084,"The year is 1910. The obvious is already obvious: The level of self-injury or - is, self-control"
+14,19,1,unguided,0,0,9.16395092010498,The year is 1910. The clock tells time we last the Attorney of the United States under investigation again for the manner does that
+14,0,1,guided,1,1,9.416266441345215,The year is 1910.Those chosen alphabet by their years in size (it is the 1870-1890)There are 5
+14,1,1,guided,1,1,7.209384441375732,The year is 1910. This will be the first female president this will be the first female president will beAlexandra Sagar
+14,2,1,guided,0,0,12.941336631774902,The year is 1910.Itsps atblightsoddingsflightover calls flightover -45.554554449024
+14,3,1,guided,1,1,1.7951128482818604,The year is 1910.  The year is 1910. The year is 1910.  The year is 1910. The
+14,4,1,guided,1,1,3.7344017028808594,The year is 1910.  The year of 1934.  The year of 1934.  The year of 1934
+14,5,1,guided,1,1,8.323013305664062,The year is 1910. (The new year is 20 April) Catch a'url from the king: wwpw
+14,6,1,guided,1,1,4.42355489730835,The year is 1910.  The beginning of the year is 1971.  The year this week is 1971. 
+14,7,1,guided,1,1,7.749824523925781,"The year is 1910. The recreation value over time is 128. At Easter this year it was 128.""Two separate lines sitting"
+14,8,1,guided,1,1,5.723893642425537,The year is 1910.l the year is 48625.m the year is 41124. The year is 41125.
+14,9,1,guided,1,1,11.413573265075684,"The year is 1910.No touhey unre named;sLove (Friendship), the most important error is for emotions well"
+14,10,1,guided,1,1,6.488467693328857,"The year is 1910. Yes, the temperature is above 50. Yes the temperature is above 50. On science and technology:"
+14,11,1,guided,0,0,2.5619633197784424,The year is 1910. So the year is 2200. So the year is 2000. So the year is 1500. So
+14,12,1,guided,1,1,6.403993129730225,The year is 1910.The monthThe day of the day The day is the companion that actually happens. The day is the
+14,13,1,guided,0,0,6.192930698394775,"The year is 1910. The law's effective date is December 12. Place of the sun. Franklin, Del. and his"
+14,14,1,guided,1,1,5.431746006011963,The year is 1910. This year the world has the best fantasy land creation that any one year has ever seen. If they
+14,15,1,guided,1,1,5.727057933807373,The year is 1910. It is perfect. I am a liar. I was born to lie. It is through the years
+14,16,1,guided,0,0,5.7934184074401855,The year is 1910. In the next period the year is 1915. In the middle month the second month. Third month the
+14,17,1,guided,1,1,4.337987422943115,The year is 1910. 1910 is year 21. So year 21 is year 14. And year 21 is 2024. And 2024
+14,18,1,guided,1,1,4.823901176452637,The year is 1910.  The 101st year is 1905.  The 109th year is 2054. 
+14,19,1,guided,1,1,5.650549411773682,The year is 1910.  It is called Nicaea.  The name is 92.  The date is

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.7.4)  21 JUL 2026 15:55
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.7.4)  21 JUL 2026 20:58
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -665,6 +665,11 @@ n log-probability
 
 
 ]
+Overfull \hbox (7.6646pt too wide) in paragraph at lines 16--16
+ \T1/cmr/m/n/12 falling as down-stream terms en-ter the en-ergy. The policy-min
+us-random 
+ []
+
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -690,23 +695,36 @@ Overfull \hbox (1.69574pt too wide) in paragraph at lines 10--10
 T-2 Large, scored 
  []
 
-
-Overfull \hbox (92.19589pt too wide) in paragraph at lines 17--17
- [][] [][]\T1/cmr/m/n/12 Representative sub-set of the final-KL con-fig-u-ra-ti
-on grid, from \T1/cmtt/m/n/12 final_kl_by_model.csv\T1/cmr/m/n/12 . 
- []
-
 [7
 
 
 ]
-Overfull \hbox (12.67914pt too wide) in paragraph at lines 18--18
+Overfull \hbox (0.34464pt too wide) in paragraph at lines 15--15
+ \T1/cmr/m/n/12 the ex-pen-sive per-candidate truth, on the uni-fied WikiText-2
+ se-quence 
+ []
+
+
+Overfull \hbox (92.19589pt too wide) in paragraph at lines 22--22
+ [][] [][]\T1/cmr/m/n/12 Representative sub-set of the final-KL con-fig-u-ra-ti
+on grid, from \T1/cmtt/m/n/12 final_kl_by_model.csv\T1/cmr/m/n/12 . 
+ []
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[8]
+Overfull \hbox (12.67914pt too wide) in paragraph at lines 23--23
  \T1/cmr/m/n/12 plers spend a back-ward pass at ev-ery step, dou-bled when the 
 Metropolis-- 
  []
 
 
-Overfull \hbox (2.05336pt too wide) in paragraph at lines 18--18
+Overfull \hbox (2.05336pt too wide) in paragraph at lines 23--23
  \T1/cmr/m/n/12 spend none. The single-pass rescor-ing method, which was the st
 rongest 
  []
@@ -723,7 +741,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[8] (./chapters/01_introduction.tex
+[9] (./chapters/01_introduction.tex
 Chapter 1.
 
 pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has 
@@ -1051,16 +1069,16 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [36]
-<figures/gpt2-large.dls.gn.free.s50_new_trajectories.png, id=950, 1578.8586pt x
- 469.755pt>
+<figures/gpt2-large.dls.gn.free.s50_new_trajectories.png, id=1025, 1578.8586pt 
+x 469.755pt>
 File: figures/gpt2-large.dls.gn.free.s50_new_trajectories.png Graphic file (typ
 e png)
 <use figures/gpt2-large.dls.gn.free.s50_new_trajectories.png>
 Package pdftex.def Info: figures/gpt2-large.dls.gn.free.s50_new_trajectories.pn
 g  used on input line 35.
 (pdftex.def)             Requested size: 384.1096pt x 114.27742pt.
-<figures/gpt2-large.dls.gn.free.s100_new_trajectories.png, id=952, 1578.8586pt 
-x 469.755pt>
+<figures/gpt2-large.dls.gn.free.s100_new_trajectories.png, id=1027, 1578.8586pt
+ x 469.755pt>
 File: figures/gpt2-large.dls.gn.free.s100_new_trajectories.png Graphic file (ty
 pe png)
 <use figures/gpt2-large.dls.gn.free.s100_new_trajectories.png>
@@ -1085,11 +1103,11 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [38]
-<figures/fig_mh_decomposition.pdf, id=969, 598.75446pt x 306.8825pt>
+<figures/fig_mh_decomposition.pdf, id=1043, 598.75446pt x 306.8825pt>
 File: figures/fig_mh_decomposition.pdf Graphic file (type pdf)
 <use figures/fig_mh_decomposition.pdf>
-Package pdftex.def Info: figures/fig_mh_decomposition.pdf  used on input line 8
-1.
+Package pdftex.def Info: figures/fig_mh_decomposition.pdf  used on input line 7
+2.
 (pdftex.def)             Requested size: 426.79135pt x 218.74501pt.
 
 
@@ -1156,10 +1174,10 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [46]
-<figures/fig_lin_scatter.pdf, id=1104, 408.08083pt x 320.74731pt>
+<figures/fig_lin_scatter.pdf, id=1178, 408.08083pt x 320.74731pt>
 File: figures/fig_lin_scatter.pdf Graphic file (type pdf)
 <use figures/fig_lin_scatter.pdf>
-Package pdftex.def Info: figures/fig_lin_scatter.pdf  used on input line 217.
+Package pdftex.def Info: figures/fig_lin_scatter.pdf  used on input line 208.
 (pdftex.def)             Requested size: 349.97203pt x 275.08359pt.
 
 
@@ -1170,10 +1188,10 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [47]
-<figures/fig_lin_radius.pdf, id=1113, 456.73666pt x 306.60648pt>
+<figures/fig_lin_radius.pdf, id=1187, 456.73666pt x 306.60648pt>
 File: figures/fig_lin_radius.pdf Graphic file (type pdf)
 <use figures/fig_lin_radius.pdf>
-Package pdftex.def Info: figures/fig_lin_radius.pdf  used on input line 231.
+Package pdftex.def Info: figures/fig_lin_radius.pdf  used on input line 222.
 (pdftex.def)             Requested size: 349.97203pt x 234.94148pt.
 
 
@@ -1200,10 +1218,10 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [50]
-<figures/fig_trap_scatter.pdf, id=1309, 589.17178pt x 322.78995pt>
+<figures/fig_trap_scatter.pdf, id=1384, 589.17178pt x 322.78995pt>
 File: figures/fig_trap_scatter.pdf Graphic file (type pdf)
 <use figures/fig_trap_scatter.pdf>
-Package pdftex.def Info: figures/fig_trap_scatter.pdf  used on input line 266.
+Package pdftex.def Info: figures/fig_trap_scatter.pdf  used on input line 257.
 (pdftex.def)             Requested size: 426.79135pt x 233.83202pt.
 
 
@@ -1214,14 +1232,14 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [51 <./figures/fig_trap_scatter.pdf>]
-Overfull \hbox (29.18631pt too wide) in paragraph at lines 282--282
+Overfull \hbox (29.18631pt too wide) in paragraph at lines 273--273
 |[]\T1/cmr/bx/n/17.28 The Ge-om-e-try Un-der-neath: Em-bed-ding Anisotropy| 
  []
 
-<figures/fig_aniso_hist.pdf, id=1401, 609.32954pt x 305.87875pt>
+<figures/fig_aniso_hist.pdf, id=1475, 609.32954pt x 305.87875pt>
 File: figures/fig_aniso_hist.pdf Graphic file (type pdf)
 <use figures/fig_aniso_hist.pdf>
-Package pdftex.def Info: figures/fig_aniso_hist.pdf  used on input line 300.
+Package pdftex.def Info: figures/fig_aniso_hist.pdf  used on input line 291.
 (pdftex.def)             Requested size: 426.79135pt x 214.24901pt.
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1239,7 +1257,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [53 <./figures/fig_aniso_hist.pdf>]
-Overfull \hbox (25.88596pt too wide) in paragraph at lines 320--320
+Overfull \hbox (25.88596pt too wide) in paragraph at lines 311--311
 |[]\T1/cmr/bx/n/17.28 Does Amor-ti-za-tion Es-cape the Fail-ure? GFlowNet
  []
 
@@ -1251,7 +1269,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [54]
-Overfull \hbox (21.55423pt too wide) in paragraph at lines 327--334
+Overfull \hbox (21.55423pt too wide) in paragraph at lines 318--325
 \T1/cmr/m/n/12 the like-li-hood trap of the pre-vi-ous sec-tion. With the un-no
 r-mal-ized re-ward, at $[] \OT1/cmr/m/n/12 =
  []
@@ -1272,12 +1290,12 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [56]
-Overfull \hbox (18.41278pt too wide) in paragraph at lines 378--387
+Overfull \hbox (18.41278pt too wide) in paragraph at lines 369--378
  [][] 
  []
 
 
-Overfull \hbox (6.58276pt too wide) in paragraph at lines 391--391
+Overfull \hbox (6.58276pt too wide) in paragraph at lines 382--382
 |[]\T1/cmr/bx/n/17.28 The Plug-and-Play Claim Tested Di-rectly: Con-
  []
 
@@ -1306,10 +1324,6 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 [59]
 
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-) (./chapters/06_discussion.tex
-
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
 (fancyhdr)                \setlength{\headheight}{14.49998pt}.
@@ -1317,53 +1331,8 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [60]
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 14.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
-
-[61]
-Chapter 6.
-[62
-
-]
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 14.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
-
-[63]
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 14.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
-
-[64]
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 14.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
-
-[65]
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 14.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
-
-[66]
-Overfull \hbox (25.88945pt too wide) in paragraph at lines 45--46
-[]\T1/cmr/m/n/12 Finally, the gradient-free sam-plers iso-lated in Sec-tion []3
-.2[], Mix-and-Match [[]Mireshghal-
+Overfull \hbox (13.85521pt too wide) in paragraph at lines 444--462
+ [][] 
  []
 
 
@@ -1373,7 +1342,76 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
+[61]
+<figures/fig_lasttoken.png, id=1616, 582.0144pt x 344.0052pt>
+File: figures/fig_lasttoken.png Graphic file (type png)
+<use figures/fig_lasttoken.png>
+Package pdftex.def Info: figures/fig_lasttoken.png  used on input line 470.
+(pdftex.def)             Requested size: 362.77525pt x 214.42531pt.
+ (./chapters/05a_diffusion_control.tex
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[62 <./figures/fig_lasttoken.png>]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[63]
+Overfull \hbox (16.76529pt too wide) in paragraph at lines 16--28
+ [][] 
+ []
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[64]
+Overfull \hbox (14.05908pt too wide) in paragraph at lines 71--83
+ [][] 
+ []
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[65])) (./chapters/06_discussion.tex
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[66]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
 [67]
+Chapter 6.
+[68
+
+]
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -1381,15 +1419,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[68]
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 14.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
-
-[69]) (./chapters/07_conclusion.tex
+[69]
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -1406,10 +1436,6 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [71]
-Chapter 7.
-[72
-
-]) (./thesis.bbl
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -1417,9 +1443,28 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[73] [74
+[72]
 
-]
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[73]
+Overfull \hbox (25.88945pt too wide) in paragraph at lines 47--48
+[]\T1/cmr/m/n/12 Finally, the gradient-free sam-plers iso-lated in Sec-tion []3
+.2[], Mix-and-Match [[]Mireshghal-
+ []
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[74]
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -1435,7 +1480,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[76]
+[76]) (./chapters/07_conclusion.tex
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -1443,7 +1488,11 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[77]) (./chapters/08_appendix.tex
+[77]
+Chapter 7.
+[78
+
+]) (./thesis.bbl
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -1451,15 +1500,49 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[78]
+[79] [80
+
+]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[81]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[82]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[83]) (./chapters/08_appendix.tex
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[84]
 Appendix A.
-<figures/fig_lin_decomposition.pdf, id=1749, 693.99277pt x 329.67165pt>
+<figures/fig_lin_decomposition.pdf, id=1867, 693.99277pt x 329.67165pt>
 File: figures/fig_lin_decomposition.pdf Graphic file (type pdf)
 <use figures/fig_lin_decomposition.pdf>
 Package pdftex.def Info: figures/fig_lin_decomposition.pdf  used on input line 
 13.
 (pdftex.def)             Requested size: 341.43437pt x 162.19446pt.
-<figures/fig_lin_topk.pdf, id=1752, 400.7682pt x 272.21397pt>
+<figures/fig_lin_topk.pdf, id=1870, 400.7682pt x 272.21397pt>
 File: figures/fig_lin_topk.pdf Graphic file (type pdf)
 <use figures/fig_lin_topk.pdf>
 Package pdftex.def Info: figures/fig_lin_topk.pdf  used on input line 22.
@@ -1467,7 +1550,7 @@ Package pdftex.def Info: figures/fig_lin_topk.pdf  used on input line 22.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<figures/fig_mh_accept.pdf, id=1755, 353.93292pt x 283.34749pt>
+<figures/fig_mh_accept.pdf, id=1873, 353.93292pt x 283.34749pt>
 File: figures/fig_mh_accept.pdf Graphic file (type pdf)
 <use figures/fig_mh_accept.pdf>
 Package pdftex.def Info: figures/fig_mh_accept.pdf  used on input line 31.
@@ -1475,7 +1558,7 @@ Package pdftex.def Info: figures/fig_mh_accept.pdf  used on input line 31.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<figures/fig_trap_length.pdf, id=1758, 413.1482pt x 294.47313pt>
+<figures/fig_trap_length.pdf, id=1876, 413.1482pt x 294.47313pt>
 File: figures/fig_trap_length.pdf Graphic file (type pdf)
 <use figures/fig_trap_length.pdf>
 Package pdftex.def Info: figures/fig_trap_length.pdf  used on input line 40.
@@ -1483,7 +1566,7 @@ Package pdftex.def Info: figures/fig_trap_length.pdf  used on input line 40.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[79
+[85
 
  <./figures/fig_lin_decomposition.pdf>]
 
@@ -1493,7 +1576,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[80 <./figures/fig_lin_topk.pdf> <./figures/fig_mh_accept.pdf>]
+[86 <./figures/fig_lin_topk.pdf> <./figures/fig_mh_accept.pdf>]
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -1501,7 +1584,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[81 <./figures/fig_trap_length.pdf>]
+[87 <./figures/fig_trap_length.pdf>]
 Overfull \hbox (49.84724pt too wide) in paragraph at lines 60--74
  [][] 
  []
@@ -1519,7 +1602,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[82
+[88
 
 ]
 Overfull \hbox (79.99904pt too wide) in paragraph at lines 91--102
@@ -1533,7 +1616,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[83
+[89
 
 ]
 
@@ -1546,7 +1629,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[84
+[90
 
 ]
 
@@ -1556,7 +1639,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[85])
+[91])
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -1564,7 +1647,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[86
+[92
 
 ] (./thesis.aux)
  ***********
@@ -1572,13 +1655,13 @@ LaTeX2e <2025-11-01>
 L3 programming layer <2026-03-20>
  ***********
 Package rerunfilecheck Info: File `thesis.out' has not changed.
-(rerunfilecheck)             Checksum: 3D79C522F0B5E6DDE121D509E21C6747;14086.
+(rerunfilecheck)             Checksum: 4C37FC192B587340C760EF83073F7EE9;15733.
  ) 
 Here is how much of TeX's memory you used:
- 17356 strings out of 467356
- 280385 string characters out of 5418692
- 789487 words of memory out of 6000000
- 45951 multiletter control sequences out of 15000+600000
+ 17403 strings out of 467356
+ 281454 string characters out of 5418692
+ 795735 words of memory out of 6000000
+ 45978 multiletter control sequences out of 15000+600000
  651036 words of font info for 96 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  75i,12n,79p,2351b,674s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -1609,10 +1692,10 @@ fb></usr/share/texlive/texmf-dist/fonts/type1/public/cm-super/sfti1095.pfb></us
 r/share/texlive/texmf-dist/fonts/type1/public/cm-super/sfti1200.pfb></usr/share
 /texlive/texmf-dist/fonts/type1/public/cm-super/sftt1095.pfb></usr/share/texliv
 e/texmf-dist/fonts/type1/public/cm-super/sftt1200.pfb>
-Output written on thesis.pdf (98 pages, 2684500 bytes).
+Output written on thesis.pdf (105 pages, 2798030 bytes).
 PDF statistics:
- 2253 PDF objects out of 2487 (max. 8388607)
- 1569 compressed objects within 16 object streams
- 228 named destinations out of 1000 (max. 500000)
- 528 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 2373 PDF objects out of 2487 (max. 8388607)
+ 1679 compressed objects within 17 object streams
+ 245 named destinations out of 1000 (max. 500000)
+ 573 words of extra memory for PDF output out of 10000 (max. 10000000)
 

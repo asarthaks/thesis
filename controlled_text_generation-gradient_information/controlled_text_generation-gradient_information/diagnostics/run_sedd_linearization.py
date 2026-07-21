@@ -197,6 +197,28 @@ def load_sequences(dataset, tokenizer, n, min_tok, max_tok, seed):
     return out
 
 
+def load_grid_corpus(args, device):
+    """EXACTLY the kl_baselines sequence set (WikiText-2, build_corruption,
+    data_seed 0, num_masks 1). Returns (list_of_1d_id_tensors, list_of_positions)
+    where positions are the kl_baselines masked positions, so linearization,
+    recovery and hybrid all probe the same token of the same sequence set."""
+    HERE = os.path.dirname(os.path.abspath(__file__))
+    ROOT = os.path.dirname(HERE)
+    if ROOT not in sys.path:
+        sys.path.insert(0, ROOT)
+    from types import SimpleNamespace
+    from transformers import AutoTokenizer
+    from run_revision import iter_grid_samples
+    tok = AutoTokenizer.from_pretrained(args.gpt2sft_path, use_fast=True)
+    ga = SimpleNamespace(data_file=None, min_words=10, max_words=40,
+                         n_samples=args.n_seqs, num_masks=1, data_seed=0)
+    seqs, positions = [], []
+    for sidx, corrupted, mask_indices, orig_ids in iter_grid_samples(ga, tok, device):
+        seqs.append(orig_ids[0].cpu())
+        positions.append(int(mask_indices[0]))
+    return seqs, positions
+
+
 def run(args):
     device = args.device
     bundle = load_sedd(args.model_dir, device, dry_run=args.dry_run)
@@ -208,8 +230,11 @@ def run(args):
         REAL_VOCAB = V
         MASK_TOKEN = V
 
+    grid_positions = None
     if args.dry_run:
         seqs = [torch.randint(0, V, (int(np.random.randint(12, 30)),)) for _ in range(args.n_seqs)]
+    elif args.grid_corpus:
+        seqs, grid_positions = load_grid_corpus(args, device)
     else:
         seqs = load_sequences(args.dataset, tok, args.n_seqs,
                               args.min_tokens, args.max_tokens, args.seed)
@@ -232,7 +257,11 @@ def run(args):
         L = ids.shape[1]
         if L < 8:
             continue
-        pos = int(rng.randint(2, L - 2))
+        if grid_positions is not None:
+            pos = int(grid_positions[si])
+            pos = min(max(pos, 1), L - 1)   # kl_baselines mask position (interior)
+        else:
+            pos = int(rng.randint(2, L - 2))
         orig_tok = int(ids[0, pos].item())
 
         # fixed held-out probe set for the truth readout: up to n_probes non-pos
@@ -345,6 +374,12 @@ def main():
     p.add_argument("--model_dir", default="louaaron/sedd-small",
                    help="HF id (default louaaron/sedd-small) or a local checkpoint dir")
     p.add_argument("--dataset", default="roc_stories")
+    p.add_argument("--grid_corpus", action="store_true",
+                   help="use EXACTLY the kl_baselines WikiText-2 set (corpus unification)")
+    p.add_argument("--gpt2sft_path",
+                   default="/mount/studenten-temp1/users/singhsk/thesis/thesis/"
+                           "gfn-lm-tuning/infill_subj_arithmetic/gpt2_large_sft_output",
+                   help="tokenizer source for --grid_corpus (kl_baselines tokenizer)")
     p.add_argument("--device", default="cuda")
     p.add_argument("--seed", type=int, default=0)
     p.add_argument("--overwrite", action="store_true")

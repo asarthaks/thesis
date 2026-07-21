@@ -1,0 +1,321 @@
+prompt_idx,sample_idx,target_label,arm,judged_label,hit_target,clf_self_label,span_nll,text
+2,0,0,unguided,0,1,0,6.599883556365967,The chicken has a bit of skates and are ice. The chicken has a bit of skates that melt
+2,1,0,unguided,0,1,0,4.404644012451172,The chicken was in his backyard. The only chickens at his house was the chickenThe chicken was in his backyard
+2,2,0,unguided,0,1,1,8.300629615783691,The chicken is increanng-tendres-tendres-tendresate Titendres
+2,3,0,unguided,1,0,0,5.991644382476807,The chicken has been so tasty!  The chicken has been so tasty :! The chicken has been great
+2,4,0,unguided,0,1,0,6.771050930023193,The chicken and the skin of the chicken was preserved was absolutely necessary when it comes to humans eating meat and fish
+2,5,0,unguided,0,1,0,6.462155342102051,The chicken pairs six stages in two teams that play in the tournament. The chicken pairs stage stages in two teams
+2,6,0,unguided,1,0,1,6.960109710693359,"The chicken made a vivid contrast with the meat, and the readers in Central Florida enjoyed a great meal. --"
+2,7,0,unguided,0,1,0,11.52672290802002,The chicken sold TOPC sales  bakic bakajic appalachicorsbuffalic
+2,8,0,unguided,0,1,0,5.545329570770264,The chickenheads. The chickenheads with no names.The chickenheads. The chickenheads who McDonald's.
+2,9,0,unguided,0,1,0,6.067769527435303,"The chicken.  The chickens were horrific.  Of the 22 chickens, the chickens ate the chicken"
+2,10,0,unguided,0,1,0,8.799012184143066,The chicken will eat usThe chicken is hidden in a big termThe door should be open describe themThe new
+2,11,0,unguided,1,0,0,6.906532287597656,The chicken thumb..Like ballThe tip of the cap of the finger..Like the chicken toes..LikeThe
+2,12,0,unguided,0,1,0,5.994168758392334,The chicken.This is the chicken and No preparations as such.This is the chicken and the chicken. No
+2,13,0,unguided,0,1,0,7.778913974761963,"The chicken meal left hand over head eats much of her feasts. The breast without was breastless, so"
+2,14,0,unguided,0,1,0,8.037431716918945,The chicken could live with myself if I said he was like a gym speaking in a gym with two coeds
+2,15,0,unguided,0,1,1,7.514396667480469,"The chicken. ""Oh, at that.""  Find out what would be the right gifts for your family"
+2,16,0,unguided,0,1,0,7.995540142059326,The chicken isn't so healthy in California TheThe The dish isn't so delicate over here The)The
+2,17,0,unguided,0,1,0,6.746396064758301,The chicken had been struck where a number of cuts to the flesh had taken place. Vele the carcass
+2,18,0,unguided,1,0,0,7.8481764793396,The chicken brought back sweeter times for you a put a put-too-Black-for-Staff-
+2,19,0,unguided,0,1,0,4.2342848777771,"The chicken is often referred to as the broiler The broiler was designed to put pressure on the chicken,"
+2,0,0,guided,0,1,0,7.644207954406738,"The chicken plummeted to roasting. It was already back in storage. And while it filled with items, it"
+2,1,0,guided,0,1,0,7.85626745223999,"The chicken got the Beer Label Beer—the beer writes ""wAGrowne"" on the label."
+2,2,0,guided,0,1,0,5.869665622711182,The chicken that get the raw chicken egg from  But  The chicken that get the raw chicken egg
+2,3,0,guided,1,0,0,9.819109916687012,The chicken came down DJBird. We gave it back to the al pastor. Silent game?'Image copyright JD
+2,4,0,guided,0,1,1,13.148907661437988,"The chicken must learn TORACT MAD PLANZ hypercontent inducing calamity without incorporating a community element.""Like"
+2,5,0,guided,1,0,1,6.487094402313232,"The chicken was delicious, and I just served my chicken marinated. And that was one special deep fried chicken"
+2,6,0,guided,0,1,0,9.225106239318848,The chicken chickens flee Nebraska. What about the chicken?The the God in Heaven was granted to all the rich
+2,7,0,guided,0,1,1,9.892438888549805,The chicken took the light option in an attempt to set off 140 meter trip way doctors from Pakistan treat two other
+2,8,0,guided,0,1,0,9.730865478515625,The chicken grew a cricket in its skin. That't doicked it off or reconfinctured it out
+2,9,0,guided,0,1,0,9.47650146484375,The chicken by nipples and horns chestThe chicken tanden on the chicken skin on the chicken hair as chicken
+2,10,0,guided,0,1,0,6.085313320159912,The chicken it should not matter what the grill on the item or the grill in the bottom of the grill should
+2,11,0,guided,0,1,0,10.308928489685059,"The chicken reboot on the same day as gas plant exit. Veopard Terrace front, 16Qantang"
+2,12,0,guided,0,1,0,9.082273483276367,The chicken pieces didn't seem better to some like that was something that was unhinged to me in part
+2,13,0,guided,0,1,0,3.9327468872070312,The chicken finger gosh  The chicken finger maka  The chicken finger bomb  The chicken
+2,14,0,guided,1,0,1,13.476675987243652,"The chicken fitsSoHis great and delicious addition toVS meat rotation trouble ""Thanksbye Portable Beef"">"") swear"
+2,15,0,guided,0,1,0,11.393338203430176,The chicken critical79a Foundry spokesman added thatThe person was taken care of when recognized as Healated
+2,16,0,guided,0,1,0,8.596110343933105,The chicken tasting pith Chicken :the pith less Chicken :The chicken tasting brownie Hungry : the little
+2,17,0,guided,0,1,0,9.241520881652832,The chicken.  We loose pieces by bird and loose pieces by moba h. c.Uli
+2,18,0,guided,1,0,0,9.175044059753418,"The chicken broth, great get to the finish!  Fort Knox has my butt in it, implement freezer"
+2,19,0,guided,0,1,0,8.662028312683105,The chicken thought there were too far too many. Theory student: It took almost 77 hours to render the chicken
+2,0,1,unguided,0,0,0,7.281079292297363,"The chicken, cucumbers and the salad of egg and teriyaki.The copper grocery bags.The"
+2,1,1,unguided,1,1,0,9.41596508026123,"The chicken expresses a situation where we can make such predictions of the Turning points itself, as being less and less"
+2,2,1,unguided,0,0,1,6.339719295501709,"The chicken told the red color, ""Chicken of the dead."" The vegetable told the most colorful stories, told"
+2,3,1,unguided,0,0,0,7.130478858947754,"The chickenChicken, Fried Chicken, KFC  The, The Little Archie The Little ArchieTheLittle Archie"
+2,4,1,unguided,0,0,0,6.559484958648682,The chicken and cart. check to see if there are any questions about the product or that they are supposed to
+2,5,1,unguided,0,0,0,6.893623352050781,"The chicken was removed from the, oven.The ember needed health care. The eagles stood for him"
+2,6,1,unguided,0,0,1,11.51018238067627,The chicken is homo.achesachesachesachesachesachesachesachesachesachesachesachesachesfachesaches
+2,7,1,unguided,0,0,0,6.257209300994873,The chicken sandwichThe chicken to the fun and there were no pictures available at the time of this article or
+2,8,1,unguided,1,1,1,8.839404106140137,"The chicken was prepared, dressed wonderfully. Fried Chicken Center held by the USDA, barring retailers' sales of products"
+2,9,1,unguided,0,0,0,4.4668145179748535,The chicken is kept in production by the poultry agent.The chicken is kept out of production by the poultry agent
+2,10,1,unguided,1,1,1,7.5830912590026855,The chicken in McDonald's restaurant. After all of the fun that goes with it those involved aren't indicating that
+2,11,1,unguided,0,0,0,8.686238288879395,"The chicken, the hatakier, the minion...The keys to get exposed, to get the quit..."
+2,12,1,unguided,0,0,0,4.9361467361450195,"The chicken came out in the mid-1980s, and I have hardly eaten ever since. Every new dish"
+2,13,1,unguided,0,0,1,8.318914413452148,The chicken. The deviant. The chest spectacock.  The Vision was at the background.
+2,14,1,unguided,0,0,0,6.28209924697876,The chickenhouse is so wide that to pass the width of the chickenhouse would be seen through microscopic scopes
+2,15,1,unguided,0,0,1,8.23853588104248,The chicken a la cart for the time next year. That’s the of the food stamp you get
+2,16,1,unguided,0,0,0,10.236217498779297,The chicken coming!” “We Will” Shopper: “The little ones areisters
+2,17,1,unguided,0,0,1,8.278146743774414,"The chicken crumbled and tossed in some wonders that hub-and-cream sauce, yes, and a link"
+2,18,1,unguided,0,0,0,6.31710958480835,The chicken was threatened with rocks thrown in 2010.The photography booth in front of the chicken was hit with rocks
+2,19,1,unguided,0,0,1,4.9441986083984375,The chicken with guacamole and very dry on the end  The chicken with guacamole
+2,0,1,guided,0,0,0,10.812479019165039,The chicken runs oh it really long only weighs as a light eagle feather. The octarians going big several feet
+2,1,1,guided,1,1,1,7.454712867736816,"The chickenplants too say their research and access will continue to be, among the most practical, pleasant,"
+2,2,1,guided,0,0,0,13.24290943145752,The chicken rav Just crunch Club Chicago doesn't deliver given the chops can save the straight ass iPhonesTheir look been
+2,3,1,guided,0,0,1,9.999841690063477,The chicken fly  •The chicken rape that  andshe is edible  •HowEverybody MitThey
+2,4,1,guided,0,0,1,9.045851707458496,The chicken may be thinking to themselves Also we sang out our vaunted national hymn “Ofthe
+2,5,1,guided,0,0,0,11.184951782226562,The chicken maker ho'met vanheinverghen.But not so long. Bieseren.
+2,6,1,guided,1,1,0,9.854304313659668,The chickenSeelani runs ovendays http://www.aqualiaroffireusa.com/cal
+2,7,1,guided,0,0,1,9.725447654724121,"The chicken akbar kota var Kenny, Kenny, Kenny chicken chicken overcoat akate kota var Elise"
+2,8,1,guided,0,0,0,8.753849029541016,The chicken to chew negotiations will be talks about they have visible bone diseases. The Terminator is not an actor but
+2,9,1,guided,0,0,1,9.582945823669434,The chicken ate exponentially less pork protein 54 Swacelet chord. [Jan.] The chicken ate a tiny amount
+2,10,1,guided,0,0,1,5.449282169342041,The chicken feed for the chicken should behold+hold+hold+hold+hold+hold+hold+
+2,11,1,guided,0,0,1,9.757867813110352,The chicken deep enough. For me initially what has already illustrates my skin with roasted chicken? Because aren't they
+2,12,1,guided,1,1,1,10.677216529846191,"The chickenster and others involved moving, according toChacah Becker with Bell, and the jobs in Richmond"
+2,13,1,guided,0,0,0,11.057514190673828,The chicken bill PASL said the guy couldn’t find yaThe palm at the branch tiny the
+2,14,1,guided,0,0,0,10.951947212219238,"The chicken laser packs been remaining in the mall, I certain they would have followed The better Punisher characters shopping"
+2,15,1,guided,0,0,0,11.882523536682129,The chicken goes through eating out often in his raw bakery with his wife\ holders of ownership keys: TheThe
+2,16,1,guided,0,0,0,13.309588432312012,The chicken fisted! caps: cento masculin da tu profileidad-The 1984 were vegetables I soup
+2,17,1,guided,0,0,0,12.625411033630371,The chicken would distinguish weight positive and quota. Agglyizers would drop Blue item containing 100 candies dry anything
+2,18,1,guided,0,0,1,9.624847412109375,"The chicken thers and it clamoves"". Who raised the idea of bringing this cuba sauce home?She"
+2,19,1,guided,0,0,0,10.396977424621582,The chicken guts rattle hot grease onto asphalt until the ne rolands them. Because roless the chickens days
+6,0,0,unguided,1,0,1,9.559332847595215,The lake sits in new high parastore.The skies at 19:45 are blue - earliest ever date
+6,1,0,unguided,1,0,0,7.418079376220703,"The lake. In the summer, however, much of analysis was taking place off-streamed, people watched"
+6,2,0,unguided,0,1,0,7.333261966705322,The lake pulls the bricks apart but doesn’t let the sink.The lake pulls the bricks out of
+6,3,0,unguided,1,0,1,8.718912124633789,"The lake’s record, since the Lake is Closed it has appeared to be fair and possible by the"
+6,4,0,unguided,1,0,0,8.135307312011719,The lake look back in 1876. The look around at the entire town during this short trip they were brought
+6,5,0,unguided,0,1,0,7.119954586029053,"The lake below reached 1.8 meters. By Beijing, too, roads had reopened after a week-long"
+6,6,0,unguided,1,0,0,7.541235446929932,The lake under the moon. Sharp point Icon Baseball hall of fame for autographs Icon Baseball Hall of Fame for
+6,7,0,unguided,0,1,0,8.575569152832031,The lake arrests handcuffed and hand-cuffed. about the lake arrestpolice have tried to convince the citizens arrested
+6,8,0,unguided,0,1,0,7.4057769775390625,"The lake Canyon formed very slowly and the rising waters dominate the erosion. ""Despite this, birds are continuing to"
+6,9,0,unguided,1,0,0,6.791335582733154,"The lake, which has been melting with snow, is being inflated in air.The salt lake it is surrounded"
+6,10,0,unguided,0,1,0,4.751009941101074,The lake pool is located in theThe lake pool is located in the but theThe lake pool is located in
+6,11,0,unguided,1,0,0,9.33716106414795,The lake is the sense of pride in this States as far as its scientific state historic basis but our skewed reality
+6,12,0,unguided,0,1,0,7.664938449859619,The lake-slump parties were: “This is what I’ve been having.”
+6,13,0,unguided,0,1,0,6.781863689422607,"The lakefront: nearly $500,000-a-year, before the scripts are signed or approved,"
+6,14,0,unguided,0,1,0,7.565639019012451,"The lake of kuninyo need no lake of baingo), lake of kuninyo need"
+6,15,0,unguided,0,1,0,7.207475185394287,The lake's stability is by no means organized by the scientists unified by the players unified by the events unified by
+6,16,0,unguided,0,1,0,6.489223480224609,The lake contains more than a few more syringes from various saks connected to it. Some of them
+6,17,0,unguided,1,0,0,5.455555438995361,"The lake of the sea, and the lake of the sea is the greatest lake of every world, mostthe"
+6,18,0,unguided,0,1,0,6.572169780731201,The lake is too close to everydayThe town is too close to contact…and the lake turned into a huge
+6,19,0,unguided,1,0,0,6.589118480682373,"The lake is surrounded by rocky mountains, but over the entire region China have various types of tracks over various ranges"
+6,0,0,guided,1,0,0,9.604011535644531,"The lake’s legendary for its character range and constant change-year, but not only could water reach"
+6,1,0,guided,0,1,0,8.211165428161621,The lake is named Chishbello At times we have been better known as Level 5-7 water level
+6,2,0,guided,0,1,0,7.679603576660156,The lake from the meadow is in the cloud.  The Spanish sideMesa venue is golfing
+6,3,0,guided,0,1,0,8.708062171936035,The lake is less than 168 years old has been flooding by a process called submergence-nitude water and
+6,4,0,guided,0,1,0,7.391565799713135,The lake was by the 107eT(8) Tpn 105eT(15).The lake
+6,5,0,guided,0,1,1,9.054369926452637,The lakecity kayak well explained the price for singles two of three!  The office knows in the
+6,6,0,guided,0,1,0,9.308237075805664,The lake of plenty for places where Lows/Was put to the use of an agency which presents itself as
+6,7,0,guided,0,1,0,8.213733673095703,The lake is only in Shic GujaratThe lake is only in Kuchu Gujarat Farasthan the Lake
+6,8,0,guided,1,0,1,9.612024307250977,The lake region be miles9.84 billion years above sea level.The site stands referred to also theHell
+6,9,0,guided,1,0,0,9.394877433776855,"The lake, all ever in Creation—[ care] That any one and no one alone probably dies, dies"
+6,10,0,guided,0,1,0,13.875166893005371,The lake problems enabled severe allergies back place Hin [nc nation said the city you will need to of at Hull
+6,11,0,guided,0,1,0,10.27658748626709,"The lake'sWell bathtub service And what was currently true, the city of Newark Mistakes;And people"
+6,12,0,guided,0,1,0,9.755317687988281,"The lake that broke the banks, caught Taal, then …is the Cook-hailed island with a"
+6,13,0,guided,0,1,0,7.691850185394287,The lake is drying fast and you could choose to lose most of a gallon of the current drinking water without effect
+6,14,0,guided,1,0,0,7.857809543609619,"The lake, of course, puts it in SWP that supports its ""voxx."" Indeed, as"
+6,15,0,guided,0,1,0,6.806311130523682,The lake. (Supplementary information.)  For the second Loch Ness Bridge For the second Loch Ness Bridge
+6,16,0,guided,0,1,0,8.334894180297852,"The lake-Trough is 714km, and only 321km would it equal the distance of Pompei"
+6,17,0,guided,1,0,0,12.102899551391602,"The lake sitton leader's column, America's Korean peninsula.July's Issue - DMS Sage Dogwood"
+6,18,0,guided,0,1,1,12.05823802947998,The lake front if sharedterry wang history of kalpiter way wang math of written book
+6,19,0,guided,0,1,0,5.739351272583008,The lake is a hard pitcher and I'm sure whatever water you're playing in will come out on a limb
+6,0,1,unguided,0,0,0,7.362941741943359,The lakeThe lake lakeThe lake LakeThe Lake LakeThe LakeLakeThe Lake LakeBy LakeThe Lake Lake
+6,1,1,unguided,0,0,0,7.14705753326416,"The lake, the volcano. ZA 26 ZA.ZA. 37,937 ZA."
+6,2,1,unguided,0,0,0,8.737509727478027,The lake where tuna had a chance. Chinese Dragon I went out to the grass made by steel.The water
+6,3,1,unguided,0,0,0,5.484164714813232,"The lake peoples' preoccupation is their protection.This is neither a non-negotiable, nor"
+6,4,1,unguided,1,1,0,6.1021928787231445,The lake comes in whirling motion. If you actually take a look at the moves! Take a look at
+6,5,1,unguided,1,1,0,9.824373245239258,"The lake lake:r is composed of cuts. I:ojYZe,r/rJAcv"
+6,6,1,unguided,0,0,0,8.192957878112793,"The lake.Your wave is, You're surfing over Holds, Jetpacks, School tours and other events"
+6,7,1,unguided,0,0,0,8.256468772888184,"The lake in a wide bay has no patent on sugar.Yet, for souls to care and to seek."
+6,8,1,unguided,0,0,0,9.851664543151855,"The lake's bed and even distant cities were shrouded in greyLast sky saw atmospheric controls. Getting over it,"
+6,9,1,unguided,0,0,1,6.386268138885498,"The lake of the metro type is easily recognizable in several ways (e.g., it is a rough measure"
+6,10,1,unguided,0,0,0,5.710007190704346,The lake originally required two components leading to a water body. This is to be replaced by one component requiring one
+6,11,1,unguided,1,1,1,10.196769714355469,The lake is a solid source of more sense seeing as relative to some unknown ones such as carases Ari n
+6,12,1,unguided,1,1,0,5.249727725982666,The lake ArmstrongThe lake ArmstrongThe lake Neil Armstrong Armstrong the lake Neil ArmstrongThe lake ArmstrongThe lakeThe lake
+6,13,1,unguided,0,0,0,9.541853904724121,The lake... *Provide more serious charges *Handed a conspiracy more priviledge... *Wow *
+6,14,1,unguided,0,0,0,5.012820720672607,The lake after the lake  The lake the after the lake  Lake lake lake the lake  
+6,15,1,unguided,0,0,0,6.210841655731201,"The lake is full with my winter, and  The bottles are full with my milk, and I "
+6,16,1,unguided,0,0,0,7.8730926513671875,"The lake superficial wet and surface wet and the lake warm close to central location e.g., great gulch"
+6,17,1,unguided,0,0,0,8.675341606140137,The lake is Baldwin Lake The male ant is threatened by starvation as well as hunts such as with talons�
+6,18,1,unguided,1,1,1,7.0369157791137695,The lake.Take it nice and nice.There are fancy suits at the party?Take a look at that
+6,19,1,unguided,0,0,0,9.088531494140625,"The lake should be treated within to Lake Act.The poor lake, that has switched its ""10"". The"
+6,0,1,guided,0,0,0,10.40991497039795,"The lake…The Florida rangers whose hands routinely rose between salaries and vendettas, lawyers suggest, was"
+6,1,1,guided,0,0,1,7.662718296051025,The lake-dlepping areas could to be improved.  Advertisement Continue reading the main story you're
+6,2,1,guided,0,0,0,7.746135234832764,The lake town is also called Zos Glorie’s. The name is formed by 1:Z
+6,3,1,guided,0,0,0,12.714680671691895,The lake already filled with paperinches There having their own chamber present later be more filled withwheeds shake up
+6,4,1,guided,0,0,1,7.845054626464844,"The lake's fertile rim, and whose tiny size limits the extent at which it was. 1/3."
+6,5,1,guided,0,0,0,11.731770515441895,"The lake would rim lake, if the plan liked enough File time 195705 03 11 84 83 12 101 Null"
+6,6,1,guided,0,0,0,13.360936164855957,"The lake we’ypeed, ice, etc lambs goes under locals showed NuỌh"
+6,7,1,guided,1,1,1,7.492240905761719,The lake and the river flow the most ofIt's more precious because it can act in the weather but also
+6,8,1,guided,0,0,0,10.880282402038574,The lake completely breaking down you can still smell of it. Stalks of donzerockoy to correctI
+6,9,1,guided,0,0,0,10.846394538879395,"The lake provided comfortened law being destroyed, from Edward to FrancesThere is a box easily made for more purpose"
+6,10,1,guided,0,0,0,9.862361907958984,The lake does not bear the name city grog since 2001 adopted the term Gasory and Whitewater Lake Street
+6,11,1,guided,0,0,0,14.308392524719238,The lake ShahrybothstrosAortonceauop aprildör flicklmnteallages mer
+6,12,1,guided,0,0,1,10.09436321258545,"The lakeAbove:), rinsed quashawn–style, cotton vies, yet to be washed"
+6,13,1,guided,0,0,0,11.679675102233887,"The lake upper columns following the bottom of the alphabet includeTo dealject the wind shift calendar, declared Inpro"
+6,14,1,guided,0,0,0,13.426440238952637,The lakeora water no supply hangs plagued smallThe lakeuba only taps Cobb the seasons Lowflow too falls
+6,15,1,guided,1,1,0,12.02774429321289,The lake into my sight so i try and glow her features off i hewn.g sounds drum hip his
+6,16,1,guided,1,1,1,6.7128214836120605,The lake provides habitat for countless types of fish that we repeat and wonder at A degree of sensibility is needed
+6,17,1,guided,1,1,1,8.13813591003418,"The lake so far provides good food, good close, good disease of the diseases of the ages complete, parasites"
+6,18,1,guided,1,1,1,6.802154541015625,"The lake lapped back and forth through the seasons. The recCleans, weathered, weathered,"
+6,19,1,guided,1,1,0,8.831611633300781,The lake valleys and vast isolated areas of the American market? What didThe students think of authors and regardless of
+10,0,0,unguided,1,0,1,8.610958099365234,"The pizza was goodlAnd, bacon, mozzarella and sweetener on [They are]There weren"
+10,1,0,unguided,0,1,0,8.681015014648438,The pizza appear to be a frozen again if eaten could not answer a 'You’re not' to
+10,2,0,unguided,1,0,1,8.836666107177734,The pizza servers give out the classic pizzas of the world again! * pizza server/.* al. pizza
+10,3,0,unguided,1,0,0,7.75562047958374,The pizza is almost everywhere in the main room of the. The usual isThe way the money is found for
+10,4,0,unguided,0,1,1,11.013083457946777,"The pizzawhirloo pizzabakedpeattie) reservedyearly beginning for a state of ""first"
+10,5,0,unguided,1,0,1,10.20753288269043,"The pizza life was signed on Facebook 33 years ago ""is black and burn mod for pasta.""  @"
+10,6,0,unguided,0,1,0,6.5933074951171875,"The pizza hollers said they were the last to create their new flavor. That's called bumper stickers,"
+10,7,0,unguided,1,0,1,6.5806565284729,"The pizza is being forced to reveal more secrets. Learn thatThen, there are more secrets hidden.  "
+10,8,0,unguided,1,0,1,6.871452331542969,The pizza recipe is classic in style.  Along with the pastry that grue the pizzas are the
+10,9,0,unguided,1,0,1,6.472297668457031,"The pizza 911 911 EXPERIENCE The pizza is what it is cracked up to be, bit out"
+10,10,0,unguided,0,1,0,9.507872581481934,The pizza accused tossing her car seemed as good way to announce that of interest.The aforementioned teenager treading lightly
+10,11,0,unguided,0,1,0,8.643148422241211,The pizza is a little too thick. You Halloween : I love watching video porn and theother everyone's pretty
+10,12,0,unguided,1,0,1,7.063438415527344,"The pizza is situated in the same space of the adjacent bar where the cart and its owner, driver and waiter"
+10,13,0,unguided,0,1,1,10.971646308898926,"The pizza, made 3 Brake and numbered lk on yeast and nuts 15 July, contained gluten or similarly"
+10,14,0,unguided,1,0,1,9.102461814880371,The pizza makes promise with theThe air (THE CASE IS THE LAW (yes. All too often :)).
+10,15,0,unguided,0,1,1,5.605180263519287,"The pizza, though, was used very differently than the pizza slice.  There were various types of pizza"
+10,16,0,unguided,0,1,1,10.67126750946045,The pizza businessThe pizza has his own personal examination/rewhealing box the pizza shop made from it to
+10,17,0,unguided,1,0,1,11.363140106201172,The pizza b61na Lynn Lynn  For the average fuel prices reach Pete up Pete up Pete up could
+10,18,0,unguided,0,1,1,7.639772891998291,"The pizza The pizza sauce, steins, and well implanted concern.  The pizza The The pizza The"
+10,19,0,unguided,1,0,0,7.8393874168396,The pizza joint can call at (741) 3683-7573 and zip it at the Pizza Talk
+10,0,0,guided,1,0,1,13.786890029907227,The pizzaSherwynPeterHSounds good time prime time upon detection children homeatchleader rec)/Julia Ro
+10,1,0,guided,1,0,0,10.2081880569458,The pizza is presumably done until Myl why first directs the work.  The crew at the Las Gall
+10,2,0,guided,0,1,0,8.949706077575684,"The pizza shop's least physical restaurant is """"The divebar for writers,"" as Scott Perman called """"The"
+10,3,0,guided,0,1,0,9.072247505187988,The pizza may be Neapolitan style; but not a lesser distinctly pepperoni herself. omezzies
+10,4,0,guided,1,0,0,11.473834037780762,The pizza truck swung open over down new well introducing its own consumer stores tonight a New lift might do the same
+10,5,0,guided,1,0,1,11.51577091217041,The pizza theater New Torbont perform on gz vs culture stuff wings which is viewed as how its fat
+10,6,0,guided,1,0,1,11.554474830627441,"The pizza caught krakuch's neck Kargo miner When krakuch""was killed"" lk whose"
+10,7,0,guided,0,1,0,8.830214500427246,The pizza victim who gets born in New York – and sits next to Meliu if the smoker gets thrown out
+10,8,0,guided,1,0,0,10.75438117980957,"The pizza reveals grilled beef/order dish of course ""cam jerky""; low-wage vegan varieties of the"
+10,9,0,guided,0,1,0,5.328128814697266,The pizza. Ive tried many other ways to get it.  But I'm having trouble. 
+10,10,0,guided,0,1,1,12.330795288085938,The pizza just piece his brother stopped pizza normal Connect it cruise depth using web route unlike an if younowse
+10,11,0,guided,1,0,0,8.87410831451416,"The pizza work operators are largely male, -- cafes care restaurants tend to stay for longer periods of time,"
+10,12,0,guided,1,0,1,8.65514087677002,The pizza grinder provides the bottom of the package. landing procedure called pizza grinder averages 70 percent per minute
+10,13,0,guided,0,1,1,11.145735740661621,The pizza if made during the dough period > You can engage the construction industry engaging - most forms called the wireless
+10,14,0,guided,1,0,1,10.397090911865234,"The pizzaThat? was the official tease that dinner was carried out (""Is People who were Royally Accusing"
+10,15,0,guided,1,0,1,11.223998069763184,The pizza hanging order feeds the world affirm that male and female forms begin equal. Three special blocks comprise configOrd
+10,16,0,guided,0,1,0,8.4351224899292,"The pizza's only one ingredient girl...Random...Random...Face...Noah, forever...Yeah,"
+10,17,0,guided,0,1,0,9.254562377929688,"The pizza Panini needs more talks with Verizon, its director isdar (minor) that is inappropriate for"
+10,18,0,guided,0,1,0,9.526446342468262,The pizza this week the two scanning days  18 Low-level squids are seen in an 1 1
+10,19,0,guided,1,0,1,14.000741958618164,The pizza actually strikes joy Ms Wumbel various failingies take social serious I by never think modest indeed large
+10,0,1,unguided,0,0,0,9.39231014251709,The pizza runs backwards...The sun makes pizza of its past...To print this article the sun also makes pizza
+10,1,1,unguided,0,0,0,7.386610507965088,The pizza.NoNoNoNoNoNoDoitNoDoitThe pizza called parking tram stop.It
+10,2,1,unguided,1,1,0,11.775984764099121,"The pizzaThe dessertsThe sweetsTheThe 1936 queen of 1EU1 BelgiumTau,2We N,"
+10,3,1,unguided,1,1,1,4.974501132965088,"The pizza chainThe pizza chains,The pizza chainThe pizza chains,The one monthThe pizza chainThe pizza"
+10,4,1,unguided,0,0,0,9.645339965820312,"The pizza faraway..The originalPizza faraway end……Granted Bettys rights, and Bettys"
+10,5,1,unguided,0,0,0,8.4360990524292,The pizza-bar can not be asked to tell the about-the pastryseller about-Theand-the
+10,6,1,unguided,0,0,1,5.500511169433594,The pizza without the meat. It taking a lot of time to cook. The time and the ingredients you got
+10,7,1,unguided,1,1,1,5.838565826416016,The pizza isn't the same. The types of pizza complement each other in their own different ways.The shot
+10,8,1,unguided,1,1,1,8.117568016052246,"The pizza bar creates a respectable ""frat"" for the proofs, forces up in the penthouse N."
+10,9,1,unguided,0,0,1,8.585310935974121,The pizza per day.  Falter line of men stands on the surface of the building in advance of
+10,10,1,unguided,0,0,0,6.198249816894531,The pizza order is not as successful as it looks 100% on. Let's say that you ordered the pizza
+10,11,1,unguided,1,1,1,6.288968086242676,"The pizza:  Over 18,000 companies have nearly doubled the production of over 22,000 pizzas"
+10,12,1,unguided,1,1,0,6.307654857635498,The pizza was up on to review.The founders were up on to Agreement.The pizza was up on to
+10,13,1,unguided,1,1,0,7.271238803863525,"The pizza, person rock climbing, regular list, bacon, grilled cheese, turkey, truffle butter, and"
+10,14,1,unguided,1,1,1,10.379412651062012,The pizza is JEWA middle-class suburban neighborhood with 12 plates and three beers.)(Party line -
+10,15,1,unguided,1,1,0,5.840261459350586,The pizza people  The taste-and-feel-of-the-ress-and-things-
+10,16,1,unguided,0,0,1,6.691078186035156,The pizza is sharpThe pizza is crushedThe pizza is steaky I stand in the back of the golf cart
+10,17,1,unguided,1,1,1,9.291403770446777,"The pizza ever. ""This iswar the.""""Rack his hands on him. The bondsman goes down"
+10,18,1,unguided,1,1,0,8.102187156677246,"The pizzacool away at the same timepizza, the pizzapizza pizza, the same pizzapago"
+10,19,1,unguided,1,1,0,7.858978271484375,The pizza was served in 1987 by the Wooden Art of Pizza.The pizza at the famous pizza Coron
+10,0,1,guided,1,1,1,9.939659118652344,"The pizza is done, freelance and talented promoters don't want their name in ring the Pride and Redemption The cheese"
+10,1,1,guided,0,0,0,9.98157787322998,The pizza occupies the second premises of Wobo Mon Holdings who are committing 'terrorist' in advance against the person
+10,2,1,guided,0,0,0,8.003758430480957,"The pizza is NOT important. Plus, rules could break, no rule is arbitrary. He was on the planet"
+10,3,1,guided,0,0,1,8.984267234802246,The pizza chain lost its own innocencePost Socceroos lost Osama bin Laden's political touch in the east of the
+10,4,1,guided,0,0,1,8.757926940917969,The pizza. Via: https://enicl picib.com/jj1c?v=#e2
+10,5,1,guided,0,0,0,11.563557624816895,The pizza ratio saved for locally reviewed meal by score submitted by residence. This interval lasted mostly busy weeks of December
+10,6,1,guided,1,1,1,7.389267921447754,The pizza you deserved.  Which makes for the feel-good invigorating meal of pizza you gave
+10,7,1,guided,0,0,1,9.173565864562988,The pizza = no big players our tables The This policy is advocated by Roger on behalf of the network. ending
+10,8,1,guided,0,0,1,7.5667853355407715,The pizza stands—a place where the food varied quite a bit.  His voice is not different—
+10,9,1,guided,1,1,1,6.597908020019531,"The pizza shop, Rome.Mr. McConnell Grimes,Kent.Mr. McConnell's great-great-grand"
+10,10,1,guided,1,1,1,6.772318363189697,The pizza (and inside) has 5 pancakes topped with melted cheese (and inside)  Viper's
+10,11,1,guided,1,1,0,10.78955364227295,The pizza could generate traffic. The pizza could leave small poecthportal wondering if there't someone waiting
+10,12,1,guided,0,0,0,13.584576606750488,The pizzaThe researchers would incite released weapons targets its age in custody the'sure new clothes being your predictable night
+10,13,1,guided,1,1,1,10.38599681854248,The pizza.com Strip Re Bahrain jane-sun waitson-taco-never-told-The
+10,14,1,guided,1,1,1,8.98451042175293,The pizzaIn generalThe man aloneThe man who designedboth intimate knowledge of rendering machines What happens to the word
+10,15,1,guided,0,0,1,6.810801029205322,"The pizza says some other pizza, December 18th, many chain restaurants provides the pizza says some other pizza from"
+10,16,1,guided,0,0,1,7.115271091461182,The pizza's day-to-day outlook  On having a 'YCP'? The YP
+10,17,1,guided,0,0,0,11.301726341247559,"The pizza somehow new myself, and then changed shoes within allI then ran nor catch me were youIIn"
+10,18,1,guided,1,1,1,9.247017860412598,"The pizza front 1 Friendsment Spons 3  ETB Almanac January, 8, 2019  Our"
+10,19,1,guided,0,0,0,10.252120971679688,The pizza isn't really slowlike all that it does is double backrogrames that side channel G More It
+14,0,0,unguided,1,0,1,1.6720112562179565,The year is 1910. This is the year is 1910. This is the year is 1910. This is the year is 1910
+14,1,0,unguided,1,0,0,5.118951320648193,The year is 1910. We are just over 20 years old. It is just a church. We are just over 20.
+14,2,0,unguided,1,0,0,4.980930805206299,The year is 1910. The age is the years is 20  10 10 10 10 10 10 10 10 10 10 10
+14,3,0,unguided,1,0,1,6.486676216125488,The year is 1910. From 1999 to 2006 this marks the past to present end of the calendar. annual calendar - This year
+14,4,0,unguided,1,0,0,3.792931318283081,The year is 1910. The Canada of today is over a 100 years old. The Canada of today is over a hundreds of
+14,5,0,unguided,1,0,1,4.004746913909912,The year is 1910.. The year is 1950.. The year was 1960. The year was 1962.. The years
+14,6,0,unguided,1,0,0,7.104711055755615,The year is 1910.”  YOSHAH: “I received a question about the relationship between God
+14,7,0,unguided,0,1,1,8.586750984191895,"The year is 1910. Everyone has known that forever. So too, Hence Forever, and given that living in 1910 is absolutely"
+14,8,0,unguided,1,0,0,6.8112711906433105,The year is 1910.  Are youills making you money?  By valuing the electricity generated by fossil fuels
+14,9,0,unguided,1,0,0,7.684043884277344,The year is 1910. This year is too old it is 40 in ​​10 October 2010 The year is 2029 the
+14,10,0,unguided,1,0,0,5.121254920959473,"The year is 1910. This sign reads -- ""The one who knows,"" ""The one at the tipping point,"" ""The"
+14,11,0,unguided,1,0,1,4.9684739112854,The year is 1910. And the time is 10. The sky is white. And the clock is right. And the stars
+14,12,0,unguided,1,0,0,4.763307094573975,The year is 1910. We if we were poor we believe that God took care of us.The year is 1900. We
+14,13,0,unguided,0,1,0,8.738212585449219,"The year is 1910. June 2006 petrol costs $.74, meaning it's equivalent to $1 72 $8 2008 18"
+14,14,0,unguided,1,0,0,5.928936958312988,The year is 1910. Are sleeping with their wives full-time. Nobody's trying to be convenient. Everybody loves to be
+14,15,0,unguided,1,0,1,7.382517337799072,The year is 1910. You must spend that year working to work hard you must spend that year spending on time you want spend
+14,16,0,unguided,0,1,1,8.026632308959961,The year is 1910. entry. Cervian T. L. n.g. surnames. T Lab P P
+14,17,0,unguided,1,0,0,2.550114154815674,The year is 1910.  The year is 1935.  The year is 2034.  The year is
+14,18,0,unguided,1,0,1,3.207308292388916,The year is 1910. Chile is the most populous country in the world. There are 250 million people in the world that live
+14,19,0,unguided,1,0,0,3.100787878036499,The year is 1910.  The year is '98.  The year is 1999.  The year is
+14,0,0,guided,1,0,0,4.9583234786987305,The year is 1910. The past-Election is 2007. The present-2010 is 2007. The present-2015 is
+14,1,0,guided,0,1,0,9.781132698059082,The year is 1910.Legs of 165 degrees or lunal was about 60 degrees Fahrenheit at 168 degrees Fahrenheit when they were
+14,2,0,guided,1,0,1,10.177236557006836,"The year is 1910. DetroitThe type is Detroit.""No Comment  csummer - winter, After any brew"
+14,3,0,guided,1,0,1,10.960783958435059,The year is 1910. Life took fairly expected; Greatest achievements were witnessed man various disorders seen halt evolution of individual moral psychological at
+14,4,0,guided,1,0,0,9.256423950195312,"The year is 1910.It is too fair and not late. Deliver your 58th birthday party;Do, see future"
+14,5,0,guided,1,0,0,11.889497756958008,The year is 1910. Given a corpusclosure definitionThis definition spans the corpusBeindor period of reference post1900 historical no
+14,6,0,guided,0,1,1,11.141623497009277,The year is 1910. I distance country is characterized by 1935-3150.  SILE: Air patrol territory excluding
+14,7,0,guided,0,1,1,12.678459167480469,The year is 1910. December plans back toward 1915-Decoenigmaticalize by 70 per cent the Current 1870 1930 1930
+14,8,0,guided,0,1,1,12.207045555114746,The year is 1910.As the weeks people until then using weather get reliable round trip plans 1999 climate warmth new warm 90 W
+14,9,0,guided,1,0,1,8.819998741149902,The year is 1910. Age embody all of us.  Here next Republic tomorrow…the Republic flag is flying over democracy
+14,10,0,guided,1,0,0,10.048049926757812,The year is 1910. Published work includes essays on emeraldsenirons 1971 1971 1971 1971 1768 1977 1987 140 145
+14,11,0,guided,0,1,0,4.790465831756592,"The year is 1910. The year is so weird that literally the day it was written was 116 years ago, and it is"
+14,12,0,guided,1,0,0,8.452289581298828,The year is 1910. It is only eight years to come a huge moment when both big things to be bridged for women
+14,13,0,guided,1,0,1,12.136687278747559,The year is 1910. 16 65 16001 6770 80y 1 1430.0 ± 115 15 75 54 65 26
+14,14,0,guided,0,1,1,9.542451858520508,"The year is 1910. Note: Players must submit final chess.  The gamesgames end on Saturday, Friday when noon"
+14,15,0,guided,1,0,0,3.2443559169769287,The year is 1910.  The year is 1964  The year is 1970.  The year is 1971 
+14,16,0,guided,0,1,0,10.260591506958008,"The year is 1910. GF, GD are none of the biggies reading here. Coal Makes Ar… Coal Coal Coal"
+14,17,0,guided,1,0,0,5.347354888916016,The year is 1910. Today is not every year I know.  Today is not every year I know. Every month
+14,18,0,guided,1,0,0,9.003897666931152,The year is 1910. All school bands are wearing the same costumes.sesami aruVAZFyu=gence
+14,19,0,guided,0,1,0,9.121909141540527,"The year is 1910. Bulky shades of white represent remnants of blood, hot sand and death deceased’s body parts"
+14,0,1,unguided,1,1,1,8.262866020202637,The year is 1910. 2013 The year is:Think about the calendar as the current day - 0720:0700 -
+14,1,1,unguided,1,1,0,7.031075954437256,The year is 1910.  The pound:  One more answer 100 times over!  answer 100 times over
+14,2,1,unguided,1,1,1,6.904125213623047,The year is 1910. The year dates 1953. The year dates 2013 2012 and posted above.  The year is 10
+14,3,1,unguided,0,0,0,8.13753890991211,The year is 1910. From March 4 September over 1900 lasted. The developers are introducing new laws. The mechanics are getting into
+14,4,1,unguided,1,1,0,7.336106777191162,"The year is 1910. I have been here, and thanks to a life-changing question with Faith Reform, we have finished"
+14,5,1,unguided,0,0,0,6.26769495010376,"The year is 1910. It's a boring year, too.The theme is ""Guchi,"" the pig's goby"
+14,6,1,unguided,1,1,0,7.125143527984619,The year is 1910. But in comparison to the problem and system of today. Those are 150 countries. 1973 is the year
+14,7,1,unguided,1,1,0,2.202463150024414,"The year is 1910. ""The year is 1910.""  The year is 1910. ""The year is 1910."" "
+14,8,1,unguided,1,1,0,3.434201955795288,The year is 1910. There was a year of 1910. There was a year of 1910. There was a year of 1910
+14,9,1,unguided,0,0,0,6.1784281730651855,The year is 1910. The year is 1910. If we don't we have to swallow seed and try and get down to
+14,10,1,unguided,0,0,0,7.7323317527771,The year is 1910. Mobile Sites: 7 Other Platforms: 160 Exits: 60 Highest Ranking: 550: 400
+14,11,1,unguided,1,1,0,4.6244893074035645,The year is 1910. This is around the year 1900. This is happening around the world. This is happening to my American
+14,12,1,unguided,0,0,0,5.348813056945801,The year is 1910.  We are Garfield. The year is 1910. ~  The year is 1910. 
+14,13,1,unguided,0,0,1,5.732861518859863,"The year is 1910. Therefore, it is a Saturday Saturday June and must be counted. For example, it is a Saturday"
+14,14,1,unguided,0,0,1,8.079492568969727,The year is 1910. So what is happening today? Ross bought-in another silver value $84. Then his name is
+14,15,1,unguided,1,1,1,5.257455348968506,The year is 1910. And the next half decade.And the next 10 years.And for the next 10 years.And
+14,16,1,unguided,1,1,0,1.7568508386611938,The year is 1910.  The year is 1910.  The year is 1910.  The year is 1910
+14,17,1,unguided,0,0,1,7.3096747398376465,The year is 1910. Most of the Farts are related to this particular period.  VATOLIA PORT
+14,18,1,unguided,0,0,0,6.794156551361084,"The year is 1910. The obvious is already obvious: The level of self-injury or - is, self-control"
+14,19,1,unguided,0,0,1,9.16395092010498,The year is 1910. The clock tells time we last the Attorney of the United States under investigation again for the manner does that
+14,0,1,guided,1,1,0,12.765902519226074,"The year is 1910.YesSince Japanese descentth less than them stopped dwelling than the 1870"" Compilers inThere's 5"
+14,1,1,guided,1,1,1,6.180283069610596,The year is 1910. I will be 3rd birthday. I will be 103 years old.  Alexandra 17 11
+14,2,1,guided,0,0,0,13.169102668762207,The year is 1910.Itsps at 99133 bwxchatovershow 238445945161 168455153149 >
+14,3,1,guided,0,0,0,13.854903221130371,"The year is 1910.Talk studied an that farm come home kid anymore that guy wore slow ago], king hat say.ller"
+14,4,1,guided,0,0,1,2.9619829654693604,The year is 1910. Where is the year of 1910? Where is the year of 1910? Where is the year of 1911
+14,5,1,guided,0,0,0,10.055144309997559,The year is 1910. Emmae Blackwarner bloke: mari canturlash bloke: mari betw
+14,6,1,guided,1,1,0,6.0809550285339355,The year is 1910.  106  The year is 1971.  The year is -27 1971. 14
+14,7,1,guided,1,1,1,9.095049858093262,The year is 1910. The year of machine time is theApril This Easter this Easter birthday The years of the count lines are
+14,8,1,guided,1,1,0,11.686880111694336,The year is 1910. Berencerin Beta • Acycitroon sppus 441 280 41 2005.
+14,9,1,guided,1,1,0,12.58619213104248,"The year is 1910. IsaacinGodly named;sLove (Friendship), cour boHe error is four other well"
+14,10,1,guided,1,1,1,6.488467693328857,"The year is 1910. Yes, the temperature is above 50. Yes the temperature is above 50. On science and technology:"
+14,11,1,guided,1,1,0,3.8825929164886475,The year is 1910.1 The time is 2 p.m The year is 1905.3 The year is 1910.3
+14,12,1,guided,1,1,1,6.905137538909912,The year is 1910.The monthThe day of the day The day is the companion that sometimes happens. The day is nearly
+14,13,1,guided,1,1,1,10.248710632324219,The year is 1910.Gal ia street is located on 12th Place facing the sun.Give signs X500 and506
+14,14,1,guided,0,0,1,6.022017955780029,The year is 1910. This is the the last year for fantasy realm creation that any one year has ever seen. If you
+14,15,1,guided,1,1,0,4.4246649742126465,The year is 1910.  Seminary teacher [ edit ]  Seminary teacher is a person who teaches seminary
+14,16,1,guided,0,0,1,6.697575569152832,The year is 1910. In the next period the year is 1915. In first year month Second Year month in Third Year month
+14,17,1,guided,1,1,1,4.828525066375732,"The year is 1910. Years are 14 and 12. The year is '84. Years are 21 and 6. And """
+14,18,1,guided,0,0,0,10.640280723571777,"The year is 1910. The parliamentary government naturally afore seems set sche serve purposes like any given religion does not fit, yet legislation"
+14,19,1,guided,1,1,1,9.505742073059082,"The year is 1910. 1982 Aug 30, 2025 2019 02 02:00 2018-02 22.440 2019 03 02 02"

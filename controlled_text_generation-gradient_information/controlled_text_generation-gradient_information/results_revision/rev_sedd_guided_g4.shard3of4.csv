@@ -1,0 +1,241 @@
+prompt_idx,sample_idx,target_label,arm,judged_label,hit_target,clf_self_label,span_nll,text
+3,0,0,unguided,1,0,0,9.03092098236084,The cityThe perform of a childaracts are rarely achieved very quickly—this is the performance of a child
+3,1,0,unguided,1,0,1,9.685664176940918,"The city, who we selectTheThest Out Of ThestThe city has a peaceful security force, who"
+3,2,0,unguided,1,0,1,7.980262756347656,The city’s drug community  Perhaps (the theme) captures the craftsman's power in the
+3,3,0,unguided,0,1,0,3.3841617107391357,The cityWashashashashashashashashashashashashashashashashashashash
+3,4,0,unguided,1,0,0,8.017315864562988,The city titled “Fernando Subro” opened “Fernando Subro in�
+3,5,0,unguided,1,0,0,8.960798263549805,The city of the 10-14 the 15-15-14 it did exist in a situation when he says
+3,6,0,unguided,1,0,1,7.899814128875732,The city-of-London  home to approximately 1.9-New Yorkers in Brooklyn less-powered
+3,7,0,unguided,1,0,1,7.433267116546631,"The city of restraint and brick made calls to of Wichita,>The city of restraint and brick made calls to"
+3,8,0,unguided,1,0,1,6.824258327484131,The city of this blog makes it relatively easy to see how tourism is perceived as a threat and how it works
+3,9,0,unguided,0,1,0,7.5719313621521,"The city on defensive, when the city's contract for making a Super Bowl will cripple everyone else's business"
+3,10,0,unguided,0,1,0,7.482701301574707,"The city is predominantly from fuels, both petroleum and carbon dioxide.The cityThe city has the alcohol, the"
+3,11,0,unguided,1,0,0,3.963778018951416,The city of the place....The new place....the city of the place....The new place....the city
+3,12,0,unguided,1,0,1,5.449915409088135,"The city's bond values rose, 63 percent compared to the city's fiscal year.According to the city,"
+3,13,0,unguided,1,0,0,8.367262840270996,"The city had allowed the state's most extensive arms sales since late December. To keepIn state control, pal"
+3,14,0,unguided,1,0,0,6.98396635055542,"The city of Aegis, the AegisAnd 1050The city of Aegis, 1050 Aegis, 10"
+3,15,0,unguided,1,0,1,7.672166347503662,"The city in which, family livesFifteen years ago, today, HisJob completed.His family members"
+3,16,0,unguided,1,0,0,9.030731201171875,"The city of Cleveland could have another racial punch on the country this years' white supremacist card, not be"
+3,17,0,unguided,1,0,0,8.944032669067383,The city of Delhi is and moves against it of a black conspiracy are flying high. II propose to acquire
+3,18,0,unguided,0,1,0,7.397003173828125,The city of CentraliaThe city of Centralia the natural side of the city.760101 1973 30
+3,19,0,unguided,0,1,0,8.035906791687012,"The city would really try to design its ITS, as well as ITS, when it comes to gather with ITS"
+3,0,0,guided,0,1,0,11.353521347045898,The city councils planners do superficial revision to make sure the mixed open lot tile database business state did not poor political
+3,1,0,guided,0,1,0,10.736126899719238,"The city ranges from Football MP,P ideology Soccer70,p8624 on average afford very little at all"
+3,2,0,guided,0,1,0,10.055937767028809,"The city thinks,”I likeThis So I'm not an option» shadow does the funniest things"
+3,3,0,guided,1,0,1,11.265795707702637,"The city may take any spiritual moment usually carries momentum, Amar said, but this claim seesakes state political dimension"
+3,4,0,guided,1,0,0,11.667640686035156,The city undertook complex thought and change based care of law fire chapters;This remain to monitor responsibly pace pace pace
+3,5,0,guided,1,0,1,10.181690216064453,The city of Greaterompton are planning to warm up streets and remove + __pegit6_src_
+3,6,0,guided,1,0,0,10.826987266540527,The city-Spheres decide-take the air 7pm (megati).  BBC/Environment:
+3,7,0,guided,0,1,0,12.366022109985352,The city usuallyrecognizes low-flying every level manned MVP function.Brame wants quick ashi helicopters...
+3,8,0,guided,0,1,0,9.684530258178711,"The city's ""food, ferry operators"" have apparently been offering Paris's Rambon pricey housing for tourists"
+3,9,0,guided,1,0,1,13.888521194458008,"The city mayor significant grant incentive keeps Anglicath upon take matters non/ competing church Constitution Today solemnnergizes,"
+3,10,0,guided,0,1,1,14.82682991027832,The city Exchange visa program get traditionally used joint convention system undercoverhound lines.--875nd Danny Stewart believes trains die
+3,11,0,guided,0,1,1,13.298701286315918,"The city's largest caretaker"" may render totally nonaircoiling but 46 SH46 SHARES Thaaa 54"
+3,12,0,guided,1,0,0,5.421632289886475,"The city ofWall Street is part of the United States and has metropolitan areas of more than 16,000 populous"
+3,13,0,guided,0,1,0,10.96362590789795,The city building code. êOne or 750: inhabited by 435 or more family One or 7A
+3,14,0,guided,0,1,0,9.487933158874512,The city of Sacramento had fewer than 39 housing homes March 2016ACA KSPA the Legislature doesn't release figures
+3,15,0,guided,1,0,0,10.014812469482422,The city’s bus-loin feature itself creates the now familiar question inquiry that followed as each bus
+3,16,0,guided,1,0,0,5.732408046722412,"The city became the world's biggest industrial output, soaring more than 10 per cent in just the last 75 years"
+3,17,0,guided,1,0,0,10.870582580566406,The city was capitalKeating X)(Arville The Voyager 3(Ice) The entire country he beingThe
+3,18,0,guided,0,1,0,11.311774253845215,The city dubbed him Sm [cityAlabama]. Seem to have Matthew Ward's threat of allegiance [quite and
+3,19,0,guided,0,1,0,10.377786636352539,The city suddenly issued more barriers.0516 ( cabana )  Firework remained closed in Vancouver.
+3,0,1,unguided,1,1,0,10.003094673156738,"The city of the Dallas file guide. Here's what'd happen about ""Bosh: complain of filing process"
+3,1,1,unguided,1,1,1,8.932074546813965,The city and all the city who joined the city in their palace of Mad Max andThe city rife and its
+3,2,1,unguided,1,1,0,7.623204231262207,"The city has taken my directions. ""The position east is known."" And. ""The city takes my directions"
+3,3,1,unguided,0,0,0,8.95589542388916,The city of Buffalo is tied with Nevada for attempts in the one-stop sport department to hire more than re
+3,4,1,unguided,1,1,0,7.264595985412598,The city size of the country is relatively small and home to schools such as Kadylinoff along with
+3,5,1,unguided,1,1,0,6.960727691650391,"The city plans to expand, including Washington, D.C. forThe city 2015 planned, exciting and empowered"
+3,6,1,unguided,1,1,0,4.8822526931762695,The city's own policies with a reference to drug policy  The city's own policies with a reference to
+3,7,1,unguided,1,1,1,7.450314998626709,The city of Franz Roberta is one of six in the KOH52 Region with a reputation for corporate present
+3,8,1,unguided,1,1,1,6.911614894866943,The city supports the Clarke-Clarissa Ray.  Clarke-Clarissa Ray.  Clar
+3,9,1,unguided,1,1,0,7.139512538909912,The city of Mocco is expecting to earn secondary certification in the October 19 and 26  Saint-
+3,10,1,unguided,1,1,1,5.884026050567627,The city of Memphis is in the city of Memphis Airport  The city of Memphis Vanderbilt Airport Lexington: Lexington
+3,11,1,unguided,1,1,1,7.86990213394165,"The city in the nation that keeps up when it comes to reviewing the movies in Indianapolis (now, Indy!)"
+3,12,1,unguided,0,0,0,5.392379283905029,"The city is defunct and while the council is defunct, the city is defunct and the city is defunct due to"
+3,13,1,unguided,1,1,0,7.780154705047607,The city ofviews: The city ofviews.The media is looking at one it's a relatively grim look
+3,14,1,unguided,0,0,0,8.30185604095459,The city of provides Toronto I walk nowhere near as fast as I can walk Hyfening speed is a bad
+3,15,1,unguided,1,1,0,6.344794750213623,"The city of Austin is dealing with state lawmakers over parking.  In the video posted below, “"
+3,16,1,unguided,1,1,0,5.33623743057251,The city of Dabiq is the city of the city of the hijrahan is the city of the
+3,17,1,unguided,1,1,1,9.712320327758789,The city's first ribsThe members of the available cohort of landmen/Fantas TV's birthdayThe
+3,18,1,unguided,1,1,1,8.408087730407715,"The city's environmental staff knew wolves well. They presented benefits, benefits of living together, causing fires, feel"
+3,19,1,unguided,0,0,0,7.040383338928223,"The city in question's name.  Known as the ""Little Black"". Or ""Just Below Black""."
+3,0,1,guided,1,1,1,9.017788887023926,"The city will ForWell under your home porch, as well as will ForBring you WorldYODA nearby"
+3,1,1,guided,0,0,0,13.75207805633545,The city given Columbia). Moose attempts never head North this condition whereas they gives him areNot Everyone In Oxford drunk
+3,2,1,guided,0,0,1,7.841923713684082,"The city of Detroit and each individual of concern. Access to restricted and restricted information means a possible 37,000"
+3,3,1,guided,0,0,1,11.019721031188965,The city's migration drivers fled. According to the Rwandan Free TV reported forming police camps involving residents id is
+3,4,1,guided,1,1,1,11.776698112487793,"The city of xiah, the interpretation in which we in supergay invincible superhero estrin a wonderful girl"
+3,5,1,guided,1,1,0,13.784750938415527,"The city of ICE presents, world calendar edition 5 1934 July motor services bayieu andville bybybyby"
+3,6,1,guided,0,0,0,13.8632230758667,The city once pushes the date official along significantly three active minutes years 010001003806 minutes 2100mains
+3,7,1,guided,0,0,1,10.098780632019043,"The city faculty member presents ""rewritely formatted"" formulas for students 12.8 star as the last hour"
+3,8,1,guided,1,1,1,10.550722122192383,The city street whether celebrates operate as a highly poetic strand between the many periods many years the ruling ministry has put
+3,9,1,guided,0,0,1,9.790061950683594,"The city means AC, chs means Aetar (,,. )( 'when Aetar"
+3,10,1,guided,1,1,0,10.78290843963623,"The city-requiresatsdaily beloved favorite (including among conservatives) hashtag #NASAOPny, which means"
+3,11,1,guided,0,0,0,11.493453025817871,"The city's findings suggest extending any base out the Denver strip, which also has barn sning in particular Aurora"
+3,12,1,guided,0,0,1,8.197120666503906,"The city of which we symbols the mightyWe needs a multi-fire...and you guessed it. Oh,"
+3,13,1,guided,0,0,1,10.443682670593262,The city whose executive appointees can give money: London. © RahulYevamore** Movie: Rah
+3,14,1,guided,0,0,0,15.966461181640625,The city proudly absorb 67 loss unemployment mixed off “bah thousand Baronety mile flat mono seaw dialectically larger
+3,15,1,guided,1,1,1,9.219976425170898,The city’s six rival gangs are alternately tied to that mayor who believed Chicago's next best idea
+3,16,1,guided,0,0,1,9.508162498474121,"The city does not develop baseball. Even, they particu­gle the threat of incoming newspapera­"
+3,17,1,guided,1,1,1,10.161937713623047,"The city of southernia, which leads into Farsel) Province.- Chinese immigrants tend their own projects.Although"
+3,18,1,guided,0,0,1,12.602259635925293,The city says commencement school of housing semi theolithic high alert event data Android 163RCFBRN BRC
+3,19,1,guided,1,1,0,12.899985313415527,The city collects11I from those outside the animal industry roughly 600 years after generating As Its most desentiallymuch
+7,0,0,unguided,0,1,0,5.930159091949463,"The last time I spent at home was on a visit to a mine in Camden, which was going to be one"
+7,1,0,unguided,1,0,0,9.088056564331055,The last time the US has spoken to it since Ebola was on improving its understanding of the science that makes and doesn
+7,2,0,unguided,0,1,0,7.561337471008301,The last time I was listening to who was mine or another I didn’t ask for it I was myself
+7,3,0,unguided,1,0,1,8.19473648071289,The last time I flew since 1977 is when Bennie Fassel lifted wing 224.The last time I had trouble
+7,4,0,unguided,0,1,0,5.708143711090088,The last time I was thrown out of a window while training was in a fast moving truck.Not in a controlled
+7,5,0,unguided,0,1,0,7.452691078186035,"The last time, no matter what, Mac OS and Chrome OS were seen a few years back and... the past"
+7,6,0,unguided,1,0,0,7.754022121429443,The last time I tried to discover a new “parental level“ site I have mysteriously not discovered a
+7,7,0,unguided,1,0,0,8.664381980895996,The last time Eddie Howe was inside the box where the captain set for 'One side' was built The next captain
+7,8,0,unguided,0,1,0,5.98720645904541,The last time it freaked him out  TheLast time I freaked it out  TheLast time
+7,9,0,unguided,0,1,0,6.363798141479492,The last time I came back was 23 miles from my house. It was exactly the same as nowBut without money
+7,10,0,unguided,1,0,0,5.192298412322998,"The last time I saw six whales was in Doha, the last time I saw six whales was in Tuf"
+7,11,0,unguided,0,1,0,5.7858710289001465,The last time that I was really playing games has been a combination of that the last time when I was really playing
+7,12,0,unguided,0,1,0,6.347878932952881,"The last time, I told you that I don't like people whom I criticized in it for saying something they never"
+7,13,0,unguided,1,0,0,9.896586418151855,The last time his kelgan has aired he has been servedwith drink for the holidays old foe Pizzi
+7,14,0,unguided,0,1,1,5.615029335021973,The last time I thought about this being honest about it Last time I thought about ILast time I thought about I
+7,15,0,unguided,0,1,0,10.0806245803833,"The last time she knew all to needed to, when was straight, or when she wasn really straight.And anybody"
+7,16,0,unguided,0,1,0,5.336994171142578,"The last time..That's, the end..The last time..That's, the end..It's time"
+7,17,0,unguided,1,0,1,4.968504428863525,The last time you'll get your haircutThe last time you'll learn to hit the ballThe last time you'll
+7,18,0,unguided,0,1,1,6.771320343017578,"The last time I heard that I had said: M, 'O, and 'I' are in the South"
+7,19,0,unguided,0,1,1,9.55240535736084,The last time the world finds that what seems to be the flow of principal equity between class and wealth repositories being tracked
+7,0,0,guided,0,1,0,9.360930442810059,The last time Kodi beta was shown an image floating around the boxes folder of a B file being retrieved from a network
+7,1,0,guided,0,1,0,10.643965721130371,The last time I knew pal isn’t know pal is somethis weird feeling there is no better awkward feeling
+7,2,0,guided,1,0,1,10.11844253540039,The last time you've leftThe world that you look the next eastyyyyy....to whom we players refer
+7,3,0,guided,0,1,0,7.484742164611816,The last time I left I have been trying to figure what happened there. Inrogative - How would you settle
+7,4,0,guided,0,1,0,10.242143630981445,The last time you turn your collar up nothing will be achieved past sunset (last time my pulled face together do not
+7,5,0,guided,1,0,0,10.080626487731934,The last time I lost fashion? Austin Brown (BacRhgJrEbR) 74)865
+7,6,0,guided,0,1,1,14.810020446777344,The last time jail terror played Nice 20 nab 2012 Same law 2012 filed charge bank kidnappingParent now rapeconsimious
+7,7,0,guided,0,1,0,8.867910385131836,The last time a crisis situation security threat stood at overwhelming response was the terrorist attack in March 2013 turning 276.33
+7,8,0,guided,1,0,0,6.408484935760498,The last time I went down there  1 year ago  2 years ago went down there 15…15
+7,9,0,guided,0,1,0,12.180870056152344,The last time mid this air tower-bearing lives off having killed so very many men and women within sectors forever binding
+7,10,0,guided,1,0,1,13.900598526000977,The last time during 168 years when Revolutionary CultureInternational February 2014In 14 June formation year( attended Prison Universityiti New
+7,11,0,guided,0,1,1,11.96875286102295,The last time Citizen BIS team badly hungry at having be go bring about four -: world? including both partners
+7,12,0,guided,0,1,0,9.091453552246094,"The last time we were in this-used section after Beatles, two skills on which our progress has been effortless"
+7,13,0,guided,1,0,0,8.594087600708008,The last time press was reported seriously? T told him that while sometimes problems would come up but repairs were made or
+7,14,0,guided,0,1,0,8.24976921081543,The last time I tried Waterloo play I did not really stand out (still hope I doNotis some pattern though
+7,15,0,guided,1,0,0,11.744180679321289,The last time they met so exclusively on field night in Sted n Patsy also goes to work when Hogan sleeps
+7,16,0,guided,0,1,1,13.329936027526855,The last time?)httpd exampleercom catalynd09 0007:254670http://azon.com
+7,17,0,guided,0,1,0,10.744843482971191,The last time anyone has been making passes at suGRID but we'd(n DICK WAINTT)
+7,18,0,guided,0,1,0,9.978941917419434,The last time APK ran through the open gates was Garbov when UVH can be practically no in part
+7,19,0,guided,0,1,1,13.8303804397583,The last time NFC North practiced lateAdams racked up triple chanceLate in October.*David ClevelandJAS players responded beginning
+7,0,1,unguided,0,0,0,9.058722496032715,The last time we had to say our own RepellingField Station was a imposter to fight for a war or
+7,1,1,unguided,0,0,0,6.0598320960998535,The last time I looked at the events of the past few months have taken my place here with my friends and family
+7,2,1,unguided,0,0,0,8.895148277282715,The last time I see this is in (+ years) Knicks -11 NL 18-49 ORI last saw
+7,3,1,unguided,0,0,1,6.953698635101318,The last time he can play that role. playing this game without a parent can be deadly to the player. Players
+7,4,1,unguided,0,0,0,9.089961051940918,The last time it happened to... Mark McCormick Fraz York Harrison / Getty Images... Mark McCormick nine months ago
+7,5,1,unguided,0,0,0,8.93370246887207,"The last time to did your calculations between all farm hand registrations, of a last time to do your calculations between all"
+7,6,1,unguided,0,0,1,8.527318954467773,"The last time it's been an island a million miles away, in December 1970 2015, the first trip she the"
+7,7,1,unguided,1,1,0,5.14294958114624,"The last time it has been updated was on October 30, 2017.  Note that the above is a post"
+7,8,1,unguided,0,0,0,4.077160835266113,The last time we went back to play in the UK The last time we went back to play in the UK in
+7,9,1,unguided,0,0,0,8.764460563659668,The last time a player's missed appearance was made not before that player's training debut was made by the same player
+7,10,1,unguided,0,0,0,7.112208843231201,The last time the hours 21:30-25:15 was used as the gateway to travel from Wisconsin through
+7,11,1,unguided,1,1,0,6.359610080718994,"The last time Hillary Clinton in office decided to take the stance against the US Military, was the tiny town called Tennessee"
+7,12,1,unguided,1,1,1,8.786152839660645,"The last time around, the Spice Cell and Hunter's magical powers seem to be able to snatch you away from her"
+7,13,1,unguided,1,1,1,6.217515468597412,"The last time we spoke for eight years and the first thing I ever told her was, 'You never remember,'"
+7,14,1,unguided,0,0,0,5.880064487457275,"The last time I paid in money If you're in Texas this year, it's trying to get people to fly"
+7,15,1,unguided,1,1,0,5.85788106918335,The last time the news was about 37-year-old about to get into a two-and-half hours
+7,16,1,unguided,0,0,0,7.22346830368042,"The last time I let it go, even though I struggled to open it again through tears of pain and disappointment."
+7,17,1,unguided,1,1,0,5.359297275543213,The last time I popped up was this (Discovering)...The last time I popped up was this (
+7,18,1,unguided,0,0,0,7.50668478012085,The last time a natural disaster was occurring in the United States is a limitation of satellite imagery according to Joshua again again
+7,19,1,unguided,0,0,0,5.064742565155029,The last time I've talked about about the last time I've talked about about the last time I've talked about
+7,0,1,guided,0,0,0,14.788348197937012,"The last time oilighters blink: im unknown.), almost universally not the be much unless partially defined constant function )(("
+7,1,1,guided,0,0,1,11.368439674377441,The last time Obama reporters’ office has been gross and human abuse And you heard right. That same recent From
+7,2,1,guided,0,0,1,8.531352043151855,"The last time Away from America, we had a local-American casting hurdle, which Barack Obama played as a criminal"
+7,3,1,guided,1,1,0,10.634510040283203,The last time the words literallydidn't touch. Marquis an English 2 rental hotel in Toronto 15 years 49 nights
+7,4,1,guided,0,0,1,14.146928787231445,"The last time, stayedrix than the same held our day 25 June 1980 TapN 0614 Share. 05 AOL"
+7,5,1,guided,0,0,0,13.069254875183105,The last time up lived due slightly-trattle-backed nightmare distinct origin citing ‘Rygorod’
+7,6,1,guided,0,0,0,12.069785118103027,The last time I rounds itWith impression I'd ordered myLast The ate itThe travel world I have took taken
+7,7,1,guided,0,0,1,8.616037368774414,The last time I stood in front of patient 4s or patient 3s in 2012 18:02:35 day
+7,8,1,guided,0,0,1,11.758217811584473,The last time we shot enough pictures moved enough Barring our flea market to memory store bike share ‘99
+7,9,1,guided,0,0,0,8.072250366210938,The last time state football played for Dallas these some awful years …  That would have been sometime during the 2001
+7,10,1,guided,1,1,0,12.010591506958008,The last time Major and Walters to hold state positions has a for by comparison via referendum came into force since2002 BYU
+7,11,1,guided,0,0,0,13.0436372756958,The last time camera detected a person approach the voting machine adds the Pokémon Grudssoetzseglickakaz
+7,12,1,guided,1,1,1,6.797640323638916,The last time I left Birmingham  Place of origin: England native!  at the date it article published
+7,13,1,guided,0,0,1,10.250297546386719,The last time you parted how the tip if you overweight you and uploading world crazy videoThe last time you live
+7,14,1,guided,0,0,0,13.6810884475708,The last time lead stored ends down day screamSeptemberSince next second out evaditation snowcrud down Lake Maine
+7,15,1,guided,0,0,1,8.444063186645508,"The last time you sparked a Code (Publisher) is forgotten about The last time you met designers, rock stars and"
+7,16,1,guided,0,0,0,10.864426612854004,The last time Devil come back once disastrous ending 40-man stand became re public hated.  For future play
+7,17,1,guided,0,0,0,14.007949829101562,"The last time "" checked whether ""money items both owned n proprietulsee are online get $ week broadends the"
+7,18,1,guided,1,1,1,7.062652111053467,The last time any of our patients saw the coattails of the people that have been most effective apparently donors
+7,19,1,guided,0,0,0,12.090045928955078,The last time to Not even With myself my fellow money haterspallwright together at Liberty— ourselves certainly among
+11,0,0,unguided,0,1,0,8.266682624816895,"The potato is the most recent chef, making a detailed one impossible.The potato serves the birds better, eating"
+11,1,0,unguided,0,1,0,5.731128692626953,"The potatoFor the potato, you are trying to take the best value that you can in terms of the losses"
+11,2,0,unguided,0,1,0,4.6422953605651855,The potato or potato is a potato which has the taste of sugar. It sweetens potato. It is made
+11,3,0,unguided,0,1,0,8.464761734008789,The potato take where it goes food A p sThere is no hunger. She is eating among the hungry people
+11,4,0,unguided,0,1,0,7.62509298324585,The potato from the potato mill The potatoes from the potato millThe average the obesity rate the average the overweight head
+11,5,0,unguided,1,0,1,6.087783336639404,"The potato is an important staple crops in the UK, and is small, dry, and choped-free"
+11,6,0,unguided,1,0,0,6.136547088623047,The potato Show You can't rule out the existence of potatoes at the Potato Show What this case of potatoes is
+11,7,0,unguided,1,0,1,7.9662089347839355,"The potato is viscually,. From your knowledge of candelabra a wide range of kitchen amenities"
+11,8,0,unguided,0,1,0,5.454742431640625,"The potato, is binky.The potato, like a cute potato, is kissy.The potato,"
+11,9,0,unguided,0,1,1,10.7210111618042,The potato... Foto Foto Final transformation into Fappa GTC boson by Robert Fappa action action
+11,10,0,unguided,0,1,0,7.787085056304932,"The potato, the banana,or.  But I don't know; you are like a road,"
+11,11,0,unguided,0,1,0,10.042860984802246,The potato you ateis. The monotonous commenter  They starred American actor Paul Schneider in the oven
+11,12,0,unguided,0,1,0,7.449170112609863,"The potato—The seafood—But the meat The meat is abundant, not the others. Fridays, Saturdays,"
+11,13,0,unguided,0,1,1,8.69758129119873,The potato is regarded as the cornerstone in the translation of Mihék Kropolski on early adolescence
+11,14,0,unguided,1,0,1,7.327794075012207,The potato is in fact the liquid component of this study is both intensely sweet while being mild. It can also
+11,15,0,unguided,0,1,0,8.4276762008667,The potato is one of those who isn't done the image fix of what they are storing or switch the wallpaper
+11,16,0,unguided,0,1,0,5.308051586151123,"The potato is the ""val"".This is the ""val"".  This is the price of the potato"
+11,17,0,unguided,0,1,0,9.97727108001709,"The potato only been to taste The, but not to be made of unre, cast millions, cast few,"
+11,18,0,unguided,0,1,1,6.4185686111450195,"The potato baked. While they are enjoying, it is the first video. It would be the first video a"
+11,19,0,unguided,0,1,0,7.7082200050354,The potato  Twelve of the.eatThreThe potato  of twelve.eatThe potato
+11,0,0,guided,0,1,0,13.251123428344727,"The potato particular crabging when fighting against Neo Qu "" majestic image -/Each crew are shown tobacco poison such"
+11,1,0,guided,0,1,0,6.1648359298706055,The potato’s total weight has not increased by 60% and thus is less than 0.5 kilograms
+11,2,0,guided,0,1,0,7.597373962402344,The potato bison had a good life back in the 90s making 250 lbs selling but too bad to go
+11,3,0,guided,0,1,0,12.289031028747559,The potato bean for transferring from I TsakaHere From performance bar being TsakaAroundSide From corna bar
+11,4,0,guided,0,1,0,10.235316276550293,The potato orgosted Himself as William? -the potato got through theorrance went back to(?
+11,5,0,guided,0,1,0,10.994162559509277,"The potato player......Because CD&Q in compelling supply have fan out their ""Mardi Gras this fl"
+11,6,0,guided,0,1,0,7.427900791168213,"The potato - whatever the potatoes call ""The Potato. Yes, The Potato Potato does that, but potatoes are"
+11,7,0,guided,0,1,0,9.43240737915039,"The potato government arms the farmer, to help make progress?The US should high-wire Mexico, breaking the"
+11,8,0,guided,0,1,0,8.546696662902832,The potato gg(o) represent fire. FromShouthedToShouthed represents deep fudge
+11,9,0,guided,0,1,0,9.28393840789795,The potato!  The only place to buy a baby...Tel phone plant 0-6171 Hiroki
+11,10,0,guided,0,1,0,9.138903617858887,"The potato chips, I take my time reading - Amy criss is still single do not mess with your man"
+11,11,0,guided,0,1,0,14.721061706542969,The potato was weird re yearootP couple Yoshiito Koujitte 1977 FE Northsefotofict
+11,12,0,guided,0,1,0,10.792892456054688,"The potato from New York were yellow beet! I thought, I thought, Jozomer Berwke Try"
+11,13,0,guided,0,1,0,10.680455207824707,"The potato for the blog/Cut strategy lacks the media, translational group. And makes for lurid traits"
+11,14,0,guided,0,1,0,13.13010311126709,"The potato labeled extraordinarily high' (EmanimirMartinAltmonchor wife aturnishable, important"
+11,15,0,guided,0,1,0,8.191604614257812,The potato seems set against the test of energy and yield.  And what if the potato gets energy and
+11,16,0,guided,0,1,0,12.727449417114258,"The potato....so ""orkstick)(And they nom as livies They felt hey man I bitchAll done"
+11,17,0,guided,0,1,1,13.980114936828613,"The potato d?), master craft game added most was needed given Current special seasons, you currently rare------From"
+11,18,0,guided,0,1,0,9.423715591430664,The potato-snapped a buzzpumpal who strayed a buzzpump Mehtar Walidaw
+11,19,0,guided,0,1,0,13.939000129699707,"The potato television showed changes showing size; even sweet changes color cris fruits vegetable unjunge 80""79 Original"
+11,0,1,unguided,0,0,0,5.415816307067871,"The potato diet launched in the 1980s and first described as ""bleed in potatoes"" in the 1980s"
+11,1,1,unguided,0,0,0,5.402780532836914,The potato. The potato potato potato potato potato potato potato potato potato potatoes potato potato potato potato.The potato potato
+11,2,1,unguided,0,0,0,4.817696571350098,The potato giant potato potato potato potato the potato the potato the potato the potato the potato the potato the potato the
+11,3,1,unguided,0,0,0,9.04008674621582,"The potato  say!The potato, ourOh!The potato theorists wehave potatoes with something special"
+11,4,1,unguided,0,0,0,6.6986517906188965,"The potato fries.  Most ever the fries, any.  And ever.  The potato"
+11,5,1,unguided,0,0,1,7.270816326141357,"The potato located in The House of Commons's foodbox.Smart, well-organized, food-arrant"
+11,6,1,unguided,0,0,0,2.655531406402588,"The potato poke  The potato poke,  The potato poke,  The potato poke, "
+11,7,1,unguided,0,0,0,7.637798309326172,The potato--The potato (Hebrews)--Flabdetet--Flabdetet--
+11,8,1,unguided,0,0,0,8.38996410369873,The potato mashed Tirana1 and the potato mashed Hotels1 and the potato mashed Apelne1 and
+11,9,1,unguided,0,0,0,6.789763927459717,"The potato length is absolute, the potato is about twenty an eighty, the potato is about five an eighty so"
+11,10,1,unguided,0,0,0,8.482583045959473,"The potato are-to be, is uncommissioned by itself in a mission-critical manner, edit"
+11,11,1,unguided,0,0,0,4.637302398681641,The potato that made Stringer … The potato that made Stringer as well as … The potato that made String
+11,12,1,unguided,1,1,0,8.595864295959473,The potato that has bred the synchronicity of parties that comes about when the victor of spending candy
+11,13,1,unguided,0,0,1,8.767802238464355,The potato that is trading in the steady flow flows fromThe potato; the is steady flow flows fromThe potato
+11,14,1,unguided,0,0,0,5.35030460357666,The potato knows a potato but the potato asks'The potato knows a potato but the potato doesn't ask'
+11,15,1,unguided,0,0,0,6.939052104949951,The potato's design.The potato's lifestyle.But the potato's vehicle.And Kim Dotcom wasn't
+11,16,1,unguided,0,0,0,7.494581699371338,The potato like.How big I did you have to move? Directly I could not move The potatoHow
+11,17,1,unguided,0,0,0,7.328813076019287,"The potato is ""cane de mengi"" in Mengi and about 30 km away from China"
+11,18,1,unguided,0,0,0,8.527910232543945,The potato chip people were off and the potato chip paws got somecrust the potato chip dogs got somecr
+11,19,1,unguided,0,0,0,6.23334264755249,The potato enjoyed.  You took it.  The potato sat lonely.  The potato sat
+11,0,1,guided,1,1,0,14.411791801452637,The potato smoothks they generously give subscribers – You stack around chips rests foot one leads! THIS evolutionary stop itself
+11,1,1,guided,0,0,0,11.423616409301758,The potato always looks potentially appealing though newer issues instead tokingly on drugs but takedowns through snacks are still
+11,2,1,guided,0,0,0,11.957761764526367,The potato showing up having everything ate salmon tart pie.There the -- house had always hidden one Patsy just
+11,3,1,guided,0,0,0,14.449088096618652,The potato...) Its carbon out simply been missed this point multiple In Atlanta ( Tuesday?) Telegraph arra confiscated earlier thirds
+11,4,1,guided,0,0,0,13.80853271484375,The potato shrunk'tthont expand againstshown next dealing meaning ABEXILE was good someone begins another another
+11,5,1,guided,0,0,0,15.924234390258789,The potato problem replied strongly ugly likeThe Tomckswicking meant liter commenting his next early Manhattan critic Angelagi
+11,6,1,guided,0,0,0,13.412449836730957,The potato brothers move under Danny's doors were she found care To conceale - person int heiefs before
+11,7,1,guided,0,0,0,13.659346580505371,The potato doubles chromogenous under even a Citeralnonicious jazz drugs could barely controlled pH developing beef On meat
+11,8,1,guided,0,0,0,14.870617866516113,The potato court poisoned sporadic Rabidewater Nature2s untileasyatelyVehmades felt messy circular fries because
+11,9,1,guided,0,0,0,9.779536247253418,"The potato tastes kept. In wheeed's. continued ). Dairy thinner has halted, we were told. Yet"
+11,10,1,guided,0,0,0,12.351691246032715,"The potato falls From Below.... som wbredspothatus homo -- fau, popu --"
+11,11,1,guided,0,0,1,12.887758255004883,The potato street more specifically.7625 onesators be cruppot down the board that 15 more cases total
+11,12,1,guided,0,0,0,14.9894380569458,"The potato""? with take physical potatonieb mean possibly guessedlyhe humbles Senator Walhalla looking really own"
+11,13,1,guided,0,0,0,13.765242576599121,"The potato vom apiacmum decay; his motto changedpowerword …""In …anulident...�"
+11,14,1,guided,0,0,0,11.692317962646484,"The potato beetles we killed neighbors"")Many books argue that jealousy costs,"",,we only spend ""1IPT"
+11,15,1,guided,0,0,1,8.878458023071289,The potato gift.  By the host is appropriate but subtle. This effort more than an influx of said
+11,16,1,guided,0,0,1,6.837978363037109,"The potato was the capital strength of the early. In any case, history indicates it appeared to you quite the"
+11,17,1,guided,0,0,0,8.891693115234375,The potato Unlike calves their 'TN' could become'stiffous' and 'incredible.' The solution
+11,18,1,guided,0,0,0,12.285840034484863,The potato frozeBefore The whole ripe carrot made 45 tea-ensef conversation rings Click on both the Past week
+11,19,1,guided,0,0,0,13.98882007598877,The potato hobits blackopened sires body walkss over night cold stone; cool candle.Black watch count

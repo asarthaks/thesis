@@ -1,0 +1,32 @@
+{
+  "experiment": "guided",
+  "final_run_name": "rev_sedd_guided",
+  "n_shards_merged": 5,
+  "n_generations": 1200,
+  "by_label": {
+    "0": {
+      "n_pairs": 300,
+      "unguided_hit_pct": 49.0,
+      "guided_hit_pct": 55.00000000000001,
+      "gain_pts": 6.0,
+      "gain_ci95": [
+        -1.3333333333333335,
+        13.333333333333334
+      ],
+      "unguided_span_nll": 7.093916473786036,
+      "guided_span_nll": 8.481419297854105
+    },
+    "1": {
+      "n_pairs": 300,
+      "unguided_hit_pct": 44.0,
+      "guided_hit_pct": 38.666666666666664,
+      "gain_pts": -5.333333333333334,
+      "gain_ci95": [
+        -12.333333333333334,
+        1.6666666666666667
+      ],
+      "unguided_span_nll": 7.158488053480784,
+      "guided_span_nll": 8.452918982108434
+    }
+  }
+}

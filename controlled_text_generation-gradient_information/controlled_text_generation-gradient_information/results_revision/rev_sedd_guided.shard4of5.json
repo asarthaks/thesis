@@ -1,0 +1,14 @@
+{
+  "experiment": "guided",
+  "scale": "medium",
+  "shard_idx": 4,
+  "num_shards": 5,
+  "n_cases": 3,
+  "gamma": 1.0,
+  "topk": 32,
+  "steps": 64,
+  "span_len": 20,
+  "shard_done": true,
+  "run_name": "rev_sedd_guided.shard4of5",
+  "wall_time_sec": 53.580034255981445
+}

@@ -1,0 +1,241 @@
+prompt_idx,sample_idx,target_label,arm,judged_label,hit_target,span_nll,text
+1,0,0,unguided,1,0,6.020427703857422,"The book,The documents,The drawings, The picture... The genre prose and poetry, traditional prose and poetry"
+1,1,0,unguided,1,0,5.968374729156494,"The book  As a result, you are likely providing advice you would like to benefit from. Including myself"
+1,2,0,unguided,1,0,6.87799072265625,"The book,You areThe book,There were youYour aura seems to float away.The book,There"
+1,3,0,unguided,0,1,7.074787139892578,The book had got the same sales. It had all been the same r r The $. rd
+1,4,0,unguided,0,1,5.028701305389404,The bookThe bookThe bookThe bookThe bookblscidscoutscoutscoutscoutsc
+1,5,0,unguided,1,0,5.644904136657715,The bookstore was a fountain.You can say the bookstore was open to anyone.But you will be
+1,6,0,unguided,0,1,8.182065963745117,"The book they attacked, ‘And now ‘To the book which has been attacked, “And"
+1,7,0,unguided,1,0,9.044967651367188,"The book is set for life, each five pulls marks the landing of the Echo.The song has 30 Moments"
+1,8,0,unguided,1,0,8.034625053405762,The bookThe bookhas brought to us to be inspired by whom? (The story here) The friendship with
+1,9,0,unguided,1,0,6.456443786621094,The book is chosen using the special qualities of the book.The method of illumination is used in the reading pages
+1,10,0,unguided,0,1,8.3253812789917,The book was lost into Mifoy’s Downhole.]It was lost into Mifoy's
+1,11,0,unguided,0,1,8.923873901367188,The book ends.  The book is twenty minutes so you’re in bed for still more tales
+1,12,0,unguided,0,1,6.16352653503418,The book that goes from the encyclopedia  b.h.c.o.s.The encyclopedia that
+1,13,0,unguided,0,1,12.194234848022461,"The bookThis child spent"" or utter lThemThe tThisCicran"" lm. Bright"
+1,14,0,unguided,0,1,5.989264011383057,"The book deals with this picture of the nose in which the nose forgets the nose, returns to the nose"
+1,15,0,unguided,0,1,6.752140998840332,The book of a book offWe a book of a book off a book of a book of the book off
+1,16,0,unguided,0,1,9.063813209533691,"The book toSamsung, the devices are everywhere but maybe would not use them openly... not just the book to"
+1,17,0,unguided,0,1,8.854683876037598,The book not had to came packed in boring boxes like some of the goddamn The book didn't have to be
+1,18,0,unguided,0,1,6.987027168273926,The book's address was actual literature. It played out like an actual literature game when there was an actual canon
+1,19,0,unguided,0,1,9.595782279968262,"The book is excellent, and it has several unrelated books, in advance book learning 'howler' decline obedience"
+1,0,0,guided,1,0,3.8735451698303223,The bookHisThe HISThe bookThe bookThe bookThe bookThe bookThe bookThe bookThe bookThe
+1,1,0,guided,0,1,6.294618129730225,"The book, assumes low-level abstraction, feels the implementation is highly possible, assumes high-level abstraction,"
+1,2,0,guided,0,1,9.592432975769043,"The bookkeeper slammed the professor.They were lying and admitting about, 'You want to get something not?'"
+1,3,0,guided,0,1,9.800262451171875,The bookbag from Screws You're Given is the most tangible positive drivers among vintage young people in What's
+1,4,0,guided,0,1,7.278726100921631,"The book has ""A"" to minusThe title is ""not in"" the book. ""The book piles"
+1,5,0,guided,1,0,9.28321361541748,The book Digg.org/The album With a ghost written live-in character book longer better with more
+1,6,0,guided,1,0,9.95130443572998,The bookend fund material in the v8 of N baden's estate' so read it a bit
+1,7,0,guided,1,0,10.524429321289062,The book told a story the skeler had been long proud to listen He died in September 2017 before life entered
+1,8,0,guided,1,0,6.497994899749756,"The book is almost as chronological as what the other books took, including the release of the film that was called"
+1,9,0,guided,1,0,5.745608806610107,The book  You’ve read the FOUR Book  You’ve read the F
+1,10,0,guided,1,0,7.361320495605469,The book is: To do it right on a great day—or and what he can do at difficult times
+1,11,0,guided,1,0,12.807418823242188,The book shelf reads ‘BE BEBER BE timeBeBeAS BEberBEBe BE BEARD BE
+1,12,0,guided,1,0,8.696303367614746,The book over putsThe book gets diverse artwork outside asking for an overboard and The book already has an island
+1,13,0,guided,1,0,8.2618408203125,"The book called Twiding Eye, the book called Flinderflock, the book called postersAnd it's"
+1,14,0,guided,0,1,7.294217109680176,"The book is small, only $16.in and $20.inf.The unofficial aim is notoriety"
+1,15,0,guided,0,1,12.057650566101074,"The book---- be stated earlier:-- give up-- very widget suit browser-- youtube color clip), S"
+1,16,0,guided,1,0,10.291394233703613,The bookson of Mary Arnold Ayroff…who along with David is owner of the brand M11 have
+1,17,0,guided,0,1,9.81694221496582,"The book will fails to mention that John had earlier banished Brigal, a former student The streetcar has an open"
+1,18,0,guided,1,0,10.847294807434082,"The book full of supplements is inside tip fifty, elevenst bookI refer to the inner logic calling the inner"
+1,19,0,guided,1,0,8.851151466369629,The book of record existed at the part of the cyder  denied 207There should be no doubt
+1,0,1,unguided,0,0,1.4145549535751343,The book.The book.The book.The book.The book.The book.The book.The
+1,1,1,unguided,1,1,7.218023777008057,"The book's 12 total is ""Seven"". ""Thank-you,"" says Cohn  ""Thank you,"""
+1,2,1,unguided,0,0,8.705062866210938,The bookloads shifted from 1 chapter 2 to 6.Keys to Bookstore in the bookstore you're able
+1,3,1,unguided,0,0,8.027714729309082,The book was turned intoThe book you had been bringing themThe book was found in the berries and on the
+1,4,1,unguided,0,0,8.956486701965332,The book. It contains no attempt to finish more than April. November 2013 Waterford Community Staff College in July
+1,5,1,unguided,1,1,7.4045610427856445,"The book is its self, right here S.A.and its two major points of interest: unexplained fate"
+1,6,1,unguided,0,0,8.56968879699707,The book of sore is now turn to the rulesOf the gamesmourSourSourSour
+1,7,1,unguided,1,1,9.804374694824219,"The book familiar – SdoubleHaarHi, see if that is correct – The book written – The book"
+1,8,1,unguided,1,1,9.396870613098145,The book chapter are ubligh immediately after the manuscript of Mr. dubHow to give us the pleasure of
+1,9,1,unguided,0,0,5.498643398284912,The book says that we need fish. The book says that fish might be genetically restricted or expensive to the public
+1,10,1,unguided,1,1,8.405454635620117,"The book is addictive and exciting by itself,it’s also easy to get and spend 3.1"
+1,11,1,unguided,0,0,7.1154022216796875,The book was sold!The book was never sold.The book will also never be sold!Somethingうと
+1,12,1,unguided,0,0,6.936548709869385,The booksellerThe physical printor(The country)The time it takes to make a bookThe failure from
+1,13,1,unguided,1,1,9.850549697875977,The book in 2011 that had the longest line of the norm that it Boom-Book its horror-power
+1,14,1,unguided,1,1,8.890138626098633,The bookYou learn seriously about writing exclusives ofThe townTheI learn about doing talking about the townThe
+1,15,1,unguided,1,1,8.87919807434082,The book that is in the comic demonstrates how important money is tracked by a simple look than money spent on fluffy
+1,16,1,unguided,1,1,8.455239295959473,"The book of personality, it is St. Christ the Prince (VLR) tells the book of the life"
+1,17,1,unguided,0,0,6.569329738616943,The book was poorly received by many(both progressive and liberal alike).  After the book you can move
+1,18,1,unguided,0,0,5.855358123779297,The booksellersorbeersor beThe booksellersorbeThe booksellersororThe
+1,19,1,unguided,1,1,6.485293865203857,The book was published on September 28th with all devices being the first to receive a major lookback at a
+1,0,1,guided,0,0,10.962889671325684,"The book declares all talk lost to the telairest blood diseases.However abound leaving Sita says dog,"
+1,1,1,guided,1,1,10.804030418395996,The book I got from watching company customers manufacture online books about Dr. Jim Emerson and his royaltiesC Michael M
+1,2,1,guided,1,1,8.944314956665039,The book stays in the convention gamestores for two years?Of course We know they get along every week and
+1,3,1,guided,1,1,9.670241355895996,The book was talking here about an animated movie  Walter Obst’s ^ => With and For
+1,4,1,guided,0,0,9.23831844329834,The book’s repeat rate also describes five court cases arising from a series of judgments by an administrative process
+1,5,1,guided,1,1,10.647505760192871,"The book at:"" loose fallIt gradually fewer rules that determine performances!The book at most lucky chosen to write"
+1,6,1,guided,1,1,9.504244804382324,The book of need lends the book of serious consideration Lin Lee Lamont  AMY thirty four  Four
+1,7,1,guided,0,0,10.830520629882812,The book he's putting ‎In his right hand isATo which Mario is chotelling Chiotelling
+1,8,1,guided,1,1,10.405961990356445,"The book is here Walt Disney:8Con... Photo; The hatch fitted with interim, self-performing building"
+1,9,1,guided,0,0,12.655404090881348,The book crosses divisions under this...^.^press no King (ZKI) through contemporary Latin
+1,10,1,guided,0,0,9.24073314666748,The book came out andDooroorooroorooroorooroorooroor world’s second coach
+1,11,1,guided,1,1,8.276835441589355,"The book is psychological and the store recommends reading to fellow travelers in those spirits, based on media at the time"
+1,12,1,guided,1,1,5.044643878936768,The book of songContents  SongContents  These are very brief sentences that you can find in the
+1,13,1,guided,0,0,5.067703723907471,The book is a year high school book and the student book a grade school book. The third event will be
+1,14,1,guided,1,1,7.216516971588135,The book is designed to settle with a paragraph of discussionWe have a few places over the weekend we just like
+1,15,1,guided,1,1,4.107360363006592,The book included a cover where no other book was available. The book included a free download in MP3 format
+1,16,1,guided,1,1,9.222041130065918,"The book contains scraps of material from Jewish traditional German Courts and Protestant Churches,"" AKA said. ""On Thursday"
+1,17,1,guided,1,1,5.787671089172363,The book. The song of The bookThe bookThe book of the time of the singing ofThe bookThe
+1,18,1,guided,1,1,6.200648784637451,The book is the end of God.  And right at the top of the about is the book.
+1,19,1,guided,0,0,9.514698028564453,The book is worse one authors chooseThe book planners have work to doOn Night Booksfred through the middle
+6,0,0,unguided,1,0,9.559332847595215,The lake sits in new high parastore.The skies at 19:45 are blue - earliest ever date
+6,1,0,unguided,1,0,7.418079376220703,"The lake. In the summer, however, much of analysis was taking place off-streamed, people watched"
+6,2,0,unguided,0,1,7.333261966705322,The lake pulls the bricks apart but doesn’t let the sink.The lake pulls the bricks out of
+6,3,0,unguided,1,0,8.718912124633789,"The lake’s record, since the Lake is Closed it has appeared to be fair and possible by the"
+6,4,0,unguided,1,0,8.135307312011719,The lake look back in 1876. The look around at the entire town during this short trip they were brought
+6,5,0,unguided,0,1,7.119954586029053,"The lake below reached 1.8 meters. By Beijing, too, roads had reopened after a week-long"
+6,6,0,unguided,1,0,7.541235446929932,The lake under the moon. Sharp point Icon Baseball hall of fame for autographs Icon Baseball Hall of Fame for
+6,7,0,unguided,0,1,8.575569152832031,The lake arrests handcuffed and hand-cuffed. about the lake arrestpolice have tried to convince the citizens arrested
+6,8,0,unguided,0,1,7.4057769775390625,"The lake Canyon formed very slowly and the rising waters dominate the erosion. ""Despite this, birds are continuing to"
+6,9,0,unguided,1,0,6.791335582733154,"The lake, which has been melting with snow, is being inflated in air.The salt lake it is surrounded"
+6,10,0,unguided,0,1,4.751009941101074,The lake pool is located in theThe lake pool is located in the but theThe lake pool is located in
+6,11,0,unguided,1,0,9.33716106414795,The lake is the sense of pride in this States as far as its scientific state historic basis but our skewed reality
+6,12,0,unguided,0,1,7.664938449859619,The lake-slump parties were: “This is what I’ve been having.”
+6,13,0,unguided,0,1,6.781863689422607,"The lakefront: nearly $500,000-a-year, before the scripts are signed or approved,"
+6,14,0,unguided,0,1,7.565639019012451,"The lake of kuninyo need no lake of baingo), lake of kuninyo need"
+6,15,0,unguided,0,1,7.207475185394287,The lake's stability is by no means organized by the scientists unified by the players unified by the events unified by
+6,16,0,unguided,0,1,6.489223480224609,The lake contains more than a few more syringes from various saks connected to it. Some of them
+6,17,0,unguided,1,0,5.455555438995361,"The lake of the sea, and the lake of the sea is the greatest lake of every world, mostthe"
+6,18,0,unguided,0,1,6.572169780731201,The lake is too close to everydayThe town is too close to contact…and the lake turned into a huge
+6,19,0,unguided,1,0,6.589118480682373,"The lake is surrounded by rocky mountains, but over the entire region China have various types of tracks over various ranges"
+6,0,0,guided,1,0,7.284848213195801,"The lake’s legendary swift currents put us under constant threat to survive, but that’s not"
+6,1,0,guided,0,1,7.864570617675781,"The lake is named Sishimono At the sea level', is known as a Seism. Look at"
+6,2,0,guided,0,1,7.129809856414795,The lake from the meadow of Andrew the Elder.  The blue side reflects on the green golfing
+6,3,0,guided,0,1,8.568707466125488,The lake is less than 168 years old has been flooding through a process called submerge-nitude water and
+6,4,0,guided,0,1,8.392343521118164,The lake (In the lake).....(On the TpnCUP terminal carrier transistor).....(
+6,5,0,guided,0,1,7.8820953369140625,The lake where it represents the weekly household price for a family of three.  The office of in­
+6,6,0,guided,0,1,8.487068176269531,The lake is looking for places that Knows-Was's through the use of an agency which presents itself as
+6,7,0,guided,0,1,7.023388862609863,"The lake is shown in 2006  The lake exists only in Kuch, near Faraz, the nearest"
+6,8,0,guided,0,1,5.035871505737305,"The lake is 2,616 feet (8 feet above sea level). The lake is referred to as ""."""
+6,9,0,guided,0,1,8.470685005187988,"The lake...What ever in the natural order rises initially without any clear and durable reason alone, dies, dies"
+6,10,0,guided,0,1,9.64536190032959,"The lake hardly enabled television. So is Boston, the nation's largest city whose—Article 1954: ""recent"
+6,11,0,guided,0,1,10.27658748626709,"The lake'sWell bathtub service And what was currently true, the city of Newark Mistakes;And people"
+6,12,0,guided,1,0,8.236651420593262,"The lake, the river banks and the Taal and then thereis the Cook with a Nevada island and a"
+6,13,0,guided,0,1,7.071563243865967,The lake is drying fast and you could be to lose most development and some of the current work in the area
+6,14,0,guided,1,0,10.316804885864258,The lake full of tartarar is fineTurnP the boat full of toxene*Nippy the
+6,15,0,guided,0,1,8.365184783935547,The lake fills (Supplementary information).  For the second Loch Ness trip we encountered the Bala Bridge
+6,16,0,guided,0,1,6.877769470214844,"The lake is of more than 7,000m and only 108km2 and equal to that of the Peninsula"
+6,17,0,guided,1,0,12.102899551391602,"The lake sitton leader's column, America's Korean peninsula.July's Issue - DMS Sage Dogwood"
+6,18,0,guided,0,1,9.331725120544434,"The lake front of Chanteri wangori of kalchanteri wangori of written,"
+6,19,0,guided,0,1,9.3073091506958,The lake should enable the pitcher to get out of the water quickly. playing in six variations Daniel Bulls Rio Lake
+6,0,1,unguided,0,0,7.362941741943359,The lakeThe lake lakeThe lake LakeThe Lake LakeThe LakeLakeThe Lake LakeBy LakeThe Lake Lake
+6,1,1,unguided,0,0,7.14705753326416,"The lake, the volcano. ZA 26 ZA.ZA. 37,937 ZA."
+6,2,1,unguided,0,0,8.737509727478027,The lake where tuna had a chance. Chinese Dragon I went out to the grass made by steel.The water
+6,3,1,unguided,0,0,5.484164714813232,"The lake peoples' preoccupation is their protection.This is neither a non-negotiable, nor"
+6,4,1,unguided,1,1,6.1021928787231445,The lake comes in whirling motion. If you actually take a look at the moves! Take a look at
+6,5,1,unguided,1,1,9.824373245239258,"The lake lake:r is composed of cuts. I:ojYZe,r/rJAcv"
+6,6,1,unguided,0,0,8.192957878112793,"The lake.Your wave is, You're surfing over Holds, Jetpacks, School tours and other events"
+6,7,1,unguided,0,0,8.256468772888184,"The lake in a wide bay has no patent on sugar.Yet, for souls to care and to seek."
+6,8,1,unguided,0,0,9.851664543151855,"The lake's bed and even distant cities were shrouded in greyLast sky saw atmospheric controls. Getting over it,"
+6,9,1,unguided,0,0,6.386268138885498,"The lake of the metro type is easily recognizable in several ways (e.g., it is a rough measure"
+6,10,1,unguided,0,0,5.710007190704346,The lake originally required two components leading to a water body. This is to be replaced by one component requiring one
+6,11,1,unguided,1,1,10.196769714355469,The lake is a solid source of more sense seeing as relative to some unknown ones such as carases Ari n
+6,12,1,unguided,1,1,5.249727725982666,The lake ArmstrongThe lake ArmstrongThe lake Neil Armstrong Armstrong the lake Neil ArmstrongThe lake ArmstrongThe lakeThe lake
+6,13,1,unguided,0,0,9.541853904724121,The lake... *Provide more serious charges *Handed a conspiracy more priviledge... *Wow *
+6,14,1,unguided,0,0,5.012820720672607,The lake after the lake  The lake the after the lake  Lake lake lake the lake  
+6,15,1,unguided,0,0,6.210841655731201,"The lake is full with my winter, and  The bottles are full with my milk, and I "
+6,16,1,unguided,0,0,7.8730926513671875,"The lake superficial wet and surface wet and the lake warm close to central location e.g., great gulch"
+6,17,1,unguided,0,0,8.675341606140137,The lake is Baldwin Lake The male ant is threatened by starvation as well as hunts such as with talons�
+6,18,1,unguided,1,1,7.0369157791137695,The lake.Take it nice and nice.There are fancy suits at the party?Take a look at that
+6,19,1,unguided,0,0,9.088531494140625,"The lake should be treated within to Lake Act.The poor lake, that has switched its ""10"". The"
+6,0,1,guided,0,0,11.265824317932129,The lake byThe elevator rumbled And the time passed between Antarctica and college teams TexasRin' and Taiwan
+6,1,1,guided,0,0,11.655318260192871,The lake-neveromed the state of the mid-1990s across the Varietyced by main mass TV ESPN
+6,2,1,guided,0,0,6.282841205596924,The lake that formed the water that formed the mud that formed the pavement and of course formed the ground underneath this
+6,3,1,guided,0,0,10.65442180633545,The lake already has a third cleaning down of its own today wherever our mosquito-flowing poisons are given up
+6,4,1,guided,0,0,7.933781623840332,"The lake's a rim, and whose tiny size limits the condition in which it was. 1/3."
+6,5,1,guided,0,0,7.999595642089844,The lake is still in place if it's off enough in the wake of 03 11 09 11 12 13 15
+6,6,1,guided,0,0,10.401575088500977,"The lake didn’t floods, ice, or lambs, the facts showed NuĻ� existed"
+6,7,1,guided,1,1,4.627957820892334,"The lake is located next to the most famous defense, not only one of the best in the world but also"
+6,8,1,guided,0,0,10.388885498046875,The lake had breaking down and we still smell of it. Staple goods donkeys Tesoy in GHI
+6,9,1,guided,0,0,10.79316234588623,"The lake with the drug law cannon destroyed, from Edward's advancing speed because Edward's transforming made Edward more fast"
+6,10,1,guided,0,0,9.8001127243042,"The lake does not bear a name, grog sincechev., the term metaphorically and Whitewater Lake Street"
+6,11,1,guided,1,1,7.310940742492676,"The lake KrylquistA, MirauA, South Lake KrylquistA, lunch mer"
+6,12,1,guided,0,0,8.378252983093262,"The lake(s), ruffed Lancashire–style, cotton vies for they to be drawn"
+6,13,1,guided,0,0,11.276759147644043,"The lake finish columns following the bottom of the alphabet include maximum deal bell US5, recreation of the backup option"
+6,14,1,guided,0,0,8.365938186645508,The lake will come as we Upper Gall LakeThe lake is smaller lake from the Bental deltaThe lake is
+6,15,1,guided,0,0,11.416789054870605,"The lake into the boat so i try wee glowe shall see, heimmers. A pond! is his"
+6,16,1,guided,0,0,10.216487884521484,The lake's greatest investment the Nymphogionic Revolution Kululoma protectedThe lake from being occupied lower
+6,17,1,guided,0,0,8.271401405334473,"The lake water pollution venom disease, venom disease, sulfue disease, tooth diseases, the kissing diseases, the"
+6,18,1,guided,0,0,6.043850898742676,The lake lailed back and forth through the seasons. The recast. The weathered body on the lake
+6,19,1,guided,0,0,8.322463989257812,The lake water and moles. 319 -327 Between the differences inThe lake water and homolomas.
+11,0,0,unguided,0,1,8.266682624816895,"The potato is the most recent chef, making a detailed one impossible.The potato serves the birds better, eating"
+11,1,0,unguided,0,1,5.731128692626953,"The potatoFor the potato, you are trying to take the best value that you can in terms of the losses"
+11,2,0,unguided,0,1,4.6422953605651855,The potato or potato is a potato which has the taste of sugar. It sweetens potato. It is made
+11,3,0,unguided,0,1,8.464761734008789,The potato take where it goes food A p sThere is no hunger. She is eating among the hungry people
+11,4,0,unguided,0,1,7.62509298324585,The potato from the potato mill The potatoes from the potato millThe average the obesity rate the average the overweight head
+11,5,0,unguided,1,0,6.087783336639404,"The potato is an important staple crops in the UK, and is small, dry, and choped-free"
+11,6,0,unguided,1,0,6.136547088623047,The potato Show You can't rule out the existence of potatoes at the Potato Show What this case of potatoes is
+11,7,0,unguided,1,0,7.9662089347839355,"The potato is viscually,. From your knowledge of candelabra a wide range of kitchen amenities"
+11,8,0,unguided,0,1,5.454742431640625,"The potato, is binky.The potato, like a cute potato, is kissy.The potato,"
+11,9,0,unguided,0,1,10.7210111618042,The potato... Foto Foto Final transformation into Fappa GTC boson by Robert Fappa action action
+11,10,0,unguided,0,1,7.787085056304932,"The potato, the banana,or.  But I don't know; you are like a road,"
+11,11,0,unguided,0,1,10.042860984802246,The potato you ateis. The monotonous commenter  They starred American actor Paul Schneider in the oven
+11,12,0,unguided,0,1,7.449170112609863,"The potato—The seafood—But the meat The meat is abundant, not the others. Fridays, Saturdays,"
+11,13,0,unguided,0,1,8.69758129119873,The potato is regarded as the cornerstone in the translation of Mihék Kropolski on early adolescence
+11,14,0,unguided,1,0,7.327794075012207,The potato is in fact the liquid component of this study is both intensely sweet while being mild. It can also
+11,15,0,unguided,0,1,8.4276762008667,The potato is one of those who isn't done the image fix of what they are storing or switch the wallpaper
+11,16,0,unguided,0,1,5.308051586151123,"The potato is the ""val"".This is the ""val"".  This is the price of the potato"
+11,17,0,unguided,0,1,9.97727108001709,"The potato only been to taste The, but not to be made of unre, cast millions, cast few,"
+11,18,0,unguided,0,1,6.4185686111450195,"The potato baked. While they are enjoying, it is the first video. It would be the first video a"
+11,19,0,unguided,0,1,7.7082200050354,The potato  Twelve of the.eatThreThe potato  of twelve.eatThe potato
+11,0,0,guided,0,1,6.879309177398682,The potato in its pere has been added or flattened. That's called agriculture. It's called potatoes.
+11,1,0,guided,0,1,6.023666858673096,The potato’s total weight The the potato’s average weight is less than half of The potato
+11,2,0,guided,0,1,9.901460647583008,The potato bison is tinned to 2000 degrees in a palate of 250 lbs selling twelve of these on go
+11,3,0,guided,0,1,8.63495922088623,The potato bean cake is white. The drink is made with bar service juices bistro colds and bar
+11,4,0,guided,0,1,8.99657917022705,The potato that refers to Himself as Williamario -the potato got through senor and went through a couple of
+11,5,0,guided,1,0,11.978472709655762,"The potato crunch......Because Map&Q is compelling enough outstanding fan rally their no love behind Costas,P"
+11,6,0,guided,0,1,6.961799621582031,"The potato or whatever the French callThe potato instead of potato, instead of nothing does that, but not potato"
+11,7,0,guided,0,1,9.27283000946045,"The potato' arms with arms, and with companionship? The crop should co-wire Mexico, and the"
+11,8,0,guided,0,1,8.121220588684082,"The potatofish appearing in the Belgian athletes' hands at the Ironman on May 16, 2011 Steve/Staff"
+11,9,0,guided,0,1,10.136856079101562,The potato! ThekiThekiYou are buy this baby...Tel phone plant 0356171 Theki
+11,10,0,guided,0,1,10.954419136047363,The potato does not exist � anythingThe reading that Amy decides is global warming single does not exist either about how
+11,11,0,guided,0,1,8.341615676879883,"The potato jerky how potato beetles think potato beetles also blame potato beetles Out of roughly 1,000 potato beetles"
+11,12,0,guided,0,1,4.307463645935059,"The potato sacchar has been found. Further, it has been thought that the potato sacchar is present in"
+11,13,0,guided,0,1,6.828133583068848,"The potato for the family was the novel.  It was all inn of potatoes, so lurid and"
+11,14,0,guided,0,1,11.815614700317383,"The potato prices are high' ""Eman (Martin King) of Braventhe Bahishol, important"
+11,15,0,guided,1,0,8.09778881072998,"The potato beans: Reliable test of the durability of the kernel beans, even if the threads indicate they are"
+11,16,0,guided,0,1,6.4727373123168945,The potato was it..  And it in the seventies period it in the decade the potato was
+11,17,0,guided,0,1,7.695947170257568,"The potato they snack on, or 'Your Boys' sluggly girly sluggly sluggly"
+11,18,0,guided,0,1,9.722859382629395,The potato-snoddling-pukaret took over the positions led by Mokhtar Aliot and
+11,19,0,guided,0,1,11.732856750488281,"The potato groug weak. Sweet sweet plain sweet Color color 16"", amber uni  Sweetened Original"
+11,0,1,unguided,0,0,5.415816307067871,"The potato diet launched in the 1980s and first described as ""bleed in potatoes"" in the 1980s"
+11,1,1,unguided,0,0,5.402780532836914,The potato. The potato potato potato potato potato potato potato potato potato potatoes potato potato potato potato.The potato potato
+11,2,1,unguided,0,0,4.817696571350098,The potato giant potato potato potato potato the potato the potato the potato the potato the potato the potato the potato the
+11,3,1,unguided,0,0,9.04008674621582,"The potato  say!The potato, ourOh!The potato theorists wehave potatoes with something special"
+11,4,1,unguided,0,0,6.6986517906188965,"The potato fries.  Most ever the fries, any.  And ever.  The potato"
+11,5,1,unguided,0,0,7.270816326141357,"The potato located in The House of Commons's foodbox.Smart, well-organized, food-arrant"
+11,6,1,unguided,0,0,2.655531406402588,"The potato poke  The potato poke,  The potato poke,  The potato poke, "
+11,7,1,unguided,0,0,7.637798309326172,The potato--The potato (Hebrews)--Flabdetet--Flabdetet--
+11,8,1,unguided,0,0,8.38996410369873,The potato mashed Tirana1 and the potato mashed Hotels1 and the potato mashed Apelne1 and
+11,9,1,unguided,0,0,6.789763927459717,"The potato length is absolute, the potato is about twenty an eighty, the potato is about five an eighty so"
+11,10,1,unguided,0,0,8.482583045959473,"The potato are-to be, is uncommissioned by itself in a mission-critical manner, edit"
+11,11,1,unguided,0,0,4.637302398681641,The potato that made Stringer … The potato that made Stringer as well as … The potato that made String
+11,12,1,unguided,1,1,8.595864295959473,The potato that has bred the synchronicity of parties that comes about when the victor of spending candy
+11,13,1,unguided,0,0,8.767802238464355,The potato that is trading in the steady flow flows fromThe potato; the is steady flow flows fromThe potato
+11,14,1,unguided,0,0,5.35030460357666,The potato knows a potato but the potato asks'The potato knows a potato but the potato doesn't ask'
+11,15,1,unguided,0,0,6.939052104949951,The potato's design.The potato's lifestyle.But the potato's vehicle.And Kim Dotcom wasn't
+11,16,1,unguided,0,0,7.494581699371338,The potato like.How big I did you have to move? Directly I could not move The potatoHow
+11,17,1,unguided,0,0,7.328813076019287,"The potato is ""cane de mengi"" in Mengi and about 30 km away from China"
+11,18,1,unguided,0,0,8.527910232543945,The potato chip people were off and the potato chip paws got somecrust the potato chip dogs got somecr
+11,19,1,unguided,0,0,6.23334264755249,The potato enjoyed.  You took it.  The potato sat lonely.  The potato sat
+11,0,1,guided,0,0,7.968373775482178,The potato chips that they ignored.  Because the potato chips deep are a thousand times smaller than football itself
+11,1,1,guided,0,0,6.677853584289551,The potato has been moved to the newer career(k) using similar arms. The old potato is still
+11,2,1,guided,0,0,7.529588222503662,"The potato threw up. We ate salmon and beef.There were Daiya chili - round, crunchy..."
+11,3,1,guided,0,0,11.872971534729004,The potato ear gave running from To assume walls was going know over forever got special focus whenThe keyboard gaves
+11,4,1,guided,0,0,11.090068817138672,The potato figured out how to expand against the next group meaning near achieve change was presenting someone travelling on a train
+11,5,1,guided,0,0,14.228937149047852,The potato problem is strongly ugly likeThe Tomckswicking meant liter commenting his next song by critic Angelagi
+11,6,1,guided,0,0,8.545167922973633,"The potato is having under paint and he's about to basically spit on my hat, but he CFLs before"
+11,7,1,guided,0,0,13.805849075317383,"The potato, aged somewhere under pennies Citropane Woessions Hail Herb pH 88 beef area meat"
+11,8,1,guided,0,0,8.888420104980469,The potato’s flavour: potato’s tone: Diner spades of messy stir fries A
+11,9,1,guided,1,1,9.524765014648438,The potato played baseball... raccoon. ''Rapper Pop has center field and home plate. that
+11,10,1,guided,0,0,11.228857040405273,The potato debuted not=em someat rebedpotato night (oic ouying ouv
+11,11,1,guided,0,0,7.479411602020264,"The potato sprouts out of the carpet, and the sul zips down on the divorce/war/back"
+11,12,1,guided,0,0,5.3236541748046875,The potato Cloud. The physical potato cloud surrounded the sea. sea. The virtual potato cloud surrounded the sea.
+11,13,1,guided,0,0,8.399718284606934,The potato word “mucine” has the flavour of potatoes being “green-brown�
+11,14,1,guided,0,0,11.416590690612793,"The potato people just acquired neighbors, ABCWand that external costs,"",,), only TELEVISULT"
+11,15,1,guided,0,0,6.7127299308776855,"The potato, in the face of a host of hot butts. This will create existing controversy. It said"
+11,16,1,guided,0,0,6.619899749755859,The potato is the capital strength of the growing general in the case of the potatoes.The big farms are the
+11,17,1,guided,0,0,10.4716796875,"The potato is one of you broadcasters that could mean 'pathialities'. 4 Using a cake, whipped it"
+11,18,1,guided,0,0,11.15473461151123,The potato frost imperceptible)- Irish made Irish West English (rule) Republic its Republic to the populationThe
+11,19,1,guided,0,0,7.727378845214844,The potato doesn't around hot because the warps all over the potatoes when they cool mechanically. I watch it

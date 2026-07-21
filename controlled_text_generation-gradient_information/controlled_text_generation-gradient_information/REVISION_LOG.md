@@ -1055,3 +1055,310 @@ No other GPU work is pending. Nothing above single-experiment cost was launched
 without the plan being stated (the n=200 last_token run took 153 min on one GPU;
 heavier than the "under an hour" estimate because it runs 6 arms x 3 positions x 200
 seqs sequentially, but it is a single experiment and it completed cleanly).
+
+## 2026-07-21 19:58 CEST - PHASE 4 KICKOFF: capability level (SEDD recovery / hybrid / guided). Audit + Part 0 pre-registration
+
+Phase 4 brief (PROMPT_PHASE4_FINAL.md): move the SEDD result from SIGNAL level
+(linearization rho +0.184 pooled / +0.306 near vs AR |rho|<0.06) to CAPABILITY
+level. Three pilots, both scales where noted, all sharded over sequences across the
+9 free A6000s, fresh status dir. NO best-of-N / SMC (excluded by decision). Do not
+touch core/ samplers. gpt2sft = /mount/.../gfn-lm-tuning/infill_subj_arithmetic/gpt2_large_sft_output.
+
+AUDIT (done before any GPU job):
+- 9 A6000s (49 GB) all idle.
+- SEDD clone at ../../Score-Entropy-Discrete-Diffusion, already patched (SDPA + eager
+  rotary). Absorbing graph, dim 50258 (50257 real + MASK id 50257), loglinear noise.
+  Repo default sampler config: predictor euler, steps 128, noise_removal True, eps 1e-5.
+  sedd-small cached in ../../hf/cache; sedd-medium NOT cached (will download).
+- Conditional infill recipe (run_sample_cond.py): get_pc_sampler(graph,noise,(B,L),
+  predictor,steps,denoise,proj_fun) with proj_fun clamping observed positions each
+  step; masked positions start at MASK via graph.sample_limit; denoiser truncates the
+  MASK column so fills are always real vocab.
+- Corpus: kl_baselines = run_experiment.load_texts (WikiText-2 validation, 10<words<40)
+  + build_corruption (num_masks 1, one random interior pos in range(1,L-1), data_seed 0)
+  + iter_grid_samples, n=200. P1/H will reuse iter_grid_samples verbatim so the sequence
+  set is bit-identical; verify first 5 untouched KLs against rev_klbase CSV
+  (seq0 5.4287, seq1 10.3899, seq2 4.1979, seq3 0.3092, seq4 7.6364).
+
+SMOKE (GPU 0, before writing production code): loaded sedd-small, ran conditional
+recovery on one WikiText-style sentence (L=14, NO padding to 1024), masked interior
+position; euler-128 AND analytic-128 both recovered the exact original token,
+observed positions bit-identical, filled token real vocab (not MASK). Variable-length
+input is accepted directly. Full Part 0 gate formalises this on 5 kl_baselines seqs at
+both scales.
+
+PART 0 PRE-REGISTERED PREDICTIONS (gates on 5 kl_baselines sequences, both scales):
+1. Variable-length gate. sedd-small/medium accept length-L input directly (L=15..60),
+   no pad to 1024. Evidence: the masked-position log-preference readout r_pos at length
+   L vs length L+tail (tail = appended MASK positions) is near-identical (top-1 token
+   unchanged, small distribution shift), so a quarantined/absent tail does not condition
+   the fill. PREDICT: variable-length regime holds; top-1 identical on 5/5 both scales.
+   If tails materially move r_pos, switch to no-pad length-L (still variable length) and
+   document. A hard pad-to-1024 regime is the fallback only if bare length-L forward fails.
+2. Projection gate. Observed positions bit-identical after denoising (proj_fun clamps
+   them; PREDICT 5/5 both scales) and the filled position is a real vocab token, never
+   MASK (denoiser truncates the MASK column; PREDICT 5/5 both scales).
+3. Scale gate. sedd-medium loads through the patched clone and passes gates 1 and 2.
+4. Corpus unification. Re-run the corrected linearization diagnostic on EXACTLY the
+   kl_baselines set (WikiText-2, data_seed 0, n=200) at both scales, sigma 0.1. PREDICT:
+   both scales reproduce a clearly-positive rho (pooled > 0.1, near > 0.25), consistent
+   with the earlier ROCStories run (+0.184 / +0.306); medium >= small in the near
+   stratum. This unifies the corpus so linearization/recovery/hybrid share one set.
+   All SEDD runs stay OUT of the AR reconcile globs (results_revision, rev_sedd_* names).
+
+## 2026-07-21 20:05 CEST - PART 0 GATES: OUTCOME (both scales, 5 kl_baselines seqs each)
+
+Corpus identity CONFIRMED: iter_grid_samples reproduces kl_baselines bit-for-bit;
+recomputed untouched avg_kl for seq 0-4 = 5.428674 / 10.389947 / 4.197888 / 0.309180
+/ 7.636383, matching rev_klbase_gpt2sft.csv exactly. Masked positions are random
+interior (seq0..4: pos 3, 15, 2, 34, 25), NOT L//2, so the P1/H same-task reference
+arms (left_conditional, dls_policy, dls_random on these exact sequences) are warranted.
+
+Gate results (results_revision/rev_sedd_gates_{small,medium}.json, GPU 0/1):
+| gate | small | medium | prediction |
+|---|---|---|---|
+| projection (obs bit-identical + fill real vocab) | PASS 5/5 | PASS 5/5 | PASS -> confirmed |
+| variable-length top-1 identical (L vs L+16 tail) | 5/5 | 5/5 | identical -> confirmed |
+| tail distribution shift mean KL(pref_L||pref_L+tail) | 0.100 (max 0.236) | 0.022 (max 0.062) | small -> confirmed |
+| native recovery exact (single draw) | 3/5 | 3/5 | (sanity) |
+| gt in top-5 of SEDD readout | 4/5 | 4/5 | (sanity) |
+
+REGIME DECISION (documented): run at EXACTLY length L, no padding to 1024. Variable
+length is accepted directly (rotary positions generalise). Because we never pad, no
+MASK tail ever sits beside the target, so tail leakage cannot occur by construction;
+the tail test only certifies the model is not catastrophically length-sensitive
+(top-1 never flips even with a 16-MASK tail, and medium is 4-5x more tail-robust than
+small). All gates PASS at both scales; predictions confirmed, none contradicted.
+Sampler settings recorded: predictor euler, steps 128, noise_removal True, eps 1e-5,
+sigma 0.1 for the one-pass readout (matches the validated linearization readout).
+
+## 2026-07-21 20:19 CEST - PART 0 corpus-unified LINEARIZATION: OUTCOME + a partial prediction miss
+
+results_revision/rev_sedd_lin_{small,medium}.json (n=200, 400k pairs, WikiText-2
+kl_baselines set, sigma 0.1, GPU 0/1). Both scales clearly positive vs AR |rho|<0.06:
+
+| stratum | AR gpt2sft | SEDD-small (WikiText) | SEDD-medium (WikiText) | SEDD-small (ROCStories, earlier) |
+|---|---|---|---|---|
+| ALL pooled | -0.011 | +0.130 | +0.133 | +0.184 |
+| near | +0.027 | +0.097 | +0.148 | +0.306 |
+| mid | -0.041 | +0.115 | +0.122 | +0.116 |
+| random | -0.048 | +0.126 | +0.110 | +0.135 |
+| per-seq mean | -0.011 | +0.184 | +0.179 | +0.172 |
+
+PREDICTION CHECK. Predicted pooled > 0.1 (CONFIRMED: 0.130 / 0.133) and near > 0.25
+(NOT met on WikiText: 0.097 / 0.148). The near-stratum > 0.25 was extrapolated from
+the ROCStories run and did NOT carry to WikiText. Cause understood: the strata are
+corpus-dependent (WikiText near mean-distance 3.54 is not as "near" as ROCStories'
+was; WikiText tokens include rarer/technical tokens whose local embedding
+neighbourhoods behave differently). The LOAD-BEARING claim is unaffected and fully
+CONFIRMED on the unified corpus: pooled +0.13 and per-seq mean +0.18 at BOTH scales,
+positive in EVERY stratum, an order of magnitude above AR |rho|<0.06. Medium beats
+small in the near stratum (+0.148 vs +0.097), matching "medium >= small". WRITE-UP
+RULE: state the robust pooled/per-seq numbers and "positive in every stratum"; do NOT
+carry the ROCStories near +0.306 as if it held on WikiText. Report both corpora.
+
+## 2026-07-21 20:19 CEST - PART P1 (recovery) + PART H (hybrid) PRE-REGISTERED PREDICTIONS (before full run)
+
+Code: diagnostics/run_sedd_cap.py (--exp recovery|hybrid|hybrid_refs), sedd_lib.py,
+merge_sedd_cap.py, run_sedd_slate.sh. Corpus = kl_baselines set (verified identical).
+Reference rows from rev_klbase_gpt2sft.json: ground_truth 0.00, cond_topk_rescore 4.43,
+gibbs 6.69, untouched 9.14, flagship Langevin ~6.5. Reference from
+rev_last_token_gpt2sft.json (middle): independence_mh 31.5% exact / 30.3% accept,
+dls arms 0.0%. Note: P1 masks RANDOM interior positions, not L//2, so hybrid ships
+same-task reference arms (left_conditional, dls_policy, dls_random) on the P1 set.
+Smoke (n=4-6) validated both: recovery 3/6 exact (native single draw); hybrid SEDD arm
+3/4 exact with 58-100% acceptance; dls arms 0/4 exact; left_conditional 2/4 exact.
+
+P1 predictions: SEDD native recovery avg KL under gpt2sft clearly below untouched
+(9.14) at both scales; exact-match far above the Langevin arms' 0%; medium at or above
+small on every metric. NOT a claim: "beats the domain-tuned AR baselines in absolute
+terms" (unfair, scale/domain gaps). GATE: any arm above untouched means broken
+conditioning -> stop and debug.
+
+H predictions: hybrid acceptance well above the random/dls arms (which sit near the
+DLS null); hybrid exact-match above zero and at or above the left-conditional's,
+because the SEDD proposal sees both sides of the mask. If hybrid does NOT beat the
+left-conditional, report it straight (a real finding about what bidirectionality adds
+beyond exact left-context reweighting). dls_policy == dls_random near 0% (the AR
+gradient arm), reproducing the null on the P1 set (same-task).
+
+Launching the sharded slate now (num_shards 6, 9 GPUs, fresh logs unifiedruns/sedd_slate).
+
+## 2026-07-21 20:26 CEST - PART G PRE-REGISTERED PREDICTIONS (noisy classifier + guided SEDD)
+
+Role separation (non-negotiable): the NEW noisy classifier (diagnostics/train_noisy_classifier.py)
+ONLY guides SEDD; steering is scored by the concern-11 judge = classify(gpt2sft, head)
+with the EXISTING head /mount/arbeitsdaten/.../sentiment_constrained_ft_gpt2_large/sentiment_head.pt
+(hidden 1280), the same judge used for all AR arms in rev_constrained.json. Task =
+concern-11 continuation (15 MuCoLa prompts, span 20), both target labels, guided vs
+unguided SEDD-medium generation. Fluency = gpt2sft NLL/token of the span (the KL metric
+needs a GT reference, absent for conjured continuations; NLL/token is the faithful
+gpt2sft surprisal readout, stated as such). Guidance: at masked positions each
+denoising step, reweight the SEDD categorical over top-k=32 candidates by
+p_noisyclf(target | candidate state)^gamma (gamma 1.0), renormalize, sample; one
+batched classifier pass per step (linear in steps).
+
+Classifier gate prediction: held-out SST-2 accuracy at LOW noise (move-chance 0) well
+above 50% chance (predict ~80%+); accuracy degrades smoothly as noise rises. If low
+noise is not well above chance, STOP (guidance on a broken classifier is noise).
+
+Steering prediction: guided beats unguided on the concern-11 judge at BOTH labels with
+bounded NLL cost. If the gain is small or asymmetric, report exactly that. Fairness
+note for write-up: the AR arms also used a trained classifier; the only difference is
+this one is trained on the noisy states it is evaluated on (the thesis's own principle,
+constructive direction).
+
+## 2026-07-21 20:35 CEST - PART P1 (recovery) + PART H (hybrid): OUTCOME (n=200, both scales, sharded)
+
+Slate finished (30 shards + merges) in ~15 min wall across 9 GPUs (vs 153 min
+sequential for last_token). Results in results_revision/rev_sedd_recovery_{small,medium}.json
+and rev_sedd_hybrid.json. Classifier gate (Part G) passed concurrently (low-noise acc 81%).
+
+P1 native SEDD recovery (single native draw, kl_baselines set, KL under gpt2sft):
+| arm | exact% | top5% | mean KL [CI95] | median KL |
+|---|---|---|---|---|
+| SEDD-small recovery | 32.5 | 61.5 | 3.75 [3.10, 4.43] | 1.69 |
+| SEDD-medium recovery | 35.0 | 67.0 | 3.73 [3.12, 4.37] | 1.45 |
+| (ref) ground_truth | 100 | - | 0.00 | - |
+| (ref) cond_topk_rescore | 33 | - | 4.43 | - |
+| (ref) gibbs | 18.5 | - | 6.69 | - |
+| (ref) flagship Langevin | 0.0 | - | ~6.5 | - |
+| (ref) untouched | 0.0 | - | 9.14 | - |
+ALL P1 predictions CONFIRMED: recovery KL (3.7) clearly below untouched (9.14) and
+below the Langevin arms (~6.5) at both scales; exact-match (32.5/35) far above the
+Langevin arms' 0%; medium >= small on every metric (exact 35>=32.5, top5 67>=61.5,
+KL 3.73<=3.75, median 1.45<1.69). No arm above untouched -> conditioning intact, gate
+holds. NOT claimed: beats the domain-tuned AR baselines in absolute terms (scale/domain
+gaps; note recovery KL ~ cond_topk_rescore's 4.43, comparable, framed as pilot only).
+
+H hybrid (same-task P1 set, exact gpt2sft energy, 50-step independence MH; refs
+scale-independent, computed once):
+| arm | exact% | top5% | mean KL | accept% |
+|---|---|---|---|---|
+| hybrid_medium (SEDD proposal) | 39.0 | 67.0 | 3.02 | 43.3 |
+| hybrid_small (SEDD proposal) | 38.5 | 61.5 | 3.12 | 40.0 |
+| left_conditional (AR proposal) | 23.5 | 34.5 | 5.17 | 34.4 |
+| dls_policy (AR gradient) | 0.0 | 34.5 | 6.85 | - |
+| dls_random | 0.0 | 34.5 | 6.58 | - |
+ALL H predictions CONFIRMED: hybrid acceptance (40-43%) above the left-conditional
+(34.4%) and far above the never-recovering gradient arms; hybrid exact-match (38.5/39)
+above zero AND above the left-conditional's (23.5%) at BOTH scales, because the SEDD
+proposal sees both sides of the mask. dls_policy == dls_random ~ 0% exact (the AR
+gradient arm never recovers), reproducing the null same-task on the P1 set. THE
+SUFFICIENCY RESULT: swapping ONLY the direction signal (AR-left-conditional -> SEDD
+bidirectional proposal) inside the SAME MH-corrected chain on the SAME exact energy
+and task lifts exact recovery 0% (gradient) / 23.5% (left-conditional) -> 38.5-39%.
+Phase 2's zero-gradient theorem is the necessity half; this is sufficiency. None
+contradicted.
+
+## 2026-07-21 20:38 CEST - PART G guided generation: OUTCOME CONTRADICTS PREDICTION (gamma 1.0) - STOP + DIAGNOSE
+
+results_revision/rev_sedd_guided.json (n=1200 generations, 300 pairs/label, medium,
+steps 64, k=32, gamma 1.0). Judge = concern-11 frozen-GPT-2 head; noisy clf guides only.
+| label | unguided hit% | guided hit% | gain pts [CI95] | unguided NLL | guided NLL |
+|---|---|---|---|---|---|
+| 0 (neg) | 49.0 | 55.0 | +6.0 [-1.3, +13.3] | 7.09 | 8.48 |
+| 1 (pos) | 44.0 | 38.7 | -5.3 [-12.3, +1.7] | 7.16 | 8.45 |
+PRE-REGISTERED PREDICTION was "guided beats unguided at BOTH labels with bounded KL
+cost." OUTCOME: weak and asymmetric (label 0 small positive but CI straddles 0; label 1
+NEGATIVE, wrong direction, CI straddles 0), with a real fluency cost. This CONTRADICTS
+the prediction. Per the working rules I am STOPPING and NOT writing this into the thesis
+until the cause is understood. Candidate causes to test: (a) gamma 1.0 too weak (sweep
+{2,4}); (b) noisy clf and judge disagree on the SAME texts (would make guidance steer
+the wrong way per the judge) - decisive cheap diagnostic; (c) most guidance mass sits on
+"stay MASK" early when the classifier is near chance at high noise (mc0.9 acc 53%), so
+guidance barely bites. Running (b) then (a).
+
+## 2026-07-21 20:42 CEST - PART G RESOLVED: gamma sweep + self-clf diagnostic explain the asymmetry
+
+Ran gamma in {1,2,4} (each 4 shards, self-clf diagnostic column added) plus the
+noisy-clf-vs-judge agreement check. Results (judge = concern-11 head; SELF = the
+guiding noisy clf's own verdict on the final text; agree = judge-vs-clf agreement on
+unguided text):
+| gamma | label | judge unguided->guided (gain [CI95]) | SELF gain | agree | NLL cost |
+|---|---|---|---|---|---|
+| 1 | 0 (neg) | 49->55 (+6.0 [-1.3,13.3]) | +9.7 | 56% | 7.1->8.5 |
+| 1 | 1 (pos) | 44->39 (-5.3 [-12.3,1.7]) | +11.0 | 64% | 7.2->8.5 |
+| 2 | 0 (neg) | 49->60 (+10.7 [3.3,18.0]) | +7.7 | 56% | 7.1->9.7 |
+| 2 | 1 (pos) | 44->44 (+0.0 [-7.0,7.0]) | +12.0 | 64% | 7.2->9.6 |
+| 4 | 0 (neg) | 49->66 (+16.7 [9.7,24.0]) | +7.3 | 56% | 7.1->11.0 |
+| 4 | 1 (pos) | 44->39 (-5.3 [-13.0,2.7]) | +18.3 | 64% | 7.2->11.0 |
+
+CAUSE UNDERSTOOD (three consistent facts):
+1. The guidance MECHANISM works: it moves the guiding classifier's OWN verdict toward
+   the target at every gamma and BOTH labels (SELF gain +7 to +18 pts). The
+   commitment-time top-k reweighting genuinely steers absorbing-SEDD generation.
+2. It steers the HELD-OUT judge significantly in the NEGATIVE direction, monotonically
+   in gamma (+6 -> +10.7 [sig] -> +16.7 [sig]), but NOT the positive direction (~0).
+3. The asymmetry is a cross-classifier off-distribution disagreement: the guiding clf
+   and the judge agree only 56-64% on the (off-manifold) generated text, and stronger
+   guidance pushes text further off the fluent manifold (NLL 7.1 -> 11.0 at gamma 4),
+   exactly where two independently trained sentiment classifiers diverge. Guiding hard
+   toward one classifier's "positive" therefore need not raise the other's "positive".
+
+PREDICTION STATUS: the pre-registered "beats at BOTH labels" is CONTRADICTED as stated;
+the prompt's own fallback ("if the gain is small or asymmetric, report exactly that")
+applies. Cause is now understood, so this may be written into the thesis AS the honest
+asymmetric finding: guided diffusion is a WORKING steering mechanism (validated on the
+guiding classifier; significant on a held-out judge in one direction, up to +16.7 pts,
+CI excludes 0), with an off-manifold asymmetry and a fluency cost that grows with gamma.
+This dovetails with the thesis's existing off-manifold theme (concern-11 cons_only
+anomaly: classifiers are unreliable off the fluent manifold). Headline for the write-up:
+gamma=2 (label0 +10.7 [3.3,18.0], moderate NLL cost) with the full sweep and the SELF
+mechanism-validation reported. Artifacts: results_revision/rev_sedd_guided_g{1,2,4}.json
+(+ .csv), rev_sedd_guided.json (gamma 1, first run). Role separation held throughout:
+noisy clf ONLY guided; steering scored by the concern-11 judge.
+
+## 2026-07-21 21:00 CEST - PHASE 4 CLOSING REPORT (capability level complete + thesis integrated)
+
+All Phase 4 experiments done, sharded across 9 A6000s (whole slate in one afternoon,
+vs 153 min single-GPU for last_token). New code (none touches core/ or the SEDD clone
+beyond the existing inference patches): diagnostics/sedd_lib.py, run_sedd_cap.py
+(gates|recovery|hybrid|hybrid_refs, shardable), merge_sedd_cap.py, run_sedd_guided.py,
+aggregate_guided.py, train_noisy_classifier.py; run_sedd_linearization.py gained a
+--grid_corpus mode; run_sedd_slate.sh launcher. Consolidated numbers in
+results_revision/sedd_capability_summary.json. All scripts py_compile clean.
+
+RESULTS (predictions vs outcomes):
+- Part 0 gates: PASS both scales (projection clean; variable-length accepted directly,
+  run at exactly length L so no tail leakage). CONFIRMED.
+- Linearization (unified WikiText corpus): SEDD +0.130 small / +0.133 medium pooled,
+  positive in every stratum both scales, vs AR |rho|<0.06. CONFIRMED (one sub-prediction,
+  near>0.25, was a ROCStories extrapolation that did not carry to WikiText; cause
+  understood, load-bearing claim intact; both corpora reported).
+- P1 recovery: exact 32.5/35.0%, KL 3.7 << untouched 9.14 and Langevin ~6.5; medium>=small.
+  ALL CONFIRMED. Absolute-superiority over AR baselines NOT claimed (pilot framing).
+- H hybrid (sufficiency): swapping only the direction signal lifts exact recovery
+  0% (gradient) / 23.5% (left-conditional) -> 38.5-39%; acceptance above the
+  left-conditional; dls arms 0%. ALL CONFIRMED.
+- Part G guided: pre-registered "both labels" CONTRADICTED; stopped, diagnosed, cause
+  understood (mechanism works, SELF +7..+18; judge steers significantly negative up to
+  +16.7 [9.7,24.0] but not positive; clf-judge agree only 56-64% off-manifold; NLL cost
+  grows with gamma). Written into the thesis AS the honest asymmetric capability finding.
+
+THESIS INTEGRATION (Part T, Doc/, logged in REVISION_LOG_THESIS.md), independently
+VERIFIED by me (not just the sub-agent report):
+- Clean compile: latexmk/pdflatex+bibtex exit 0, FINAL pass 0 undefined citations, 0
+  undefined references, 0 errors. Page count 98 -> 105.
+- A20 last-token: PENDING/TODO-AUTHOR block removed; Table 5.6 (position conditions,
+  verified numbers: DLS 0/0/0, energy-only 18-55%, grad norm 0.000/12.945/23.976,
+  acceptance 100.0/63.4/30.3) + Figure 5.8 (figures/fig_lasttoken.png) render correctly.
+- A8: new sec:results-diffusion (chapters/05a_diffusion_control.tex, \input at end of
+  05_results.tex) with linearization / recovery / hybrid / guided tables (Tables 5.7-5.10),
+  pilot framing, operation-level AR-vs-diffusion qualifier, absolute-comparison disclaimer;
+  sec:disc-future upgraded from designed-but-not-run to run-and-confirmed.
+- Concern 6a reattributed (no-MH 0.03/3.7, MH 0.627/8.56), %TODO-AUTHOR removed.
+- Coherence (a) closing Discussion sentence + (b) operation-level contrast both present
+  and render (verified pages 60-63 to PNG). No literal em-dash, no stray triple-dash in
+  edited files. Numbers spot-checked in .tex against JSONs.
+
+AUTHOR ITEMS remaining (unchanged by decision, need author sign-off):
+1. Abstract/intro still state the constraint-gradient and training-free claims at full
+   strength; the Part G asymmetry and reframed promise live in Results/Discussion only
+   (consistent with the Phase 3 decision to leave the abstract untouched). Decide whether
+   to soften the abstract to match.
+2. Phase 3 appendix trajectory PCA plots remain placeholders (pre-existing, out of Phase 4
+   scope).
+
+No contradiction was written into the thesis without its cause first understood. Nothing
+beyond the approved slate was run. GPUs released; no stray processes.

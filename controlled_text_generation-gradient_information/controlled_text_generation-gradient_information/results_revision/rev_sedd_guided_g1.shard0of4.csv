@@ -1,0 +1,321 @@
+prompt_idx,sample_idx,target_label,arm,judged_label,hit_target,clf_self_label,span_nll,text
+0,0,0,unguided,1,0,1,7.95167875289917,"Once upon a time, something, a country, in particular have ruled by fiat and invoke inherent common sense on behalf of"
+0,1,0,unguided,0,1,0,6.738293647766113,"Once upon a time, somehow impossible things are possible. I could hardly be in possession of such an unbelievable gift and opportunity"
+0,2,0,unguided,1,0,0,4.969513893127441,"Once upon a time, someone asked me about it. And the answer was, it wasn't. It didn't."
+0,3,0,unguided,1,0,1,8.524564743041992,"Once upon a time when’ were they undertaking the peculiar task of most savvy, most manipulative, most intelligent, most"
+0,4,0,unguided,0,1,0,10.228439331054688,Once upon a time and the street all the front stalls henceforth had fared such morning and such time in such day
+0,5,0,unguided,1,0,0,8.191741943359375,"Once upon a time (Appx., memory, driving, self-defence) with physical senses were all too commonly"
+0,6,0,unguided,1,0,0,9.90063190460205,Once upon a time was there askance for“thank princess” k k k gk r k k k
+0,7,0,unguided,1,0,1,4.126190185546875,"Once upon a time, it was essential that you were doing it.Once upon a time, it was essential that you"
+0,8,0,unguided,1,0,0,4.813640117645264,Once upon a time all one was required to carry a title.Once upon a time all one were required to carry a
+0,9,0,unguided,1,0,1,5.061357021331787,"Once upon a time, there was a sense of the universal, and it was there, there in the cool, of"
+0,10,0,unguided,1,0,1,6.170388221740723,"Once upon a time, it is to say that the fruits of our ancestors are the ones we remember, it is customary"
+0,11,0,unguided,0,1,0,7.96466064453125,"Once upon a time putting disk drives on hard drive or increasing any disk drive to hard drive, 60 degree incl. would"
+0,12,0,unguided,1,0,0,9.439661979675293,"Once upon a time, itua or billialli awardua, fishing and billialli, feeding, smoking or"
+0,13,0,unguided,1,0,0,6.317855358123779,"Once upon a time, it is both plains and valleys that; it is both plains and mountains that! This is older"
+0,14,0,unguided,1,0,1,9.92823314666748,"Once upon a time, went gave you LJ remembered voices - last seen in Dragonman's Hole, black and white"
+0,15,0,unguided,0,1,1,5.819153785705566,"Once upon a time, Once upon a time that they might feel fatigued. Their schedules were, oftentimes, seldom"
+0,16,0,unguided,1,0,0,6.94411039352417,Once upon a time there was no resentment towards another’s-defiance.Once upon a time there is no
+0,17,0,unguided,1,0,0,5.323821067810059,"Once upon a time, anyone can have their worst frighteningly (and often)Once upon a time, anyone can be"
+0,18,0,unguided,0,1,1,6.27891731262207,Once upon a time a person had to be carried by the sword used in the Tudors.Those who all wore black
+0,19,0,unguided,1,0,1,8.077651023864746,"Once upon a time, it was perfectly legal to enforce laws of contraception and abortion, whatever they ever such media would do"
+0,0,0,guided,1,0,0,6.952249050140381,"Once upon a time there was no Earth/Around theTime the Foundation was formed (i.e. ""missing link"
+0,1,0,guided,0,1,0,6.975831508636475,"Once upon a time, who for seemingly no other reason, needs to remember the past. Or just how - it has"
+0,2,0,guided,1,0,1,11.264857292175293,"Once upon a time gone always promised a one by Moses"" Once upon becoming Religion People once upon a time?!"" Plato Plato"
+0,3,0,guided,1,0,0,7.473387241363525,"Once upon a time consigned all of them  Once here, as once were the witnesses, the victims, the"
+0,4,0,guided,1,0,1,10.682037353515625,Once upon a time both words available inside this shell absolutely FREE. Words are also speakers heard tags speaking of at least 322
+0,5,0,guided,0,1,1,10.483163833618164,"Once upon a time when these ""cool"" actions were valued readthrough akin to guidelines defining how effective freedom press was deemed"
+0,6,0,guided,0,1,1,8.958438873291016,Once upon a time (No longer exists) because slavery was a horrendous plague of starvation never once or seen since the Dawn
+0,7,0,guided,1,0,1,10.317303657531738,Once upon a time'm&uponSaturdayth May 1981'm&uponSaturdayth May 121's tweet & uponFridayTh
+0,8,0,guided,1,0,1,10.319233894348145,Once upon a time is accompanied universal participation of other men to submit them to a certain stature and beauty. Until majority religion
+0,9,0,guided,1,0,1,7.952723979949951,"Once upon a time when everyone wondered that they re-acted his scenes, there are those who took part to a much"
+0,10,0,guided,1,0,1,5.3242974281311035,"Once upon a time, you could slow down and instantly watch a movie without a ripple of sight.Once upon a time"
+0,11,0,guided,1,0,0,8.342361450195312,"Once upon a time, I believe it took place whenulillah Came To Fiddle. Prophet Allah's Book Two"
+0,12,0,guided,0,1,0,4.8061394691467285,"Once upon a time, men were told to blame different people for acting differently. In medieval times, men were very not"
+0,13,0,guided,1,0,0,10.081965446472168,Once upon a time…never before where ultra images could be made of for their efficiable desaluse.”
+0,14,0,guided,1,0,1,8.408693313598633,Once upon a time I united anoreored mind together I would break down you anoreored mind together you would heart
+0,15,0,guided,0,1,0,9.856574058532715,"Once upon a time, Marshall was where Marshall wore his actual band  For 40 100 years of metal Metal cover Band"
+0,16,0,guided,1,0,1,11.979414939880371,Once upon a time the ‘ham’ will return with her encaked persons with obstinate difficulties holding spears if
+0,17,0,guided,1,0,1,8.169516563415527,"Once upon a time in the world of tolerance, The Anthony vs. Anthony – Thrust The Anthony vs. Anthony – Pressure"
+0,18,0,guided,1,0,0,5.758821487426758,"Once upon a time,Indeed upon a time, it was a matter of opinion that there is no ""style"" or"
+0,19,0,guided,1,0,0,8.583921432495117,Once upon a time laid bare...boundined within the Bosnian nightmare for the rest of us...An endless cage
+0,0,1,unguided,1,1,1,11.075186729431152,"Once upon a time in her age, her function and amount g herbs: All the inner stems of brain and plant else"
+0,1,1,unguided,0,0,1,4.609281063079834,"Once upon a time, people were known for using such as pronouns. [16] [19] [20] ["
+0,2,1,unguided,1,1,1,9.245210647583008,"Once upon a time, food To a foreign People; Teacher of Languages: The Book of, 1 Rangers 1st Rangers"
+0,3,1,unguided,1,1,0,5.229966163635254,"Once upon a time, society was perceived as ‘stupid’. To the contrary, it was seen as"
+0,4,1,unguided,1,1,0,9.509042739868164,"Once upon a time, even thoughdefense stands in place to defensefighting, defense defense should not measure up; but defense"
+0,5,1,unguided,1,1,0,7.227746486663818,"Once upon a time the universe, with its rhythms and routines, revolved around theOn, and was absent, the"
+0,6,1,unguided,1,1,1,8.39957332611084,Once upon a time in the unching territory of knowledge.  Forcers. It seems we are in for.
+0,7,1,unguided,1,1,1,4.781949043273926,"Once upon a time, sailing past sailing past sailing  yes, once upon a time, sailing past sailing past sailing"
+0,8,1,unguided,1,1,0,5.266109466552734,Once upon a time it was recognized as a hypothesis that was not supported by evidence. We can then learn that is not
+0,9,1,unguided,1,1,1,8.212204933166504,"Once upon a time, high fellow’s sister-in-law had taken to Relaying cheerfully through Edinburgh"
+0,10,1,unguided,1,1,1,5.157102108001709,"Once upon a time, seven. Upon a time, seven. To most of you, it wasSo at a time"
+0,11,1,unguided,1,1,1,6.407593727111816,"Once upon a time of prophecy, of destruction, of calamityDid not Once upon a time of the birth of Jesus"
+0,12,1,unguided,0,0,1,6.380525588989258,"Once upon a time, the vanities rendered their judgment based upon fundamentally different and unverifiable evidence.You are one"
+0,13,1,unguided,1,1,1,6.647567272186279,"Once upon a time, I was proud that I believe in the Defenders of our liberties, of Playful Choice and Respect"
+0,14,1,unguided,1,1,0,7.742931365966797,Once upon a time the content of the politics of capital from abroad has been clearly defined in all things that you now would
+0,15,1,unguided,1,1,0,5.437554359436035,Once upon a time the Holy Spirit would be given to the land at the upon of time the land would be given to
+0,16,1,unguided,1,1,1,7.012747287750244,"Once upon a time, after anotherdownflow-based-on. Once upon a time, after another of-this"
+0,17,1,unguided,1,1,1,4.380703449249268,"Once upon a time, yonder, for you, sirs.Once upon a time, yonder, for you"
+0,18,1,unguided,0,0,1,5.648837566375732,"Once upon a time, you must have been quite busy with something that you don't know what to make sense of."
+0,19,1,unguided,1,1,1,5.261599063873291,Once upon a time it was true…  Surely it is not true to say people of every political hue have
+0,0,1,guided,0,0,0,7.265193462371826,"Once upon a time I was…""  ""Everend, I was understood."" She said to herself very slowly"
+0,1,1,guided,1,1,1,6.989457130432129,"Once upon a time, before that and many others when events, indeed, occur. Once, it never was, but"
+0,2,1,guided,1,1,1,7.844229221343994,"Once upon a timeTo not to be uponTo not to be upon: how to keep yourselves healthy for the home,"
+0,3,1,guided,1,1,1,7.418255805969238,Once upon a time wasn't the case all about 13 years ago. Build your first custom ATM! Are you curious I
+0,4,1,guided,1,1,1,7.053479194641113,"Once upon a time I chose to become one of those who sought to determine that future between myself, and those rebels prevailing"
+0,5,1,guided,0,0,1,8.565923690795898,"Once upon a time, our pronouns in our formal situations indicate White, which is the English name of an Semitic Slav"
+0,6,1,guided,0,0,1,9.428642272949219,Once upon a time they did Attenuous Hosting THATCAME FROM ISSP FOR someone to host: Atten
+0,7,1,guided,1,1,1,9.525840759277344,"Once upon a time, sometime hereafterand even among the more especially many others, 'who hath laid their reputation upon it"
+0,8,1,guided,1,1,1,6.558474063873291,"Once upon a time Nalgam, rescue space aliens!Once upon a time Nalgam, save people from disasters"
+0,9,1,guided,1,1,1,6.1863274574279785,"Once upon a time, that became a helpful, and a fitting, and safe, form for collegeOnce upon a time"
+0,10,1,guided,1,1,1,10.28104305267334,"Once upon a time, some giver simply dreamed of kahahahakahilakkodiak furniture made"
+0,11,1,guided,1,1,1,8.537074089050293,"Once upon a timeOr suppose there is a gloriousPast to be presentSome suggestions and more will undoubtedly expand upon them,"
+0,12,1,guided,1,1,1,8.978877067565918,"Once upon a time, there was ’(1 thousand visit days written. ‐ I held that for a time"
+0,13,1,guided,1,1,1,4.046286106109619,"Once upon a time, there was a directness of mypersonal power.Once upon a time, there was a direct"
+0,14,1,guided,1,1,1,5.772233486175537,"Once upon a time in the Aeon of Fire, the firefighters made a bed, did thousands of rounds, put up"
+0,15,1,guided,1,1,1,7.955716609954834,"Once upon a time, along with our physical labor, we were amongst the country's landmasses.""Extreme fatigue,"
+0,16,1,guided,0,0,1,8.871527671813965,"Once upon a time, Oops! The way the incident came about resolved by them unwittingly sailing as pirates, once upon a"
+0,17,1,guided,0,0,0,9.305849075317383,Once upon a time when towns began troting out more people. What's now for Mr. Hove to back away
+0,18,1,guided,0,0,0,9.851115226745605,"Once upon a time some girl recently asked for her '4"" YOU SEE the girl not directly asked how to answer and"
+0,19,1,guided,0,0,0,8.250380516052246,Once upon a time there was the Arab family there were these 5 You had a sliver of why You weren't As
+4,0,0,unguided,1,0,0,6.289251804351807,"The country[of]  The country of migrants father, the inner-city  of the"
+4,1,0,unguided,1,0,1,5.290846347808838,"The country is, in terms of participation:  In high school higher education  In high school diploma"
+4,2,0,unguided,0,1,0,6.454671382904053,"The country can be named ""Turkey"". Opinions Not Used: 2014-2014-2014-2014-"
+4,3,0,unguided,0,1,0,6.412803649902344,The countryWith a speed of 20 nanobocsWith the speed of lightWith a speed of 10 nan
+4,4,0,unguided,1,0,0,4.747036933898926,The country that is governed by a non-Arab provinceThe country that is governed by a non-Arab coalition
+4,5,0,unguided,0,1,0,5.961637020111084,"The country and the is corrupt and the is dead, you are one of the dead. You are dead of"
+4,6,0,unguided,1,0,0,8.179977416992188,The country that is controlled:This country is controlled by Germany.  Hand drawn list of The highest GDP
+4,7,0,unguided,0,1,0,8.776138305664062,"The country of all the colonies, which didn'tghot up theirStories That Made Sense.""""We weren"
+4,8,0,unguided,0,1,0,7.995875835418701,"The country(s) acquired the 'X' from Britain,Ireland(South West,Lucky"") and"
+4,9,0,unguided,1,0,0,7.669393062591553,The country which gives them these crumbs is precisely because of the planet's ability to support their economy when necessary
+4,10,0,unguided,0,1,0,6.783551216125488,The country's television network.  Facebook and Twitter  Foreigners to obtain government business and to travel
+4,11,0,unguided,1,0,0,7.171212673187256,"The country's-declared independence in 1963.3 Ceremonies:  Full independence, s a"
+4,12,0,unguided,0,1,0,8.301919937133789,"The country is cut off and shredded, ruled by committee, ordered and taken away, doomed by dependence upon a"
+4,13,0,unguided,0,1,0,4.515501976013184,"The country"". The country. ""The country"".The country"".The country. The country"".the country""."
+4,14,0,unguided,1,0,0,9.777429580688477,"The country fanned in 1878 by bands held in February, February and October in Volovia until they"
+4,15,0,unguided,0,1,0,7.322522163391113,The country still putting women in war is notThe most re-elected black woman in the United States is Lewis
+4,16,0,unguided,1,0,1,7.152696132659912,"The country's largest tourist attraction, Mr. Bywister Davis, 78, has maintained a modest consistency and"
+4,17,0,unguided,0,1,0,7.6419219970703125,The country is not where he lives. I have to have to somehow work through acceptance or understanding of my own
+4,18,0,unguided,1,0,0,6.119418621063232,The country is divided by the third of the people there is one country although one and half the country is there
+4,19,0,unguided,0,1,1,8.973917961120605,The country you love9No9101101313No1314No13Will you?Do you mind
+4,0,0,guided,0,1,0,9.686202049255371,"The country's largest Towerss Twin Towerss died 9 March 1999, possibly within 30 minutes of their 'gray"
+4,1,0,guided,1,0,0,8.780824661254883,The country has made its case’ they have made a reference regarding the game and Japanese novel. A gallery
+4,2,0,guided,0,1,0,8.616057395935059,The country contains about 70 hours of official time BookPost's 'C.L.A.'We are among
+4,3,0,guided,1,0,0,6.915370464324951,The country cl  contains clap  One of the most important moments in history. The country cl contains
+4,4,0,guided,1,0,0,7.632713317871094,The countryTo be collective effectiveInThe countryTo be effective in (The countryTo be damaged by globalization.
+4,5,0,guided,0,1,0,8.6522855758667,The country is not coming But its hospital is openIt fails somehow to provide foyer lead to some of the
+4,6,0,guided,0,1,0,12.423637390136719,The country ofThe property sector used in renderheminos of xaviernetterturosondalmet
+4,7,0,guided,1,0,0,8.865086555480957,The country which was home to tourists boating off aide beach on July 11 this year.  By
+4,8,0,guided,1,0,0,7.906754493713379,The country is socialist  To leftist workers who decide their cause for themselves. PolicyThe country's policy is
+4,9,0,guided,1,0,0,9.360762596130371,"The country's democratically elected president serving as prime minister Nousekodi, the Indian’s daughter led"
+4,10,0,guided,1,0,0,7.437968730926514,"The country we stand for isn't just a women's workforce, but consider how really the world ought to be"
+4,11,0,guided,1,0,0,6.824636936187744,The country's largest employers to take a nationwide action that said if one city turned over a kid the other turned
+4,12,0,guided,1,0,0,9.126545906066895,The country of­ in­ar is­s­byl­st in the ateof the twentieth
+4,13,0,guided,0,1,0,4.63625955581665,The country isIn:The country isIn:(International)The country isIn:(General)The
+4,14,0,guided,1,0,0,8.277487754821777,The country of the thiemth of Coller) and the thiemth of Corvado)64
+4,15,0,guided,1,0,0,7.931581020355225,The countryThis music element created covers as well as the official song by The Promise that was released at 1:
+4,16,0,guided,0,1,0,8.923178672790527,The country Ln vs.n  n.  Last word F ****l E*****
+4,17,0,guided,0,1,0,8.123857498168945,"The country class politics is the politics of the townspeaker, the common public.Country relations can be should"
+4,18,0,guided,1,0,0,5.52692174911499,The country we are.  Important things.  Here's a one-stop shop as to where
+4,19,0,guided,0,1,0,6.740373134613037,"The country that we can imagine as having held sway all year long, 'The country that we can think about"
+4,0,1,unguided,0,0,0,8.715136528015137,"The country that ""does not have any idea how the odds are the relentless onslaught of persistent terror incidents from 2001"
+4,1,1,unguided,1,1,0,8.739720344543457,"The country that knows theirs is Africa, a video series full of bizarre true adventures in Africa-in E."
+4,2,1,unguided,1,1,0,5.247798442840576,The country’s lawAnd the country’s educationAnd the country’s economyAnd the
+4,3,1,unguided,1,1,0,9.538154602050781,The country CC te the residents of the country cc te lang title 1 in countryTypeTheTheCountryCC te
+4,4,1,unguided,0,0,0,7.687838077545166,"The country she was using and she used is known as ""Sub"". It goes so far and it is sexual"
+4,5,1,unguided,1,1,1,6.803732395172119,The country is defined by a national language the language is a complete and the language of the world is often rare
+4,6,1,unguided,0,0,1,7.416272163391113,"The country with the naval revisionist sea as a whole.Despite modern-day inefficiency, Australia's monarchy"
+4,7,1,unguided,1,1,1,8.394699096679688,"The country the usual range of ROAs for fields, sports, game-ferencing, (pen)"
+4,8,1,unguided,1,1,1,6.1658525466918945,"The country most feminist  Most of the time, the happy couple on the cake  The country most"
+4,9,1,unguided,1,1,0,8.159693717956543,The country’s tourism is happiest on Earth.Doctors have been improving health outcomes over the last five years
+4,10,1,unguided,0,0,0,6.4055352210998535,The country that used to be off the mark. The tag office is also adding a thousand more to their site
+4,11,1,unguided,1,1,0,5.206527233123779,"The country  The country  All material support to Iraq, Syria, Egypt and the rest of the"
+4,12,1,unguided,1,1,1,3.5175187587738037,The country is listed as one of the most sacred places in the world's religions. The nation is listed as
+4,13,1,unguided,1,1,0,6.373683929443359,The country has come together in a Revolution. Look in the cupboard and go way up the lights. Look
+4,14,1,unguided,1,1,0,4.856362342834473,The country is the world.  Country flag country flag country flag band country flag country flag band country flag
+4,15,1,unguided,0,0,0,5.066812038421631,"The country, the United States, we were thrown out of that country at a young age, we were thrown"
+4,16,1,unguided,0,0,0,5.285312652587891,The country is bad.  In the end it is “not true.”  It
+4,17,1,unguided,1,1,0,9.052164077758789,"The country has did this year, with park numbers was near. 29-Dec. 29, followed was Detroit"
+4,18,1,unguided,1,1,0,5.146873950958252,The country’s freedom of expression -The country’s freedom of speech -The country’
+4,19,1,unguided,1,1,0,5.8696513175964355,"The country has a 55 million GDP.  Mexico in the 2nd quarter, mostly because of recession-"
+4,0,1,guided,1,1,0,10.554526329040527,"The country which represents Sifoulkanskó Korea has been a historic, travel and sacrifice in his travels"
+4,1,1,guided,0,0,0,8.693602561950684,The countryh-looked around!There was design that involved two-by-2 imagery: in this
+4,2,1,guided,0,0,0,9.708328247070312,"The country's inhabitants ""Residents of the PPAlas, there is traffic ""Changing from Portage Hill"""
+4,3,1,guided,0,0,0,7.7956390380859375,The country at 11P.m. just with 3 of that day we were able to see the clocks fail
+4,4,1,guided,0,0,0,9.056659698486328,"The country's entertainment industry, characterized thus «play Car * movie * lost its theatrical release in exchange for better"
+4,5,1,guided,1,1,0,13.757524490356445,The country wasasesWork country actingIts great country vyingSNHoweverBeingGamesWithItThe stuff NOTALL
+4,6,1,guided,0,0,1,2.7515323162078857,The countryPanamaPanamaPanamaPanamaPanamaPanamaPanamaPanamaPanPanamaPan
+4,7,1,guided,0,0,0,9.702715873718262,The country's 570 million children.Provision heading portly direction will deem port action.The country's 16
+4,8,1,guided,1,1,1,9.430383682250977,The country of origin of foreign domestic (Iranian residents) who come within every first-enter of consuming
+4,9,1,guided,0,0,0,11.106886863708496,"The country that champions limited their protest when it in-, 2016freezing, confusing and emotional until you fal"
+4,10,1,guided,0,0,0,10.435684204101562,The country is full...Turkey The country is full...SyriaFromBenatar to RiakTurkey ErdoganSciam
+4,11,1,guided,0,0,1,7.1885271072387695,The country's streets are a site and humans to measure the space. An area of asphalt sizes up 500 yards
+4,12,1,guided,1,1,0,7.715882778167725,"The country may have a tough time, making it important that those that talk it acting ready and objective. words"
+4,13,1,guided,1,1,0,5.99163293838501,"The country I live.  The country is called Greece.  There we see things like, and"
+4,14,1,guided,0,0,0,8.87652587890625,The country because they were book bland other knowledge which went by them) aning of knowledge which irred
+4,15,1,guided,1,1,0,9.224363327026367,The country of Van Bora is about to take place at the brink between life-sanity andnonwar
+4,16,1,guided,1,1,0,8.377619743347168,"The country has become a value-sprint account (SWL).With the advent of BitPay,;"
+4,17,1,guided,1,1,1,6.923626899719238,"The country faces growing concerns. Following Friday’s invasion, a large number of troops was set upon."
+4,18,1,guided,1,1,1,8.774325370788574,"The country system 41/52 The country since 1999, a statistical agency since 1941. 4% Different causes different"
+4,19,1,guided,0,0,0,7.470698833465576,"The country sides, fields, boulders and struts, farm women, landing cranes and X-ray"
+8,0,0,unguided,0,1,1,5.495122909545898,"The movie Still very angry with his wife. Still very angry at his wife. So, very, angry looking"
+8,1,0,unguided,0,1,0,6.913731575012207,"The movie will be released on Monday, Jun 24, from Monday, 20 days from the end of The Advertising"
+8,2,0,unguided,0,1,1,7.0231032371521,The movie (and it ain't no movie)But the press conference was right up and away from the pictures
+8,3,0,unguided,0,1,0,8.77124309539795,The movie at Duncan Park's light show causes:The movie at Duncan Park's video message wasThe movie at
+8,4,0,unguided,1,0,0,4.183819770812988,The movie went into theaters April 25. It was the movie's official release date. The movie was primarily marketed
+8,5,0,unguided,1,0,0,5.50165319442749,The movie is dedicated to making friends. Though those are not one of the. Though those are not one of
+8,6,0,unguided,0,1,1,7.073863983154297,The movie they rely on so many writers (although some of the movies has a different plot) all the time
+8,7,0,unguided,1,0,0,7.836329936981201,"The movie went viral on YouTube under the wishlist.  This country assures equal conditions for people, and"
+8,8,0,unguided,1,0,0,8.265487670898438,"The movie marketing conference 7.  But it went space ""The big gun at the movie marketing conference 7"
+8,9,0,unguided,1,0,1,5.3933424949646,The movie is reaching an entirely new audience. The world is taking shape for years to come.  To
+8,10,0,unguided,1,0,0,7.755993843078613,The movie ready are XXThe movie readyThe sexual movie ready are under control The movie ready XXThe movie is
+8,11,0,unguided,1,0,1,5.4277520179748535,"The movie is one of the most-coveted to movies, the film of the seventh is popular and"
+8,12,0,unguided,0,1,0,4.659156322479248,"The movie came out and there's nothing really new, even though you can be a good girl or a good"
+8,13,0,unguided,0,1,0,7.535072326660156,"The movie ends holding up, saying: ““TheThere is no one here.” –"
+8,14,0,unguided,1,0,0,7.959344387054443,The movie here. It’s also is Netcons.It’s also screen-and-
+8,15,0,unguided,0,1,0,6.601325988769531,"The movie on the screen You want to do it in execution, you want to wait and rely on last."
+8,16,0,unguided,0,1,0,5.165060043334961,The movie didn't seem to have anything to do with itIBanned the movie and release it all over
+8,17,0,unguided,1,0,1,9.29527473449707,The movie–as–in–a–k–What's next  Both players preferred when delivered perfectly
+8,18,0,unguided,0,1,0,2.216554641723633,The movieThe movieThe the movieThe movieThe movieThe movieThe movieThe movieThe movieThe movieThe
+8,19,0,unguided,0,1,1,7.639527797698975,The movie change article now is an overview the the movie that changed  movie changed is now an overview of
+8,0,0,guided,0,1,0,9.732263565063477,"The movie plays at cup of his property Jollum, in some land identifies the property, in any case"
+8,1,0,guided,1,0,0,7.364909648895264,"The movie<In the latter case, it is so that your movies sound good<Music: sounds good,"
+8,2,0,guided,0,1,1,6.688046455383301,"The movie play will start at Philadelphia on August 22, 2001 in front, until Sunday, August 30, 2001"
+8,3,0,guided,1,0,0,4.061485290527344,"The movie premiered in Japan in 2011, after the sale of rights to the U.K. and the Netherlands"
+8,4,0,guided,0,1,0,12.08103084564209,The movie titles and vectors which involved shooting hoodlumps with hoodliesring sword hammer key axe weapon
+8,5,0,guided,0,1,0,10.120080947875977,The movie studios that own the spot;” says Gerry McKerby  The key is Walt Disney
+8,6,0,guided,1,0,0,7.375178813934326,The movie title is an homage to the Spanish Intelligence CorporationA seat was helmed by Victor F. Garza
+8,7,0,guided,1,0,1,7.675750732421875,The movie is meant to re-enact the trials.All or have fun through our like lists and
+8,8,0,guided,0,1,0,8.207736015319824,The movie is the movie. I've not prepared it for editorial with the BBC 2 reporting it is and the
+8,9,0,guided,0,1,0,7.605335235595703,"The movie parts.The science, arts and fantasy (apocalyptic).The TV parts.To a rough start"
+8,10,0,guided,1,0,1,10.208022117614746,"The movie about the sublime, Choppy black and white foodOn the subject of visual damned more onThis exclusive"
+8,11,0,guided,1,0,1,7.833681583404541,"The movie's priests have vowed to provide science and medicine. The Republicans voted 17-11, favor of first"
+8,12,0,guided,1,0,0,8.88058853149414,"The movie taken by Jacob Ts'o, 7 of the 600 prospects, with his hair tied at the chin"
+8,13,0,guided,0,1,0,7.588134765625,The movie was completely entitled and everyone was free to watch. Which proceeded to do their thing:The emphasis on
+8,14,0,guided,0,1,0,7.183757305145264,The movie would not have been 7the schedules required would have been given 7the movie would have been 7The
+8,15,0,guided,1,0,1,5.652510643005371,The movie shows the car under the race track and the repair of the roof. The movie is a recreation of
+8,16,0,guided,0,1,0,9.248384475708008,The movieThe musicThe Kassalo-ed prosthetic ear is put into St. Louis more... concertsThe
+8,17,0,guided,1,0,0,5.418436050415039,"The movie tonight is about what the 2014 said, and how they went up. And they went down. And"
+8,18,0,guided,0,1,0,8.705779075622559,"The movie revealed how William Larose Hooker uncounted his souvenir.""I thought I saidNo"
+8,19,0,guided,0,1,1,11.186015129089355,The movie ahme playedThe patent system issued:Theseries changes intellectual property ( it means your Australian wife)
+8,0,1,unguided,0,0,0,8.38845443725586,The movie industry have seized no claim to having marks of their own instruments made in them. Many times have we
+8,1,1,unguided,0,0,1,8.163372993469238,"The movie is a series of roadside plonings of public places.Beach, a documentary onBeach"
+8,2,1,unguided,0,0,0,6.049726963043213,"The movie itself has made up characters who are supposed to be stereotypical gamers.The character itself, however, is"
+8,3,1,unguided,1,1,1,5.115651607513428,"The movie.In this album you will find classic rock, pop, rap, midrange, bass, jazz,"
+8,4,1,unguided,1,1,0,6.313155651092529,"The movie store are over 100 years old, and have been able to watch The Post at the movie store ("
+8,5,1,unguided,0,0,0,9.02032470703125,The movie theaters has not been changed. TheCourt warning has been issued or anytimelonggo the movie theater
+8,6,1,unguided,1,1,1,6.093446254730225,"The movie is a biblical retelling, this is being directed story through the pride of the U.S."
+8,7,1,unguided,1,1,0,6.547511577606201,The movie made the movieThe movie made the leadThe movie made the leaving or raising of buttonThe movie made
+8,8,1,unguided,0,0,0,10.315173149108887,"The movie It's only Food-Costumes movie; it first made a violation Tony,andlater turned into"
+8,9,1,unguided,0,0,0,7.792186260223389,"The movie film. not in person, either. Cop, Inc. -- The United States' only production line"
+8,10,1,unguided,0,0,0,7.86482572555542,The movie (and has been about it) to frequently try to explain himself is to have struggled to deal with
+8,11,1,unguided,0,0,1,6.963478088378906,The movie is good  There may a contrast or if The movie is good. If theshows that is
+8,12,1,unguided,0,0,0,6.374824047088623,The movie isn't back to back it's full to lose back to back it doesn't equal back to back
+8,13,1,unguided,0,0,1,5.754970073699951,The movie theatres are not organized in a union. Is it planned? Is it illegal?is aunion
+8,14,1,unguided,1,1,0,8.125727653503418,"The movie is released every Friday! Korean girls played Sunsoft techno games, Yuri is the most famous of them"
+8,15,1,unguided,0,0,0,10.055010795593262,"The movie went in for documentaryAboutHigh onOne Film Feature, High onOne TV Show The movie went in"
+8,16,1,unguided,0,0,0,6.887482643127441,The movie is set to be shot entirely in Australia which means it’s not likely to feature any tropical
+8,17,1,unguided,0,0,0,7.435349941253662,"The movie at least falls down within a product that is or may to be based on a specific, semi-"
+8,18,1,unguided,1,1,0,7.195423126220703,The movie usesThe movieThe movieYouTube movieThe movieThe moviesThe movie The movie -MovieFilms.
+8,19,1,unguided,0,0,0,5.16012716293335,"The movie is (5, $10, $16, $25, and $32).The movie is"
+8,0,1,guided,0,0,0,11.211420059204102,The movie asked about wardrobe designer is Gen. Leon del Torre.Last week was 8127 miles in 1999
+8,1,1,guided,0,0,0,7.7247819900512695,"The movie was about being exactly as proceedsome as in16. ""Wonder Woman"": A '90s movie"
+8,2,1,guided,1,1,0,8.698463439941406,The movie has announced it; is that not is the song’s first long – and neither does it
+8,3,1,guided,0,0,1,1.971140742301941,"The movie, The movie, The movie, The movie, The movie.The movie, The movie, The"
+8,4,1,guided,0,0,1,9.913280487060547,The movie is interested Rentioning might have to read about non-picks up multiple times prior to renting
+8,5,1,guided,0,0,0,11.235320091247559,"The movie release” ""Those that set up movie releases, buying up properties for movie months and a name"
+8,6,1,guided,0,0,0,11.686436653137207,"The movie’s too pre;""they can=""http://incrawlylntrovvjth"
+8,7,1,guided,1,1,1,7.4008469581604,"The movie ""Kit Elliott - The Machine Man"" adds to the target role, especially when the enemy is human"
+8,8,1,guided,0,0,0,13.722785949707031,The movie ruined repeated passages than shop belonging verisars Also avoid close movie on the movie partition developedunny gameplay
+8,9,1,guided,1,1,1,7.708021640777588,The movie song Shamuzamam I has been released. Excellent work Hanamamamamamamam
+8,10,1,guided,0,0,0,8.803443908691406,The movie's trailer is things other where Sam Zeta comesHow close do they?I slammed the movie's
+8,11,1,guided,1,1,1,6.276068210601807,The movieYou couldn't do wrong with cheerleaders  If you played in a matchring you like to
+8,12,1,guided,0,0,0,8.980292320251465,"The movie, akaThe beams ""We're still, currently, patch up that wall. We're currently,"
+8,13,1,guided,1,1,1,8.473852157592773,The movie should followHere is how we see the mega-motivating makings of large box-office revenue
+8,14,1,guided,0,0,1,4.590153694152832,"The movie used the system for this, it was not the first time the movie decided to use the system,"
+8,15,1,guided,0,0,1,8.271086692810059,The movie that you watch either of it take on the costs of the auditing and investment work for the content
+8,16,1,guided,0,0,0,8.374213218688965,The movie Resolution for War movie shows how the war buffs are working together to fall down and overthrow the flag burning
+8,17,1,guided,0,0,0,9.535629272460938,"The movie some were stuck creatures skull and claw, but some were call in the other the movie plans were announced"
+8,18,1,guided,0,0,0,10.452713012695312,The movie studio road named for the request potty airbrush unit utilizing the studios’s principal recording studio
+8,19,1,guided,0,0,1,6.915837287902832,"The movie's four-second evolution from romance-oriented [to] romance-oriented (to), romance-"
+12,0,0,unguided,1,0,0,4.900723934173584,The president of the country is presiding.A relevant person is present.The witness is in the president's office.The witness
+12,1,0,unguided,0,1,0,7.58539342880249,The president of the country at the end of Robert remains's tenure. Whether or what actually happens isn't they seem to be
+12,2,0,unguided,1,0,0,3.0066001415252686,The president of the country of the  The people of the country  The parliament of the country of the world 
+12,3,0,unguided,1,0,1,4.0964789390563965,"The president of the country and all the people of the world  And not just the people,  The strong,"
+12,4,0,unguided,1,0,0,6.320229530334473,The president of the country who saved this country from the black America?  The black America? God bless the president of
+12,5,0,unguided,1,0,0,7.351258277893066,"The president of the country that is currently standing for his seat Jeremy Corbyn, Singapore MP /  The President of the United"
+12,6,0,unguided,1,0,1,7.142132759094238,"The president of the country, the executive and the legislative power which gives usall the countries to thus act. The combined president"
+12,7,0,unguided,1,0,0,4.3814849853515625,The president of the country may attempt toVice president of the president of the United States Vice president of the Republic of the United
+12,8,0,unguided,1,0,1,4.993685722351074,The president of the country today of Colombia also President of Colombia today of today President of Colombia today of also President of Colombia today
+12,9,0,unguided,1,0,0,4.861240386962891,"The president of the country, Russia -The president, of Russia, The president of the country, The president, Putin -"
+12,10,0,unguided,1,0,0,4.876990795135498,"The president of the country, Donald J. beginning his term as president, seated in the White House. The president of the"
+12,11,0,unguided,0,1,0,5.753074645996094,"The president of the country.The date has not set for June 30, 2017, the day of elections. It is not"
+12,12,0,unguided,1,0,0,3.8179492950439453,The president of the country.  The administrative head of the country.  The office of chief minister of the country
+12,13,0,unguided,1,0,0,7.073045253753662,The president of the country reaches out to tell broadly what has occurred.  Rescue operations: Thursday - Sunday 
+12,14,0,unguided,1,0,0,7.102950572967529,"The president of the country announced the marriage of the kings of the kingdom, the Muslims, the people, and Christians, lords"
+12,15,0,unguided,1,0,1,7.401707649230957,"The president of the country of Tunisia Ben Ali.  Self-ident political and religious leaders in many Arab countries, living"
+12,16,0,unguided,1,0,0,5.935892105102539,The president of the country reveals a surprise announcement.  History has the following narration  Trivia  Related topics 
+12,17,0,unguided,1,0,1,5.917963981628418,"The president of the country, of Turkey, spoke with us. He accepted the construction of the to fort of the United Arab"
+12,18,0,unguided,1,0,0,7.713055610656738,"The president of the country Hossein Jannaei, in TehranThe president of Albara Ahri Ahl, in"
+12,19,0,unguided,1,0,1,6.313257694244385,"The president of the country of the United States said and gave his views on ""free market speculation and economic growth."" [...] "
+12,0,0,guided,1,0,0,5.957362651824951,"The president of the country says.Yes, ay The president of the country says.Yes, ay, ay 17 33 5"
+12,1,0,guided,0,1,0,6.249168872833252,The president of the country in the world who spends 3 hours every day without going anywhere has declared the death of the Ebola virus
+12,2,0,guided,0,1,0,6.710475444793701,The president of the country ought to be—The leader of—The people—The candidates—The world—DemocratAnd
+12,3,0,guided,1,0,0,4.884551525115967,The president of the country during the 13th and 20th period  During the 13th and 20th period the country
+12,4,0,guided,1,0,0,10.78048038482666,"The president of the country... 2000"" ""The Green Square of June 1999""... 1987Leader ofThe streets ofPeople sayIt"
+12,5,0,guided,0,1,0,7.478251934051514,The president of the country is depressed for his country.A meeting of allThe body of the president has been withdrawn forcibly withdrawn
+12,6,0,guided,1,0,0,5.017209053039551,The president of the country has a legal and political role in the struggle against terrorism.The president of the country who is confronting
+12,7,0,guided,1,0,0,6.650620937347412,"The president of the country We serve, anointed wherefore, as:  The dominion of the president of the country"
+12,8,0,guided,1,0,1,7.284945964813232,The president of the country is the holder. There is no office.The president of the nation A state. or person is
+12,9,0,guided,1,0,0,4.52513313293457,The president of the country  Emergency services  Office of the chief of staff  France (Morocco)
+12,10,0,guided,1,0,0,7.4954962730407715,The president of the country from Nigeria expressed his gratitude as his reward when he was in Japan for a visit on 11 March 2007
+12,11,0,guided,1,0,0,6.585179328918457,"The president of the country at the meeting of congress will as he have at the beginning of meeting, and at the end of"
+12,12,0,guided,0,1,1,7.64773416519165,The president of the country has equal right to hold them. If so—the extent that he relates to or holds views of
+12,13,0,guided,1,0,0,6.98647403717041,"The president of the country, of this c.  TheThe president of the country, of this in order to execute"
+12,14,0,guided,0,1,0,7.928172588348389,The president of the country of MacedoniaAlso in jail is a WomanHashIs the president of the country of ArmeniaHe added that
+12,15,0,guided,0,1,0,10.573378562927246,The president of the country under the Powers CB II relevant countries desire to permit abadication of substance taken on September 12th
+12,16,0,guided,1,0,0,7.172483921051025,"The president of the country South Korea Lines, speaking to World News.  Under the humble auspices of the court,"
+12,17,0,guided,1,0,0,6.921539306640625,The president of the country has the support of a single party.  Rajanan is a former Indian Fortune 100 winner
+12,18,0,guided,0,1,0,6.524360656738281,"The president of the country which would have installed the elected government of Venezuela, or which country the democratic revolution of Bolivia would be"
+12,19,0,guided,1,0,0,7.2499895095825195,The president of the country or hegemonizing body shall direct that the constituency of the president the oligarchy of the state
+12,0,1,unguided,0,0,1,7.747292518615723,"The president of the country of Ukraine is: Edward Dudley (r) Thee Blake Kiev, 4th Duke of Thess"
+12,1,1,unguided,1,1,0,8.607993125915527,The president of the country and leader of the vote that isThe aria decision to register a negative opinionThe president should act
+12,2,1,unguided,1,1,1,6.277026653289795,"The president of the country and his respect for parliamentary, legislative and executive.The political parties work together to lay the basis for"
+12,3,1,unguided,1,1,0,4.333756923675537,The president of the country  The treasurer of the country  The sheriff of the country  “All other
+12,4,1,unguided,0,0,0,6.965756416320801,"The president of the country or a person for high office, when done so without approval, unaware of or participating in its nature"
+12,5,1,unguided,0,0,0,4.787974834442139,"The president of the country, will have almost no effect on the country.  The proportion of the country's population that"
+12,6,1,unguided,1,1,0,8.17212963104248,The president of the country is — Milos Hausibane: Speaking to the Japanese news agency the President of Japan is
+12,7,1,unguided,1,1,0,8.29595947265625,The president of the country is position office to rule your political party. We may have perhaps be traveled to the land of Palestine
+12,8,1,unguided,0,0,0,5.8045783042907715,The president of the country was the person of the presidency or the monarch in countries where the monarch was the monarch in the media
+12,9,1,unguided,0,0,0,4.782357215881348,"The president of the country at the time, Lyndon B. Johnson, was elected by the Republican faithful by Theodore Roosevelt, Jr"
+12,10,1,unguided,1,1,0,7.610311985015869,The president of the country Sub  lays “a great country”/other  The president of the
+12,11,1,unguided,0,0,0,9.744906425476074,The president of the country. The distance to nodes is sort of by node length addition to that the category of countries belongs which
+12,12,1,unguided,1,1,0,5.274677276611328,The president of the country  TheMembers of the Parliament  All citizens in the country  Under such times these
+12,13,1,unguided,0,0,0,4.815701961517334,The president of the country comprises.The president  The president of the country is in the beginning consists. The president is
+12,14,1,unguided,1,1,0,7.9623589515686035,The president of the country is (Transport ( Hon)President Obama)  The city attorney has jurisdiction over your case
+12,15,1,unguided,0,0,1,5.0572333335876465,The president of the country that is conducting elections to include all of the country's registered voters is being held in the early morning
+12,16,1,unguided,1,1,1,6.817453861236572,"The president of the country and of V.A.., has become the many laws of the world, T.O."
+12,17,1,unguided,1,1,1,9.446840286254883,The president of the country's Historical Picali Gallery  :/Users/tunpa/tunpa/n/stream
+12,18,1,unguided,0,0,0,7.865172863006592,The president of the country was Feb. 24 Steven Tobin  The principal nominee to the constitutional office of President and formerly
+12,19,1,unguided,0,0,0,5.945788860321045,"The president of the country, Britain said, ""The majesty is president.""One of the people, Britain said, ""The"
+12,0,1,guided,0,0,0,8.384074211120605,The president of the country gave the group one point and then TheThe size of the group would be average 8189 users and
+12,1,1,guided,0,0,1,5.83320426940918,"The president of the country,S.S.H.R., is located in Trump Tower, Brooklyn. Photo by Leslie"
+12,2,1,guided,0,0,0,7.620518684387207,The president of the country is apparently Herman Leharing who has now killed himself. The name Herman is definitely of Hebrew origin but
+12,3,1,guided,1,1,0,7.344918251037598,"The president of the country making judgment to the principles of business. The owner of the baseball team, player of baseball usually,"
+12,4,1,guided,0,0,0,9.610742568969727,"The president of the country of apes!  Scalkecorts), my president, president...""  WOOO"
+12,5,1,guided,1,1,1,9.424527168273926,The president of the country of motion to examine the supreme court of justice and of the acting courts impartial constitutional and statutory powers assign
+12,6,1,guided,1,1,0,7.827694892883301,"The president of the country's Grand Van Hotel, in Belgium, organised a joint seminar of aboriginal officials of the United States and"
+12,7,1,guided,0,0,0,9.293377876281738,The president of the country of immigration he is currently viewing StarReader That he be born into the US Air Force and after death
+12,8,1,guided,1,1,1,5.749217510223389,The president of the country of the 'immortal nation' mounds the earth with their own blood. The president of the
+12,9,1,guided,0,0,1,8.01588249206543,"The president of the country is Bill Clinton. CanadianPresident Clinton is Vice President. وHenry Danforth, whose mother is Patricia"
+12,10,1,guided,1,1,0,6.377240180969238,"The president of the country of Canada, who, therefore, acts in kind towards representatives from both the countries.  The"
+12,11,1,guided,1,1,0,10.722090721130371,The president of the country and queenThe sheriff and queen Queen King Introduced by Termic.Stsaid yesterday as in the morning
+12,12,1,guided,1,1,0,7.342823028564453,The president of the country “Gabriel” is Angelino Alfano and the head of the organisation “Gab
+12,13,1,guided,1,1,1,8.649742126464844,The president of the country’s president is calls him personally. But drone. There is a high degree of professional vitality
+12,14,1,guided,0,0,0,8.248631477355957,The president of the countryThe free speech of the artist junior lower or High School graduationThe office of the clerk99: June
+12,15,1,guided,0,0,0,6.9004225730896,"The president of the country, which is under the idea he belongs to the country, which is the Arab republic -The president"
+12,16,1,guided,0,0,1,1.5310722589492798,The president of the country? The president of the country? The president of the country? The president of the country? The
+12,17,1,guided,0,0,0,7.863132476806641,"The president of the country and related having felonies or criminal acts (selling drugs, etc.) will continue, including violent cases"
+12,18,1,guided,1,1,0,8.839445114135742,The president of the countryThe international charter human rights  Popularist League backed strong army healthy constitution weak prime ministerThe
+12,19,1,guided,0,0,1,6.77138090133667,"The president of the country Adolf Hitler founded the Third Reich in the year 1933, foreign invasion - 2002-2002  2002"

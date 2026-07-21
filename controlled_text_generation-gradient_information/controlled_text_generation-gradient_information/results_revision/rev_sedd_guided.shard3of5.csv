@@ -1,0 +1,241 @@
+prompt_idx,sample_idx,target_label,arm,judged_label,hit_target,span_nll,text
+3,0,0,unguided,1,0,9.03092098236084,The cityThe perform of a childaracts are rarely achieved very quickly—this is the performance of a child
+3,1,0,unguided,1,0,9.685664176940918,"The city, who we selectTheThest Out Of ThestThe city has a peaceful security force, who"
+3,2,0,unguided,1,0,7.980262756347656,The city’s drug community  Perhaps (the theme) captures the craftsman's power in the
+3,3,0,unguided,0,1,3.3841617107391357,The cityWashashashashashashashashashashashashashashashashashashash
+3,4,0,unguided,1,0,8.017315864562988,The city titled “Fernando Subro” opened “Fernando Subro in�
+3,5,0,unguided,1,0,8.960798263549805,The city of the 10-14 the 15-15-14 it did exist in a situation when he says
+3,6,0,unguided,1,0,7.899814128875732,The city-of-London  home to approximately 1.9-New Yorkers in Brooklyn less-powered
+3,7,0,unguided,1,0,7.433267116546631,"The city of restraint and brick made calls to of Wichita,>The city of restraint and brick made calls to"
+3,8,0,unguided,1,0,6.824258327484131,The city of this blog makes it relatively easy to see how tourism is perceived as a threat and how it works
+3,9,0,unguided,0,1,7.5719313621521,"The city on defensive, when the city's contract for making a Super Bowl will cripple everyone else's business"
+3,10,0,unguided,0,1,7.482701301574707,"The city is predominantly from fuels, both petroleum and carbon dioxide.The cityThe city has the alcohol, the"
+3,11,0,unguided,1,0,3.963778018951416,The city of the place....The new place....the city of the place....The new place....the city
+3,12,0,unguided,1,0,5.449915409088135,"The city's bond values rose, 63 percent compared to the city's fiscal year.According to the city,"
+3,13,0,unguided,1,0,8.367262840270996,"The city had allowed the state's most extensive arms sales since late December. To keepIn state control, pal"
+3,14,0,unguided,1,0,6.98396635055542,"The city of Aegis, the AegisAnd 1050The city of Aegis, 1050 Aegis, 10"
+3,15,0,unguided,1,0,7.672166347503662,"The city in which, family livesFifteen years ago, today, HisJob completed.His family members"
+3,16,0,unguided,1,0,9.030731201171875,"The city of Cleveland could have another racial punch on the country this years' white supremacist card, not be"
+3,17,0,unguided,1,0,8.944032669067383,The city of Delhi is and moves against it of a black conspiracy are flying high. II propose to acquire
+3,18,0,unguided,0,1,7.397003173828125,The city of CentraliaThe city of Centralia the natural side of the city.760101 1973 30
+3,19,0,unguided,0,1,8.035906791687012,"The city would really try to design its ITS, as well as ITS, when it comes to gather with ITS"
+3,0,0,guided,0,1,7.034904479980469,The city of Caracas was almost supersized and it employs a lot of people and it did get big 
+3,1,0,guided,0,1,9.946022033691406,"The city of a newspaper to follow Aye's trial, the retrial, Senator Shepard very quickly very all"
+3,2,0,guided,1,0,10.987215995788574,The city was windowless.I likeThis one the haunting of JohnThe one haunting the city of Sanodied
+3,3,0,guided,1,0,8.088366508483887,"The city are from moment to moment enjoying the momentum, Amar said.  Earthquakes  Quote"
+3,4,0,guided,0,1,9.0521879196167,"The city's complex education in United States practice of law fire safety regulation will remain at a slow pace pace,"
+3,5,0,guided,0,1,7.951165676116943,The city of Bricorn are planning to tear up streets inBondrope_6_3_
+3,6,0,guided,1,0,9.961867332458496,The city-CBS The Valley-TV channel air 7pm (authentati-Credit/BBC/Brat
+3,7,0,guided,1,0,5.140866279602051,The city and the world  The sun and the waters  All the rain that dries and falls
+3,8,0,guided,1,0,12.057658195495605,"The city centre leads ""virtual office operators"" Office operator is offering Parisian Fréonement housing to tourists"
+3,9,0,guided,1,0,11.143497467041016,"The city's significant grant incentive to Anglican to take over from a competing church 25 Today solemnnergizes,"
+3,10,0,guided,1,0,7.853547096252441,The city of more than 14 million. The city of undercover who takes new acts of justice and believes in our
+3,11,0,guided,0,1,12.669774055480957,The city's largest dog phonecalls ResultsInFestivalsBase1Death 46 SHARES 39 SHARES Ride 75 60
+3,12,0,guided,1,0,5.359902381896973,The city of Cleveland is the largest in the United States based in metropolitan areas with more than 16 times the population
+3,13,0,guided,0,1,8.436766624450684,The city limits. One Hundred orOne hundred Thousand One Hundred by One hundred or more thousand One or AKA
+3,14,0,guided,0,1,8.631331443786621,The cityThe new commonwealth coral reef on Love Island and undescribed role in the NDEA[
+3,15,0,guided,1,0,7.5702080726623535,The city residents as the bus route. [+] show itself as the city in question [+] show itself as the bus
+3,16,0,guided,1,0,7.022367000579834,"The city today built its sixth light industrial with an employment density of 10 per cent, and the last the second"
+3,17,0,guided,0,1,8.409099578857422,"The city of Buffalo,America Hoard started dismissed, Voyager  Parding began, Voyager  The"
+3,18,0,guided,1,0,10.642802238464355,The cityAlabamaFair  cityAlabamaFair Seems to have Matthew Dow's threat of allegiance [quite)
+3,19,0,guided,0,1,6.534190654754639,The city suddenly issued a late-night order to evacuate Vancouver North  Fire stations remained closed in Vancouver North
+3,0,1,unguided,1,1,10.003094673156738,"The city of the Dallas file guide. Here's what'd happen about ""Bosh: complain of filing process"
+3,1,1,unguided,1,1,8.932074546813965,The city and all the city who joined the city in their palace of Mad Max andThe city rife and its
+3,2,1,unguided,1,1,7.623204231262207,"The city has taken my directions. ""The position east is known."" And. ""The city takes my directions"
+3,3,1,unguided,0,0,8.95589542388916,The city of Buffalo is tied with Nevada for attempts in the one-stop sport department to hire more than re
+3,4,1,unguided,1,1,7.264595985412598,The city size of the country is relatively small and home to schools such as Kadylinoff along with
+3,5,1,unguided,1,1,6.960727691650391,"The city plans to expand, including Washington, D.C. forThe city 2015 planned, exciting and empowered"
+3,6,1,unguided,1,1,4.8822526931762695,The city's own policies with a reference to drug policy  The city's own policies with a reference to
+3,7,1,unguided,1,1,7.450314998626709,The city of Franz Roberta is one of six in the KOH52 Region with a reputation for corporate present
+3,8,1,unguided,1,1,6.911614894866943,The city supports the Clarke-Clarissa Ray.  Clarke-Clarissa Ray.  Clar
+3,9,1,unguided,1,1,7.139512538909912,The city of Mocco is expecting to earn secondary certification in the October 19 and 26  Saint-
+3,10,1,unguided,1,1,5.884026050567627,The city of Memphis is in the city of Memphis Airport  The city of Memphis Vanderbilt Airport Lexington: Lexington
+3,11,1,unguided,1,1,7.86990213394165,"The city in the nation that keeps up when it comes to reviewing the movies in Indianapolis (now, Indy!)"
+3,12,1,unguided,0,0,5.392379283905029,"The city is defunct and while the council is defunct, the city is defunct and the city is defunct due to"
+3,13,1,unguided,1,1,7.780154705047607,The city ofviews: The city ofviews.The media is looking at one it's a relatively grim look
+3,14,1,unguided,0,0,8.30185604095459,The city of provides Toronto I walk nowhere near as fast as I can walk Hyfening speed is a bad
+3,15,1,unguided,1,1,6.344794750213623,"The city of Austin is dealing with state lawmakers over parking.  In the video posted below, “"
+3,16,1,unguided,1,1,5.33623743057251,The city of Dabiq is the city of the city of the hijrahan is the city of the
+3,17,1,unguided,1,1,9.712320327758789,The city's first ribsThe members of the available cohort of landmen/Fantas TV's birthdayThe
+3,18,1,unguided,1,1,8.408087730407715,"The city's environmental staff knew wolves well. They presented benefits, benefits of living together, causing fires, feel"
+3,19,1,unguided,0,0,7.040383338928223,"The city in question's name.  Known as the ""Little Black"". Or ""Just Below Black""."
+3,0,1,guided,1,1,7.263615608215332,The city of TorontoWell-meaning home leavers are well-informed in respect of the disease of-The
+3,1,1,guided,1,1,11.531609535217285,The cityniathe rpplin' in the citySan Hachas areNotChTheFlowWhile
+3,2,1,guided,1,1,7.3923563957214355,"The city release area and a number of other permit highlights that were requested for information concerning a $250,000"
+3,3,1,guided,0,0,9.428496360778809,"The city boughtrock Mountainearf sale Sunday, the Washington Free Beacon reported. At least nine residents offf"
+3,4,1,guided,1,1,8.139978408813477,"The city of xiah can help to visit here with more awareness. Just travelled in xin zhao,"
+3,5,1,guided,1,1,9.119124412536621,"The city exuber presents,  The exuber nature of the bayou andville bybybyby"
+3,6,1,guided,1,1,9.085734367370605,"The city, the city that declare the war.Phonic terminal power to the company?The developer, a"
+3,7,1,guided,1,1,8.148356437683105,The city of Sacramento presents:rewrite[The group of 27 students appealed to the star as part of their
+3,8,1,guided,1,1,10.509196281433105,"The city decides whether upon use as a highly, safe field for ordaining many years of ruling ministry population."
+3,9,1,guided,1,1,7.986184597015381,"The city name Aetwal often means Aetwal (.,. )( 'when Aetwal"
+3,10,1,guided,1,1,1.6901463270187378,The city:The city:The city:The city:The city:The city:The city:The
+3,11,1,guided,0,0,10.832114219665527,"The city's boarding ""sideboards"" in the thammer, also probably when sning in's boarding"
+3,12,1,guided,1,1,7.924286842346191,"The city in which we stand, andWe know what mosque is close to… you guessed it. ThereWe"
+3,13,1,guided,0,0,7.739993572235107,The city with the most favorable for controlling the weather London received the second highest ranking of the 5 libraries:Best
+3,14,1,guided,1,1,13.090413093566895,The city's banking folkilies are great off- squuggles on commercial motorcycles flatly even follically dash
+3,15,1,guided,1,1,6.5558085441589355,"The city of Fort Worth which is about 1,000 miles northeast that's now believed there's 425 acres of"
+3,16,1,guided,0,0,9.313626289367676,"The city does indeed develop baseball in 1959, but it does not peddle the threat perception this newspaper does today"
+3,17,1,guided,1,1,9.264758110046387,"The city of southernia, which leads to Far Island. Fighting for Chinese pride, their own projects in disputed"
+3,18,1,guided,1,1,5.9005351066589355,The city's high school remembers TheThat nation's high school oThe city's high school remembersTheThat nation
+3,19,1,guided,0,0,8.805985450744629,"The city of quoir had gathered outside the animal industry, a move that the bar armed with an unreachable"
+8,0,0,unguided,0,1,5.495122909545898,"The movie Still very angry with his wife. Still very angry at his wife. So, very, angry looking"
+8,1,0,unguided,0,1,6.913731575012207,"The movie will be released on Monday, Jun 24, from Monday, 20 days from the end of The Advertising"
+8,2,0,unguided,0,1,7.0231032371521,The movie (and it ain't no movie)But the press conference was right up and away from the pictures
+8,3,0,unguided,0,1,8.77124309539795,The movie at Duncan Park's light show causes:The movie at Duncan Park's video message wasThe movie at
+8,4,0,unguided,1,0,4.183819770812988,The movie went into theaters April 25. It was the movie's official release date. The movie was primarily marketed
+8,5,0,unguided,1,0,5.50165319442749,The movie is dedicated to making friends. Though those are not one of the. Though those are not one of
+8,6,0,unguided,0,1,7.073863983154297,The movie they rely on so many writers (although some of the movies has a different plot) all the time
+8,7,0,unguided,1,0,7.836329936981201,"The movie went viral on YouTube under the wishlist.  This country assures equal conditions for people, and"
+8,8,0,unguided,1,0,8.265487670898438,"The movie marketing conference 7.  But it went space ""The big gun at the movie marketing conference 7"
+8,9,0,unguided,1,0,5.3933424949646,The movie is reaching an entirely new audience. The world is taking shape for years to come.  To
+8,10,0,unguided,1,0,7.755993843078613,The movie ready are XXThe movie readyThe sexual movie ready are under control The movie ready XXThe movie is
+8,11,0,unguided,1,0,5.4277520179748535,"The movie is one of the most-coveted to movies, the film of the seventh is popular and"
+8,12,0,unguided,0,1,4.659156322479248,"The movie came out and there's nothing really new, even though you can be a good girl or a good"
+8,13,0,unguided,0,1,7.535072326660156,"The movie ends holding up, saying: ““TheThere is no one here.” –"
+8,14,0,unguided,1,0,7.959344387054443,The movie here. It’s also is Netcons.It’s also screen-and-
+8,15,0,unguided,0,1,6.601325988769531,"The movie on the screen You want to do it in execution, you want to wait and rely on last."
+8,16,0,unguided,0,1,5.165060043334961,The movie didn't seem to have anything to do with itIBanned the movie and release it all over
+8,17,0,unguided,1,0,9.29527473449707,The movie–as–in–a–k–What's next  Both players preferred when delivered perfectly
+8,18,0,unguided,0,1,2.216554641723633,The movieThe movieThe the movieThe movieThe movieThe movieThe movieThe movieThe movieThe movieThe
+8,19,0,unguided,0,1,7.639527797698975,The movie change article now is an overview the the movie that changed  movie changed is now an overview of
+8,0,0,guided,0,1,9.732263565063477,"The movie plays at cup of his property Jollum, in some land identifies the property, in any case"
+8,1,0,guided,1,0,7.364909648895264,"The movie<In the latter case, it is so that your movies sound good<Music: sounds good,"
+8,2,0,guided,0,1,6.688046455383301,"The movie play will start at Philadelphia on August 22, 2001 in front, until Sunday, August 30, 2001"
+8,3,0,guided,1,0,4.061485290527344,"The movie premiered in Japan in 2011, after the sale of rights to the U.K. and the Netherlands"
+8,4,0,guided,0,1,12.08103084564209,The movie titles and vectors which involved shooting hoodlumps with hoodliesring sword hammer key axe weapon
+8,5,0,guided,0,1,10.120080947875977,The movie studios that own the spot;” says Gerry McKerby  The key is Walt Disney
+8,6,0,guided,1,0,7.375178813934326,The movie title is an homage to the Spanish Intelligence CorporationA seat was helmed by Victor F. Garza
+8,7,0,guided,1,0,7.675750732421875,The movie is meant to re-enact the trials.All or have fun through our like lists and
+8,8,0,guided,0,1,8.207736015319824,The movie is the movie. I've not prepared it for editorial with the BBC 2 reporting it is and the
+8,9,0,guided,0,1,7.605335235595703,"The movie parts.The science, arts and fantasy (apocalyptic).The TV parts.To a rough start"
+8,10,0,guided,1,0,10.208022117614746,"The movie about the sublime, Choppy black and white foodOn the subject of visual damned more onThis exclusive"
+8,11,0,guided,1,0,7.833681583404541,"The movie's priests have vowed to provide science and medicine. The Republicans voted 17-11, favor of first"
+8,12,0,guided,1,0,8.88058853149414,"The movie taken by Jacob Ts'o, 7 of the 600 prospects, with his hair tied at the chin"
+8,13,0,guided,0,1,7.588134765625,The movie was completely entitled and everyone was free to watch. Which proceeded to do their thing:The emphasis on
+8,14,0,guided,0,1,7.183757305145264,The movie would not have been 7the schedules required would have been given 7the movie would have been 7The
+8,15,0,guided,1,0,5.652510643005371,The movie shows the car under the race track and the repair of the roof. The movie is a recreation of
+8,16,0,guided,0,1,9.248384475708008,The movieThe musicThe Kassalo-ed prosthetic ear is put into St. Louis more... concertsThe
+8,17,0,guided,1,0,5.418436050415039,"The movie tonight is about what the 2014 said, and how they went up. And they went down. And"
+8,18,0,guided,0,1,8.705779075622559,"The movie revealed how William Larose Hooker uncounted his souvenir.""I thought I saidNo"
+8,19,0,guided,0,1,11.186015129089355,The movie ahme playedThe patent system issued:Theseries changes intellectual property ( it means your Australian wife)
+8,0,1,unguided,0,0,8.38845443725586,The movie industry have seized no claim to having marks of their own instruments made in them. Many times have we
+8,1,1,unguided,0,0,8.163372993469238,"The movie is a series of roadside plonings of public places.Beach, a documentary onBeach"
+8,2,1,unguided,0,0,6.049726963043213,"The movie itself has made up characters who are supposed to be stereotypical gamers.The character itself, however, is"
+8,3,1,unguided,1,1,5.115651607513428,"The movie.In this album you will find classic rock, pop, rap, midrange, bass, jazz,"
+8,4,1,unguided,1,1,6.313155651092529,"The movie store are over 100 years old, and have been able to watch The Post at the movie store ("
+8,5,1,unguided,0,0,9.02032470703125,The movie theaters has not been changed. TheCourt warning has been issued or anytimelonggo the movie theater
+8,6,1,unguided,1,1,6.093446254730225,"The movie is a biblical retelling, this is being directed story through the pride of the U.S."
+8,7,1,unguided,1,1,6.547511577606201,The movie made the movieThe movie made the leadThe movie made the leaving or raising of buttonThe movie made
+8,8,1,unguided,0,0,10.315173149108887,"The movie It's only Food-Costumes movie; it first made a violation Tony,andlater turned into"
+8,9,1,unguided,0,0,7.792186260223389,"The movie film. not in person, either. Cop, Inc. -- The United States' only production line"
+8,10,1,unguided,0,0,7.86482572555542,The movie (and has been about it) to frequently try to explain himself is to have struggled to deal with
+8,11,1,unguided,0,0,6.963478088378906,The movie is good  There may a contrast or if The movie is good. If theshows that is
+8,12,1,unguided,0,0,6.374824047088623,The movie isn't back to back it's full to lose back to back it doesn't equal back to back
+8,13,1,unguided,0,0,5.754970073699951,The movie theatres are not organized in a union. Is it planned? Is it illegal?is aunion
+8,14,1,unguided,1,1,8.125727653503418,"The movie is released every Friday! Korean girls played Sunsoft techno games, Yuri is the most famous of them"
+8,15,1,unguided,0,0,10.055010795593262,"The movie went in for documentaryAboutHigh onOne Film Feature, High onOne TV Show The movie went in"
+8,16,1,unguided,0,0,6.887482643127441,The movie is set to be shot entirely in Australia which means it’s not likely to feature any tropical
+8,17,1,unguided,0,0,7.435349941253662,"The movie at least falls down within a product that is or may to be based on a specific, semi-"
+8,18,1,unguided,1,1,7.195423126220703,The movie usesThe movieThe movieYouTube movieThe movieThe moviesThe movie The movie -MovieFilms.
+8,19,1,unguided,0,0,5.16012716293335,"The movie is (5, $10, $16, $25, and $32).The movie is"
+8,0,1,guided,0,0,11.211420059204102,The movie asked about wardrobe designer is Gen. Leon del Torre.Last week was 8127 miles in 1999
+8,1,1,guided,0,0,7.7247819900512695,"The movie was about being exactly as proceedsome as in16. ""Wonder Woman"": A '90s movie"
+8,2,1,guided,1,1,8.698463439941406,The movie has announced it; is that not is the song’s first long – and neither does it
+8,3,1,guided,0,0,1.971140742301941,"The movie, The movie, The movie, The movie, The movie.The movie, The movie, The"
+8,4,1,guided,0,0,9.913280487060547,The movie is interested Rentioning might have to read about non-picks up multiple times prior to renting
+8,5,1,guided,0,0,11.235320091247559,"The movie release” ""Those that set up movie releases, buying up properties for movie months and a name"
+8,6,1,guided,0,0,11.686436653137207,"The movie’s too pre;""they can=""http://incrawlylntrovvjth"
+8,7,1,guided,1,1,7.4008469581604,"The movie ""Kit Elliott - The Machine Man"" adds to the target role, especially when the enemy is human"
+8,8,1,guided,0,0,13.722785949707031,The movie ruined repeated passages than shop belonging verisars Also avoid close movie on the movie partition developedunny gameplay
+8,9,1,guided,1,1,7.708021640777588,The movie song Shamuzamam I has been released. Excellent work Hanamamamamamamam
+8,10,1,guided,0,0,8.803443908691406,The movie's trailer is things other where Sam Zeta comesHow close do they?I slammed the movie's
+8,11,1,guided,1,1,6.276068210601807,The movieYou couldn't do wrong with cheerleaders  If you played in a matchring you like to
+8,12,1,guided,0,0,8.980292320251465,"The movie, akaThe beams ""We're still, currently, patch up that wall. We're currently,"
+8,13,1,guided,1,1,8.473852157592773,The movie should followHere is how we see the mega-motivating makings of large box-office revenue
+8,14,1,guided,0,0,4.590153694152832,"The movie used the system for this, it was not the first time the movie decided to use the system,"
+8,15,1,guided,0,0,8.271086692810059,The movie that you watch either of it take on the costs of the auditing and investment work for the content
+8,16,1,guided,0,0,8.374213218688965,The movie Resolution for War movie shows how the war buffs are working together to fall down and overthrow the flag burning
+8,17,1,guided,0,0,9.535629272460938,"The movie some were stuck creatures skull and claw, but some were call in the other the movie plans were announced"
+8,18,1,guided,0,0,10.452713012695312,The movie studio road named for the request potty airbrush unit utilizing the studios’s principal recording studio
+8,19,1,guided,0,0,6.915837287902832,"The movie's four-second evolution from romance-oriented [to] romance-oriented (to), romance-"
+13,0,0,unguided,0,1,7.599539279937744,The road is a inoie första.The road faces about $1.4 billion in taxes
+13,1,0,unguided,0,1,4.16280460357666,The road died.  Then the was the dark  Then the road died.  Then the
+13,2,0,unguided,0,1,7.323909759521484,The road  The doctor’s office seen from road onThe road from road onThe road The
+13,3,0,unguided,0,1,5.342098236083984,The road 200 km away from him.The ship has plenty of time to reach him.The road 100 km
+13,4,0,unguided,1,0,7.9058427810668945,The road to hometo Nuvo Co those who follow the more international part of this.The road to
+13,5,0,unguided,0,1,4.338222026824951,The road across the road is...The road onto the road is...The road onto the road is...The
+13,6,0,unguided,0,1,7.185882568359375,The road laid back a reasonable amount of time.We started highlighting the roadbrags late last week.We
+13,7,0,unguided,0,1,6.379024505615234,"The road that took me about two weeks from I, theThe road that took me over five weeks from I"
+13,8,0,unguided,0,1,8.92453384399414,"The road closely bends  The grass strayed to fall down, the mass thudding the earth and yielding"
+13,9,0,unguided,1,0,7.254521369934082,The road north of Zem-or  This includes road to the Pasir in Zem-or
+13,10,0,unguided,0,1,8.150091171264648,The road from TiV-Kalanzi town to Johannesburg is being very carefully prepared by na na na
+13,11,0,unguided,0,1,6.159957408905029,"The road leading to Barood Khalh Is true.From the road leading to Barood Khalh,Moving"
+13,12,0,unguided,0,1,7.3091254234313965,"The road in metres, and Friday's map.The road in metres continues to be visible in the distance as"
+13,13,0,unguided,1,0,7.551623821258545,The road-style multiughThere is a road-stylePlanes are the road-stylePlanesOne
+13,14,0,unguided,1,0,6.136378765106201,"The road of ideas...""And truth...And freedom...""The road of creativity""...And progress...""The roads..."""
+13,15,0,unguided,0,1,6.477490425109863,The road without a lake without and  Without and road without a lake without and E.A new road
+13,16,0,unguided,0,1,9.870454788208008,"The road though there be no names at least the one anyway, none the other. (B)The road"
+13,17,0,unguided,1,0,6.25422477722168,The road is straight.  For anyone who concedes this is your opinion.  For anyone who loves
+13,18,0,unguided,0,1,2.760429620742798,The road blocked by''''''''''''''''''
+13,19,0,unguided,1,0,7.217845916748047,"The road is narrow.  ThroughoutThe day, motorists are accommodating.  The grocery storeis closing"
+13,0,0,guided,0,1,8.045842170715332,The road surveyor came I out Kent. We'll be here. Three. Ten years ago that was about
+13,1,0,guided,0,1,10.360701560974121,The road online to favourites that are grupping the labours if the character that we received have merit to them
+13,2,0,guided,1,0,10.7449369430542,The road’ largely grouped around the Phoenix area (going up November 2013 | June 2013 • 2012 | December
+13,3,0,guided,0,1,10.214482307434082,"The road yourunaway, you’ll taste even greenerRunaway”  “"
+13,4,0,guided,1,0,8.344531059265137,The road leading you now is the pond that you've got on the property of the Explorer and I call it
+13,5,0,guided,0,1,9.723501205444336,The roadways of which musty odor are reports?Is the satellite ca in Harbin more dramatic than that
+13,6,0,guided,0,1,9.572433471679688,The road taken is obviously be tunneledAnd seemingly ordered from theSupply chain runThe cartelLynchThe
+13,7,0,guided,1,0,10.755828857421875,"The road has ringers made new, for the Jimmy Jordanny days, been Sam Os 250 points and rebounds"
+13,8,0,guided,0,1,6.716561794281006,"The road to surf, which meant to enable you to board without jumping into the ocean and funds raised to help"
+13,9,0,guided,0,1,6.549452304840088,The road is 16.sq mile length and measures 1262 feet. It has 53.0 million cubic yards
+13,10,0,guided,0,1,10.536404609680176,The road that has no self-wotality Warsaw – Volvo drivers waiting for new to take road Warsaw –
+13,11,0,guided,1,0,6.295384407043457,The road to Israel along which one easily travels 30 miles in total. Most of them won't be familiar with
+13,12,0,guided,0,1,10.175302505493164,"The road leads to the Quons Bush Road area, earning its own naysayers on last night’"
+13,13,0,guided,0,1,8.618674278259277,"The road between Cheshire and Fulham is pouring down from an accelerating drum before the spell starts pouring down,"
+13,14,0,guided,0,1,6.7714996337890625,The road to being: a) just like me B) just... it's just incredible.I mean just
+13,15,0,guided,1,0,7.178991794586182,"The road, urban vegetation, urban water, food waste en vie, disaster, crisis, certified elections,"
+13,16,0,guided,0,1,9.094145774841309,The road decided to refer to saying immediately. In response which noticed it would rust a statement decided no longer needed
+13,17,0,guided,0,1,9.567034721374512,The road notes show feigns for certain fruit-of-bearers. assistance with locating left turns signs
+13,18,0,guided,0,1,11.295166969299316,"The road, where?-' The location ofmobile regular car? The switch"" paving has been bogged down"
+13,19,0,guided,0,1,6.13101053237915,"The road we traveled Z–Z–Z–Z, 1971  The motorcycle we rode  The"
+13,0,1,unguided,0,0,5.224332332611084,"The road I see now is a good road.  However, I think it is probably better to walk"
+13,1,1,unguided,0,0,4.423300743103027,"The road down the road and up the road, up the road, down the road, top the road,"
+13,2,1,unguided,0,0,7.996607303619385,The road paved by encouraging your choice to walk home or have a cigarette.The road blocked by encouraging your behaviors
+13,3,1,unguided,0,0,4.511898994445801,The road meant that it's very close to station  The road meant that it's very close to station
+13,4,1,unguided,0,0,5.249621868133545,The road does not let up. If I contribute to the road the code is written. The code is written
+13,5,1,unguided,0,0,7.058579921722412,The road lost 231 bridge students.The road was crushedThe road lost 210 bridge students.The road was damaged
+13,6,1,unguided,1,1,8.385051727294922,"The road.In the road'sBehind the road'sFor hills, the road'sAfter the road; personal"
+13,7,1,unguided,0,0,5.365562438964844,The roadThe roadThe road the long road the roadThe roadThe roadThe roadThe chips and gravel 
+13,8,1,unguided,0,0,2.2522099018096924,The road ###The road ###The road ###The road ###The road ###The road ###The road ###The
+13,9,1,unguided,0,0,7.345043182373047,"The road that turns me on, my knees holding my lemons together,The road that turns me off and"
+13,10,1,unguided,1,1,8.673100471496582,The road makes a bow representing an ENDMENT TO THE PENTER.  To the wife of the
+13,11,1,unguided,0,0,7.041229248046875,The road was the road was.... The road was.A-A-A-A-A
+13,12,1,unguided,1,1,9.257095336914062,"The roadI was on in publicly partQuebec makes me more than happy, even sea-change in her"
+13,13,1,unguided,0,0,8.324705123901367,"The roadflush, cloud, cold, moist, heavy snow, mountain rainThe roadThe roadfried"
+13,14,1,unguided,0,0,9.15285873413086,"The road is a sea road to mount a monumentBefore it becomes a sea road through."" Some teeth. A"
+13,15,1,unguided,0,0,3.4941489696502686,The road is samaamaamaamaamaamaamaamaamaamaamaamaamaamaamaamaamaama
+13,16,1,unguided,1,1,5.490932464599609,The road traversing the island is a continuation of the maine road on the island.  The main
+13,17,1,unguided,0,0,10.73365306854248,"The road ** 'Currently, the rubber of left hand is acting as always,The subthroated arm of"
+13,18,1,unguided,0,0,7.899610996246338,The road to initiation domarlingThe road to initiation doodyingThe road to initiationShotaovitch
+13,19,1,unguided,0,0,7.887983798980713,"The road signs,One,Two,The road signs,Three,” would fall under subsection four of"
+13,0,1,guided,0,0,5.726147651672363,"The road you walk along ( to the right ), and take a walk to the left. And then walk back"
+13,1,1,guided,0,0,7.826901435852051,The road is in forestThe forestThe road is on rightThe forestThe road is by the pathTheThe
+13,2,1,guided,0,0,9.009177207946777,The road to Kam Khakingel from Kam KhisselaishThe road into Kam Khissela from Kam
+13,3,1,guided,1,1,11.890006065368652,The road turned nextonebyThe roadndare full BLESSThe road turnedby ucf arena a measure
+13,4,1,guided,0,0,13.256686210632324,The road BiMRoad downturns over 142 sites and multimust adopted energy producing or producing entry 365pla
+13,5,1,guided,0,0,12.046422004699707,The road lies and the account of the post-validupen courts nonsense.In particular propérium ann
+13,6,1,guided,0,0,11.661175727844238,"The road too runs down, Shaun YunIun is a reality, Shaun=""#liunLike a person,"
+13,7,1,guided,1,1,7.380499362945557,The roadways that bridges use are on.  Highways and tracks that look highways are made. 
+13,8,1,guided,0,0,8.134177207946777,The road that no sir! - pic.twitter.com/PrettyWillBritBrit all the way Marcus Rhodes
+13,9,1,guided,0,0,9.675093650817871,The road coming from Button Cantown to West Avenue continues to exacerbate by 20 lbs while conditions begin to play down
+13,10,1,guided,0,0,5.206283092498779,The road northbound. The road is on km 2 of the north. The road is part of the north
+13,11,1,guided,0,0,6.570014953613281,The road provides for a connection from/to a local area governed by a judge that is in denial of the
+13,12,1,guided,0,0,9.715006828308105,"The road is Sokolov.[citation Of, The highway is Jan Nembe's non-Solan"
+13,13,1,guided,1,1,4.611362457275391,The road is the outsiders. The road is the enemy.The road is the bull. The road is the
+13,14,1,guided,1,1,10.775035858154297,The road of meeting people.Plain first with Our Carolina Soul! <dekke At high school in
+13,15,1,guided,1,1,4.171566009521484,"The roadThe road, The boulevard the sidewalkThe street, the sidewalkThe roadThe street, the sidewalk"
+13,16,1,guided,0,0,10.092734336853027,The road to a residential-development supermonsters what is the development model when military-friendlyanything is discarded
+13,17,1,guided,0,0,7.965030193328857,The road laid today to have the road to today to have the to this morning coupled with the remaining grey cap
+13,18,1,guided,0,0,6.948580265045166,"The road.' Which means, 'I don't know where one says things.'  ""But am I"
+13,19,1,guided,0,0,7.683403015136719,The road to the area that’s found the graveyard is grounded in the hands of a mob. 

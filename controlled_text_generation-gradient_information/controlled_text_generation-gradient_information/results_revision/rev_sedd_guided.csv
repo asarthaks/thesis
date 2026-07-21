@@ -1,0 +1,1201 @@
+prompt_idx,sample_idx,target_label,arm,judged_label,hit_target,span_nll,text
+0,0,0,unguided,1,0,7.95167875289917,"Once upon a time, something, a country, in particular have ruled by fiat and invoke inherent common sense on behalf of"
+0,1,0,unguided,0,1,6.738293647766113,"Once upon a time, somehow impossible things are possible. I could hardly be in possession of such an unbelievable gift and opportunity"
+0,2,0,unguided,1,0,4.969513893127441,"Once upon a time, someone asked me about it. And the answer was, it wasn't. It didn't."
+0,3,0,unguided,1,0,8.524564743041992,"Once upon a time when’ were they undertaking the peculiar task of most savvy, most manipulative, most intelligent, most"
+0,4,0,unguided,0,1,10.228439331054688,Once upon a time and the street all the front stalls henceforth had fared such morning and such time in such day
+0,5,0,unguided,1,0,8.191741943359375,"Once upon a time (Appx., memory, driving, self-defence) with physical senses were all too commonly"
+0,6,0,unguided,1,0,9.90063190460205,Once upon a time was there askance for“thank princess” k k k gk r k k k
+0,7,0,unguided,1,0,4.126190185546875,"Once upon a time, it was essential that you were doing it.Once upon a time, it was essential that you"
+0,8,0,unguided,1,0,4.813640117645264,Once upon a time all one was required to carry a title.Once upon a time all one were required to carry a
+0,9,0,unguided,1,0,5.061357021331787,"Once upon a time, there was a sense of the universal, and it was there, there in the cool, of"
+0,10,0,unguided,1,0,6.170388221740723,"Once upon a time, it is to say that the fruits of our ancestors are the ones we remember, it is customary"
+0,11,0,unguided,0,1,7.96466064453125,"Once upon a time putting disk drives on hard drive or increasing any disk drive to hard drive, 60 degree incl. would"
+0,12,0,unguided,1,0,9.439661979675291,"Once upon a time, itua or billialli awardua, fishing and billialli, feeding, smoking or"
+0,13,0,unguided,1,0,6.317855358123779,"Once upon a time, it is both plains and valleys that; it is both plains and mountains that! This is older"
+0,14,0,unguided,1,0,9.92823314666748,"Once upon a time, went gave you LJ remembered voices - last seen in Dragonman's Hole, black and white"
+0,15,0,unguided,0,1,5.819153785705566,"Once upon a time, Once upon a time that they might feel fatigued. Their schedules were, oftentimes, seldom"
+0,16,0,unguided,1,0,6.94411039352417,Once upon a time there was no resentment towards another’s-defiance.Once upon a time there is no
+0,17,0,unguided,1,0,5.323821067810059,"Once upon a time, anyone can have their worst frighteningly (and often)Once upon a time, anyone can be"
+0,18,0,unguided,0,1,6.27891731262207,Once upon a time a person had to be carried by the sword used in the Tudors.Those who all wore black
+0,19,0,unguided,1,0,8.077651023864746,"Once upon a time, it was perfectly legal to enforce laws of contraception and abortion, whatever they ever such media would do"
+0,0,0,guided,1,0,6.952249050140381,"Once upon a time there was no Earth/Around theTime the Foundation was formed (i.e. ""missing link"
+0,1,0,guided,0,1,6.975831508636475,"Once upon a time, who for seemingly no other reason, needs to remember the past. Or just how - it has"
+0,2,0,guided,1,0,11.264857292175291,"Once upon a time gone always promised a one by Moses"" Once upon becoming Religion People once upon a time?!"" Plato Plato"
+0,3,0,guided,1,0,7.473387241363525,"Once upon a time consigned all of them  Once here, as once were the witnesses, the victims, the"
+0,4,0,guided,1,0,10.682037353515623,Once upon a time both words available inside this shell absolutely FREE. Words are also speakers heard tags speaking of at least 322
+0,5,0,guided,0,1,10.483163833618164,"Once upon a time when these ""cool"" actions were valued readthrough akin to guidelines defining how effective freedom press was deemed"
+0,6,0,guided,0,1,8.958438873291016,Once upon a time (No longer exists) because slavery was a horrendous plague of starvation never once or seen since the Dawn
+0,7,0,guided,1,0,10.317303657531738,Once upon a time'm&uponSaturdayth May 1981'm&uponSaturdayth May 121's tweet & uponFridayTh
+0,8,0,guided,1,0,10.319233894348145,Once upon a time is accompanied universal participation of other men to submit them to a certain stature and beauty. Until majority religion
+0,9,0,guided,1,0,7.952723979949951,"Once upon a time when everyone wondered that they re-acted his scenes, there are those who took part to a much"
+0,10,0,guided,1,0,5.324297428131104,"Once upon a time, you could slow down and instantly watch a movie without a ripple of sight.Once upon a time"
+0,11,0,guided,1,0,8.342361450195312,"Once upon a time, I believe it took place whenulillah Came To Fiddle. Prophet Allah's Book Two"
+0,12,0,guided,0,1,4.8061394691467285,"Once upon a time, men were told to blame different people for acting differently. In medieval times, men were very not"
+0,13,0,guided,1,0,10.081965446472168,Once upon a time…never before where ultra images could be made of for their efficiable desaluse.”
+0,14,0,guided,1,0,8.408693313598633,Once upon a time I united anoreored mind together I would break down you anoreored mind together you would heart
+0,15,0,guided,0,1,9.856574058532717,"Once upon a time, Marshall was where Marshall wore his actual band  For 40 100 years of metal Metal cover Band"
+0,16,0,guided,1,0,11.979414939880373,Once upon a time the ‘ham’ will return with her encaked persons with obstinate difficulties holding spears if
+0,17,0,guided,1,0,8.169516563415527,"Once upon a time in the world of tolerance, The Anthony vs. Anthony – Thrust The Anthony vs. Anthony – Pressure"
+0,18,0,guided,1,0,5.758821487426758,"Once upon a time,Indeed upon a time, it was a matter of opinion that there is no ""style"" or"
+0,19,0,guided,1,0,8.583921432495117,Once upon a time laid bare...boundined within the Bosnian nightmare for the rest of us...An endless cage
+0,0,1,unguided,1,1,11.075186729431152,"Once upon a time in her age, her function and amount g herbs: All the inner stems of brain and plant else"
+0,1,1,unguided,0,0,4.609281063079834,"Once upon a time, people were known for using such as pronouns. [16] [19] [20] ["
+0,2,1,unguided,1,1,9.245210647583008,"Once upon a time, food To a foreign People; Teacher of Languages: The Book of, 1 Rangers 1st Rangers"
+0,3,1,unguided,1,1,5.229966163635254,"Once upon a time, society was perceived as ‘stupid’. To the contrary, it was seen as"
+0,4,1,unguided,1,1,9.509042739868164,"Once upon a time, even thoughdefense stands in place to defensefighting, defense defense should not measure up; but defense"
+0,5,1,unguided,1,1,7.227746486663818,"Once upon a time the universe, with its rhythms and routines, revolved around theOn, and was absent, the"
+0,6,1,unguided,1,1,8.39957332611084,Once upon a time in the unching territory of knowledge.  Forcers. It seems we are in for.
+0,7,1,unguided,1,1,4.781949043273926,"Once upon a time, sailing past sailing past sailing  yes, once upon a time, sailing past sailing past sailing"
+0,8,1,unguided,1,1,5.266109466552734,Once upon a time it was recognized as a hypothesis that was not supported by evidence. We can then learn that is not
+0,9,1,unguided,1,1,8.212204933166504,"Once upon a time, high fellow’s sister-in-law had taken to Relaying cheerfully through Edinburgh"
+0,10,1,unguided,1,1,5.157102108001709,"Once upon a time, seven. Upon a time, seven. To most of you, it wasSo at a time"
+0,11,1,unguided,1,1,6.407593727111816,"Once upon a time of prophecy, of destruction, of calamityDid not Once upon a time of the birth of Jesus"
+0,12,1,unguided,0,0,6.380525588989258,"Once upon a time, the vanities rendered their judgment based upon fundamentally different and unverifiable evidence.You are one"
+0,13,1,unguided,1,1,6.647567272186279,"Once upon a time, I was proud that I believe in the Defenders of our liberties, of Playful Choice and Respect"
+0,14,1,unguided,1,1,7.742931365966797,Once upon a time the content of the politics of capital from abroad has been clearly defined in all things that you now would
+0,15,1,unguided,1,1,5.437554359436035,Once upon a time the Holy Spirit would be given to the land at the upon of time the land would be given to
+0,16,1,unguided,1,1,7.012747287750244,"Once upon a time, after anotherdownflow-based-on. Once upon a time, after another of-this"
+0,17,1,unguided,1,1,4.380703449249268,"Once upon a time, yonder, for you, sirs.Once upon a time, yonder, for you"
+0,18,1,unguided,0,0,5.648837566375732,"Once upon a time, you must have been quite busy with something that you don't know what to make sense of."
+0,19,1,unguided,1,1,5.261599063873291,Once upon a time it was true…  Surely it is not true to say people of every political hue have
+0,0,1,guided,0,0,7.265193462371826,"Once upon a time I was…""  ""Everend, I was understood."" She said to herself very slowly"
+0,1,1,guided,1,1,6.989457130432129,"Once upon a time, before that and many others when events, indeed, occur. Once, it never was, but"
+0,2,1,guided,1,1,7.844229221343994,"Once upon a timeTo not to be uponTo not to be upon: how to keep yourselves healthy for the home,"
+0,3,1,guided,1,1,7.418255805969238,Once upon a time wasn't the case all about 13 years ago. Build your first custom ATM! Are you curious I
+0,4,1,guided,1,1,7.053479194641113,"Once upon a time I chose to become one of those who sought to determine that future between myself, and those rebels prevailing"
+0,5,1,guided,0,0,8.565923690795898,"Once upon a time, our pronouns in our formal situations indicate White, which is the English name of an Semitic Slav"
+0,6,1,guided,0,0,9.42864227294922,Once upon a time they did Attenuous Hosting THATCAME FROM ISSP FOR someone to host: Atten
+0,7,1,guided,1,1,9.525840759277344,"Once upon a time, sometime hereafterand even among the more especially many others, 'who hath laid their reputation upon it"
+0,8,1,guided,1,1,6.558474063873291,"Once upon a time Nalgam, rescue space aliens!Once upon a time Nalgam, save people from disasters"
+0,9,1,guided,1,1,6.1863274574279785,"Once upon a time, that became a helpful, and a fitting, and safe, form for collegeOnce upon a time"
+0,10,1,guided,1,1,10.28104305267334,"Once upon a time, some giver simply dreamed of kahahahakahilakkodiak furniture made"
+0,11,1,guided,1,1,8.537074089050293,"Once upon a timeOr suppose there is a gloriousPast to be presentSome suggestions and more will undoubtedly expand upon them,"
+0,12,1,guided,1,1,8.978877067565918,"Once upon a time, there was ’(1 thousand visit days written. ‐ I held that for a time"
+0,13,1,guided,1,1,4.046286106109619,"Once upon a time, there was a directness of mypersonal power.Once upon a time, there was a direct"
+0,14,1,guided,1,1,5.772233486175537,"Once upon a time in the Aeon of Fire, the firefighters made a bed, did thousands of rounds, put up"
+0,15,1,guided,1,1,7.955716609954834,"Once upon a time, along with our physical labor, we were amongst the country's landmasses.""Extreme fatigue,"
+0,16,1,guided,0,0,8.871527671813965,"Once upon a time, Oops! The way the incident came about resolved by them unwittingly sailing as pirates, once upon a"
+0,17,1,guided,0,0,9.305849075317385,Once upon a time when towns began troting out more people. What's now for Mr. Hove to back away
+0,18,1,guided,0,0,9.851115226745604,"Once upon a time some girl recently asked for her '4"" YOU SEE the girl not directly asked how to answer and"
+0,19,1,guided,0,0,8.250380516052246,Once upon a time there was the Arab family there were these 5 You had a sliver of why You weren't As
+5,0,0,unguided,0,1,8.14625358581543,"The horse claimed to have ""positively assisted breathing"".Earth:KeighanHeaven:Keighan"
+5,1,0,unguided,0,1,5.565598011016846,The horse was very young. It wore a leather robe and scarf--no stripes. It was part of the
+5,2,0,unguided,0,1,9.98349666595459,The horse herders in western Germany. The siege fleet human being harooned by fleet of fleet of combines
+5,3,0,unguided,0,1,9.505606651306152,"The horseman saw traditional performances,but had interest to continue playing from the finish do do do do do do"
+5,4,0,unguided,0,1,7.918587684631348,The horse will thought to have had the slightly less-funny side-effect of having put straw atHome
+5,5,0,unguided,1,0,7.006108283996582,"The horse that makes me blink.  Also pretty good, too, is also the horse that makes me"
+5,6,0,unguided,1,0,8.878044128417969,The horse who paused between bike and bus on the Barcelona corner  Throw in a little casual season right here
+5,7,0,unguided,1,0,6.951234340667725,"The horse-ride-from-shore,The coal and oil-on-sands,The,The"
+5,8,0,unguided,0,1,8.835044860839844,"The horse behylibry if it was too far from any other task, what could it be described as"
+5,9,0,unguided,1,0,9.191847801208496,The horse has a leather meter g and fat balls ofSherry was born in the early sixs back
+5,10,0,unguided,0,1,8.905051231384277,The horse says that the human being is restricted by an 2rd party scam to buy and use soccer Cards.
+5,11,0,unguided,0,1,10.116691589355469,"The horse has travelled Vladamura.  Agave can either agave fuller agave, but both"
+5,12,0,unguided,1,0,8.277134895324707,"The horse smells like blood;The horse is silver, you will be awarded a kiss on the horse, determining"
+5,13,0,unguided,0,1,6.615106105804443,The horse is always by my neck and there is one non-stomping fan. I regret this much
+5,14,0,unguided,0,1,7.80819845199585,The horse does not work. The horseling is not working. Last seen at weighs 120 rumored to be pal
+5,15,0,unguided,1,0,6.826252937316895,"The horsecamps, meanwhile, represent the interested-plants. Also, represent the interested-plants"
+5,16,0,unguided,1,0,7.960338115692139,"The horsecarousel is.The horsecarousel is. The musodmus wagon "" ""The horsecar"
+5,17,0,unguided,0,1,6.513974666595459,The horse taken away and all of a sudden undersupplied. The studio relaunched the gamethe same
+5,18,0,unguided,1,0,8.636896133422852,The horse to jump 850...It was the owner being taken from a club...He was unashamed of
+5,19,0,unguided,1,0,6.988195896148682,The horse.  The San Carmen is one of the most important interchanges between the two American rivers.
+5,0,0,guided,1,0,6.920554637908936,"The horse was on its feet, and walked through the valleys of hills and mountains, and across wide regions were"
+5,1,0,guided,0,1,9.943015098571776,The horsepostaint  Of the Zetsuko Kanabe sigils  And the Sekis hold
+5,2,0,guided,0,1,7.697474002838135,"The horsewells-stands-burnt, almost twice as loud as a similar partridge-cl"
+5,3,0,guided,0,1,6.77363920211792,The horse is the only piece of this last puzzle puzzle. It's the only musical range from m to n
+5,4,0,guided,0,1,10.658096313476562,The horse had to be tested on a judging basis.—Elpy homeThe car says a taking and patchThe
+5,5,0,guided,1,0,11.247641563415527,The horse's arteries artery suffixes cross-- must be-- the vThehorse is carrying. ­vThe
+5,6,0,guided,0,1,9.129183769226074,The horse was theorized to have beenaled Al Franken's ovenm most always beneath Al Franken's o
+5,7,0,guided,1,0,7.158387660980225,"The horse is fast, but the ability to hurt the horse is huge.  • Updated some JavaScript content"
+5,8,0,guided,1,0,9.00403118133545,The horse is beyond stake and the strongest motivation to buy and ride a horse if you happen to ride anything but
+5,9,0,guided,0,1,6.269896984100342,The horse may have been accompanied by felt (borne by Horse in the Wild). The horse may have met a
+5,10,0,guided,0,1,8.85197639465332,"The horse was only growing moreAgain,'13 Please know, I think I got a mission and hidden outside"
+5,11,0,guided,0,1,5.952025890350342,The horse was at what he was He himself at what he was He horse was at what he wasYou used
+5,12,0,guided,1,0,11.247675895690918,"The horse in this position***Many years ago, that pionyr:We are andFAressed As"
+5,13,0,guided,0,1,9.616617202758787,The horsewas having to be spelt by a Scrapvein had a Black Horse in Clayton Crew-
+5,14,0,guided,0,1,11.477543830871582,The horseIn farming--The years of horses.--.--.--.--.--.-- horses  Kowa amounted to
+5,15,0,guided,0,1,5.162240505218506,The horse up in the sky noticed that it had been a red horn noticed that it had been a red horn
+5,16,0,guided,0,1,11.072359085083008,"The horse makes sense throughout Imamura society, while it tended to tie the Galaxy order more closely to Imiro"
+5,17,0,guided,0,1,9.593877792358398,The horse that rodehad not sped past  but closed behind.  Among the world still dragont
+5,18,0,guided,1,0,7.659083843231201,"The horse garnered a great, and then poor, returns ofThe horse and the horse presumably settled in a little"
+5,19,0,guided,0,1,6.954507350921631,The horse.  This is going to be terrific feedback for sending out ideas and creating something for yourself.
+5,0,1,unguided,0,0,3.619574069976807,"The horse I want to be,The horse I want to be with,The horse I want to be with"
+5,1,1,unguided,0,0,8.3261137008667,The horse laid on leaves gone  The older sister of Karin.  Image copyright Reuters  I
+5,2,1,unguided,0,0,8.587434768676758,"The horse, the media, elections, presindents, reports,, commissioners, meetings. ( ) care"
+5,3,1,unguided,0,0,6.742520332336426,"The horse is auctioned.For the bidding, try the horse at the auction.For the bidding, try"
+5,4,1,unguided,0,0,6.381783485412598,The horse went off the battery and dragged by the elbows and legs.The horse went off the battery and dragged
+5,5,1,unguided,0,0,6.915548801422119,"The horse punched by the dog with which he didn't identify In a footnote he said ""I don't know"
+5,6,1,unguided,0,0,9.220897674560549,The horse which was part of the parade has died an atheist stroke as the game has been seeking these effects apply
+5,7,1,unguided,0,0,6.835636138916016,"The horse almost has a huge counterpart, right? Horse almost had an enormous counterpart, it was only in 1900"
+5,8,1,unguided,1,1,6.4752068519592285,"The horse equipped with a powerful jump. Then, when you enter a car you had to be in the front"
+5,9,1,unguided,1,1,7.2311110496521,"The horse has always been ""at great pace"".  So far, Hayt declares it a ""really"
+5,10,1,unguided,0,0,10.988563537597656,"The horse he was - and for that---That's the quiz. Presting faiths, expensive albums, market"
+5,11,1,unguided,0,0,7.423618316650391,"The horse was very difficult to time, he could not be killed by itself  HoboCrossdope"
+5,12,1,unguided,1,1,4.411621570587158,The horse managed to keep them in the watch that were made. The horse managed to keep them in the watch
+5,13,1,unguided,0,0,7.2436676025390625,The horse was not seen breathing on the track.  A thousand horses were counted in right of those who
+5,14,1,unguided,0,0,7.81154203414917,"The horse is drawn and then dabbles–arrowly, decisively, and fearlessly–to the enemy"
+5,15,1,unguided,1,1,7.050118923187256,"The horse is the king, dowing away in hope of a good life  Why have you pulled his"
+5,16,1,unguided,0,0,2.4765756130218506,The horse's head hit the dog's head. Part of the horse's head hit the dog's head.
+5,17,1,unguided,0,0,9.19943141937256,The horse($) may be found at the capital horse( ____(&))____(~))
+5,18,1,unguided,0,0,8.393168449401855,"The horse who later died the result of a post-mortem examination and thus no blood flow in progress, no"
+5,19,1,unguided,0,0,7.67681074142456,"The horse would take care of paint and structural improvements, he asked the horses go well, there is always a"
+5,0,1,guided,0,0,11.060104370117188,"The horse. Photo. Pierre Birrouzeline. Actually, just wait?The person who pulledPlease stop"
+5,1,1,guided,1,1,9.310295104980469,The horse rode bestby so far carrying his saddle's weight while the beasts weigh us beasts. The Sun feels
+5,2,1,guided,1,1,9.778762817382812,The horse- set rain much in those friends. Has questions from many faiths. Has anyone tried to cheat or
+5,3,1,guided,0,0,12.460527420043944,"The horse based systemThe gas fountain used in recent flying cornergate out the other Qatari in its treatment,"
+5,4,1,guided,0,0,11.532435417175291,The horse' roost Bob Williams seagrosses might be a inflated carrier that drops off Bob Williams tells
+5,5,1,guided,0,0,7.436381816864014,The horse would turn right into the Centro and later into the Plaza at the Plazatene del Centro
+5,6,1,guided,0,0,11.181304931640623,The horse with the reinsbarbar get=brainbarbar>  barbarcelallsomethinglequin
+5,7,1,guided,0,0,11.218212127685549,The horse's single disciplinary purpose of upkeep. The significance of spring either itself or see little come from ending at
+5,8,1,guided,0,0,9.030921936035156,The horse who took the lines — as old as blue eyed Sacramento County baby – now looks 22 years old older
+5,9,1,guided,0,0,9.893853187561035,The horse ate three of the harder elements into new language and made it SwedishWelcome to the country driver learned about
+5,10,1,guided,0,0,11.97608470916748,The horse --built of the massive twin-mount cannons but fella refuses. Fgnar-Torzo
+5,11,1,guided,0,0,10.130106925964355,The horseto disarm was ineffective because horsepower never even mentioned other than the hatoarms. But its done
+5,12,1,guided,0,0,11.651623725891112,The horse's pillow store could still be living baseball players The Each character's live bald-race a lil'
+5,13,1,guided,0,0,8.563328742980957,"The horse's sitting, 'She's saying that it happened more easily like this before.' ""Do you?"
+5,14,1,guided,0,0,11.528858184814451,The horse isn't referred to (such asAs such) and applied it “piece flying shit”
+5,15,1,guided,0,0,10.173054695129396,The horse face getting a grip grew half- in possession of pulling its feet off the groundgaken corners of
+5,16,1,guided,0,0,9.520944595336914,The horse fell or followed what caches do in order to consume a long book of Edinburgh you had never seen before
+5,17,1,guided,0,0,8.412006378173828,"The horse is supposed to drink a little more time. For example, the “ampamie��"
+5,18,1,guided,0,0,9.381033897399902,The horse it started to smell [lntlgtlcklndlxxlutslighl
+5,19,1,guided,0,0,9.48285961151123,The horse torch at Mo start of the year is mad and hardly no people in the world have been missing six
+10,0,0,unguided,1,0,8.610958099365234,"The pizza was goodlAnd, bacon, mozzarella and sweetener on [They are]There weren"
+10,1,0,unguided,0,1,8.681015014648438,The pizza appear to be a frozen again if eaten could not answer a 'You’re not' to
+10,2,0,unguided,1,0,8.836666107177734,The pizza servers give out the classic pizzas of the world again! * pizza server/.* al. pizza
+10,3,0,unguided,1,0,7.75562047958374,The pizza is almost everywhere in the main room of the. The usual isThe way the money is found for
+10,4,0,unguided,0,1,11.013083457946776,"The pizzawhirloo pizzabakedpeattie) reservedyearly beginning for a state of ""first"
+10,5,0,unguided,1,0,10.20753288269043,"The pizza life was signed on Facebook 33 years ago ""is black and burn mod for pasta.""  @"
+10,6,0,unguided,0,1,6.593307495117188,"The pizza hollers said they were the last to create their new flavor. That's called bumper stickers,"
+10,7,0,unguided,1,0,6.5806565284729,"The pizza is being forced to reveal more secrets. Learn thatThen, there are more secrets hidden.  "
+10,8,0,unguided,1,0,6.871452331542969,The pizza recipe is classic in style.  Along with the pastry that grue the pizzas are the
+10,9,0,unguided,1,0,6.472297668457031,"The pizza 911 911 EXPERIENCE The pizza is what it is cracked up to be, bit out"
+10,10,0,unguided,0,1,9.507872581481934,The pizza accused tossing her car seemed as good way to announce that of interest.The aforementioned teenager treading lightly
+10,11,0,unguided,0,1,8.643148422241211,The pizza is a little too thick. You Halloween : I love watching video porn and theother everyone's pretty
+10,12,0,unguided,1,0,7.063438415527344,"The pizza is situated in the same space of the adjacent bar where the cart and its owner, driver and waiter"
+10,13,0,unguided,0,1,10.971646308898926,"The pizza, made 3 Brake and numbered lk on yeast and nuts 15 July, contained gluten or similarly"
+10,14,0,unguided,1,0,9.102461814880373,The pizza makes promise with theThe air (THE CASE IS THE LAW (yes. All too often :)).
+10,15,0,unguided,0,1,5.605180263519287,"The pizza, though, was used very differently than the pizza slice.  There were various types of pizza"
+10,16,0,unguided,0,1,10.67126750946045,The pizza businessThe pizza has his own personal examination/rewhealing box the pizza shop made from it to
+10,17,0,unguided,1,0,11.363140106201172,The pizza b61na Lynn Lynn  For the average fuel prices reach Pete up Pete up Pete up could
+10,18,0,unguided,0,1,7.639772891998291,"The pizza The pizza sauce, steins, and well implanted concern.  The pizza The The pizza The"
+10,19,0,unguided,1,0,7.8393874168396,The pizza joint can call at (741) 3683-7573 and zip it at the Pizza Talk
+10,0,0,guided,1,0,13.044097900390623,"The pizzaSherwynPeter Have a good timegie timegie for children with colory photos""[Julian Ro"
+10,1,0,guided,0,1,9.21960163116455,The pizza rocksThis worked until the were the first completely realistic and spicy pizza.The late at the beginning of
+10,2,0,guided,0,1,10.73802661895752,"The pizza in movieButters restaurantFurthermoreToThe episode sure as I was in ""Old Man""ellingThe"
+10,3,0,guided,0,1,9.852726936340332,The pizza artifact's growth over time because none of the adversaries [issue that matter] provide parameters for each of
+10,4,0,guided,1,0,10.748801231384276,The pizza (MC) announced a new well in our own corner stores dine onThe pizza light that galaxy
+10,5,0,guided,1,0,8.36359977722168,"The pizza shop is 4,860 square feet of a pizza culture the floor under the floor we've its uneven"
+10,6,0,guided,0,1,7.692748546600342,"The pizza is weighed in 12 slices  Having five ""Z"" and 10 ""A"" so twelve slices"
+10,7,0,guided,0,1,10.766435623168944,The pizza blogger founded life music in New York – find themselves neither prisoners nor society if the pizza blog broke out
+10,8,0,guided,0,1,11.32371425628662,"The pizza coolers w/ the food coolers and/ also producers"";Most of the vegan'in mil"
+10,9,0,guided,1,0,8.320688247680664,The pizza order and how you find other ways to get in.  But then you've learned so 
+10,10,0,guided,0,1,12.370848655700684,The pizza baked pieceher brother stopped looking at Connect to cruise depth using web route unlike an if younowse
+10,11,0,guided,1,0,9.150801658630373,The pizza Imianse are one of the best searching for restaurants Midtown Manhattan won't waste any time with
+10,12,0,guided,1,0,5.743816375732422,The pizza is baked at the bottom of the oven.  The best grinder I ever owned with this
+10,13,0,guided,1,0,8.925085067749023,The pizza's end of life was a tale that can be believed amongst that company's most once called HK.
+10,14,0,guided,0,1,11.862868309020996,"The pizza was the mixed show finally put the dinner on the stand (""Raacephale Strally Burgilies"
+10,15,0,guided,1,0,9.691585540771484,"The pizza we've shown the world as well and blasHTThe chance to play in that, no shit"
+10,16,0,guided,1,0,5.898890972137451,The pizza's toughest onepper is the show...Yeah...Yeah...Yeah...Yeah...Yeah...Yeah...
+10,17,0,guided,1,0,8.828195571899414,The pizza Panini needs Little help and Extra hours...  ... Heaven. That sandwich that is everything for
+10,18,0,guided,0,1,6.910983562469482,The pizza is whatever they say it is.  screen grab:  The past  FromThe
+10,19,0,guided,0,1,10.895505905151367,The pizza actually had leaked past leak Ibel'n't take it serious I by then a modest gram and
+10,0,1,unguided,0,0,9.39231014251709,The pizza runs backwards...The sun makes pizza of its past...To print this article the sun also makes pizza
+10,1,1,unguided,0,0,7.386610507965088,The pizza.NoNoNoNoNoNoDoitNoDoitThe pizza called parking tram stop.It
+10,2,1,unguided,1,1,11.77598476409912,"The pizzaThe dessertsThe sweetsTheThe 1936 queen of 1EU1 BelgiumTau,2We N,"
+10,3,1,unguided,1,1,4.974501132965088,"The pizza chainThe pizza chains,The pizza chainThe pizza chains,The one monthThe pizza chainThe pizza"
+10,4,1,unguided,0,0,9.645339965820312,"The pizza faraway..The originalPizza faraway end……Granted Bettys rights, and Bettys"
+10,5,1,unguided,0,0,8.4360990524292,The pizza-bar can not be asked to tell the about-the pastryseller about-Theand-the
+10,6,1,unguided,0,0,5.500511169433594,The pizza without the meat. It taking a lot of time to cook. The time and the ingredients you got
+10,7,1,unguided,1,1,5.838565826416016,The pizza isn't the same. The types of pizza complement each other in their own different ways.The shot
+10,8,1,unguided,1,1,8.117568016052246,"The pizza bar creates a respectable ""frat"" for the proofs, forces up in the penthouse N."
+10,9,1,unguided,0,0,8.585310935974121,The pizza per day.  Falter line of men stands on the surface of the building in advance of
+10,10,1,unguided,0,0,6.198249816894531,The pizza order is not as successful as it looks 100% on. Let's say that you ordered the pizza
+10,11,1,unguided,1,1,6.288968086242676,"The pizza:  Over 18,000 companies have nearly doubled the production of over 22,000 pizzas"
+10,12,1,unguided,1,1,6.307654857635498,The pizza was up on to review.The founders were up on to Agreement.The pizza was up on to
+10,13,1,unguided,1,1,7.271238803863525,"The pizza, person rock climbing, regular list, bacon, grilled cheese, turkey, truffle butter, and"
+10,14,1,unguided,1,1,10.379412651062012,The pizza is JEWA middle-class suburban neighborhood with 12 plates and three beers.)(Party line -
+10,15,1,unguided,1,1,5.840261459350586,The pizza people  The taste-and-feel-of-the-ress-and-things-
+10,16,1,unguided,0,0,6.691078186035156,The pizza is sharpThe pizza is crushedThe pizza is steaky I stand in the back of the golf cart
+10,17,1,unguided,1,1,9.291403770446776,"The pizza ever. ""This iswar the.""""Rack his hands on him. The bondsman goes down"
+10,18,1,unguided,1,1,8.102187156677246,"The pizzacool away at the same timepizza, the pizzapizza pizza, the same pizzapago"
+10,19,1,unguided,1,1,7.858978271484375,The pizza was served in 1987 by the Wooden Art of Pizza.The pizza at the famous pizza Coron
+10,0,1,guided,0,0,7.217233180999756,The pizza is done darkly and talented people don't want their name in ring with the company. The cheese
+10,1,1,guided,0,0,9.649110794067385,The pizza occupies the second floor of Wobo Mon Holdings who were why 'terrorist' in advance against the person
+10,2,1,guided,0,0,8.732588768005371,The pizza is handmade using a process of could break down--Mr. Cook this planet was on this planet
+10,3,1,guided,0,0,6.490031719207764,The pizza chain lost the deal.The Socceroos lost the deal.The political parties in the east and the
+10,4,1,guided,0,0,8.624534606933594,The pizza - Via : https://enicl pictiny.com/jj1c?v=#e2
+10,5,1,guided,0,0,10.08219051361084,The pizza was saved when someone reviewed fake abuse responses submitted by donors. This classmate was a busy Sunday lecture December
+10,6,1,guided,0,0,9.84044361114502,The pizza test organisers' ideas about pizza test's future rate of improvement-even-after-the they gave
+10,7,1,guided,0,0,9.242536544799805,The pizzaIn no way theJustify Day was edited.Justify ending on behalf of theJustified ending
+10,8,1,guided,0,0,7.279228210449219,The pizza stands—a place where the pizza goes quite a bit.  His voice does not disappoint—
+10,9,1,guided,0,0,6.3350372314453125,The pizza itself wasn’t exactly a style like that. The shape of the pizza was definitely a style
+10,10,1,guided,0,0,6.103646278381348,The pizza (3 out of the 5) is the crust (not its shape)  Viper's
+10,11,1,guided,0,0,7.205437660217285,The pizza could generate traffic. The pizza could have an In App waiting. The pizza could have an app waiting
+10,12,1,guided,0,0,12.954095840454102,The pizzaThe researchers would incite released things quiet about the budget lines use making sureI think being a predictable night
+10,13,1,guided,1,1,10.301154136657717,The pizza.com Striped Bahrain jess-sun waitson-taco-never-told-The
+10,14,1,guided,1,1,8.98451042175293,The pizzaIn generalThe man aloneThe man who designedboth intimate knowledge of rendering machines What happens to the word
+10,15,1,guided,1,1,6.27783727645874,"The pizza says some of it, you call pizza, some more pizza provides the pizza, some more pizza will"
+10,16,1,guided,0,0,8.338882446289062,"The pizza each day, we hope to gather information from those having been swindled or cheated TheMWP"
+10,17,1,guided,0,0,12.144911766052246,"The pizza is new. nowhere none then changed shall rez the pizza, nor malt the cross beerBringIn"
+10,18,1,guided,0,0,6.967505931854248,The pizza front is one of the kinds of things that you don’t seem capable of noticing.Our
+10,19,1,guided,1,1,5.464036464691162,The pizza doesn't really make you laugh but it does take you back to the days when the Justice Department first
+1,0,0,unguided,1,0,6.020427703857422,"The book,The documents,The drawings, The picture... The genre prose and poetry, traditional prose and poetry"
+1,1,0,unguided,1,0,5.968374729156494,"The book  As a result, you are likely providing advice you would like to benefit from. Including myself"
+1,2,0,unguided,1,0,6.87799072265625,"The book,You areThe book,There were youYour aura seems to float away.The book,There"
+1,3,0,unguided,0,1,7.074787139892578,The book had got the same sales. It had all been the same r r The $. rd
+1,4,0,unguided,0,1,5.028701305389404,The bookThe bookThe bookThe bookThe bookblscidscoutscoutscoutscoutsc
+1,5,0,unguided,1,0,5.644904136657715,The bookstore was a fountain.You can say the bookstore was open to anyone.But you will be
+1,6,0,unguided,0,1,8.182065963745117,"The book they attacked, ‘And now ‘To the book which has been attacked, “And"
+1,7,0,unguided,1,0,9.044967651367188,"The book is set for life, each five pulls marks the landing of the Echo.The song has 30 Moments"
+1,8,0,unguided,1,0,8.034625053405762,The bookThe bookhas brought to us to be inspired by whom? (The story here) The friendship with
+1,9,0,unguided,1,0,6.456443786621094,The book is chosen using the special qualities of the book.The method of illumination is used in the reading pages
+1,10,0,unguided,0,1,8.3253812789917,The book was lost into Mifoy’s Downhole.]It was lost into Mifoy's
+1,11,0,unguided,0,1,8.923873901367188,The book ends.  The book is twenty minutes so you’re in bed for still more tales
+1,12,0,unguided,0,1,6.16352653503418,The book that goes from the encyclopedia  b.h.c.o.s.The encyclopedia that
+1,13,0,unguided,0,1,12.19423484802246,"The bookThis child spent"" or utter lThemThe tThisCicran"" lm. Bright"
+1,14,0,unguided,0,1,5.989264011383057,"The book deals with this picture of the nose in which the nose forgets the nose, returns to the nose"
+1,15,0,unguided,0,1,6.752140998840332,The book of a book offWe a book of a book off a book of a book of the book off
+1,16,0,unguided,0,1,9.063813209533691,"The book toSamsung, the devices are everywhere but maybe would not use them openly... not just the book to"
+1,17,0,unguided,0,1,8.854683876037598,The book not had to came packed in boring boxes like some of the goddamn The book didn't have to be
+1,18,0,unguided,0,1,6.987027168273926,The book's address was actual literature. It played out like an actual literature game when there was an actual canon
+1,19,0,unguided,0,1,9.595782279968262,"The book is excellent, and it has several unrelated books, in advance book learning 'howler' decline obedience"
+1,0,0,guided,1,0,3.873545169830322,The bookHisThe HISThe bookThe bookThe bookThe bookThe bookThe bookThe bookThe bookThe
+1,1,0,guided,0,1,6.294618129730225,"The book, assumes low-level abstraction, feels the implementation is highly possible, assumes high-level abstraction,"
+1,2,0,guided,0,1,9.592432975769045,"The bookkeeper slammed the professor.They were lying and admitting about, 'You want to get something not?'"
+1,3,0,guided,0,1,9.800262451171877,The bookbag from Screws You're Given is the most tangible positive drivers among vintage young people in What's
+1,4,0,guided,0,1,7.278726100921631,"The book has ""A"" to minusThe title is ""not in"" the book. ""The book piles"
+1,5,0,guided,1,0,9.28321361541748,The book Digg.org/The album With a ghost written live-in character book longer better with more
+1,6,0,guided,1,0,9.95130443572998,The bookend fund material in the v8 of N baden's estate' so read it a bit
+1,7,0,guided,1,0,10.524429321289062,The book told a story the skeler had been long proud to listen He died in September 2017 before life entered
+1,8,0,guided,1,0,6.497994899749756,"The book is almost as chronological as what the other books took, including the release of the film that was called"
+1,9,0,guided,1,0,5.745608806610107,The book  You’ve read the FOUR Book  You’ve read the F
+1,10,0,guided,1,0,7.361320495605469,The book is: To do it right on a great day—or and what he can do at difficult times
+1,11,0,guided,1,0,12.807418823242188,The book shelf reads ‘BE BEBER BE timeBeBeAS BEberBEBe BE BEARD BE
+1,12,0,guided,1,0,8.696303367614746,The book over putsThe book gets diverse artwork outside asking for an overboard and The book already has an island
+1,13,0,guided,1,0,8.2618408203125,"The book called Twiding Eye, the book called Flinderflock, the book called postersAnd it's"
+1,14,0,guided,0,1,7.294217109680176,"The book is small, only $16.in and $20.inf.The unofficial aim is notoriety"
+1,15,0,guided,0,1,12.057650566101074,"The book---- be stated earlier:-- give up-- very widget suit browser-- youtube color clip), S"
+1,16,0,guided,1,0,10.291394233703612,The bookson of Mary Arnold Ayroff…who along with David is owner of the brand M11 have
+1,17,0,guided,0,1,9.81694221496582,"The book will fails to mention that John had earlier banished Brigal, a former student The streetcar has an open"
+1,18,0,guided,1,0,10.847294807434082,"The book full of supplements is inside tip fifty, elevenst bookI refer to the inner logic calling the inner"
+1,19,0,guided,1,0,8.851151466369629,The book of record existed at the part of the cyder  denied 207There should be no doubt
+1,0,1,unguided,0,0,1.4145549535751345,The book.The book.The book.The book.The book.The book.The book.The
+1,1,1,unguided,1,1,7.218023777008057,"The book's 12 total is ""Seven"". ""Thank-you,"" says Cohn  ""Thank you,"""
+1,2,1,unguided,0,0,8.705062866210938,The bookloads shifted from 1 chapter 2 to 6.Keys to Bookstore in the bookstore you're able
+1,3,1,unguided,0,0,8.027714729309082,The book was turned intoThe book you had been bringing themThe book was found in the berries and on the
+1,4,1,unguided,0,0,8.956486701965332,The book. It contains no attempt to finish more than April. November 2013 Waterford Community Staff College in July
+1,5,1,unguided,1,1,7.4045610427856445,"The book is its self, right here S.A.and its two major points of interest: unexplained fate"
+1,6,1,unguided,0,0,8.56968879699707,The book of sore is now turn to the rulesOf the gamesmourSourSourSour
+1,7,1,unguided,1,1,9.80437469482422,"The book familiar – SdoubleHaarHi, see if that is correct – The book written – The book"
+1,8,1,unguided,1,1,9.396870613098145,The book chapter are ubligh immediately after the manuscript of Mr. dubHow to give us the pleasure of
+1,9,1,unguided,0,0,5.498643398284912,The book says that we need fish. The book says that fish might be genetically restricted or expensive to the public
+1,10,1,unguided,1,1,8.405454635620117,"The book is addictive and exciting by itself,it’s also easy to get and spend 3.1"
+1,11,1,unguided,0,0,7.115402221679688,The book was sold!The book was never sold.The book will also never be sold!Somethingうと
+1,12,1,unguided,0,0,6.936548709869385,The booksellerThe physical printor(The country)The time it takes to make a bookThe failure from
+1,13,1,unguided,1,1,9.850549697875977,The book in 2011 that had the longest line of the norm that it Boom-Book its horror-power
+1,14,1,unguided,1,1,8.890138626098633,The bookYou learn seriously about writing exclusives ofThe townTheI learn about doing talking about the townThe
+1,15,1,unguided,1,1,8.87919807434082,The book that is in the comic demonstrates how important money is tracked by a simple look than money spent on fluffy
+1,16,1,unguided,1,1,8.455239295959473,"The book of personality, it is St. Christ the Prince (VLR) tells the book of the life"
+1,17,1,unguided,0,0,6.569329738616943,The book was poorly received by many(both progressive and liberal alike).  After the book you can move
+1,18,1,unguided,0,0,5.855358123779297,The booksellersorbeersor beThe booksellersorbeThe booksellersororThe
+1,19,1,unguided,1,1,6.485293865203857,The book was published on September 28th with all devices being the first to receive a major lookback at a
+1,0,1,guided,0,0,10.962889671325684,"The book declares all talk lost to the telairest blood diseases.However abound leaving Sita says dog,"
+1,1,1,guided,1,1,10.804030418395996,The book I got from watching company customers manufacture online books about Dr. Jim Emerson and his royaltiesC Michael M
+1,2,1,guided,1,1,8.944314956665039,The book stays in the convention gamestores for two years?Of course We know they get along every week and
+1,3,1,guided,1,1,9.670241355895996,The book was talking here about an animated movie  Walter Obst’s ^ => With and For
+1,4,1,guided,0,0,9.23831844329834,The book’s repeat rate also describes five court cases arising from a series of judgments by an administrative process
+1,5,1,guided,1,1,10.647505760192873,"The book at:"" loose fallIt gradually fewer rules that determine performances!The book at most lucky chosen to write"
+1,6,1,guided,1,1,9.504244804382324,The book of need lends the book of serious consideration Lin Lee Lamont  AMY thirty four  Four
+1,7,1,guided,0,0,10.830520629882812,The book he's putting ‎In his right hand isATo which Mario is chotelling Chiotelling
+1,8,1,guided,1,1,10.405961990356444,"The book is here Walt Disney:8Con... Photo; The hatch fitted with interim, self-performing building"
+1,9,1,guided,0,0,12.655404090881348,The book crosses divisions under this...^.^press no King (ZKI) through contemporary Latin
+1,10,1,guided,0,0,9.24073314666748,The book came out andDooroorooroorooroorooroorooroor world’s second coach
+1,11,1,guided,1,1,8.276835441589355,"The book is psychological and the store recommends reading to fellow travelers in those spirits, based on media at the time"
+1,12,1,guided,1,1,5.044643878936768,The book of songContents  SongContents  These are very brief sentences that you can find in the
+1,13,1,guided,0,0,5.067703723907471,The book is a year high school book and the student book a grade school book. The third event will be
+1,14,1,guided,1,1,7.216516971588135,The book is designed to settle with a paragraph of discussionWe have a few places over the weekend we just like
+1,15,1,guided,1,1,4.107360363006592,The book included a cover where no other book was available. The book included a free download in MP3 format
+1,16,1,guided,1,1,9.222041130065918,"The book contains scraps of material from Jewish traditional German Courts and Protestant Churches,"" AKA said. ""On Thursday"
+1,17,1,guided,1,1,5.787671089172363,The book. The song of The bookThe bookThe book of the time of the singing ofThe bookThe
+1,18,1,guided,1,1,6.200648784637451,The book is the end of God.  And right at the top of the about is the book.
+1,19,1,guided,0,0,9.514698028564451,The book is worse one authors chooseThe book planners have work to doOn Night Booksfred through the middle
+6,0,0,unguided,1,0,9.559332847595217,The lake sits in new high parastore.The skies at 19:45 are blue - earliest ever date
+6,1,0,unguided,1,0,7.418079376220703,"The lake. In the summer, however, much of analysis was taking place off-streamed, people watched"
+6,2,0,unguided,0,1,7.333261966705322,The lake pulls the bricks apart but doesn’t let the sink.The lake pulls the bricks out of
+6,3,0,unguided,1,0,8.718912124633789,"The lake’s record, since the Lake is Closed it has appeared to be fair and possible by the"
+6,4,0,unguided,1,0,8.135307312011719,The lake look back in 1876. The look around at the entire town during this short trip they were brought
+6,5,0,unguided,0,1,7.119954586029053,"The lake below reached 1.8 meters. By Beijing, too, roads had reopened after a week-long"
+6,6,0,unguided,1,0,7.541235446929932,The lake under the moon. Sharp point Icon Baseball hall of fame for autographs Icon Baseball Hall of Fame for
+6,7,0,unguided,0,1,8.575569152832031,The lake arrests handcuffed and hand-cuffed. about the lake arrestpolice have tried to convince the citizens arrested
+6,8,0,unguided,0,1,7.4057769775390625,"The lake Canyon formed very slowly and the rising waters dominate the erosion. ""Despite this, birds are continuing to"
+6,9,0,unguided,1,0,6.791335582733154,"The lake, which has been melting with snow, is being inflated in air.The salt lake it is surrounded"
+6,10,0,unguided,0,1,4.751009941101074,The lake pool is located in theThe lake pool is located in the but theThe lake pool is located in
+6,11,0,unguided,1,0,9.33716106414795,The lake is the sense of pride in this States as far as its scientific state historic basis but our skewed reality
+6,12,0,unguided,0,1,7.664938449859619,The lake-slump parties were: “This is what I’ve been having.”
+6,13,0,unguided,0,1,6.781863689422607,"The lakefront: nearly $500,000-a-year, before the scripts are signed or approved,"
+6,14,0,unguided,0,1,7.565639019012451,"The lake of kuninyo need no lake of baingo), lake of kuninyo need"
+6,15,0,unguided,0,1,7.207475185394287,The lake's stability is by no means organized by the scientists unified by the players unified by the events unified by
+6,16,0,unguided,0,1,6.489223480224609,The lake contains more than a few more syringes from various saks connected to it. Some of them
+6,17,0,unguided,1,0,5.455555438995361,"The lake of the sea, and the lake of the sea is the greatest lake of every world, mostthe"
+6,18,0,unguided,0,1,6.572169780731201,The lake is too close to everydayThe town is too close to contact…and the lake turned into a huge
+6,19,0,unguided,1,0,6.589118480682373,"The lake is surrounded by rocky mountains, but over the entire region China have various types of tracks over various ranges"
+6,0,0,guided,1,0,7.284848213195801,"The lake’s legendary swift currents put us under constant threat to survive, but that’s not"
+6,1,0,guided,0,1,7.864570617675781,"The lake is named Sishimono At the sea level', is known as a Seism. Look at"
+6,2,0,guided,0,1,7.129809856414795,The lake from the meadow of Andrew the Elder.  The blue side reflects on the green golfing
+6,3,0,guided,0,1,8.568707466125488,The lake is less than 168 years old has been flooding through a process called submerge-nitude water and
+6,4,0,guided,0,1,8.392343521118164,The lake (In the lake).....(On the TpnCUP terminal carrier transistor).....(
+6,5,0,guided,0,1,7.8820953369140625,The lake where it represents the weekly household price for a family of three.  The office of in­
+6,6,0,guided,0,1,8.487068176269531,The lake is looking for places that Knows-Was's through the use of an agency which presents itself as
+6,7,0,guided,0,1,7.023388862609863,"The lake is shown in 2006  The lake exists only in Kuch, near Faraz, the nearest"
+6,8,0,guided,0,1,5.035871505737305,"The lake is 2,616 feet (8 feet above sea level). The lake is referred to as ""."""
+6,9,0,guided,0,1,8.470685005187988,"The lake...What ever in the natural order rises initially without any clear and durable reason alone, dies, dies"
+6,10,0,guided,0,1,9.64536190032959,"The lake hardly enabled television. So is Boston, the nation's largest city whose—Article 1954: ""recent"
+6,11,0,guided,0,1,10.27658748626709,"The lake'sWell bathtub service And what was currently true, the city of Newark Mistakes;And people"
+6,12,0,guided,1,0,8.236651420593262,"The lake, the river banks and the Taal and then thereis the Cook with a Nevada island and a"
+6,13,0,guided,0,1,7.071563243865967,The lake is drying fast and you could be to lose most development and some of the current work in the area
+6,14,0,guided,1,0,10.316804885864258,The lake full of tartarar is fineTurnP the boat full of toxene*Nippy the
+6,15,0,guided,0,1,8.365184783935547,The lake fills (Supplementary information).  For the second Loch Ness trip we encountered the Bala Bridge
+6,16,0,guided,0,1,6.877769470214844,"The lake is of more than 7,000m and only 108km2 and equal to that of the Peninsula"
+6,17,0,guided,1,0,12.102899551391602,"The lake sitton leader's column, America's Korean peninsula.July's Issue - DMS Sage Dogwood"
+6,18,0,guided,0,1,9.331725120544434,"The lake front of Chanteri wangori of kalchanteri wangori of written,"
+6,19,0,guided,0,1,9.3073091506958,The lake should enable the pitcher to get out of the water quickly. playing in six variations Daniel Bulls Rio Lake
+6,0,1,unguided,0,0,7.362941741943359,The lakeThe lake lakeThe lake LakeThe Lake LakeThe LakeLakeThe Lake LakeBy LakeThe Lake Lake
+6,1,1,unguided,0,0,7.14705753326416,"The lake, the volcano. ZA 26 ZA.ZA. 37,937 ZA."
+6,2,1,unguided,0,0,8.737509727478027,The lake where tuna had a chance. Chinese Dragon I went out to the grass made by steel.The water
+6,3,1,unguided,0,0,5.484164714813232,"The lake peoples' preoccupation is their protection.This is neither a non-negotiable, nor"
+6,4,1,unguided,1,1,6.1021928787231445,The lake comes in whirling motion. If you actually take a look at the moves! Take a look at
+6,5,1,unguided,1,1,9.824373245239258,"The lake lake:r is composed of cuts. I:ojYZe,r/rJAcv"
+6,6,1,unguided,0,0,8.192957878112793,"The lake.Your wave is, You're surfing over Holds, Jetpacks, School tours and other events"
+6,7,1,unguided,0,0,8.256468772888184,"The lake in a wide bay has no patent on sugar.Yet, for souls to care and to seek."
+6,8,1,unguided,0,0,9.851664543151855,"The lake's bed and even distant cities were shrouded in greyLast sky saw atmospheric controls. Getting over it,"
+6,9,1,unguided,0,0,6.386268138885498,"The lake of the metro type is easily recognizable in several ways (e.g., it is a rough measure"
+6,10,1,unguided,0,0,5.710007190704346,The lake originally required two components leading to a water body. This is to be replaced by one component requiring one
+6,11,1,unguided,1,1,10.196769714355469,The lake is a solid source of more sense seeing as relative to some unknown ones such as carases Ari n
+6,12,1,unguided,1,1,5.249727725982666,The lake ArmstrongThe lake ArmstrongThe lake Neil Armstrong Armstrong the lake Neil ArmstrongThe lake ArmstrongThe lakeThe lake
+6,13,1,unguided,0,0,9.54185390472412,The lake... *Provide more serious charges *Handed a conspiracy more priviledge... *Wow *
+6,14,1,unguided,0,0,5.012820720672607,The lake after the lake  The lake the after the lake  Lake lake lake the lake  
+6,15,1,unguided,0,0,6.210841655731201,"The lake is full with my winter, and  The bottles are full with my milk, and I "
+6,16,1,unguided,0,0,7.8730926513671875,"The lake superficial wet and surface wet and the lake warm close to central location e.g., great gulch"
+6,17,1,unguided,0,0,8.675341606140137,The lake is Baldwin Lake The male ant is threatened by starvation as well as hunts such as with talons�
+6,18,1,unguided,1,1,7.0369157791137695,The lake.Take it nice and nice.There are fancy suits at the party?Take a look at that
+6,19,1,unguided,0,0,9.088531494140623,"The lake should be treated within to Lake Act.The poor lake, that has switched its ""10"". The"
+6,0,1,guided,0,0,11.265824317932127,The lake byThe elevator rumbled And the time passed between Antarctica and college teams TexasRin' and Taiwan
+6,1,1,guided,0,0,11.655318260192873,The lake-neveromed the state of the mid-1990s across the Varietyced by main mass TV ESPN
+6,2,1,guided,0,0,6.282841205596924,The lake that formed the water that formed the mud that formed the pavement and of course formed the ground underneath this
+6,3,1,guided,0,0,10.65442180633545,The lake already has a third cleaning down of its own today wherever our mosquito-flowing poisons are given up
+6,4,1,guided,0,0,7.933781623840332,"The lake's a rim, and whose tiny size limits the condition in which it was. 1/3."
+6,5,1,guided,0,0,7.999595642089844,The lake is still in place if it's off enough in the wake of 03 11 09 11 12 13 15
+6,6,1,guided,0,0,10.401575088500977,"The lake didn’t floods, ice, or lambs, the facts showed NuĻ� existed"
+6,7,1,guided,1,1,4.627957820892334,"The lake is located next to the most famous defense, not only one of the best in the world but also"
+6,8,1,guided,0,0,10.388885498046877,The lake had breaking down and we still smell of it. Staple goods donkeys Tesoy in GHI
+6,9,1,guided,0,0,10.79316234588623,"The lake with the drug law cannon destroyed, from Edward's advancing speed because Edward's transforming made Edward more fast"
+6,10,1,guided,0,0,9.8001127243042,"The lake does not bear a name, grog sincechev., the term metaphorically and Whitewater Lake Street"
+6,11,1,guided,1,1,7.310940742492676,"The lake KrylquistA, MirauA, South Lake KrylquistA, lunch mer"
+6,12,1,guided,0,0,8.378252983093262,"The lake(s), ruffed Lancashire–style, cotton vies for they to be drawn"
+6,13,1,guided,0,0,11.276759147644045,"The lake finish columns following the bottom of the alphabet include maximum deal bell US5, recreation of the backup option"
+6,14,1,guided,0,0,8.365938186645508,The lake will come as we Upper Gall LakeThe lake is smaller lake from the Bental deltaThe lake is
+6,15,1,guided,0,0,11.416789054870604,"The lake into the boat so i try wee glowe shall see, heimmers. A pond! is his"
+6,16,1,guided,0,0,10.216487884521484,The lake's greatest investment the Nymphogionic Revolution Kululoma protectedThe lake from being occupied lower
+6,17,1,guided,0,0,8.271401405334473,"The lake water pollution venom disease, venom disease, sulfue disease, tooth diseases, the kissing diseases, the"
+6,18,1,guided,0,0,6.043850898742676,The lake lailed back and forth through the seasons. The recast. The weathered body on the lake
+6,19,1,guided,0,0,8.322463989257812,The lake water and moles. 319 -327 Between the differences inThe lake water and homolomas.
+11,0,0,unguided,0,1,8.266682624816895,"The potato is the most recent chef, making a detailed one impossible.The potato serves the birds better, eating"
+11,1,0,unguided,0,1,5.731128692626953,"The potatoFor the potato, you are trying to take the best value that you can in terms of the losses"
+11,2,0,unguided,0,1,4.6422953605651855,The potato or potato is a potato which has the taste of sugar. It sweetens potato. It is made
+11,3,0,unguided,0,1,8.464761734008789,The potato take where it goes food A p sThere is no hunger. She is eating among the hungry people
+11,4,0,unguided,0,1,7.62509298324585,The potato from the potato mill The potatoes from the potato millThe average the obesity rate the average the overweight head
+11,5,0,unguided,1,0,6.087783336639404,"The potato is an important staple crops in the UK, and is small, dry, and choped-free"
+11,6,0,unguided,1,0,6.136547088623047,The potato Show You can't rule out the existence of potatoes at the Potato Show What this case of potatoes is
+11,7,0,unguided,1,0,7.966208934783935,"The potato is viscually,. From your knowledge of candelabra a wide range of kitchen amenities"
+11,8,0,unguided,0,1,5.454742431640625,"The potato, is binky.The potato, like a cute potato, is kissy.The potato,"
+11,9,0,unguided,0,1,10.7210111618042,The potato... Foto Foto Final transformation into Fappa GTC boson by Robert Fappa action action
+11,10,0,unguided,0,1,7.787085056304932,"The potato, the banana,or.  But I don't know; you are like a road,"
+11,11,0,unguided,0,1,10.042860984802246,The potato you ateis. The monotonous commenter  They starred American actor Paul Schneider in the oven
+11,12,0,unguided,0,1,7.449170112609863,"The potato—The seafood—But the meat The meat is abundant, not the others. Fridays, Saturdays,"
+11,13,0,unguided,0,1,8.69758129119873,The potato is regarded as the cornerstone in the translation of Mihék Kropolski on early adolescence
+11,14,0,unguided,1,0,7.327794075012207,The potato is in fact the liquid component of this study is both intensely sweet while being mild. It can also
+11,15,0,unguided,0,1,8.4276762008667,The potato is one of those who isn't done the image fix of what they are storing or switch the wallpaper
+11,16,0,unguided,0,1,5.308051586151123,"The potato is the ""val"".This is the ""val"".  This is the price of the potato"
+11,17,0,unguided,0,1,9.97727108001709,"The potato only been to taste The, but not to be made of unre, cast millions, cast few,"
+11,18,0,unguided,0,1,6.41856861114502,"The potato baked. While they are enjoying, it is the first video. It would be the first video a"
+11,19,0,unguided,0,1,7.7082200050354,The potato  Twelve of the.eatThreThe potato  of twelve.eatThe potato
+11,0,0,guided,0,1,6.879309177398682,The potato in its pere has been added or flattened. That's called agriculture. It's called potatoes.
+11,1,0,guided,0,1,6.023666858673096,The potato’s total weight The the potato’s average weight is less than half of The potato
+11,2,0,guided,0,1,9.901460647583008,The potato bison is tinned to 2000 degrees in a palate of 250 lbs selling twelve of these on go
+11,3,0,guided,0,1,8.63495922088623,The potato bean cake is white. The drink is made with bar service juices bistro colds and bar
+11,4,0,guided,0,1,8.99657917022705,The potato that refers to Himself as Williamario -the potato got through senor and went through a couple of
+11,5,0,guided,1,0,11.978472709655762,"The potato crunch......Because Map&Q is compelling enough outstanding fan rally their no love behind Costas,P"
+11,6,0,guided,0,1,6.961799621582031,"The potato or whatever the French callThe potato instead of potato, instead of nothing does that, but not potato"
+11,7,0,guided,0,1,9.27283000946045,"The potato' arms with arms, and with companionship? The crop should co-wire Mexico, and the"
+11,8,0,guided,0,1,8.121220588684082,"The potatofish appearing in the Belgian athletes' hands at the Ironman on May 16, 2011 Steve/Staff"
+11,9,0,guided,0,1,10.136856079101562,The potato! ThekiThekiYou are buy this baby...Tel phone plant 0356171 Theki
+11,10,0,guided,0,1,10.954419136047363,The potato does not exist � anythingThe reading that Amy decides is global warming single does not exist either about how
+11,11,0,guided,0,1,8.341615676879883,"The potato jerky how potato beetles think potato beetles also blame potato beetles Out of roughly 1,000 potato beetles"
+11,12,0,guided,0,1,4.307463645935059,"The potato sacchar has been found. Further, it has been thought that the potato sacchar is present in"
+11,13,0,guided,0,1,6.828133583068848,"The potato for the family was the novel.  It was all inn of potatoes, so lurid and"
+11,14,0,guided,0,1,11.815614700317385,"The potato prices are high' ""Eman (Martin King) of Braventhe Bahishol, important"
+11,15,0,guided,1,0,8.09778881072998,"The potato beans: Reliable test of the durability of the kernel beans, even if the threads indicate they are"
+11,16,0,guided,0,1,6.472737312316895,The potato was it..  And it in the seventies period it in the decade the potato was
+11,17,0,guided,0,1,7.695947170257568,"The potato they snack on, or 'Your Boys' sluggly girly sluggly sluggly"
+11,18,0,guided,0,1,9.722859382629396,The potato-snoddling-pukaret took over the positions led by Mokhtar Aliot and
+11,19,0,guided,0,1,11.73285675048828,"The potato groug weak. Sweet sweet plain sweet Color color 16"", amber uni  Sweetened Original"
+11,0,1,unguided,0,0,5.415816307067871,"The potato diet launched in the 1980s and first described as ""bleed in potatoes"" in the 1980s"
+11,1,1,unguided,0,0,5.402780532836914,The potato. The potato potato potato potato potato potato potato potato potato potatoes potato potato potato potato.The potato potato
+11,2,1,unguided,0,0,4.817696571350098,The potato giant potato potato potato potato the potato the potato the potato the potato the potato the potato the potato the
+11,3,1,unguided,0,0,9.04008674621582,"The potato  say!The potato, ourOh!The potato theorists wehave potatoes with something special"
+11,4,1,unguided,0,0,6.6986517906188965,"The potato fries.  Most ever the fries, any.  And ever.  The potato"
+11,5,1,unguided,0,0,7.270816326141357,"The potato located in The House of Commons's foodbox.Smart, well-organized, food-arrant"
+11,6,1,unguided,0,0,2.655531406402588,"The potato poke  The potato poke,  The potato poke,  The potato poke, "
+11,7,1,unguided,0,0,7.637798309326172,The potato--The potato (Hebrews)--Flabdetet--Flabdetet--
+11,8,1,unguided,0,0,8.38996410369873,The potato mashed Tirana1 and the potato mashed Hotels1 and the potato mashed Apelne1 and
+11,9,1,unguided,0,0,6.789763927459717,"The potato length is absolute, the potato is about twenty an eighty, the potato is about five an eighty so"
+11,10,1,unguided,0,0,8.482583045959473,"The potato are-to be, is uncommissioned by itself in a mission-critical manner, edit"
+11,11,1,unguided,0,0,4.637302398681641,The potato that made Stringer … The potato that made Stringer as well as … The potato that made String
+11,12,1,unguided,1,1,8.595864295959473,The potato that has bred the synchronicity of parties that comes about when the victor of spending candy
+11,13,1,unguided,0,0,8.767802238464355,The potato that is trading in the steady flow flows fromThe potato; the is steady flow flows fromThe potato
+11,14,1,unguided,0,0,5.35030460357666,The potato knows a potato but the potato asks'The potato knows a potato but the potato doesn't ask'
+11,15,1,unguided,0,0,6.939052104949951,The potato's design.The potato's lifestyle.But the potato's vehicle.And Kim Dotcom wasn't
+11,16,1,unguided,0,0,7.494581699371338,The potato like.How big I did you have to move? Directly I could not move The potatoHow
+11,17,1,unguided,0,0,7.328813076019287,"The potato is ""cane de mengi"" in Mengi and about 30 km away from China"
+11,18,1,unguided,0,0,8.527910232543945,The potato chip people were off and the potato chip paws got somecrust the potato chip dogs got somecr
+11,19,1,unguided,0,0,6.23334264755249,The potato enjoyed.  You took it.  The potato sat lonely.  The potato sat
+11,0,1,guided,0,0,7.968373775482178,The potato chips that they ignored.  Because the potato chips deep are a thousand times smaller than football itself
+11,1,1,guided,0,0,6.677853584289551,The potato has been moved to the newer career(k) using similar arms. The old potato is still
+11,2,1,guided,0,0,7.529588222503662,"The potato threw up. We ate salmon and beef.There were Daiya chili - round, crunchy..."
+11,3,1,guided,0,0,11.872971534729004,The potato ear gave running from To assume walls was going know over forever got special focus whenThe keyboard gaves
+11,4,1,guided,0,0,11.090068817138672,The potato figured out how to expand against the next group meaning near achieve change was presenting someone travelling on a train
+11,5,1,guided,0,0,14.228937149047852,The potato problem is strongly ugly likeThe Tomckswicking meant liter commenting his next song by critic Angelagi
+11,6,1,guided,0,0,8.545167922973633,"The potato is having under paint and he's about to basically spit on my hat, but he CFLs before"
+11,7,1,guided,0,0,13.805849075317385,"The potato, aged somewhere under pennies Citropane Woessions Hail Herb pH 88 beef area meat"
+11,8,1,guided,0,0,8.888420104980469,The potato’s flavour: potato’s tone: Diner spades of messy stir fries A
+11,9,1,guided,1,1,9.524765014648438,The potato played baseball... raccoon. ''Rapper Pop has center field and home plate. that
+11,10,1,guided,0,0,11.228857040405272,The potato debuted not=em someat rebedpotato night (oic ouying ouv
+11,11,1,guided,0,0,7.479411602020264,"The potato sprouts out of the carpet, and the sul zips down on the divorce/war/back"
+11,12,1,guided,0,0,5.323654174804688,The potato Cloud. The physical potato cloud surrounded the sea. sea. The virtual potato cloud surrounded the sea.
+11,13,1,guided,0,0,8.399718284606934,The potato word “mucine” has the flavour of potatoes being “green-brown�
+11,14,1,guided,0,0,11.416590690612791,"The potato people just acquired neighbors, ABCWand that external costs,"",,), only TELEVISULT"
+11,15,1,guided,0,0,6.7127299308776855,"The potato, in the face of a host of hot butts. This will create existing controversy. It said"
+11,16,1,guided,0,0,6.619899749755859,The potato is the capital strength of the growing general in the case of the potatoes.The big farms are the
+11,17,1,guided,0,0,10.4716796875,"The potato is one of you broadcasters that could mean 'pathialities'. 4 Using a cake, whipped it"
+11,18,1,guided,0,0,11.15473461151123,The potato frost imperceptible)- Irish made Irish West English (rule) Republic its Republic to the populationThe
+11,19,1,guided,0,0,7.727378845214844,The potato doesn't around hot because the warps all over the potatoes when they cool mechanically. I watch it
+2,0,0,unguided,0,1,6.599883556365967,The chicken has a bit of skates and are ice. The chicken has a bit of skates that melt
+2,1,0,unguided,0,1,4.404644012451172,The chicken was in his backyard. The only chickens at his house was the chickenThe chicken was in his backyard
+2,2,0,unguided,0,1,8.300629615783691,The chicken is increanng-tendres-tendres-tendresate Titendres
+2,3,0,unguided,1,0,5.991644382476807,The chicken has been so tasty!  The chicken has been so tasty :! The chicken has been great
+2,4,0,unguided,0,1,6.771050930023193,The chicken and the skin of the chicken was preserved was absolutely necessary when it comes to humans eating meat and fish
+2,5,0,unguided,0,1,6.462155342102051,The chicken pairs six stages in two teams that play in the tournament. The chicken pairs stage stages in two teams
+2,6,0,unguided,1,0,6.960109710693359,"The chicken made a vivid contrast with the meat, and the readers in Central Florida enjoyed a great meal. --"
+2,7,0,unguided,0,1,11.52672290802002,The chicken sold TOPC sales  bakic bakajic appalachicorsbuffalic
+2,8,0,unguided,0,1,5.545329570770264,The chickenheads. The chickenheads with no names.The chickenheads. The chickenheads who McDonald's.
+2,9,0,unguided,0,1,6.067769527435303,"The chicken.  The chickens were horrific.  Of the 22 chickens, the chickens ate the chicken"
+2,10,0,unguided,0,1,8.799012184143066,The chicken will eat usThe chicken is hidden in a big termThe door should be open describe themThe new
+2,11,0,unguided,1,0,6.906532287597656,The chicken thumb..Like ballThe tip of the cap of the finger..Like the chicken toes..LikeThe
+2,12,0,unguided,0,1,5.994168758392334,The chicken.This is the chicken and No preparations as such.This is the chicken and the chicken. No
+2,13,0,unguided,0,1,7.778913974761963,"The chicken meal left hand over head eats much of her feasts. The breast without was breastless, so"
+2,14,0,unguided,0,1,8.037431716918945,The chicken could live with myself if I said he was like a gym speaking in a gym with two coeds
+2,15,0,unguided,0,1,7.514396667480469,"The chicken. ""Oh, at that.""  Find out what would be the right gifts for your family"
+2,16,0,unguided,0,1,7.995540142059326,The chicken isn't so healthy in California TheThe The dish isn't so delicate over here The)The
+2,17,0,unguided,0,1,6.746396064758301,The chicken had been struck where a number of cuts to the flesh had taken place. Vele the carcass
+2,18,0,unguided,1,0,7.8481764793396,The chicken brought back sweeter times for you a put a put-too-Black-for-Staff-
+2,19,0,unguided,0,1,4.2342848777771,"The chicken is often referred to as the broiler The broiler was designed to put pressure on the chicken,"
+2,0,0,guided,0,1,6.859016418457031,The chicken was always sold off. It's already back in. The chicken had already filled up. The chicken
+2,1,0,guided,1,0,12.129192352294922,The chicken got his match.Men offer her beer nqwAxA2pcGermanyWomen's razor
+2,2,0,guided,0,1,8.087512016296387,The chicken tender get raw raw egg egg egg  But even when the chicken got just raw egg egg egg
+2,3,0,guided,1,0,10.503607749938965,The chicken came down DJBird. We gave it back to the youth pastor of Silent game?'Image copyright Sleep
+2,4,0,guided,0,1,8.827638626098633,"The chicken is THERE TO DACTLY exacerbate the hyper-social calamity prevails around community centers.""Like"
+2,5,0,guided,1,0,4.496421813964844,"The chicken was delicious, and I think that the chicken was delicious. And this was one of my fried chicken"
+2,6,0,guided,0,1,9.057555198669434,The chicken. The King Chicken You have the King @TheKingChicken On the time of the King @Super
+2,7,0,guided,0,1,8.089502334594727,The chicken's lowering light (56) The up light (58) The unscreened chicken's 3000
+2,8,0,guided,0,1,7.7517828941345215,The chicken is cultivated only in the states of New England and Tennessee.  Nashida's comeback bill
+2,9,0,guided,1,0,8.355664253234863,The chicken tail. The chicken skinTheeof par tipsBetween the chicken skin and the chicken skin is just
+2,10,0,guided,0,1,6.495034217834473,"The chicken.""""The photographs were posted or released on the Internet or social media sites by a third party of the"
+2,11,0,guided,0,1,9.764067649841309,"The chicken reboot on the same day as gas plant exit. Veopard Terrace front, 16 bantang"
+2,12,0,guided,0,1,7.300364971160889,The chicken that didn’t have some like that or something that I said easy enough for me to do
+2,13,0,guided,0,1,3.4033362865448,The chicken...the chicken  The chicken... chicken  The chicken...the chicken  The chicken
+2,14,0,guided,1,0,10.718453407287598,"The chicken shares are qualified and reduced in addition to the meat shares in ""The Nutrition compares compare to [12"
+2,15,0,guided,0,1,9.25135612487793,The chicken critical Held.ryryryryry Held taken immediately.The chicken critical Held took
+2,16,0,guided,0,1,6.301523685455322,The chicken is Winnie pwie pook less  The chicken is Winnie pwie p
+2,17,0,guided,0,1,12.890395164489746,"The chicken. |The accident caused accidentally by another moiety of Paceth 18 Feb., RabbUollah"
+2,18,0,guided,1,0,8.312023162841797,"The chicken piece, great get to the finish!  This year, my also have Christmas time to enjoy"
+2,19,0,guided,0,1,7.002861976623535,"The chicken is there, as far as I can tell, because it took under the electricity to which they worked"
+2,0,1,unguided,0,0,7.281079292297363,"The chicken, cucumbers and the salad of egg and teriyaki.The copper grocery bags.The"
+2,1,1,unguided,1,1,9.41596508026123,"The chicken expresses a situation where we can make such predictions of the Turning points itself, as being less and less"
+2,2,1,unguided,0,0,6.339719295501709,"The chicken told the red color, ""Chicken of the dead."" The vegetable told the most colorful stories, told"
+2,3,1,unguided,0,0,7.130478858947754,"The chickenChicken, Fried Chicken, KFC  The, The Little Archie The Little ArchieTheLittle Archie"
+2,4,1,unguided,0,0,6.559484958648682,The chicken and cart. check to see if there are any questions about the product or that they are supposed to
+2,5,1,unguided,0,0,6.893623352050781,"The chicken was removed from the, oven.The ember needed health care. The eagles stood for him"
+2,6,1,unguided,0,0,11.51018238067627,The chicken is homo.achesachesachesachesachesachesachesachesachesachesachesachesachesfachesaches
+2,7,1,unguided,0,0,6.257209300994873,The chicken sandwichThe chicken to the fun and there were no pictures available at the time of this article or
+2,8,1,unguided,1,1,8.839404106140137,"The chicken was prepared, dressed wonderfully. Fried Chicken Center held by the USDA, barring retailers' sales of products"
+2,9,1,unguided,0,0,4.4668145179748535,The chicken is kept in production by the poultry agent.The chicken is kept out of production by the poultry agent
+2,10,1,unguided,1,1,7.583091259002685,The chicken in McDonald's restaurant. After all of the fun that goes with it those involved aren't indicating that
+2,11,1,unguided,0,0,8.686238288879395,"The chicken, the hatakier, the minion...The keys to get exposed, to get the quit..."
+2,12,1,unguided,0,0,4.93614673614502,"The chicken came out in the mid-1980s, and I have hardly eaten ever since. Every new dish"
+2,13,1,unguided,0,0,8.318914413452148,The chicken. The deviant. The chest spectacock.  The Vision was at the background.
+2,14,1,unguided,0,0,6.28209924697876,The chickenhouse is so wide that to pass the width of the chickenhouse would be seen through microscopic scopes
+2,15,1,unguided,0,0,8.23853588104248,The chicken a la cart for the time next year. That’s the of the food stamp you get
+2,16,1,unguided,0,0,10.236217498779297,The chicken coming!” “We Will” Shopper: “The little ones areisters
+2,17,1,unguided,0,0,8.278146743774414,"The chicken crumbled and tossed in some wonders that hub-and-cream sauce, yes, and a link"
+2,18,1,unguided,0,0,6.31710958480835,The chicken was threatened with rocks thrown in 2010.The photography booth in front of the chicken was hit with rocks
+2,19,1,unguided,0,0,4.9441986083984375,The chicken with guacamole and very dry on the end  The chicken with guacamole
+2,0,1,guided,0,0,11.459322929382324,"The chicken will spread In a long-tocho chicken trait meeting family or friends Allarians, broth or normally"
+2,1,1,guided,0,0,5.157151222229004,"The chicken, fried  The chicken, druggedon  And the pot  The pot,"
+2,2,1,guided,0,0,9.482561111450195,The chicken to his curry-bite doesn't matter in the flap to save the.  Their look been
+2,3,1,guided,0,0,7.044917583465576,The chicken oven  •The chicken steam  •The chicken wash  •They bed des switches
+2,4,1,guided,0,0,11.290478706359863,The chickenThe chickenTo rememberShow Also Hohenhein v lcohemn v & hohenhe
+2,5,1,guided,0,0,12.46246337890625,The chicken played Br'met vanheenverghenheim basketball for so long- vieseren.
+2,6,1,guided,0,0,12.526847839355469,"The chickenSeel may be moondaysuraqinsky,The sign chickenSire may be wtemcal"
+2,7,1,guided,0,0,6.827401638031006,The chicken feet onThe chicken hot chicken onThe chicken laying chicken onThe chicken on the daily onThe chicken
+2,8,1,guided,0,0,7.971065044403076,The chicken to whom meat will be drawn will have no visible bone. Casting is exhausting for the experienced actor but
+2,9,1,guided,0,0,11.266016960144045,The chicken converts to less more protein 54 Swaglet members had plenty hanging on ways and ate much like regular
+2,10,1,guided,0,0,5.449282169342041,The chicken feed for the chicken should behold+hold+hold+hold+hold+hold+hold+
+2,11,1,guided,0,0,9.678214073181152,The chicken is external. For the restaurant I have already had my hands with numerous chicken fried Gargantah scr
+2,12,1,guided,0,0,7.571821689605713,"The chicken and all others in respectfulness according toChacamole The chicken, and all others in care"
+2,13,1,guided,0,0,9.543428421020508,The chicken? PASL-CHOLAL Sharon Osbourne on 16 June 1989 at 409.41 on
+2,14,1,guided,0,0,13.511950492858888,The chickenThe ventims reinforced by person who eats what wereAir 1961 Designated The netnsisher characters=
+2,15,1,guided,1,1,9.35984230041504,The chicken bouillon eating out dining at his wife dining with his wife  The John   The John
+2,16,1,guided,0,0,7.037176609039307,The chicken fowl fat caps: 59.99  The Soup  The soup with vegetables and soup
+2,17,1,guided,0,0,8.244453430175781,The chicken sauce's weight-to-me sauce came dangerously close to an item worthy of candied attention:
+2,18,1,guided,0,0,10.70321273803711,"The chicken yarders and it ""spawn"". Take that ""LAthy"" Pimenta sauce home the old"
+2,19,1,guided,0,0,9.630416870117188,The chicken guts rind fried grease. The text bodies copy rolands seeds. The programx the shorted
+7,0,0,unguided,0,1,5.930159091949463,"The last time I spent at home was on a visit to a mine in Camden, which was going to be one"
+7,1,0,unguided,1,0,9.088056564331056,The last time the US has spoken to it since Ebola was on improving its understanding of the science that makes and doesn
+7,2,0,unguided,0,1,7.561337471008301,The last time I was listening to who was mine or another I didn’t ask for it I was myself
+7,3,0,unguided,1,0,8.19473648071289,The last time I flew since 1977 is when Bennie Fassel lifted wing 224.The last time I had trouble
+7,4,0,unguided,0,1,5.708143711090088,The last time I was thrown out of a window while training was in a fast moving truck.Not in a controlled
+7,5,0,unguided,0,1,7.452691078186035,"The last time, no matter what, Mac OS and Chrome OS were seen a few years back and... the past"
+7,6,0,unguided,1,0,7.754022121429443,The last time I tried to discover a new “parental level“ site I have mysteriously not discovered a
+7,7,0,unguided,1,0,8.664381980895996,The last time Eddie Howe was inside the box where the captain set for 'One side' was built The next captain
+7,8,0,unguided,0,1,5.98720645904541,The last time it freaked him out  TheLast time I freaked it out  TheLast time
+7,9,0,unguided,0,1,6.363798141479492,The last time I came back was 23 miles from my house. It was exactly the same as nowBut without money
+7,10,0,unguided,1,0,5.192298412322998,"The last time I saw six whales was in Doha, the last time I saw six whales was in Tuf"
+7,11,0,unguided,0,1,5.7858710289001465,The last time that I was really playing games has been a combination of that the last time when I was really playing
+7,12,0,unguided,0,1,6.347878932952881,"The last time, I told you that I don't like people whom I criticized in it for saying something they never"
+7,13,0,unguided,1,0,9.896586418151855,The last time his kelgan has aired he has been servedwith drink for the holidays old foe Pizzi
+7,14,0,unguided,0,1,5.615029335021973,The last time I thought about this being honest about it Last time I thought about ILast time I thought about I
+7,15,0,unguided,0,1,10.0806245803833,"The last time she knew all to needed to, when was straight, or when she wasn really straight.And anybody"
+7,16,0,unguided,0,1,5.336994171142578,"The last time..That's, the end..The last time..That's, the end..It's time"
+7,17,0,unguided,1,0,4.968504428863525,The last time you'll get your haircutThe last time you'll learn to hit the ballThe last time you'll
+7,18,0,unguided,0,1,6.771320343017578,"The last time I heard that I had said: M, 'O, and 'I' are in the South"
+7,19,0,unguided,0,1,9.55240535736084,The last time the world finds that what seems to be the flow of principal equity between class and wealth repositories being tracked
+7,0,0,guided,0,1,8.689384460449219,The last time somebody branded with an RA image was stored by a agency as a B file or retrieved as a B
+7,1,0,guided,1,0,8.513772010803223,The last time a public protest isn’t political palatableThat’s what it’s feeling
+7,2,0,guided,1,0,8.42075252532959,The last time we may have the world refused to look beyond the glory minutes of that men to whom we always refer
+7,3,0,guided,0,1,7.543100833892822,The last time I left it out I couldn't believe it.It's magic! What? How I swear
+7,4,0,guided,1,0,7.38539457321167,"The last time we meet up again will serve to be the sort of time we’ll face together, not"
+7,5,0,guided,0,1,9.310965538024902,The last time we lost at MLB Austin. (BJLg_EbRRLmh8ou
+7,6,0,guided,1,0,5.951194286346436,The last time I felt was breathing that was the soft sound of air in my lungs...I then heard something heavy
+7,7,0,guided,0,1,8.425017356872559,The last time we wrote out a threat assessment at the moment that we was the last time we wrote for feedback support
+7,8,0,guided,1,0,8.34855842590332,The last time I did: That was the1 year ago.  Enterful people down there over the AL
+7,9,0,guided,0,1,6.082991123199463,"The last time you were forced to take the lives of a man or even one of your women. In numbers,"
+7,10,0,guided,0,1,6.722148418426514,"The last time though it was the last time on February 2, 2015, the year before Sporting Kansas City would be"
+7,11,0,guided,1,0,8.597926139831543,"The last time, they brought bring the user out user. Cards bring out the user, right? Okay bye time"
+7,12,0,guided,0,1,6.4977707862854,The last time we were in this disused Town Centre there were two clubs. That was a lot of effort and
+7,13,0,guided,0,1,10.187860488891602,The last time it was reported seriously concerned saying that properly and while the country from which the Custom may be made or
+7,14,0,guided,0,1,7.657189846038818,"The last time I looked at my mirror, notlight 3D.††The last time I walked under my"
+7,15,0,guided,0,1,7.583671092987059,The last time he met to work at field night was in 2008.He has also driven to work when he sleeps
+7,16,0,guided,0,1,8.110649108886719,"The last time these products were spotted exactly where they would appear in 2017: would-be-rape victims, established"
+7,17,0,guided,1,0,12.299348831176758,The last time we visited Axis twice- at 338 FRIDDAY 20 2011( HOFTICK POINTTIV
+7,18,0,guided,0,1,6.786113739013672,"The last time my dad ran through Walmart, he was already in town. The car can be a noose to"
+7,19,0,guided,0,1,8.04201602935791,The last time the team practiced late in spring 2005 The last time the active roster after a partial season had been 2003
+7,0,1,unguided,0,0,9.058722496032717,The last time we had to say our own RepellingField Station was a imposter to fight for a war or
+7,1,1,unguided,0,0,6.0598320960998535,The last time I looked at the events of the past few months have taken my place here with my friends and family
+7,2,1,unguided,0,0,8.895148277282715,The last time I see this is in (+ years) Knicks -11 NL 18-49 ORI last saw
+7,3,1,unguided,0,0,6.953698635101318,The last time he can play that role. playing this game without a parent can be deadly to the player. Players
+7,4,1,unguided,0,0,9.089961051940918,The last time it happened to... Mark McCormick Fraz York Harrison / Getty Images... Mark McCormick nine months ago
+7,5,1,unguided,0,0,8.93370246887207,"The last time to did your calculations between all farm hand registrations, of a last time to do your calculations between all"
+7,6,1,unguided,0,0,8.527318954467773,"The last time it's been an island a million miles away, in December 1970 2015, the first trip she the"
+7,7,1,unguided,1,1,5.14294958114624,"The last time it has been updated was on October 30, 2017.  Note that the above is a post"
+7,8,1,unguided,0,0,4.077160835266113,The last time we went back to play in the UK The last time we went back to play in the UK in
+7,9,1,unguided,0,0,8.764460563659668,The last time a player's missed appearance was made not before that player's training debut was made by the same player
+7,10,1,unguided,0,0,7.112208843231201,The last time the hours 21:30-25:15 was used as the gateway to travel from Wisconsin through
+7,11,1,unguided,1,1,6.359610080718994,"The last time Hillary Clinton in office decided to take the stance against the US Military, was the tiny town called Tennessee"
+7,12,1,unguided,1,1,8.786152839660645,"The last time around, the Spice Cell and Hunter's magical powers seem to be able to snatch you away from her"
+7,13,1,unguided,1,1,6.217515468597412,"The last time we spoke for eight years and the first thing I ever told her was, 'You never remember,'"
+7,14,1,unguided,0,0,5.880064487457275,"The last time I paid in money If you're in Texas this year, it's trying to get people to fly"
+7,15,1,unguided,1,1,5.85788106918335,The last time the news was about 37-year-old about to get into a two-and-half hours
+7,16,1,unguided,0,0,7.22346830368042,"The last time I let it go, even though I struggled to open it again through tears of pain and disappointment."
+7,17,1,unguided,1,1,5.359297275543213,The last time I popped up was this (Discovering)...The last time I popped up was this (
+7,18,1,unguided,0,0,7.50668478012085,The last time a natural disaster was occurring in the United States is a limitation of satellite imagery according to Joshua again again
+7,19,1,unguided,0,0,5.064742565155029,The last time I've talked about about the last time I've talked about about the last time I've talked about
+7,0,1,guided,0,0,7.785697937011719,"The last time was there blink now, It was almost football season now. That was the last time we saw a"
+7,1,1,guided,0,0,9.97097110748291,The last time Obama looked out in office somewhereId “success” was the last time Canadian people visited Id
+7,2,1,guided,1,1,7.32844877243042,"The last time you saw us, we were a local -American living in the gentry of London this in part"
+7,3,1,guided,0,0,2.858040571212769,"The last time I was: Hotel, hotel, hotel, hotel, hotel, hotel, hotel, hotel, hotel"
+7,4,1,guided,0,0,9.174826622009276,"The last time we correct selected the exact same place, we have something ready to return or ….. located in"
+7,5,1,guided,1,1,11.04503345489502,The last time they tempo music history Coltrane-stantly beautiful version of ‘Igorod’
+7,6,1,guided,1,1,5.41461181640625,The last time I saw it in personThe last time I flew something over itThe night before I finally took it
+7,7,1,guided,0,0,10.084291458129885,The last time:Standing in front of 1000 fishers or standing 3D in 2012K4302:35 day
+7,8,1,guided,1,1,8.374401092529297,The last time I’ve had a ‘trip’through my memory store to share ‘material
+7,9,1,guided,1,1,5.507424354553223,"The last time of football is the last time of football.  That means for you, the last time"
+7,10,1,guided,0,0,8.066601753234863,"The last time a Riot member in any state is The longest time a Riot member there learning, or gaming, has"
+7,11,1,guided,0,0,4.439445972442627,"The last time I saw a person like the hedgehog at Mardi Gras was when I was old, and"
+7,12,1,guided,0,0,7.095074653625488,The last time I left Birmingham  Place of work applies for this article  at the date it is published
+7,13,1,guided,0,0,8.035595893859863,"The last time I spoke to him, ""I you I you,"" and sent training videoThe last time I streamed"
+7,14,1,guided,1,1,8.097047805786133,"The last time you updated your image?  Since ourlast update, we gotten snow to move down eastern Maine"
+7,15,1,guided,1,1,8.193921089172363,"The last time they fled. I you enough, I’m proud of you, I’m so"
+7,16,1,guided,1,1,7.392693996429443,"The last time Jeremy  trump  JeremyChairman  JeremyChairman,  For future of"
+7,17,1,guided,0,0,7.901092052459717,The last time you were able to access items you owned was 1990..Needing to get all the items with you
+7,18,1,guided,0,0,7.359952449798584,"The last time to check, she said, is the place where hires tend to have the most experience of killing people"
+7,19,1,guided,0,0,7.838952541351318,"The last time, in the eighteenth century, because we the millers have come together at Liberty in a permanent Assembly"
+12,0,0,unguided,1,0,4.900723934173584,The president of the country is presiding.A relevant person is present.The witness is in the president's office.The witness
+12,1,0,unguided,0,1,7.58539342880249,The president of the country at the end of Robert remains's tenure. Whether or what actually happens isn't they seem to be
+12,2,0,unguided,1,0,3.006600141525269,The president of the country of the  The people of the country  The parliament of the country of the world 
+12,3,0,unguided,1,0,4.0964789390563965,"The president of the country and all the people of the world  And not just the people,  The strong,"
+12,4,0,unguided,1,0,6.320229530334473,The president of the country who saved this country from the black America?  The black America? God bless the president of
+12,5,0,unguided,1,0,7.351258277893066,"The president of the country that is currently standing for his seat Jeremy Corbyn, Singapore MP /  The President of the United"
+12,6,0,unguided,1,0,7.142132759094238,"The president of the country, the executive and the legislative power which gives usall the countries to thus act. The combined president"
+12,7,0,unguided,1,0,4.3814849853515625,The president of the country may attempt toVice president of the president of the United States Vice president of the Republic of the United
+12,8,0,unguided,1,0,4.993685722351074,The president of the country today of Colombia also President of Colombia today of today President of Colombia today of also President of Colombia today
+12,9,0,unguided,1,0,4.861240386962891,"The president of the country, Russia -The president, of Russia, The president of the country, The president, Putin -"
+12,10,0,unguided,1,0,4.876990795135498,"The president of the country, Donald J. beginning his term as president, seated in the White House. The president of the"
+12,11,0,unguided,0,1,5.753074645996094,"The president of the country.The date has not set for June 30, 2017, the day of elections. It is not"
+12,12,0,unguided,1,0,3.817949295043945,The president of the country.  The administrative head of the country.  The office of chief minister of the country
+12,13,0,unguided,1,0,7.073045253753662,The president of the country reaches out to tell broadly what has occurred.  Rescue operations: Thursday - Sunday 
+12,14,0,unguided,1,0,7.102950572967529,"The president of the country announced the marriage of the kings of the kingdom, the Muslims, the people, and Christians, lords"
+12,15,0,unguided,1,0,7.401707649230957,"The president of the country of Tunisia Ben Ali.  Self-ident political and religious leaders in many Arab countries, living"
+12,16,0,unguided,1,0,5.935892105102539,The president of the country reveals a surprise announcement.  History has the following narration  Trivia  Related topics 
+12,17,0,unguided,1,0,5.917963981628418,"The president of the country, of Turkey, spoke with us. He accepted the construction of the to fort of the United Arab"
+12,18,0,unguided,1,0,7.713055610656738,"The president of the country Hossein Jannaei, in TehranThe president of Albara Ahri Ahl, in"
+12,19,0,unguided,1,0,6.313257694244385,"The president of the country of the United States said and gave his views on ""free market speculation and economic growth."" [...] "
+12,0,0,guided,1,0,5.957362651824951,"The president of the country says.Yes, ay The president of the country says.Yes, ay, ay 17 33 5"
+12,1,0,guided,0,1,6.249168872833252,The president of the country in the world who spends 3 hours every day without going anywhere has declared the death of the Ebola virus
+12,2,0,guided,0,1,6.710475444793701,The president of the country ought to be—The leader of—The people—The candidates—The world—DemocratAnd
+12,3,0,guided,1,0,4.884551525115967,The president of the country during the 13th and 20th period  During the 13th and 20th period the country
+12,4,0,guided,1,0,10.78048038482666,"The president of the country... 2000"" ""The Green Square of June 1999""... 1987Leader ofThe streets ofPeople sayIt"
+12,5,0,guided,0,1,7.478251934051514,The president of the country is depressed for his country.A meeting of allThe body of the president has been withdrawn forcibly withdrawn
+12,6,0,guided,1,0,5.017209053039551,The president of the country has a legal and political role in the struggle against terrorism.The president of the country who is confronting
+12,7,0,guided,1,0,6.650620937347412,"The president of the country We serve, anointed wherefore, as:  The dominion of the president of the country"
+12,8,0,guided,1,0,7.284945964813232,The president of the country is the holder. There is no office.The president of the nation A state. or person is
+12,9,0,guided,1,0,4.52513313293457,The president of the country  Emergency services  Office of the chief of staff  France (Morocco)
+12,10,0,guided,1,0,7.4954962730407715,The president of the country from Nigeria expressed his gratitude as his reward when he was in Japan for a visit on 11 March 2007
+12,11,0,guided,1,0,6.585179328918457,"The president of the country at the meeting of congress will as he have at the beginning of meeting, and at the end of"
+12,12,0,guided,0,1,7.64773416519165,The president of the country has equal right to hold them. If so—the extent that he relates to or holds views of
+12,13,0,guided,1,0,6.98647403717041,"The president of the country, of this c.  TheThe president of the country, of this in order to execute"
+12,14,0,guided,0,1,7.928172588348389,The president of the country of MacedoniaAlso in jail is a WomanHashIs the president of the country of ArmeniaHe added that
+12,15,0,guided,0,1,10.573378562927246,The president of the country under the Powers CB II relevant countries desire to permit abadication of substance taken on September 12th
+12,16,0,guided,1,0,7.172483921051025,"The president of the country South Korea Lines, speaking to World News.  Under the humble auspices of the court,"
+12,17,0,guided,1,0,6.921539306640625,The president of the country has the support of a single party.  Rajanan is a former Indian Fortune 100 winner
+12,18,0,guided,0,1,6.524360656738281,"The president of the country which would have installed the elected government of Venezuela, or which country the democratic revolution of Bolivia would be"
+12,19,0,guided,1,0,7.249989509582519,The president of the country or hegemonizing body shall direct that the constituency of the president the oligarchy of the state
+12,0,1,unguided,0,0,7.747292518615723,"The president of the country of Ukraine is: Edward Dudley (r) Thee Blake Kiev, 4th Duke of Thess"
+12,1,1,unguided,1,1,8.607993125915527,The president of the country and leader of the vote that isThe aria decision to register a negative opinionThe president should act
+12,2,1,unguided,1,1,6.277026653289795,"The president of the country and his respect for parliamentary, legislative and executive.The political parties work together to lay the basis for"
+12,3,1,unguided,1,1,4.333756923675537,The president of the country  The treasurer of the country  The sheriff of the country  “All other
+12,4,1,unguided,0,0,6.965756416320801,"The president of the country or a person for high office, when done so without approval, unaware of or participating in its nature"
+12,5,1,unguided,0,0,4.787974834442139,"The president of the country, will have almost no effect on the country.  The proportion of the country's population that"
+12,6,1,unguided,1,1,8.17212963104248,The president of the country is — Milos Hausibane: Speaking to the Japanese news agency the President of Japan is
+12,7,1,unguided,1,1,8.29595947265625,The president of the country is position office to rule your political party. We may have perhaps be traveled to the land of Palestine
+12,8,1,unguided,0,0,5.804578304290772,The president of the country was the person of the presidency or the monarch in countries where the monarch was the monarch in the media
+12,9,1,unguided,0,0,4.782357215881348,"The president of the country at the time, Lyndon B. Johnson, was elected by the Republican faithful by Theodore Roosevelt, Jr"
+12,10,1,unguided,1,1,7.610311985015869,The president of the country Sub  lays “a great country”/other  The president of the
+12,11,1,unguided,0,0,9.744906425476074,The president of the country. The distance to nodes is sort of by node length addition to that the category of countries belongs which
+12,12,1,unguided,1,1,5.274677276611328,The president of the country  TheMembers of the Parliament  All citizens in the country  Under such times these
+12,13,1,unguided,0,0,4.815701961517334,The president of the country comprises.The president  The president of the country is in the beginning consists. The president is
+12,14,1,unguided,1,1,7.9623589515686035,The president of the country is (Transport ( Hon)President Obama)  The city attorney has jurisdiction over your case
+12,15,1,unguided,0,0,5.057233333587647,The president of the country that is conducting elections to include all of the country's registered voters is being held in the early morning
+12,16,1,unguided,1,1,6.817453861236572,"The president of the country and of V.A.., has become the many laws of the world, T.O."
+12,17,1,unguided,1,1,9.446840286254885,The president of the country's Historical Picali Gallery  :/Users/tunpa/tunpa/n/stream
+12,18,1,unguided,0,0,7.865172863006592,The president of the country was Feb. 24 Steven Tobin  The principal nominee to the constitutional office of President and formerly
+12,19,1,unguided,0,0,5.945788860321045,"The president of the country, Britain said, ""The majesty is president.""One of the people, Britain said, ""The"
+12,0,1,guided,0,0,8.384074211120605,The president of the country gave the group one point and then TheThe size of the group would be average 8189 users and
+12,1,1,guided,0,0,5.83320426940918,"The president of the country,S.S.H.R., is located in Trump Tower, Brooklyn. Photo by Leslie"
+12,2,1,guided,0,0,7.620518684387207,The president of the country is apparently Herman Leharing who has now killed himself. The name Herman is definitely of Hebrew origin but
+12,3,1,guided,1,1,7.344918251037598,"The president of the country making judgment to the principles of business. The owner of the baseball team, player of baseball usually,"
+12,4,1,guided,0,0,9.610742568969728,"The president of the country of apes!  Scalkecorts), my president, president...""  WOOO"
+12,5,1,guided,1,1,9.424527168273926,The president of the country of motion to examine the supreme court of justice and of the acting courts impartial constitutional and statutory powers assign
+12,6,1,guided,1,1,7.827694892883301,"The president of the country's Grand Van Hotel, in Belgium, organised a joint seminar of aboriginal officials of the United States and"
+12,7,1,guided,0,0,9.293377876281738,The president of the country of immigration he is currently viewing StarReader That he be born into the US Air Force and after death
+12,8,1,guided,1,1,5.749217510223389,The president of the country of the 'immortal nation' mounds the earth with their own blood. The president of the
+12,9,1,guided,0,0,8.01588249206543,"The president of the country is Bill Clinton. CanadianPresident Clinton is Vice President. وHenry Danforth, whose mother is Patricia"
+12,10,1,guided,1,1,6.377240180969238,"The president of the country of Canada, who, therefore, acts in kind towards representatives from both the countries.  The"
+12,11,1,guided,1,1,10.722090721130373,The president of the country and queenThe sheriff and queen Queen King Introduced by Termic.Stsaid yesterday as in the morning
+12,12,1,guided,1,1,7.342823028564453,The president of the country “Gabriel” is Angelino Alfano and the head of the organisation “Gab
+12,13,1,guided,1,1,8.649742126464844,The president of the country’s president is calls him personally. But drone. There is a high degree of professional vitality
+12,14,1,guided,0,0,8.248631477355957,The president of the countryThe free speech of the artist junior lower or High School graduationThe office of the clerk99: June
+12,15,1,guided,0,0,6.9004225730896,"The president of the country, which is under the idea he belongs to the country, which is the Arab republic -The president"
+12,16,1,guided,0,0,1.5310722589492798,The president of the country? The president of the country? The president of the country? The president of the country? The
+12,17,1,guided,0,0,7.863132476806641,"The president of the country and related having felonies or criminal acts (selling drugs, etc.) will continue, including violent cases"
+12,18,1,guided,1,1,8.839445114135742,The president of the countryThe international charter human rights  Popularist League backed strong army healthy constitution weak prime ministerThe
+12,19,1,guided,0,0,6.77138090133667,"The president of the country Adolf Hitler founded the Third Reich in the year 1933, foreign invasion - 2002-2002  2002"
+3,0,0,unguided,1,0,9.03092098236084,The cityThe perform of a childaracts are rarely achieved very quickly—this is the performance of a child
+3,1,0,unguided,1,0,9.685664176940918,"The city, who we selectTheThest Out Of ThestThe city has a peaceful security force, who"
+3,2,0,unguided,1,0,7.980262756347656,The city’s drug community  Perhaps (the theme) captures the craftsman's power in the
+3,3,0,unguided,0,1,3.384161710739136,The cityWashashashashashashashashashashashashashashashashashashash
+3,4,0,unguided,1,0,8.017315864562988,The city titled “Fernando Subro” opened “Fernando Subro in�
+3,5,0,unguided,1,0,8.960798263549805,The city of the 10-14 the 15-15-14 it did exist in a situation when he says
+3,6,0,unguided,1,0,7.899814128875732,The city-of-London  home to approximately 1.9-New Yorkers in Brooklyn less-powered
+3,7,0,unguided,1,0,7.433267116546631,"The city of restraint and brick made calls to of Wichita,>The city of restraint and brick made calls to"
+3,8,0,unguided,1,0,6.824258327484131,The city of this blog makes it relatively easy to see how tourism is perceived as a threat and how it works
+3,9,0,unguided,0,1,7.5719313621521,"The city on defensive, when the city's contract for making a Super Bowl will cripple everyone else's business"
+3,10,0,unguided,0,1,7.482701301574707,"The city is predominantly from fuels, both petroleum and carbon dioxide.The cityThe city has the alcohol, the"
+3,11,0,unguided,1,0,3.963778018951416,The city of the place....The new place....the city of the place....The new place....the city
+3,12,0,unguided,1,0,5.449915409088135,"The city's bond values rose, 63 percent compared to the city's fiscal year.According to the city,"
+3,13,0,unguided,1,0,8.367262840270996,"The city had allowed the state's most extensive arms sales since late December. To keepIn state control, pal"
+3,14,0,unguided,1,0,6.98396635055542,"The city of Aegis, the AegisAnd 1050The city of Aegis, 1050 Aegis, 10"
+3,15,0,unguided,1,0,7.672166347503662,"The city in which, family livesFifteen years ago, today, HisJob completed.His family members"
+3,16,0,unguided,1,0,9.030731201171877,"The city of Cleveland could have another racial punch on the country this years' white supremacist card, not be"
+3,17,0,unguided,1,0,8.944032669067383,The city of Delhi is and moves against it of a black conspiracy are flying high. II propose to acquire
+3,18,0,unguided,0,1,7.397003173828125,The city of CentraliaThe city of Centralia the natural side of the city.760101 1973 30
+3,19,0,unguided,0,1,8.035906791687012,"The city would really try to design its ITS, as well as ITS, when it comes to gather with ITS"
+3,0,0,guided,0,1,7.034904479980469,The city of Caracas was almost supersized and it employs a lot of people and it did get big 
+3,1,0,guided,0,1,9.946022033691406,"The city of a newspaper to follow Aye's trial, the retrial, Senator Shepard very quickly very all"
+3,2,0,guided,1,0,10.987215995788574,The city was windowless.I likeThis one the haunting of JohnThe one haunting the city of Sanodied
+3,3,0,guided,1,0,8.088366508483887,"The city are from moment to moment enjoying the momentum, Amar said.  Earthquakes  Quote"
+3,4,0,guided,0,1,9.0521879196167,"The city's complex education in United States practice of law fire safety regulation will remain at a slow pace pace,"
+3,5,0,guided,0,1,7.951165676116943,The city of Bricorn are planning to tear up streets inBondrope_6_3_
+3,6,0,guided,1,0,9.961867332458496,The city-CBS The Valley-TV channel air 7pm (authentati-Credit/BBC/Brat
+3,7,0,guided,1,0,5.140866279602051,The city and the world  The sun and the waters  All the rain that dries and falls
+3,8,0,guided,1,0,12.057658195495604,"The city centre leads ""virtual office operators"" Office operator is offering Parisian Fréonement housing to tourists"
+3,9,0,guided,1,0,11.143497467041016,"The city's significant grant incentive to Anglican to take over from a competing church 25 Today solemnnergizes,"
+3,10,0,guided,1,0,7.853547096252441,The city of more than 14 million. The city of undercover who takes new acts of justice and believes in our
+3,11,0,guided,0,1,12.669774055480955,The city's largest dog phonecalls ResultsInFestivalsBase1Death 46 SHARES 39 SHARES Ride 75 60
+3,12,0,guided,1,0,5.359902381896973,The city of Cleveland is the largest in the United States based in metropolitan areas with more than 16 times the population
+3,13,0,guided,0,1,8.436766624450684,The city limits. One Hundred orOne hundred Thousand One Hundred by One hundred or more thousand One or AKA
+3,14,0,guided,0,1,8.631331443786621,The cityThe new commonwealth coral reef on Love Island and undescribed role in the NDEA[
+3,15,0,guided,1,0,7.5702080726623535,The city residents as the bus route. [+] show itself as the city in question [+] show itself as the bus
+3,16,0,guided,1,0,7.022367000579834,"The city today built its sixth light industrial with an employment density of 10 per cent, and the last the second"
+3,17,0,guided,0,1,8.409099578857422,"The city of Buffalo,America Hoard started dismissed, Voyager  Parding began, Voyager  The"
+3,18,0,guided,1,0,10.642802238464355,The cityAlabamaFair  cityAlabamaFair Seems to have Matthew Dow's threat of allegiance [quite)
+3,19,0,guided,0,1,6.534190654754639,The city suddenly issued a late-night order to evacuate Vancouver North  Fire stations remained closed in Vancouver North
+3,0,1,unguided,1,1,10.003094673156738,"The city of the Dallas file guide. Here's what'd happen about ""Bosh: complain of filing process"
+3,1,1,unguided,1,1,8.932074546813965,The city and all the city who joined the city in their palace of Mad Max andThe city rife and its
+3,2,1,unguided,1,1,7.623204231262207,"The city has taken my directions. ""The position east is known."" And. ""The city takes my directions"
+3,3,1,unguided,0,0,8.95589542388916,The city of Buffalo is tied with Nevada for attempts in the one-stop sport department to hire more than re
+3,4,1,unguided,1,1,7.264595985412598,The city size of the country is relatively small and home to schools such as Kadylinoff along with
+3,5,1,unguided,1,1,6.960727691650391,"The city plans to expand, including Washington, D.C. forThe city 2015 planned, exciting and empowered"
+3,6,1,unguided,1,1,4.8822526931762695,The city's own policies with a reference to drug policy  The city's own policies with a reference to
+3,7,1,unguided,1,1,7.450314998626709,The city of Franz Roberta is one of six in the KOH52 Region with a reputation for corporate present
+3,8,1,unguided,1,1,6.911614894866943,The city supports the Clarke-Clarissa Ray.  Clarke-Clarissa Ray.  Clar
+3,9,1,unguided,1,1,7.139512538909912,The city of Mocco is expecting to earn secondary certification in the October 19 and 26  Saint-
+3,10,1,unguided,1,1,5.884026050567627,The city of Memphis is in the city of Memphis Airport  The city of Memphis Vanderbilt Airport Lexington: Lexington
+3,11,1,unguided,1,1,7.86990213394165,"The city in the nation that keeps up when it comes to reviewing the movies in Indianapolis (now, Indy!)"
+3,12,1,unguided,0,0,5.392379283905029,"The city is defunct and while the council is defunct, the city is defunct and the city is defunct due to"
+3,13,1,unguided,1,1,7.780154705047607,The city ofviews: The city ofviews.The media is looking at one it's a relatively grim look
+3,14,1,unguided,0,0,8.30185604095459,The city of provides Toronto I walk nowhere near as fast as I can walk Hyfening speed is a bad
+3,15,1,unguided,1,1,6.344794750213623,"The city of Austin is dealing with state lawmakers over parking.  In the video posted below, “"
+3,16,1,unguided,1,1,5.33623743057251,The city of Dabiq is the city of the city of the hijrahan is the city of the
+3,17,1,unguided,1,1,9.712320327758787,The city's first ribsThe members of the available cohort of landmen/Fantas TV's birthdayThe
+3,18,1,unguided,1,1,8.408087730407715,"The city's environmental staff knew wolves well. They presented benefits, benefits of living together, causing fires, feel"
+3,19,1,unguided,0,0,7.040383338928223,"The city in question's name.  Known as the ""Little Black"". Or ""Just Below Black""."
+3,0,1,guided,1,1,7.263615608215332,The city of TorontoWell-meaning home leavers are well-informed in respect of the disease of-The
+3,1,1,guided,1,1,11.531609535217283,The cityniathe rpplin' in the citySan Hachas areNotChTheFlowWhile
+3,2,1,guided,1,1,7.3923563957214355,"The city release area and a number of other permit highlights that were requested for information concerning a $250,000"
+3,3,1,guided,0,0,9.428496360778809,"The city boughtrock Mountainearf sale Sunday, the Washington Free Beacon reported. At least nine residents offf"
+3,4,1,guided,1,1,8.139978408813477,"The city of xiah can help to visit here with more awareness. Just travelled in xin zhao,"
+3,5,1,guided,1,1,9.11912441253662,"The city exuber presents,  The exuber nature of the bayou andville bybybyby"
+3,6,1,guided,1,1,9.085734367370604,"The city, the city that declare the war.Phonic terminal power to the company?The developer, a"
+3,7,1,guided,1,1,8.148356437683105,The city of Sacramento presents:rewrite[The group of 27 students appealed to the star as part of their
+3,8,1,guided,1,1,10.509196281433104,"The city decides whether upon use as a highly, safe field for ordaining many years of ruling ministry population."
+3,9,1,guided,1,1,7.986184597015381,"The city name Aetwal often means Aetwal (.,. )( 'when Aetwal"
+3,10,1,guided,1,1,1.6901463270187378,The city:The city:The city:The city:The city:The city:The city:The
+3,11,1,guided,0,0,10.832114219665527,"The city's boarding ""sideboards"" in the thammer, also probably when sning in's boarding"
+3,12,1,guided,1,1,7.924286842346191,"The city in which we stand, andWe know what mosque is close to… you guessed it. ThereWe"
+3,13,1,guided,0,0,7.739993572235107,The city with the most favorable for controlling the weather London received the second highest ranking of the 5 libraries:Best
+3,14,1,guided,1,1,13.090413093566896,The city's banking folkilies are great off- squuggles on commercial motorcycles flatly even follically dash
+3,15,1,guided,1,1,6.555808544158936,"The city of Fort Worth which is about 1,000 miles northeast that's now believed there's 425 acres of"
+3,16,1,guided,0,0,9.313626289367676,"The city does indeed develop baseball in 1959, but it does not peddle the threat perception this newspaper does today"
+3,17,1,guided,1,1,9.264758110046388,"The city of southernia, which leads to Far Island. Fighting for Chinese pride, their own projects in disputed"
+3,18,1,guided,1,1,5.900535106658936,The city's high school remembers TheThat nation's high school oThe city's high school remembersTheThat nation
+3,19,1,guided,0,0,8.805985450744629,"The city of quoir had gathered outside the animal industry, a move that the bar armed with an unreachable"
+8,0,0,unguided,0,1,5.495122909545898,"The movie Still very angry with his wife. Still very angry at his wife. So, very, angry looking"
+8,1,0,unguided,0,1,6.913731575012207,"The movie will be released on Monday, Jun 24, from Monday, 20 days from the end of The Advertising"
+8,2,0,unguided,0,1,7.0231032371521,The movie (and it ain't no movie)But the press conference was right up and away from the pictures
+8,3,0,unguided,0,1,8.77124309539795,The movie at Duncan Park's light show causes:The movie at Duncan Park's video message wasThe movie at
+8,4,0,unguided,1,0,4.183819770812988,The movie went into theaters April 25. It was the movie's official release date. The movie was primarily marketed
+8,5,0,unguided,1,0,5.50165319442749,The movie is dedicated to making friends. Though those are not one of the. Though those are not one of
+8,6,0,unguided,0,1,7.073863983154297,The movie they rely on so many writers (although some of the movies has a different plot) all the time
+8,7,0,unguided,1,0,7.836329936981201,"The movie went viral on YouTube under the wishlist.  This country assures equal conditions for people, and"
+8,8,0,unguided,1,0,8.265487670898438,"The movie marketing conference 7.  But it went space ""The big gun at the movie marketing conference 7"
+8,9,0,unguided,1,0,5.3933424949646,The movie is reaching an entirely new audience. The world is taking shape for years to come.  To
+8,10,0,unguided,1,0,7.755993843078613,The movie ready are XXThe movie readyThe sexual movie ready are under control The movie ready XXThe movie is
+8,11,0,unguided,1,0,5.4277520179748535,"The movie is one of the most-coveted to movies, the film of the seventh is popular and"
+8,12,0,unguided,0,1,4.659156322479248,"The movie came out and there's nothing really new, even though you can be a good girl or a good"
+8,13,0,unguided,0,1,7.535072326660156,"The movie ends holding up, saying: ““TheThere is no one here.” –"
+8,14,0,unguided,1,0,7.959344387054443,The movie here. It’s also is Netcons.It’s also screen-and-
+8,15,0,unguided,0,1,6.601325988769531,"The movie on the screen You want to do it in execution, you want to wait and rely on last."
+8,16,0,unguided,0,1,5.165060043334961,The movie didn't seem to have anything to do with itIBanned the movie and release it all over
+8,17,0,unguided,1,0,9.29527473449707,The movie–as–in–a–k–What's next  Both players preferred when delivered perfectly
+8,18,0,unguided,0,1,2.216554641723633,The movieThe movieThe the movieThe movieThe movieThe movieThe movieThe movieThe movieThe movieThe
+8,19,0,unguided,0,1,7.639527797698975,The movie change article now is an overview the the movie that changed  movie changed is now an overview of
+8,0,0,guided,0,1,9.732263565063477,"The movie plays at cup of his property Jollum, in some land identifies the property, in any case"
+8,1,0,guided,1,0,7.364909648895264,"The movie<In the latter case, it is so that your movies sound good<Music: sounds good,"
+8,2,0,guided,0,1,6.688046455383301,"The movie play will start at Philadelphia on August 22, 2001 in front, until Sunday, August 30, 2001"
+8,3,0,guided,1,0,4.061485290527344,"The movie premiered in Japan in 2011, after the sale of rights to the U.K. and the Netherlands"
+8,4,0,guided,0,1,12.08103084564209,The movie titles and vectors which involved shooting hoodlumps with hoodliesring sword hammer key axe weapon
+8,5,0,guided,0,1,10.120080947875977,The movie studios that own the spot;” says Gerry McKerby  The key is Walt Disney
+8,6,0,guided,1,0,7.375178813934326,The movie title is an homage to the Spanish Intelligence CorporationA seat was helmed by Victor F. Garza
+8,7,0,guided,1,0,7.675750732421875,The movie is meant to re-enact the trials.All or have fun through our like lists and
+8,8,0,guided,0,1,8.207736015319824,The movie is the movie. I've not prepared it for editorial with the BBC 2 reporting it is and the
+8,9,0,guided,0,1,7.605335235595703,"The movie parts.The science, arts and fantasy (apocalyptic).The TV parts.To a rough start"
+8,10,0,guided,1,0,10.208022117614746,"The movie about the sublime, Choppy black and white foodOn the subject of visual damned more onThis exclusive"
+8,11,0,guided,1,0,7.833681583404541,"The movie's priests have vowed to provide science and medicine. The Republicans voted 17-11, favor of first"
+8,12,0,guided,1,0,8.88058853149414,"The movie taken by Jacob Ts'o, 7 of the 600 prospects, with his hair tied at the chin"
+8,13,0,guided,0,1,7.588134765625,The movie was completely entitled and everyone was free to watch. Which proceeded to do their thing:The emphasis on
+8,14,0,guided,0,1,7.183757305145264,The movie would not have been 7the schedules required would have been given 7the movie would have been 7The
+8,15,0,guided,1,0,5.652510643005371,The movie shows the car under the race track and the repair of the roof. The movie is a recreation of
+8,16,0,guided,0,1,9.248384475708008,The movieThe musicThe Kassalo-ed prosthetic ear is put into St. Louis more... concertsThe
+8,17,0,guided,1,0,5.418436050415039,"The movie tonight is about what the 2014 said, and how they went up. And they went down. And"
+8,18,0,guided,0,1,8.705779075622559,"The movie revealed how William Larose Hooker uncounted his souvenir.""I thought I saidNo"
+8,19,0,guided,0,1,11.186015129089355,The movie ahme playedThe patent system issued:Theseries changes intellectual property ( it means your Australian wife)
+8,0,1,unguided,0,0,8.38845443725586,The movie industry have seized no claim to having marks of their own instruments made in them. Many times have we
+8,1,1,unguided,0,0,8.163372993469238,"The movie is a series of roadside plonings of public places.Beach, a documentary onBeach"
+8,2,1,unguided,0,0,6.049726963043213,"The movie itself has made up characters who are supposed to be stereotypical gamers.The character itself, however, is"
+8,3,1,unguided,1,1,5.115651607513428,"The movie.In this album you will find classic rock, pop, rap, midrange, bass, jazz,"
+8,4,1,unguided,1,1,6.313155651092529,"The movie store are over 100 years old, and have been able to watch The Post at the movie store ("
+8,5,1,unguided,0,0,9.02032470703125,The movie theaters has not been changed. TheCourt warning has been issued or anytimelonggo the movie theater
+8,6,1,unguided,1,1,6.093446254730225,"The movie is a biblical retelling, this is being directed story through the pride of the U.S."
+8,7,1,unguided,1,1,6.547511577606201,The movie made the movieThe movie made the leadThe movie made the leaving or raising of buttonThe movie made
+8,8,1,unguided,0,0,10.315173149108888,"The movie It's only Food-Costumes movie; it first made a violation Tony,andlater turned into"
+8,9,1,unguided,0,0,7.792186260223389,"The movie film. not in person, either. Cop, Inc. -- The United States' only production line"
+8,10,1,unguided,0,0,7.86482572555542,The movie (and has been about it) to frequently try to explain himself is to have struggled to deal with
+8,11,1,unguided,0,0,6.963478088378906,The movie is good  There may a contrast or if The movie is good. If theshows that is
+8,12,1,unguided,0,0,6.374824047088623,The movie isn't back to back it's full to lose back to back it doesn't equal back to back
+8,13,1,unguided,0,0,5.754970073699951,The movie theatres are not organized in a union. Is it planned? Is it illegal?is aunion
+8,14,1,unguided,1,1,8.125727653503418,"The movie is released every Friday! Korean girls played Sunsoft techno games, Yuri is the most famous of them"
+8,15,1,unguided,0,0,10.055010795593262,"The movie went in for documentaryAboutHigh onOne Film Feature, High onOne TV Show The movie went in"
+8,16,1,unguided,0,0,6.887482643127441,The movie is set to be shot entirely in Australia which means it’s not likely to feature any tropical
+8,17,1,unguided,0,0,7.435349941253662,"The movie at least falls down within a product that is or may to be based on a specific, semi-"
+8,18,1,unguided,1,1,7.195423126220703,The movie usesThe movieThe movieYouTube movieThe movieThe moviesThe movie The movie -MovieFilms.
+8,19,1,unguided,0,0,5.16012716293335,"The movie is (5, $10, $16, $25, and $32).The movie is"
+8,0,1,guided,0,0,11.211420059204102,The movie asked about wardrobe designer is Gen. Leon del Torre.Last week was 8127 miles in 1999
+8,1,1,guided,0,0,7.724781990051269,"The movie was about being exactly as proceedsome as in16. ""Wonder Woman"": A '90s movie"
+8,2,1,guided,1,1,8.698463439941406,The movie has announced it; is that not is the song’s first long – and neither does it
+8,3,1,guided,0,0,1.971140742301941,"The movie, The movie, The movie, The movie, The movie.The movie, The movie, The"
+8,4,1,guided,0,0,9.913280487060549,The movie is interested Rentioning might have to read about non-picks up multiple times prior to renting
+8,5,1,guided,0,0,11.23532009124756,"The movie release” ""Those that set up movie releases, buying up properties for movie months and a name"
+8,6,1,guided,0,0,11.686436653137209,"The movie’s too pre;""they can=""http://incrawlylntrovvjth"
+8,7,1,guided,1,1,7.4008469581604,"The movie ""Kit Elliott - The Machine Man"" adds to the target role, especially when the enemy is human"
+8,8,1,guided,0,0,13.722785949707031,The movie ruined repeated passages than shop belonging verisars Also avoid close movie on the movie partition developedunny gameplay
+8,9,1,guided,1,1,7.708021640777588,The movie song Shamuzamam I has been released. Excellent work Hanamamamamamamam
+8,10,1,guided,0,0,8.803443908691406,The movie's trailer is things other where Sam Zeta comesHow close do they?I slammed the movie's
+8,11,1,guided,1,1,6.276068210601807,The movieYou couldn't do wrong with cheerleaders  If you played in a matchring you like to
+8,12,1,guided,0,0,8.980292320251465,"The movie, akaThe beams ""We're still, currently, patch up that wall. We're currently,"
+8,13,1,guided,1,1,8.473852157592773,The movie should followHere is how we see the mega-motivating makings of large box-office revenue
+8,14,1,guided,0,0,4.590153694152832,"The movie used the system for this, it was not the first time the movie decided to use the system,"
+8,15,1,guided,0,0,8.271086692810059,The movie that you watch either of it take on the costs of the auditing and investment work for the content
+8,16,1,guided,0,0,8.374213218688965,The movie Resolution for War movie shows how the war buffs are working together to fall down and overthrow the flag burning
+8,17,1,guided,0,0,9.535629272460938,"The movie some were stuck creatures skull and claw, but some were call in the other the movie plans were announced"
+8,18,1,guided,0,0,10.452713012695312,The movie studio road named for the request potty airbrush unit utilizing the studios’s principal recording studio
+8,19,1,guided,0,0,6.915837287902832,"The movie's four-second evolution from romance-oriented [to] romance-oriented (to), romance-"
+13,0,0,unguided,0,1,7.599539279937744,The road is a inoie första.The road faces about $1.4 billion in taxes
+13,1,0,unguided,0,1,4.16280460357666,The road died.  Then the was the dark  Then the road died.  Then the
+13,2,0,unguided,0,1,7.323909759521484,The road  The doctor’s office seen from road onThe road from road onThe road The
+13,3,0,unguided,0,1,5.342098236083984,The road 200 km away from him.The ship has plenty of time to reach him.The road 100 km
+13,4,0,unguided,1,0,7.9058427810668945,The road to hometo Nuvo Co those who follow the more international part of this.The road to
+13,5,0,unguided,0,1,4.338222026824951,The road across the road is...The road onto the road is...The road onto the road is...The
+13,6,0,unguided,0,1,7.185882568359375,The road laid back a reasonable amount of time.We started highlighting the roadbrags late last week.We
+13,7,0,unguided,0,1,6.379024505615234,"The road that took me about two weeks from I, theThe road that took me over five weeks from I"
+13,8,0,unguided,0,1,8.92453384399414,"The road closely bends  The grass strayed to fall down, the mass thudding the earth and yielding"
+13,9,0,unguided,1,0,7.254521369934082,The road north of Zem-or  This includes road to the Pasir in Zem-or
+13,10,0,unguided,0,1,8.150091171264648,The road from TiV-Kalanzi town to Johannesburg is being very carefully prepared by na na na
+13,11,0,unguided,0,1,6.159957408905029,"The road leading to Barood Khalh Is true.From the road leading to Barood Khalh,Moving"
+13,12,0,unguided,0,1,7.309125423431396,"The road in metres, and Friday's map.The road in metres continues to be visible in the distance as"
+13,13,0,unguided,1,0,7.551623821258545,The road-style multiughThere is a road-stylePlanes are the road-stylePlanesOne
+13,14,0,unguided,1,0,6.136378765106201,"The road of ideas...""And truth...And freedom...""The road of creativity""...And progress...""The roads..."""
+13,15,0,unguided,0,1,6.477490425109863,The road without a lake without and  Without and road without a lake without and E.A new road
+13,16,0,unguided,0,1,9.870454788208008,"The road though there be no names at least the one anyway, none the other. (B)The road"
+13,17,0,unguided,1,0,6.25422477722168,The road is straight.  For anyone who concedes this is your opinion.  For anyone who loves
+13,18,0,unguided,0,1,2.760429620742798,The road blocked by''''''''''''''''''
+13,19,0,unguided,1,0,7.217845916748047,"The road is narrow.  ThroughoutThe day, motorists are accommodating.  The grocery storeis closing"
+13,0,0,guided,0,1,8.045842170715332,The road surveyor came I out Kent. We'll be here. Three. Ten years ago that was about
+13,1,0,guided,0,1,10.36070156097412,The road online to favourites that are grupping the labours if the character that we received have merit to them
+13,2,0,guided,1,0,10.7449369430542,The road’ largely grouped around the Phoenix area (going up November 2013 | June 2013 • 2012 | December
+13,3,0,guided,0,1,10.214482307434082,"The road yourunaway, you’ll taste even greenerRunaway”  “"
+13,4,0,guided,1,0,8.344531059265137,The road leading you now is the pond that you've got on the property of the Explorer and I call it
+13,5,0,guided,0,1,9.723501205444336,The roadways of which musty odor are reports?Is the satellite ca in Harbin more dramatic than that
+13,6,0,guided,0,1,9.572433471679688,The road taken is obviously be tunneledAnd seemingly ordered from theSupply chain runThe cartelLynchThe
+13,7,0,guided,1,0,10.755828857421877,"The road has ringers made new, for the Jimmy Jordanny days, been Sam Os 250 points and rebounds"
+13,8,0,guided,0,1,6.716561794281006,"The road to surf, which meant to enable you to board without jumping into the ocean and funds raised to help"
+13,9,0,guided,0,1,6.549452304840088,The road is 16.sq mile length and measures 1262 feet. It has 53.0 million cubic yards
+13,10,0,guided,0,1,10.536404609680176,The road that has no self-wotality Warsaw – Volvo drivers waiting for new to take road Warsaw –
+13,11,0,guided,1,0,6.295384407043457,The road to Israel along which one easily travels 30 miles in total. Most of them won't be familiar with
+13,12,0,guided,0,1,10.175302505493164,"The road leads to the Quons Bush Road area, earning its own naysayers on last night’"
+13,13,0,guided,0,1,8.618674278259277,"The road between Cheshire and Fulham is pouring down from an accelerating drum before the spell starts pouring down,"
+13,14,0,guided,0,1,6.771499633789063,The road to being: a) just like me B) just... it's just incredible.I mean just
+13,15,0,guided,1,0,7.178991794586182,"The road, urban vegetation, urban water, food waste en vie, disaster, crisis, certified elections,"
+13,16,0,guided,0,1,9.094145774841309,The road decided to refer to saying immediately. In response which noticed it would rust a statement decided no longer needed
+13,17,0,guided,0,1,9.567034721374512,The road notes show feigns for certain fruit-of-bearers. assistance with locating left turns signs
+13,18,0,guided,0,1,11.295166969299316,"The road, where?-' The location ofmobile regular car? The switch"" paving has been bogged down"
+13,19,0,guided,0,1,6.13101053237915,"The road we traveled Z–Z–Z–Z, 1971  The motorcycle we rode  The"
+13,0,1,unguided,0,0,5.224332332611084,"The road I see now is a good road.  However, I think it is probably better to walk"
+13,1,1,unguided,0,0,4.423300743103027,"The road down the road and up the road, up the road, down the road, top the road,"
+13,2,1,unguided,0,0,7.996607303619385,The road paved by encouraging your choice to walk home or have a cigarette.The road blocked by encouraging your behaviors
+13,3,1,unguided,0,0,4.511898994445801,The road meant that it's very close to station  The road meant that it's very close to station
+13,4,1,unguided,0,0,5.249621868133545,The road does not let up. If I contribute to the road the code is written. The code is written
+13,5,1,unguided,0,0,7.058579921722412,The road lost 231 bridge students.The road was crushedThe road lost 210 bridge students.The road was damaged
+13,6,1,unguided,1,1,8.385051727294922,"The road.In the road'sBehind the road'sFor hills, the road'sAfter the road; personal"
+13,7,1,unguided,0,0,5.365562438964844,The roadThe roadThe road the long road the roadThe roadThe roadThe roadThe chips and gravel 
+13,8,1,unguided,0,0,2.2522099018096924,The road ###The road ###The road ###The road ###The road ###The road ###The road ###The
+13,9,1,unguided,0,0,7.345043182373047,"The road that turns me on, my knees holding my lemons together,The road that turns me off and"
+13,10,1,unguided,1,1,8.673100471496582,The road makes a bow representing an ENDMENT TO THE PENTER.  To the wife of the
+13,11,1,unguided,0,0,7.041229248046875,The road was the road was.... The road was.A-A-A-A-A
+13,12,1,unguided,1,1,9.257095336914062,"The roadI was on in publicly partQuebec makes me more than happy, even sea-change in her"
+13,13,1,unguided,0,0,8.324705123901367,"The roadflush, cloud, cold, moist, heavy snow, mountain rainThe roadThe roadfried"
+13,14,1,unguided,0,0,9.15285873413086,"The road is a sea road to mount a monumentBefore it becomes a sea road through."" Some teeth. A"
+13,15,1,unguided,0,0,3.494148969650269,The road is samaamaamaamaamaamaamaamaamaamaamaamaamaamaamaamaamaama
+13,16,1,unguided,1,1,5.490932464599609,The road traversing the island is a continuation of the maine road on the island.  The main
+13,17,1,unguided,0,0,10.73365306854248,"The road ** 'Currently, the rubber of left hand is acting as always,The subthroated arm of"
+13,18,1,unguided,0,0,7.899610996246338,The road to initiation domarlingThe road to initiation doodyingThe road to initiationShotaovitch
+13,19,1,unguided,0,0,7.887983798980713,"The road signs,One,Two,The road signs,Three,” would fall under subsection four of"
+13,0,1,guided,0,0,5.726147651672363,"The road you walk along ( to the right ), and take a walk to the left. And then walk back"
+13,1,1,guided,0,0,7.826901435852051,The road is in forestThe forestThe road is on rightThe forestThe road is by the pathTheThe
+13,2,1,guided,0,0,9.009177207946776,The road to Kam Khakingel from Kam KhisselaishThe road into Kam Khissela from Kam
+13,3,1,guided,1,1,11.890006065368652,The road turned nextonebyThe roadndare full BLESSThe road turnedby ucf arena a measure
+13,4,1,guided,0,0,13.256686210632324,The road BiMRoad downturns over 142 sites and multimust adopted energy producing or producing entry 365pla
+13,5,1,guided,0,0,12.046422004699709,The road lies and the account of the post-validupen courts nonsense.In particular propérium ann
+13,6,1,guided,0,0,11.661175727844238,"The road too runs down, Shaun YunIun is a reality, Shaun=""#liunLike a person,"
+13,7,1,guided,1,1,7.380499362945557,The roadways that bridges use are on.  Highways and tracks that look highways are made. 
+13,8,1,guided,0,0,8.134177207946777,The road that no sir! - pic.twitter.com/PrettyWillBritBrit all the way Marcus Rhodes
+13,9,1,guided,0,0,9.675093650817873,The road coming from Button Cantown to West Avenue continues to exacerbate by 20 lbs while conditions begin to play down
+13,10,1,guided,0,0,5.206283092498779,The road northbound. The road is on km 2 of the north. The road is part of the north
+13,11,1,guided,0,0,6.570014953613281,The road provides for a connection from/to a local area governed by a judge that is in denial of the
+13,12,1,guided,0,0,9.715006828308104,"The road is Sokolov.[citation Of, The highway is Jan Nembe's non-Solan"
+13,13,1,guided,1,1,4.611362457275391,The road is the outsiders. The road is the enemy.The road is the bull. The road is the
+13,14,1,guided,1,1,10.775035858154297,The road of meeting people.Plain first with Our Carolina Soul! <dekke At high school in
+13,15,1,guided,1,1,4.171566009521484,"The roadThe road, The boulevard the sidewalkThe street, the sidewalkThe roadThe street, the sidewalk"
+13,16,1,guided,0,0,10.092734336853027,The road to a residential-development supermonsters what is the development model when military-friendlyanything is discarded
+13,17,1,guided,0,0,7.965030193328857,The road laid today to have the road to today to have the to this morning coupled with the remaining grey cap
+13,18,1,guided,0,0,6.948580265045166,"The road.' Which means, 'I don't know where one says things.'  ""But am I"
+13,19,1,guided,0,0,7.683403015136719,The road to the area that’s found the graveyard is grounded in the hands of a mob. 
+4,0,0,unguided,1,0,6.289251804351807,"The country[of]  The country of migrants father, the inner-city  of the"
+4,1,0,unguided,1,0,5.290846347808838,"The country is, in terms of participation:  In high school higher education  In high school diploma"
+4,2,0,unguided,0,1,6.454671382904053,"The country can be named ""Turkey"". Opinions Not Used: 2014-2014-2014-2014-"
+4,3,0,unguided,0,1,6.412803649902344,The countryWith a speed of 20 nanobocsWith the speed of lightWith a speed of 10 nan
+4,4,0,unguided,1,0,4.747036933898926,The country that is governed by a non-Arab provinceThe country that is governed by a non-Arab coalition
+4,5,0,unguided,0,1,5.961637020111084,"The country and the is corrupt and the is dead, you are one of the dead. You are dead of"
+4,6,0,unguided,1,0,8.179977416992188,The country that is controlled:This country is controlled by Germany.  Hand drawn list of The highest GDP
+4,7,0,unguided,0,1,8.776138305664062,"The country of all the colonies, which didn'tghot up theirStories That Made Sense.""""We weren"
+4,8,0,unguided,0,1,7.995875835418701,"The country(s) acquired the 'X' from Britain,Ireland(South West,Lucky"") and"
+4,9,0,unguided,1,0,7.669393062591553,The country which gives them these crumbs is precisely because of the planet's ability to support their economy when necessary
+4,10,0,unguided,0,1,6.783551216125488,The country's television network.  Facebook and Twitter  Foreigners to obtain government business and to travel
+4,11,0,unguided,1,0,7.171212673187256,"The country's-declared independence in 1963.3 Ceremonies:  Full independence, s a"
+4,12,0,unguided,0,1,8.301919937133789,"The country is cut off and shredded, ruled by committee, ordered and taken away, doomed by dependence upon a"
+4,13,0,unguided,0,1,4.515501976013184,"The country"". The country. ""The country"".The country"".The country. The country"".the country""."
+4,14,0,unguided,1,0,9.777429580688477,"The country fanned in 1878 by bands held in February, February and October in Volovia until they"
+4,15,0,unguided,0,1,7.322522163391113,The country still putting women in war is notThe most re-elected black woman in the United States is Lewis
+4,16,0,unguided,1,0,7.152696132659912,"The country's largest tourist attraction, Mr. Bywister Davis, 78, has maintained a modest consistency and"
+4,17,0,unguided,0,1,7.641921997070312,The country is not where he lives. I have to have to somehow work through acceptance or understanding of my own
+4,18,0,unguided,1,0,6.119418621063232,The country is divided by the third of the people there is one country although one and half the country is there
+4,19,0,unguided,0,1,8.973917961120605,The country you love9No9101101313No1314No13Will you?Do you mind
+4,0,0,guided,0,1,9.686202049255373,"The country's largest Towerss Twin Towerss died 9 March 1999, possibly within 30 minutes of their 'gray"
+4,1,0,guided,1,0,8.780824661254883,The country has made its case’ they have made a reference regarding the game and Japanese novel. A gallery
+4,2,0,guided,0,1,8.616057395935059,The country contains about 70 hours of official time BookPost's 'C.L.A.'We are among
+4,3,0,guided,1,0,6.915370464324951,The country cl  contains clap  One of the most important moments in history. The country cl contains
+4,4,0,guided,1,0,7.632713317871094,The countryTo be collective effectiveInThe countryTo be effective in (The countryTo be damaged by globalization.
+4,5,0,guided,0,1,8.6522855758667,The country is not coming But its hospital is openIt fails somehow to provide foyer lead to some of the
+4,6,0,guided,0,1,12.42363739013672,The country ofThe property sector used in renderheminos of xaviernetterturosondalmet
+4,7,0,guided,1,0,8.865086555480957,The country which was home to tourists boating off aide beach on July 11 this year.  By
+4,8,0,guided,1,0,7.906754493713379,The country is socialist  To leftist workers who decide their cause for themselves. PolicyThe country's policy is
+4,9,0,guided,1,0,9.360762596130373,"The country's democratically elected president serving as prime minister Nousekodi, the Indian’s daughter led"
+4,10,0,guided,1,0,7.437968730926514,"The country we stand for isn't just a women's workforce, but consider how really the world ought to be"
+4,11,0,guided,1,0,6.824636936187744,The country's largest employers to take a nationwide action that said if one city turned over a kid the other turned
+4,12,0,guided,1,0,9.126545906066896,The country of­ in­ar is­s­byl­st in the ateof the twentieth
+4,13,0,guided,0,1,4.63625955581665,The country isIn:The country isIn:(International)The country isIn:(General)The
+4,14,0,guided,1,0,8.277487754821777,The country of the thiemth of Coller) and the thiemth of Corvado)64
+4,15,0,guided,1,0,7.931581020355225,The countryThis music element created covers as well as the official song by The Promise that was released at 1:
+4,16,0,guided,0,1,8.923178672790527,The country Ln vs.n  n.  Last word F ****l E*****
+4,17,0,guided,0,1,8.123857498168945,"The country class politics is the politics of the townspeaker, the common public.Country relations can be should"
+4,18,0,guided,1,0,5.52692174911499,The country we are.  Important things.  Here's a one-stop shop as to where
+4,19,0,guided,0,1,6.740373134613037,"The country that we can imagine as having held sway all year long, 'The country that we can think about"
+4,0,1,unguided,0,0,8.715136528015137,"The country that ""does not have any idea how the odds are the relentless onslaught of persistent terror incidents from 2001"
+4,1,1,unguided,1,1,8.739720344543457,"The country that knows theirs is Africa, a video series full of bizarre true adventures in Africa-in E."
+4,2,1,unguided,1,1,5.247798442840576,The country’s lawAnd the country’s educationAnd the country’s economyAnd the
+4,3,1,unguided,1,1,9.53815460205078,The country CC te the residents of the country cc te lang title 1 in countryTypeTheTheCountryCC te
+4,4,1,unguided,0,0,7.687838077545166,"The country she was using and she used is known as ""Sub"". It goes so far and it is sexual"
+4,5,1,unguided,1,1,6.803732395172119,The country is defined by a national language the language is a complete and the language of the world is often rare
+4,6,1,unguided,0,0,7.416272163391113,"The country with the naval revisionist sea as a whole.Despite modern-day inefficiency, Australia's monarchy"
+4,7,1,unguided,1,1,8.394699096679688,"The country the usual range of ROAs for fields, sports, game-ferencing, (pen)"
+4,8,1,unguided,1,1,6.165852546691895,"The country most feminist  Most of the time, the happy couple on the cake  The country most"
+4,9,1,unguided,1,1,8.159693717956543,The country’s tourism is happiest on Earth.Doctors have been improving health outcomes over the last five years
+4,10,1,unguided,0,0,6.4055352210998535,The country that used to be off the mark. The tag office is also adding a thousand more to their site
+4,11,1,unguided,1,1,5.206527233123779,"The country  The country  All material support to Iraq, Syria, Egypt and the rest of the"
+4,12,1,unguided,1,1,3.517518758773804,The country is listed as one of the most sacred places in the world's religions. The nation is listed as
+4,13,1,unguided,1,1,6.373683929443359,The country has come together in a Revolution. Look in the cupboard and go way up the lights. Look
+4,14,1,unguided,1,1,4.856362342834473,The country is the world.  Country flag country flag country flag band country flag country flag band country flag
+4,15,1,unguided,0,0,5.066812038421631,"The country, the United States, we were thrown out of that country at a young age, we were thrown"
+4,16,1,unguided,0,0,5.285312652587891,The country is bad.  In the end it is “not true.”  It
+4,17,1,unguided,1,1,9.052164077758787,"The country has did this year, with park numbers was near. 29-Dec. 29, followed was Detroit"
+4,18,1,unguided,1,1,5.146873950958252,The country’s freedom of expression -The country’s freedom of speech -The country’
+4,19,1,unguided,1,1,5.869651317596436,"The country has a 55 million GDP.  Mexico in the 2nd quarter, mostly because of recession-"
+4,0,1,guided,1,1,10.554526329040527,"The country which represents Sifoulkanskó Korea has been a historic, travel and sacrifice in his travels"
+4,1,1,guided,0,0,8.693602561950684,The countryh-looked around!There was design that involved two-by-2 imagery: in this
+4,2,1,guided,0,0,9.708328247070312,"The country's inhabitants ""Residents of the PPAlas, there is traffic ""Changing from Portage Hill"""
+4,3,1,guided,0,0,7.7956390380859375,The country at 11P.m. just with 3 of that day we were able to see the clocks fail
+4,4,1,guided,0,0,9.056659698486328,"The country's entertainment industry, characterized thus «play Car * movie * lost its theatrical release in exchange for better"
+4,5,1,guided,1,1,13.757524490356444,The country wasasesWork country actingIts great country vyingSNHoweverBeingGamesWithItThe stuff NOTALL
+4,6,1,guided,0,0,2.7515323162078857,The countryPanamaPanamaPanamaPanamaPanamaPanamaPanamaPanamaPanPanamaPan
+4,7,1,guided,0,0,9.702715873718262,The country's 570 million children.Provision heading portly direction will deem port action.The country's 16
+4,8,1,guided,1,1,9.430383682250977,The country of origin of foreign domestic (Iranian residents) who come within every first-enter of consuming
+4,9,1,guided,0,0,11.106886863708496,"The country that champions limited their protest when it in-, 2016freezing, confusing and emotional until you fal"
+4,10,1,guided,0,0,10.435684204101562,The country is full...Turkey The country is full...SyriaFromBenatar to RiakTurkey ErdoganSciam
+4,11,1,guided,0,0,7.1885271072387695,The country's streets are a site and humans to measure the space. An area of asphalt sizes up 500 yards
+4,12,1,guided,1,1,7.715882778167725,"The country may have a tough time, making it important that those that talk it acting ready and objective. words"
+4,13,1,guided,1,1,5.99163293838501,"The country I live.  The country is called Greece.  There we see things like, and"
+4,14,1,guided,0,0,8.87652587890625,The country because they were book bland other knowledge which went by them) aning of knowledge which irred
+4,15,1,guided,1,1,9.224363327026367,The country of Van Bora is about to take place at the brink between life-sanity andnonwar
+4,16,1,guided,1,1,8.377619743347168,"The country has become a value-sprint account (SWL).With the advent of BitPay,;"
+4,17,1,guided,1,1,6.923626899719238,"The country faces growing concerns. Following Friday’s invasion, a large number of troops was set upon."
+4,18,1,guided,1,1,8.774325370788574,"The country system 41/52 The country since 1999, a statistical agency since 1941. 4% Different causes different"
+4,19,1,guided,0,0,7.470698833465576,"The country sides, fields, boulders and struts, farm women, landing cranes and X-ray"
+9,0,0,unguided,1,0,8.322539329528809,"The painting, the face, gives to  or the scene or scene in the living room bedroom the letting"
+9,1,0,unguided,1,0,8.544724464416504,The painting is gaining popularity in the nearby capital of Saudi Arabia the country the world’s second rarest
+9,2,0,unguided,1,0,6.422671794891357,The painting depicts the sea islands side of the city's capital. The city's third game was played by the
+9,3,0,unguided,1,0,6.18323278427124,"The painting will pay attention to the haggard stings of life. His themes are sex, death and"
+9,4,0,unguided,1,0,5.431720733642578,The painting has survived for the last 200 years because it's been from then to the gallery. It's been
+9,5,0,unguided,0,1,6.946656227111816,"The painting’s owner said it had been traded in a trading, centered around the painting’s"
+9,6,0,unguided,1,0,6.6394572257995605,"The painting was from a photograph taken by a photographer of the trip to Jerusalem, photographer of his visit to the"
+9,7,0,unguided,1,0,8.08172607421875,The painting was read Xinhua as news.  The painting features names of bank customers from customers from bank
+9,8,0,unguided,1,0,6.33467960357666,The painting is old. If the owner has just a pic then the painting is old. On the artist herself
+9,9,0,unguided,0,1,7.190803527832031,"The painting, which took place during the hours-and-sets of the warden’s battle-"
+9,10,0,unguided,1,0,8.137602806091309,The painting shop is built on this with models channelled around the primary as well as the vitals for
+9,11,0,unguided,1,0,3.3024635314941406,"The painting the call, a call, a call, a call, a call, a call, a call"
+9,12,0,unguided,1,0,7.175934791564941,The painting declined to comment.  10 p.m. : Mr. Rotberg meets Mr. Br
+9,13,0,unguided,0,1,6.1380791664123535,"The painting came around a lot. By last night, commuters who came around a lot. By last night,"
+9,14,0,unguided,1,0,8.910966873168945,"The painting 7, Market Union (marked 7 November). In the sun the union stands at 11, central market"
+9,15,0,unguided,0,1,6.555202007293701,"The painting is to small You can taste it, but you can smell so much that it's almost a case"
+9,16,0,unguided,1,0,7.694647312164307,The painting provides for play and allows for reflection without fighting. Field sports ranges from the small coins to the big
+9,17,0,unguided,0,1,5.1139655113220215,The painting in the original image is covered on the hands and knees by the artist. Or the painting in the
+9,18,0,unguided,0,1,8.288958549499512,"The painting comes from Somerset County's rapid growth, and multiple regulations which will now result innon-resident..."
+9,19,0,unguided,0,1,8.909499168395996,The painting was hatched on October 12 during the defense minister's white (914) sunglasses in war-ri
+9,0,0,guided,1,0,10.077359199523926,The painting exhibits traits a child take care of and celebrate some of their abilities in case claims have been a third
+9,1,0,guided,0,1,7.369676113128662,The painting is not the main focus.The topic is one of 'with-when-with-ams-
+9,2,0,guided,0,1,8.389643669128418,The painting was only available from 23 shops and I wanted to ensure that proper investigation was taken to to this properly
+9,3,0,guided,0,1,11.10802936553955,The painting is very glassy on the beach a lot will even work even stay full but feel freeCG h
+9,4,0,guided,1,0,10.946037292480469,The painting of the Bol. colored...The painting of Rushth[... less than half-centuryMyE
+9,5,0,guided,1,0,9.551103591918944,The painting of the pentagon of the still colours signify that visual phenomena of a ceremonial sign in its prime possibilities
+9,6,0,guided,1,0,9.846896171569824,"The painting concerns Didwin, who performed very well, though then VINCENTA OL MARGARA CAN"
+9,7,0,guided,0,1,10.64409065246582,"The painting «carrad house"" represented a representative palgegy effort whathad been stolen from the previous"
+9,8,0,guided,0,1,11.093779563903809,"The painting by TanullerManhe Blake describedEckeleva mixture of Eckelev, His and"
+9,9,0,guided,0,1,12.195771217346191,The painting depicting dozmorro contains the ones under Zoralode seen in Zihrough Kevin Soren
+9,10,0,guided,1,0,13.023566246032717,The painting palette unlocks rivegivinging direct lineup Those static choppers managed to crash the glass-noriber
+9,11,0,guided,0,1,7.3558669090271,"The painting clearly shows that the cat has not done nothing before, including the cat ""Do?"" not doing anything"
+9,12,0,guided,0,1,5.129387378692627,"The painting does not look great, the lighting in the bathroom is very bad,but you will love it within"
+9,13,0,guided,1,0,8.878015518188477,"The painting said,In THEPAST -- a brick-cartry -- the brick-foundry, returning"
+9,14,0,guided,0,1,8.99058723449707,The painting must…make one picture Paint mirror produces a painting tin. The painting tin divided into ten picturescon
+9,15,0,guided,1,0,9.043784141540527,"The painting usually depict and express love between two women"" A mancorespainted by Joseph Lester, fart"
+9,16,0,guided,0,1,10.822588920593262,The painting was initially fictionalized having spawned five references to date. the word suffix /aloneship’
+9,17,0,guided,1,0,10.515474319458008,The painting rooms the main mancina notes  I can tell if my hands frantically experiencing the music appropriate
+9,18,0,guided,1,0,8.990060806274414,"The painting is based on strong chemical interactions where it track'severe' wounds and cancers, an ol t"
+9,19,0,guided,0,1,10.014103889465332,The painting.TheKaybeyArtists did not dare pay tribute to Thai cloth. People thought that he represents
+9,0,1,unguided,1,1,7.055746555328369,"The painting showing exactly how many members of the painter's family spoke fondly, but also revealed something of him"
+9,1,1,unguided,0,0,5.51997709274292,"The painting is the son of the other brother with three sisters, Steve the other brother with three sisters, Steve"
+9,2,1,unguided,1,1,6.17538595199585,The painting of Guadalupe Luisa working 6:00 a.m. The day of the Universal Union
+9,3,1,unguided,0,0,8.135887145996094,"The painting was filled in the “d’ts,” on the first “byn�"
+9,4,1,unguided,1,1,5.84237813949585,"The painting was the strongest state of mind when that happened.It was, it was, it was a strong"
+9,5,1,unguided,1,1,9.451664924621582,The painting •WhaleWhale •Theale•thale•Thewhomwhwhwhwhwh
+9,6,1,unguided,0,0,9.721235275268556,The painting.  [3] w-w/drivers-seat/.former-seat/.assessed
+9,7,1,unguided,0,0,6.320409297943115,The painting is a paradigmatic case of thin-or-fast  of thin-and-fast a
+9,8,1,unguided,1,1,9.700214385986328,"The painting that they occur at a geometric scale, the mathematical programs implement them as proof ones and while past labels"
+9,9,1,unguided,1,1,6.450417518615723,The painting's accuracy is contentious because it is not an indication of the benefits and rewards that contemporary artists would receive
+9,10,1,unguided,1,1,7.468097686767578,"The painting of Blackwood says, ""No one alive in this era and particularly for that matter,"" according to"
+9,11,1,unguided,0,0,11.116400718688965,"The painting shows how many singular combinations of an extraneous butterimmutable gluing together perspective, positional geometry,"
+9,12,1,unguided,1,1,8.27469253540039,"The painting of Maddox had... and,the painting was also very smart... and,This project,or"
+9,13,1,unguided,1,1,7.275151252746582,The painting can be described as: However the painting can be used as an Event That Whenever or Supports to an
+9,14,1,unguided,1,1,7.0439629554748535,"The painting, painted in 1889, bought itself at auction and won $13 million. Car totaled for the day"
+9,15,1,unguided,1,1,8.526385307312012,"The painting (whoo me) represents a stable condition of 3 emotional responses (attractive, pacifying)"
+9,16,1,unguided,0,0,10.18406581878662,The painting fli the book) flav flavfloxflflflflflflflflfl
+9,17,1,unguided,1,1,8.395868301391602,"The painting I take. (I'm.the next evening.) — and the dates, I have.And"
+9,18,1,unguided,1,1,11.36880874633789,The painting of whales occasionally.And again are cited in [About The Updates Passed through ISP's emails About The
+9,19,1,unguided,1,1,8.529845237731934,"The painting of crisis, seeing that, in conformity to it, the usual signing of the crisis and increase of"
+9,0,1,guided,1,1,10.68248176574707,The painting Fun to the students of the State tertiary Education System (NAHUSA) corresponding Technologga
+9,1,1,guided,1,1,10.57874870300293,The painting-to’arthis Zuo describes is..  The rQuarches it shows
+9,2,1,guided,0,0,6.809896945953369,"The painting covered only a short time, and much all of the bones of the pictured mice were found to be"
+9,3,1,guided,1,1,6.803165435791016,"The painting eventually lent to a raven, which eventually lent to a Dalek! And a dirk! And"
+9,4,1,guided,1,1,5.828973293304443,"The painting is housed in the Edinburgh, there's a strange condition at the end of the life of the painting"
+9,5,1,guided,1,1,10.35527515411377,The painting is notarded as famous of successful 21st century Century Sikh Shas achieving a greater success than he
+9,6,1,guided,0,0,10.51484203338623,The painting untilAndAgain the lightingThe Topic rating is NoOneWho can enter a posterByUsingTheDescription
+9,7,1,guided,1,1,8.61417293548584,The painting of Tartabrova has been popularised by women turning 30 and addresses this age of paint.
+9,8,1,guided,1,1,7.424514770507812,"The painting was blessed by Filiavili.It was designed by Filisi, Mr. E.The"
+9,9,1,guided,1,1,8.070769309997559,"The painting paints for their needs. Its values can be orange, blue, yellow inThe the painting is paint"
+9,10,1,guided,0,0,9.34079933166504,"The painting's only image in Paravotti Park is 19,482.The overall increase is 50,000"
+9,11,1,guided,0,0,6.51772928237915,"The painting has been hit by a brick, and a batter.The paint has been mistaken by the lightning."
+9,12,1,guided,1,1,6.7732439041137695,"The painting, the apex of navigational dominion known the size of the North Atlantic, was the first to be"
+9,13,1,guided,1,1,6.9223313331604,"The painting of the fountain around a podium. The result was ""N"". The opinion of the present holders the"
+9,14,1,guided,1,1,8.148133277893066,The painting which showed they could be born wearing a fantastic mask?– Will your daughter give birth in a mask
+9,15,1,guided,1,1,7.600197792053223,The painting painted paintThe painting painted paint the painting painted paintThe graffiti paint the paint painted paint the graffiti paint
+9,16,1,guided,0,0,7.903640747070312,"The painting and drawing moving to the National Museum of Canada, Arts and Culture, OSK, OMFI,"
+9,17,1,guided,1,1,9.062737464904783,The painting at Princess Elisabeth of Rio de Janeiro‘s Art of the World Festival/fit and
+9,18,1,guided,0,0,7.987997531890869,The painting on the gallery below (b) Waj Waj Waj Waj has been confirmed(b
+9,19,1,guided,0,0,5.65240478515625,The painting Is then separated from the paint-three-card case. The paint-three-card case also
+14,0,0,unguided,1,0,1.6720112562179563,The year is 1910. This is the year is 1910. This is the year is 1910. This is the year is 1910
+14,1,0,unguided,1,0,5.118951320648193,The year is 1910. We are just over 20 years old. It is just a church. We are just over 20.
+14,2,0,unguided,1,0,4.980930805206299,The year is 1910. The age is the years is 20  10 10 10 10 10 10 10 10 10 10 10
+14,3,0,unguided,1,0,6.486676216125488,The year is 1910. From 1999 to 2006 this marks the past to present end of the calendar. annual calendar - This year
+14,4,0,unguided,1,0,3.792931318283081,The year is 1910. The Canada of today is over a 100 years old. The Canada of today is over a hundreds of
+14,5,0,unguided,1,0,4.004746913909912,The year is 1910.. The year is 1950.. The year was 1960. The year was 1962.. The years
+14,6,0,unguided,1,0,7.104711055755615,The year is 1910.”  YOSHAH: “I received a question about the relationship between God
+14,7,0,unguided,0,1,8.586750984191895,"The year is 1910. Everyone has known that forever. So too, Hence Forever, and given that living in 1910 is absolutely"
+14,8,0,unguided,1,0,6.811271190643311,The year is 1910.  Are youills making you money?  By valuing the electricity generated by fossil fuels
+14,9,0,unguided,1,0,7.684043884277344,The year is 1910. This year is too old it is 40 in ​​10 October 2010 The year is 2029 the
+14,10,0,unguided,1,0,5.121254920959473,"The year is 1910. This sign reads -- ""The one who knows,"" ""The one at the tipping point,"" ""The"
+14,11,0,unguided,1,0,4.9684739112854,The year is 1910. And the time is 10. The sky is white. And the clock is right. And the stars
+14,12,0,unguided,1,0,4.763307094573975,The year is 1910. We if we were poor we believe that God took care of us.The year is 1900. We
+14,13,0,unguided,0,1,8.738212585449219,"The year is 1910. June 2006 petrol costs $.74, meaning it's equivalent to $1 72 $8 2008 18"
+14,14,0,unguided,1,0,5.928936958312988,The year is 1910. Are sleeping with their wives full-time. Nobody's trying to be convenient. Everybody loves to be
+14,15,0,unguided,1,0,7.382517337799072,The year is 1910. You must spend that year working to work hard you must spend that year spending on time you want spend
+14,16,0,unguided,0,1,8.026632308959961,The year is 1910. entry. Cervian T. L. n.g. surnames. T Lab P P
+14,17,0,unguided,1,0,2.550114154815674,The year is 1910.  The year is 1935.  The year is 2034.  The year is
+14,18,0,unguided,1,0,3.207308292388916,The year is 1910. Chile is the most populous country in the world. There are 250 million people in the world that live
+14,19,0,unguided,1,0,3.100787878036499,The year is 1910.  The year is '98.  The year is 1999.  The year is
+14,0,0,guided,0,1,6.458457946777344,"The year is 1910. The past looks like it is 2007 and it's around 2007. It's not impossible, you can"
+14,1,0,guided,0,1,5.509007930755615,The year is 1910. Our regular schedule at school or at work is about week and a half. We are all working hard
+14,2,0,guided,1,0,9.0302152633667,"The year is 1910. Detroit was the Golden Weather.""    north -summer - winter  After summer brew"
+14,3,0,guided,1,0,8.425959587097168,The year is 1910. And another year is 1900. And a year is in 1800 seen 1900 to 2020 to 20 see 2025
+14,4,0,guided,1,0,7.630824565887451,"The year is 1910. Sometimes, too alone is not enough. Deliver your 58th birthday to be remembered in your future"
+14,5,0,guided,0,1,6.788015842437744,"The year is 1910.  Definition 1. The definition does not involve periods, a period of time that corresponds to recognition"
+14,6,0,guided,1,0,7.842483520507812,"The year is 1910. With the country of characterized munitions producers, one must proceed with the utmost caution when considering or investigating motives"
+14,7,0,guided,1,0,5.891605854034424,"The year is 1910. You go back to 1915, when the general supersize began in the 1920s and the 1930s"
+14,8,0,guided,1,0,10.844189643859863,The year is 1910.Steps are 4 until 10:00 get making round trip plans The climate holds seasons like modern Illinois
+14,9,0,guided,1,0,8.749724388122559,"The year is 1910. They are all of us.  Here we Republic tomorrow""the Republic flag waves flying over democracy"
+14,10,0,guided,1,0,10.579256057739258,The year is 1910. Published work Quarks onbald 1968 1968 1969 1970 1971 1971 1971–68 1977 1987 140 145
+14,11,0,guided,0,1,5.730734825134277,The year is 1910. The year is so weird for the world (oh what are those 116 years?!) and for women
+14,12,0,guided,1,0,7.760398864746094,"The year is 1910. It is over 20 years to get where is today, but now things have fully fledged for once"
+14,13,0,guided,1,0,9.422754287719728,The year is 1910. 16 65 1670 1770 80y 1 14 103 105 108 112 115 15 13 54 65 63
+14,14,0,guided,1,0,5.113692760467529,The year is 1910.  Who must have final say?  The people is the people!  And the
+14,15,0,guided,1,0,3.730485677719116,The year is 1910.  The year is 1921  The year is 1921 April  The year is 1921 May
+14,16,0,guided,0,1,10.86583137512207,"The year is 1910. GF, GD are none of the biggies reading here. It Makes Ar… Coal Coal Tar"
+14,17,0,guided,1,0,6.296641826629639,"The year is 1910. Today, I don't really know.  Today, I don't really know. Special Games"
+14,18,0,guided,0,1,7.407695770263672,The year is 1910. The Globe is not wearing in 1910.The problem is theory can be skipped too often for most readers
+14,19,0,guided,0,1,11.489297866821287,The year is 1910.The Harscom white murderers the Indian blood white Muslims the AIGs’ holy book terror
+14,0,1,unguided,1,1,8.262866020202637,The year is 1910. 2013 The year is:Think about the calendar as the current day - 0720:0700 -
+14,1,1,unguided,1,1,7.031075954437256,The year is 1910.  The pound:  One more answer 100 times over!  answer 100 times over
+14,2,1,unguided,1,1,6.904125213623047,The year is 1910. The year dates 1953. The year dates 2013 2012 and posted above.  The year is 10
+14,3,1,unguided,0,0,8.13753890991211,The year is 1910. From March 4 September over 1900 lasted. The developers are introducing new laws. The mechanics are getting into
+14,4,1,unguided,1,1,7.336106777191162,"The year is 1910. I have been here, and thanks to a life-changing question with Faith Reform, we have finished"
+14,5,1,unguided,0,0,6.26769495010376,"The year is 1910. It's a boring year, too.The theme is ""Guchi,"" the pig's goby"
+14,6,1,unguided,1,1,7.125143527984619,The year is 1910. But in comparison to the problem and system of today. Those are 150 countries. 1973 is the year
+14,7,1,unguided,1,1,2.202463150024414,"The year is 1910. ""The year is 1910.""  The year is 1910. ""The year is 1910."" "
+14,8,1,unguided,1,1,3.434201955795288,The year is 1910. There was a year of 1910. There was a year of 1910. There was a year of 1910
+14,9,1,unguided,0,0,6.1784281730651855,The year is 1910. The year is 1910. If we don't we have to swallow seed and try and get down to
+14,10,1,unguided,0,0,7.7323317527771,The year is 1910. Mobile Sites: 7 Other Platforms: 160 Exits: 60 Highest Ranking: 550: 400
+14,11,1,unguided,1,1,4.6244893074035645,The year is 1910. This is around the year 1900. This is happening around the world. This is happening to my American
+14,12,1,unguided,0,0,5.348813056945801,The year is 1910.  We are Garfield. The year is 1910. ~  The year is 1910. 
+14,13,1,unguided,0,0,5.732861518859863,"The year is 1910. Therefore, it is a Saturday Saturday June and must be counted. For example, it is a Saturday"
+14,14,1,unguided,0,0,8.079492568969727,The year is 1910. So what is happening today? Ross bought-in another silver value $84. Then his name is
+14,15,1,unguided,1,1,5.257455348968506,The year is 1910. And the next half decade.And the next 10 years.And for the next 10 years.And
+14,16,1,unguided,1,1,1.7568508386611938,The year is 1910.  The year is 1910.  The year is 1910.  The year is 1910
+14,17,1,unguided,0,0,7.3096747398376465,The year is 1910. Most of the Farts are related to this particular period.  VATOLIA PORT
+14,18,1,unguided,0,0,6.794156551361084,"The year is 1910. The obvious is already obvious: The level of self-injury or - is, self-control"
+14,19,1,unguided,0,0,9.16395092010498,The year is 1910. The clock tells time we last the Attorney of the United States under investigation again for the manner does that
+14,0,1,guided,1,1,9.416266441345217,The year is 1910.Those chosen alphabet by their years in size (it is the 1870-1890)There are 5
+14,1,1,guided,1,1,7.209384441375732,The year is 1910. This will be the first female president this will be the first female president will beAlexandra Sagar
+14,2,1,guided,0,0,12.941336631774902,The year is 1910.Itsps atblightsoddingsflightover calls flightover -45.554554449024
+14,3,1,guided,1,1,1.7951128482818604,The year is 1910.  The year is 1910. The year is 1910.  The year is 1910. The
+14,4,1,guided,1,1,3.7344017028808594,The year is 1910.  The year of 1934.  The year of 1934.  The year of 1934
+14,5,1,guided,1,1,8.323013305664062,The year is 1910. (The new year is 20 April) Catch a'url from the king: wwpw
+14,6,1,guided,1,1,4.42355489730835,The year is 1910.  The beginning of the year is 1971.  The year this week is 1971. 
+14,7,1,guided,1,1,7.749824523925781,"The year is 1910. The recreation value over time is 128. At Easter this year it was 128.""Two separate lines sitting"
+14,8,1,guided,1,1,5.723893642425537,The year is 1910.l the year is 48625.m the year is 41124. The year is 41125.
+14,9,1,guided,1,1,11.413573265075684,"The year is 1910.No touhey unre named;sLove (Friendship), the most important error is for emotions well"
+14,10,1,guided,1,1,6.488467693328857,"The year is 1910. Yes, the temperature is above 50. Yes the temperature is above 50. On science and technology:"
+14,11,1,guided,0,0,2.5619633197784424,The year is 1910. So the year is 2200. So the year is 2000. So the year is 1500. So
+14,12,1,guided,1,1,6.403993129730225,The year is 1910.The monthThe day of the day The day is the companion that actually happens. The day is the
+14,13,1,guided,0,0,6.192930698394775,"The year is 1910. The law's effective date is December 12. Place of the sun. Franklin, Del. and his"
+14,14,1,guided,1,1,5.431746006011963,The year is 1910. This year the world has the best fantasy land creation that any one year has ever seen. If they
+14,15,1,guided,1,1,5.727057933807373,The year is 1910. It is perfect. I am a liar. I was born to lie. It is through the years
+14,16,1,guided,0,0,5.7934184074401855,The year is 1910. In the next period the year is 1915. In the middle month the second month. Third month the
+14,17,1,guided,1,1,4.337987422943115,The year is 1910. 1910 is year 21. So year 21 is year 14. And year 21 is 2024. And 2024
+14,18,1,guided,1,1,4.823901176452637,The year is 1910.  The 101st year is 1905.  The 109th year is 2054. 
+14,19,1,guided,1,1,5.650549411773682,The year is 1910.  It is called Nicaea.  The name is 92.  The date is

@@ -56,18 +56,9 @@ In the discrete sampler, then, the theoretically motivated correction is also th
 
 The result of the previous section, that the Metropolis--Hastings correction improves the discrete sampler, sets up a natural expectation: that the correction, being theoretically motivated, ought to improve the continuous sampler too, or at least not harm it. Section~\ref{sec:bg-mh} gave a reason to doubt this expectation, namely that the continuous sampler's energy is defined through a projection whose drift is discontinuous, violating the Lipschitz condition the correction relies on. The experiment resolves the tension decisively and in favour of the doubt, and it produces what is, in our assessment, the single most striking result of the sampler study.
 
-Applied to the continuous sampler, the correction is not merely unhelpful; it is catastrophic. The sampler flatlines, rejecting essentially every proposal that would change anything, and it does so in a way the trace experiment quantifies precisely. Over $10{,}000$ logged proposals from the continuous sampler with gradient normalization disabled and the correction enabled, the overall acceptance rate is $2.6\%$. That figure alone would be unremarkable, but its decomposition by whether the proposal crossed a Voronoi cell boundary is not. The acceptance rate for proposals that \emph{stayed} within a cell, and therefore changed no token, is $0.03\%$, while the acceptance rate for proposals that \emph{crossed} a boundary, and therefore actually did something, is $3.7\%$.
-% SOURCE: results_diag/traces_gpt2sft.json, config cls_policy_gnoff_mh:
-% accept_rate_overall=0.0261, accept_rate_stayed=0.000344, accept_rate_crossed=0.03665.
-% TODO-AUTHOR (concern 6a): the 0.03% / 3.7% pair above is here attributed to the
-% correction-ENABLED run. The refreshed reconcile (results_revision/rev_reconcile.json,
-% mh_acceptance_by_boundary from traces_gpt2sft_mh.csv) reports the correction-DISABLED
-% (no-MH) CLS-policy split as within-cell 0.034% / boundary 3.665%, which is what these
-% numbers match, and the correction-ENABLED split as within-cell 0.627% / boundary 8.56%.
-% The two source files disagree on the label. Please confirm which run produced the
-% reported figure and, if it is the no-MH trace, either relabel this sentence or swap in
-% the MH split 0.627% / 8.56%. Left unchanged pending your confirmation.
-Both rates are tiny, but the structure they reveal is the point: almost every accepted move is one that leaves the projected token unchanged. The set of moves the correction accepts and the set of moves that accomplish anything are very nearly disjoint. For comparison, the discrete sampler under the correction accepts within-cell moves with probability $1.0$, because such moves are trivially reversible, and accepts boundary-crossing moves at a healthy rate, which is exactly why it works where the continuous sampler does not.
+Applied to the continuous sampler, the correction does not rescue it, and the trace experiment shows why in a way the discrete case makes vivid. Decomposing the logged proposals by whether they crossed a Voronoi cell boundary, and therefore changed the projected token, the continuous policy sampler with gradient normalization disabled and \emph{without} the correction accepts within-cell proposals, which change no token, $0.03\%$ of the time and boundary-crossing proposals $3.7\%$ of the time; enabling the correction raises these only to $0.63\%$ within a cell and $8.56\%$ across a boundary. % SOURCE: results_revision/rev_reconcile.json mh_acceptance_by_boundary (traces_gpt2sft_mh.csv): cls policy MH=False within 0.034% / boundary 3.665%; MH=True within 0.627% / boundary 8.557%. The 0.03/3.7 pair is the correction-DISABLED (no-MH) CLS split.
+The discrete sampler under the same correction, by contrast, accepts within-cell moves with probability $1.0$, because such moves are exactly reversible, and accepts boundary-crossing moves at $9.3\%$. % SOURCE: rev_reconcile.json mh_acceptance_by_boundary dls policy MH=True within 100.0% / boundary 9.272%.
+That single difference, a within-cell acceptance of essentially one for the discrete sampler against essentially zero for the continuous one, is what the correction turns on: it rescues the discrete sampler, whose token can then move freely inside a cell and cross to a neighbour, and leaves the continuous sampler, which cannot even accept a move within its own cell, visiting on average a single cell across an entire run, as the next summary shows.
 % SOURCE: results_diag/traces_gpt2sft.json, config dls_policy_gn_mh:
 % accept_rate_stayed=1.0, accept_rate_crossed=0.0927, accept_rate_overall=0.1213.
 
@@ -431,31 +422,58 @@ The plug-and-play promise of \eqref{eq:intro-energy}, that an additive constrain
 \section{The Last-Token Analysis}
 \label{sec:results-lasttoken}
 
-% ============================================================================
-% TODO-AUTHOR / PENDING PHASE 2. The analytic zero-gradient result below is complete
-% and provable and does not depend on any experiment. Its empirical companions, namely
-% the per-position table of gradient-information against energy-information, the direct
-% comparison of an energy-only sampler against the gradient arm on the last-token task,
-% and the closing figure (gradient information versus downstream context length), depend
-% on the Phase 2 last-token experiment, whose outputs are NOT yet present in
-% results_revision/. Those parts are marked [PENDING PHASE 2] below. When Phase 2 lands,
-% replace the placeholders with the measured table, the sampler comparison, and
-% Figure~\ref{fig:lasttoken}, and delete these markers.
-% ============================================================================
+% Phase 2 last-token experiment now RUN. Empirical companions below are sourced from
+% results_revision/rev_last_token_gpt2sft.json (n=200) and last_token_figure.csv.
+% Analytic derivation (next paragraph) is unchanged and needs no experiment.
 
 The mechanism the whole chapter has circled admits, at one point in the sequence, a statement so clean that it can be proved rather than merely measured, and that point is the final token. The self-and-future decomposition of Section~\ref{sec:results-linradius} showed that the input-embedding gradient sees a substituted token only through its effect on the tokens that follow it. At the last position there are no following tokens. Under causal attention, the input embedding of the final token feeds only the logits that would predict a next token which does not exist, and those logits appear in no term of the sequence log-likelihood of \eqref{eq:bg-chain}; the gradient of that log-likelihood with respect to the final token's input embedding is therefore exactly zero. And yet the energy difference between two candidate final tokens is exactly the model's conditional log-probability ratio between them given the fixed preceding context, which is the most informative quantity there could be about which final token is better. At the last position the energy is maximally usable and its input-embedding gradient is provably, identically useless. This is the sharpest statement of the thesis's central claim: the only term of the likelihood that registers how well a token fits its context does not depend on that token's input embedding at all, so the input-embedding gradient is causally blind to token fitness, exactly zero at the final position and merely diluted, rather than absent, everywhere else.
 
-\medskip
-\noindent\framebox{\parbox{0.95\textwidth}{\small \textbf{[PENDING PHASE 2]} The empirical companions to the derivation above are to be filled from the Phase 2 last-token experiment once it is run. Three artifacts are planned. \emph{(i)} A position-condition table reporting, as a function of the masked token's position in the sequence, the information carried by the input-embedding gradient against the information carried by the exact energy difference, quantifying the predicted decay from ``diluted'' in the interior to ``exactly zero'' at the final position. \emph{(ii)} A direct comparison, on the last-token recovery task, of an energy-only sampler that selects the final token by its exact conditional log-ratio against the gradient-guided arm that must use the zero gradient, with the prediction that the former recovers the token and the latter cannot move. \emph{(iii)} The closing figure below.}}
-\medskip
+A direct experiment turns this argument into a measurement. The masked position is placed at each of three points that differ only in how many scored terms of the log-likelihood its embedding can reach: the final token, which feeds no realized prediction; the second-to-last token, which feeds exactly one; and a middle token, which feeds many. Only that one position is corrupted, the surrounding context is left clean, and the same corrupted sequence is handed to every arm, so the sole variable is the amount of downstream context the input-embedding gradient can act on. The recovery arms are the discrete Langevin sampler with the true gradient (policy) and with a random direction of equal norm; three energy-only methods that never touch the gradient (argmax and top-$k$ rescoring of the left-context conditional, and an independence Metropolis sampler that proposes from that conditional and accepts by the exact sequence-log-likelihood ratio); and a recorder of the raw language-model gradient norm the sampler consumes at each step.
+
+Table~\ref{tab:lasttoken} reports the outcome. At the final position the language-model gradient norm the sampler consumes is $0.0000$ in both mean and maximum over roughly fifteen thousand gradient evaluations: not a small number but an exact zero, the theorem realized inside the live sampler. % SOURCE: rev_last_token_gpt2sft.json by_condition.final.dls_policy_mean_lm_grad_norm=0.0, dls_policy_max_lm_grad_norm=0.0
+With that gradient the discrete sampler recovers the target token in $0.0\%$ of two hundred sequences whether it uses the true direction or a random one, and the paired policy-minus-random difference straddles zero on every metric (rank difference $-17.3$, $95\%$ CI $[-513,+499]$), so the two are statistically indistinguishable, here not merely by measurement but by proof, since the gradient is identically zero. % SOURCE: rev_last_token_gpt2sft.json by_condition.final policy_minus_random_paired.rank
+The energy at that same position, by contrast, is fully usable: the independence sampler that proposes from the conditional and accepts by the exact sequence-log-likelihood ratio accepts $100.00\%$ of its moves in both mean and minimum, which is the certificate promised by the derivation, because target proportional to proposal forces an acceptance probability of one, and it confirms that the implemented energy carries no term beyond the sequence log-likelihood. % SOURCE: rev_last_token_gpt2sft.json by_condition.final independence_mh_accept_pct_mean=100.0, _min=100.0
+The energy-only methods recover the token between $34.5\%$ and $40.0\%$ of the time where the gradient arms recover none.
+
+The second-to-last position answers the one genuinely open empirical question the design poses. With a single downstream scored term the gradient is no longer zero, its mean norm is $12.945$, yet it is still useless: the policy arm remains at $0.0\%$ recovery and indistinguishable from the random arm, while the energy-only methods recover roughly half the tokens. % SOURCE: rev_last_token_gpt2sft.json by_condition.second_to_last (grad norm mean 12.945; dls exact 0.0; cond_topk 55.0)
+The uselessness of the gradient is therefore not confined to the zero-gradient edge case; it persists the instant the gradient becomes nonzero. Across all three positions the discrete Langevin arms never once recover the target in six hundred trials, while the exact-energy methods recover between eighteen and fifty-five percent, which is the sharpest form of the diagnosis: the forward pass that evaluates the energy does all of the work, and the input-embedding gradient of that same energy does none.
+
+\begin{table}[h]
+    \centering
+    \small
+    \begin{tabular}{lccc}
+        \toprule
+        & \multicolumn{3}{c}{Exact recovery (\%), by downstream scored terms} \\
+        \cmidrule(lr){2-4}
+        Arm & Final (0) & Second-to-last (1) & Middle (many) \\
+        \midrule
+        DLS, true gradient (policy) & 0.0 & 0.0 & 0.0 \\
+        DLS, random direction & 0.0 & 0.0 & 0.0 \\
+        Conditional argmax (energy only) & 40.0 & 50.0 & 18.0 \\
+        Top-$k$ rescore (energy only) & 40.0 & 55.0 & 39.0 \\
+        Independence MH (energy only) & 34.5 & 49.5 & 31.5 \\
+        \midrule
+        DLS-policy LM gradient norm (mean) & 0.000 & 12.945 & 23.976 \\
+        Independence-MH acceptance (\%) & 100.0 & 63.4 & 30.3 \\
+        \bottomrule
+    \end{tabular}
+    % SOURCE: rev_last_token_gpt2sft.json by_condition.{final,second_to_last,middle};
+    % exact_match_pct per arm; dls_policy_mean_lm_grad_norm; independence_mh_accept_pct_mean.
+    \caption{The last-token experiment, $n=200$ sequences per condition. The three columns differ only in the number of downstream scored terms the masked token's input embedding can influence. The language-model gradient norm the discrete sampler consumes rises from an exact zero at the final position to a large value in the interior, yet the gradient-guided arms recover the target token in $0.0\%$ of cases at every position, indistinguishable from a random direction, while the energy-only methods, which never differentiate the energy, recover between $18\%$ and $55\%$. The independence sampler's $100\%$ acceptance at the final position certifies that the implemented energy is exactly the sequence log-likelihood.}
+    \label{tab:lasttoken}
+\end{table}
+
+Figure~\ref{fig:lasttoken} draws the three quantities together against the amount of downstream context. As the masked position moves from the end of the sequence into the interior, the gradient norm the sampler consumes climbs from zero and the energy-only sampler's acceptance falls from one hundred percent, because the energy begins to weigh downstream terms the left-context proposal ignores, yet the usable information in the gradient, read as the policy-minus-random gap, stays pinned at zero across the whole range. The reader sees at a glance the separation the chapter has argued for: the energy carries more structure as context grows and the gradient carries none of it at any context length.
 
 \begin{figure}[h]
     \centering
-    \framebox{\parbox[c][4cm][c]{0.8\textwidth}{\centering \textbf{[PLOT PLACEHOLDER, PENDING PHASE 2]}\\[4pt] Gradient information against downstream context length: the usable directional information in the input-embedding gradient as a function of how many tokens follow the masked position, expected to fall to zero as the number of following tokens goes to zero.}}
-    % REGENERATION (Figure, pending Phase 2): from the last-token experiment, for each
-    % masked position compute (a) the correlation between the gradient surrogate and the
-    % true energy change and (b) the number of downstream tokens; plot (a) against (b).
-    % Expectation: monotone decay to zero as downstream length -> 0 (the final position).
-    \caption{[Placeholder, pending Phase 2] Usable gradient information as a function of downstream context length. The thesis predicts a monotone decay to exactly zero at the final position, where no downstream token remains for the input-embedding gradient to influence, even though the exact energy difference there is maximally informative.}
+    \includegraphics[width=0.85\textwidth]{figures/fig_lasttoken.png}
+    % SOURCE: results_revision/last_token_figure.png (data last_token_figure.csv):
+    % panel A dls_policy_grad_norm_mean {0.000, 12.945, 23.976}; panel B
+    % indep_mh_accept_pct {100.0, 63.35, 30.27}; shaded band policy_minus_random rank gap
+    % {-17.3, -85.3, +1349} all CIs crossing zero, against downstream context length.
+    \caption{Gradient information against downstream context length in the last-token experiment. Left axis: the mean language-model gradient norm the discrete sampler consumes, exactly zero at the final position (annotated) and rising in the interior. Right axis: the independence sampler's acceptance rate, one hundred percent at the final position and falling as downstream terms enter the energy. The policy-minus-random recovery gap, with its ninety-five percent interval, crosses zero at every context length, so the gradient never separates from a random direction even as its norm grows.}
     \label{fig:lasttoken}
 \end{figure}
+
+\input{chapters/05a_diffusion_control}
