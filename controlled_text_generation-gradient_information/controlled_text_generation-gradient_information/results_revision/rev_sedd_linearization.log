@@ -1,0 +1,52 @@
+/mount/studenten-temp1/users/singhsk/thesis/thesis/gfn-lm-tuning/gfn/lib64/python3.11/site-packages/huggingface_hub/file_download.py:949: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+  warnings.warn(
+/mount/studenten-temp1/users/singhsk/thesis/thesis/gfn-lm-tuning/gfn/lib64/python3.11/site-packages/huggingface_hub/file_download.py:949: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+  warnings.warn(
+/mount/studenten-temp1/users/singhsk/thesis/thesis/Score-Entropy-Discrete-Diffusion/model/transformer.py:286: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with torch.cuda.amp.autocast(dtype=torch.bfloat16):
+/mount/studenten-temp1/users/singhsk/thesis/thesis/Score-Entropy-Discrete-Diffusion/model/transformer.py:45: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with torch.cuda.amp.autocast(enabled=False):
+/mount/studenten-temp1/users/singhsk/thesis/thesis/Score-Entropy-Discrete-Diffusion/model/transformer.py:176: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with torch.cuda.amp.autocast(enabled=False):
+[sedd_lin] 10/200 seqs, 20000 rows, 0.1m, eta 1.9m
+[sedd_lin] 20/200 seqs, 40000 rows, 0.2m, eta 1.7m
+[sedd_lin] 30/200 seqs, 60000 rows, 0.3m, eta 1.6m
+[sedd_lin] 40/200 seqs, 80000 rows, 0.4m, eta 1.5m
+[sedd_lin] 50/200 seqs, 100000 rows, 0.5m, eta 1.4m
+[sedd_lin] 60/200 seqs, 120000 rows, 0.5m, eta 1.3m
+[sedd_lin] 70/200 seqs, 140000 rows, 0.6m, eta 1.2m
+[sedd_lin] 80/200 seqs, 160000 rows, 0.7m, eta 1.1m
+[sedd_lin] 90/200 seqs, 180000 rows, 0.8m, eta 1.0m
+[sedd_lin] 100/200 seqs, 200000 rows, 0.9m, eta 0.9m
+[sedd_lin] 110/200 seqs, 220000 rows, 1.0m, eta 0.8m
+[sedd_lin] 120/200 seqs, 240000 rows, 1.1m, eta 0.7m
+[sedd_lin] 130/200 seqs, 260000 rows, 1.2m, eta 0.6m
+[sedd_lin] 140/200 seqs, 280000 rows, 1.3m, eta 0.5m
+[sedd_lin] 150/200 seqs, 300000 rows, 1.3m, eta 0.4m
+[sedd_lin] 160/200 seqs, 320000 rows, 1.4m, eta 0.4m
+[sedd_lin] 170/200 seqs, 340000 rows, 1.5m, eta 0.3m
+[sedd_lin] 180/200 seqs, 360000 rows, 1.6m, eta 0.2m
+[sedd_lin] 190/200 seqs, 380000 rows, 1.7m, eta 0.1m
+[sedd_lin] 200/200 seqs, 400000 rows, 1.8m, eta 0.0m
+[done] results_revision/rev_sedd_linearization.json
+{
+  "experiment": "sedd_linearization",
+  "dry_run": false,
+  "sigma": 0.1,
+  "n_probes": 8,
+  "n_sequences": 200,
+  "n_pairs": 400000,
+  "spearman_surrogate_vs_true_ALL": 0.1840427734618789,
+  "pearson_surrogate_vs_true_ALL": 0.18282421067419627,
+  "per_seq_spearman_mean": 0.17155902039435642,
+  "per_seq_spearman_median": 0.1923874713086163,
+  "note": "Compare spearman_surrogate_vs_true_ALL and per_seq_spearman_mean against the AR linearization (~ -0.01 to 0.057). Substantially positive here confirms the training-objective diagnosis.",
+  "spearman_near": 0.30583574339637637,
+  "mean_dist_near": 3.406943906645775,
+  "spearman_mid": 0.11620982038647422,
+  "mean_dist_mid": 4.302288758478165,
+  "spearman_random": 0.13508357356165615,
+  "mean_dist_random": 4.545402384646535,
+  "run_name": "rev_sedd_linearization",
+  "wall_time_sec": 118.96703767776489
+}

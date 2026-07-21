@@ -1,0 +1,92 @@
+[last_token] model loaded in 1.8s
+[last_token] 20/200 seqs, 15.4m
+[last_token] 40/200 seqs, 30.9m
+[last_token] 60/200 seqs, 46.0m
+[last_token] 80/200 seqs, 61.2m
+[last_token] 100/200 seqs, 76.5m
+[last_token] 120/200 seqs, 91.9m
+[last_token] 140/200 seqs, 107.6m
+[last_token] 160/200 seqs, 122.8m
+[last_token] 180/200 seqs, 137.9m
+[last_token] 200/200 seqs, 153.1m
+[done] results_revision/rev_last_token_gpt2sft.json (153.2 min)
+{
+  "experiment": "last_token",
+  "n_sequences": 200,
+  "steps": 50,
+  "by_condition": {
+    "final": {
+      "downstream_terms": 0,
+      "arms": {
+        "dls_policy": {
+          "n": 200,
+          "exact_match_pct": 0.0,
+          "top5_pct": 1.0,
+          "mean_nll": 14.852450054883956,
+          "nll_ci95": [
+            14.262290575772523,
+            15.447941775381564
+          ],
+          "mean_rank": 1538.915,
+          "rank_ci95": [
+            1127.02,
+            2038.150875
+          ],
+          "median_rank": 590.5
+        },
+        "dls_random": {
+          "n": 200,
+          "exact_match_pct": 0.0,
+          "top5_pct": 0.0,
+          "mean_nll": 15.231796090602876,
+          "nll_ci95": [
+            14.685894996643068,
+            15.777217579185962
+          ],
+          "mean_rank": 1556.21,
+          "rank_ci95": [
+            1230.787625,
+            1930.3781249999997
+          ],
+          "median_rank": 656.5
+        },
+        "cond_argmax": {
+          "n": 200,
+          "exact_match_pct": 40.0,
+          "top5_pct": 100.0,
+          "mean_nll": 0.34523332050112004,
+          "nll_ci95": [
+            0.27826654167883813,
+            0.4175126837178049
+          ],
+          "mean_rank": 0.0,
+          "rank_ci95": [
+            0.0,
+            0.0
+          ],
+          "median_rank": 0.0
+        },
+        "cond_sample": {
+          "n": 200,
+          "exact_match_pct": 38.5,
+          "top5_pct": 93.5,
+          "mean_nll": 0.9060567102725144,
+          "nll_ci95": [
+            0.6657085999588035,
+            1.170821452708347
+          ],
+          "mean_rank": 11.17,
+          "rank_ci95": [
+            1.364875,
+            28.150124999999996
+          ],
+          "median_rank": 0.0
+        },
+        "cond_topk_rescore": {
+          "n": 200,
+          "exact_match_pct": 40.0,
+          "top5_pct": 100.0,
+          "mean_nll": 0.34523332050112004,
+          "nll_ci95": [
+            0.27826654167883813,
+            0.

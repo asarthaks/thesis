@@ -129,20 +129,28 @@ If `Doc/` is named differently, locate the `.tex` files first (grep for
 
 ## Status
 
-Done: Phase A. `analyze_stats.py` ran on all three grid folders (rev_stats_gpt2 =
-18 comparisons, rev_stats_llama = 18, rev_stats_gfn = 54), and
-`analyze_constrained.py` ran on the two constrained folders. Outputs are in
-`results_revision`. The stats confirm the null: nearly every policy-vs-random and
-policy-vs-gradnorm comparison is not-equivalent only because the confidence
-interval is wider than the equivalence margin, with tiny mean diffs, i.e. no
-detectable directional effect. Report these as bounded effects with the
-min-detectable-diff, not as "no effect".
+The 19-concern revision's code work is COMPLETE. See the final report at the
+bottom of REVISION_LOG.md: concerns 1, 2, 3 (minus human eval), 4, 5, 6, 7, 9,
+10, 11, 12, 15, 16, 17 all have their numbers in results_revision/ (flat index:
+results_revision/numbers.json); SEDD (8) is dry-run validated, real run deferred;
+13, 14, 18, 19 and the WRITE halves of the others are LaTeX work. Do NOT re-run
+any of it.
 
-Pending: fix issue 1; audit existing diagnostics and run only the gaps; then
-`reconcile_numbers.py` and `analyze_likelihood_trap.py`; then the light phase
-(KL baselines, model divergence, judge generate, per-method oracle); then the
-experiments phase (judge score, SEDD after repo verification, continuation, seeds).
-Concern-to-job mapping and exact commands are in `REVISION_README.md`.
+Current phase files:
+- PROMPT_PHASE2_EXPERIMENTS.md: the last-token experiment (zero-gradient theorem,
+  energy-only working sampler, position-condition ablation), the mathematical
+  audit, and the optional SEDD real run (needs explicit user go-ahead).
+- THESIS_WRITING_GUIDE.md: the authoritative list of every LaTeX edit, with the
+  verified numbers inline.
+- PROMPT_PHASE3_THESIS.md: instructions for applying the guide to Doc/.
+
+Key mathematical fact for the current phase: under causal attention with
+inputs_embeds, the gradient of the sequence log-likelihood with respect to the
+FINAL token's input embedding is exactly zero (its embedding only feeds logits
+that predict a nonexistent next token), while the energy difference between
+candidate final tokens is exactly the model's conditional log-ratio. So at the
+last position the energy is maximally usable and the gradient provably useless,
+which is the cleanest statement of the thesis's central claim.
 
 ## Working rules
 

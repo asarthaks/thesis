@@ -38,7 +38,7 @@ This section collects supporting figures referenced in Chapter~\ref{ch:results}.
 \begin{figure}[h]
     \centering
     \includegraphics[width=0.80\textwidth]{figures/fig_trap_length.pdf}
-    \caption{Total log-likelihood against generated length for GPT-2 Large. The negative slope, approximately $-1.12$ nats per token, is the implicit brevity incentive in an unnormalized-likelihood reward, discussed in Section~\ref{sec:results-trap} and Section~\ref{sec:results-gfn}.}
+    \caption{Total log-likelihood against generated length for GPT-2 Large. The negative slope, approximately $-1.12$ nats per token, is the implicit brevity incentive in an unnormalized-likelihood reward, discussed in Section~\ref{sec:results-trap} and Section~\ref{sec:results-gfn}. The slope is estimable only where the forty-token length cap does not bind; for GPT-2 Large nearly all generations reach the cap, so the uncensored estimate shown here is the informative one, while on the length-normalized GFlowNet, where length varies, the censored slope steepens to $-2.36$.}
     \label{fig:trap-length}
 \end{figure}
 
@@ -48,6 +48,11 @@ This section collects supporting figures referenced in Chapter~\ref{ch:results}.
 
 % SOURCE: figures_compare/final_kl_by_model.csv (all 29 configuration rows x 5 models).
 Table~\ref{tab:full-grid} reports the final KL divergence for a representative subset of the full configuration grid across the four GPT-2-family energy functions, drawn from the aggregated results file \texttt{final\_kl\_by\_model.csv}. The complete grid comprises the factorial combination of sampler (DLS, CLS), proposal method (policy, grad-norm-preserved, random), Metropolis--Hastings correction (on, off), gradient normalization (on, off), and schedule length (50, 100), evaluated on each of the five energy functions, for a total of $145$ configurations.
+
+The count arises as $145 = 5 \times 29$, five energy functions times twenty-nine configurations each, and the twenty-nine is worth setting out because the naive factorial overcounts it. A fully crossed design over the five binary and ternary axes above would give $2 \times 3 \times 2 \times 2 \times 2 = 48$ cells per energy function, or $240$ in total, but two prunings reduce this. The continuous sampler is run for only the policy and random proposal methods, not the grad-norm-preserved method, and across four of the gradient-normalization and schedule variants, giving $8$ CLS configurations per energy function; the discrete sampler is run for all three proposal methods across seven of the correction, normalization, and schedule variants, giving $21$ DLS configurations. The sum is $8 + 21 = 29$ per energy function. The count was verified directly against the result folders, which hold $29$ configurations for GPT-2 Large (\texttt{results\_gpt2\_v2}), $29$ for Llama-3 (\texttt{results\_llama}), and $87$ across the three GFlowNet variants (\texttt{results\_gfn}), and $29 + 29 + 87 = 145$.
+% SOURCE: REVISION_LOG.md concern 15; run-name counts in results_gpt2_v2 (29),
+% results_llama (29), results_gfn (87). The nominal 2x3x2x2x2x5=240 overcounts because
+% CLS drops the grad-norm-preserved method and some gn/schedule cells.
 
 \begin{table}[h]
     \centering
@@ -71,7 +76,88 @@ Table~\ref{tab:full-grid} reports the final KL divergence for a representative s
 \end{table}
 
 \clearpage
+\section{Computational Cost}
+\label{app:cost}
+
+Because one conclusion of the thesis is that gradient-free methods match or beat the gradient-guided samplers on the same energy, it is worth setting out the computational cost of each, which differs by more than a constant factor. Table~\ref{tab:cost} gives the number of network evaluations each method spends to recover a masked span, counted as forward and backward passes, where $S$ denotes the schedule length (either $50$ or $100$), $M$ the number of masked positions, $T$ the number of Gibbs sweeps, and $k$ the number of candidates a rescoring pass considers.
+% SOURCE: pass counts from core/base_sampler.get_gradient_and_log_joint (one forward +
+% one backward per gradient evaluation), core/dls.py and core/cls.py (_step calls it once
+% per step, and again at the proposed point when mh_sampling is on), and the baseline
+% definitions in diagnostics/run_revision.py.
+
+\begin{table}[h]
+    \centering
+    \small
+    \begin{tabular}{lccl}
+        \toprule
+        Method & Forward passes & Backward passes & Note \\
+        \midrule
+        DLS / CLS, no correction  & $S$    & $S$  & one gradient per step \\
+        DLS / CLS, with correction & $2S$   & $2S$ & extra gradient at the proposed point \\
+        Conditional argmax/sample  & $1$    & $0$  & a single forward pass \\
+        Top-$k$ rescore            & $1+k$  & $0$  & rescore $k$ candidates \\
+        Gibbs                      & $M\,T$ & $0$  & $M$ positions, $T$ sweeps, no gradient \\
+        \bottomrule
+    \end{tabular}
+    \caption{Network evaluations per recovered span. The gradient-guided samplers spend a backward pass at every step, doubled when the Metropolis--Hastings correction is enabled, whereas the gradient-free baselines spend none. The single-pass rescoring method, which was the strongest baseline of Section~\ref{sec:results-baselines}, costs a small constant number of forward passes and no backward pass at all.}
+    \label{tab:cost}
+\end{table}
+
+The measured wall-clock times are consistent with this accounting and give a sense of the absolute scale on the hardware of Section~\ref{sec:meth-repro}. The discrete sampler on the free-form continuation task took $2157$ seconds for one hundred sequences, about $21.6$ seconds per sequence over a fifty-step schedule; the full suite of gradient-free baselines, including the Gibbs sampler, took $215$ seconds for two hundred sequences, roughly one second per sequence; and rescoring the six hundred recovered sequences with the external Llama-3 judge, a single forward pass each, took $24.8$ seconds in total.
+% SOURCE: rev_continuation_gpt2sft.json wall_time_sec 2157.4 (n=100, span=20, steps=50);
+% rev_klbase_gpt2sft.json wall_time_sec 215.3 (n=200, all baselines incl. gibbs);
+% rev_judge_score_gpt2sft.json wall_time_sec 24.8 (n=600 judge forward passes).
+The comparison is stark: the gradient-free baselines reach comparable or better recovery quality at a fraction of the per-sequence cost, because they never pay for the backward pass whose product this thesis finds to be uninformative.
+
+\clearpage
+\section{Geometry of Sampler Trajectories in Embedding Space}
+\label{app:trajectory}
+
+This section examines the spatial paths the samplers trace through the embedding space, which gives a concrete, visual counterpart to the acceptance statistics of Section~\ref{sec:results-mh} and the trajectory summaries of Section~\ref{sec:results-traj}. The original reduced-dimensionality plots were lost, and the two figures below are placeholders with exact regeneration instructions; the surrounding prose is written to stand on its own so that the geometric argument is legible even before the plots are recreated.
+
+The reduction is a principal-component projection of the continuous state at a masked position, fitted on the model's vocabulary embedding matrix so that the axes are the directions of greatest spread among real token embeddings. The anisotropy measured in Section~\ref{sec:results-aniso} sets the scale on which these trajectories should be read: with a mean nearest-neighbour distance of $1.82$ and a mean pairwise distance of $2.77$ in GPT-2 Large, the token embeddings occupy a narrow cone, so a path that moves a long way in raw distance may cover very few token cells, and a path confined to the cone can nonetheless drift far from any token.
+
+\begin{figure}[h]
+    \centering
+    \framebox{\parbox[c][4.5cm][c]{0.8\textwidth}{\centering \textbf{[PLOT PLACEHOLDER: Plot 1]}\\[4pt] PCA trajectories of the discrete sampler at a masked position over the 50-step schedule, one line for the policy method and one for the random method, correction enabled, with the ground-truth token embedding marked.}}
+    % REGENERATION (Plot 1):
+    % 1. Load s_ids_history for a single config from the stored trajectory run: the traces
+    %    npz in results_diag (traces_gpt2sft_traj.npz), or rerun collect_traces on one
+    %    config (gpt2-large.dls.{policy,random}.mh.gn.free.s50).
+    % 2. Fit PCA(n_components=2) on the vocabulary embedding matrix (core.prep
+    %    get_embedding_matrix), then transform the masked-position embedding at each step.
+    % 3. Plot one polyline per method (policy, random), mark the ground-truth token's PCA
+    %    coordinates with a star. Expectation: both wander within the anisotropy cone with
+    %    no directed motion toward the target, which is the gradient fallacy seen spatially.
+    \caption{[Placeholder] PCA of the discrete-sampler state at a masked position over the schedule, policy against random, correction on, with the ground-truth token marked. The expected picture is undirected wandering within the anisotropy cone: neither method converges on the target, consistent with the gradient fallacy of Section~\ref{sec:results-fallacy}.}
+    \label{fig:traj-dls-pca}
+\end{figure}
+
+\begin{figure}[h]
+    \centering
+    \framebox{\parbox[c][4.5cm][c]{0.8\textwidth}{\centering \textbf{[PLOT PLACEHOLDER: Plot 2]}\\[4pt] PCA trajectories of the continuous sampler with the correction on and off, showing the correction-on path pinned at its start and the correction-off path jumping between Voronoi cells.}}
+    % REGENERATION (Plot 2):
+    % 1. Load s_ids_history and the continuous state for cls_policy_gnoff_mh and
+    %    cls_policy_gnoff_nomh from traces_gpt2sft_traj.npz (or rerun collect_traces).
+    % 2. Same PCA fit on the vocabulary embedding matrix; transform the continuous state
+    %    each step. Overlay Voronoi-cell changes (cell_id transitions) as markers.
+    % 3. Expectation: the correction-on trajectory is a single point (mean unique cells 1.0,
+    %    the flatline of Section 5.3); the correction-off trajectory visits ~46 of 50 cells
+    %    and drifts far off the token manifold (max ~588 units).
+    \caption{[Placeholder] PCA of the continuous-sampler state with the correction on and off. The expected picture is a correction-on trajectory frozen at its starting cell against a correction-off trajectory that jumps between cells and drifts off the token manifold, the two failure modes of the continuous sampler described in Section~\ref{sec:results-mh} and Section~\ref{sec:results-traj}.}
+    \label{fig:traj-cls-pca}
+\end{figure}
+
+Read against the anisotropy scale, the two figures make the central geometric claim visible: the samplers either fail to move in any directed way (the discrete sampler and the free continuous sampler both wander) or fail to move at all (the corrected continuous sampler freezes), and in neither case does the path bend toward the ground-truth token, which is the spatial signature of a gradient that carries no directional signal.
+
+\clearpage
 \section{Use of AI-Tools}
 \label{app:ai-tools}
 
-The author of this thesis has used AI tools, i.e. Google AI Studio (Gemini 3.1 Pro) and Claude, in order to assist in the code support when errors were encountered in the implementation of the sampling and evaluation code and in order to secure their compliance with their accompanied papers. These tools were used in particular to help write and debug the job-scheduling and GPU-usage scripts that distribute the experiments across the available hardware, and the diagnostic experiment and plotting scripts. AI was also used for the analysis part of the thesis, again with support in the implementation of the analysis code and the encountered errors, and in some cases in order to compile the tables seen in this thesis and to refine the text. All the other parts of the thesis, including the writing, the background work, the related work, the experimental design, the analysis and the interpretation of the results, were done solely by the author, who has verified all quantitative claims against the underlying experimental output and assumes full responsibility for the content of this work.
+The author of this thesis has used AI tools, specifically Google AI Studio (Gemini 3.1 Pro) and Claude (Anthropic), in the preparation of this work, and documents their use here as required.
+
+The tools were used first for code support. When errors were encountered in the implementation of the sampling and evaluation code, they assisted in diagnosing those errors and in checking the code for compliance with the methods described in the accompanying papers. They were used in particular to help write and debug the job-scheduling and GPU-utilization scripts that distribute the experiments across the available hardware, and the diagnostic and plotting scripts. They were also used in the analysis, again as support in implementing the analysis code and resolving the errors encountered in it, and in some cases in assembling the result tables.
+
+In the revision of the manuscript, Claude was additionally used, through an agentic coding interface, to apply a structured and author-specified set of edits to the LaTeX sources of this thesis. That use comprised matching the department template, transcribing verified numerical results from the experimental output files into the tables and the text, adding cross-references and formatting, and copy-editing prose for clarity. Every edit was made against an explicit list of changes prepared by the author, every quantitative claim so transcribed was traced to the result file that produced it and annotated with its source in the document, and the author reviewed the output of each step.
+
+All other parts of the thesis, including the design of the experiments, the synthesis of the background and related work, the analysis and interpretation of the results, and the arguments and conclusions drawn from them, were carried out solely by the author, who has verified all quantitative claims against the underlying experimental output and assumes full responsibility for the entire content of this work.

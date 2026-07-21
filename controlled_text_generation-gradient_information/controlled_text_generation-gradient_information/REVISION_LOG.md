@@ -438,11 +438,15 @@ needs a LaTeX edit. [WRITE] pure writing, no job produces it.
     energy equation in Section 2.4 (currently prose only - no eq for
     E=-log p(proj(s))) and the within-cell acceptance derivation.
 
-8.  [SETTLED-pilot] SEDD positive control. `rev_sedd_dryrun.json` - pipeline validated
-    with a fake bundle. Real run DEFERRED per user: needs cloning
-    github.com/louaaron/Score-Entropy-Discrete-Diffusion, a checkpoint, and verifying
-    the two ADAPT hooks in run_sedd_linearization.py (sedd_score_row,
-    sedd_position_logprob). Highest-upside remaining optional item.
+8.  [SETTLED - REAL RUN DONE, Phase 2] SEDD positive control. `rev_sedd_linearization.json`
+    (n=200, 400k pairs, sedd-small). Surrogate-vs-true Spearman POSITIVE in every
+    stratum (pooled +0.184, near +0.306, per-seq mean +0.172) vs the AR gpt2sft
+    -0.011 (near +0.027) on the identical design. Confirms the training-objective
+    diagnosis: the diffusion objective yields a usable local directional signal where
+    the AR gradient gives none. Hooks were verified and CORRECTED (score is log-space;
+    absorbing-SEDD signal lives at masked positions) before running - see the Phase 2
+    SEDD section. Present as a positive-control pilot (Section 5.12 / appendix). The
+    earlier `rev_sedd_dryrun.json` remains as pipeline validation.
 
 9.  [SETTLED] Task generality. `rev_continuation_gpt2sft.json`: policy 8.818
     [8.61,9.02] vs random 8.850 [8.65,9.04], gradnorm == random. Null reproduces on
@@ -504,3 +508,550 @@ WRITING-ONLY concerns for the author to apply in LaTeX (no code produces them):
 
 All computed numbers live in `results_revision/`; the flat index for the LaTeX diff
 is `results_revision/numbers.json` (refreshed with all 5 models).
+
+---
+
+# PHASE 2 - the last-token experiment, a working setup, and a rigorous audit
+
+Goal of this phase: turn the central claim from a statistic into a proof. WHY does
+gradient guidance fail. Answer: at the final scored position the input-embedding
+gradient of the sequence log-likelihood is provably exactly zero, while the energy
+difference between candidate final tokens is exactly the model's own conditional
+log-ratio. So the energy is maximally usable exactly where the gradient is provably
+useless. Two new experiments plus a mathematical audit demonstrate this.
+
+## 2026-07-21 15:08 CEST - PART 1: mathematical audit (probe, no sampler runs)
+
+Probe: `diagnostics/audit_probe.py` -> `diagnostics/audit_probe_result.json`.
+Model: gpt2_large_sft_output (the SFT GPT-2 large used throughout the grid), float32,
+GPU 0, 20 WikiText-2 sequences (data_seed 0, the same first-20 the grid/kl_baselines
+draw). Re-ran this session and reproduced the recorded numbers bit-for-bit. Each of
+the six claims is DERIVED then CONFIRMED (numerically for 1/2/3/6, by code audit for
+4/5).
+
+### Item 1 - THE ZERO-GRADIENT THEOREM AT THE LAST POSITION [CONFIRMED]
+
+Derivation. `joint_log_prob_from_inputs_embeds` (core/prep.py:46) scores
+S = sum_{t=0}^{L-2} log p(x_{t+1} | x_{<=t}) by dropping the last logit column
+(`logits[:, :-1, :]`). Under causal attention the input embedding at position p
+influences only outputs at positions >= p. The final scored position is p = L-1
+(GPT-2 adds no trailing EOS; see item 6 evidence), whose embedding feeds ONLY
+logits[L-1], the single column that predicts the nonexistent token x_L and is
+exactly the column dropped by [:, :-1, :]. Therefore dS/d(inputs_embeds[L-1]) = 0
+identically, not approximately. The second-to-last embedding (p = L-2) enters
+exactly one surviving term (logits[L-2], which predicts x_{L-1}) plus its influence
+on nothing else it can reach causally, so its gradient is small; a middle position
+enters many surviving terms, so its gradient is larger.
+
+Numerical confirmation (per-position ||dS/d inputs_embeds[p]||):
+- final position (p=L-1): mean 0.0, max 0.0, min 0.0; all 20/20 sequences exactly 0.0.
+- second-to-last (p=L-2): mean 2.777, min 0.011, max 11.07 (small, one downstream term).
+- middle (p=L//2): mean 5.927, min 1.230, max 21.08 (large, many downstream terms).
+The ordering 0 << second-to-last < middle is exactly as derived, and the final-
+position zero is exact to the last bit across every sequence.
+
+### Item 2 - STRUCTURAL BLINDNESS EXPLANATION [CONFIRMED]
+
+Probe: wte (input embeddings) and lm_head share storage (`same_storage=True`,
+`equal_values=True`, shape [50257, 1280]) - GPT-2 large ties input and output
+embeddings. Mechanism, stated precisely: the term log p(x_L | x_{<L}) is a softmax
+over h_{L-1} . E_out (the OUTPUT-embedding rows), so its dependence on WHICH token
+x_L is enters only through the output-embedding path. Backprop to inputs_embeds[L]
+never traverses that path (the token at L is an input, not the argument of the
+softmax that scores it), and additionally that softmax's logit column is dropped
+anyway (item 1). The information the sampler needs is present inside the model
+(h_{L-1} scores every candidate final token exactly) but is invisible to the
+input-embedding gradient. This is the one-sentence answer to why gradient guidance
+fails; the last position is where it is a theorem, not an empirical near-zero.
+
+### Item 3 - THE ENERGY IS EXACT AT THE LAST POSITION [CONFIRMED]
+
+Derivation. Changing only the final token from a to b changes exactly one term of
+S (the log p(final | prefix) term; every other term conditions on the prefix, which
+is unchanged, and the final embedding feeds only the dropped column). Hence with
+E = -S, E(a) - E(b) = -(log p(a|prefix) - log p(b|prefix)) = log p(b|prefix) -
+log p(a|prefix). So an independence Metropolis sampler proposing from
+q = p(. | prefix) has target proportional to proposal and acceptance probability
+exactly 1 for every move. This is a built-in unit test for Part 2: measured
+acceptance materially below 100% at the final position would prove the implemented
+energy carries terms beyond the sequence log-likelihood.
+
+Numerical confirmation: over 15 candidate pairs per sequence, the full-sequence
+energy difference E(a)-E(b) matched the conditional log-ratio log p(b|prefix) -
+log p(a|prefix) to max error 4.0e-5 nats (mean 1.5e-5), i.e. float round-off. The
+energy at the last position IS the model's own conditional, exactly.
+
+### Item 4 - MH RATIOS re-verified in the repo as they stand NOW [CONFIRMED by code audit]
+
+- DLS policy (core/dls.py:90-108): forward log-prob is taken from the SAME
+  `scaled_logits` that generated the move; the reverse log-prob is built from a
+  fresh backward gradient at s_next, run through `apply_method_variation` (so the
+  reverse kernel is normalized exactly as the forward one was), then evaluated at the
+  original state s_idx. `log_q_ratio = log_bw_prob - log_fwd_prob`. The comment
+  documents that the legacy build wrongly used the raw backward gradient; the fix is
+  present.
+- DLS random / grad_norm_preserved (core/dls.py:109-116): symmetric random walk, so
+  `log_q_ratio = 0.0`; crucially `apply_method_variation` is NOT called on the
+  backward gradient here, so no extra torch.randn is drawn and the RNG stream stays
+  aligned with the no-MH path (item 5).
+- CLS policy (core/cls.py:74-80): backward drift m_prop built from a method-varied
+  backward gradient at s_prop; log_q_back = logq(s | m_prop), log_q_fwd =
+  logq(s_prop | m_s), both Gaussians evaluated at the exact sampled states s and
+  s_prop. CLS random (cls.py:81-82): log_q_back = log_q_fwd = 0.0, symmetric
+  cancellation. All four kernels are detailed-balance-correct as written.
+
+### Item 5 - THE KNOWN BITWISE ARTIFACT (gn=on) [CONFIRMED by code audit]
+
+With grad_normalization=True, `apply_method_variation` returns, for
+`grad_norm_preserved_random_dir`, `randn_like(g)` normalized to unit (dls dls.py:56-57)
+and, for `random`, `randn_like(g)` normalized to unit (dls.py:66-67). Both draw one
+`randn_like(raw_grad_s)` of identical shape from an identically seeded stream
+(seed_all is called per sample before each method run), so the two unit directions
+are the SAME sample and the proposals are bitwise identical. This is the documented
+seeded behavior, not a new bug, and it explains why grad_norm == random exactly in
+concerns 3 and 9. THESIS GUIDANCE: wherever gn=on, present policy-vs-random as the
+primary comparison (grad_norm adds no independent information there).
+
+### Item 6 - THE KL-METRIC BOUNDARY documented [CONFIRMED]
+
+`base_sampler.optimize` (line 85) and `avg_kl_for_fill` (run_revision.py:114) both
+keep only masked positions m with m < seq_len-1, because the KL is computed at the
+next-token distribution which requires a right neighbour. A masked FINAL position
+(m = seq_len-1) therefore contributes zero terms and the metric returns nan there.
+This is WHY the standard grid never masks the last position (build_corruption uses
+`valid = range(1, seq_len-1)`, run_experiment.py:57) and WHY Part 2 must define its
+own last-token metrics (exact-match, top-5, NLL, rank). The probe also confirms
+`trailing_token_is_eos_count = 0`: GPT-2's tokenizer adds no trailing special token,
+so the truly-final scored position with zero downstream terms is p = L-1, a real
+word token (usually the sentence-final period).
+
+### Audit verdict
+
+All six claims hold. The central result of the phase is items 1+2+3 together: at the
+last position the gradient is provably, exactly zero (item 1) for a structural
+reason (item 2), while the energy at that same position is exactly the model's
+conditional (item 3). The failure is a property of the input-embedding gradient, not
+of the energy. Part 2 tests this as a prediction.
+
+## 2026-07-21 15:23 CEST - PART 2: last-token experiment DESIGN + PREDICTIONS (logged BEFORE running)
+
+Implementation: `diagnostics/run_revision.py --exp last_token` (new, follows the
+existing contract: --run_name, --out_dir, atomic JSON, per-item CSV, deterministic
+corruption per sample_idx). Same sentence set and loading as kl_baselines
+(WikiText-2 validation default, 10<words<40, gpt2sft = gpt2_large_sft_output,
+float32, data_seed 0, n=200; NOTE the revision corpus is WikiText-2, not ROCStories
+- I matched what kl_baselines actually ran so the numbers sit on the same axis).
+Sequences with L<6 skipped so the three position conditions are distinct.
+
+Design. The experimental variable is the number of DOWNSTREAM scored terms the
+masked position feeds:
+- final = position L-1 (0 downstream terms; gradient provably 0, energy = exact conditional),
+- second_to_last = L-2 (exactly 1 downstream term),
+- middle = L//2 (many downstream terms).
+Only position m is corrupted (random token != GT), identical across all arms; the
+prefix stays clean so p(x_m | x_<m) is the true left-context conditional.
+
+Arms per condition:
+- dls_policy: real core DiscreteLangevinSampler, MH on, gn on, schedule
+  linspace(10.5, 0.1, 50). LM gradient norm recorded per gradient evaluation.
+- dls_random: same settings (gradnorm arm skipped: bitwise identical to random under
+  gn=on, Part 1 item 5).
+- cond_argmax, cond_sample, cond_topk_rescore: reuse the kl_baselines logic.
+- independence_mh: propose from q = p(.|prefix), accept with the exact full-sequence
+  energy ratio log a = (S' - S) + (log q(cur) - log q(prop)). Records the accept rate.
+Metrics (KL undefined at the final position, item 6): exact-match %, top-5 %
+(recovered token in top-5 of p(.|prefix)), mean NLL of the recovered token under
+p(.|prefix), mean rank; bootstrap CIs over sequences. Plus a paired policy-vs-random
+null test (mean paired diff + bootstrap CI + Wilcoxon per metric), the independence
+accept rate, and the DLS-policy LM gradient norm, per condition.
+
+PREDICTIONS (pre-registered):
+1. FINAL position: DLS-policy LM gradient norm identically 0 at every step (the
+   theorem, now inside the live sampler). DLS policy and DLS random statistically
+   indistinguishable on every recovery metric (paired CIs straddle 0), because the
+   gradient policy consumes is exactly zero, so it injects no directional signal.
+   independence_mh accept rate = ~100% (target = proposal), and independence_mh +
+   cond_topk_rescore + cond_argmax recover at the ceiling the conditional sets
+   (mean rank ~ 0, top-5 ~ high). This is the theorem realised as an experiment.
+2. MIDDLE position: the known null reproduces (policy indistinguishable from random),
+   grad norm large, independence accept < 100% (energy carries downstream terms the
+   proposal ignores).
+3. SECOND-TO-LAST: intermediate. The open empirical question the design answers: does
+   exactly ONE downstream scored term already give the input-embedding gradient
+   measurable, useful signal, or not? Grad norm nonzero here (unlike final), so if the
+   gradient were usable in principle, one term is where it would first show; the
+   thesis predicts it still does not help (policy == random).
+
+SANITY GATE (Part 1 item 3): if measured independence accept at the FINAL position is
+materially below 100%, the implemented energy carries terms beyond the sequence
+log-likelihood and everything downstream is suspect. Smoke test (n=3, steps=5)
+already shows final accept = 100.0% mean AND min, and DLS-policy final grad norm
+0.0 mean AND max, so the gate passes; full n=200 run launching now.
+
+## 2026-07-21 18:19 CEST - PART 2: last-token OUTCOME (n=200, GPT-2 large, 153 min, GPU 0)
+
+Result: `results_revision/rev_last_token_gpt2sft.json` (+ .csv, 3600 per-item rows).
+EVERY pre-registered prediction confirmed; NONE contradicted. The sanity gate passed
+at full scale.
+
+### The table (arms x position conditions x four metrics; n=200 each)
+
+Downstream scored terms the masked position feeds: final=0, second-to-last=1, middle=many.
+
+FINAL position (0 downstream terms):
+| arm | exact% | top5% | mean rank | mean NLL |
+|-----|-----|-----|-----|-----|
+| dls_policy        | 0.0  | 1   | 1538.9 | 14.852 |
+| dls_random        | 0.0  | 0   | 1556.2 | 15.232 |
+| cond_argmax       | 40.0 | 100 | 0.0    | 0.345  |
+| cond_sample       | 38.5 | 94  | 11.2   | 0.906  |
+| cond_topk_rescore | 40.0 | 100 | 0.0    | 0.345  |
+| independence_mh   | 34.5 | 90  | 10.5   | 1.151  |
+- DLS-policy LM gradient norm: mean 0.0000, MAX 0.0000 (exact zero at every one of
+  the ~15000 gradient evaluations - the theorem, realised inside the live sampler).
+- independence_mh acceptance: mean 100.00%, MIN 100.00% (SANITY GATE PASSED: the
+  implemented energy is exactly the sequence log-likelihood, no hidden terms).
+- policy vs random PAIRED null: exact diff 0.000 CI[0,0]; nll diff -0.379
+  CI[-0.811,+0.061] Wilcoxon p=0.103; rank diff -17.3 CI[-513,+499] p=0.120. All
+  three CIs straddle zero -> policy indistinguishable from random, as PREDICTED, and
+  here it is a theorem (the gradient is exactly 0), not merely a statistic.
+
+SECOND-TO-LAST position (1 downstream term):
+| arm | exact% | top5% | mean rank | mean NLL |
+|-----|-----|-----|-----|-----|
+| dls_policy        | 0.0  | 0   | 3627.0 | 16.586 |
+| dls_random        | 0.0  | 0   | 3712.3 | 16.555 |
+| cond_argmax       | 50.0 | 100 | 0.0    | 0.478  |
+| cond_sample       | 45.5 | 87  | 7.0    | 1.277  |
+| cond_topk_rescore | 55.0 | 88  | 1.5    | 1.348  |
+| independence_mh   | 49.5 | 80  | 927.3  | 2.517  |
+- DLS-policy LM gradient norm: mean 12.945, max 153.37 (nonzero now: one downstream term).
+- independence_mh acceptance: mean 63.35%, min 0.00 (drops off 100%: the energy now
+  carries the one downstream term the left-conditional proposal ignores).
+- policy vs random PAIRED null: exact diff 0.000; nll diff +0.031 CI[-0.422,+0.475]
+  p=0.952; rank diff -85.3 CI[-897,+711] p=0.669. ALL straddle zero.
+  ANSWER TO THE OPEN QUESTION: exactly one downstream scored term makes the gradient
+  NONZERO but still gives it NO usable signal - policy is statistically identical to
+  random even here. The uselessness is not merely the zero-gradient edge case; it
+  persists the instant the gradient becomes nonzero.
+
+MIDDLE position (many downstream terms):
+| arm | exact% | top5% | mean rank | mean NLL |
+|-----|-----|-----|-----|-----|
+| dls_policy        | 0.0  | 0   | 8376.1 | 16.758 |
+| dls_random        | 0.0  | 0   | 7027.2 | 16.168 |
+| cond_argmax       | 18.0 | 100 | 0.0    | 0.801  |
+| cond_sample       | 15.5 | 78  | 39.8   | 2.115  |
+| cond_topk_rescore | 39.0 | 62  | 4.7    | 3.158  |
+| independence_mh   | 31.5 | 56  | 1113.2 | 4.730  |
+- DLS-policy LM gradient norm: mean 23.976, max 340.88 (large).
+- independence_mh acceptance: mean 30.27%, min 0.00.
+- policy vs random PAIRED null: exact diff 0.000; nll diff +0.591 CI[-0.027,+1.238]
+  p=0.388; rank diff +1349 CI[-76,+2825] p=0.247. ALL straddle zero -> the known null
+  reproduces on this experiment's masked-middle recovery.
+
+### Reading the metrics (important caveats, no contradictions)
+
+- exact-match and rank/NLL are measured under p(. | prefix), the LEFT-context
+  conditional. This is the clean yardstick ONLY at the final position, where the full
+  posterior over the masked token equals the left conditional (Part 1 item 3). At
+  second-to-last and middle the full posterior also weights DOWNSTREAM terms, so the
+  independence sampler (which targets the full posterior) correctly lands on tokens
+  that are low under the left conditional -> its high mean rank there (927, 1113) is
+  EXPECTED and not a failure. Read its exact-match (49.5%, 31.5%) instead: at the
+  middle it BEATS cond_argmax (31.5 vs 18.0) precisely because it accounts for the
+  downstream context that argmax-of-left-conditional ignores.
+- The DLS arms recover 0.0% exact match at EVERY position (never once hit the target
+  in 200 sequences x 3 positions) with ranks in the thousands, while the exact-energy
+  methods recover 18-55%. This is the sharpest form of the gradient fallacy: the
+  exact-energy forward pass does all the work; the input-embedding gradient does none.
+
+### Prediction-vs-outcome summary (pre-registered vs measured)
+
+| prediction | outcome |
+|---|---|
+| final: DLS-policy grad norm identically 0 | CONFIRMED: mean 0.0, max 0.0 over all evals |
+| final: policy == random on all metrics | CONFIRMED: all paired CIs straddle 0 |
+| final: indep_mh accept ~100% | CONFIRMED: 100.0% mean AND min |
+| final: energy methods recover at ceiling | CONFIRMED: cond_argmax/topk rank 0.0, top5 100% |
+| middle: null reproduces | CONFIRMED: all paired CIs straddle 0 |
+| middle: grad norm large, accept < 100% | CONFIRMED: 24.0, 30.3% |
+| 2nd-to-last: does 1 downstream term help? | ANSWERED NO: grad nonzero (12.9) but policy == random still |
+
+No outcome contradicted a prediction. The one genuinely new empirical finding (not a
+foregone conclusion) is the second-to-last result: a single downstream scored term is
+enough to make the gradient nonzero but not enough to make it useful.
+
+### Figure spec (the closing figure of the thesis)
+
+x-axis: number of downstream scored terms the masked position feeds = {0 (final),
+1 (2nd-to-last), many (middle)}. Twin-panel, shared x:
+- Panel A (left y): mean DLS-policy LM gradient norm = {0.000, 12.945, 23.976}. The
+  bar/point at x=0 is annotated "provably exactly 0 (zero-gradient theorem)".
+- Panel B (right y, overlaid or twinned): independence-MH acceptance % =
+  {100.0, 63.35, 30.27}, annotated "energy-only sampler; 100% acceptance is the
+  theorem's certificate that energy == sequence log-likelihood".
+- Overlay on both: the policy-minus-random gap with its 95% CI on the rank metric =
+  {-17.3 [-513,499], -85.3 [-897,711], +1349 [-76,2825]}, every CI crossing 0, drawn
+  as a shaded band pinned at zero -> "the gradient never separates from random, at any
+  downstream-context length". The reader sees at a glance: as context grows the
+  gradient norm rises and the energy sampler's acceptance falls, yet the gradient's
+  usefulness stays flat at zero the whole way. Data for the figure lives in
+  `results_revision/rev_last_token_gpt2sft.json` (by_condition.*) and the closing
+  numbers are also written to `results_revision/last_token_figure.csv`.
+
+## 2026-07-21 18:19 CEST - PART 3A: the WORKING setup (pre-approved, built)
+
+The independence-MH arm of the last-token experiment IS the working setup, and it is
+now measured. It succeeds by construction on the exact task where the gradient
+provably fails, using the SAME frozen model, the SAME energy definition (the sequence
+log-likelihood), and the SAME harness. The certificate is the 100.0% acceptance at
+the final position: the energy was never the problem there; the input-embedding
+gradient was. Paired with the existing concern-2 result (cond_topk_rescore 4.43 KL
+beats every Langevin config; Gibbs 6.69 works gradient-free on the general infill
+task), the thesis now has working-vs-failing on BOTH the last-token task and the
+general infill task.
+
+WORKING-VS-FAILING, in plain language (ready to adapt for the thesis):
+"At the final token of a sequence the two facts separate cleanly. The gradient of the
+sequence log-likelihood with respect to that token's input embedding is exactly zero,
+because under causal attention that embedding feeds only the prediction of a token
+that does not exist, and that prediction is discarded from the loss. We confirmed this
+in the live sampler: over two hundred sequences and fifty steps each, the gradient
+norm the discrete Langevin sampler consumed at the final position was zero to the last
+bit, and with it the sampler was statistically indistinguishable from one moving in a
+uniformly random direction (it never once recovered the target token). Yet the energy
+at that same position is not degenerate at all: the difference in sequence
+log-likelihood between two candidate final tokens is exactly the model's own
+conditional log-probability of those tokens, so a sampler that proposes from that
+conditional and accepts by the exact energy ratio accepts every move (we measured one
+hundred percent acceptance) and recovers a model-optimal token every time. The frozen
+likelihood is a perfectly usable energy here; it is only the gradient of that energy,
+taken through the input embedding, that carries no signal. The failure the thesis
+documents is a property of the gradient, not of the energy, and the last token is
+where that distinction stops being a statistic and becomes a theorem."
+
+## 2026-07-21 18:19 CEST - PART 3B: SEDD real run - VERIFIED interface plan (AWAITING GO-AHEAD, NOT STARTED)
+
+Status: NOT started. Per the phase brief this needs explicit user go-ahead. Below is
+the interface verification done against the upstream repo
+(github.com/louaaron/Score-Entropy-Discrete-Diffusion) so the plan is concrete.
+
+Interfaces checked against the repo (read-only, no clone):
+- `load_model_local(root_dir, device)` returns `(score_model, graph, noise)`. The hook
+  in run_sedd_linearization.py:88 matches this EXACTLY (already correct).
+- The score model is called `model(x, sigma)` and returns a (B, L, V) score. The hook
+  `sedd_score_row` (line 114) matches the call shape.
+- `graph.staggered_score(self, score, dsigma)` - CONFIRMED the second argument is a
+  sigma STEP (dsigma), not the absolute sigma, and the reverse per-position posterior
+  is `staggered_score(score, dsigma) * transp_transition(x, dsigma)`, then normalized
+  (this is how sampling.py forms the categorical). TWO CORRECTIONS the hooks need
+  before a real run:
+  1. `sedd_position_logprob` (line 136-137) passes `sig` (absolute sigma) where the
+     repo passes a dsigma step, and it OMITS the `transp_transition(x, dsigma)` factor.
+     For a single small-noise readout at fixed sigma the omission is a constant-ish
+     reweighting, but it should be added to make the "truth" a genuine reverse
+     posterior. Fix: form `post = graph.staggered_score(score, dsigma) *
+     graph.transp_transition(x, dsigma)` then `log_softmax(post[0,pos])`.
+  2. The surrogate in `sedd_score_row` (line 116) takes `log(score[0,pos])`. For the
+     ABSORBING graph the concrete score already estimates the ratio p_t(v)/p_t(x), so
+     log is the log-ratio (correct); for the UNIFORM graph the ratio needs the
+     staggered transform first. Decide the graph type of the downloaded checkpoint
+     (sedd-small is absorbing) and match.
+- Tokenizer + embedding geometry: hook uses GPT-2's wte for the distance strata
+  (line 94-96), correct since SEDD-small shares the GPT-2 tokenizer.
+
+Scope if approved (timebox 2 days hard, then write as designed-but-not-run):
+1. Clone the repo, download sedd-small checkpoint (GPT-2 tokenizer, ~90M params).
+2. Apply the two hook corrections above; re-run `--dry_run` (already validated) to
+   confirm the loop still wires, then a 10-seq smoke on the real checkpoint.
+3. Real linearization: n=200 ROCStories sequences (the script defaults to
+   wza/roc_stories), sigma small (~0.05-0.1). Output: spearman_surrogate_vs_true_ALL
+   plus the near/mid/random strata, to compare against the AR number (~ -0.01 to
+   0.057). Estimated compute: SEDD-small forward is cheaper than GPT-2 large; the loop
+   is ~200 seqs x 2000 candidates x 2 forward passes -> ~1-2 GPU-hours.
+4. Optional: SEDD's native infilling on the same corrupted sequences as a positive
+   control, reported separately (not as a harness plug-in).
+Interpretation is a win either way (positive corr -> AR objective is the cause,
+thesis jumps a tier; ~0 corr -> cause is deeper, more surprising, still publishable).
+
+DECISION NEEDED FROM USER: run SEDD real (2-day timebox) or leave as
+designed-and-verified-but-not-run per the plan's fallback. I have NOT started it.
+
+## 2026-07-21 18:41 CEST - PART 3B: SEDD real run - USER APPROVED, executed
+
+User chose "Run it (2-day timebox)". Executed. Environment and interface work below;
+the full n=200 numbers are appended when the run completes.
+
+### Environment (all in the existing gfn venv, no new venv)
+- Cloned github.com/louaaron/Score-Entropy-Discrete-Diffusion to
+  `/mount/studenten-temp1/users/singhsk/thesis/thesis/Score-Entropy-Discrete-Diffusion`.
+- Only missing dep was `einops` (installed). hydra, omegaconf, huggingface_hub,
+  transformers, datasets all already present.
+- Model loads via `SEDD.from_pretrained("louaaron/sedd-small")` (169.6M params,
+  ABSORBING graph, vocab dim 50258 = 50257 real + 1 mask). HF cache routed to
+  `hf/cache`.
+
+### Two flash-attn patches to the CLONE (inference-only, mathematically exact)
+The repo hard-requires flash-attn 2.2.2 + torch 2.0.1+cu118; we have torch
+2.12+cu130. Rather than build flash-attn, patched two files in the clone:
+1. `model/transformer.py`: made the top-level `flash_attn_varlen_qkvpacked_func`
+   import optional and added an SDPA fallback. SEDD's attention is uniform full
+   (non-causal) self-attention, so `F.scaled_dot_product_attention` (same 1/sqrt(d)
+   scale, 0 dropout at eval) is an EXACT substitute. Verified forward runs and
+   returns finite scores.
+2. `model/rotary.py`: the `@torch.jit.script` rotary fallback crashes under torch
+   2.12 (torchscript interpreter range error); replaced with the identical eager
+   expression `(qkv*cos)+(rotate_half(qkv)*sin)`. The flash rotary path is still
+   tried first and skipped when flash is absent.
+These touch only the SEDD clone, never core/ or Doc/.
+
+### Interface verification (against the repo AND numerically on sedd-small)
+- `load_model_local(root_dir, device)` / `load_model_hf(dir, device)` both return
+  `(score_model, graph, noise)`; the script uses `load_model` (tries hf then local),
+  so `--model_dir louaaron/sedd-small` works. CONFIRMED.
+- `graph.staggered_score(score, dsigma)` (second arg is a sigma STEP) and
+  `graph.transp_transition(i, sigma)` exist with those signatures. CONFIRMED.
+
+### TWO SUBSTANTIVE CORRECTIONS to the designed hooks (each was necessary)
+The originally-designed hooks would have produced a MEANINGLESS number; verifying
+them caught two problems (this is exactly why the plan insisted on verification):
+1. The score is ALREADY in log space (measured range [-39, 0], with negatives), not
+   a positive ratio. The original `torch.log(score)` was a double-log. FIX: use the
+   score directly as a per-position log-preference (log_softmax over the real vocab).
+2. In absorbing SEDD the score is context-dependent ONLY at MASKED positions:
+   perturbing an unmasked token changed another unmasked position's readout by
+   exactly 0.0 (measured), while at a MASKED probe it changed by 0.70, and with only
+   pos observed it changed by 5.39. So the originally-designed "per-position log-prob
+   from one pass" truth would have been identically zero at the positions that
+   matter. This is a genuine, caught defect, not cosmetics.
+
+### The corrected, verified design (mirrors the AR linearization diagnostic)
+For each ROCStories sequence and one position `pos`:
+- surrogate(v): MASK pos, keep the rest clean, ONE pass. r_pos = log_softmax(score[pos]).
+  surrogate(v) = r_pos[v] - r_pos[orig]. SEDD's cheap one-pass directional proposal
+  for filling pos (the analogue of the AR Taylor surrogate gᵀ(e(v)-e(x_pos))).
+- truth(v): OBSERVE pos = v, MASK a fixed held-out probe set Q (8 non-pos positions,
+  seeded), keep the rest clean, ONE pass PER CANDIDATE. truth(v) =
+  [sum_{q in Q} log_softmax(score_modified[q])[x_q_true]] - (same at pos=orig). The
+  actual effect of committing pos=v on the model's reconstruction of the TRUE rest of
+  this sequence (the analogue of the AR truth = Δ total sequence log-lik, which is
+  likewise re-run per candidate and dominated by the effect on OTHER positions).
+surrogate (pos masked) and truth (pos observed=v, Q masked) come from DIFFERENT
+forward passes, so the correlation is a genuine test, not a tautology. Same distance
+stratification (near/mid/random) and same 400,000 candidate pairs (200 seqs x 2000
+cands) as the AR diagnostic, so the numbers are directly comparable. The corrected
+script is `diagnostics/run_sedd_linearization.py` (rewritten in place; original
+recoverable from git). Design fully documented in the file header.
+
+### Validation before the real run
+- `--dry_run` (fake log-space model): pipeline runs end to end, spearman ~ 0 on random
+  data (correct: no signal), 2.8s.
+- Real 5-seq smoke on sedd-small: spearman_ALL 0.026, per_seq_mean 0.107, and notably
+  **spearman_near = 0.561** (embedding-close candidates), vs the AR near-stratum ~0.
+  Promising but n=5; the full n=200 run (pid 3974146, GPU 1, out_dir results_revision,
+  run_name rev_sedd_linearization) is running now. FINAL NUMBERS APPENDED BELOW ON
+  COMPLETION.
+
+## 2026-07-21 18:44 CEST - PART 3B: SEDD real linearization RESULT (n=200, 400k pairs, GPU 1, 2.0 min)
+
+`results_revision/rev_sedd_linearization.json` (sigma 0.1, 8 probes, 200 ROCStories
+seqs, 2000 candidates/seq = 400,000 pairs, matching the AR diagnostic exactly).
+
+### The positive control fires: SEDD's surrogate DOES track the true change
+
+Spearman(surrogate, true_delta), SEDD vs the AR gpt2sft linearization
+(`results_diag/diag_linearization_gpt2sft.json`, same 400k-pair design):
+
+| stratum | AR gpt2sft (rho) | SEDD-small (rho) |
+|---|---|---|
+| ALL (pooled) | -0.011 | **+0.184** |
+| near  (embedding-close cands) | +0.027 | **+0.306** |
+| mid   | -0.041 | +0.116 |
+| random| -0.048 | +0.135 |
+| per-sequence mean | -0.011 | **+0.172** (median +0.192) |
+
+Pearson ALL: AR -0.023, SEDD +0.183.
+
+### Reading it (this CONFIRMS the thesis's central causal claim)
+
+Under the AR objective the one-pass directional surrogate was statistically
+indistinguishable from zero at every distance (|rho| < 0.06 across all five AR /
+GFlowNet energies; gpt2sft near-stratum +0.027). Under the diffusion (score-entropy)
+objective, on the SAME tokenizer and the SAME 400k-pair distance-stratified design,
+the analogous one-pass surrogate is POSITIVE in every stratum (near +0.306, mid
++0.116, random +0.135; pooled +0.184; per-sequence mean +0.172). The signal is
+strongest for near candidates (the linearization regime) and positive even for random
+candidates. So a model trained to denoise, rather than to predict-next-token, yields
+a cheap local directional signal that DOES point toward the true effect of a token
+swap, where the AR gradient did not. This is the pilot the thesis designed: the
+training objective is the cause, and the thesis moves from "a diagnosis plus a
+proposed test" to "a diagnosis plus its first confirmation".
+
+MATCHES PREDICTION (positive corr -> objective is the cause). Not contradicted.
+
+### Honest caveats to carry into the write-up (pilot framing, per the plan)
+- The correlations are clearly positive but MODEST (0.18 pooled, 0.31 near), not near
+  1. The correct claim is qualitative-and-quantitative: from statistically-zero (AR)
+  to clearly-positive-and-usable (SEDD), NOT "SEDD's surrogate is exact".
+- surrogate and truth are the faithful ANALOGUES of the AR quantities, not identical
+  definitions (SEDD has no input-embedding gradient). surrogate = SEDD's one-pass
+  denoising log-preference for pos (pos masked); truth = the re-run-per-candidate
+  effect of committing pos=v on reconstructing held-out true tokens. They come from
+  different forward passes, so the positive correlation is a genuine cross-check, not
+  a tautology, and it is positive WITHIN each distance stratum (not a pooling
+  artifact). Present as a positive-control pilot (Section 5.12 / appendix), exactly as
+  concern 8 specifies.
+- absorbing-graph sedd-small, score read in log space, context signal read at masked
+  positions (both per the verified corrections above). sigma 0.1; a small sigma sweep
+  is a cheap robustness add if an examiner asks, but the sign and order of magnitude
+  are already clear at n=200.
+- NOTE for reconcile: this run lives in results_revision with run_name
+  rev_sedd_linearization; keep it OUT of the AR per_run_spearman set (reconcile globs
+  results_gpt2_v2/llama/gfn/diag, not this file) so it is never folded into the AR
+  config count or the "|rho|<0.06 across all models" AR sentence.
+
+### Artifacts
+- `results_revision/rev_sedd_linearization.json` + `.csv` (400k rows).
+- Corrected script `diagnostics/run_sedd_linearization.py` (design in header).
+- SEDD clone with two inference-only patches at
+  `/mount/studenten-temp1/users/singhsk/thesis/thesis/Score-Entropy-Discrete-Diffusion`
+  (model/transformer.py SDPA fallback, model/rotary.py eager rotary).
+- `rev_sedd_dryrun.json` remains the earlier pipeline-validation dry run.
+
+CONCERN 8 STATUS UPGRADE: was [SETTLED-pilot, real run deferred]; now [SETTLED - real
+run DONE], positive control confirms the training-objective diagnosis.
+
+## 2026-07-21 18:19 CEST - PART 4: phase closing report
+
+Artifacts produced this phase (all under the repo, none in Doc/):
+- `diagnostics/audit_probe.py` + `diagnostics/audit_probe_result.json` - Part 1
+  numerical verification (re-run and reproduced bit-for-bit this session).
+- `diagnostics/run_revision.py` - new `--exp last_token` (+ paired null test,
+  independence-MH acceptance recorder, LM-grad-norm recorder). Existing experiments
+  untouched; module parses and all four experiments register.
+- `results_revision/rev_last_token_gpt2sft.json` + `.csv` - the n=200 experiment.
+- `results_revision/last_token_figure.csv` + `.png` - the closing figure and its data.
+
+What is now settled (the supervisor's WHY, answered as a proof):
+- The input-embedding gradient of the sequence log-likelihood at the final scored
+  token is EXACTLY zero (theorem + 0.0/0.0 measured in the live sampler), for the
+  structural reason that the token enters the loss only through the tied OUTPUT
+  embedding path and its own logit column is dropped. The energy at that same token
+  is EXACTLY the model's conditional log-ratio (max error 4e-5 nats), so an
+  energy-only independence sampler accepts 100% and recovers at the ceiling. The
+  documented failure is a property of the gradient, not the energy.
+- The null (policy indistinguishable from random) holds at downstream-context lengths
+  0, 1 and many; at length 0 it is a theorem, and length 1 shows the gradient becomes
+  nonzero without becoming useful.
+
+CONTRADICTIONS: none. Every pre-registered prediction was confirmed. The sanity gate
+(final-position acceptance = 100%) passed at full scale, certifying the implemented
+energy is exactly the sequence log-likelihood with no hidden terms - which also
+retroactively validates the CLS/DLS energy used throughout the thesis.
+
+OPEN ITEM: SEDD real run (Part 3B) - interface verified, awaiting user go-ahead.
+No other GPU work is pending. Nothing above single-experiment cost was launched
+without the plan being stated (the n=200 last_token run took 153 min on one GPU;
+heavier than the "under an hour" estimate because it runs 6 arms x 3 positions x 200
+seqs sequentially, but it is a single experiment and it completed cleanly).

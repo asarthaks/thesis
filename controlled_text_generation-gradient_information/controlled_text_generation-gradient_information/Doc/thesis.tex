@@ -17,8 +17,15 @@
 \usepackage{subcaption}
 \usepackage{url}
 \usepackage[hidelinks]{hyperref}
+\usepackage{xurl}      % break long URLs anywhere so bibliography entries do not overflow the margin (matches Ioanna's preamble)
+\urlstyle{same}
 \usepackage{fancyhdr}
 \usepackage{setspace}
+\usepackage{titlesec} % compact chapter headings ("5  Methods") in place of the large "Chapter 5" banner, matching the department template's section-style headings
+% Render chapter headings on a single line: the number, then the title, no "Chapter" word and no oversized vertical block.
+\titleformat{\chapter}[hang]{\normalfont\huge\bfseries}{\thechapter}{0.6em}{}
+\titlespacing*{\chapter}{0pt}{0pt}{18pt}
+\renewcommand{\chaptermark}[1]{\markboth{\thechapter.\ #1}{}} % compact running header ("5. Results"), no "CHAPTER" banner
 
 \renewcommand{\baselinestretch}{1.3}
 \parskip=\medskipamount

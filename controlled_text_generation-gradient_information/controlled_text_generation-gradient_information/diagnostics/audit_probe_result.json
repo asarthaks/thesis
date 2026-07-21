@@ -1,0 +1,54 @@
+{
+  "n_sequences": 20,
+  "tied_embeddings": {
+    "same_storage": true,
+    "equal_values": true,
+    "wte_shape": [
+      50257,
+      1280
+    ]
+  },
+  "grad_norm_final_position": {
+    "mean": 0.0,
+    "max": 0.0,
+    "min": 0.0
+  },
+  "grad_norm_second_to_last": {
+    "mean": 2.7772146797273307,
+    "max": 11.066619873046875,
+    "min": 0.01116680447012186
+  },
+  "grad_norm_middle": {
+    "mean": 5.927270495891571,
+    "max": 21.080854415893555,
+    "min": 1.2300695180892944
+  },
+  "trailing_token_is_eos_count": 0,
+  "energy_exactness_maxerr_nats": {
+    "mean": 1.4781951904296875e-05,
+    "max": 4.00543212890625e-05,
+    "min": 7.62939453125e-06
+  },
+  "per_seq_final_grad_norms": [
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0
+  ]
+}

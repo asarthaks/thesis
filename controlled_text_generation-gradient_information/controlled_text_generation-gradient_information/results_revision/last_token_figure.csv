@@ -1,0 +1,4 @@
+condition,downstream_x,downstream_label,dls_policy_grad_norm_mean,indep_mh_accept_pct,policy_minus_random_rank_diff,pmr_rank_ci_lo,pmr_rank_ci_hi,pmr_rank_straddles0,dls_policy_exact,dls_random_exact,cond_argmax_exact,cond_topk_exact,independence_mh_exact
+final,0,0,0.0,100.0,-17.295,-512.8380000000001,498.731875,True,0.0,0.0,40.0,40.0,34.5
+second_to_last,1,1,12.945116223911288,63.35,-85.31,-896.6324999999999,710.645625,True,0.0,0.0,50.0,55.00000000000001,49.5
+middle,2,many,23.976143334555626,30.27,1348.83,-76.35412499999997,2825.1572499999993,True,0.0,0.0,18.0,39.0,31.5

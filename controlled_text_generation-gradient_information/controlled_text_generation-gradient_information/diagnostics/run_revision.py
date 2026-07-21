@@ -433,10 +433,233 @@ def exp_continuation(args, model, tokenizer, device):
     return summary
 
 
+# --------------------------------------------------------------------------
+# EXPERIMENT: last_token  (PHASE 2 - the professor's suggestion)
+# --------------------------------------------------------------------------
+# The experimental variable is the number of DOWNSTREAM scored terms the masked
+# position feeds: final position (0 terms), second-to-last (exactly 1), middle
+# (many). Part 1 proved the input-embedding gradient of the sequence log-lik is
+# EXACTLY 0 at the final position and the energy there is EXACTLY the model's own
+# conditional. This experiment tests the consequences as a prediction:
+#   - at the final position, DLS policy == DLS random on every recovery metric
+#     (the gradient it consumes is identically zero, so it carries no signal),
+#     while the independence sampler accepts 100% of moves (energy == proposal)
+#     and cond_topk_rescore / cond_argmax recover at the ceiling the conditional
+#     sets (rank ~ 0);
+#   - at the middle position the known null reproduces;
+#   - second-to-last sits between (one downstream term): does a single term of
+#     downstream context already give the gradient measurable signal?
+#
+# The avg_kl metric is UNDEFINED at the final position (item 6), so this defines
+# its own token-level metrics: exact-match, top-5 (recovered token in top-5 of
+# p(.|prefix)), mean NLL of the recovered token under p(.|prefix), mean rank.
+
+
+@torch.no_grad()
+def _cond_logprob_at(model, seq_ids, m):
+    """log p(x_m | x_<m) from the model's logits at position m-1. Only position m
+    is ever corrupted, so logits[m-1] sees a clean prefix and this is the true
+    left-context conditional (identical to the kl_baselines convention)."""
+    logits = model(seq_ids).logits[0]
+    return torch.log_softmax(logits[m - 1].float(), dim=-1)   # (V,)
+
+
+def _tok_metrics(log_cond, r, gt):
+    r = int(r); gt = int(gt)
+    nll = float(-log_cond[r].item())
+    rank = int((log_cond > log_cond[r]).sum().item())   # 0 = argmax
+    return dict(exact=int(r == gt), top5=int(rank < 5), nll=nll, rank=rank)
+
+
+def exp_last_token(args, model, tokenizer, device):
+    from core.dls import DiscreteLangevinSampler
+
+    # thin recorder: capture the RAW LM gradient norm the sampler sees each time
+    # it calls get_gradient_and_log_joint (forward step + MH backward). Method-
+    # independent (the variation is applied downstream), so it measures the LM
+    # gradient at the masked position, tying the experiment to the Part 1 audit.
+    class GradNormDLS(DiscreteLangevinSampler):
+        def get_gradient_and_log_joint(self, *a, **k):
+            g, lj = super().get_gradient_and_log_joint(*a, **k)
+            rec = getattr(self, "_gn_rec", None)
+            if rec is not None:
+                rec.append(float(g.norm().item()))
+            return g, lj
+
+    eps = np.linspace(args.eps_start, args.eps_end, args.steps)
+
+    # ---- collect the same sentence set kl_baselines uses (skip L<6 so the three
+    #      position conditions are distinct and each has a left context) ----
+    seqs = []
+    for _sidx, _corr, _mask, orig_ids in iter_grid_samples(args, tokenizer, device):
+        if orig_ids.shape[1] >= 6:
+            seqs.append(orig_ids)
+        if len(seqs) >= args.n_samples:
+            break
+
+    def positions_for(L):
+        # (name, index, downstream-scored-terms)
+        return [("final", L - 1, 0), ("second_to_last", L - 2, 1), ("middle", L // 2, "many")]
+
+    csv_path = os.path.join(args.out_dir, args.run_name + ".csv")
+    f = open(csv_path, "w", newline="")
+    w = csv.writer(f)
+    w.writerow(["sample_idx", "condition", "arm", "position", "downstream_terms",
+                "recovered_tok", "gt_tok", "exact", "top5", "nll", "rank"])
+
+    # accumulators: records[condition][arm] = list of metric dicts
+    from collections import defaultdict
+    records = defaultdict(lambda: defaultdict(list))
+    accept_rates = defaultdict(list)         # condition -> list of per-seq independence-MH accept rates
+    grad_norms = defaultdict(list)           # condition -> list of per-step LM grad norms (policy run)
+
+    DLS_ARMS = ["dls_policy", "dls_random"]
+    COND_ARMS = ["cond_argmax", "cond_sample", "cond_topk_rescore", "independence_mh"]
+
+    t0 = time.time()
+    for sidx, orig_ids in enumerate(seqs):
+        L = orig_ids.shape[1]
+        for cond_name, m, dterms in positions_for(L):
+            gt = int(orig_ids[0, m].item())
+            # deterministic corruption of ONLY position m, shared across all arms
+            rng = np.random.RandomState(args.data_seed + 30_000 + sidx)
+            r = int(rng.randint(0, tokenizer.vocab_size))
+            while r == gt:
+                r = int(rng.randint(0, tokenizer.vocab_size))
+            corrupted = orig_ids.clone()
+            corrupted[0, m] = r
+
+            # left-context conditional (clean prefix); the model-plausibility yardstick
+            log_cond = _cond_logprob_at(model, corrupted, m)
+
+            def emit(arm, rec_tok):
+                mt = _tok_metrics(log_cond, rec_tok, gt)
+                records[cond_name][arm].append(mt)
+                w.writerow([sidx, cond_name, arm, m, dterms, int(rec_tok), gt,
+                            mt["exact"], mt["top5"], mt["nll"], mt["rank"]])
+
+            # ---- DLS arms (real core sampler, MH on, gn on, standard schedule) ----
+            for arm, method in [("dls_policy", "policy"), ("dls_random", "random")]:
+                Cls = GradNormDLS if arm == "dls_policy" else DiscreteLangevinSampler
+                sampler = Cls(model=model, tokenizer=tokenizer, steps=args.steps,
+                              temperature=args.temperature, oracle=False, method=method,
+                              mh_sampling=True, grad_normalization=True,
+                              noise_scale=args.noise_scale, epsilon_schedule=eps)
+                if arm == "dls_policy":
+                    sampler._gn_rec = []
+                seed_all(args.data_seed + sidx)   # align RNG stream across arms
+                s_hist, metrics = sampler.optimize(corrupted.clone(), [m], orig_ids.clone())
+                emit(arm, s_hist[-1][0].item())
+                if arm == "dls_policy":
+                    grad_norms[cond_name].extend(sampler._gn_rec)
+
+            # ---- conditional / independence arms ----
+            probs = log_cond.exp()
+            emit("cond_argmax", int(log_cond.argmax().item()))
+            g_ms = torch.Generator(device=device).manual_seed(args.data_seed + 40_000 + sidx)
+            emit("cond_sample", int(torch.multinomial(probs, 1, generator=g_ms).item()))
+
+            # top-k rescored by the full-sequence joint (one forward pass per cand)
+            k = min(args.topk, probs.numel())
+            topk = torch.topk(log_cond, k).indices.tolist()
+            best_lp, best_tok = -1e30, topk[0]
+            for cand in topk:
+                tmp = corrupted.clone(); tmp[0, m] = cand
+                lp = joint_logprob(model, tmp)
+                if lp > best_lp:
+                    best_lp, best_tok = lp, cand
+            emit("cond_topk_rescore", best_tok)
+
+            # ---- independence Metropolis from q = p(.|prefix), exact-energy accept
+            # target pi ∝ exp(S) with S the full-seq log-lik; q(x)=p(x|prefix).
+            # log a = [S(x') - S(x)] + [log q(x) - log q(x')].
+            # At the final position S(x')-S(x) = log q(x')-log q(x), so log a = 0
+            # and every move is accepted (Part 1 item 3). Measure the rate.
+            g_im = torch.Generator(device=device).manual_seed(args.data_seed + 50_000 + sidx)
+            cur_tok = r
+            cur_seq = corrupted.clone()
+            cur_S = joint_logprob(model, cur_seq)
+            n_acc = 0
+            for _st in range(args.steps):
+                prop = int(torch.multinomial(probs, 1, generator=g_im).item())
+                if prop == cur_tok:
+                    n_acc += 1   # identity move, trivially "accepted"
+                    continue
+                tmp = cur_seq.clone(); tmp[0, m] = prop
+                prop_S = joint_logprob(model, tmp)
+                log_a = (prop_S - cur_S) + (float(log_cond[cur_tok].item()) - float(log_cond[prop].item()))
+                if float(torch.log(torch.rand((), generator=g_im, device=device)).item()) < log_a:
+                    cur_tok, cur_seq, cur_S = prop, tmp, prop_S
+                    n_acc += 1
+            accept_rates[cond_name].append(100.0 * n_acc / args.steps)
+            emit("independence_mh", cur_tok)
+
+        if (sidx + 1) % 20 == 0:
+            print(f"[last_token] {sidx+1}/{len(seqs)} seqs, {(time.time()-t0)/60:.1f}m", flush=True)
+
+    f.close()
+
+    # ---- aggregate ----
+    def agg(mlist):
+        exact = np.array([d["exact"] for d in mlist], float)
+        top5 = np.array([d["top5"] for d in mlist], float)
+        nll = np.array([d["nll"] for d in mlist], float)
+        rank = np.array([d["rank"] for d in mlist], float)
+        nll_m, nll_lo, nll_hi = bootstrap_ci(nll, seed=args.seed)
+        rank_m, rank_lo, rank_hi = bootstrap_ci(rank, seed=args.seed)
+        return {
+            "n": int(len(mlist)),
+            "exact_match_pct": float(100.0 * exact.mean()),
+            "top5_pct": float(100.0 * top5.mean()),
+            "mean_nll": nll_m, "nll_ci95": [nll_lo, nll_hi],
+            "mean_rank": rank_m, "rank_ci95": [rank_lo, rank_hi],
+            "median_rank": float(np.median(rank)),
+        }
+
+    summary = {"experiment": "last_token", "n_sequences": len(seqs),
+               "steps": args.steps, "by_condition": {}}
+    for cond_name in ["final", "second_to_last", "middle"]:
+        entry = {"downstream_terms": positions_for(6)[["final", "second_to_last", "middle"].index(cond_name)][2],
+                 "arms": {}}
+        for arm in DLS_ARMS + COND_ARMS:
+            if records[cond_name][arm]:
+                entry["arms"][arm] = agg(records[cond_name][arm])
+        # policy-minus-random PAIRED null test (same sequences, so paired by index).
+        # This is the concern-1 style test: mean paired diff + bootstrap CI +
+        # Wilcoxon, per metric. At the final position the DLS gradient is exactly 0,
+        # so the prediction is CIs straddling 0 (indistinguishable).
+        p, rnd = records[cond_name]["dls_policy"], records[cond_name]["dls_random"]
+        if p and rnd and len(p) == len(rnd):
+            from scipy.stats import wilcoxon
+            pr = {}
+            for key in ["exact", "nll", "rank"]:
+                dp = np.array([d[key] for d in p], float)
+                dr = np.array([d[key] for d in rnd], float)
+                diff = dp - dr
+                m, lo, hi = bootstrap_ci(diff, seed=args.seed)
+                try:
+                    wp = float(wilcoxon(dp, dr, zero_method="wilcox").pvalue) if np.any(diff != 0) else 1.0
+                except ValueError:
+                    wp = 1.0
+                pr[key] = {"mean_paired_diff": m, "ci95": [lo, hi], "wilcoxon_p": wp,
+                           "straddles_zero": bool(lo <= 0.0 <= hi)}
+            entry["policy_minus_random_paired"] = pr
+        # independence-MH acceptance and DLS-policy LM gradient norm at this position
+        ar = np.array(accept_rates[cond_name], float)
+        entry["independence_mh_accept_pct_mean"] = float(ar.mean()) if len(ar) else float("nan")
+        entry["independence_mh_accept_pct_min"] = float(ar.min()) if len(ar) else float("nan")
+        gn = np.array(grad_norms[cond_name], float)
+        entry["dls_policy_mean_lm_grad_norm"] = float(gn.mean()) if len(gn) else float("nan")
+        entry["dls_policy_max_lm_grad_norm"] = float(gn.max()) if len(gn) else float("nan")
+        summary["by_condition"][cond_name] = entry
+    return summary
+
+
 EXPERIMENTS = {
     "kl_baselines": exp_kl_baselines,
     "model_divergence": exp_model_divergence,
     "continuation": exp_continuation,
+    "last_token": exp_last_token,
 }
 
 
