@@ -123,10 +123,21 @@ def load_sequences(dataset, tokenizer, n, min_tok, max_tok, seed):
         with open(dataset) as f:
             texts = [ln.strip() for ln in f if ln.strip()]
     else:
+        os.environ.setdefault("HF_DATASETS_TRUST_REMOTE_CODE", "1")
         from datasets import load_dataset
         ds = load_dataset("wza/roc_stories", split="train")
-        key = "text" if "text" in ds.column_names else ds.column_names[0]
-        texts = [ds[i][key] for i in range(min(len(ds), 20000))]
+        cols = ds.column_names
+        # wza/roc_stories exposes sentence1..5 (no single "text" column). Build the
+        # actual story text by joining the five sentences; fall back to a real text
+        # column or the first string column. (A bare column_names[0] would tokenize the
+        # storyid, which is not natural text.)
+        sent_cols = [c for c in cols if c.startswith("sentence")]
+        if sent_cols:
+            texts = [" ".join(str(ds[i][c]) for c in sent_cols)
+                     for i in range(min(len(ds), 20000))]
+        else:
+            key = "text" if "text" in cols else cols[0]
+            texts = [ds[i][key] for i in range(min(len(ds), 20000))]
     rng = random.Random(seed)
     rng.shuffle(texts)
     out = []
@@ -145,6 +156,11 @@ CONFIGS = [
     ("cls_policy_gnoff_nomh", "cls",  "policy", False, False),
     ("cls_policy_gnon_mh",    "cls",  "policy", True,  True),
     ("dls_policy_gn_mh",      "dls",  "policy", True,  True),
+    # Phase 5 Stage 1c: DLS random-direction control (MH on) for the policy-vs-random
+    # trajectory figure. Appended so a full rerun is a strict superset; select it alone
+    # (or any subset) with --configs. Order preserved so the four originals reproduce
+    # bit-for-bit when all five are run at the canonical --n_seqs.
+    ("dls_random_gn_mh",      "dls",  "random", True,  True),
 ]
 
 
@@ -160,6 +176,10 @@ def main():
     ap.add_argument("--device", default="cuda")
     ap.add_argument("--seed", type=int, default=0)
     ap.add_argument("--overwrite", action="store_true")
+    ap.add_argument("--configs", default="all",
+                    help="comma-separated config names to run (default all). Trajectory "
+                         "reproducibility across configs still requires the canonical "
+                         "--n_seqs, since the torch RNG carries across configs.")
 
     ap.add_argument("--n_seqs", type=int, default=200,
                     help="sequences used for the MH acceptance statistics")
@@ -217,7 +237,12 @@ def main():
     all_mh, all_traj = [], []
     summary = {"experiment": "traces", "configs": {}}
 
-    for cfg_name, kind, method, mh, gn in CONFIGS:
+    sel = None if args.configs == "all" else set(args.configs.split(","))
+    run_configs = [c for c in CONFIGS if sel is None or c[0] in sel]
+    if sel is not None:
+        print(f"[configs] running subset: {[c[0] for c in run_configs]}")
+
+    for cfg_name, kind, method, mh, gn in run_configs:
         Sampler = DiscreteLangevinSampler if kind == "dls" else ContinuousLangevinSampler
         wanted = dict(
             model=model, tokenizer=tok, emb_matrix=emb_matrix,
@@ -259,8 +284,11 @@ def main():
                      pos, args.steps)
 
             if keep_traj and sampler.traj_log:
+                gt_tok = int(ids[pos[0]].item())   # true token at the (single) masked pos
                 for r in sampler.traj_log:
                     r["config"] = cfg_name
+                    r["gt_tok"] = gt_tok
+                    r["pos"] = int(pos[0])
                 all_traj.extend(sampler.traj_log)
                 sampler.traj_log = []
 
@@ -311,9 +339,16 @@ def main():
                           for s in seq_ids])                           # nseq x T
         cells = np.stack([np.array([x["token_ids"][0] for x in sorted(by_seq[s], key=lambda z: z["step"])])
                           for s in seq_ids])
+        gt_toks = np.array([sorted(by_seq[s], key=lambda z: z["step"])[0].get("gt_tok", -1)
+                            for s in seq_ids])                         # nseq (GT token id / seq)
+        # GT token embedding vector per seq, so the plot can mark it from the npz alone
+        gt_ids_t = torch.tensor([max(0, int(g)) for g in gt_toks], device=emb_matrix.device)
+        gt_emb = emb_matrix[gt_ids_t].float().cpu().numpy()            # nseq x D
         traj_out[f"{cfg_name}__states"] = states.astype(np.float32)
         traj_out[f"{cfg_name}__dist_to_manifold"] = dists.astype(np.float32)
         traj_out[f"{cfg_name}__cell_id"] = cells.astype(np.int32)
+        traj_out[f"{cfg_name}__gt_tok"] = gt_toks.astype(np.int64)
+        traj_out[f"{cfg_name}__gt_emb"] = gt_emb.astype(np.float32)
 
     vsub = emb_matrix[torch.from_numpy(
         np.random.RandomState(0).choice(V, min(6000, V), replace=False)

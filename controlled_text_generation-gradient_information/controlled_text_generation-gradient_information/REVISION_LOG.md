@@ -1362,3 +1362,221 @@ AUTHOR ITEMS remaining (unchanged by decision, need author sign-off):
 
 No contradiction was written into the thesis without its cause first understood. Nothing
 beyond the approved slate was run. GPUs released; no stray processes.
+
+## 2026-07-21 22:24 CEST - PHASE 5 KICKOFF: audit + Stage 1a pre-registration (no jobs launched yet)
+
+Phase 5 brief: close G with an on-domain trust-region control (Stage 1a), add a
+qualitative showcase (1b) and the deferred trajectory figures (1c), write a new
+top-level README (Stage 2), run a verification gate (Stage 3), then apply thesis
+edits (Stage 4). Sequencing is a rule: 1 -> 2 -> 3 gates 4. REPO REORG IS DEFERRED
+by author decision; NO file/folder is moved, renamed, or archived this session.
+
+AUDIT (done before any GPU job):
+- 9 A6000s (49 GB) all idle. sedd-small AND sedd-medium both cached in hf/cache/hub;
+  no download needed. gpt2sft = gfn-lm-tuning/infill_subj_arithmetic/gpt2_large_sft_output.
+  judge head = /mount/arbeitsdaten/.../sentiment_constrained_ft_gpt2_large/sentiment_head.pt
+  (present, hidden 1280). noisy_classifier.pt present (results_revision, 51 MB, low-noise
+  acc 81% per train json). SEDD_REPO + HF_HOME as in Phase 4.
+- CORPUS / HELD-OUT VERIFICATION (Stage 1a crux): both the concern-11 judge head
+  (train_sentiment_head.py) AND the noisy guide (train_noisy_classifier.py) train on
+  glue/sst2 ds["train"] ONLY; both touch ds["validation"] solely under torch.no_grad()
+  for accuracy readout, never a gradient step. SST-2 has a clean labelled validation
+  split (872 ex); GLUE test is unlabelled. DECISION: G-prime prompts are drawn from
+  SST-2 validation, which NEITHER guide nor judge saw in training. No hashing/exclusion
+  construction needed; the split is clean by construction. Logged here so it is on record.
+- Guided mechanism (run_sedd_guided.py) understood: absorbing-SEDD analytic denoising;
+  at each step, for MASK cells, top-k=32 SEDD candidates get categorical weight x
+  p_noisyclf(target|state)^gamma, renormalize, sample. Role separation intact (noisy clf
+  guides only; concern-11 head judges). aggregate_guided.py already computes judge hit%,
+  paired bootstrap gain CI, SELF gain, and judge-clf agreement on unguided text.
+- Stage 1b data sources: rec_tok (recovered token ids) ARE stored on the kl_baselines
+  set for sedd_small, sedd_medium, hybrid (small+medium), left_conditional, dls_policy,
+  dls_random (rev_sedd_recovery_*.csv, rev_sedd_hybrid.csv). NOT stored (only avg_kl +
+  exact_match): gibbs, cond_argmax, cond_sample, cond_topk_rescore (rev_klbase csv), and
+  CLS/DLS grid runs (aggregate only). Those must be regenerated on the 10 showcase seqs
+  (deterministic corruption, verify corrupted token matches before trusting). kl_baselines
+  corruption = num_masks 1, one random interior pos, data_seed 0.
+- Stage 1c trace npz (results_diag/traces_gpt2sft_traj.npz): has vocab_embeddings
+  (6000,1280) + state traces (6 seq, 50 step, 1280) for cls_policy_gnoff_mh,
+  cls_policy_gnoff_nomh, cls_policy_gnon_mh, dls_policy_gn_mh. MISSING: dls_random (MH on).
+  -> one cheap collect_traces rerun for dls_random_gn_mh only. CLS MH on/off both present.
+
+## STAGE 1a G-PRIME PRE-REGISTERED PREDICTIONS (logged BEFORE running)
+
+Design (fixed now): prompts = first 8-12 tokens of held-out SST-2 validation sentences
+(neither model trained on them); span_len 20 (matches Phase 4 G); steps 64; top-k 32;
+noisy clf guides, concern-11 head judges; strict role separation. NEW trust region: at
+each commitment, among the top-k SEDD candidates, only those whose SEDD log-prob is
+within delta = 5 nats of the top candidate are eligible for classifier reweighting; the
+rest of the top-k get zero adjusted mass. This caps the per-commitment fluency deviation
+to <= delta nats below the SEDD argmax by construction. Record the per-commitment count
+of eligible candidates; if >90% of commitments have <=1 eligible, widen to 8 nats ONCE
+and log it. Arms: unguided vs guided at gamma in {2,4}, both target labels, n=300 pairs
+per label per gamma (unguided is gamma-independent, generated once per prompt with the
+SAME seed as its guided partner so the pair differs only by the intervention), sharded
+over prompts across the 9 A6000s, fresh status dir. Metrics: judge hit% per label with
+bootstrap CIs (headline), gpt2sft span NLL (fluency), SELF gain (guide's own verdict,
+mechanism check), and the DIAGNOSIS TEST = guide-judge agreement on the UNGUIDED
+on-domain generations (plus, as supporting context, agreement on the real held-out
+sentences, the fully on-domain instrument-calibration point).
+
+Predictions, in order of importance:
+1. Agreement (guide vs judge) on unguided on-domain generations rises CLEARLY above the
+   Phase 4 off-domain 56-64%. If it does NOT rise, the domain diagnosis was wrong: STOP,
+   report, do not interpret the steering numbers until the cause is understood.
+2. At gamma 2, guided beats unguided on the judge at BOTH labels, CIs excluding zero,
+   with bounded NLL cost.
+3. The trust region holds NLL bounded even at gamma 4 (unlike Phase 4's 7.1 -> 11.0
+   climb): guided NLL stays within a small margin of unguided at both gammas.
+Decision rule (from the brief): if 1 holds but 2 still fails on the positive label, the
+honest conclusion is final (symmetric held-out steering is not reachable with this guide
+at this scale; the Phase 4 asymmetric finding stands). Either outcome closes G; no third
+round. If 1 fails, STOP and report the refuted diagnosis.
+
+## DEFERRED TODO (author decision, mirrored from README Stage 2 - do NOT act without explicit confirmation)
+
+Deferred by author decision: repository reorganization (move results_* under results/,
+code under scripts/, strays to archive/). Do NOT perform this until the author explicitly
+asks for it and confirms. When it happens: git mv only, Doc/ never moves, nothing is
+deleted, and a full reference sweep across *.py, *.sh, *.md, *.tex (including % source
+comments and reconcile globs) plus the Stage 3 verification gate must follow.
+
+## 2026-07-21 22:45 CEST - STAGE 1a G-PRIME: OUTCOME (n=300 pairs/label/gamma, medium, sharded 9 GPUs)
+
+Code: diagnostics/run_gprime.py, aggregate_gprime.py, run_gprime_slate.sh. Held-out
+prompts = first 300 SST-2 validation sentences (dataset order) with >=12 GPT-2 tokens;
+prompt = first 10 tokens. Neither guide nor judge trained on this split (verified). Trust
+region delta=5 nats; unguided seed == guided seed per prompt (true paired comparison).
+Whole slate ~7 min wall across 9 A6000s. Artifacts: results_revision/rev_gprime.json (+
+.csv, + 9 shard files). Role separation held (noisy clf guided only; concern-11 head judged).
+
+Trust region: mean_eligible 28.4 of top-k=32, frac_le1_eligible 0.027. The region is LOOSE
+(most of the top-k sit within 5 nats of the top candidate), so the widen-to-8 rule (fires
+only if >90% of commitments have <=1 eligible) did NOT trigger; delta stays 5. The
+per-commitment fluency guarantee (committed token within delta nats of the SEDD argmax)
+holds regardless of the eligible count.
+
+PREDICTION CHECK (pre-registered above):
+1. GATE (agreement on unguided on-domain generations rises clearly above off-domain
+   56-64%): CONFIRMED. 71.67% [66.67, 76.67]; CI lower bound 66.67 > 64 (top of the
+   off-domain band). Real held-out sentences (fully on-domain) 79.67% [75.0, 84.0], judge
+   acc 88%, clf acc 79.7%. Clean monotonic ladder off-domain gen 56-64% < on-domain gen
+   71.7% < real on-domain text 79.7%. The Phase 4 instrument-transfer diagnosis is
+   VALIDATED. Gate passes -> steering numbers are interpretable.
+2. (guided beats unguided at BOTH labels, gamma 2): FAILS on one label (negative).
+   | cell | unguided hit% | guided hit% | gain pts [CI95] | NLL cost |
+   | g2 label0 (neg) | 53.0 | 50.7 | -2.33 [-7.0, +2.33] | -0.74 |
+   | g2 label1 (pos) | 47.0 | 53.7 | +6.67 [+1.67, +11.67] | -1.71 |
+   | g4 label0 (neg) | 53.0 | 52.3 | -0.67 [-5.33, +4.0] | +0.26 |
+   | g4 label1 (pos) | 47.0 | 54.3 | +7.33 [+2.67, +12.0] | -1.00 |
+   Positive-label steering works at BOTH gammas (CI excludes 0); negative-label steering
+   is null at both (CI straddles 0). The asymmetry FLIPPED vs Phase 4 (there neg worked,
+   pos failed; here pos works, neg fails). SELF gains (guide's own verdict) are large and
+   positive at every cell (+9.3 to +25.7, CIs exclude 0), so the guide DOES steer both
+   directions; only transfer to the independent judge is asymmetric.
+3. (trust region holds NLL bounded even at gamma 4): CONFIRMED strongly. Guided span NLL
+   5.30-7.28 vs unguided 7.01 (worst case +0.26 at g4/label0; LOWER than unguided in 3 of
+   4 cells). Phase 4's 7.1 -> 11.0 climb is eliminated. The trust region does exactly its
+   job: it removes the fluency cost by construction.
+
+CAUSE UNDERSTOOD (why prediction 2 fails on one label, and why it flipped):
+The three facts are mutually consistent. (i) The guide steers its own verdict strongly
+both ways (SELF gains). (ii) The trust region keeps text fluent (NLL bounded/lowered).
+(iii) The two independently trained classifiers still disagree ~28% even on the on-domain
+generations (agreement 71.7%, up from 56-64% off-domain but not 100%), and that residual
+disagreement falls asymmetrically: steering toward the guide's "positive" registers as
+"positive" to the judge, steering toward "negative" does not reliably register. The
+working direction is therefore NOT a fixed unreachable sentiment (it flipped from neg to
+pos when we moved on-domain and added the trust region); it tracks where the two
+instruments happen to align on the generated text. So symmetric held-out steering at both
+labels is still not reached with a single noisy guide at this scale, but the residual
+limit is an instrument-alignment effect, not a fluency artifact (removed) and not a fixed
+directional barrier (it moves).
+
+PREDICTION STATUS: 1 CONFIRMED, 3 CONFIRMED, 2 partially failed (one label) as the brief's
+fallback explicitly anticipated. This is DECISION-TABLE CASE (b): prediction 1 held but 2
+failed on one label. Cause is understood, so this is writeable. G is CLOSED; no third
+round (per the brief). STAGE 4 PLAN for the G section: keep the Phase 4 asymmetric section
+and ADD G-prime as the on-domain trust-region control that (i) validates the instrument
+diagnosis (agreement ladder), (ii) removes the fluency cost (trust-region NLL), (iii)
+shows one-directional steering with CIs excluding zero under bounded fluency, and (iv)
+shows the asymmetry is not a fixed direction (it flipped), so the residual limit is
+instrument alignment, not an instrumental artifact and not a permanent barrier. The
+trust-region NLL result is reported in all cases.
+
+## 2026-07-21 23:05 CEST - STAGE 1b QUALITATIVE SHOWCASE: OUTCOME
+
+Code: revision/build_showcase.py (regeneration + verification), revision/make_showcase_tex.py
+(LaTeX). Immutable selection: np.random.default_rng(0).choice(200,10,replace=False),
+sorted, no filtering -> sample_idx [3,8,14,34,52,60,98,122,162,199]. Artifacts:
+results_revision/qualitative_showcase.json (+ gprime_showcase block) and
+results_revision/showcase_appendix.tex (staged; placed in Doc/ during Stage 4).
+
+Data provenance: rec_tok pulled from stored per-item CSVs where present (sedd small/medium,
+hybrid_medium, left_conditional, dls_policy, dls_random - all cover the 10 idx). The AR
+conditional baselines (cond_argmax, cond_topk_rescore, gibbs) and the CLS flagship
+(gpt2-large.cls.policy.mh.gn.free.s50) were regenerated on ONLY the 10 sequences from the
+deterministic corruption. VERIFICATION: 100 checks pass, 0 warn. Every stored arm's
+gt_tok+pos matched the regenerated corruption; every regenerated cond/gibbs avg_kl matched
+the stored rev_klbase CSV; and after fixing an off-by-one (run_experiment increments ti
+BEFORE seed_all, so the sampling seed is data_seed+ti+1, one more than the corruption
+seed), every CLS avg_kl matched the grid CSV to 1e-2.
+
+The showcase reads exactly as the thesis spine: across all 10 sequences the gradient
+samplers dls_policy, dls_random, and cls_flagship recover the ground-truth token 0/10
+times, while the gradient-free / energy / diffusion methods recover it 2-4/10
+(hybrid_medium 4, cond_argmax/cond_topk_rescore/gibbs 3, sedd small/medium 2,
+left_conditional 2). Example idx 3 (masked subword of "starfish"): DLS -> "star-passages",
+CLS -> "star-specialization" (off-manifold), gibbs/topk/hybrid -> "star-fish". G-prime
+showcase: 3 seeded pairs/label (default_rng(0).choice(300,6), first 3 -> neg, next 3 ->
+pos), unguided vs guided at gamma 4, in the JSON and the LaTeX longtable.
+
+## 2026-07-21 23:05 CEST - STAGE 1c TRAJECTORY FIGURES: OUTCOME
+
+Data: results_diag/traces_gpt2sft_traj.npz had 4 configs but NOT dls_random. Decision
+(logged): a clean 5-config regeneration rather than splicing, because (i) the torch RNG
+carries across configs in collect_traces so dls_random cannot be spliced onto the canonical
+npz at the same RNG state anyway, and (ii) the trajectory figures were placeholders (never
+rendered), so there is no prior figure to match bit-for-bit. collect_traces.py edited
+minimally and non-destructively: added the dls_random_gn_mh config, a --configs filter, GT
+token id + embedding capture, and a corpus-loader fix (wza/roc_stories exposes sentence1..5,
+not a "text" column; a bare column_names[0] tokenized the storyid; now joins the sentences,
+and sets HF_DATASETS_TRUST_REMOTE_CODE). Ran --run_name traces_gpt2sft_plot --n_seqs 6
+--n_traj_seqs 6 on GPU 1 (canonical traces_gpt2sft_* untouched). Installed scikit-learn for
+the t-SNE panel.
+
+revision/plot_trajectories.py (standalone, reproducible from the npz): PCA (2 comp) FIT ON
+the vocabulary embedding matrix, trajectories PROJECTED into it; 2000 seeded-random vocab
+embeddings as a grey cone; start state (white circle), end (black dot), ground-truth token
+(green star). Robust per-panel axis limits frame the full cone plus the 2-98 pct of the
+trajectory; extreme CLS excursions are clipped (magnitude reported here for the caption).
+t-SNE secondary (seed 0, perplexity 30) with a distortion note. Wrote
+figures/fig_traj_pca_dls.png, fig_traj_pca_cls.png, fig_traj_tsne_dls.png,
+fig_traj_tsne_cls.png. All four render correctly (inspected as PNG).
+
+What the figures show, tied to the anisotropy numbers (token NN 1.82, mean pairwise 2.77):
+DLS policy and random both stay EXACTLY on the token manifold (dist_to_manifold 0 at every
+step, since the discrete state is always a real token embedding) inside the anisotropic
+cone. CLS is the opposite: the continuous state sits far OFF the compact token manifold
+(dist_to_manifold ~115-128 with MH on, quenched near its start and barely moving), and with
+MH off it wanders chaotically, reaching a max dist of 979 before collapsing back to ~17.
+So the gradient's continuous state lives nowhere near any token (>100 units off a manifold
+whose tokens are ~1.8-2.8 apart), which is exactly why projecting back is meaningless and
+the boundary-crossing MH move is almost always rejected.
+
+## 2026-07-21 23:20 CEST - STAGE 2 README: DONE
+
+Wrote a new comprehensive top-level README.md documenting the repo AS IT IS (no files
+moved). Contents: one-paragraph thesis summary + the claim map (necessity / MH breakdown /
+sufficiency / guidance), environment setup, current repo layout, queue mechanics (locks,
+JSON done-check, reset_incomplete with matching out_dir, fresh status dir), exact rerun
+commands for every family (grid, diagnostics, traces, revision analyses, revision
+experiments, last_token, SEDD slate, G, G-prime, showcase), the ARTIFACT MAP (every thesis
+table/figure -> producing script -> result file, anchored on numbers.json and
+sedd_capability_summary.json), the known-caveats section (SEDD out of AR reconcile; gn=on
+bitwise gradnorm==random; concern 6a attribution; trajectory clean-regeneration note), and
+the verbatim deferred-reorg TODO. Folded the old README.md's still-useful content (patched-
+sampler recorders + verify_equivalence_suite.py + backups) into the traces section so no
+reproduction knowledge was lost. Added a one-line "superseded by README.md" banner to the
+top of REVISION_README.md (file kept in place; nothing deleted). Deferred-reorg TODO is
+mirrored in this log (see the DEFERRED TODO entry above).

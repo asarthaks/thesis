@@ -1,0 +1,298 @@
+prompt_idx,target_label,gamma,arm,judged_label,hit_target,clf_self_label,span_nll,mean_eligible,frac_le1_eligible,text
+3,0,-1,realtext,0,1,0,,,,or doing last year's taxes with your ex-wife.
+3,0,2.0,unguided,1,0,0,7.609935760498047,,,"or doing last year's taxes with your exTERN and taxable reports filed by you, along with your reasonfor being present in the United Kingdom,"
+3,0,2.0,guided,0,1,0,2.079486131668091,19.4423,0.06,or doing last year's taxes with your exes.or doing last year's taxes with your exes.or doing last year's
+3,1,2.0,unguided,1,1,0,7.609935760498047,,,"or doing last year's taxes with your exTERN and taxable reports filed by you, along with your reasonfor being present in the United Kingdom,"
+3,1,2.0,guided,0,0,0,5.764094352722168,22.8104,0.0289,"or doing last year's taxes with your exeletor doing last year's taxes with your exeptor doing tax returns, including"
+3,0,4.0,unguided,1,0,0,7.609935760498047,,,"or doing last year's taxes with your exTERN and taxable reports filed by you, along with your reasonfor being present in the United Kingdom,"
+3,0,4.0,guided,0,1,0,7.17970609664917,29.1246,0.0032,or doing last year's taxes with your ex's and tax numbers Your ex's and rate of your ex's tax to you.
+3,1,4.0,unguided,1,1,0,7.609935760498047,,,"or doing last year's taxes with your exTERN and taxable reports filed by you, along with your reasonfor being present in the United Kingdom,"
+3,1,4.0,guided,0,0,0,6.055129528045654,31.0085,0.0,or doing last year's taxes with your exe you on last year a's taxes and the last year a '. the what you do
+12,1,-1,realtext,1,1,1,,,,the emotions are raw and will strike a nerve with anyone who's ever had family trauma.
+12,0,2.0,unguided,1,0,1,9.963065147399902,,,the emotions are raw and will strike a nerve with a few steps across the dark for the firstthe bell goes ringing and this quote will be pure in
+12,0,2.0,guided,1,0,0,7.0244903564453125,31.0288,0.0,"the emotions are raw and will strike a nerve with someone even thinks it's in and whatthe emotions are, and will strike a nerve with the who"
+12,1,2.0,unguided,1,1,1,9.963065147399902,,,the emotions are raw and will strike a nerve with a few steps across the dark for the firstthe bell goes ringing and this quote will be pure in
+12,1,2.0,guided,1,1,1,5.123340129852295,25.6603,0.1075,the emotions are raw and will strike a nerve withthe-number-of-people-who-want-to-make-their-better-
+12,0,4.0,unguided,1,0,1,9.963065147399902,,,the emotions are raw and will strike a nerve with a few steps across the dark for the firstthe bell goes ringing and this quote will be pure in
+12,0,4.0,guided,1,0,0,8.724876403808594,31.9977,0.0,"the emotions are raw and will strike a nerve with someonea or The TheThe The the or are , a a is your are a the The"
+12,1,4.0,unguided,1,1,1,9.963065147399902,,,the emotions are raw and will strike a nerve with a few steps across the dark for the firstthe bell goes ringing and this quote will be pure in
+12,1,4.0,guided,1,1,1,4.827332973480225,27.0599,0.0544,the emotions are raw and will strike a nerve with both. Work-in-the-office-and-live-in-the-house-
+21,1,-1,realtext,1,1,1,,,,it's an offbeat treat that pokes fun at the democratic exercise while also examining its significance for those who take part.
+21,0,2.0,unguided,1,0,1,7.223307132720947,,,it's an offbeat treat that pokes shade on something that’s moving too fast or something that isn’t up for discussion
+21,0,2.0,guided,1,0,1,8.214303970336914,31.2147,0.0,it's an offbeat treat that pokes the bite out of the other with their aces''s and offbeat' ait '
+21,1,2.0,unguided,1,1,1,7.223307132720947,,,it's an offbeat treat that pokes shade on something that’s moving too fast or something that isn’t up for discussion
+21,1,2.0,guided,0,0,1,4.5437211990356445,27.7053,0.0023,it's an offbeat treat that pokes fun on the culture but has little in the way of'real' value. Sign up for more
+21,0,4.0,unguided,1,0,1,7.223307132720947,,,it's an offbeat treat that pokes shade on something that’s moving too fast or something that isn’t up for discussion
+21,0,4.0,guided,1,0,1,11.744884490966797,31.8776,0.0,it's an offbeat treat that pokes its viewer out of the through. you � your areit  and�it� (it '
+21,1,4.0,unguided,1,1,1,7.223307132720947,,,it's an offbeat treat that pokes shade on something that’s moving too fast or something that isn’t up for discussion
+21,1,4.0,guided,1,1,1,6.86500883102417,29.5466,0.0044,it's an offbeat treat that pokes out on – and makes contact with – information and information from the news source. Sign up for free
+30,1,-1,realtext,1,1,1,,,,"as surreal as a dream and as detailed as a photograph, as visually dexterous as it is at times imaginatively overwhelming."
+30,0,2.0,unguided,1,0,1,5.754326820373535,,,"as surreal as a dream and as detailed as a magazine. As an illustration, you can easily sketch a map of a map as a strand of a"
+30,0,2.0,guided,0,1,1,6.708837985992432,31.9961,0.0,"as surreal as a dream and as detailed as a as, as the the,-- the a's in, a as.- and as than"
+30,1,2.0,unguided,1,1,1,5.754326820373535,,,"as surreal as a dream and as detailed as a magazine. As an illustration, you can easily sketch a map of a map as a strand of a"
+30,1,2.0,guided,1,1,1,4.691353797912598,26.8117,0.0087,as surreal as a dream and as detailed as a picture. As sharp as the page of an or a map. As clear as the page of a
+30,0,4.0,unguided,1,0,1,5.754326820373535,,,"as surreal as a dream and as detailed as a magazine. As an illustration, you can easily sketch a map of a map as a strand of a"
+30,0,4.0,guided,0,1,1,6.6018385887146,32.0,0.0,"as surreal as a dream and as detailed as a as, as the the,- as as a's in, a as. as and as than"
+30,1,4.0,unguided,1,1,1,5.754326820373535,,,"as surreal as a dream and as detailed as a magazine. As an illustration, you can easily sketch a map of a map as a strand of a"
+30,1,4.0,guided,1,1,1,4.2749342918396,26.5305,0.0118,as surreal as a dream and as detailed as a picture. As surreal as the page of an or a map. As detailed as the page of a
+39,1,-1,realtext,1,1,1,,,,a subtle and well-crafted ( for the most part ) chiller.
+39,0,2.0,unguided,1,0,1,5.444716930389404,,,"a subtle and well-crafted ( for the most part) scene that instantly brings a laugh, whether it is lighthearted, soft, or sensitive,"
+39,0,2.0,guided,1,0,1,8.390058517456055,29.8449,0.0491,"a subtle and well-crafted ( for the most part ) ) for for, subtle , as but is is a a with- a- "
+39,1,2.0,unguided,1,1,1,5.444716930389404,,,"a subtle and well-crafted ( for the most part) scene that instantly brings a laugh, whether it is lighthearted, soft, or sensitive,"
+39,1,2.0,guided,1,1,1,5.3650336265563965,24.3628,0.1359,"a subtle and well-crafted ( for the most part, you are looking at a subtle and well-crafted ) in fashion, sports, media,"
+39,0,4.0,unguided,1,0,1,5.444716930389404,,,"a subtle and well-crafted ( for the most part) scene that instantly brings a laugh, whether it is lighthearted, soft, or sensitive,"
+39,0,4.0,guided,1,0,1,8.019946098327637,29.8451,0.049,"a subtle and well-crafted ( for the most part ) as for is, subtle , as ( is is, a case- a of "
+39,1,4.0,unguided,1,1,1,5.444716930389404,,,"a subtle and well-crafted ( for the most part) scene that instantly brings a laugh, whether it is lighthearted, soft, or sensitive,"
+39,1,4.0,guided,1,1,1,6.253542900085449,24.4131,0.0311,a subtle and well-crafted ( for the most part ) of a quality and a unique pieces. ( ( ) ( ( ) ( ( ) )
+48,0,-1,realtext,0,1,0,,,,the cold turkey would've been a far better title.
+48,0,2.0,unguided,0,1,0,6.627607822418213,,,"the cold turkey would've been a far better deal for the cultist.  However, it currently retains a reputation for both its own com"
+48,0,2.0,guided,0,1,0,6.165560722351074,26.2589,0.0013,"the cold turkey would've been a far better deal for the consumers than it could be, and it would probably've been a more o'"
+48,1,2.0,unguided,0,0,0,6.627607822418213,,,"the cold turkey would've been a far better deal for the cultist.  However, it currently retains a reputation for both its own com"
+48,1,2.0,guided,0,0,0,5.746956825256348,31.6629,0.0,"the cold turkey would've been a far better deal than the would they had been, but it thethe, they would've may have been"
+48,0,4.0,unguided,0,1,0,6.627607822418213,,,"the cold turkey would've been a far better deal for the cultist.  However, it currently retains a reputation for both its own com"
+48,0,4.0,guided,0,1,0,6.359925746917725,31.4211,0.0,"the cold turkey would've been a far better deal if it cost less than a chicken, and he had the chicken, an' kickin'"
+48,1,4.0,unguided,0,0,0,6.627607822418213,,,"the cold turkey would've been a far better deal for the cultist.  However, it currently retains a reputation for both its own com"
+48,1,4.0,guided,0,0,0,8.535451889038086,31.9551,0.0,"the cold turkey would've been a far better bet than' it would had been ""an"" of and""."" 'e. in more"
+57,1,-1,realtext,1,1,0,,,,"if you're hard up for raunchy college humor, this is your ticket right here."
+57,0,2.0,unguided,0,1,0,6.8155517578125,,,"if you're hard up for raunchy cam' isIt's like when you don’t have much dough,so you're"
+57,0,2.0,guided,1,0,0,7.006872653961182,27.328,0.0,if you're hard up for raunchy and 'knowin your own's own' if you're hard up for pay-in-your
+57,1,2.0,unguided,0,0,0,6.8155517578125,,,"if you're hard up for raunchy cam' isIt's like when you don’t have much dough,so you're"
+57,1,2.0,guided,1,1,0,5.342630386352539,22.9344,0.1166,"if you're hard up for raunchy and 'em sexy, like's funif you're hard up for raunchy, '"
+57,0,4.0,unguided,0,1,0,6.8155517578125,,,"if you're hard up for raunchy cam' isIt's like when you don’t have much dough,so you're"
+57,0,4.0,guided,1,0,0,2.506335973739624,22.9218,0.1121,"if you're hard up for raunchy, raunchy raunchy,if you're hard up for raunchy, r"
+57,1,4.0,unguided,0,0,0,6.8155517578125,,,"if you're hard up for raunchy cam' isIt's like when you don’t have much dough,so you're"
+57,1,4.0,guided,1,1,0,9.165872573852539,31.9512,0.0,"if you're hard up for raunchy �,'aa'for� the a the, to your top "" "" "" a the"
+66,1,-1,realtext,1,1,1,,,,the son's room is a triumph of gentility that earns its moments of pathos.
+66,0,2.0,unguided,1,0,1,5.734513759613037,,,the son's room is a triumph of gentleness over bowdling...the son's room is dominated by the jovial of glass
+66,0,2.0,guided,1,0,1,5.693450450897217,23.1126,0.0894,"the son's room is a triumph of gent, it is an. Gent, their  the father's room is a triumph of gent"
+66,1,2.0,unguided,1,1,1,5.734513759613037,,,the son's room is a triumph of gentleness over bowdling...the son's room is dominated by the jovial of glass
+66,1,2.0,guided,1,1,1,6.782325267791748,22.4288,0.0479,the son's room is a triumph of gentaleness inthe son's room in the son ’s room is a triumph of gent
+66,0,4.0,unguided,1,0,1,5.734513759613037,,,the son's room is a triumph of gentleness over bowdling...the son's room is dominated by the jovial of glass
+66,0,4.0,guided,1,0,1,4.9365410804748535,29.802,0.0102,the son's room is a triumph of gentrification. The triumph of gentrification The husband’s room is a triumph of gentrification.
+66,1,4.0,unguided,1,1,1,5.734513759613037,,,the son's room is a triumph of gentleness over bowdling...the son's room is dominated by the jovial of glass
+66,1,4.0,guided,1,1,1,5.202319622039795,22.2866,0.0901,the son's room is a triumph of gent  The struggle of gent of their  the son's room is the triumph of gent
+75,0,-1,realtext,0,1,0,,,,"the film flat lines when it should peak and is more missed opportunity and trifle than dark, decadent truffle."
+75,0,2.0,unguided,0,1,0,8.603630065917969,,,"the film flat lines when it should peak and is the right ISO,not wrong ISO, they say, pointing out the smoothing makes less Framing"
+75,0,2.0,guided,0,1,0,5.5883283615112305,25.5851,0.0836,the film flat lines when it should peak and is at peak and athe line flat lines when it should peak and is at peak of a movie 
+75,1,2.0,unguided,0,0,0,8.603630065917969,,,"the film flat lines when it should peak and is the right ISO,not wrong ISO, they say, pointing out the smoothing makes less Framing"
+75,1,2.0,guided,0,0,1,9.286718368530273,31.8567,0.0,the film flat lines when it should peak and is the best and bestthe films in and when the's in is is filmand filmthe That's
+75,0,4.0,unguided,0,1,0,8.603630065917969,,,"the film flat lines when it should peak and is the right ISO,not wrong ISO, they say, pointing out the smoothing makes less Framing"
+75,0,4.0,guided,0,1,0,7.1320953369140625,31.1855,0.0034,"the film flat lines when it should peak and is goingaking and asthe film rises, the film slows down and is going slowing film.  "
+75,1,4.0,unguided,0,0,0,8.603630065917969,,,"the film flat lines when it should peak and is the right ISO,not wrong ISO, they say, pointing out the smoothing makes less Framing"
+75,1,4.0,guided,0,0,1,8.77124309539795,31.9815,0.0,the film flat lines when it should peak and is also a to the the films in The film are's and the images see the filmthe links to
+84,0,-1,realtext,1,0,1,,,,this riveting world war ii moral suspense story deals with the shadow side of american culture : racial prejudice in its ugly and diverse forms.
+84,0,2.0,unguided,1,0,1,2.9350411891937256,,,this riveting world war ii moral suspense story deals i1/i2/i3/i4/i5/i6/i4
+84,0,2.0,guided,1,0,1,6.867591857910156,30.0933,0.0208,this riveting world war ii moral suspense story deals with themes to of moral of of world war war iii moral a to about the moral moral the story
+84,1,2.0,unguided,1,1,1,2.9350411891937256,,,this riveting world war ii moral suspense story deals i1/i2/i3/i4/i5/i6/i4
+84,1,2.0,guided,1,1,1,7.024395942687988,25.1427,0.0033,this riveting world war ii moral suspense story deals/increases/death/g/d/cows/h/l/t/n
+84,0,4.0,unguided,1,0,1,2.9350411891937256,,,this riveting world war ii moral suspense story deals i1/i2/i3/i4/i5/i6/i4
+84,0,4.0,guided,1,0,1,6.867591857910156,30.0933,0.0208,this riveting world war ii moral suspense story deals with themes to of moral of of world war war iii moral a to about the moral moral the story
+84,1,4.0,unguided,1,1,1,2.9350411891937256,,,this riveting world war ii moral suspense story deals i1/i2/i3/i4/i5/i6/i4
+84,1,4.0,guided,1,1,1,6.071674823760986,25.459,0.0021,this riveting world war ii moral suspense story deals/chases/who/who/who/knows/who/s/t/n
+93,0,-1,realtext,0,1,0,,,,"combining quick-cut editing and a blaring heavy metal much of the time, beck seems to be under the illusion that he's shooting the latest system of a down video"
+93,0,2.0,unguided,1,0,0,7.387842655181885,,,"combining quick-cut editing and a blaring of audio-related properties in there, is a video and a photo, and (photo) video"
+93,0,2.0,guided,1,0,1,7.532901287078857,31.1729,0.0,combining quick-cut editing and a blaring sound.  VideosAGEas is a leader the nation high that is producing high definition video
+93,1,2.0,unguided,1,1,0,7.387842655181885,,,"combining quick-cut editing and a blaring of audio-related properties in there, is a video and a photo, and (photo) video"
+93,1,2.0,guided,0,0,0,6.2286858558654785,30.5385,0.0055,"combining quick-cut editing and a blaring background.  Most of the editing is quick-cut editing and white processing, particularly and video"
+93,0,4.0,unguided,1,0,0,7.387842655181885,,,"combining quick-cut editing and a blaring of audio-related properties in there, is a video and a photo, and (photo) video"
+93,0,4.0,guided,0,1,0,8.336348533630371,32.0,0.0,"combining quick-cut editing and a blaring, on loud, your- sort video editing, or at what is a to in your copy,"
+93,1,4.0,unguided,1,1,0,7.387842655181885,,,"combining quick-cut editing and a blaring of audio-related properties in there, is a video and a photo, and (photo) video"
+93,1,4.0,guided,1,1,1,5.978665828704834,30.9381,0.0,"combining quick-cut editing and a blaring soundtrack.  Video game and what is in it for you: Media games, audio and video"
+102,1,-1,realtext,1,1,1,,,,one of the smartest takes on singles culture i've seen in a long time.
+102,0,2.0,unguided,1,0,1,8.046229362487793,,,one of the smartest takes on singles culture i 'ateve' had.He is also one of the curest twosand his new step daddy
+102,0,2.0,guided,1,0,1,7.841879367828369,29.3768,0.0,one of the smartest takes on singles culture i 'n. An insightful and intelligent take on singles culture culture dating as singles a as- dating singles the
+102,1,2.0,unguided,1,1,1,8.046229362487793,,,one of the smartest takes on singles culture i 'ateve' had.He is also one of the curest twosand his new step daddy
+102,1,2.0,guided,1,1,1,5.987529277801514,30.0933,0.022,one of the smartest takes on singles culture i 'always loved' it and it is indeed one of the biggest and most influential moments in pop pop.
+102,0,4.0,unguided,1,0,1,8.046229362487793,,,one of the smartest takes on singles culture i 'ateve' had.He is also one of the curest twosand his new step daddy
+102,0,4.0,guided,1,0,1,9.14795207977295,32.0,0.0,"one of the smartest takes on singles culture i 'I' it''of a a' for. ofi singles a wasi dating on"""
+102,1,4.0,unguided,1,1,1,8.046229362487793,,,one of the smartest takes on singles culture i 'ateve' had.He is also one of the curest twosand his new step daddy
+102,1,4.0,guided,1,1,1,5.963531017303467,29.2266,0.0288,one of the smartest takes on singles culture i'makeout' video 'This is the one of the easiest and most popular'makeout' video
+111,0,-1,realtext,0,1,0,,,,confirms the nagging suspicion that ethan hawke would be even worse behind the camera than he is in front of it.
+111,0,2.0,unguided,0,1,0,3.9174423217773438,,,"confirms the nagging suspicion that ethan haw is problematic. when intoxicated, he reaffirms the nagging suspicion that ethan haw is problematic."
+111,0,2.0,guided,0,1,0,8.66678524017334,30.6689,0.0076,confirms the nagging suspicion that ethan hawks aren’t get their end at the table.  I think a� sorry I
+111,1,2.0,unguided,0,0,0,3.9174423217773438,,,"confirms the nagging suspicion that ethan haw is problematic. when intoxicated, he reaffirms the nagging suspicion that ethan haw is problematic."
+111,1,2.0,guided,1,1,0,7.486025333404541,30.1009,0.0058,confirms the nagging suspicion that ethan hawks don’t let their allies in the U.S. are. a in in in
+111,0,4.0,unguided,0,1,0,3.9174423217773438,,,"confirms the nagging suspicion that ethan haw is problematic. when intoxicated, he reaffirms the nagging suspicion that ethan haw is problematic."
+111,0,4.0,guided,0,1,0,7.448856353759766,30.8155,0.0,confirms the nagging suspicion that ethan hawkish and like ethE-E-N.E.A.U. were in fact in
+111,1,4.0,unguided,0,0,0,3.9174423217773438,,,"confirms the nagging suspicion that ethan haw is problematic. when intoxicated, he reaffirms the nagging suspicion that ethan haw is problematic."
+111,1,4.0,guided,0,0,0,6.2917280197143555,30.8462,0.0008,"confirms the nagging suspicion that ethan hawkishness are actually on- from the the in between. And that's, ethan liberals are"
+120,0,-1,realtext,0,1,1,,,,"pumpkin means to be an outrageous dark satire on fraternity life, but its ambitions far exceed the abilities of writer adam larson broder and his co-director, t"
+120,0,2.0,unguided,1,0,0,4.923974514007568,,,"pumpkin means to be an outrageous dark satire of bumpkin, bumpkin, bumpkin; and to be an outrageous light parody of bumpkin"
+120,0,2.0,guided,1,0,0,5.412876129150391,25.153,0.0567,pumpkin means to be an outrageous dark satire or “pumpkin” mean “pumpkin plumpkin.”
+120,1,2.0,unguided,1,1,0,4.923974514007568,,,"pumpkin means to be an outrageous dark satire of bumpkin, bumpkin, bumpkin; and to be an outrageous light parody of bumpkin"
+120,1,2.0,guided,1,1,1,3.89683198928833,19.5901,0.0175,"pumpkin means to be an outrageous dark satire. Lumpkin! Lumpkin, Lumpkin, Lumpkin is an outrageous dark parody that an outrageous"
+120,0,4.0,unguided,1,0,0,4.923974514007568,,,"pumpkin means to be an outrageous dark satire of bumpkin, bumpkin, bumpkin; and to be an outrageous light parody of bumpkin"
+120,0,4.0,guided,0,1,0,9.76695728302002,31.5455,0.0078,"pumpkin means to be an outrageous dark satire on Mr the �umpkin’s idea as to means s of to. a,"
+120,1,4.0,unguided,1,1,0,4.923974514007568,,,"pumpkin means to be an outrageous dark satire of bumpkin, bumpkin, bumpkin; and to be an outrageous light parody of bumpkin"
+120,1,4.0,guided,1,1,1,4.235205173492432,20.0257,0.0372,pumpkin means to be an outrageous dark satire. Lumpkin of Lumpkin The Lumpkin of Lumpkin is an outrageous dark parody that an outrageous
+129,1,-1,realtext,1,1,1,,,,"about a manga-like heroine who fights back at her abusers, it's energetic and satisfying if not deep and psychological."
+129,0,2.0,unguided,1,0,1,7.789149761199951,,,about a manga-like heroine who fights back at her own sarken power and makes it possible for people like us have a perpetual jysy
+129,0,2.0,guided,1,0,0,7.789567470550537,31.7791,0.0,"about a manga-like heroine who fights back at night, tries a, but in her new- has aA story about a boy-and-"
+129,1,2.0,unguided,1,1,1,7.789149761199951,,,about a manga-like heroine who fights back at her own sarken power and makes it possible for people like us have a perpetual jysy
+129,1,2.0,guided,1,1,1,6.589881896972656,30.6474,0.0019,about a manga-like heroine who fights back at her world by revealing her power in her fights- a-a-- a--a-
+129,0,4.0,unguided,1,0,1,7.789149761199951,,,about a manga-like heroine who fights back at her own sarken power and makes it possible for people like us have a perpetual jysy
+129,0,4.0,guided,0,1,0,7.572701454162598,31.8635,0.0,about a manga-like heroine who fights back at everyone who tries to be her out but is of a as is a the in-- of-
+129,1,4.0,unguided,1,1,1,7.789149761199951,,,about a manga-like heroine who fights back at her own sarken power and makes it possible for people like us have a perpetual jysy
+129,1,4.0,guided,1,1,1,6.002081394195557,30.5569,0.0009,about a manga-like heroine who fights back at powerful men by revealing her power in her self-published poetry and takeson a seven-year-
+138,1,-1,realtext,1,1,1,,,,"manages to transcend the sex, drugs and show-tunes plot into something far richer."
+138,0,2.0,unguided,0,1,1,6.387558460235596,,,"manages to transcend the sex, drugs and showrasesportsmanages to transcend the sex, drugs and shows the worldstrikes all the money"
+138,0,2.0,guided,0,1,0,7.318550109863281,31.8265,0.0,"manages to transcend the sex, drugs and show business ( drugs ) to). inmanageages to pass through, the sex, drugs and drugs"
+138,1,2.0,unguided,0,0,1,6.387558460235596,,,"manages to transcend the sex, drugs and showrasesportsmanages to transcend the sex, drugs and shows the worldstrikes all the money"
+138,1,2.0,guided,1,1,1,2.9615135192871094,12.8962,0.2049,"manages to transcend the sex, drugs and show, and themanages to transcend the sex, drugs and shows, and themanages to transcend"
+138,0,4.0,unguided,0,1,1,6.387558460235596,,,"manages to transcend the sex, drugs and showrasesportsmanages to transcend the sex, drugs and shows the worldstrikes all the money"
+138,0,4.0,guided,0,1,0,8.556523323059082,31.9151,0.0,"manages to transcend the sex, drugs and show you for instead of to be inman the room with. pass, drugs "" drugs drugs. drugs"
+138,1,4.0,unguided,0,0,1,6.387558460235596,,,"manages to transcend the sex, drugs and showrasesportsmanages to transcend the sex, drugs and shows the worldstrikes all the money"
+138,1,4.0,guided,1,1,1,5.229926586151123,28.8042,0.0452,"manages to transcend the sex, drugs and show up to the morning and get the day as if they were.manages to transcend the sex,"
+147,0,-1,realtext,0,1,0,,,,"characters still need to function according to some set of believable and comprehensible impulses, no matter how many drugs they do or how much artistic license"
+147,0,2.0,unguided,0,1,0,7.264949321746826,,,characters still need to function according to some set out of some moments that as functions we sure need to do and still need to function according to some
+147,0,2.0,guided,0,1,0,3.479818105697632,23.0821,0.0458,characters still need to function according to some set of conditions still need to function according to some set of conditions they still need to function acc
+147,1,2.0,unguided,0,0,0,7.264949321746826,,,characters still need to function according to some set out of some moments that as functions we sure need to do and still need to function according to some
+147,1,2.0,guided,0,0,0,5.2989325523376465,24.393,0.037,characters still need to function according to some set of guidelines however they still need more than one set of rules they still need to function according t
+147,0,4.0,unguided,0,1,0,7.264949321746826,,,characters still need to function according to some set out of some moments that as functions we sure need to do and still need to function according to some
+147,0,4.0,guided,0,1,0,4.7162861824035645,25.0996,0.0797,characters still need to function according to some set-characters in order to work some- set-characters still need to function according to some
+147,1,4.0,unguided,0,0,0,7.264949321746826,,,characters still need to function according to some set out of some moments that as functions we sure need to do and still need to function according to some
+147,1,4.0,guided,1,1,1,5.3447489738464355,25.1384,0.0805,characters still need to function according to some set of guidelines conditions include met and a still a character characters still need to function according
+156,0,-1,realtext,0,1,0,,,,it made me want to wrench my eyes out of my head and toss them at the screen.
+156,0,2.0,unguided,0,1,0,7.255107402801514,,,it made me want to wrench my eyes out of this spot. The here are those in my preferred way of knowing where it is from when it comes
+156,0,2.0,guided,0,1,0,7.495723247528076,31.6653,0.0,it made me want to wrench my eyes out of this moment. I was not interested in this of as I had to been to from had I that
+156,1,2.0,unguided,0,0,0,7.255107402801514,,,it made me want to wrench my eyes out of this spot. The here are those in my preferred way of knowing where it is from when it comes
+156,1,2.0,guided,0,0,0,5.249696254730225,29.7161,0.0211,it made me want to wrench my eyes out of this.  It was so sad that I that I had eyes of this.  It
+156,0,4.0,unguided,0,1,0,7.255107402801514,,,it made me want to wrench my eyes out of this spot. The here are those in my preferred way of knowing where it is from when it comes
+156,0,4.0,guided,0,1,0,7.294499397277832,31.6703,0.0,"it made me want to wrench my eyes out of my so and my mouth not to let out of the and, to. ""I ""."" """
+156,1,4.0,unguided,0,0,0,7.255107402801514,,,it made me want to wrench my eyes out of this spot. The here are those in my preferred way of knowing where it is from when it comes
+156,1,4.0,guided,0,0,1,6.010910511016846,31.6338,0.0017,"it made me want to wrench my eyes out of this moment.  I am in this of, wrench my eyes out of window.  "
+165,0,-1,realtext,0,1,1,,,,"a misogynistic piece of filth that attempts to pass itself off as hip, young adult entertainment."
+165,0,2.0,unguided,0,1,0,5.588647365570068,,,"a misogynistic piece of filth that attempts to tie together the presidential candidates by their visual resemblance,a misogynistic piece of filth that attempts "
+165,0,2.0,guided,0,1,0,6.477260112762451,31.4546,0.0008,a misogynistic piece of filth that attempts to dehumanine women (� attempted to dehumanize women by committing sexual abuse as a 17-year-
+165,1,2.0,unguided,0,0,0,5.588647365570068,,,"a misogynistic piece of filth that attempts to tie together the presidential candidates by their visual resemblance,a misogynistic piece of filth that attempts "
+165,1,2.0,guided,0,0,1,2.662757396697998,19.7003,0.2327,a misogynistic piece of filth that attempts to dismiss women and blame them for their actions  a misogynistic piece of filth that attempts to
+165,0,4.0,unguided,0,1,0,5.588647365570068,,,"a misogynistic piece of filth that attempts to tie together the presidential candidates by their visual resemblance,a misogynistic piece of filth that attempts "
+165,0,4.0,guided,0,1,0,11.044926643371582,32.0,0.0,"a misogynistic piece of filth that attempts to rape women, a�- it, her women not misogyny� to� women misogyny misogyn isth"
+165,1,4.0,unguided,0,0,0,5.588647365570068,,,"a misogynistic piece of filth that attempts to tie together the presidential candidates by their visual resemblance,a misogynistic piece of filth that attempts "
+165,1,4.0,guided,0,0,1,7.613321781158447,31.4724,0.0017,a misogynistic piece of filth that attempts to degrade women and ostritize women and force women into committing sexual acts on a 17-year-
+174,0,-1,realtext,0,1,0,,,,"at the very least, if you don't know anything about derrida when you walk into the theater, you won't know much more when you leave."
+174,0,2.0,unguided,0,1,0,4.772679805755615,,,"at the very least, if you don't want to figure this yourself, you don't don't want to figure it out yourself, you"
+174,0,2.0,guided,0,1,0,4.808902263641357,18.6051,0.2799,"at the very least, if you don't want me to do it because you don’t want me to do it that’s"
+174,1,2.0,unguided,0,0,0,4.772679805755615,,,"at the very least, if you don't want to figure this yourself, you don't don't want to figure it out yourself, you"
+174,1,2.0,guided,0,0,0,6.136929988861084,21.1667,0.0022,"at the very least, if you don't want to have it, if you don n dont want it you want it to be and not"
+174,0,4.0,unguided,0,1,0,4.772679805755615,,,"at the very least, if you don't want to figure this yourself, you don't don't want to figure it out yourself, you"
+174,0,4.0,guided,0,1,0,4.585079193115234,29.9672,0.0026,"at the very least, if you don't want to do it and you'n't don't want to do it, but that not"
+174,1,4.0,unguided,0,0,0,4.772679805755615,,,"at the very least, if you don't want to figure this yourself, you don't don't want to figure it out yourself, you"
+174,1,4.0,guided,1,1,1,5.8374552726745605,30.0429,0.0,"at the very least, if you don't want to share it out your and you you do don't want to stick it out but that don"
+183,0,-1,realtext,0,1,0,,,,to say this was done better in wilder's some like it hot is like saying the sun rises in the east.
+183,0,2.0,unguided,0,1,0,6.701005458831787,,,to say this was done better in wilder '97 as I know who did. To say it was a mild Easter hoax for the age group.
+183,0,2.0,guided,0,1,0,5.752335548400879,27.5488,0.0121,to say this was done better in wilder'n. states than docturnal''to say this was done better in the state of.
+183,1,2.0,unguided,0,0,0,6.701005458831787,,,to say this was done better in wilder '97 as I know who did. To say it was a mild Easter hoax for the age group.
+183,1,2.0,guided,0,0,0,6.395973205566406,28.2532,0.0102,to say this was done better in wilder''er'than oiner'say it was doneer'there in the wilder than
+183,0,4.0,unguided,0,1,0,6.701005458831787,,,to say this was done better in wilder '97 as I know who did. To say it was a mild Easter hoax for the age group.
+183,0,4.0,guided,0,1,0,4.566898345947266,24.1117,0.0428,"to say this was done better in wilder ', as I always do as the '.to say this was done better in wilder '."
+183,1,4.0,unguided,0,0,0,6.701005458831787,,,to say this was done better in wilder '97 as I know who did. To say it was a mild Easter hoax for the age group.
+183,1,4.0,guided,1,1,0,6.564770698547363,24.4683,0.0365,to say this was done better in wilder 'than I came in thiserer 'ringto say this was done better in wilder'to
+192,1,-1,realtext,1,1,1,,,,the socio-histo-political treatise is told in earnest strides... ( and ) personal illusion is deconstructed with poignancy.
+192,0,2.0,unguided,1,0,1,10.801898002624512,,,the socio-histo-political treatise is the MEDeALTH OF ART DIALISIT MUST explain how the tradpictesque can be
+192,0,2.0,guided,1,0,1,7.756050109863281,31.9604,0.0,the socio-histo-political treatise is 'of' as is the social- as is a historyThe politicalthe- historicaltheofThe
+192,1,2.0,unguided,1,1,1,10.801898002624512,,,the socio-histo-political treatise is the MEDeALTH OF ART DIALISIT MUST explain how the tradpictesque can be
+192,1,2.0,guided,1,1,1,3.2158963680267334,24.0752,0.0519,the socio-histo-political treatise is the philosophy of the socio-economo-political treatise is the philosophy of the socio-political
+192,0,4.0,unguided,1,0,1,10.801898002624512,,,the socio-histo-political treatise is the MEDeALTH OF ART DIALISIT MUST explain how the tradpictesque can be
+192,0,4.0,guided,1,0,0,7.615782260894775,31.9838,0.0,the socio-histo-political treatise is a analysis of the analysis and social problems as well as of social…the socio is socialsocial historical
+192,1,4.0,unguided,1,1,1,10.801898002624512,,,the socio-histo-political treatise is the MEDeALTH OF ART DIALISIT MUST explain how the tradpictesque can be
+192,1,4.0,guided,1,1,1,2.325662136077881,23.7967,0.0739,the socio-histo-political treatise is the socio-histo-politicalo-political treatise is the socio-histo-political
+201,1,-1,realtext,0,0,1,,,,reign of fire looks as if it was made without much thought -- and is best watched that way.
+201,0,2.0,unguided,0,1,0,6.979123115539551,,,reign of fire looks as if it was made from the steelreigns of goblin.  The march procession of fire has now turned violent
+201,0,2.0,guided,0,1,0,6.49298095703125,28.8517,0.0107,"reign of fire looks as if it was made a ""rereign of fire"". See (H.R. 34) ""rescue"""
+201,1,2.0,unguided,0,0,0,6.979123115539551,,,reign of fire looks as if it was made from the steelreigns of goblin.  The march procession of fire has now turned violent
+201,1,2.0,guided,0,0,1,6.083811283111572,27.7981,0.0086,reign of fire looks as if it was made out of thereign of fire as opposed to A.R. impres impres impres
+201,0,4.0,unguided,0,1,0,6.979123115539551,,,reign of fire looks as if it was made from the steelreigns of goblin.  The march procession of fire has now turned violent
+201,0,4.0,guided,0,1,0,5.577247142791748,28.3934,0.0089,reign of fire looks as if it was made by..reign of fire looks as like it was made..reignignreign
+201,1,4.0,unguided,0,0,0,6.979123115539551,,,reign of fire looks as if it was made from the steelreigns of goblin.  The march procession of fire has now turned violent
+201,1,4.0,guided,0,0,1,6.4748992919921875,29.2289,0.0059,reign of fire looks as if it was made from the rereign of the flames belongs to A.R.S. Gresferes
+210,1,-1,realtext,1,1,1,,,,"despite the 2-d animation, the wild thornberrys movie makes for a surprisingly cinematic experience."
+210,0,2.0,unguided,0,1,0,7.178284645080566,,,"despite the 2-d animation, the wild thorn, the nasty worms, and we stay at the 12thfor the rest of the text, the"
+210,0,2.0,guided,0,1,0,4.013037204742432,28.8719,0.0235,"despite the 2-d animation, the wild thorn in the center of the field, the wild thorn in the center of the field, the wild thorn"
+210,1,2.0,unguided,0,0,0,7.178284645080566,,,"despite the 2-d animation, the wild thorn, the nasty worms, and we stay at the 12thfor the rest of the text, the"
+210,1,2.0,guided,1,1,1,3.3528313636779785,25.6304,0.0813,"despite the 2-d animation, the wild thorn, the wild grass, the wild tree, the wild fruit, the wild flower, the wild flower"
+210,0,4.0,unguided,0,1,0,7.178284645080566,,,"despite the 2-d animation, the wild thorn, the nasty worms, and we stay at the 12thfor the rest of the text, the"
+210,0,4.0,guided,0,1,0,8.565119743347168,31.5166,0.0,"despite the 2-d animation, the wild thorn and the p thorn of that andevenand it the been becausedespite the 2-d animation."
+210,1,4.0,unguided,0,0,0,7.178284645080566,,,"despite the 2-d animation, the wild thorn, the nasty worms, and we stay at the 12thfor the rest of the text, the"
+210,1,4.0,guided,0,0,0,6.324341773986816,30.6161,0.0032,"despite the 2-d animation, the wild thorn in the 1 of the 2 and the 3, the wild thornin the leaves of the st leaves"
+219,1,-1,realtext,1,1,1,,,,huston nails both the glad-handing and the choking sense of hollow despair.
+219,0,2.0,unguided,1,0,1,5.4664998054504395,,,huston nails both the glad-handing and re-facting.  – – – – – – –.  – –
+219,0,2.0,guided,1,0,1,5.72488260269165,30.3438,0.0055,huston nails both the glad-handing nails  Auston nails both the little- the nails  Buston nails both
+219,1,2.0,unguided,1,1,1,5.4664998054504395,,,huston nails both the glad-handing and re-facting.  – – – – – – –.  – –
+219,1,2.0,guided,1,1,1,4.561306953430176,29.3716,0.043,huston nails both the glad-handing and the show of kindness.  And Alhuston nails both.  And he
+219,0,4.0,unguided,1,0,1,5.4664998054504395,,,huston nails both the glad-handing and re-facting.  – – – – – – –.  – –
+219,0,4.0,guided,1,0,1,8.144217491149902,30.6484,0.0,"huston nails both the glad-handing and and the--�,hhuston nails both both-so-hand-,"
+219,1,4.0,unguided,1,1,1,5.4664998054504395,,,huston nails both the glad-handing and re-facting.  – – – – – – –.  – –
+219,1,4.0,guided,1,1,1,4.6005072593688965,28.3555,0.0787,huston nails both the glad-handing and the good-talking.  And Alhuston nails both.  And he
+228,1,-1,realtext,1,1,1,,,,a rarity among recent iranian films : it's a comedy full of gentle humor that chides the absurdity of its protagonist's plight.
+228,0,2.0,unguided,0,1,0,7.032440185546875,,,a rarity among recent iranian films : it's not just me and I’m just the guy that’s just blonde or just
+228,0,2.0,guided,0,1,1,8.347905158996582,30.7791,0.0,"a rarity among recent iranian films : it's always been to of to and'� in'and that's's, ons on"
+228,1,2.0,unguided,0,0,0,7.032440185546875,,,a rarity among recent iranian films : it's not just me and I’m just the guy that’s just blonde or just
+228,1,2.0,guided,1,1,1,5.543524265289307,24.3409,0.028,a rarity among recent iranian films : it's still only a few days after it's release! It‘s now a large number
+228,0,4.0,unguided,0,1,0,7.032440185546875,,,a rarity among recent iranian films : it's not just me and I’m just the guy that’s just blonde or just
+228,0,4.0,guided,1,0,1,9.134464263916016,30.78,0.0,"a rarity among recent iranian films : it 'I have been to of to and'� in'and that's's, ons on"
+228,1,4.0,unguided,0,0,0,7.032440185546875,,,a rarity among recent iranian films : it's not just me and I’m just the guy that’s just blonde or just
+228,1,4.0,guided,1,1,1,7.450827121734619,27.5119,0.0438,"a rarity among recent iranian films : it's actually a typeial-styleial-of-movie that‘s, in terms of"
+237,0,-1,realtext,0,1,0,,,,a dumb movie with dumb characters doing dumb things and you have to be really dumb not to see where this is going.
+237,0,2.0,unguided,0,1,0,9.939114570617676,,,a dumb movie with dumb characters doing dumb things and sneezing with an effect on saliva I recognize these witty quotes myself Belief in this belief Belief in
+237,0,2.0,guided,0,1,0,6.5242486000061035,28.2051,0.0,a dumb movie with dumb characters doing dumb things and a dumb movie with an adjective attached to dumbmoviea dumb movie (as in the—as in
+237,1,2.0,unguided,0,0,0,9.939114570617676,,,a dumb movie with dumb characters doing dumb things and sneezing with an effect on saliva I recognize these witty quotes myself Belief in this belief Belief in
+237,1,2.0,guided,0,0,1,6.739499092102051,26.6,0.0034,"a dumb movie with dumb characters doing dumb things and smart characters who are smart characters smart characters who are good, and smart people and smart char"
+237,0,4.0,unguided,0,1,0,9.939114570617676,,,a dumb movie with dumb characters doing dumb things and sneezing with an effect on saliva I recognize these witty quotes myself Belief in this belief Belief in
+237,0,4.0,guided,0,1,0,4.976439952850342,27.8895,0.0011,a dumb movie with dumb characters doing dumb things and a dumb movie with an angry elephant in the skya dumb movie with elephants in the skyas in
+237,1,4.0,unguided,0,0,0,9.939114570617676,,,a dumb movie with dumb characters doing dumb things and sneezing with an effect on saliva I recognize these witty quotes myself Belief in this belief Belief in
+237,1,4.0,guided,0,0,0,8.113997459411621,30.622,0.0,a dumb movie with dumb characters doing dumb things and dumb characters in a this characters in about smart with and dumb that and and is and and about smart
+246,1,-1,realtext,1,1,1,,,,"it's so good that its relentless, polished wit can withstand not only inept school productions, but even oliver parker's movie adaptation."
+246,0,2.0,unguided,1,0,1,5.806933879852295,,,"it's so good that its relentless, polished, crisp, clean, really sharp, clean, not cracks, but on an unexpected elasticity,"
+246,0,2.0,guided,1,0,0,5.980413436889648,30.4155,0.0,"it's so good that its relentless, polished, orated everything is, not just. just, and, and,'s so bad that"
+246,1,2.0,unguided,1,1,1,5.806933879852295,,,"it's so good that its relentless, polished, crisp, clean, really sharp, clean, not cracks, but on an unexpected elasticity,"
+246,1,2.0,guided,1,1,1,4.015108108520508,23.3359,0.0467,"it's so good that its relentless, polished ""No""it's so good that its relentlessly, polished, so good,it's"
+246,0,4.0,unguided,1,0,1,5.806933879852295,,,"it's so good that its relentless, polished, crisp, clean, really sharp, clean, not cracks, but on an unexpected elasticity,"
+246,0,4.0,guided,1,0,1,7.93743896484375,30.6823,0.0,"it's so good that its relentless, polished, or,'its, a '. so soss'the so'so a as"
+246,1,4.0,unguided,1,1,1,5.806933879852295,,,"it's so good that its relentless, polished, crisp, clean, really sharp, clean, not cracks, but on an unexpected elasticity,"
+246,1,4.0,guided,1,1,1,6.498658180236816,29.863,0.0009,"it's so good that its relentless, polished,, in,, the same from its relentless, polished,, in,, all else,"
+255,0,-1,realtext,0,1,0,,,,"even with a green mohawk and a sheet of fire-red flame tattoos covering his shoulder, however, kilmer seems to be posing, rather than acting."
+255,0,2.0,unguided,0,1,0,11.648829460144043,,,even with a green mohawk and a sheet lining Jimmy Hurl Lady Baby -- Fulllores Baby Jimmy Walklores and Jimmy is our only
+255,0,2.0,guided,0,1,0,6.146127700805664,30.2303,0.0081,even with a green mohawk and a sheet of paper on which the letter is on the left of they remove the letter and put down the note
+255,1,2.0,unguided,0,0,0,11.648829460144043,,,even with a green mohawk and a sheet lining Jimmy Hurl Lady Baby -- Fulllores Baby Jimmy Walklores and Jimmy is our only
+255,1,2.0,guided,0,0,0,5.517367839813232,29.6933,0.0108,"even with a green mohawk and a sheet of paper on it, with stamps on it, put put on it, and put things on it"
+255,0,4.0,unguided,0,1,0,11.648829460144043,,,even with a green mohawk and a sheet lining Jimmy Hurl Lady Baby -- Fulllores Baby Jimmy Walklores and Jimmy is our only
+255,0,4.0,guided,0,1,0,7.058513164520264,31.1505,0.0059,even with a green mohawk and a sheet of paper it would be be out on the street it had no idea of and I had of and
+255,1,4.0,unguided,0,0,0,11.648829460144043,,,even with a green mohawk and a sheet lining Jimmy Hurl Lady Baby -- Fulllores Baby Jimmy Walklores and Jimmy is our only
+255,1,4.0,guided,0,0,1,5.9532790184021,31.1716,0.0008,even with a green mohawk and a sheet of paper that is right here is on the edge of the page that you and I are in are
+264,1,-1,realtext,1,1,1,,,,the wild thornberrys movie is a jolly surprise.
+264,0,2.0,unguided,1,0,1,5.859532833099365,,,the wild thornberrys movie is a jolly and fun to take part in due course…</more> <less>the wild thornberrys
+264,0,2.0,guided,1,0,1,6.7717742919921875,31.0463,0.0031,the wild thornberrys movie is a jolly to watch  It’s also the birds movie is a jolly tome  
+264,1,2.0,unguided,1,1,1,5.859532833099365,,,the wild thornberrys movie is a jolly and fun to take part in due course…</more> <less>the wild thornberrys
+264,1,2.0,guided,1,1,1,5.6339111328125,29.1723,0.0,"the wild thornberrys movie is a jolly and fun time of day in a bit of a great place, and you are always glad to see"
+264,0,4.0,unguided,1,0,1,5.859532833099365,,,the wild thornberrys movie is a jolly and fun to take part in due course…</more> <less>the wild thornberrys
+264,0,4.0,guided,1,0,1,9.578448295593262,31.647,0.0016,the wild thornberrys movie is a jolly little's film-- a of-the theof-the the in to the to wildberry
+264,1,4.0,unguided,1,1,1,5.859532833099365,,,the wild thornberrys movie is a jolly and fun to take part in due course…</more> <less>the wild thornberrys
+264,1,4.0,guided,1,1,1,4.523695468902588,28.7037,0.0,"the wild thornberrys movie is a jolly, fun-for-the-family movie that shines with sunshine and laughs in a light-hearted"
+273,1,-1,realtext,1,1,1,,,,it is great summer fun to watch arnold and his buddy gerald bounce off a quirky cast of characters.
+273,0,2.0,unguided,1,0,1,7.207273960113525,,,"it is great summer fun to watch arnold enemy army the occasional while the summer occurs.Work at the same time, until 5 p.m"
+273,0,2.0,guided,1,0,0,9.298595428466797,31.3097,0.0031,it is great summer fun to watch arnoldi not arenot and Great autumn and to the arnold the and or not open and not
+273,1,2.0,unguided,1,1,1,7.207273960113525,,,"it is great summer fun to watch arnold enemy army the occasional while the summer occurs.Work at the same time, until 5 p.m"
+273,1,2.0,guided,1,1,1,5.937017917633057,27.5184,0.0,it is great summer fun to watch arnoldsson this summer and he must be smiling at you at the same time! It will be great summer
+273,0,4.0,unguided,1,0,1,7.207273960113525,,,"it is great summer fun to watch arnold enemy army the occasional while the summer occurs.Work at the same time, until 5 p.m"
+273,0,4.0,guided,1,0,0,8.627336502075195,31.2999,0.0031,"it is great summer fun to watch arnoldt this are is was Great autumn comes to watch arnold, and  to a fall to"
+273,1,4.0,unguided,1,1,1,7.207273960113525,,,"it is great summer fun to watch arnold enemy army the occasional while the summer occurs.Work at the same time, until 5 p.m"
+273,1,4.0,guided,1,1,1,5.71063756942749,27.75,0.0,"it is great summer fun to watch arnolde this summer, it will be great if you watch the air time, it will be great summer"
+282,0,-1,realtext,0,1,0,,,,an unwise amalgam of broadcast news and vibes.
+282,0,2.0,unguided,0,1,0,10.542863845825195,,,"an unwise amalgam of broadcast news and vibtrious ferumance, therefore,, offer us a rather intriguing conmeuissure,"
+282,0,2.0,guided,1,0,0,4.813134670257568,26.4559,0.0175,"an unwise amalgam of broadcast news and vibes to US, ABC, ABC, CBS, CBS, CBS, WB, CBS, CBS,"
+282,1,2.0,unguided,0,0,0,10.542863845825195,,,"an unwise amalgam of broadcast news and vibtrious ferumance, therefore,, offer us a rather intriguing conmeuissure,"
+282,1,2.0,guided,1,1,1,2.0628952980041504,25.7784,0.0269,"an unwise amalgam of broadcast news and vibrancy 3, 4, 5, 6, 7, 8, 10, 11, 12,"
+282,0,4.0,unguided,0,1,0,10.542863845825195,,,"an unwise amalgam of broadcast news and vibtrious ferumance, therefore,, offer us a rather intriguing conmeuissure,"
+282,0,4.0,guided,0,1,0,7.959004878997803,31.9294,0.0,"an unwise amalgam of broadcast news and vibra, as to was more a. a to a. a to4 (H/ /"
+282,1,4.0,unguided,0,0,0,10.542863845825195,,,"an unwise amalgam of broadcast news and vibtrious ferumance, therefore,, offer us a rather intriguing conmeuissure,"
+282,1,4.0,guided,1,1,1,7.857981204986572,30.5913,0.0,"an unwise amalgam of broadcast news and vibroncy as, was, news, entertainment,,,, tv, news, newsa,"
+291,0,-1,realtext,0,1,0,,,,... a boring parade of talking heads and technical gibberish that will do little to advance the linux cause.
+291,0,2.0,unguided,0,1,1,6.204327583312988,,,... a boring parade of talking heads and technical gibberish and all the other sorts of religiosity and intellectual rants that result from exposure of how
+291,0,2.0,guided,0,1,0,4.746798515319824,24.6684,0.0501,... a boring parade of talking heads and technical gibberish... unless it's a parade of technical advisors. I think that's boring. I think
+291,1,2.0,unguided,0,0,1,6.204327583312988,,,... a boring parade of talking heads and technical gibberish and all the other sorts of religiosity and intellectual rants that result from exposure of how
+291,1,2.0,guided,0,0,0,6.227977275848389,28.5363,0.0017,"... a boring parade of talking heads and technical gibberish... a one in is to be in in bed, so that one can not be seen"
+291,0,4.0,unguided,0,1,1,6.204327583312988,,,... a boring parade of talking heads and technical gibberish and all the other sorts of religiosity and intellectual rants that result from exposure of how
+291,0,4.0,guided,0,1,0,7.302775859832764,28.7908,0.0016,"... a boring parade of talking heads and technical gibberish... but it comes supposed to... a in, a certain that were it not be boring"
+291,1,4.0,unguided,0,0,1,6.204327583312988,,,... a boring parade of talking heads and technical gibberish and all the other sorts of religiosity and intellectual rants that result from exposure of how
+291,1,4.0,guided,0,0,0,8.059294700622559,28.8686,0.0016,"... a boring parade of talking heads and technical gibberish. 6. in on,... are in, you- that, but not- of"

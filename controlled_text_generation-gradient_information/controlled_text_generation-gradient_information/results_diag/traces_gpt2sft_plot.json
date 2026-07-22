@@ -1,0 +1,45 @@
+{
+  "experiment": "traces",
+  "configs": {
+    "cls_policy_gnoff_mh": {
+      "n_proposals": 300,
+      "accept_rate_overall": 0.043333333333333335,
+      "accept_rate_crossed": 0.058823529411764705,
+      "accept_rate_stayed": 0.0,
+      "n_accepted_and_crossed": 13,
+      "mean_log_target_ratio_crossed": -4.621269812950721,
+      "mean_log_proposal_ratio_crossed": -844.4571174172794
+    },
+    "cls_policy_gnon_mh": {
+      "n_proposals": 300,
+      "accept_rate_overall": 0.06333333333333334,
+      "accept_rate_crossed": 0.07758620689655173,
+      "accept_rate_stayed": 0.014705882352941176,
+      "n_accepted_and_crossed": 18,
+      "mean_log_target_ratio_crossed": 0.7177681100779566,
+      "mean_log_proposal_ratio_crossed": -692.0411776838631
+    },
+    "dls_policy_gn_mh": {
+      "n_proposals": 300,
+      "accept_rate_overall": 0.13333333333333333,
+      "accept_rate_crossed": 0.10652920962199312,
+      "accept_rate_stayed": 1.0,
+      "n_accepted_and_crossed": 31,
+      "mean_log_target_ratio_crossed": -10.740991966011597,
+      "mean_log_proposal_ratio_crossed": 0.06036493294837139
+    },
+    "dls_random_gn_mh": {
+      "n_proposals": 300,
+      "accept_rate_overall": 0.09666666666666666,
+      "accept_rate_crossed": 0.07191780821917808,
+      "accept_rate_stayed": 1.0,
+      "n_accepted_and_crossed": 21,
+      "mean_log_target_ratio_crossed": -11.414778565707271,
+      "mean_log_proposal_ratio_crossed": 0.0
+    }
+  },
+  "run_name": "traces_gpt2sft_plot",
+  "n_seqs": 6,
+  "steps": 50,
+  "n_masks": 1
+}

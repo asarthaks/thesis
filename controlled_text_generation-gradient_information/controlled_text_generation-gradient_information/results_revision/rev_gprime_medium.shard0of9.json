@@ -1,0 +1,25 @@
+{
+  "experiment": "gprime",
+  "scale": "medium",
+  "shard_idx": 0,
+  "num_shards": 9,
+  "n_prompts": 34,
+  "gammas": [
+    2.0,
+    4.0
+  ],
+  "topk": 32,
+  "delta": 5.0,
+  "steps": 64,
+  "span_len": 20,
+  "prompt_len": 10,
+  "min_sent_tok": 12,
+  "eligibility": {
+    "n_apply": 158423,
+    "mean_eligible": 29.34761997942218,
+    "frac_le1_eligible": 0.017314405105319303
+  },
+  "shard_done": true,
+  "run_name": "rev_gprime_medium.shard0of9",
+  "wall_time_sec": 395.59379720687866
+}

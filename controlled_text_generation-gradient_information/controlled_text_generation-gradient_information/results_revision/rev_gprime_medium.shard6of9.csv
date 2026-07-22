@@ -1,0 +1,298 @@
+prompt_idx,target_label,gamma,arm,judged_label,hit_target,clf_self_label,span_nll,mean_eligible,frac_le1_eligible,text
+6,1,-1,realtext,1,1,1,,,,the mesmerizing performances of the leads keep the film grounded and keep the audience riveted.
+6,0,2.0,unguided,1,0,1,5.7774977684021,,,"the mesmerizing performances of the leads keep the film exhilarating and always toending. Yes, the film is  and it takes a while."
+6,0,2.0,guided,1,0,1,7.512233257293701,31.9455,0.0008,"the mesmerizing performances of the leads keep the film running smoothly  this a the that-and or in the this a ,   is"
+6,1,2.0,unguided,1,1,1,5.7774977684021,,,"the mesmerizing performances of the leads keep the film exhilarating and always toending. Yes, the film is  and it takes a while."
+6,1,2.0,guided,1,1,1,5.878808498382568,28.9326,0.0366,"the mesmerizing performances of the leads keep the film pulsating with emotion and intensity from all over the screen,  and it is much more than"
+6,0,4.0,unguided,1,0,1,5.7774977684021,,,"the mesmerizing performances of the leads keep the film exhilarating and always toending. Yes, the film is  and it takes a while."
+6,0,4.0,guided,1,0,0,10.74497127532959,32.0,0.0,"the mesmerizing performances of the leads keep the film ailing too  from! I it  to to trying to its the he,� the"
+6,1,4.0,unguided,1,1,1,5.7774977684021,,,"the mesmerizing performances of the leads keep the film exhilarating and always toending. Yes, the film is  and it takes a while."
+6,1,4.0,guided,1,1,1,3.844771146774292,30.103,0.0,"the mesmerizing performances of the leads keep the film resonating beyond its end. However, if the film is an ending, it is much more than"
+15,0,-1,realtext,0,1,0,,,,"pumpkin takes an admirable look at the hypocrisy of political correctness, but it does so with such an uneven tone that you never know when humor ends and trage"
+15,0,2.0,unguided,0,1,1,5.309886455535889,,,"pumpkin takes an admirable look at the hypocrisy of corruption, government bribery, child sex trafficking, pedophilia, racism, and discrimination using technolo"
+15,0,2.0,guided,0,1,1,9.326884269714355,30.8434,0.0,pumpkin takes an admirable look at the hypocrisy and the cruelty we suffer ourselves in terms of the. how the:�p for a and's
+15,1,2.0,unguided,0,0,1,5.309886455535889,,,"pumpkin takes an admirable look at the hypocrisy of corruption, government bribery, child sex trafficking, pedophilia, racism, and discrimination using technolo"
+15,1,2.0,guided,0,0,1,4.610912322998047,26.855,0.0357,"pumpkin takes an admirable look at the hypocrisy of corruption, and the hypocrisy of greed, the hypocrisy of greedy bankers, and the hypocrisy of hypocrisy"
+15,0,4.0,unguided,0,1,1,5.309886455535889,,,"pumpkin takes an admirable look at the hypocrisy of corruption, government bribery, child sex trafficking, pedophilia, racism, and discrimination using technolo"
+15,0,4.0,guided,0,1,0,10.254061698913574,30.6938,0.0,pumpkin takes an admirable look at the hypocrisy of the of asp�’pump a the with�pp a and's
+15,1,4.0,unguided,0,0,1,5.309886455535889,,,"pumpkin takes an admirable look at the hypocrisy of corruption, government bribery, child sex trafficking, pedophilia, racism, and discrimination using technolo"
+15,1,4.0,guided,0,0,1,4.741990566253662,28.8717,0.0162,"pumpkin takes an admirable look at the hypocrisy, corruption, criminality, greed of the corporations, control of the media, and the objectification of"
+24,0,-1,realtext,1,0,0,,,,"... designed to provide a mix of smiles and tears, `` crossroads '' instead provokes a handful of unintentional howlers and numerous yawns."
+24,0,2.0,unguided,1,0,1,7.011146068572998,,,... designed to provide a mix of smiles and tears for food... Each has the potential to... incite sadness and compassion throughout the human heart. And...
+24,0,2.0,guided,1,0,0,8.378419876098633,31.7875,0.0,... designed to provide a mix of smiles and tears for...  not a. the to to a for and of............ or or...
+24,1,2.0,unguided,1,1,1,7.011146068572998,,,... designed to provide a mix of smiles and tears for food... Each has the potential to... incite sadness and compassion throughout the human heart. And...
+24,1,2.0,guided,1,1,1,7.101937770843506,27.4877,0.0,... designed to provide a mix of smiles and tears......... the people............ friends......... people......... the people...
+24,0,4.0,unguided,1,0,1,7.011146068572998,,,... designed to provide a mix of smiles and tears for food... Each has the potential to... incite sadness and compassion throughout the human heart. And...
+24,0,4.0,guided,1,0,0,8.465435981750488,31.7875,0.0,... designed to provide a mix of smiles and tears for...  not a. designed designed to a for and of............ or or...
+24,1,4.0,unguided,1,1,1,7.011146068572998,,,... designed to provide a mix of smiles and tears for food... Each has the potential to... incite sadness and compassion throughout the human heart. And...
+24,1,4.0,guided,1,1,0,4.286912441253662,27.2757,0.0388,... designed to provide a mix of smiles and tears... and... and... all... the... or... and... and... and... the... or
+33,1,-1,realtext,1,1,1,,,,"this illuminating documentary transcends our preconceived vision of the holy land and its inhabitants, revealing the human complexities beneath."
+33,0,2.0,unguided,1,0,1,5.6432294845581055,,,"this illuminating documentary transcends our preconceived vision of what its meaning is, that it has relevance to the entire existence of our entire planet and "
+33,0,2.0,guided,1,0,1,6.230447292327881,31.9362,0.0008,this illuminating documentary transcends our preconceived vision of the it and is a and-  it by   of our imagination.  It's
+33,1,2.0,unguided,1,1,1,5.6432294845581055,,,"this illuminating documentary transcends our preconceived vision of what its meaning is, that it has relevance to the entire existence of our entire planet and "
+33,1,2.0,guided,1,1,1,5.9717512130737305,31.1844,0.0018,"this illuminating documentary transcends our preconceived vision of love,,, and sexuality.  about   this beautiful documentary about the ancient's"
+33,0,4.0,unguided,1,0,1,5.6432294845581055,,,"this illuminating documentary transcends our preconceived vision of what its meaning is, that it has relevance to the entire existence of our entire planet and "
+33,0,4.0,guided,1,0,0,7.911323547363281,31.9869,0.0,this illuminating documentary transcends our preconceived vision of what it was and. it can like it this's nothing same the have any believe in the a
+33,1,4.0,unguided,1,1,1,5.6432294845581055,,,"this illuminating documentary transcends our preconceived vision of what its meaning is, that it has relevance to the entire existence of our entire planet and "
+33,1,4.0,guided,1,1,1,5.9717512130737305,31.1844,0.0018,"this illuminating documentary transcends our preconceived vision of love,,, and sexuality.  about   this beautiful documentary about the ancient's"
+42,0,-1,realtext,0,1,0,,,,"it feels like an after-school special gussied up with some fancy special effects, and watching its rote plot points connect is about as exciting as gazing at an"
+42,0,2.0,unguided,0,1,1,10.130607604980469,,,it feels like an after-school special gusser-eeeea Bag Alert today! :- [ Bag Alert Today ] @Chat  @
+42,0,2.0,guided,0,1,0,4.030433177947998,19.5295,0.2587,it feels like an after-school special gussing a class in and of itit feels like an after-school special gussing a little
+42,1,2.0,unguided,0,0,1,10.130607604980469,,,it feels like an after-school special gusser-eeeea Bag Alert today! :- [ Bag Alert Today ] @Chat  @
+42,1,2.0,guided,0,0,0,3.3397717475891113,17.1021,0.1811,it feels like an after-school special gussing-out a gussing out a gussing-out a gussing-out
+42,0,4.0,unguided,0,1,1,10.130607604980469,,,it feels like an after-school special gusser-eeeea Bag Alert today! :- [ Bag Alert Today ] @Chat  @
+42,0,4.0,guided,0,1,0,7.07235050201416,27.2596,0.0215,it feels like an after-school special gussing it.ititit feels like a after after school special gussin itItit it
+42,1,4.0,unguided,0,0,1,10.130607604980469,,,it feels like an after-school special gusser-eeeea Bag Alert today! :- [ Bag Alert Today ] @Chat  @
+42,1,4.0,guided,0,0,1,5.1805572509765625,19.853,0.1556,it feels like an after-school special gussing out. you's of itit feels like an after-school special gussing v.
+51,1,-1,realtext,1,1,1,,,,"this is a story of two misfits who don't stand a chance alone, but together they are magnificent."
+51,0,2.0,unguided,0,1,0,7.772059917449951,,,this is a story of two misfits who do not understand one another who do not know each other!whoever happened sounds like the greater leftmost
+51,0,2.0,guided,0,1,0,3.4180641174316406,18.8549,0.0837,this is a story of two misfits who do not understand each other or it is—this is a story of two misfits who do not understand
+51,1,2.0,unguided,0,0,0,7.772059917449951,,,this is a story of two misfits who do not understand one another who do not know each other!whoever happened sounds like the greater leftmost
+51,1,2.0,guided,0,0,0,7.833171367645264,31.717,0.0008,this is a story of two misfits who do not care each other or when a this one to the other in the are on in a is two
+51,0,4.0,unguided,0,1,0,7.772059917449951,,,this is a story of two misfits who do not understand one another who do not know each other!whoever happened sounds like the greater leftmost
+51,0,4.0,guided,0,1,0,5.3908891677856445,31.5813,0.0017,this is a story of two misfits who do not trust each other or sit down the same if the other is sick.this is a story of
+51,1,4.0,unguided,0,0,0,7.772059917449951,,,this is a story of two misfits who do not understand one another who do not know each other!whoever happened sounds like the greater leftmost
+51,1,4.0,guided,1,1,1,8.1705322265625,30.7794,0.0,this is a story of two misfits who do well right another in this another do you one are the story that they are born in this is a
+60,0,-1,realtext,1,0,1,,,,"for all its impressive craftsmanship, and despite an overbearing series of third-act crescendos, lily chou-chou never really builds up a head of emotional steam"
+60,0,2.0,unguided,1,0,1,8.895190238952637,,,"for all its impressive craftsmanship, and despite an abundance of talented artists and our cultural contributions. They spite a lot of nasty creatures who -- in"
+60,0,2.0,guided,1,0,0,9.0492582321167,31.976,0.0,"for all its impressive craftsmanship, and despite an ugly weather or of the its soil, the its versatility.�t changed from it the, its"
+60,1,2.0,unguided,1,1,1,8.895190238952637,,,"for all its impressive craftsmanship, and despite an abundance of talented artists and our cultural contributions. They spite a lot of nasty creatures who -- in"
+60,1,2.0,guided,1,1,1,5.065505027770996,28.5149,0.0253,"for all its impressive craftsmanship, and despite an abundance of craftsmanship and handcrafted goods, which is a great indicator of its development as a nation"
+60,0,4.0,unguided,1,0,1,8.895190238952637,,,"for all its impressive craftsmanship, and despite an abundance of talented artists and our cultural contributions. They spite a lot of nasty creatures who -- in"
+60,0,4.0,guided,0,1,0,7.32317590713501,31.9846,0.0,"for all its impressive craftsmanship, and despite an obvious lack or lack of in to it the a of this of be suffer from a the in one"
+60,1,4.0,unguided,1,1,1,8.895190238952637,,,"for all its impressive craftsmanship, and despite an abundance of talented artists and our cultural contributions. They spite a lot of nasty creatures who -- in"
+60,1,4.0,guided,1,1,1,5.065505027770996,28.5149,0.0253,"for all its impressive craftsmanship, and despite an abundance of craftsmanship and handcrafted goods, which is a great indicator of its development as a nation"
+69,1,-1,realtext,0,0,1,,,,the draw ( for `` big bad love '' ) is a solid performance by arliss howard.
+69,0,2.0,unguided,1,0,1,8.230847358703613,,,the draw ( for `` big bad love '' ) Sean  the draw ( for `` I love no one '' ) Power 12 keyboard Power mouse Casting
+69,0,2.0,guided,1,0,0,3.013258218765259,15.0905,0.0887,the draw ( for `` big bad love '' ) ( for `` the draw ( for `` big bad love '' ) (or `` the draw ( for
+69,1,2.0,unguided,1,1,1,8.230847358703613,,,the draw ( for `` big bad love '' ) Sean  the draw ( for `` I love no one '' ) Power 12 keyboard Power mouse Casting
+69,1,2.0,guided,0,0,0,4.613940715789795,14.2522,0.1005,the draw ( for `` big bad love '' ) ( ) ``the draw ( for `` big bad love '' ) ( ) bigthe draw ( for
+69,0,4.0,unguided,1,0,1,8.230847358703613,,,the draw ( for `` big bad love '' ) Sean  the draw ( for `` I love no one '' ) Power 12 keyboard Power mouse Casting
+69,0,4.0,guided,1,0,0,7.886848449707031,30.9571,0.0,"the draw ( for `` big bad love '' ) ( the ( the a ( ) ofthe, '' the "" ofthe and ( (."
+69,1,4.0,unguided,1,1,1,8.230847358703613,,,the draw ( for `` big bad love '' ) Sean  the draw ( for `` I love no one '' ) Power 12 keyboard Power mouse Casting
+69,1,4.0,guided,1,1,1,4.287258625030518,15.404,0.0631,the draw ( for `` big bad love '' ) ) ( ) the draw ( for `` large good love '' ) ) ) ( the draw ( for
+78,1,-1,realtext,1,1,0,,,,"we know the plot's a little crazy, but it held my interest from start to finish."
+78,0,2.0,unguided,0,1,0,4.500845432281494,,,"we know the plot's a little crazy, it’s a little crazy, the think we know the plot's a little crazy,"
+78,0,2.0,guided,0,1,0,3.2641587257385254,20.0843,0.0822,"we know the plot's a little crazy,we know the plot 't a lot of crazy,we know the plot's a little bit"
+78,1,2.0,unguided,0,0,0,4.500845432281494,,,"we know the plot's a little crazy, it’s a little crazy, the think we know the plot's a little crazy,"
+78,1,2.0,guided,1,1,0,6.342746734619141,20.6349,0.0306,"we know the plot's a little crazy,we know about the crazywe actually like the insane,we know it’s a bit crazy"
+78,0,4.0,unguided,0,1,0,4.500845432281494,,,"we know the plot's a little crazy, it’s a little crazy, the think we know the plot's a little crazy,"
+78,0,4.0,guided,0,1,0,5.0775628089904785,21.8076,0.0411,"we know the plot's a little crazy,we know it’t not for the best,we know it’s a little bit"
+78,1,4.0,unguided,0,0,0,4.500845432281494,,,"we know the plot's a little crazy, it’s a little crazy, the think we know the plot's a little crazy,"
+78,1,4.0,guided,0,0,0,4.3153252601623535,29.9163,0.0032,"we know the plot's a little crazy, and youwe know youwe both know the plot's a little crazy. but we knows this"
+87,0,-1,realtext,0,1,0,,,,"on the whole, the movie lacks wit, feeling and believability to compensate for its incessant coarseness and banality."
+87,0,2.0,unguided,0,1,0,4.2752461433410645,,,"on the whole, the movie lacks wit, feeling, analogy, ambition, creativity, inspiration, emotion, pride, adulation, knowledge, understanding,"
+87,0,2.0,guided,0,1,0,3.7164723873138428,21.6566,0.0667,"on the whole, the movie lacks wit, feeling, humor.  on the whole, the movie lacks wit, feeling, humor. Sex and"
+87,1,2.0,unguided,0,0,0,4.2752461433410645,,,"on the whole, the movie lacks wit, feeling, analogy, ambition, creativity, inspiration, emotion, pride, adulation, knowledge, understanding,"
+87,1,2.0,guided,0,0,0,5.550655364990234,28.8004,0.0086,"on the whole, the movie lacks wit, feeling, and insight in the plot, the movie has bad depth, noness, plot scenes, and"
+87,0,4.0,unguided,0,1,0,4.2752461433410645,,,"on the whole, the movie lacks wit, feeling, analogy, ambition, creativity, inspiration, emotion, pride, adulation, knowledge, understanding,"
+87,0,4.0,guided,0,1,0,3.7880828380584717,29.1905,0.0039,"on the whole, the movie lacks wit, feeling, like, or in the rest  , the movie lacks wit, feeling, like, or"
+87,1,4.0,unguided,0,0,0,4.2752461433410645,,,"on the whole, the movie lacks wit, feeling, analogy, ambition, creativity, inspiration, emotion, pride, adulation, knowledge, understanding,"
+87,1,4.0,guided,0,0,1,3.471055746078491,27.9249,0.0019,"on the whole, the movie lacks wit, feeling, and intelligence, the plot, the characters of the movie, the actors, the movie, and"
+96,0,-1,realtext,0,1,0,,,,"too often, the viewer isn't reacting to humor so much as they are wincing back in repugnance."
+96,0,2.0,unguided,0,1,0,6.225165843963623,,,"too often, the viewer isn't reacting to the hero's words.  Erythamotra ( including Erythamot"
+96,0,2.0,guided,0,1,0,4.927577495574951,30.5005,0.0077,"too often, the viewer isn't reacting to external stimuli and cues. The lack of reaction to  as a cue, the lack of reaction"
+96,1,2.0,unguided,0,0,0,6.225165843963623,,,"too often, the viewer isn't reacting to the hero's words.  Erythamotra ( including Erythamot"
+96,1,2.0,guided,0,0,0,7.149563789367676,31.072,0.0,"too often, the viewer isn't reacting to visual cues and cues. The viewer is there.  The. a the. we  the"
+96,0,4.0,unguided,0,1,0,6.225165843963623,,,"too often, the viewer isn't reacting to the hero's words.  Erythamotra ( including Erythamot"
+96,0,4.0,guided,0,1,0,6.608386516571045,30.9558,0.0044,"too often, the viewer isn't reacting to their messages and cues. The viewer is n reacting.  in a is in a  the"
+96,1,4.0,unguided,0,0,0,6.225165843963623,,,"too often, the viewer isn't reacting to the hero's words.  Erythamotra ( including Erythamot"
+96,1,4.0,guided,0,0,0,6.508399963378906,31.8973,0.0008,"too often, the viewer isn't reacting to the flow of from, to the ben't in the, that a the in   the"
+105,0,-1,realtext,0,1,0,,,,comes... uncomfortably close to coasting in the treads of the bicycle thief.
+105,0,2.0,unguided,0,1,0,4.6081318855285645,,,comes... uncomfortably close to coasting in  Neighbourbour Incomes... uncomfortably close to coasting in  Overt
+105,0,2.0,guided,0,1,0,8.68362808227539,31.9689,0.0,comes... uncomfortably close to coasting in the manner. a and. of toable; of a's /: of and this's to
+105,1,2.0,unguided,0,0,0,4.6081318855285645,,,comes... uncomfortably close to coasting in  Neighbourbour Incomes... uncomfortably close to coasting in  Overt
+105,1,2.0,guided,0,0,0,7.559974670410156,31.9872,0.0,comes... uncomfortably close to coasting in the manner of a and. of.able because of a's /: of and this's.
+105,0,4.0,unguided,0,1,0,4.6081318855285645,,,comes... uncomfortably close to coasting in  Neighbourbour Incomes... uncomfortably close to coasting in  Overt
+105,0,4.0,guided,0,1,0,8.191238403320312,31.947,0.0,comes... uncomfortably close to coasting in to days to a and to of to tofort of of to toing of to this is to
+105,1,4.0,unguided,0,0,0,4.6081318855285645,,,comes... uncomfortably close to coasting in  Neighbourbour Incomes... uncomfortably close to coasting in  Overt
+105,1,4.0,guided,0,0,1,8.909449577331543,31.9579,0.0,comes... uncomfortably close to coasting in an form of a and to of toablyfort. of a...ing of to this'sing
+114,1,-1,realtext,1,1,1,,,,"it provides the grand, intelligent entertainment of a superior cast playing smart people amid a compelling plot."
+114,0,2.0,unguided,1,0,1,8.588007926940918,,,"it provides the grand, intelligent entertainment of a superior company.Treme Honor and Jurisdiction of the promote and maintain private association for producti"
+114,0,2.0,guided,1,0,1,7.543436527252197,31.9611,0.0,"it provides the grand, intelligent entertainment of a superior,, entertainment of a inferior,, of a it a entertainment entertainment-, the, entertainmentit"
+114,1,2.0,unguided,1,1,1,8.588007926940918,,,"it provides the grand, intelligent entertainment of a superior company.Treme Honor and Jurisdiction of the promote and maintain private association for producti"
+114,1,2.0,guided,1,1,1,3.9663262367248535,29.0502,0.0172,"it provides the grand, intelligent entertainment of a superior standard for all persons.  It provides the highest speed and quality of entertainment for all per"
+114,0,4.0,unguided,1,0,1,8.588007926940918,,,"it provides the grand, intelligent entertainment of a superior company.Treme Honor and Jurisdiction of the promote and maintain private association for producti"
+114,0,4.0,guided,1,0,1,7.560975074768066,31.9759,0.0,"it provides the grand, intelligent entertainment of a superior,,,,, inferior,, of a it a entertainment entertainment-, the- entertainmentit"
+114,1,4.0,unguided,1,1,1,8.588007926940918,,,"it provides the grand, intelligent entertainment of a superior company.Treme Honor and Jurisdiction of the promote and maintain private association for producti"
+114,1,4.0,guided,1,1,1,3.9663262367248535,29.0502,0.0172,"it provides the grand, intelligent entertainment of a superior standard for all persons.  It provides the highest speed and quality of entertainment for all per"
+123,0,-1,realtext,0,1,0,,,,sacrifices the value of its wealth of archival foot-age with its less-than-objective stance.
+123,0,2.0,unguided,0,1,0,6.641740322113037,,,"sacrifices the value of its wealth of savings inherited from other parents, which it makes a care-ofsacrifices the value of"
+123,0,2.0,guided,0,1,0,5.912735939025879,31.6704,0.0008,"sacrifices the value of its wealth of whatever nature it will be, for the, or pleasure which it will or which it will been to"
+123,1,2.0,unguided,0,0,0,6.641740322113037,,,"sacrifices the value of its wealth of savings inherited from other parents, which it makes a care-ofsacrifices the value of"
+123,1,2.0,guided,0,0,0,3.8998215198516846,30.5493,0.0293,sacrifices the value of its wealth of everything it self-sacrifices the value of everything it ever self-sacrifices
+123,0,4.0,unguided,0,1,0,6.641740322113037,,,"sacrifices the value of its wealth of savings inherited from other parents, which it makes a care-ofsacrifices the value of"
+123,0,4.0,guided,0,1,0,8.819526672363281,31.976,0.0008,sacrifices the value of its wealth of capital   the Palestinian of the its- the the in designed to protect to billion in the of
+123,1,4.0,unguided,0,0,0,6.641740322113037,,,"sacrifices the value of its wealth of savings inherited from other parents, which it makes a care-ofsacrifices the value of"
+123,1,4.0,guided,0,0,0,6.324512004852295,31.9519,0.0,"sacrifices the value of its wealth of life in the the of which it is, as and which it to no from value in the of"
+132,1,-1,realtext,1,1,1,,,,"the volatile dynamics of female friendship is the subject of this unhurried, low-key film that is so off-hollywood that it seems positively french in its rhythm"
+132,0,2.0,unguided,1,0,1,8.806248664855957,,,"the volatile dynamics of female friendship is the subject of a part a trip to where they stand, the best you follow the work of those involved in understanding"
+132,0,2.0,guided,1,0,1,9.00269603729248,31.8625,0.0008,the volatile dynamics of female friendship is the subject of a new volume “s� of “  s��.”s most
+132,1,2.0,unguided,1,1,1,8.806248664855957,,,"the volatile dynamics of female friendship is the subject of a part a trip to where they stand, the best you follow the work of those involved in understanding"
+132,1,2.0,guided,1,1,1,3.469533681869507,29.4768,0.0139,"the volatile dynamics of female friendship is the subject of a number of media reports. The linguistic, cultural, and emotional dynamics of American female frie"
+132,0,4.0,unguided,1,0,1,8.806248664855957,,,"the volatile dynamics of female friendship is the subject of a part a trip to where they stand, the best you follow the work of those involved in understanding"
+132,0,4.0,guided,1,0,1,5.924229145050049,31.9822,0.0,"the volatile dynamics of female friendship is the subject of a study  , a: a to. a to a a etc. in to: a"
+132,1,4.0,unguided,1,1,1,8.806248664855957,,,"the volatile dynamics of female friendship is the subject of a part a trip to where they stand, the best you follow the work of those involved in understanding"
+132,1,4.0,guided,1,1,1,6.019198894500732,30.7354,0.0,"the volatile dynamics of female friendship is the subject of a debate for feminist years. The question, after all, of the who are the girls are,"
+141,1,-1,realtext,1,1,1,,,,"like leon, it's frustrating and still oddly likable."
+141,0,2.0,unguided,0,1,0,7.239793300628662,,,"like leon, it's frustrating and still very bad. I hate very, very rarely out-and-out any who aren‘t"
+141,0,2.0,guided,0,1,0,6.693490505218506,31.838,0.0,"like leon, it's frustrating and still have ( it not for good), but it's, have to still have (it notfor good"
+141,1,2.0,unguided,0,0,0,7.239793300628662,,,"like leon, it's frustrating and still very bad. I hate very, very rarely out-and-out any who aren‘t"
+141,1,2.0,guided,0,0,1,6.066680908203125,31.8129,0.0,"like leon, it's frustrating and still serviceable. The game is amazing but designed to be played with the 8-like environment. '"
+141,0,4.0,unguided,0,1,0,7.239793300628662,,,"like leon, it's frustrating and still very bad. I hate very, very rarely out-and-out any who aren‘t"
+141,0,4.0,guided,0,1,0,10.304611206054688,31.9638,0.0,"like leon, it's frustrating and still not like�, it ’s what's no the� to '' the� is and"
+141,1,4.0,unguided,0,0,0,7.239793300628662,,,"like leon, it's frustrating and still very bad. I hate very, very rarely out-and-out any who aren‘t"
+141,1,4.0,guided,0,0,0,8.232014656066895,31.8618,0.0,"like leon, it's frustrating and still more of it not for good, but of's, have to,, to of's to overcome"
+150,1,-1,realtext,0,0,0,,,,it seems like i have been waiting my whole life for this movie and now i can't wait for the sequel.
+150,0,2.0,unguided,0,1,0,5.4290242195129395,,,"it seems like i have been waiting my whole life for vegans to come and i have finally made it, i find lots of interesting information when i"
+150,0,2.0,guided,1,0,0,5.32727575302124,27.8832,0.0,"it seems like i have been waiting my whole life for this day when i will finally be there for this moment where i will finally there, when i"
+150,1,2.0,unguided,0,0,0,5.4290242195129395,,,"it seems like i have been waiting my whole life for vegans to come and i have finally made it, i find lots of interesting information when i"
+150,1,2.0,guided,0,0,0,7.483992099761963,30.955,0.0,"it seems like i have been waiting my whole life, and I to i i was't waiting and i, like, just was there. It to"
+150,0,4.0,unguided,0,1,0,5.4290242195129395,,,"it seems like i have been waiting my whole life for vegans to come and i have finally made it, i find lots of interesting information when i"
+150,0,4.0,guided,0,1,0,5.804520130157471,30.3751,0.0,it seems like i have been waiting my whole life to get this done. I really wouldn never have it until this late to get it. Fuck it
+150,1,4.0,unguided,0,0,0,5.4290242195129395,,,"it seems like i have been waiting my whole life for vegans to come and i have finally made it, i find lots of interesting information when i"
+150,1,4.0,guided,0,0,0,8.16320514678955,31.007,0.0,"it seems like i have been waiting my whole life for a, to i i seems it. is i like like, like waiting, of life i"
+159,0,-1,realtext,0,1,0,,,,"i sympathize with the plight of these families, but the movie doesn't do a very good job conveying the issue at hand."
+159,0,2.0,unguided,0,1,0,4.584033489227295,,,"i sympathize with the plight of these families, i do not believe it should have happened or should have happened at this point. MIKE'S"
+159,0,2.0,guided,1,0,0,6.141574382781982,31.8116,0.0,"i sympathize with the plight of these families, however can assure them that there is much hard work to do this will can be done by this unfortunate"
+159,1,2.0,unguided,0,0,0,4.584033489227295,,,"i sympathize with the plight of these families, i do not believe it should have happened or should have happened at this point. MIKE'S"
+159,1,2.0,guided,1,1,1,5.7176432609558105,31.6935,0.0,"i sympathize with the plight of these families, however can assure them that there is still hard work involved before this will can be done.  "
+159,0,4.0,unguided,0,1,0,4.584033489227295,,,"i sympathize with the plight of these families, i do not believe it should have happened or should have happened at this point. MIKE'S"
+159,0,4.0,guided,0,1,0,9.467620849609375,31.9805,0.0,"i sympathize with the plight of these families,what to wish them have is support a of, be a this as as, i i,i"
+159,1,4.0,unguided,0,0,0,4.584033489227295,,,"i sympathize with the plight of these families, i do not believe it should have happened or should have happened at this point. MIKE'S"
+159,1,4.0,guided,1,1,1,6.909371852874756,31.8715,0.0,"i sympathize with the plight of these families, however in the hope this what is a of, be,  i love you i  "
+168,1,-1,realtext,1,1,1,,,,the movie is beautiful to behold and engages one in a sense of epic struggle -- inner and outer -- that's all too rare in hollywood's hastier productions.
+168,0,2.0,unguided,1,0,1,7.032525062561035,,,"the movie is beautiful to behold and engages one in conversation.”  Olethaughts, “the movie is beautiful to behold"
+168,0,2.0,guided,1,0,1,8.101879119873047,31.996,0.0,"the movie is beautiful to behold and engages one in the of with is: to to a manner in order they of on the side, of to is"
+168,1,2.0,unguided,1,1,1,7.032525062561035,,,"the movie is beautiful to behold and engages one in conversation.”  Olethaughts, “the movie is beautiful to behold"
+168,1,2.0,guided,1,1,1,5.337894439697266,30.1078,0.0031,the movie is beautiful to behold and engages one in a certain way to make one feel connected and in love with the movie and in love with the music
+168,0,4.0,unguided,1,0,1,7.032525062561035,,,"the movie is beautiful to behold and engages one in conversation.”  Olethaughts, “the movie is beautiful to behold"
+168,0,4.0,guided,1,0,1,7.462722301483154,31.9923,0.0,the movie is beautiful to behold and engages one in the of with is: with not:  the it's something the one in is is: is
+168,1,4.0,unguided,1,1,1,7.032525062561035,,,"the movie is beautiful to behold and engages one in conversation.”  Olethaughts, “the movie is beautiful to behold"
+168,1,4.0,guided,1,1,1,6.021307468414307,30.668,0.0,the movie is beautiful to behold and engages one in a similar way.the character has the role in relation to the movie and its associated with the music
+177,0,-1,realtext,0,1,0,,,,"there ought to be a directing license, so that ed burns can have his revoked."
+177,0,2.0,unguided,0,1,1,7.475228786468506,,,"there ought to be a directing license, so that one could be in direct contact between the director and the producer of [any]""directive""I"
+177,0,2.0,guided,0,1,0,6.815354347229004,30.6423,0.0,"there ought to be a directing license, so that there is no obligation to the all the directors not to take the directing direction. .c."
+177,1,2.0,unguided,0,0,1,7.475228786468506,,,"there ought to be a directing license, so that one could be in direct contact between the director and the producer of [any]""directive""I"
+177,1,2.0,guided,0,0,1,7.101531982421875,30.6577,0.0,"there ought to be a directing license, so that there is no obligation to the all the directors are to make the best direction. .c."
+177,0,4.0,unguided,0,1,1,7.475228786468506,,,"there ought to be a directing license, so that one could be in direct contact between the director and the producer of [any]""directive""I"
+177,0,4.0,guided,0,1,0,9.704268455505371,31.9449,0.0,"there ought to be a directing license, so that it does not being a they and you who are guilty of to make art or drivers� licenses directing"
+177,1,4.0,unguided,0,0,1,7.475228786468506,,,"there ought to be a directing license, so that one could be in direct contact between the director and the producer of [any]""directive""I"
+177,1,4.0,guided,0,0,1,7.347047328948975,31.9095,0.0,"there ought to be a directing license, so that those who are directed a thend you be people to be director. S.R.R."
+186,0,-1,realtext,0,1,0,,,,"perceptive in its vision of nascent industrialized world politics as a new art form, but far too clunky, didactic and saddled with scenes that seem simply an il"
+186,0,2.0,unguided,1,0,1,9.445530891418457,,,perceptive in its vision of nascent industrialized world politics & globally unimperzo in their tirefulbusting grip on wealth power. Asperger for
+186,0,2.0,guided,1,0,1,7.884486675262451,31.5638,0.0,perceptive in its vision of nascent industrialized world politics. it has a than  in on of it's a: was and beings to its vision
+186,1,2.0,unguided,1,1,1,9.445530891418457,,,perceptive in its vision of nascent industrialized world politics & globally unimperzo in their tirefulbusting grip on wealth power. Asperger for
+186,1,2.0,guided,1,1,1,4.872497081756592,27.5713,0.0106,"perceptive in its vision of nascent industrialized world politics, it's-perceptive in its awareness of, and is--perceptive in its�"
+186,0,4.0,unguided,1,0,1,9.445530891418457,,,perceptive in its vision of nascent industrialized world politics & globally unimperzo in their tirefulbusting grip on wealth power. Asperger for
+186,0,4.0,guided,1,0,0,9.161632537841797,31.5422,0.0,perceptive in its vision of nascent industrialized world politics. itper�s  in�per a it a is was inper politics in its vision
+186,1,4.0,unguided,1,1,1,9.445530891418457,,,perceptive in its vision of nascent industrialized world politics & globally unimperzo in their tirefulbusting grip on wealth power. Asperger for
+186,1,4.0,guided,1,1,1,5.968738079071045,25.9901,0.0126,perceptive in its vision of nascent industrialized world politics/perceptive/perceptive of/perlant/perceptive/perceptive in its vision
+195,1,-1,realtext,0,0,1,,,,"nothing's at stake, just a twisty double-cross you can smell a mile away -- still, the derivative nine queens is lots of fun."
+195,0,2.0,unguided,0,1,1,8.469301223754883,,,"nothing's at stake, just a twisty peel first ""what ever happens on the show"" ~ s. ie. but still little if not"
+195,0,2.0,guided,0,1,0,5.012277126312256,29.5047,0.0,"nothing's at stake, just a twisty, little twist  So, just, you, but, but, but no, but not"
+195,1,2.0,unguided,0,0,1,8.469301223754883,,,"nothing's at stake, just a twisty peel first ""what ever happens on the show"" ~ s. ie. but still little if not"
+195,1,2.0,guided,0,0,1,7.904873847961426,30.8069,0.0,"nothing's at stake, just a twisty, big, small afternoon in the air'It''s not, but this certainly is not"
+195,0,4.0,unguided,0,1,1,8.469301223754883,,,"nothing's at stake, just a twisty peel first ""what ever happens on the show"" ~ s. ie. but still little if not"
+195,0,4.0,guided,0,1,0,8.869471549987793,31.6651,0.0,"nothing's at stake, just a twisty tooiddle,. twist a the just'tojust ',. then just just on the just"
+195,1,4.0,unguided,0,0,1,8.469301223754883,,,"nothing's at stake, just a twisty peel first ""what ever happens on the show"" ~ s. ie. but still little if not"
+195,1,4.0,guided,0,0,1,2.757500410079956,28.573,0.0302,"nothing's at stake, just a twisty, twisty, twisty, at stake, just a twisty, twisty, twisty"
+204,0,-1,realtext,0,1,0,,,,i 'd have to say the star and director are the big problems here.
+204,0,2.0,unguided,1,0,1,1.4664582014083862,,,"i 'd have to say the star and director, the star and director, the star and director, the star and director, the star and director"
+204,0,2.0,guided,1,0,1,5.250065803527832,25.9557,0.1005,i 'd have to say the star and director of the pictures and series of a movie. No hei'd have to say the star and
+204,1,2.0,unguided,1,1,1,1.4664582014083862,,,"i 'd have to say the star and director, the star and director, the star and director, the star and director, the star and director"
+204,1,2.0,guided,1,1,1,4.633297443389893,26.222,0.0902,"i 'd have to say the star and director of the pictures, who are in town. The 'i'd have to say the star,"
+204,0,4.0,unguided,1,0,1,1.4664582014083862,,,"i 'd have to say the star and director, the star and director, the star and director, the star and director, the star and director"
+204,0,4.0,guided,0,1,0,7.723557949066162,31.2978,0.0008,"i 'd have to say the star and directord have to say the actor and the hasd directord star, 'd haved havei"
+204,1,4.0,unguided,1,1,1,1.4664582014083862,,,"i 'd have to say the star and director, the star and director, the star and director, the star and director, the star and director"
+204,1,4.0,guided,0,0,1,5.079074382781982,26.5869,0.1025,"i 'd have to say the star and director of the producer, director of the producer. But youi'd have to say the star,"
+213,1,-1,realtext,0,0,0,,,,the film tunes into a grief that could lead a man across centuries.
+213,0,2.0,unguided,0,1,0,5.361559867858887,,,the film tunes into a grief that could lead a person into anger  At some time  some time  the time  the loss
+213,0,2.0,guided,1,0,1,7.982668399810791,31.8232,0.0,"the film tunes into a grief that could lead a young man seeking to work on him. Jobs, an the the, and to a man work for"
+213,1,2.0,unguided,0,0,0,5.361559867858887,,,the film tunes into a grief that could lead a person into anger  At some time  some time  the time  the loss
+213,1,2.0,guided,0,0,0,5.0837202072143555,28.8186,0.0316,the film tunes into a grief that could lead a young man into experience a grief and loss of a parent.  the film tunes into a loss
+213,0,4.0,unguided,0,1,0,5.361559867858887,,,the film tunes into a grief that could lead a person into anger  At some time  some time  the time  the loss
+213,0,4.0,guided,0,1,0,7.435608863830566,31.9664,0.0,the film tunes into a grief that could lead a loss that the take in the characters. The fact of the the filmmakers make this a hard cry for
+213,1,4.0,unguided,0,0,0,5.361559867858887,,,the film tunes into a grief that could lead a person into anger  At some time  some time  the time  the loss
+213,1,4.0,guided,0,0,0,6.181619644165039,31.6944,0.0,"the film tunes into a grief that could lead a young man down a path of violence. an, an the the young film to a man the for"
+222,1,-1,realtext,1,1,1,,,,blanchett's performance confirms her power once again.
+222,0,2.0,unguided,1,0,1,9.305093765258789,,,blanchett's performance confirms her power once we hear about someone’s ambition. The mark of ambition we hear about someone's goals
+222,0,2.0,guided,1,0,1,9.881304740905762,30.5258,0.0008,blanchett's performance confirms her power once again in  time it iss the as. it for' herblbltt's performance
+222,1,2.0,unguided,1,1,1,9.305093765258789,,,blanchett's performance confirms her power once we hear about someone’s ambition. The mark of ambition we hear about someone's goals
+222,1,2.0,guided,1,1,1,5.787474155426025,20.4976,0.0914,blanchett's performance confirms her power once again –  ’s performance confirms her power once again – Mçanche's performance
+222,0,4.0,unguided,1,0,1,9.305093765258789,,,blanchett's performance confirms her power once we hear about someone’s ambition. The mark of ambition we hear about someone's goals
+222,0,4.0,guided,1,0,1,10.267842292785645,30.5654,0.0,blanchett's performance confirms her power once again in bl it iss notbl. it she thebl abl power is is.
+222,1,4.0,unguided,1,1,1,9.305093765258789,,,blanchett's performance confirms her power once we hear about someone’s ambition. The mark of ambition we hear about someone's goals
+222,1,4.0,guided,1,1,1,5.787474155426025,20.4976,0.0914,blanchett's performance confirms her power once again –  ’s performance confirms her power once again – Mçanche's performance
+231,0,-1,realtext,0,1,0,,,,"it's like every bad idea that's ever gone into an after-school special compiled in one place, minus those daytime programs'slickness and sophistication ( and wh"
+231,0,2.0,unguided,0,1,0,8.778279304504395,,,"it's like every bad idea that's been que up a projected on to a made them think ""Liv Immersion suggests, eventually,"
+231,0,2.0,guided,0,1,0,2.6478264331817627,16.058,0.2451,"it's like every bad idea that's-every bad idea,'s-every bad idea,'s-every bad idea, '"
+231,1,2.0,unguided,0,0,0,8.778279304504395,,,"it's like every bad idea that's been que up a projected on to a made them think ""Liv Immersion suggests, eventually,"
+231,1,2.0,guided,0,0,0,6.677559852600098,31.7417,0.0008,it's like every bad idea that's made and'to'it in into practice. it is not the only one that it' up
+231,0,4.0,unguided,0,1,0,8.778279304504395,,,"it's like every bad idea that's been que up a projected on to a made them think ""Liv Immersion suggests, eventually,"
+231,0,4.0,guided,0,1,0,5.042248725891113,20.2593,0.067,it's like every bad idea that's like every bad idea idea's likeevery single bad idea idea's likeevery bad idea idea
+231,1,4.0,unguided,0,0,0,8.778279304504395,,,"it's like every bad idea that's been que up a projected on to a made them think ""Liv Immersion suggests, eventually,"
+231,1,4.0,guided,0,0,0,8.120158195495605,31.669,0.0008,it's like every bad idea that's from the'to''s every's's'ideassit 'every that '
+240,0,-1,realtext,0,1,0,,,,"it's hard to like a film about a guy who is utterly unlikeable, and shiner, starring michael caine as an aging british boxing promoter desperate for a taste of "
+240,0,2.0,unguided,1,0,0,6.7691850662231445,,,"it's hard to like a film about a politician campaigning for major policy positions, but they do quite a good job, I wish; this movie"
+240,0,2.0,guided,0,1,0,6.451409816741943,30.8424,0.0,it's hard to like a film about a place where it might not like the movie of comes to a point where it might not like a movie
+240,1,2.0,unguided,1,1,0,6.7691850662231445,,,"it's hard to like a film about a politician campaigning for major policy positions, but they do quite a good job, I wish; this movie"
+240,1,2.0,guided,1,1,0,3.3887195587158203,22.2977,0.0748,it's hard to like a film about a man it’s also hard to like a film about a woman it’s hard to
+240,0,4.0,unguided,1,0,0,6.7691850662231445,,,"it's hard to like a film about a politician campaigning for major policy positions, but they do quite a good job, I wish; this movie"
+240,0,4.0,guided,0,1,0,5.5767951011657715,31.7506,0.0016,"it's hard to like a film about a friend, even its. likeit's hard to like a film about a child  is the film"
+240,1,4.0,unguided,1,1,0,6.7691850662231445,,,"it's hard to like a film about a politician campaigning for major policy positions, but they do quite a good job, I wish; this movie"
+240,1,4.0,guided,1,1,0,5.810074806213379,29.3886,0.0152,"it's hard to like a film about a girl, movies.  it‘s hard to like a film about a great, movie"
+249,1,-1,realtext,1,1,1,,,,a rewarding work of art for only the most patient and challenge-hungry moviegoers.
+249,0,2.0,unguided,1,0,1,5.817765235900879,,,"a rewarding work of art for only the most patient humans to behold. And so far no connection to any rules or obligations they have, or are,"
+249,0,2.0,guided,1,0,1,7.314445495605469,30.8914,0.0,"a rewarding work of art for only the most patient creat, who only the.'s a by for, and, of art by only the most patient"
+249,1,2.0,unguided,1,1,1,5.817765235900879,,,"a rewarding work of art for only the most patient humans to behold. And so far no connection to any rules or obligations they have, or are,"
+249,1,2.0,guided,1,1,1,3.430535078048706,30.6673,0.0117,"a rewarding work of art for only the most patient form of art. The art is more rewarding than any other form of art, but there are many"
+249,0,4.0,unguided,1,0,1,5.817765235900879,,,"a rewarding work of art for only the most patient humans to behold. And so far no connection to any rules or obligations they have, or are,"
+249,0,4.0,guided,1,0,1,7.433440685272217,30.8914,0.0,"a rewarding work of art for only the most patient creat, who only only. was a by for, and, of art by only the most from"
+249,1,4.0,unguided,1,1,1,5.817765235900879,,,"a rewarding work of art for only the most patient humans to behold. And so far no connection to any rules or obligations they have, or are,"
+249,1,4.0,guided,1,1,1,5.078774929046631,31.0525,0.0,"a rewarding work of art for only the most patient artists of all. The art on this planet that any and every artist, regardless of them are,"
+258,1,-1,realtext,1,1,0,,,,"the old-world - meets-new mesh is incarnated in the movie's soundtrack, a joyful effusion of disco bollywood that, by the end of monsoon wedding, sent my spirit"
+258,0,2.0,unguided,1,0,1,7.081376075744629,,,the old-world - meets-new mesh is stripfitting  old mesh is stripfitting old-world is strip  to-old mesh
+258,0,2.0,guided,1,0,1,5.979020595550537,28.1624,0.0008,the old-world - meets-new mesh is the oldworld meshThe meets-new mesh- the worldThe meets-new meshthe 
+258,1,2.0,unguided,1,1,1,7.081376075744629,,,the old-world - meets-new mesh is stripfitting  old mesh is stripfitting old-world is strip  to-old mesh
+258,1,2.0,guided,1,1,1,3.061112880706787,16.0519,0.1793,the old-world - meets-new mesh is the  the old mesh  the old-world - meets-new mesh is the 
+258,0,4.0,unguided,1,0,1,7.081376075744629,,,the old-world - meets-new mesh is stripfitting  old mesh is stripfitting old-world is strip  to-old mesh
+258,0,4.0,guided,1,0,0,7.56041955947876,31.7415,0.0008,the old-world - meets-new mesh is mesh meshandthe in- of mesh- mesh mesh is mesh mesh mesh mesh meshandthe in
+258,1,4.0,unguided,1,1,1,7.081376075744629,,,the old-world - meets-new mesh is stripfitting  old mesh is stripfitting old-world is strip  to-old mesh
+258,1,4.0,guided,1,1,1,3.061112880706787,14.0909,0.2222,the old-world - meets-new mesh is the  the old mesh  the old-world - meets-new mesh is the 
+267,1,-1,realtext,1,1,1,,,,"macdowell, whose wifty southern charm has anchored lighter affairs... brings an absolutely riveting conviction to her role."
+267,0,2.0,unguided,1,0,1,4.922811985015869,,,"macdowell, whose wifty southern charm has been a great gift to, whose wifty southern charm has been a great gift to, is that"
+267,0,2.0,guided,0,1,1,8.961825370788574,31.9559,0.0,"macdowell, whose wifty southern charm has been puted John Bill the, who is't to from his's- the to wifty southern"
+267,1,2.0,unguided,1,1,1,4.922811985015869,,,"macdowell, whose wifty southern charm has been a great gift to, whose wifty southern charm has been a great gift to, is that"
+267,1,2.0,guided,1,1,1,7.1932268142700195,31.2135,0.0,"macdowell, whose wifty southern charm has given her some rural appeal that has earned her her reputation name for votes. All of this is that"
+267,0,4.0,unguided,1,0,1,4.922811985015869,,,"macdowell, whose wifty southern charm has been a great gift to, whose wifty southern charm has been a great gift to, is that"
+267,0,4.0,guided,1,0,0,7.703668117523193,31.966,0.0,"macdowell, whose wifty southern charm has been down to to to the to is of't ( theto's- the to has gotten for"
+267,1,4.0,unguided,1,1,1,4.922811985015869,,,"macdowell, whose wifty southern charm has been a great gift to, whose wifty southern charm has been a great gift to, is that"
+267,1,4.0,guided,1,1,1,6.31874418258667,31.5047,0.0,"macdowell, whose wifty southern charm has given her all best that she has given her. The one who knows that whatever she knows is true"
+276,1,-1,realtext,1,1,1,,,,"all-in-all, the film is an enjoyable and frankly told tale of a people who live among us, but not necessarily with us."
+276,0,2.0,unguided,1,0,1,6.844422817230225,,,"all-in-all, the film is an incredible one for its outlook in life, its truly inspiring, and in the strongest performance by Sandifer"
+276,0,2.0,guided,1,0,1,7.5388503074646,32.0,0.0,"all-in-all, the film is an incredible achievement in many making, and all with an it a,,- a, to the,"
+276,1,2.0,unguided,1,1,1,6.844422817230225,,,"all-in-all, the film is an incredible one for its outlook in life, its truly inspiring, and in the strongest performance by Sandifer"
+276,1,2.0,guided,1,1,1,1.9404741525650024,14.2317,0.1868,"all-in-all, the film is anall-in-all, the film is anall-in-all, the film is an"
+276,0,4.0,unguided,1,0,1,6.844422817230225,,,"all-in-all, the film is an incredible one for its outlook in life, its truly inspiring, and in the strongest performance by Sandifer"
+276,0,4.0,guided,1,0,1,8.489956855773926,31.959,0.0,"all-in-all, the film is an all,. all- that after all-As-,,- a,.-.,"
+276,1,4.0,unguided,1,1,1,6.844422817230225,,,"all-in-all, the film is an incredible one for its outlook in life, its truly inspiring, and in the strongest performance by Sandifer"
+276,1,4.0,guided,1,1,1,5.195520401000977,27.4245,0.0,"all-in-all, the film is an incredible art in the making a truly stunning art in the process, the soundtrack of the film is beautiful"
+285,1,-1,realtext,1,1,1,,,,the chateau cleverly probes the cross-cultural differences between gauls and yanks.
+285,0,2.0,unguided,0,1,0,9.249845504760742,,,the chateau cleverly probes the cross-screen in a superlicious hege scanner headlessly indexes the cross-screen in a mobile market
+285,0,2.0,guided,1,0,1,6.836581707000732,30.9646,0.0,"the chateau cleverly probes the cross-section of the body, in to it The The it of cross, and the, in chates"
+285,1,2.0,unguided,0,0,0,9.249845504760742,,,the chateau cleverly probes the cross-screen in a superlicious hege scanner headlessly indexes the cross-screen in a mobile market
+285,1,2.0,guided,1,1,1,3.31992506980896,22.1688,0.1482,the chateau cleverly probes the cross-country bridge.  The chateau simply probes the cross-country bridge in real-world
+285,0,4.0,unguided,0,1,0,9.249845504760742,,,the chateau cleverly probes the cross-screen in a superlicious hege scanner headlessly indexes the cross-screen in a mobile market
+285,0,4.0,guided,1,0,1,7.069027900695801,31.2313,0.0,the chateau cleverly probes the cross-section of the face and by The of. The Heart of the The by's the - of 
+285,1,4.0,unguided,0,0,0,9.249845504760742,,,the chateau cleverly probes the cross-screen in a superlicious hege scanner headlessly indexes the cross-screen in a mobile market
+285,1,4.0,guided,0,0,1,5.619083404541016,23.7141,0.1022,"the chateau cleverly probes the cross-country gaps in out,countrythe chutely probes the cross-country gaps in in-country"
+294,0,-1,realtext,0,1,0,,,,"the most hopelessly monotonous film of the year, noteworthy only for the gimmick of being filmed as a single unbroken 87-minute take."
+294,0,2.0,unguided,0,1,0,6.709897041320801,,,"the most hopelessly monotonous film of the world Ent: The soundtrack of the oldest, most silent video game ever released Ents: The Ent"
+294,0,2.0,guided,0,1,0,5.8384928703308105,25.0655,0.0592,the most hopelessly monotonous film of the twentieth century: one of cinema’s most hopelessly monotonous most hopelessly monoton
+294,1,2.0,unguided,0,0,0,6.709897041320801,,,"the most hopelessly monotonous film of the world Ent: The soundtrack of the oldest, most silent video game ever released Ents: The Ent"
+294,1,2.0,guided,0,0,0,3.9618332386016846,21.9088,0.1121,the most hopelessly monotonous film of the world and the wonderful and the world andthe most hopelessly monotonous film of the world and
+294,0,4.0,unguided,0,1,0,6.709897041320801,,,"the most hopelessly monotonous film of the world Ent: The soundtrack of the oldest, most silent video game ever released Ents: The Ent"
+294,0,4.0,guided,0,1,0,5.3044304847717285,21.9608,0.1367,the most hopelessly monotonous film of the world” and  “the most hopelessly monotonous film of the world and
+294,1,4.0,unguided,0,0,0,6.709897041320801,,,"the most hopelessly monotonous film of the world Ent: The soundtrack of the oldest, most silent video game ever released Ents: The Ent"
+294,1,4.0,guided,0,0,1,8.16580581665039,31.6409,0.0,"the most hopelessly monotonous film of the twentieth century ever of of and is, the, film of a the the of most film,"

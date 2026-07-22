@@ -1,0 +1,805 @@
+{
+  "selection_rule": "np.random.default_rng(0).choice(200,10,replace=False), sorted, no filtering",
+  "showcase_sample_idx": [
+    3,
+    8,
+    14,
+    34,
+    52,
+    60,
+    98,
+    122,
+    162,
+    199
+  ],
+  "corpus": "kl_baselines (WikiText-2 val, num_masks 1, data_seed 0)",
+  "n_verify_ok": 100,
+  "n_verify_warn": 0,
+  "verify_warn": [],
+  "rows": [
+    {
+      "sample_idx": 3,
+      "pos": 34,
+      "gt_tok": 11084,
+      "corr_tok": 7188,
+      "gt_token_str": "fish",
+      "corr_token_str": " moments",
+      "original_text": "The diet of H. gammarus mostly consists of other benthic invertebrates. These include crabs, molluscs, sea urchins, starfish and polychaete worms.",
+      "corrupted_text": "The diet of H. gammarus mostly consists of other benthic invertebrates. These include crabs, molluscs, sea urchins, star[[moments]] and polychaete worms.",
+      "methods": {
+        "dls_policy": {
+          "rec_tok": 22674,
+          "rec_token_str": " passages",
+          "exact": 0,
+          "recovered_text": "The diet of H. gammarus mostly consists of other benthic invertebrates. These include crabs, molluscs, sea urchins, star[[passages]] and polychaete worms."
+        },
+        "dls_random": {
+          "rec_tok": 34066,
+          "rec_token_str": " fossils",
+          "exact": 0,
+          "recovered_text": "The diet of H. gammarus mostly consists of other benthic invertebrates. These include crabs, molluscs, sea urchins, star[[fossils]] and polychaete worms."
+        },
+        "left_conditional": {
+          "rec_tok": 11084,
+          "rec_token_str": "fish",
+          "exact": 1,
+          "recovered_text": "The diet of H. gammarus mostly consists of other benthic invertebrates. These include crabs, molluscs, sea urchins, star[[fish]] and polychaete worms."
+        },
+        "hybrid_medium": {
+          "rec_tok": 11084,
+          "rec_token_str": "fish",
+          "exact": 1,
+          "recovered_text": "The diet of H. gammarus mostly consists of other benthic invertebrates. These include crabs, molluscs, sea urchins, star[[fish]] and polychaete worms."
+        },
+        "sedd_small": {
+          "rec_tok": 17783,
+          "rec_token_str": "lings",
+          "exact": 0,
+          "recovered_text": "The diet of H. gammarus mostly consists of other benthic invertebrates. These include crabs, molluscs, sea urchins, star[[lings]] and polychaete worms."
+        },
+        "sedd_medium": {
+          "rec_tok": 17783,
+          "rec_token_str": "lings",
+          "exact": 0,
+          "recovered_text": "The diet of H. gammarus mostly consists of other benthic invertebrates. These include crabs, molluscs, sea urchins, star[[lings]] and polychaete worms."
+        },
+        "cond_argmax": {
+          "rec_tok": 11084,
+          "rec_token_str": "fish",
+          "exact": 1,
+          "recovered_text": "The diet of H. gammarus mostly consists of other benthic invertebrates. These include crabs, molluscs, sea urchins, star[[fish]] and polychaete worms."
+        },
+        "cond_topk_rescore": {
+          "rec_tok": 11084,
+          "rec_token_str": "fish",
+          "exact": 1,
+          "recovered_text": "The diet of H. gammarus mostly consists of other benthic invertebrates. These include crabs, molluscs, sea urchins, star[[fish]] and polychaete worms."
+        },
+        "gibbs": {
+          "rec_tok": 11084,
+          "rec_token_str": "fish",
+          "exact": 1,
+          "recovered_text": "The diet of H. gammarus mostly consists of other benthic invertebrates. These include crabs, molluscs, sea urchins, star[[fish]] and polychaete worms."
+        },
+        "cls_flagship": {
+          "rec_tok": 43135,
+          "rec_token_str": " specialization",
+          "exact": 0,
+          "recovered_text": "The diet of H. gammarus mostly consists of other benthic invertebrates. These include crabs, molluscs, sea urchins, star[[specialization]] and polychaete worms."
+        }
+      }
+    },
+    {
+      "sample_idx": 8,
+      "pos": 7,
+      "gt_tok": 416,
+      "corr_tok": 14151,
+      "gt_token_str": " by",
+      "corr_token_str": " Info",
+      "original_text": "2 Highlands Historic District \u2014 roughly bounded by 15th St, 34th Ave, 19th St, and 36th Ave.",
+      "corrupted_text": "2 Highlands Historic District \u2014 roughly bounded[[Info]] 15th St, 34th Ave, 19th St, and 36th Ave.",
+      "methods": {
+        "dls_policy": {
+          "rec_tok": 3830,
+          "rec_token_str": " lay",
+          "exact": 0,
+          "recovered_text": "2 Highlands Historic District \u2014 roughly bounded[[lay]] 15th St, 34th Ave, 19th St, and 36th Ave."
+        },
+        "dls_random": {
+          "rec_tok": 35297,
+          "rec_token_str": " AHL",
+          "exact": 0,
+          "recovered_text": "2 Highlands Historic District \u2014 roughly bounded[[AHL]] 15th St, 34th Ave, 19th St, and 36th Ave."
+        },
+        "left_conditional": {
+          "rec_tok": 416,
+          "rec_token_str": " by",
+          "exact": 1,
+          "recovered_text": "2 Highlands Historic District \u2014 roughly bounded[[by]] 15th St, 34th Ave, 19th St, and 36th Ave."
+        },
+        "hybrid_medium": {
+          "rec_tok": 416,
+          "rec_token_str": " by",
+          "exact": 1,
+          "recovered_text": "2 Highlands Historic District \u2014 roughly bounded[[by]] 15th St, 34th Ave, 19th St, and 36th Ave."
+        },
+        "sedd_small": {
+          "rec_tok": 416,
+          "rec_token_str": " by",
+          "exact": 1,
+          "recovered_text": "2 Highlands Historic District \u2014 roughly bounded[[by]] 15th St, 34th Ave, 19th St, and 36th Ave."
+        },
+        "sedd_medium": {
+          "rec_tok": 416,
+          "rec_token_str": " by",
+          "exact": 1,
+          "recovered_text": "2 Highlands Historic District \u2014 roughly bounded[[by]] 15th St, 34th Ave, 19th St, and 36th Ave."
+        },
+        "cond_argmax": {
+          "rec_tok": 416,
+          "rec_token_str": " by",
+          "exact": 1,
+          "recovered_text": "2 Highlands Historic District \u2014 roughly bounded[[by]] 15th St, 34th Ave, 19th St, and 36th Ave."
+        },
+        "cond_topk_rescore": {
+          "rec_tok": 416,
+          "rec_token_str": " by",
+          "exact": 1,
+          "recovered_text": "2 Highlands Historic District \u2014 roughly bounded[[by]] 15th St, 34th Ave, 19th St, and 36th Ave."
+        },
+        "gibbs": {
+          "rec_tok": 416,
+          "rec_token_str": " by",
+          "exact": 1,
+          "recovered_text": "2 Highlands Historic District \u2014 roughly bounded[[by]] 15th St, 34th Ave, 19th St, and 36th Ave."
+        },
+        "cls_flagship": {
+          "rec_tok": 27049,
+          "rec_token_str": " Registered",
+          "exact": 0,
+          "recovered_text": "2 Highlands Historic District \u2014 roughly bounded[[Registered]] 15th St, 34th Ave, 19th St, and 36th Ave."
+        }
+      }
+    },
+    {
+      "sample_idx": 14,
+      "pos": 4,
+      "gt_tok": 5567,
+      "corr_tok": 48677,
+      "gt_token_str": " Road",
+      "corr_token_str": " bolstered",
+      "original_text": "8 Poplar Springs Road Historic District \u2014 roughly bounded by 29th St, 23rd Ave, 22nd St, and 29th Ave.",
+      "corrupted_text": "8 Poplar Springs[[bolstered]] Historic District \u2014 roughly bounded by 29th St, 23rd Ave, 22nd St, and 29th Ave.",
+      "methods": {
+        "dls_policy": {
+          "rec_tok": 36397,
+          "rec_token_str": " Gathering",
+          "exact": 0,
+          "recovered_text": "8 Poplar Springs[[Gathering]] Historic District \u2014 roughly bounded by 29th St, 23rd Ave, 22nd St, and 29th Ave."
+        },
+        "dls_random": {
+          "rec_tok": 39534,
+          "rec_token_str": " Cove",
+          "exact": 0,
+          "recovered_text": "8 Poplar Springs[[Cove]] Historic District \u2014 roughly bounded by 29th St, 23rd Ave, 22nd St, and 29th Ave."
+        },
+        "left_conditional": {
+          "rec_tok": 15016,
+          "rec_token_str": " Lane",
+          "exact": 0,
+          "recovered_text": "8 Poplar Springs[[Lane]] Historic District \u2014 roughly bounded by 29th St, 23rd Ave, 22nd St, and 29th Ave."
+        },
+        "hybrid_medium": {
+          "rec_tok": 9498,
+          "rec_token_str": " Area",
+          "exact": 0,
+          "recovered_text": "8 Poplar Springs[[Area]] Historic District \u2014 roughly bounded by 29th St, 23rd Ave, 22nd St, and 29th Ave."
+        },
+        "sedd_small": {
+          "rec_tok": 18334,
+          "rec_token_str": " Springs",
+          "exact": 0,
+          "recovered_text": "8 Poplar Springs[[Springs]] Historic District \u2014 roughly bounded by 29th St, 23rd Ave, 22nd St, and 29th Ave."
+        },
+        "sedd_medium": {
+          "rec_tok": 2351,
+          "rec_token_str": " National",
+          "exact": 0,
+          "recovered_text": "8 Poplar Springs[[National]] Historic District \u2014 roughly bounded by 29th St, 23rd Ave, 22nd St, and 29th Ave."
+        },
+        "cond_argmax": {
+          "rec_tok": 5567,
+          "rec_token_str": " Road",
+          "exact": 1,
+          "recovered_text": "8 Poplar Springs[[Road]] Historic District \u2014 roughly bounded by 29th St, 23rd Ave, 22nd St, and 29th Ave."
+        },
+        "cond_topk_rescore": {
+          "rec_tok": 14812,
+          "rec_token_str": " Village",
+          "exact": 0,
+          "recovered_text": "8 Poplar Springs[[Village]] Historic District \u2014 roughly bounded by 29th St, 23rd Ave, 22nd St, and 29th Ave."
+        },
+        "gibbs": {
+          "rec_tok": 5567,
+          "rec_token_str": " Road",
+          "exact": 1,
+          "recovered_text": "8 Poplar Springs[[Road]] Historic District \u2014 roughly bounded by 29th St, 23rd Ave, 22nd St, and 29th Ave."
+        },
+        "cls_flagship": {
+          "rec_tok": 9395,
+          "rec_token_str": "ded",
+          "exact": 0,
+          "recovered_text": "8 Poplar Springs[[ded]] Historic District \u2014 roughly bounded by 29th St, 23rd Ave, 22nd St, and 29th Ave."
+        }
+      }
+    },
+    {
+      "sample_idx": 34,
+      "pos": 37,
+      "gt_tok": 49330,
+      "corr_tok": 2750,
+      "gt_token_str": " resided",
+      "corr_token_str": " By",
+      "original_text": "Lewis McAllister, a businessman in Tuscaloosa, Alabama, was the first Republican to serve in the Mississippi House of Representatives since Reconstruction, 1962 @-@ 1968 ; he resided in Meridian prior to 1971.",
+      "corrupted_text": "Lewis McAllister, a businessman in Tuscaloosa, Alabama, was the first Republican to serve in the Mississippi House of Representatives since Reconstruction, 1962 @-@ 1968 ; he[[By]] in Meridian prior to 1971.",
+      "methods": {
+        "dls_policy": {
+          "rec_tok": 11792,
+          "rec_token_str": "Client",
+          "exact": 0,
+          "recovered_text": "Lewis McAllister, a businessman in Tuscaloosa, Alabama, was the first Republican to serve in the Mississippi House of Representatives since Reconstruction, 1962 @-@ 1968 ; he[[Client]] in Meridian prior to 1971."
+        },
+        "dls_random": {
+          "rec_tok": 11792,
+          "rec_token_str": "Client",
+          "exact": 0,
+          "recovered_text": "Lewis McAllister, a businessman in Tuscaloosa, Alabama, was the first Republican to serve in the Mississippi House of Representatives since Reconstruction, 1962 @-@ 1968 ; he[[Client]] in Meridian prior to 1971."
+        },
+        "left_conditional": {
+          "rec_tok": 15901,
+          "rec_token_str": " sponsored",
+          "exact": 0,
+          "recovered_text": "Lewis McAllister, a businessman in Tuscaloosa, Alabama, was the first Republican to serve in the Mississippi House of Representatives since Reconstruction, 1962 @-@ 1968 ; he[[sponsored]] in Meridian prior to 1971."
+        },
+        "hybrid_medium": {
+          "rec_tok": 49330,
+          "rec_token_str": " resided",
+          "exact": 1,
+          "recovered_text": "Lewis McAllister, a businessman in Tuscaloosa, Alabama, was the first Republican to serve in the Mississippi House of Representatives since Reconstruction, 1962 @-@ 1968 ; he[[resided]] in Meridian prior to 1971."
+        },
+        "sedd_small": {
+          "rec_tok": 5615,
+          "rec_token_str": " lived",
+          "exact": 0,
+          "recovered_text": "Lewis McAllister, a businessman in Tuscaloosa, Alabama, was the first Republican to serve in the Mississippi House of Representatives since Reconstruction, 1962 @-@ 1968 ; he[[lived]] in Meridian prior to 1971."
+        },
+        "sedd_medium": {
+          "rec_tok": 5615,
+          "rec_token_str": " lived",
+          "exact": 0,
+          "recovered_text": "Lewis McAllister, a businessman in Tuscaloosa, Alabama, was the first Republican to serve in the Mississippi House of Representatives since Reconstruction, 1962 @-@ 1968 ; he[[lived]] in Meridian prior to 1971."
+        },
+        "cond_argmax": {
+          "rec_tok": 373,
+          "rec_token_str": " was",
+          "exact": 0,
+          "recovered_text": "Lewis McAllister, a businessman in Tuscaloosa, Alabama, was the first Republican to serve in the Mississippi House of Representatives since Reconstruction, 1962 @-@ 1968 ; he[[was]] in Meridian prior to 1971."
+        },
+        "cond_topk_rescore": {
+          "rec_tok": 4983,
+          "rec_token_str": " served",
+          "exact": 0,
+          "recovered_text": "Lewis McAllister, a businessman in Tuscaloosa, Alabama, was the first Republican to serve in the Mississippi House of Representatives since Reconstruction, 1962 @-@ 1968 ; he[[served]] in Meridian prior to 1971."
+        },
+        "gibbs": {
+          "rec_tok": 3724,
+          "rec_token_str": " died",
+          "exact": 0,
+          "recovered_text": "Lewis McAllister, a businessman in Tuscaloosa, Alabama, was the first Republican to serve in the Mississippi House of Representatives since Reconstruction, 1962 @-@ 1968 ; he[[died]] in Meridian prior to 1971."
+        },
+        "cls_flagship": {
+          "rec_tok": 4900,
+          "rec_token_str": " Although",
+          "exact": 0,
+          "recovered_text": "Lewis McAllister, a businessman in Tuscaloosa, Alabama, was the first Republican to serve in the Mississippi House of Representatives since Reconstruction, 1962 @-@ 1968 ; he[[Although]] in Meridian prior to 1971."
+        }
+      }
+    },
+    {
+      "sample_idx": 52,
+      "pos": 35,
+      "gt_tok": 588,
+      "corr_tok": 43584,
+      "gt_token_str": " like",
+      "corr_token_str": "Spanish",
+      "original_text": "... in fairyland, so exquisite is the colouring of the roof and sides and so pellucid is the water... [ with ] alcoves or recesses like stalls in a church.",
+      "corrupted_text": "... in fairyland, so exquisite is the colouring of the roof and sides and so pellucid is the water... [ with ] alcoves or recesses[[Spanish]] stalls in a church.",
+      "methods": {
+        "dls_policy": {
+          "rec_tok": 826,
+          "rec_token_str": " right",
+          "exact": 0,
+          "recovered_text": "... in fairyland, so exquisite is the colouring of the roof and sides and so pellucid is the water... [ with ] alcoves or recesses[[right]] stalls in a church."
+        },
+        "dls_random": {
+          "rec_tok": 4390,
+          "rec_token_str": " Democratic",
+          "exact": 0,
+          "recovered_text": "... in fairyland, so exquisite is the colouring of the roof and sides and so pellucid is the water... [ with ] alcoves or recesses[[Democratic]] stalls in a church."
+        },
+        "left_conditional": {
+          "rec_tok": 286,
+          "rec_token_str": " of",
+          "exact": 0,
+          "recovered_text": "... in fairyland, so exquisite is the colouring of the roof and sides and so pellucid is the water... [ with ] alcoves or recesses[[of]] stalls in a church."
+        },
+        "hybrid_medium": {
+          "rec_tok": 1022,
+          "rec_token_str": " between",
+          "exact": 0,
+          "recovered_text": "... in fairyland, so exquisite is the colouring of the roof and sides and so pellucid is the water... [ with ] alcoves or recesses[[between]] stalls in a church."
+        },
+        "sedd_small": {
+          "rec_tok": 393,
+          "rec_token_str": " or",
+          "exact": 0,
+          "recovered_text": "... in fairyland, so exquisite is the colouring of the roof and sides and so pellucid is the water... [ with ] alcoves or recesses[[or]] stalls in a church."
+        },
+        "sedd_medium": {
+          "rec_tok": 286,
+          "rec_token_str": " of",
+          "exact": 0,
+          "recovered_text": "... in fairyland, so exquisite is the colouring of the roof and sides and so pellucid is the water... [ with ] alcoves or recesses[[of]] stalls in a church."
+        },
+        "cond_argmax": {
+          "rec_tok": 329,
+          "rec_token_str": " for",
+          "exact": 0,
+          "recovered_text": "... in fairyland, so exquisite is the colouring of the roof and sides and so pellucid is the water... [ with ] alcoves or recesses[[for]] stalls in a church."
+        },
+        "cond_topk_rescore": {
+          "rec_tok": 393,
+          "rec_token_str": " or",
+          "exact": 0,
+          "recovered_text": "... in fairyland, so exquisite is the colouring of the roof and sides and so pellucid is the water... [ with ] alcoves or recesses[[or]] stalls in a church."
+        },
+        "gibbs": {
+          "rec_tok": 287,
+          "rec_token_str": " in",
+          "exact": 0,
+          "recovered_text": "... in fairyland, so exquisite is the colouring of the roof and sides and so pellucid is the water... [ with ] alcoves or recesses[[in]] stalls in a church."
+        },
+        "cls_flagship": {
+          "rec_tok": 43584,
+          "rec_token_str": "Spanish",
+          "exact": 0,
+          "recovered_text": "... in fairyland, so exquisite is the colouring of the roof and sides and so pellucid is the water... [ with ] alcoves or recesses[[Spanish]] stalls in a church."
+        }
+      }
+    },
+    {
+      "sample_idx": 60,
+      "pos": 21,
+      "gt_tok": 11251,
+      "corr_tok": 5754,
+      "gt_token_str": "NT",
+      "corr_token_str": "abase",
+      "original_text": "The $ 261 million project was started in 2002 and completed in December 2005. It was designed by the HNTB Corporation and built by Zachry Construction Corporation.",
+      "corrupted_text": "The $ 261 million project was started in 2002 and completed in December 2005. It was designed by the H[[abase]]B Corporation and built by Zachry Construction Corporation.",
+      "methods": {
+        "dls_policy": {
+          "rec_tok": 410,
+          "rec_token_str": " v",
+          "exact": 0,
+          "recovered_text": "The $ 261 million project was started in 2002 and completed in December 2005. It was designed by the H[[v]]B Corporation and built by Zachry Construction Corporation."
+        },
+        "dls_random": {
+          "rec_tok": 47526,
+          "rec_token_str": "BUT",
+          "exact": 0,
+          "recovered_text": "The $ 261 million project was started in 2002 and completed in December 2005. It was designed by the H[[BUT]]B Corporation and built by Zachry Construction Corporation."
+        },
+        "left_conditional": {
+          "rec_tok": 57,
+          "rec_token_str": "Z",
+          "exact": 0,
+          "recovered_text": "The $ 261 million project was started in 2002 and completed in December 2005. It was designed by the H[[Z]]B Corporation and built by Zachry Construction Corporation."
+        },
+        "hybrid_medium": {
+          "rec_tok": 11251,
+          "rec_token_str": "NT",
+          "exact": 1,
+          "recovered_text": "The $ 261 million project was started in 2002 and completed in December 2005. It was designed by the H[[NT]]B Corporation and built by Zachry Construction Corporation."
+        },
+        "sedd_small": {
+          "rec_tok": 6561,
+          "rec_token_str": "LS",
+          "exact": 0,
+          "recovered_text": "The $ 261 million project was started in 2002 and completed in December 2005. It was designed by the H[[LS]]B Corporation and built by Zachry Construction Corporation."
+        },
+        "sedd_medium": {
+          "rec_tok": 5097,
+          "rec_token_str": "CL",
+          "exact": 0,
+          "recovered_text": "The $ 261 million project was started in 2002 and completed in December 2005. It was designed by the H[[CL]]B Corporation and built by Zachry Construction Corporation."
+        },
+        "cond_argmax": {
+          "rec_tok": 5,
+          "rec_token_str": "&",
+          "exact": 0,
+          "recovered_text": "The $ 261 million project was started in 2002 and completed in December 2005. It was designed by the H[[&]]B Corporation and built by Zachry Construction Corporation."
+        },
+        "cond_topk_rescore": {
+          "rec_tok": 11251,
+          "rec_token_str": "NT",
+          "exact": 1,
+          "recovered_text": "The $ 261 million project was started in 2002 and completed in December 2005. It was designed by the H[[NT]]B Corporation and built by Zachry Construction Corporation."
+        },
+        "gibbs": {
+          "rec_tok": 5,
+          "rec_token_str": "&",
+          "exact": 0,
+          "recovered_text": "The $ 261 million project was started in 2002 and completed in December 2005. It was designed by the H[[&]]B Corporation and built by Zachry Construction Corporation."
+        },
+        "cls_flagship": {
+          "rec_tok": 5754,
+          "rec_token_str": "abase",
+          "exact": 0,
+          "recovered_text": "The $ 261 million project was started in 2002 and completed in December 2005. It was designed by the H[[abase]]B Corporation and built by Zachry Construction Corporation."
+        }
+      }
+    },
+    {
+      "sample_idx": 98,
+      "pos": 9,
+      "gt_tok": 257,
+      "corr_tok": 340,
+      "gt_token_str": " a",
+      "corr_token_str": " it",
+      "original_text": "Late in the afternoon, Edson stepped onto a grenade box and addressed his exhausted troops, saying,",
+      "corrupted_text": "Late in the afternoon, Edson stepped onto[[it]] grenade box and addressed his exhausted troops, saying,",
+      "methods": {
+        "dls_policy": {
+          "rec_tok": 352,
+          "rec_token_str": " 1",
+          "exact": 0,
+          "recovered_text": "Late in the afternoon, Edson stepped onto[[1]] grenade box and addressed his exhausted troops, saying,"
+        },
+        "dls_random": {
+          "rec_tok": 340,
+          "rec_token_str": " it",
+          "exact": 0,
+          "recovered_text": "Late in the afternoon, Edson stepped onto[[it]] grenade box and addressed his exhausted troops, saying,"
+        },
+        "left_conditional": {
+          "rec_tok": 262,
+          "rec_token_str": " the",
+          "exact": 0,
+          "recovered_text": "Late in the afternoon, Edson stepped onto[[the]] grenade box and addressed his exhausted troops, saying,"
+        },
+        "hybrid_medium": {
+          "rec_tok": 262,
+          "rec_token_str": " the",
+          "exact": 0,
+          "recovered_text": "Late in the afternoon, Edson stepped onto[[the]] grenade box and addressed his exhausted troops, saying,"
+        },
+        "sedd_small": {
+          "rec_tok": 262,
+          "rec_token_str": " the",
+          "exact": 0,
+          "recovered_text": "Late in the afternoon, Edson stepped onto[[the]] grenade box and addressed his exhausted troops, saying,"
+        },
+        "sedd_medium": {
+          "rec_tok": 262,
+          "rec_token_str": " the",
+          "exact": 0,
+          "recovered_text": "Late in the afternoon, Edson stepped onto[[the]] grenade box and addressed his exhausted troops, saying,"
+        },
+        "cond_argmax": {
+          "rec_tok": 262,
+          "rec_token_str": " the",
+          "exact": 0,
+          "recovered_text": "Late in the afternoon, Edson stepped onto[[the]] grenade box and addressed his exhausted troops, saying,"
+        },
+        "cond_topk_rescore": {
+          "rec_tok": 262,
+          "rec_token_str": " the",
+          "exact": 0,
+          "recovered_text": "Late in the afternoon, Edson stepped onto[[the]] grenade box and addressed his exhausted troops, saying,"
+        },
+        "gibbs": {
+          "rec_tok": 262,
+          "rec_token_str": " the",
+          "exact": 0,
+          "recovered_text": "Late in the afternoon, Edson stepped onto[[the]] grenade box and addressed his exhausted troops, saying,"
+        },
+        "cls_flagship": {
+          "rec_tok": 13,
+          "rec_token_str": ".",
+          "exact": 0,
+          "recovered_text": "Late in the afternoon, Edson stepped onto[[.]] grenade box and addressed his exhausted troops, saying,"
+        }
+      }
+    },
+    {
+      "sample_idx": 122,
+      "pos": 18,
+      "gt_tok": 1969,
+      "corr_tok": 20156,
+      "gt_token_str": " close",
+      "corr_token_str": " atop",
+      "original_text": "Group R is another twin @-@ pyramid complex, dated to 790. It is close to the Maler Causeway.",
+      "corrupted_text": "Group R is another twin @-@ pyramid complex, dated to 790. It is[[atop]] to the Maler Causeway.",
+      "methods": {
+        "dls_policy": {
+          "rec_tok": 21688,
+          "rec_token_str": " guardian",
+          "exact": 0,
+          "recovered_text": "Group R is another twin @-@ pyramid complex, dated to 790. It is[[guardian]] to the Maler Causeway."
+        },
+        "dls_random": {
+          "rec_tok": 21688,
+          "rec_token_str": " guardian",
+          "exact": 0,
+          "recovered_text": "Group R is another twin @-@ pyramid complex, dated to 790. It is[[guardian]] to the Maler Causeway."
+        },
+        "left_conditional": {
+          "rec_tok": 1363,
+          "rec_token_str": " home",
+          "exact": 0,
+          "recovered_text": "Group R is another twin @-@ pyramid complex, dated to 790. It is[[home]] to the Maler Causeway."
+        },
+        "hybrid_medium": {
+          "rec_tok": 39871,
+          "rec_token_str": " anchored",
+          "exact": 0,
+          "recovered_text": "Group R is another twin @-@ pyramid complex, dated to 790. It is[[anchored]] to the Maler Causeway."
+        },
+        "sedd_small": {
+          "rec_tok": 6692,
+          "rec_token_str": " linked",
+          "exact": 0,
+          "recovered_text": "Group R is another twin @-@ pyramid complex, dated to 790. It is[[linked]] to the Maler Causeway."
+        },
+        "sedd_medium": {
+          "rec_tok": 15909,
+          "rec_token_str": " adjacent",
+          "exact": 0,
+          "recovered_text": "Group R is another twin @-@ pyramid complex, dated to 790. It is[[adjacent]] to the Maler Causeway."
+        },
+        "cond_argmax": {
+          "rec_tok": 262,
+          "rec_token_str": " the",
+          "exact": 0,
+          "recovered_text": "Group R is another twin @-@ pyramid complex, dated to 790. It is[[the]] to the Maler Causeway."
+        },
+        "cond_topk_rescore": {
+          "rec_tok": 1363,
+          "rec_token_str": " home",
+          "exact": 0,
+          "recovered_text": "Group R is another twin @-@ pyramid complex, dated to 790. It is[[home]] to the Maler Causeway."
+        },
+        "gibbs": {
+          "rec_tok": 20156,
+          "rec_token_str": " atop",
+          "exact": 0,
+          "recovered_text": "Group R is another twin @-@ pyramid complex, dated to 790. It is[[atop]] to the Maler Causeway."
+        },
+        "cls_flagship": {
+          "rec_tok": 13245,
+          "rec_token_str": " transparent",
+          "exact": 0,
+          "recovered_text": "Group R is another twin @-@ pyramid complex, dated to 790. It is[[transparent]] to the Maler Causeway."
+        }
+      }
+    },
+    {
+      "sample_idx": 162,
+      "pos": 1,
+      "gt_tok": 796,
+      "corr_tok": 31167,
+      "gt_token_str": " =",
+      "corr_token_str": " deliveries",
+      "original_text": "= = = Day 6 of the trial = = =",
+      "corrupted_text": "=[[deliveries]] = Day 6 of the trial = = =",
+      "methods": {
+        "dls_policy": {
+          "rec_tok": 1255,
+          "rec_token_str": " result",
+          "exact": 0,
+          "recovered_text": "=[[result]] = Day 6 of the trial = = ="
+        },
+        "dls_random": {
+          "rec_tok": 34704,
+          "rec_token_str": "iatus",
+          "exact": 0,
+          "recovered_text": "=[[iatus]] = Day 6 of the trial = = ="
+        },
+        "left_conditional": {
+          "rec_tok": 268,
+          "rec_token_str": "en",
+          "exact": 0,
+          "recovered_text": "=[[en]] = Day 6 of the trial = = ="
+        },
+        "hybrid_medium": {
+          "rec_tok": 28,
+          "rec_token_str": "=",
+          "exact": 0,
+          "recovered_text": "=[[=]] = Day 6 of the trial = = ="
+        },
+        "sedd_small": {
+          "rec_tok": 796,
+          "rec_token_str": " =",
+          "exact": 1,
+          "recovered_text": "=[[=]] = Day 6 of the trial = = ="
+        },
+        "sedd_medium": {
+          "rec_tok": 796,
+          "rec_token_str": " =",
+          "exact": 1,
+          "recovered_text": "=[[=]] = Day 6 of the trial = = ="
+        },
+        "cond_argmax": {
+          "rec_tok": 64,
+          "rec_token_str": "a",
+          "exact": 0,
+          "recovered_text": "=[[a]] = Day 6 of the trial = = ="
+        },
+        "cond_topk_rescore": {
+          "rec_tok": 268,
+          "rec_token_str": "en",
+          "exact": 0,
+          "recovered_text": "=[[en]] = Day 6 of the trial = = ="
+        },
+        "gibbs": {
+          "rec_tok": 64,
+          "rec_token_str": "a",
+          "exact": 0,
+          "recovered_text": "=[[a]] = Day 6 of the trial = = ="
+        },
+        "cls_flagship": {
+          "rec_tok": 49706,
+          "rec_token_str": " logger",
+          "exact": 0,
+          "recovered_text": "=[[logger]] = Day 6 of the trial = = ="
+        }
+      }
+    },
+    {
+      "sample_idx": 199,
+      "pos": 10,
+      "gt_tok": 6303,
+      "corr_tok": 18654,
+      "gt_token_str": " 1990",
+      "corr_token_str": "ede",
+      "original_text": "= = = Global security, late @-@ 1990s = = =",
+      "corrupted_text": "= = = Global security, late @-@[[ede]]s = = =",
+      "methods": {
+        "dls_policy": {
+          "rec_tok": 6375,
+          "rec_token_str": " OR",
+          "exact": 0,
+          "recovered_text": "= = = Global security, late @-@[[OR]]s = = ="
+        },
+        "dls_random": {
+          "rec_tok": 267,
+          "rec_token_str": " o",
+          "exact": 0,
+          "recovered_text": "= = = Global security, late @-@[[o]]s = = ="
+        },
+        "left_conditional": {
+          "rec_tok": 7261,
+          "rec_token_str": " tech",
+          "exact": 0,
+          "recovered_text": "= = = Global security, late @-@[[tech]]s = = ="
+        },
+        "hybrid_medium": {
+          "rec_tok": 6,
+          "rec_token_str": "'",
+          "exact": 0,
+          "recovered_text": "= = = Global security, late @-@[[']]s = = ="
+        },
+        "sedd_small": {
+          "rec_tok": 31,
+          "rec_token_str": "@",
+          "exact": 0,
+          "recovered_text": "= = = Global security, late @-@[[@]]s = = ="
+        },
+        "sedd_medium": {
+          "rec_tok": 31,
+          "rec_token_str": "@",
+          "exact": 0,
+          "recovered_text": "= = = Global security, late @-@[[@]]s = = ="
+        },
+        "cond_argmax": {
+          "rec_tok": 3128,
+          "rec_token_str": " date",
+          "exact": 0,
+          "recovered_text": "= = = Global security, late @-@[[date]]s = = ="
+        },
+        "cond_topk_rescore": {
+          "rec_tok": 6,
+          "rec_token_str": "'",
+          "exact": 0,
+          "recovered_text": "= = = Global security, late @-@[[']]s = = ="
+        },
+        "gibbs": {
+          "rec_tok": 26,
+          "rec_token_str": ";",
+          "exact": 0,
+          "recovered_text": "= = = Global security, late @-@[[;]]s = = ="
+        },
+        "cls_flagship": {
+          "rec_tok": 24186,
+          "rec_token_str": "\u30ec",
+          "exact": 0,
+          "recovered_text": "= = = Global security, late @-@[[\u30ec]]s = = ="
+        }
+      }
+    }
+  ],
+  "gprime_showcase": {
+    "selection_rule": "np.random.default_rng(0).choice(300,6,replace=False); first 3->label0, next 3->label1",
+    "gamma": 4.0,
+    "assign": {
+      "0": [
+        80,
+        151,
+        188
+      ],
+      "1": [
+        12,
+        92,
+        250
+      ]
+    },
+    "pairs": {
+      "0": [
+        {
+          "prompt_idx": 80,
+          "unguided_text": "hardly a masterpiece, but it introduces viewers to the annals of the premi\u00e8re of the County Art Society\u2019s landmark in San Francisco",
+          "unguided_judge": 1,
+          "guided_text": "hardly a masterpiece, but it introduces viewers to one of of instead of as\ufffd- a is not the are the the the it.ss",
+          "guided_judge": 1
+        },
+        {
+          "prompt_idx": 151,
+          "unguided_text": "determined to be fun, and bouncy, and quirky, and exciting, and colourful, and play-determined to be fun-determined",
+          "unguided_judge": 1,
+          "guided_text": "determined to be fun, and bouncy, didn\ufffd wasd that to to to and havedd andd, wasd of to,",
+          "guided_judge": 1
+        },
+        {
+          "prompt_idx": 188,
+          "unguided_text": "the movie understands like few others how the depth and how realistic the toztussian sense is going to be. And if in a history,",
+          "unguided_judge": 1,
+          "guided_text": "the movie understands like few others how the depth and how of the are to like a how the notion of a than the the the movie something like a",
+          "guided_judge": 1
+        }
+      ],
+      "1": [
+        {
+          "prompt_idx": 12,
+          "unguided_text": "the emotions are raw and will strike a nerve with a few steps across the dark for the firstthe bell goes ringing and this quote will be pure in",
+          "unguided_judge": 1,
+          "guided_text": "the emotions are raw and will strike a nerve with both. Work-in-the-office-and-live-in-the-house-",
+          "guided_judge": 1
+        },
+        {
+          "prompt_idx": 92,
+          "unguided_text": "it's one of those baseball pictures where the word \"b)\" in the meaning \"the hit of the ball, if tha'- is used yet",
+          "unguided_judge": 1,
+          "guided_text": "it's one of those baseball pictures where the sun is the center player. It \"s one of those baseball pictures where the sun is the center",
+          "guided_judge": 1
+        },
+        {
+          "prompt_idx": 250,
+          "unguided_text": "k-19 exploits our substantial collective fear of nuclear disaster that has collective influence influence on the collective individual the collective influence ",
+          "unguided_judge": 1,
+          "guided_text": "k-19 exploits our substantial collective fear of nuclear weapons. Kk-19 demonstrates that it is be a a threat to the U.S.",
+          "guided_judge": 1
+        }
+      ]
+    }
+  }
+}

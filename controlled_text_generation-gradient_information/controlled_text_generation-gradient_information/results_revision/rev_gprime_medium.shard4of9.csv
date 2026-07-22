@@ -1,0 +1,298 @@
+prompt_idx,target_label,gamma,arm,judged_label,hit_target,clf_self_label,span_nll,mean_eligible,frac_le1_eligible,text
+4,1,-1,realtext,1,1,1,,,,you don't have to know about music to appreciate the film's easygoing blend of comedy and romance.
+4,0,2.0,unguided,1,0,0,5.35902738571167,,,you don't have to know about music to be musical-- even if you don't know about music  Audio  1 11 1
+4,0,2.0,guided,0,1,0,6.959170818328857,29.976,0.0189,"you don't have to know about music to understand that, no, you don’t need any number of other forms of understanding that to"
+4,1,2.0,unguided,1,1,0,5.35902738571167,,,you don't have to know about music to be musical-- even if you don't know about music  Audio  1 11 1
+4,1,2.0,guided,0,0,1,7.104762554168701,30.3399,0.0,you don't have to know about music to play music you t if you don't listen to music about music music y y y n s y
+4,0,4.0,unguided,1,0,0,5.35902738571167,,,you don't have to know about music to be musical-- even if you don't know about music  Audio  1 11 1
+4,0,4.0,guided,1,0,0,6.503030300140381,30.3534,0.0,you don't have to know about music to understand u you t u t don't r t t t t t t t t n t t
+4,1,4.0,unguided,1,1,0,5.35902738571167,,,you don't have to know about music to be musical-- even if you don't know about music  Audio  1 11 1
+4,1,4.0,guided,1,1,1,9.543417930603027,32.0,0.0,you don't have to know about music to listen music you in to music is and listen at music about to be and music music. music music
+13,1,-1,realtext,1,1,1,,,,"audrey tatou has a knack for picking roles that magnify her outrageous charm, and in this literate french comedy, she's as morning-glory exuberant as she was in"
+13,0,2.0,unguided,1,0,0,6.5438079833984375,,,"audrey tatou has a knack for picking his targets, he doesn't introduce you to fool you. There is no such thing as conjlection"
+13,0,2.0,guided,1,0,0,7.619797706604004,28.5097,0.0169,"audrey tatou has a knack for picking up at's bit of an act,audrey tatou would probably him serve as it comes"
+13,1,2.0,unguided,1,1,0,6.5438079833984375,,,"audrey tatou has a knack for picking his targets, he doesn't introduce you to fool you. There is no such thing as conjlection"
+13,1,2.0,guided,1,1,1,6.302765369415283,28.4371,0.0193,audrey tatou has a knack for picking up an unexpected bit of an actcaudrey tatou can be as good as it comes
+13,0,4.0,unguided,1,0,0,6.5438079833984375,,,"audrey tatou has a knack for picking his targets, he doesn't introduce you to fool you. There is no such thing as conjlection"
+13,0,4.0,guided,1,0,0,5.040920734405518,27.2324,0.0103,audrey tatou has a knack for picking up people with bit of anointedcaudrey tatou has a knack for picking it up
+13,1,4.0,unguided,1,1,0,6.5438079833984375,,,"audrey tatou has a knack for picking his targets, he doesn't introduce you to fool you. There is no such thing as conjlection"
+13,1,4.0,guided,1,1,0,5.50145959854126,27.2429,0.0103,audrey tatou has a knack for picking up people with bit of an effortvilaudrey tatou has a knack for picking it up
+22,0,-1,realtext,0,1,0,,,,"it's a cookie-cutter movie, a cut-and-paste job."
+22,0,2.0,unguided,0,1,0,6.383456707000732,,,"it's a cookie-cutter movie, same that's where the movies come out, the same majority of them come out of the same industries"
+22,0,2.0,guided,0,1,0,3.2393829822540283,30.9722,0.0099,"it's a cookie-cutter movie, its story is the same as the rest of the movie. This is the movie, its plot is"
+22,1,2.0,unguided,0,0,0,6.383456707000732,,,"it's a cookie-cutter movie, same that's where the movies come out, the same majority of them come out of the same industries"
+22,1,2.0,guided,0,0,0,6.215470314025879,24.9051,0.0287,"it's a cookie-cutter movie, hitit,s a cookie- cut -ter movie, hitit,s"
+22,0,4.0,unguided,0,1,0,6.383456707000732,,,"it's a cookie-cutter movie, same that's where the movies come out, the same majority of them come out of the same industries"
+22,0,4.0,guided,1,0,0,4.600448131561279,26.5364,0.0597,"it's a cookie-cutter movie,  it's a cookie cutcutter movie, cookieitit's a cookie cut"
+22,1,4.0,unguided,0,0,0,6.383456707000732,,,"it's a cookie-cutter movie, same that's where the movies come out, the same majority of them come out of the same industries"
+22,1,4.0,guided,1,1,0,4.343846797943115,26.4515,0.066,"it's a cookie-cutter movie,  it's a cookie cut cutter movie, cut-it's a cookie cut"
+31,1,-1,realtext,1,1,1,,,,"escaping the studio, piccoli is warmly affecting and so is this adroitly minimalist movie."
+31,0,2.0,unguided,0,1,0,7.2650465965271,,,"escaping the studio, piccoli is warm and is flirting with when friends, Dogo is playful and does not want to stifle the"
+31,0,2.0,guided,0,1,0,2.084521532058716,19.1837,0.1321,"escaping the studio, piccoli is warm and unescaping the studio, piccoli is warm and unescaping the studio, pic"
+31,1,2.0,unguided,0,0,0,7.2650465965271,,,"escaping the studio, piccoli is warm and is flirting with when friends, Dogo is playful and does not want to stifle the"
+31,1,2.0,guided,1,1,1,4.594859600067139,19.0841,0.0988,"escaping the studio, piccoli is warm and beautiful outside of the studio, piccoli is warm and beautiful from high in the studio,"
+31,0,4.0,unguided,0,1,0,7.2650465965271,,,"escaping the studio, piccoli is warm and is flirting with when friends, Dogo is playful and does not want to stifle the"
+31,0,4.0,guided,0,1,1,6.312230587005615,23.5898,0.0674,"escaping the studio, piccoli is warm, and toaping the studio, piccoli is warm to theescaping the studio, pic"
+31,1,4.0,unguided,0,0,0,7.2650465965271,,,"escaping the studio, piccoli is warm and is flirting with when friends, Dogo is playful and does not want to stifle the"
+31,1,4.0,guided,1,1,1,3.1308982372283936,20.1618,0.1272,"escaping the studio, piccoli is warm and serene,  , piccoli is warm and serene, side of the studio"
+40,1,-1,realtext,1,1,1,,,,has a lot of the virtues of eastwood at his best.
+40,0,2.0,unguided,0,1,0,6.99568510055542,,,has a lot of the virtues of eastwood at Athabra Station-uh-uh At this location has a lot of the virtues of eastwood
+40,0,2.0,guided,0,1,0,5.871946811676025,31.575,0.0016,"has a lot of the virtues of eastwood at the "" ( the= ""wood westwood has a lot of the virtues of eastwood at night"
+40,1,2.0,unguided,0,0,0,6.99568510055542,,,has a lot of the virtues of eastwood at Athabra Station-uh-uh At this location has a lot of the virtues of eastwood
+40,1,2.0,guided,1,1,1,3.866858720779419,28.8384,0.0577,has a lot of the virtues of eastwood at their core in the course of their day-to-day life. they has a lot of the
+40,0,4.0,unguided,0,1,0,6.99568510055542,,,has a lot of the virtues of eastwood at Athabra Station-uh-uh At this location has a lot of the virtues of eastwood
+40,0,4.0,guided,0,1,0,9.894536972045898,31.7285,0.0,has a lot of the virtues of eastwood at a point of the wood has andwood a a  woodwood iswoodwoodwoodwood at
+40,1,4.0,unguided,0,0,0,6.99568510055542,,,has a lot of the virtues of eastwood at Athabra Station-uh-uh At this location has a lot of the virtues of eastwood
+40,1,4.0,guided,0,0,0,7.767017364501953,31.7384,0.0,"has a lot of the virtues of eastwood at that point of the day you have a a a a, it is not and-sipping at"
+49,0,-1,realtext,1,0,1,,,,manages to be both repulsively sadistic and mundane.
+49,0,2.0,unguided,1,0,1,6.122561454772949,,,"manages to be both repulsively sadistic and blissfully irrefutable. ""Was she feathered?""  As it wasn't,"
+49,0,2.0,guided,1,0,1,8.197464942932129,30.8774,0.0,"manages to be both repulsively sadistic or expgressively, the be for their for of both the and their and both be or and"
+49,1,2.0,unguided,1,1,1,6.122561454772949,,,"manages to be both repulsively sadistic and blissfully irrefutable. ""Was she feathered?""  As it wasn't,"
+49,1,2.0,guided,1,1,0,2.7750327587127686,16.6146,0.0401,"manages to be both repulsively sadistic and a "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" """
+49,0,4.0,unguided,1,0,1,6.122561454772949,,,"manages to be both repulsively sadistic and blissfully irrefutable. ""Was she feathered?""  As it wasn't,"
+49,0,4.0,guided,1,0,1,9.366159439086914,30.8474,0.0,manages to be both repulsively sadistic and for in disgusting... and their for� .� it. to of and and
+49,1,4.0,unguided,1,1,1,6.122561454772949,,,"manages to be both repulsively sadistic and blissfully irrefutable. ""Was she feathered?""  As it wasn't,"
+49,1,4.0,guided,1,1,0,5.558175563812256,16.5446,0.0635,"manages to be both repulsively sadistic "" arom a "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" """
+58,1,-1,realtext,1,1,1,,,,good old-fashioned slash-and-hack is back!
+58,0,2.0,unguided,0,1,1,6.930319309234619,,,"good old-fashioned slash-and-hack is apparently frowned upon, which is indeed emphasized very much in scholarly recent scholarship.  So that is"
+58,0,2.0,guided,1,0,0,8.499948501586914,31.5831,0.0,good old-fashioned slash-and-hack is hack of    bad oldfashioned slash hackand hack is so good    is is
+58,1,2.0,unguided,0,0,1,6.930319309234619,,,"good old-fashioned slash-and-hack is apparently frowned upon, which is indeed emphasized very much in scholarly recent scholarship.  So that is"
+58,1,2.0,guided,1,1,1,3.031501531600952,21.8999,0.1877,good old-fashioned slash-and-hack is good good old-fashioned is good is good old-fashioned good slash-and-hack is good
+58,0,4.0,unguided,0,1,1,6.930319309234619,,,"good old-fashioned slash-and-hack is apparently frowned upon, which is indeed emphasized very much in scholarly recent scholarship.  So that is"
+58,0,4.0,guided,0,1,0,7.51507043838501,31.6982,0.0,good old-fashioned slash-and-hack is cut of badbad hack bad-fashioned slash hack slash hack is hack agood old hack old hack
+58,1,4.0,unguided,0,0,1,6.930319309234619,,,"good old-fashioned slash-and-hack is apparently frowned upon, which is indeed emphasized very much in scholarly recent scholarship.  So that is"
+58,1,4.0,guided,1,1,1,3.134831666946411,17.882,0.1931,good old-fashioned slash-and-hack isgood old-fashioned hacking isgood old-fashioned old-fashioned slash-and-hack isgood
+67,1,-1,realtext,1,1,1,,,,"there is nothing outstanding about this film, but it is good enough and will likely be appreciated most by sailors and folks who know their way around a submari"
+67,0,2.0,unguided,0,1,1,4.538055419921875,,,"there is nothing outstanding about this film, but it goes without saying that this film isn't what it's about—it's what it's about."
+67,0,2.0,guided,0,1,0,7.994678020477295,31.4828,0.0,"there is nothing outstanding about this film, but it does nothing about the that of't, no's no is of the not of, to,,"
+67,1,2.0,unguided,0,0,1,4.538055419921875,,,"there is nothing outstanding about this film, but it goes without saying that this film isn't what it's about—it's what it's about."
+67,1,2.0,guided,0,0,0,5.1442484855651855,28.0648,0.0022,"there is nothing outstanding about this film, but it is a shame that this film has to no more than a little good.No, no, no"
+67,0,4.0,unguided,0,1,1,4.538055419921875,,,"there is nothing outstanding about this film, but it goes without saying that this film isn't what it's about—it's what it's about."
+67,0,4.0,guided,0,1,0,8.207072257995605,31.4828,0.0,"there is nothing outstanding about this film, but it does nothing nothing the that of't, no's no not of the not of, to the,"
+67,1,4.0,unguided,0,0,1,4.538055419921875,,,"there is nothing outstanding about this film, but it goes without saying that this film isn't what it's about—it's what it's about."
+67,1,4.0,guided,0,0,1,3.451732635498047,26.1103,0.005,"there is nothing outstanding about this film, but it's one of the best film, but it's not one of the best films, but it's"
+76,1,-1,realtext,1,1,0,,,,jaglom... put ( s ) the audience in the privileged position of eavesdropping on his characters
+76,0,2.0,unguided,1,0,0,4.534460544586182,,,jaglom... put ( s ) the ideal of thejaglom... put ( s ) the torch of thejaglom
+76,0,2.0,guided,1,0,0,7.673900127410889,31.5194,0.0,jaglom... put ( s ) the government who makes sure that they is not allowed to a in to anyone for the purpose of his welfare
+76,1,2.0,unguided,1,1,0,4.534460544586182,,,jaglom... put ( s ) the ideal of thejaglom... put ( s ) the torch of thejaglom
+76,1,2.0,guided,0,0,0,5.066568851470947,30.1949,0.0231,jaglom... put ( s ) the...j thelom...jjaglom...put ( s )the...om the
+76,0,4.0,unguided,1,0,0,4.534460544586182,,,jaglom... put ( s ) the ideal of thejaglom... put ( s ) the torch of thejaglom
+76,0,4.0,guided,1,0,0,8.927372932434082,31.5717,0.0008,jaglom... put ( s ) the idea of putting on putting on putting... out of sense of people of ( ()... concept of
+76,1,4.0,unguided,1,1,0,4.534460544586182,,,jaglom... put ( s ) the ideal of thejaglom... put ( s ) the torch of thejaglom
+76,1,4.0,guided,0,0,0,3.721729040145874,31.1924,0.0101,jaglom... put ( s ) thejjaglom... ) thejjaglom... put ( s ) thej
+85,0,-1,realtext,0,1,1,,,,"it's difficult to imagine the process that produced such a script, but here's guessing that spray cheese and underarm noises played a crucial role."
+85,0,2.0,unguided,1,0,1,9.141663551330566,,,it's difficult to imagine the process that produced meit thisit thisit '' savagery Sugari. And I think it'll be
+85,0,2.0,guided,0,1,0,5.318380355834961,30.7982,0.0,"it's difficult to imagine the process that produced this results, but only because you're thinking into the result of process. This result is an"
+85,1,2.0,unguided,1,1,1,9.141663551330566,,,it's difficult to imagine the process that produced meit thisit thisit '' savagery Sugari. And I think it'll be
+85,1,2.0,guided,0,0,0,5.202563762664795,26.9759,0.0176,"it's difficult to imagine the process that produced this material, but it doesn 't seem to me the process that process that This material is produced"
+85,0,4.0,unguided,1,0,1,9.141663551330566,,,it's difficult to imagine the process that produced meit thisit thisit '' savagery Sugari. And I think it'll be
+85,0,4.0,guided,0,1,0,4.4711761474609375,30.53,0.0088,"it's difficult to imagine the process that produced, or produced,.—it's difficult to imagine how the process was produced, or produced"
+85,1,4.0,unguided,1,1,1,9.141663551330566,,,it's difficult to imagine the process that produced meit thisit thisit '' savagery Sugari. And I think it'll be
+85,1,4.0,guided,0,0,0,7.190690040588379,30.4614,0.0096,it's difficult to imagine the process that produced the results produced by produce productionit's difficult to imagine the production process produced the the 
+94,1,-1,realtext,1,1,1,,,,the movie's relatively simple plot and uncomplicated morality play well with the affable cast.
+94,0,2.0,unguided,0,1,0,10.752167701721191,,,the movie's relatively simple plot and uncomplicated predictable pace are recalled for the decent sequel cent in the 3Dunn11il screenplay'./.
+94,0,2.0,guided,0,1,0,3.17582631111145,29.6835,0.0067,the movie's relatively simple plot and uncomplimentary the plot and the movie's uncomplimentary the plot and the movie's uncompl
+94,1,2.0,unguided,0,0,0,10.752167701721191,,,the movie's relatively simple plot and uncomplicated predictable pace are recalled for the decent sequel cent in the 3Dunn11il screenplay'./.
+94,1,2.0,guided,0,0,1,6.968444347381592,30.338,0.0,the movie's relatively simple plot and uncomplicated dialogue system In the movie will-in and of the film In the movie cans-be
+94,0,4.0,unguided,0,1,0,10.752167701721191,,,the movie's relatively simple plot and uncomplicated predictable pace are recalled for the decent sequel cent in the 3Dunn11il screenplay'./.
+94,0,4.0,guided,0,1,0,6.7893290519714355,30.556,0.0,"the movie's relatively simple plot and uncomplicated dialogue is "" ""of the film itself and of "" "" and the film thes "" in"
+94,1,4.0,unguided,0,0,0,10.752167701721191,,,the movie's relatively simple plot and uncomplicated predictable pace are recalled for the decent sequel cent in the 3Dunn11il screenplay'./.
+94,1,4.0,guided,0,0,0,6.230445384979248,30.556,0.0,"the movie's relatively simple plot and uncomplicated dialogue the "" ""of the film"" and of "" "" and the film thes "" in"
+103,1,-1,realtext,1,1,0,,,,"moody, heartbreaking, and filmed in a natural, unforced style that makes its characters seem entirely convincing even when its script is not."
+103,0,2.0,unguided,0,1,0,8.564602851867676,,,"moody, heartbreaking, and filmed in a chaotic, and disorganized work environment, and in afully released episode one of Cassini' 200"
+103,0,2.0,guided,0,1,0,8.880561828613281,31.4078,0.0008,"moody, heartbreaking, and filmed in a setting similar familiar setting to is of,: "" a and by,!  October 18,"
+103,1,2.0,unguided,0,0,0,8.564602851867676,,,"moody, heartbreaking, and filmed in a chaotic, and disorganized work environment, and in afully released episode one of Cassini' 200"
+103,1,2.0,guided,0,0,1,6.906599521636963,31.4932,0.0,"moody, heartbreaking, and filmed in a locationother than the coastal coastal regions of Southern California, and produced by a truly astonishing team of,"
+103,0,4.0,unguided,0,1,0,8.564602851867676,,,"moody, heartbreaking, and filmed in a chaotic, and disorganized work environment, and in afully released episode one of Cassini' 200"
+103,0,4.0,guided,0,1,0,7.371223449707031,31.9938,0.0,"moody, heartbreaking, and filmed in a location as for setting to is of,, "" as "" a, of on a"" as well"
+103,1,4.0,unguided,0,0,0,8.564602851867676,,,"moody, heartbreaking, and filmed in a chaotic, and disorganized work environment, and in afully released episode one of Cassini' 200"
+103,1,4.0,guided,1,1,1,6.4043288230896,31.0805,0.0083,"moody, heartbreaking, and filmed in a timeless moment of colorfulness and soulfulness of the world of color, a wondrous moment of light"
+112,0,-1,realtext,0,1,1,,,,"in the end, we are left with something like two ships passing in the night rather than any insights into gay love, chinese society or the price one pays for bei"
+112,0,2.0,unguided,1,0,1,6.4297637939453125,,,"in the end, we are left with something like...a ball that often has a some interaction with other balls, and in this case this ball will"
+112,0,2.0,guided,0,1,0,5.223386287689209,28.6844,0.0017,"in the end, we are left with something like this:The only problem is that some of the the, of and of be reduced to the right"
+112,1,2.0,unguided,1,1,1,6.4297637939453125,,,"in the end, we are left with something like...a ball that often has a some interaction with other balls, and in this case this ball will"
+112,1,2.0,guided,0,0,0,4.167094707489014,20.0052,0.1068,"in the end, we are left with something like that there should be something like that.  …in the end, we are left with something"
+112,0,4.0,unguided,1,0,1,6.4297637939453125,,,"in the end, we are left with something like...a ball that often has a some interaction with other balls, and in this case this ball will"
+112,0,4.0,guided,0,1,0,4.1962761878967285,29.198,0.0031,"in the end, we are left with something like this  ThatSinceif this is in the end, we are left with something like this :"
+112,1,4.0,unguided,1,1,1,6.4297637939453125,,,"in the end, we are left with something like...a ball that often has a some interaction with other balls, and in this case this ball will"
+112,1,4.0,guided,0,0,1,4.4270758628845215,29.8889,0.0041,"in the end, we are left with something like :  . The part that is in the end, us with something like: In the beginning"
+121,0,-1,realtext,0,1,0,,,,looks and feels like a project better suited for the small screen.
+121,0,2.0,unguided,0,1,0,8.593445777893066,,,"looks and feels like a project better suited for our metropolitan area anywhere, inside and outside its metropolitan areas, and now attached to our bloody natio"
+121,0,2.0,guided,0,1,0,4.303006649017334,24.2506,0.0718,looks and feels like a project better suited for the like mobile.  .  slooks and feels like a project better suited for
+121,1,2.0,unguided,0,0,0,8.593445777893066,,,"looks and feels like a project better suited for our metropolitan area anywhere, inside and outside its metropolitan areas, and now attached to our bloody natio"
+121,1,2.0,guided,0,0,0,6.094971656799316,23.264,0.1295,looks and feels like a project better suited for the than mobile.. Mand project looklooks and feels like a project best suited for
+121,0,4.0,unguided,0,1,0,8.593445777893066,,,"looks and feels like a project better suited for our metropolitan area anywhere, inside and outside its metropolitan areas, and now attached to our bloody natio"
+121,0,4.0,guided,0,1,0,8.237269401550293,32.0,0.0,"looks and feels like a project better suited for the developer than or a manager, with alls of feeling like a project, with� a in"
+121,1,4.0,unguided,0,0,0,8.593445777893066,,,"looks and feels like a project better suited for our metropolitan area anywhere, inside and outside its metropolitan areas, and now attached to our bloody natio"
+121,1,4.0,guided,0,0,1,5.409135341644287,31.7204,0.0031,"looks and feels like a project better suited for something project than. The., look lookss and feel like a project better suited for something."
+130,0,-1,realtext,0,1,1,,,,the talented and clever robert rodriguez perhaps put a little too much heart into his first film and didn't reserve enough for his second.
+130,0,2.0,unguided,1,0,1,3.8472683429718018,,,the talented and clever robert rodriguez perhaps the ability talented and clever is perhaps the ability talented and clever perhaps the ability talented and cle
+130,0,2.0,guided,1,0,1,10.758646965026855,30.5399,0.0,"the talented and clever robert rodriguez perhaps perhapsrig rodrigrig be perhaps rrigrig be perhaps rodrig be perhaps r,) the"
+130,1,2.0,unguided,1,1,1,3.8472683429718018,,,the talented and clever robert rodriguez perhaps the ability talented and clever is perhaps the ability talented and clever perhaps the ability talented and cle
+130,1,2.0,guided,1,1,1,3.532320499420166,19.3636,0.1196,"the talented and clever robert rodriguez perhaps the very, very talented and clever robert rodriguez perhaps thethe talented and clever robert"
+130,0,4.0,unguided,1,0,1,3.8472683429718018,,,the talented and clever robert rodriguez perhaps the ability talented and clever is perhaps the ability talented and clever perhaps the ability talented and cle
+130,0,4.0,guided,1,0,1,11.34616756439209,30.7096,0.0,the talented and clever robert rodriguez perhaps perhapsrigrig rorig r ro r rodrig be asrig of is orrig r rrig
+130,1,4.0,unguided,1,1,1,3.8472683429718018,,,the talented and clever robert rodriguez perhaps the ability talented and clever is perhaps the ability talented and clever perhaps the ability talented and cle
+130,1,4.0,guided,1,1,1,6.057012557983398,29.022,0.0157,"the talented and clever robert rodriguez perhaps. But, I think, I think I can safely say that the ability to speak is remarkable and"
+139,0,-1,realtext,0,1,0,,,,it takes talent to make a lifeless movie about the most heinous man who ever lived.
+139,0,2.0,unguided,0,1,1,6.618356227874756,,,it takes talent to make a lifeless movie about the dead that has to reanimate itself on top of its ass Look at this entertainment for the very best
+139,0,2.0,guided,0,1,0,2.601194381713867,27.3245,0.0128,it takes talent to make a lifeless movie about the dead and it takes talent to talent to make a lifeless film about the dead and it takes talent to
+139,1,2.0,unguided,0,0,1,6.618356227874756,,,it takes talent to make a lifeless movie about the dead that has to reanimate itself on top of its ass Look at this entertainment for the very best
+139,1,2.0,guided,0,0,0,4.689212799072266,29.457,0.0304,it takes talent to make a lifeless movie about the dead people.  it takes talent to make a lifeless movie about the dead man in the case
+139,0,4.0,unguided,0,1,1,6.618356227874756,,,it takes talent to make a lifeless movie about the dead that has to reanimate itself on top of its ass Look at this entertainment for the very best
+139,0,4.0,guided,0,1,0,2.761019706726074,25.713,0.0236,"it takes talent to make a lifeless movie about the dead, it takes your own talent to make a lifeless movie about the dead. It takes talent to"
+139,1,4.0,unguided,0,0,1,6.618356227874756,,,it takes talent to make a lifeless movie about the dead that has to reanimate itself on top of its ass Look at this entertainment for the very best
+139,1,4.0,guided,0,0,0,10.631171226501465,31.9759,0.0008,it takes talent to make a lifeless movie about the take  about the in � take it takesit� to a living to it take about
+148,1,-1,realtext,1,1,1,,,,manages to be sweet and wickedly satisfying at the same time.
+148,0,2.0,unguided,1,0,1,6.337153911590576,,,manages to be sweet and wickedly satisfying at there’s a fellow man on earth and there’s a fellow man’s
+148,0,2.0,guided,1,0,1,6.697452545166016,31.5409,0.0008,"manages to be sweet and wickedly satisfying at the same,,, the is to that be to be. to to. to to that be"
+148,1,2.0,unguided,1,1,1,6.337153911590576,,,manages to be sweet and wickedly satisfying at there’s a fellow man on earth and there’s a fellow man’s
+148,1,2.0,guided,1,1,1,3.6946606636047363,16.375,0.308,manages to be sweet and wickedly satisfying at life’s expense.manages to be sweet and wickedly satisfying at life’s
+148,0,4.0,unguided,1,0,1,6.337153911590576,,,manages to be sweet and wickedly satisfying at there’s a fellow man on earth and there’s a fellow man’s
+148,0,4.0,guided,1,0,1,6.457969665527344,31.5684,0.0008,"manages to be sweet and wickedly satisfying at the same,,, the is to that is is. is to to. to to that."
+148,1,4.0,unguided,1,1,1,6.337153911590576,,,manages to be sweet and wickedly satisfying at there’s a fellow man on earth and there’s a fellow man’s
+148,1,4.0,guided,1,1,1,3.6946606636047363,16.1693,0.3095,manages to be sweet and wickedly satisfying at life’s expense.manages to be sweet and wickedly satisfying at life’s
+157,0,-1,realtext,0,1,0,,,,"unfortunately, it's not silly fun unless you enjoy really bad movies."
+157,0,2.0,unguided,0,1,0,7.531243801116943,,,"unfortunately, it's not silly fun unless you have an attitude, and then there’sunfortunately, it,s too many attitude"
+157,0,2.0,guided,0,1,0,3.6027092933654785,19.9766,0.1226,"unfortunately, it's not silly fun unless it's stupid, and, unfortunately, it's not stupid fun unless it's"
+157,1,2.0,unguided,0,0,0,7.531243801116943,,,"unfortunately, it's not silly fun unless you have an attitude, and then there’sunfortunately, it,s too many attitude"
+157,1,2.0,guided,1,1,0,6.05562162399292,29.2597,0.0024,"unfortunately, it's not silly fun unless you is a, good child, l one, or if.unfortunately, it's not"
+157,0,4.0,unguided,0,1,0,7.531243801116943,,,"unfortunately, it's not silly fun unless you have an attitude, and then there’sunfortunately, it,s too many attitude"
+157,0,4.0,guided,0,1,0,5.052555084228516,23.7404,0.0457,"unfortunately, it's not silly fun unless you mention it to us and we say it. it's not stupid fun unless we admit it"
+157,1,4.0,unguided,0,0,0,7.531243801116943,,,"unfortunately, it's not silly fun unless you have an attitude, and then there’sunfortunately, it,s too many attitude"
+157,1,4.0,guided,0,0,0,8.053275108337402,29.4682,0.0,"unfortunately, it's not silly fun unless you. a 1,. and . for,. 3.com, if to,,"
+166,0,-1,realtext,0,1,0,,,,"its story may be a thousand years old, but why did it have to seem like it took another thousand to tell it to us?"
+166,0,2.0,unguided,1,0,0,8.271639823913574,,,"its story may be a thousand years old, but it jt she most people16 1800 1300 Mr. News may or may not be an old,"
+166,0,2.0,guided,1,0,0,5.41644811630249,29.1709,0.0018,"its story may be a thousand years old, but the original story was just a a hundred years ago.  Lit story is over a hundred"
+166,1,2.0,unguided,1,1,0,8.271639823913574,,,"its story may be a thousand years old, but it jt she most people16 1800 1300 Mr. News may or may not be an old,"
+166,1,2.0,guided,1,1,1,4.475125312805176,24.7198,0.0275,"its story may be a thousand years old, but it may be longer it may be a thousand years old, but it may be longer, longer,"
+166,0,4.0,unguided,1,0,0,8.271639823913574,,,"its story may be a thousand years old, but it jt she most people16 1800 1300 Mr. News may or may not be an old,"
+166,0,4.0,guided,1,0,0,8.252089500427246,31.9275,0.0,"its story may be a thousand years old, but the talesan orits an is old in the case and the orits. tale has a story"
+166,1,4.0,unguided,1,1,0,8.271639823913574,,,"its story may be a thousand years old, but it jt she most people16 1800 1300 Mr. News may or may not be an old,"
+166,1,4.0,guided,1,1,1,5.942714214324951,28.5979,0.0017,"its story may be a thousand years old, but the tellit's stories are young old tales and young. A tellit story might be over twenty"
+175,1,-1,realtext,1,1,1,,,,"the format gets used best... to capture the dizzying heights achieved by motocross and bmx riders, whose balletic hotdogging occasionally ends in bone-crushing "
+175,0,2.0,unguided,1,0,1,6.691526889801025,,,the format gets used best... to capture the dizzy.vision; To capture the its/vision the The format theget used best to capture the
+175,0,2.0,guided,1,0,1,5.14038610458374,29.7167,0.0,"the format gets used best... to capture the dizzying, a the, the, the, of the dizz of the dizzying the a, the"
+175,1,2.0,unguided,1,1,1,6.691526889801025,,,the format gets used best... to capture the dizzy.vision; To capture the its/vision the The format theget used best to capture the
+175,1,2.0,guided,1,1,1,3.2069528102874756,20.3765,0.1198,the format gets used best... to capture the dizzying clarity of the format when it's the best... to capture the dizzying clarity of the format
+175,0,4.0,unguided,1,0,1,6.691526889801025,,,the format gets used best... to capture the dizzy.vision; To capture the its/vision the The format theget used best to capture the
+175,0,4.0,guided,1,0,1,7.526145935058594,29.8545,0.0,"the format gets used best... to capture the dizzying of a-- the. its- of - in all the dizzying of a this,"
+175,1,4.0,unguided,1,1,1,6.691526889801025,,,the format gets used best... to capture the dizzy.vision; To capture the its/vision the The format theget used best to capture the
+175,1,4.0,guided,1,1,1,2.8667008876800537,20.9919,0.1103,the format gets used best... to capture the dizzying power of the format when it's used best... to capture the dizzying power of the format
+184,0,-1,realtext,0,1,0,,,,"the entire movie is about a boring, sad man being boring and sad."
+184,0,2.0,unguided,0,1,0,8.0115327835083,,,"the entire movie is about a boring, sad man, who a lot of the film is about girl pretty pretty (never started from a drug addict without"
+184,0,2.0,guided,0,1,0,4.48941707611084,28.2473,0.0,"the entire movie is about a boring, sad man with a boring wife. The film is about more boring men. The man is married. is."
+184,1,2.0,unguided,0,0,0,8.0115327835083,,,"the entire movie is about a boring, sad man, who a lot of the film is about girl pretty pretty (never started from a drug addict without"
+184,1,2.0,guided,0,0,0,1.59945809841156,27.3923,0.0106,"the entire movie is about a boring, sad man behind the camera.The entire movie is about a boring, sad man behind the camera.The entire"
+184,0,4.0,unguided,0,1,0,8.0115327835083,,,"the entire movie is about a boring, sad man, who a lot of the film is about girl pretty pretty (never started from a drug addict without"
+184,0,4.0,guided,0,1,0,3.0719335079193115,28.4229,0.0189,"the entire movie is about a boring, sad man, a boring, sad movie that is about boring sad men, a boring sad movie that is about"
+184,1,4.0,unguided,0,0,0,8.0115327835083,,,"the entire movie is about a boring, sad man, who a lot of the film is about girl pretty pretty (never started from a drug addict without"
+184,1,4.0,guided,0,0,0,3.9580025672912598,31.6535,0.0016,"the entire movie is about a boring, sad man  ""the entire movie is about a boring, sad man   about to of movie about"
+193,1,-1,realtext,1,1,1,,,,"a psychological thriller with a genuinely spooky premise and an above-average cast, actor bill paxton's directing debut is a creepy slice of gothic rural americ"
+193,0,2.0,unguided,1,0,1,9.641561508178711,,,"a psychological thriller with a genuinely spooky premise and it's only since afterhigh"" that he's in jail for full house SH NOT FOR SUPIT"
+193,0,2.0,guided,1,0,1,7.956101894378662,30.8096,0.0,a psychological thriller with a genuinely spooky premise and can could easily be pre-ced in A or a't of a-- to dealt with
+193,1,2.0,unguided,1,1,1,9.641561508178711,,,"a psychological thriller with a genuinely spooky premise and it's only since afterhigh"" that he's in jail for full house SH NOT FOR SUPIT"
+193,1,2.0,guided,1,1,1,5.66208553314209,30.2073,0.0084,a psychological thriller with a genuinely spooky premise and witty dialogue.  It's raining  It's justIt's sunny in townIt's
+193,0,4.0,unguided,1,0,1,9.641561508178711,,,"a psychological thriller with a genuinely spooky premise and it's only since afterhigh"" that he's in jail for full house SH NOT FOR SUPIT"
+193,0,4.0,guided,1,0,1,10.711234092712402,30.7369,0.0008,a psychological thriller with a genuinely spooky premise and a overall sort of the to the the� �s n’s done” with
+193,1,4.0,unguided,1,1,1,9.641561508178711,,,"a psychological thriller with a genuinely spooky premise and it's only since afterhigh"" that he's in jail for full house SH NOT FOR SUPIT"
+193,1,4.0,guided,1,1,1,4.351325035095215,29.9428,0.0113,a psychological thriller with a genuinely spooky premise and witty dialogue.  It's in  It's in a it's in aIt's
+202,1,-1,realtext,1,1,1,,,,"martin and barbara are complex characters -- sometimes tender, sometimes angry -- and the delicate performances by sven wollter and viveka seldahl make their ho"
+202,0,2.0,unguided,1,0,1,5.495656490325928,,,"martin and barbara are complex characters -- sometimes likeable, funny at times, and sympathetic at others.  They are more more than they"
+202,0,2.0,guided,1,0,1,6.411981105804443,31.9017,0.0,"martin and barbara are complex characters -- sometimes even over than, sometimes, a with,. complexity. The people that are most known for their"
+202,1,2.0,unguided,1,1,1,5.495656490325928,,,"martin and barbara are complex characters -- sometimes likeable, funny at times, and sympathetic at others.  They are more more than they"
+202,1,2.0,guided,1,1,1,4.9201340675354,31.5182,0.0,martin and barbara are complex characters -- sometimes important characters -- who perform increasingly complex and occasionally important roles. When Barbara M
+202,0,4.0,unguided,1,0,1,5.495656490325928,,,"martin and barbara are complex characters -- sometimes likeable, funny at times, and sympathetic at others.  They are more more than they"
+202,0,4.0,guided,1,0,0,7.364884853363037,31.9658,0.0,"martin and barbara are complex characters -- sometimes not in the case --, a with sometimes sometimes the -- or in bar a case --, a"
+202,1,4.0,unguided,1,1,1,5.495656490325928,,,"martin and barbara are complex characters -- sometimes likeable, funny at times, and sympathetic at others.  They are more more than they"
+202,1,4.0,guided,1,1,1,8.187228202819824,31.8487,0.0,"martin and barbara are complex characters -- sometimes even -- always, and Martin in the most important roles. Martin Barbara Martin Mart Martin Bar Martin Mart"
+211,0,-1,realtext,0,1,0,,,,it appears that something has been lost in the translation to the screen.
+211,0,2.0,unguided,0,1,0,7.6877617835998535,,,"it appears that something has been lost in the translation services. ""We acquired a knowledge of vocabulary, spelling, translation and mishit mistakes based on "
+211,0,2.0,guided,0,1,0,4.307275772094727,19.2284,0.0533,it appears that something has been lost in the translation and–it would appear that there should be lost in the translation and–it seems that there are
+211,1,2.0,unguided,0,0,0,7.6877617835998535,,,"it appears that something has been lost in the translation services. ""We acquired a knowledge of vocabulary, spelling, translation and mishit mistakes based on "
+211,1,2.0,guided,0,0,0,7.2613067626953125,30.9133,0.0,"it appears that something has been lost in the translation of the first, of, this in : for the a for the the it of language of"
+211,0,4.0,unguided,0,1,0,7.6877617835998535,,,"it appears that something has been lost in the translation services. ""We acquired a knowledge of vocabulary, spelling, translation and mishit mistakes based on "
+211,0,4.0,guided,0,1,0,5.335481643676758,19.2163,0.05,it appears that something has been lost in the translation and–it appears not that there should be lost in the translation and–it appears that there are
+211,1,4.0,unguided,0,0,0,7.6877617835998535,,,"it appears that something has been lost in the translation services. ""We acquired a knowledge of vocabulary, spelling, translation and mishit mistakes based on "
+211,1,4.0,guided,0,0,0,7.1806769371032715,30.8963,0.0,"it appears that something has been lost in the translation of the first language of, this in : for that a for the the it of language of"
+220,1,-1,realtext,1,1,1,,,,one of the more intelligent children's movies to hit theaters this year.
+220,0,2.0,unguided,1,0,1,7.032568454742432,,,"one of the more intelligent children's movies to give the audience a sense of sound or movement in their surroundings, looking to human or animal characters or"
+220,0,2.0,guided,1,0,1,9.5252685546875,31.5144,0.0,one of the more intelligent children's movies to date ever a a of a on the and � one of a of the� is the their
+220,1,2.0,unguided,1,1,1,7.032568454742432,,,"one of the more intelligent children's movies to give the audience a sense of sound or movement in their surroundings, looking to human or animal characters or"
+220,1,2.0,guided,1,1,1,4.890296459197998,28.957,0.0164,"one of the more intelligent children's movies to date, from a 6 to 6,, 6 to 6, 6 to 6, a 6 to"
+220,0,4.0,unguided,1,0,1,7.032568454742432,,,"one of the more intelligent children's movies to give the audience a sense of sound or movement in their surroundings, looking to human or animal characters or"
+220,0,4.0,guided,1,0,1,10.142840385437012,31.4833,0.0,one of the more intelligent children's movies to date ever the one and a was the and � one on a of to� is the as
+220,1,4.0,unguided,1,1,1,7.032568454742432,,,"one of the more intelligent children's movies to give the audience a sense of sound or movement in their surroundings, looking to human or animal characters or"
+220,1,4.0,guided,1,1,1,4.890296459197998,28.957,0.0164,"one of the more intelligent children's movies to date, from a 6 to 6,, 6 to 6, 6 to 6, a 6 to"
+229,0,-1,realtext,1,0,0,,,,"/ but daphne, you're too buff / fred thinks he's tough / and velma - wow, you've lost weight!"
+229,0,2.0,unguided,0,1,1,7.412747859954834,,,"/ but daphne, you're too England ; w/ of all the English speakers is he the most modern Englishman, w/ innovation"
+229,0,2.0,guided,0,1,0,3.575326919555664,21.5236,0.0703,"/ but daphne, you're too much... // but daphne, you're too muchy // but daph"
+229,1,2.0,unguided,0,0,1,7.412747859954834,,,"/ but daphne, you're too England ; w/ of all the English speakers is he the most modern Englishman, w/ innovation"
+229,1,2.0,guided,0,0,1,4.2786431312561035,28.5911,0.0082,"/ but daphne, you're too good for both/ but daphne, please share the link with daphne and daph"
+229,0,4.0,unguided,0,1,1,7.412747859954834,,,"/ but daphne, you're too England ; w/ of all the English speakers is he the most modern Englishman, w/ innovation"
+229,0,4.0,guided,0,1,0,5.161752700805664,28.9461,0.0155,"/ but daphne, you're too nice to be / about /, you’re too nice to be / about /, you"
+229,1,4.0,unguided,0,0,1,7.412747859954834,,,"/ but daphne, you're too England ; w/ of all the English speakers is he the most modern Englishman, w/ innovation"
+229,1,4.0,guided,0,0,1,2.9376208782196045,21.3632,0.0608,"/ but daphne, you're too nice, 2/ but daphne, you're too beautiful, 3/ but daph"
+238,0,-1,realtext,0,1,0,,,,"with virtually no interesting elements for an audience to focus on, chelsea walls is a triple-espresso endurance challenge."
+238,0,2.0,unguided,0,1,0,8.467076301574707,,,"with virtually no interesting elements for an audience to focus on. Notable, “notable” (but no actual)third platform tech industry"
+238,0,2.0,guided,0,1,0,4.1645941734313965,22.9413,0.0137,"with virtually no interesting elements for an audience to focus on, very little excitement going on in the arena,with virtually no interesting elements for an a"
+238,1,2.0,unguided,0,0,0,8.467076301574707,,,"with virtually no interesting elements for an audience to focus on. Notable, “notable” (but no actual)third platform tech industry"
+238,1,2.0,guided,0,0,0,5.34572696685791,24.3488,0.0009,"with virtually no interesting elements for an audience to focus on, practically no interesting elements for an audience to look, almost no elements, few element"
+238,0,4.0,unguided,0,1,0,8.467076301574707,,,"with virtually no interesting elements for an audience to focus on. Notable, “notable” (but no actual)third platform tech industry"
+238,0,4.0,guided,0,1,0,6.488231182098389,25.7703,0.0127,"with virtually no interesting elements for an audience to focus on, at all the different actors in a scene, with virtually no payoff, for an audience to"
+238,1,4.0,unguided,0,0,0,8.467076301574707,,,"with virtually no interesting elements for an audience to focus on. Notable, “notable” (but no actual)third platform tech industry"
+238,1,4.0,guided,0,0,1,6.857235908508301,30.5802,0.0008,"with virtually no interesting elements for an audience to focus on their example, the,, in , are, are, are, that,,,"
+247,0,-1,realtext,0,1,0,,,,chokes on its own depiction of upper-crust decorum.
+247,0,2.0,unguided,0,1,1,5.0521626472473145,,,"chokes on its own depiction of upper-crust people, but it is less a common practice to do that. I live in Antwerp"
+247,0,2.0,guided,0,1,1,8.45374584197998,30.5868,0.0058,"chokes on its own depiction of upper-crust men and women, and it as as references at the times� on its portrayal of men,"
+247,1,2.0,unguided,0,0,1,5.0521626472473145,,,"chokes on its own depiction of upper-crust people, but it is less a common practice to do that. I live in Antwerp"
+247,1,2.0,guided,0,0,1,4.0767951011657715,23.7836,0.0874,chokes on its own depiction of upper-crud. The upper part is referred to as upper-crud. The upper-chokes on
+247,0,4.0,unguided,0,1,1,5.0521626472473145,,,"chokes on its own depiction of upper-crust people, but it is less a common practice to do that. I live in Antwerp"
+247,0,4.0,guided,0,1,1,9.545699119567871,30.6844,0.0,"chokes on its own depiction of upper-crust class and American, is it ( as of the  to. (--� it,"
+247,1,4.0,unguided,0,0,1,5.0521626472473145,,,"chokes on its own depiction of upper-crust people, but it is less a common practice to do that. I live in Antwerp"
+247,1,4.0,guided,0,0,0,4.741042613983154,27.9091,0.0518,"chokes on its own depiction of upper-crust men and women, just the same as the N.S.G.I.L."
+256,0,-1,realtext,1,0,1,,,,the story and the friendship proceeds in such a way that you're watching a soap opera rather than a chronicle of the ups and downs that accompany lifelong frien
+256,0,2.0,unguided,0,1,1,8.450997352600098,,,the story and the friendship proceeds in such a way:first by believing shortage within one mode of production the mode of production representsall possible mode
+256,0,2.0,guided,1,0,0,5.278788089752197,30.6667,0.0,the story and the friendship proceeds in such a way that it is not the as long as belonging to the people of the as that as. the as
+256,1,2.0,unguided,0,0,1,8.450997352600098,,,the story and the friendship proceeds in such a way:first by believing shortage within one mode of production the mode of production representsall possible mode
+256,1,2.0,guided,1,1,1,5.738210201263428,24.1558,0.0669,"the story and the friendship proceeds in such a way that they are the same person, they have to the friends that can they to find out about each"
+256,0,4.0,unguided,0,1,1,8.450997352600098,,,the story and the friendship proceeds in such a way:first by believing shortage within one mode of production the mode of production representsall possible mode
+256,0,4.0,guided,1,0,0,5.898177623748779,30.6558,0.0,the story and the friendship proceeds in such a way that the characters not only appear to be characters to are friends that at the given time in the a
+256,1,4.0,unguided,0,0,1,8.450997352600098,,,the story and the friendship proceeds in such a way:first by believing shortage within one mode of production the mode of production representsall possible mode
+256,1,4.0,guided,1,1,1,5.726471900939941,29.9882,0.0,"the story and the friendship proceeds in such a way that people, the most well, as well to the people, the as well, the most beautiful"
+265,1,-1,realtext,1,1,1,,,,"a densely constructed, highly referential film, and an audacious return to form that can comfortably sit among jean-luc godard's finest work."
+265,0,2.0,unguided,1,0,1,7.984330654144287,,,"a densely constructed, highly referential film, manufactured for equipment and laser exposure. a result, the cream-colored blue patterns now occur multiple time"
+265,0,2.0,guided,1,0,1,7.7322678565979,29.5207,0.0,"a densely constructed, highly referential film, highly constructed, a a,,,, highlyial in,ialialial dense, films dense"
+265,1,2.0,unguided,1,1,1,7.984330654144287,,,"a densely constructed, highly referential film, manufactured for equipment and laser exposure. a result, the cream-colored blue patterns now occur multiple time"
+265,1,2.0,guided,1,1,1,4.95204496383667,27.2842,0.0618,"a densely constructed, highly referential film, requirement for production and a facilities, including the requirement for sound.  , including the requirement f"
+265,0,4.0,unguided,1,0,1,7.984330654144287,,,"a densely constructed, highly referential film, manufactured for equipment and laser exposure. a result, the cream-colored blue patterns now occur multiple time"
+265,0,4.0,guided,1,0,1,7.715226650238037,29.5086,0.0,"a densely constructed, highly referential film, a film, a a,,,, highlyial in,ialialial dense, films dense"
+265,1,4.0,unguided,1,1,1,7.984330654144287,,,"a densely constructed, highly referential film, manufactured for equipment and laser exposure. a result, the cream-colored blue patterns now occur multiple time"
+265,1,4.0,guided,1,1,1,2.1600139141082764,12.951,0.2943,"a densely constructed, highly referential film, highly referentially film, highly referentially film, highly referentially film, highly refere"
+274,0,-1,realtext,0,1,0,,,,"complete lack of originality, cleverness or even visible effort"
+274,0,2.0,unguided,0,1,1,10.538044929504395,,,"complete lack of originality, cleverness or genuine knowledgeanalyst of ahemdifferent facts are informed of colonies of India in each representative government,"
+274,0,2.0,guided,0,1,0,6.9091925621032715,31.6539,0.0,"complete lack of originality, cleverness or individuality, as there is a complete lack or no, of these, and the public literature or artistic"
+274,1,2.0,unguided,0,0,1,10.538044929504395,,,"complete lack of originality, cleverness or genuine knowledgeanalyst of ahemdifferent facts are informed of colonies of India in each representative government,"
+274,1,2.0,guided,0,0,1,4.544658184051514,30.8926,0.0026,"complete lack of originality, cleverness or courage, the art of a sword, or the art of steel, or the art of the sword"
+274,0,4.0,unguided,0,1,1,10.538044929504395,,,"complete lack of originality, cleverness or genuine knowledgeanalyst of ahemdifferent facts are informed of colonies of India in each representative government,"
+274,0,4.0,guided,0,1,0,5.363056182861328,31.8282,0.0,"complete lack of originality, cleverness or in, The;, a complete lack of good, and ideas, and a complete lack of direction"
+274,1,4.0,unguided,0,0,1,10.538044929504395,,,"complete lack of originality, cleverness or genuine knowledgeanalyst of ahemdifferent facts are informed of colonies of India in each representative government,"
+274,1,4.0,guided,0,0,1,6.5073723793029785,31.4652,0.0,"complete lack of originality, cleverness or pure, The This is a complete understanding or a betrayal of the craft and the art of the."
+283,0,-1,realtext,0,1,0,,,,"utterly lacking in charm, wit and invention, roberto benigni's pinocchio is an astonishingly bad film."
+283,0,2.0,unguided,0,1,0,9.65729808807373,,,"utterly lacking in charm, wit and invention, telling optional articles to pay attention to, recieving all knowing and apt tricks to deceiving the idiot"
+283,0,2.0,guided,0,1,0,6.90747594833374,30.881,0.0052,"utterly lacking in charm, wit and invention,” he wrote, "" ""utterly lack in charm and wit and, well, the lack"
+283,1,2.0,unguided,0,0,0,9.65729808807373,,,"utterly lacking in charm, wit and invention, telling optional articles to pay attention to, recieving all knowing and apt tricks to deceiving the idiot"
+283,1,2.0,guided,0,0,0,5.761077880859375,26.0716,0.0307,"utterly lacking in charm, wit and invention, a study in intelligence, an wit, an  utterly lacking in charm, wit and invention"
+283,0,4.0,unguided,0,1,0,9.65729808807373,,,"utterly lacking in charm, wit and invention, telling optional articles to pay attention to, recieving all knowing and apt tricks to deceiving the idiot"
+283,0,4.0,guided,0,1,0,4.870654582977295,29.4088,0.0,"utterly lacking in charm, wit and invention, unun, un, ""un, unun, un,, un, un, un,"
+283,1,4.0,unguided,0,0,0,9.65729808807373,,,"utterly lacking in charm, wit and invention, telling optional articles to pay attention to, recieving all knowing and apt tricks to deceiving the idiot"
+283,1,4.0,guided,0,0,1,8.189443588256836,29.68,0.0008,"utterly lacking in charm, wit and invention, referred to in bold, ""."".  . A, witty,,, 6,"
+292,0,-1,realtext,0,1,0,,,,"it's of the quality of a lesser harrison ford movie - six days, seven nights, maybe, or that dreadful sabrina remake."
+292,0,2.0,unguided,0,1,1,9.224221229553223,,,it's of the quality of a lesser hrynsynssyrynsrakcs hryncsyn it's of the same
+292,0,2.0,guided,0,1,0,6.033658027648926,27.4156,0.0,"it's of the quality of a lesser h'and "" h' the quality that to a more of h'it's not much that"
+292,1,2.0,unguided,0,0,1,9.224221229553223,,,it's of the quality of a lesser hrynsynssyrynsrakcs hryncsyn it's of the same
+292,1,2.0,guided,0,0,1,3.439910888671875,16.4028,0.3073,it's of the quality of a lesser hudit's of the quality of a lesser and greater hudit's of equal quality
+292,0,4.0,unguided,0,1,1,9.224221229553223,,,it's of the quality of a lesser hrynsynssyrynsrakcs hryncsyn it's of the same
+292,0,4.0,guided,0,1,0,7.1372599601745605,31.9837,0.0,"it's of the quality of a lesser h "" and "" h'er compare that to. more of h a m a a., a"
+292,1,4.0,unguided,0,0,1,9.224221229553223,,,it's of the quality of a lesser hrynsynssyrynsrakcs hryncsyn it's of the same
+292,1,4.0,guided,0,0,1,5.270262241363525,22.1391,0.0406,"it's of the quality of a lesser hoot "" ""'s 'quality of a lesser hoot "" chit's of 'quality"

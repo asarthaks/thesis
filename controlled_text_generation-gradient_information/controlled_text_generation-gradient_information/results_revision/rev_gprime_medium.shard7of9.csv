@@ -1,0 +1,298 @@
+prompt_idx,target_label,gamma,arm,judged_label,hit_target,clf_self_label,span_nll,mean_eligible,frac_le1_eligible,text
+7,0,-1,realtext,0,1,0,,,,"it takes a strange kind of laziness to waste the talents of robert forster, anne meara, eugene levy, and reginald veljohnson all in the same movie."
+7,0,2.0,unguided,0,1,0,6.3237199783325195,,,"it takes a strange kind of laziness to waste money. In fact, if you achieve any confrontation, you develop a character who lives with an extravagant"
+7,0,2.0,guided,0,1,0,2.7260422706604004,27.6036,0.0249,"it takes a strange kind of laziness to waste time. It takes a while to work out, you know. It takes a strange kind of laz"
+7,1,2.0,unguided,0,0,0,6.3237199783325195,,,"it takes a strange kind of laziness to waste money. In fact, if you achieve any confrontation, you develop a character who lives with an extravagant"
+7,1,2.0,guided,1,1,0,8.640539169311523,31.9391,0.0,it takes a strange kind of laziness to waste what in .it is part of a favorite this about..it is actually in our in
+7,0,4.0,unguided,0,1,0,6.3237199783325195,,,"it takes a strange kind of laziness to waste money. In fact, if you achieve any confrontation, you develop a character who lives with an extravagant"
+7,0,4.0,guided,0,1,0,3.8129067420959473,27.9594,0.0,"it takes a strange kind of laziness to waste time. We need some time to work out, you know. it takes a strange kind of laz"
+7,1,4.0,unguided,0,0,0,6.3237199783325195,,,"it takes a strange kind of laziness to waste money. In fact, if you achieve any confrontation, you develop a character who lives with an extravagant"
+7,1,4.0,guided,0,0,0,9.07935905456543,32.0,0.0,it takes a strange kind of laziness to waste resources the  energy it is in is a  take it.. a it to in kind in
+16,0,-1,realtext,0,1,0,,,,the iditarod lasts for days - this just felt like it did.
+16,0,2.0,unguided,0,1,0,3.524343490600586,,,the iditarod lasts for days - this just like iditarod lasts for weeks - this just like iditarod lasts for weeks - this is
+16,0,2.0,guided,0,1,0,5.069125175476074,23.2828,0.0215,the iditarod lasts for days - this just does not help  whytheiditarod last for days - this just does not happen 
+16,1,2.0,unguided,0,0,0,3.524343490600586,,,the iditarod lasts for days - this just like iditarod lasts for weeks - this just like iditarod lasts for weeks - this is
+16,1,2.0,guided,0,0,1,4.476797103881836,23.0433,0.0581,the iditarod lasts for days - this just for hilarious  does ittiditarod last for days - this just for hilarious  
+16,0,4.0,unguided,0,1,0,3.524343490600586,,,the iditarod lasts for days - this just like iditarod lasts for weeks - this just like iditarod lasts for weeks - this is
+16,0,4.0,guided,0,1,0,4.136388778686523,30.8848,0.0063,the iditarod lasts for days - this just says me  This is me -the iditarod lasts for days - this just says me
+16,1,4.0,unguided,0,0,0,3.524343490600586,,,the iditarod lasts for days - this just like iditarod lasts for weeks - this just like iditarod lasts for weeks - this is
+16,1,4.0,guided,0,0,0,6.256946086883545,30.7734,0.0072,the iditarod lasts for days - this just the fun!  How long thethe iditarod last? Well - this just the science
+25,0,-1,realtext,1,0,1,,,,"if the movie succeeds in instilling a wary sense of ` there but for the grace of god,'it is far too self-conscious to draw you deeply into its world."
+25,0,2.0,unguided,1,0,1,5.718888282775879,,,if the movie succeeds in instilling a wary sense of iniquity in the viewer in a way it succeeded in one of the Playbook Virtues
+25,0,2.0,guided,0,1,0,5.136410713195801,29.3918,0.0174,if the movie succeeds in instilling a wary sense of trusting a who might be involved in a bad guy.  if the movie succeeds in inst
+25,1,2.0,unguided,1,1,1,5.718888282775879,,,if the movie succeeds in instilling a wary sense of iniquity in the viewer in a way it succeeded in one of the Playbook Virtues
+25,1,2.0,guided,1,1,1,2.4654510021209717,20.8663,0.0971,"if the movie succeeds in instilling a wary sense of optimism, if the movie succeeds in instilling a wary sense of optimism and if the movie succeeds"
+25,0,4.0,unguided,1,0,1,5.718888282775879,,,if the movie succeeds in instilling a wary sense of iniquity in the viewer in a way it succeeded in one of the Playbook Virtues
+25,0,4.0,guided,0,1,0,5.349847793579102,26.9557,0.0435,if the movie succeeds in instilling a wary sense of the:if the movie succeeds in instilling a wary sense of of and all the fails fails
+25,1,4.0,unguided,1,1,1,5.718888282775879,,,if the movie succeeds in instilling a wary sense of iniquity in the viewer in a way it succeeded in one of the Playbook Virtues
+25,1,4.0,guided,1,1,1,3.5209832191467285,24.6056,0.0776,if the movie succeeds in instilling a wary sense of confidence that a person can invest inif the movie succeeded in instilling a wary sense of confidence
+34,1,-1,realtext,1,1,0,,,,the subtle strength of `` elling '' is that it never loses touch with the reality of the grim situation.
+34,0,2.0,unguided,1,0,1,8.036307334899902,,,"the subtle strength of `` elling '' is that, before faced with his newspaper, with his readers, not even with the newsinfo,, couldn"
+34,0,2.0,guided,1,0,1,8.749909400939941,31.9443,0.0008,"the subtle strength of `` elling '' is that, `` or it `` `` elling a alling e '' of it `` to, the e"
+34,1,2.0,unguided,1,1,1,8.036307334899902,,,"the subtle strength of `` elling '' is that, before faced with his newspaper, with his readers, not even with the newsinfo,, couldn"
+34,1,2.0,guided,1,1,1,4.672304153442383,25.1072,0.0639,"the subtle strength of `` elling '' is that, for elling, 1, 1, 4, 10, 11, 16, 17, 18"
+34,0,4.0,unguided,1,0,1,8.036307334899902,,,"the subtle strength of `` elling '' is that, before faced with his newspaper, with his readers, not even with the newsinfo,, couldn"
+34,0,4.0,guided,1,0,0,9.220646858215332,32.0,0.0,the subtle strength of `` elling '' is that at no put it in be thelling a a of e '' of E `` to.'' the e
+34,1,4.0,unguided,1,1,1,8.036307334899902,,,"the subtle strength of `` elling '' is that, before faced with his newspaper, with his readers, not even with the newsinfo,, couldn"
+34,1,4.0,guided,1,1,1,4.01047420501709,25.1741,0.0698,"the subtle strength of `` elling '' is that it is elling, 9, 10, 11, 10, 11, 16, 17, 18"
+43,1,-1,realtext,1,1,1,,,,"for the most part, director anne-sophie birot's first feature is a sensitive, extraordinarily well-acted drama."
+43,0,2.0,unguided,0,1,1,5.367863655090332,,,"for the most part, director anne-s f anne Writer anne-s f anne/panner anne-s f an"
+43,0,2.0,guided,0,1,1,8.268564224243164,31.3495,0.0008,"for the most part, director anne-s-director-director--directdirector-ne-s-director-ne-- mostdirector"
+43,1,2.0,unguided,0,0,1,5.367863655090332,,,"for the most part, director anne-s f anne Writer anne-s f anne/panner anne-s f an"
+43,1,2.0,guided,0,0,1,2.8369061946868896,13.1573,0.3329,"for the most part, director anne-sé-for the most part, director anne-sé-for the most part, director"
+43,0,4.0,unguided,0,1,1,5.367863655090332,,,"for the most part, director anne-s f anne Writer anne-s f anne/panner anne-s f an"
+43,0,4.0,guided,0,1,1,10.043510437011719,31.5538,0.0,"for the most part, director anne-sorts-andasfor the most,,ne is annene-nedirector-and-"
+43,1,4.0,unguided,0,0,1,5.367863655090332,,,"for the most part, director anne-s f anne Writer anne-s f anne/panner anne-s f an"
+43,1,4.0,guided,0,0,1,4.523542881011963,18.2235,0.1737,"for the most part, director anne-s script director anne-s director director anne-s director director director director director director anne"
+52,0,-1,realtext,0,1,0,,,,"schaeffer has to find some hook on which to hang his persistently useless movies, and it might as well be the resuscitation of the middle-aged character."
+52,0,2.0,unguided,0,1,0,7.057347774505615,,,"schaeffer has to find some hook on which his chiropractor apps can be certified, hschaeff has to find some hook on which d"
+52,0,2.0,guided,0,1,0,6.116730690002441,31.0766,0.0009,"schaeffer has to find some hook on which his own could then be a hook, would him there to be a hook, to him to be"
+52,1,2.0,unguided,0,0,0,7.057347774505615,,,"schaeffer has to find some hook on which his chiropractor apps can be certified, hschaeff has to find some hook on which d"
+52,1,2.0,guided,0,0,0,7.914593696594238,30.2989,0.0107,"schaeffer has to find some hook on which it’ him play. Oh, right. They’re just got to find some hook"
+52,0,4.0,unguided,0,1,0,7.057347774505615,,,"schaeffer has to find some hook on which his chiropractor apps can be certified, hschaeff has to find some hook on which d"
+52,0,4.0,guided,1,0,0,6.894688606262207,29.3709,0.0215,"schaeffer has to find some hook on which he can turn the corner and say, “I’ve got my man.”"
+52,1,4.0,unguided,0,0,0,7.057347774505615,,,"schaeffer has to find some hook on which his chiropractor apps can be certified, hschaeff has to find some hook on which d"
+52,1,4.0,guided,0,0,0,8.138335227966309,31.1475,0.0008,schaeffer has to find some hook on which it is to found and will. all from him affer to find some hook on which it is
+61,1,-1,realtext,1,1,1,,,,"exquisitely nuanced in mood tics and dialogue, this chamber drama is superbly acted by the deeply appealing veteran bouquet and the chilling but quite human ber"
+61,0,2.0,unguided,1,0,1,4.412801742553711,,,"exquisitely nuanced in mood tics and movement rhythms.  Animals, whatever they are, have always been treasured for their uniqueness"
+61,0,2.0,guided,1,0,1,10.033103942871094,32.0,0.0,"exquisitely nuanced in mood tics and mores about a truly level is- in in. the, her is or in� and the"
+61,1,2.0,unguided,1,1,1,4.412801742553711,,,"exquisitely nuanced in mood tics and movement rhythms.  Animals, whatever they are, have always been treasured for their uniqueness"
+61,1,2.0,guided,1,1,1,3.8651740550994873,17.7771,0.2265,exquisitely nuanced in mood tics and stress ticsexquirably nuanced in mood tics and stress ticsexquiriously
+61,0,4.0,unguided,1,0,1,4.412801742553711,,,"exquisitely nuanced in mood tics and movement rhythms.  Animals, whatever they are, have always been treasured for their uniqueness"
+61,0,4.0,guided,1,0,1,10.663594245910645,32.0,0.0,"exquisitely nuanced in mood tics and symptomsdex, a a is-� in. the,� is or-� and emotional"
+61,1,4.0,unguided,1,1,1,4.412801742553711,,,"exquisitely nuanced in mood tics and movement rhythms.  Animals, whatever they are, have always been treasured for their uniqueness"
+61,1,4.0,guided,1,1,1,5.425323963165283,17.9071,0.214,exquisitely nuanced in mood tics and arousal ticexquirably nuanced in mood tics and stress ticexquiriously
+70,0,-1,realtext,0,1,0,,,,"green might want to hang onto that ski mask, as robbery may be the only way to pay for his next project."
+70,0,2.0,unguided,0,1,1,6.456982612609863,,,"green might want to hang onto that ski mask,­­­M­M­A­JFG­­­M­M­A­"
+70,0,2.0,guided,0,1,0,7.386386871337891,28.8116,0.0354,"green might want to hang onto that ski mask, but the little in green can go back and grab that mask and don the mask.  ."
+70,1,2.0,unguided,0,0,1,6.456982612609863,,,"green might want to hang onto that ski mask,­­­M­M­A­JFG­­­M­M­A­"
+70,1,2.0,guided,0,0,0,8.457427024841309,31.7283,0.0,"green might want to hang onto that ski mask, because a doesn, not you go into a, cave, so is, is the to,,"
+70,0,4.0,unguided,0,1,1,6.456982612609863,,,"green might want to hang onto that ski mask,­­­M­M­A­JFG­­­M­M­A­"
+70,0,4.0,guided,0,1,0,7.991635322570801,31.1792,0.0,"green might want to hang onto that ski mask, because a for,, probably to on to the that, mask ( his.  )."
+70,1,4.0,unguided,0,0,1,6.456982612609863,,,"green might want to hang onto that ski mask,­­­M­M­A­JFG­­­M­M­A­"
+70,1,4.0,guided,0,0,0,8.17249584197998,31.5893,0.0,"green might want to hang onto that ski mask, ski mask mask, ski masks, and maskgreengreen to want to hanging onto the,,,"
+79,1,-1,realtext,0,0,1,,,,"it's a scattershot affair, but when it hits its mark it's brilliant."
+79,0,2.0,unguided,0,1,1,6.577819347381592,,,"it's a scattershot affair, but there are gossip sites based out of. Save rock, roll and roll is backed by a vast and"
+79,0,2.0,guided,0,1,0,5.584200382232666,28.2387,0.0196,"it's a scattershot affair, but it’s the end of the story.  it’s a scattershot"
+79,1,2.0,unguided,0,0,1,6.577819347381592,,,"it's a scattershot affair, but there are gossip sites based out of. Save rock, roll and roll is backed by a vast and"
+79,1,2.0,guided,0,0,1,5.202696323394775,25.7081,0.032,"it's a scattershot affair, but Scattershot's precipit is also a scattershot, but Scattershot is also"
+79,0,4.0,unguided,0,1,1,6.577819347381592,,,"it's a scattershot affair, but there are gossip sites based out of. Save rock, roll and roll is backed by a vast and"
+79,0,4.0,guided,0,1,0,12.633002281188965,31.9635,0.0,"it's a scattershot affair, but isn’ not not isit ''s sc sc-scsc- it sc asc'"
+79,1,4.0,unguided,0,0,1,6.577819347381592,,,"it's a scattershot affair, but there are gossip sites based out of. Save rock, roll and roll is backed by a vast and"
+79,1,4.0,guided,0,0,0,3.506075382232666,29.5032,0.0294,"it's a scattershot affair, but it’s a scattershot affair, but it's a scattershot affair,"
+88,1,-1,realtext,1,1,0,,,,"neither parker nor donovan is a typical romantic lead, but they bring a fresh, quirky charm to the formula."
+88,0,2.0,unguided,0,1,0,10.728612899780273,,,"neither parker nor donovan is a typical-or rotor tank design, nor two-or rotor tank and provided The Albino schpin color"
+88,0,2.0,guided,0,1,0,5.251735210418701,25.2229,0.1115,neither parker nor donovan is a typical pick-up game. One-more-or-the-other The-all-or-
+88,1,2.0,unguided,0,0,0,10.728612899780273,,,"neither parker nor donovan is a typical-or rotor tank design, nor two-or rotor tank and provided The Albino schpin color"
+88,1,2.0,guided,0,0,1,7.384419918060303,31.8439,0.0016,"neither parker nor donovan is a typical American sportsman. However, while theneither parker and parkovan aren both both of they"
+88,0,4.0,unguided,0,1,0,10.728612899780273,,,"neither parker nor donovan is a typical-or rotor tank design, nor two-or rotor tank and provided The Albino schpin color"
+88,0,4.0,guided,0,1,0,7.592370510101318,26.8019,0.055,"neither parker nor donovan is a typical consumer, a' sex, roughly two-or- three-feet The-E-A-"
+88,1,4.0,unguided,0,0,0,10.728612899780273,,,"neither parker nor donovan is a typical-or rotor tank design, nor two-or rotor tank and provided The Albino schpin color"
+88,1,4.0,guided,0,0,0,8.577768325805664,32.0,0.0,"neither parker nor donovan is a typical e of i e a. of he  a, to, and.. "" that,"
+97,1,-1,realtext,1,1,1,,,,it's great escapist fun that recreates a place and time that will never happen again.
+97,0,2.0,unguided,1,0,1,8.651902198791504,,,"it's great escapist fun that recreates your life it lives instantly But relives it’s gone forever. Welcome, season one"
+97,0,2.0,guided,1,0,1,9.260300636291504,30.477,0.0117,"it's great escapist fun that recreates that’s the�  to's ofsit, the. to's a"
+97,1,2.0,unguided,1,1,1,8.651902198791504,,,"it's great escapist fun that recreates your life it lives instantly But relives it’s gone forever. Welcome, season one"
+97,1,2.0,guided,1,1,1,5.994142055511475,25.0301,0.1393,"it's great escapist fun that recreates a life without meaning and meaning. Whether it’s a military, prison, or a"
+97,0,4.0,unguided,1,0,1,8.651902198791504,,,"it's great escapist fun that recreates your life it lives instantly But relives it’s gone forever. Welcome, season one"
+97,0,4.0,guided,1,0,1,9.365376472473145,30.4895,0.0117,"it's great escapist fun that recreates t’s��  to's ofsit, the. to's a"
+97,1,4.0,unguided,1,1,1,8.651902198791504,,,"it's great escapist fun that recreates your life it lives instantly But relives it’s gone forever. Welcome, season one"
+97,1,4.0,guided,1,1,1,5.820050239562988,25.1134,0.1377,"it's great escapist fun that recreates a life without meaning and meaning. Whether it’s in jail, prison, or a"
+106,1,-1,realtext,1,1,1,,,,"warm water under a red bridge is a quirky and poignant japanese film that explores the fascinating connections between women, water, nature, and sexuality."
+106,0,2.0,unguided,1,0,1,8.84001350402832,,,warm water under a red bridge is a quirky and colourful umbrella you come across A LOT OF DRINKS OF DATING AND/OR TREATING
+106,0,2.0,guided,1,0,1,7.381063938140869,31.932,0.0,"warm water under a red bridge is a quirky and quirkyy for, and fory and there, under, arey andwarm water under a bridge"
+106,1,2.0,unguided,1,1,1,8.84001350402832,,,warm water under a red bridge is a quirky and colourful umbrella you come across A LOT OF DRINKS OF DATING AND/OR TREATING
+106,1,2.0,guided,1,1,1,5.252992153167725,31.21,0.0,"warm water under a red bridge is a quirky and fun way to communicate and without a doubt, the best way of creating a park in the absence of"
+106,0,4.0,unguided,1,0,1,8.84001350402832,,,warm water under a red bridge is a quirky and colourful umbrella you come across A LOT OF DRINKS OF DATING AND/OR TREATING
+106,0,4.0,guided,1,0,1,10.522392272949219,32.0,0.0,"warm water under a red bridge is a quirky and whimsy on is ofUnder under the�, under, in The under under under the a water"
+106,1,4.0,unguided,1,1,1,8.84001350402832,,,warm water under a red bridge is a quirky and colourful umbrella you come across A LOT OF DRINKS OF DATING AND/OR TREATING
+106,1,4.0,guided,1,1,1,7.600938320159912,31.4638,0.0,"warm water under a red bridge is a quirky and fun, quirky, and happy place located on the eastern side of a bridge shot in London in 2012"
+115,0,-1,realtext,0,1,0,,,,suffers from the lack of a compelling or comprehensible narrative.
+115,0,2.0,unguided,0,1,0,8.307768821716309,,,suffers from the lack of a compelling or comprehensible web design or untrusted typography Style sheet or or from unreadable tool tools customizable and
+115,0,2.0,guided,0,1,0,5.733741283416748,28.0395,0.001,suffers from the lack of a compelling or comprehensible argument due to the failure of failure to develop new ideas or new strategies arising from the nature of
+115,1,2.0,unguided,0,0,0,8.307768821716309,,,suffers from the lack of a compelling or comprehensible web design or untrusted typography Style sheet or or from unreadable tool tools customizable and
+115,1,2.0,guided,0,0,0,6.409007549285889,25.7553,0.0057,suffers from the lack of a compelling or comprehensible prose novelsuffers from a lack of a novel or director. Maybe it Suffers From the
+115,0,4.0,unguided,0,1,0,8.307768821716309,,,suffers from the lack of a compelling or comprehensible web design or untrusted typography Style sheet or or from unreadable tool tools customizable and
+115,0,4.0,guided,0,1,0,4.934041500091553,28.2129,0.0009,"suffers from the lack of a compelling or comprehensible plotline, the lack of a viable or serviceable or believable inclusions, the lack of"
+115,1,4.0,unguided,0,0,0,8.307768821716309,,,suffers from the lack of a compelling or comprehensible web design or untrusted typography Style sheet or or from unreadable tool tools customizable and
+115,1,4.0,guided,0,0,1,8.010354995727539,30.8661,0.0,"suffers from the lack of a compelling or comprehensible narrative narrative for the narrativeer, storytelling character.e. From the end of compelling."
+124,0,-1,realtext,0,1,0,,,,the character of zigzag is not sufficiently developed to support a film constructed around him.
+124,0,2.0,unguided,0,1,0,6.575786113739014,,,"the character of zigzag is not sufficiently developed."" What does that mean?  The character is not sufficient developed. By means means the character"
+124,0,2.0,guided,0,1,0,6.22730016708374,31.0638,0.0068,the character of zigzag is not sufficiently developed in the other aspects except the zigzag so it would a lot idea to check whether zig
+124,1,2.0,unguided,0,0,0,6.575786113739014,,,"the character of zigzag is not sufficiently developed."" What does that mean?  The character is not sufficient developed. By means means the character"
+124,1,2.0,guided,0,0,1,4.876720428466797,27.071,0.0758,"the character of zigzag is not sufficiently developed in the English stage.  part,  the character of zigzag is not sufficiently"
+124,0,4.0,unguided,0,1,0,6.575786113739014,,,"the character of zigzag is not sufficiently developed."" What does that mean?  The character is not sufficient developed. By means means the character"
+124,0,4.0,guided,0,1,1,7.574882507324219,31.9302,0.0,"the character of zigzag is not sufficiently developed to that degree of a z of z, the z equivalent to a point to the z fromig"
+124,1,4.0,unguided,0,0,0,6.575786113739014,,,"the character of zigzag is not sufficiently developed."" What does that mean?  The character is not sufficient developed. By means means the character"
+124,1,4.0,guided,0,0,1,6.329360485076904,31.6878,0.0,the character of zigzag is not sufficiently developed in that of of e-in- e-in and has a tendency to the with zig
+133,1,-1,realtext,1,1,0,,,,overall very good for what it's trying to do.
+133,0,2.0,unguided,0,1,1,10.006377220153809,,,"overall very good for what it's trying to accomplish effects and sides/advantages are at Limited Effect""d o NaQuwa Falter"
+133,0,2.0,guided,0,1,0,5.5643439292907715,27.9907,0.0,"overall very good for what it's trying to do, and very bad for the other people that it's not good try for a second"
+133,1,2.0,unguided,0,0,1,10.006377220153809,,,"overall very good for what it's trying to accomplish effects and sides/advantages are at Limited Effect""d o NaQuwa Falter"
+133,1,2.0,guided,1,1,0,5.877830505371094,28.5406,0.0048,"overall very good for what it's trying to do, and what good them very good for what it's trying good try it,,"
+133,0,4.0,unguided,0,1,1,10.006377220153809,,,"overall very good for what it's trying to accomplish effects and sides/advantages are at Limited Effect""d o NaQuwa Falter"
+133,0,4.0,guided,1,0,0,4.161862850189209,29.107,0.016,overall very good for what it's trying to do.  alloverall very good for what it's tried to do. Very 
+133,1,4.0,unguided,0,0,1,10.006377220153809,,,"overall very good for what it's trying to accomplish effects and sides/advantages are at Limited Effect""d o NaQuwa Falter"
+133,1,4.0,guided,0,0,0,6.128718852996826,29.5408,0.0079,"overall very good for what it's trying to do. All'good, for, for but what's all'try it very good"
+142,0,-1,realtext,0,1,0,,,,"uncommonly stylish but equally silly... the picture fails to generate much suspense, nor does it ask searching enough questions to justify its pretensions."
+142,0,2.0,unguided,0,1,0,7.806621551513672,,,"uncommonly stylish but equally silly... the picture was obtained at the Rosedal Oil and Refinery, Massachusetts - Pat Fitzgerald (Pat) rather"
+142,0,2.0,guided,0,1,0,7.493427276611328,31.3656,0.0008,uncommonly stylish but equally silly... the picture was of in...... middle of the time was on the picture a little...... the picture was
+142,1,2.0,unguided,0,0,0,7.806621551513672,,,"uncommonly stylish but equally silly... the picture was obtained at the Rosedal Oil and Refinery, Massachusetts - Pat Fitzgerald (Pat) rather"
+142,1,2.0,guided,0,0,1,4.2988128662109375,24.4774,0.0195,"uncommonly stylish but equally silly... the picture keeps getting big, the picture keeps going up and down, the picture keeps getting smaller, the picture"
+142,0,4.0,unguided,0,1,0,7.806621551513672,,,"uncommonly stylish but equally silly... the picture was obtained at the Rosedal Oil and Refinery, Massachusetts - Pat Fitzgerald (Pat) rather"
+142,0,4.0,guided,0,1,0,8.631296157836914,31.9458,0.0,uncommonly stylish but equally silly... the picture is ofcommonly...un the is common...ly-...... the...un... isn
+142,1,4.0,unguided,0,0,0,7.806621551513672,,,"uncommonly stylish but equally silly... the picture was obtained at the Rosedal Oil and Refinery, Massachusetts - Pat Fitzgerald (Pat) rather"
+142,1,4.0,guided,0,0,1,4.3206634521484375,22.6332,0.0284,"uncommonly stylish but equally silly... the picture up, down, right, the picture up, down, the picture up, down, the pictures"
+151,0,-1,realtext,1,0,1,,,,"determined to be fun, and bouncy, with energetic musicals, the humor didn't quite engage this adult."
+151,0,2.0,unguided,1,0,1,4.565090179443359,,,"determined to be fun, and bouncy, and quirky, and exciting, and colourful, and play-determined to be fun-determined"
+151,0,2.0,guided,1,0,1,10.829947471618652,31.8496,0.0,"determined to be fun, and bouncy, didn� wasd that to to to and havedd andd, wasd of to,"
+151,1,2.0,unguided,1,1,1,4.565090179443359,,,"determined to be fun, and bouncy, and quirky, and exciting, and colourful, and play-determined to be fun-determined"
+151,1,2.0,guided,1,1,1,4.799152851104736,24.3593,0.1016,"determined to be fun, and bouncy,determined to be colorful and not lazy, and bright,determined to be cute,determined"
+151,0,4.0,unguided,1,0,1,4.565090179443359,,,"determined to be fun, and bouncy, and quirky, and exciting, and colourful, and play-determined to be fun-determined"
+151,0,4.0,guided,1,0,1,10.829947471618652,31.8496,0.0,"determined to be fun, and bouncy, didn� wasd that to to to and havedd andd, wasd of to,"
+151,1,4.0,unguided,1,1,1,4.565090179443359,,,"determined to be fun, and bouncy, and quirky, and exciting, and colourful, and play-determined to be fun-determined"
+151,1,4.0,guided,1,1,1,4.799152851104736,23.7311,0.1116,"determined to be fun, and bouncy,determined to be colorful and not lazy, and bright,determined to be cute,determined"
+160,0,-1,realtext,1,0,0,,,,"the lower your expectations, the more you 'll enjoy it."
+160,0,2.0,unguided,1,0,1,4.303656101226807,,,"the lower your expectations, the more you 'll reward them, the more youll believe them, the more you doubt, the more youll fear"
+160,0,2.0,guided,1,0,1,5.18072509765625,31.0081,0.0178,"the lower your expectations, the more you 'll find yourself happy.  , 'the lower your expectations, the more you'will find happiness"
+160,1,2.0,unguided,1,1,1,4.303656101226807,,,"the lower your expectations, the more you 'll reward them, the more youll believe them, the more you doubt, the more youll fear"
+160,1,2.0,guided,1,1,0,6.402014255523682,31.0914,0.0139,"the lower your expectations, the more you 'll work on it.  The lower your expectation, the more likely and your it will have on"
+160,0,4.0,unguided,1,0,1,4.303656101226807,,,"the lower your expectations, the more you 'll reward them, the more youll believe them, the more you doubt, the more youll fear"
+160,0,4.0,guided,1,0,0,10.081550598144531,31.9563,0.0,"the lower your expectations, the more you 'll have tempted up raise your expectations than  is the lower in are, more or the less to worry"
+160,1,4.0,unguided,1,1,1,4.303656101226807,,,"the lower your expectations, the more you 'll reward them, the more youll believe them, the more you doubt, the more youll fear"
+160,1,4.0,guided,1,1,0,5.3968825340271,31.6688,0.0024,"the lower your expectations, the more you 'll focus on them.  If you can lower your expectations, the more your you will get on"
+169,1,-1,realtext,1,1,0,,,,"a celebration of quirkiness, eccentricity, and certain individuals'tendency to let it all hang out, and damn the consequences."
+169,0,2.0,unguided,1,0,1,8.249914169311523,,,"a celebration of quirkiness, eccentricity, approachability, like with last year and Independence Day aficionado Kenneth Bennett-Mailer-Mail"
+169,0,2.0,guided,1,0,1,6.172089099884033,31.0944,0.0,"a celebration of quirkiness, eccentricity, a celebration of individuality, individuality, humorism and, to, a a celebration of a and of"
+169,1,2.0,unguided,1,1,1,8.249914169311523,,,"a celebration of quirkiness, eccentricity, approachability, like with last year and Independence Day aficionado Kenneth Bennett-Mailer-Mail"
+169,1,2.0,guided,1,1,1,3.674931287765503,21.314,0.0553,"a celebration of quirkiness, eccentricity, ofa, ofa celebration of quirkiness, eccentricity, ofa ofa celebration of"
+169,0,4.0,unguided,1,0,1,8.249914169311523,,,"a celebration of quirkiness, eccentricity, approachability, like with last year and Independence Day aficionado Kenneth Bennett-Mailer-Mail"
+169,0,4.0,guided,1,0,0,10.725668907165527,31.224,0.0,"a celebration of quirkiness, eccentricity, hubism, dressur,,ismism tolerance ivity tolerance.ismality of, of"
+169,1,4.0,unguided,1,1,1,8.249914169311523,,,"a celebration of quirkiness, eccentricity, approachability, like with last year and Independence Day aficionado Kenneth Bennett-Mailer-Mail"
+169,1,4.0,guided,1,1,1,2.1539430618286133,25.5483,0.0938,"a celebration of quirkiness, eccentricity,a,a,a,a,a,a,a,a,a,a,"
+178,1,-1,realtext,1,1,1,,,,"that dogged good will of the parents and ` vain'jia's defoliation of ego, make the film touching despite some doldrums."
+178,0,2.0,unguided,0,1,1,7.21431827545166,,,"that dogged good will of the parents and ` vainly went for by the ultra low, high bar for and I ` found out by the high bar"
+178,0,2.0,guided,1,0,0,8.621966361999512,31.9641,0.0,"that dogged good will of the parents and ` vain ambition, the” the of of one, was` the in years old by the of of"
+178,1,2.0,unguided,0,0,1,7.21431827545166,,,"that dogged good will of the parents and ` vainly went for by the ultra low, high bar for and I ` found out by the high bar"
+178,1,2.0,guided,1,1,1,5.669566631317139,31.1726,0.0009,that dogged good will of the parents and ` vainly are provided by the family structure of good will. ` vainly are provided by the family members
+178,0,4.0,unguided,0,1,1,7.21431827545166,,,"that dogged good will of the parents and ` vainly went for by the ultra low, high bar for and I ` found out by the high bar"
+178,0,4.0,guided,1,0,0,10.029863357543945,31.9992,0.0,"that dogged good will of the parents and ` vain-, by�� parents� of that ` was` ( in parents of ` the this `"
+178,1,4.0,unguided,0,0,1,7.21431827545166,,,"that dogged good will of the parents and ` vainly went for by the ultra low, high bar for and I ` found out by the high bar"
+178,1,4.0,guided,1,1,1,4.385200500488281,31.7896,0.0,that dogged good will of the parents and ` vainly teach their children to give their children good will. Their children are good will by the parents or
+187,1,-1,realtext,1,1,0,,,,"the best revenge may just be living well because this film, unlike other dumas adaptations, is far more likened to a treasure than a lengthy jail sentence."
+187,0,2.0,unguided,0,1,0,8.253854751586914,,,the best revenge may just be living well because this is the only reason entirecertain part of the whole article will never be bad because of the parts and
+187,0,2.0,guided,1,0,1,8.972037315368652,31.9969,0.0,"the best revenge may just be living well because this is hasn� of in of the, for the, and for a� who has was want to"
+187,1,2.0,unguided,0,0,0,8.253854751586914,,,the best revenge may just be living well because this is the only reason entirecertain part of the whole article will never be bad because of the parts and
+187,1,2.0,guided,0,0,1,4.0204644203186035,30.3302,0.0267,"the best revenge may just be living well because this page is a cross-section of self-respect, self-help, self-image, and"
+187,0,4.0,unguided,0,1,0,8.253854751586914,,,the best revenge may just be living well because this is the only reason entirecertain part of the whole article will never be bad because of the parts and
+187,0,4.0,guided,0,1,0,10.357421875,31.9992,0.0,"the best revenge may just be living well because this time not a woman at the past that-thing, and--�expand-� to"
+187,1,4.0,unguided,0,0,0,8.253854751586914,,,the best revenge may just be living well because this is the only reason entirecertain part of the whole article will never be bad because of the parts and
+187,1,4.0,guided,1,1,1,6.438653469085693,31.2741,0.0036,"the best revenge may just be living well because this email is going to a lot of high-level scientists, and urging us not to worry, and"
+196,1,-1,realtext,0,0,1,,,,"far more imaginative and ambitious than the trivial, cash-in features nickelodeon has made from its other animated tv series."
+196,0,2.0,unguided,0,1,1,10.567253112792969,,,"far more imaginative and ambitious than the trivial, cashhead-for-pocketl, entry-cost pet-biological system every countrystudent world on"
+196,0,2.0,guided,0,1,0,8.216788291931152,31.1175,0.0,"far more imaginative and ambitious than the trivial, cash, and to almostless, or, or cash,--,-. of or,-"
+196,1,2.0,unguided,0,0,1,10.567253112792969,,,"far more imaginative and ambitious than the trivial, cashhead-for-pocketl, entry-cost pet-biological system every countrystudent world on"
+196,1,2.0,guided,0,0,1,4.127261638641357,27.76,0.0325,"far more imaginative and ambitious than the trivial, cashier-100,000, the, of the, cashier-100,000, the,"
+196,0,4.0,unguided,0,1,1,10.567253112792969,,,"far more imaginative and ambitious than the trivial, cashhead-for-pocketl, entry-cost pet-biological system every countrystudent world on"
+196,0,4.0,guided,0,1,0,8.473701477050781,31.0668,0.0,"far more imaginative and ambitious than the trivial, cash in issued to orless,., or.,--,-. of orless,"
+196,1,4.0,unguided,0,0,1,10.567253112792969,,,"far more imaginative and ambitious than the trivial, cashhead-for-pocketl, entry-cost pet-biological system every countrystudent world on"
+196,1,4.0,guided,0,0,1,5.528523921966553,29.9806,0.0018,"far more imaginative and ambitious than the trivial, cash of the, the, deposits of the bank at the,, and of the fortunes of the rich"
+205,1,-1,realtext,1,1,0,,,,"whether you like rap music or loathe it, you can't deny either the tragic loss of two young men in the prime of their talent or the power of this movie."
+205,0,2.0,unguided,0,1,0,6.474072456359863,,,"whether you like rap music or loathe it, ed. - what a good question. Hmmm, now I wanted toI wanted to talk about"
+205,0,2.0,guided,1,0,0,4.059181213378906,30.3492,0.0038,"whether you like rap music or loathe it, and no matter what other people say in this discussion, you're going to have the freedom to disagree"
+205,1,2.0,unguided,0,0,0,6.474072456359863,,,"whether you like rap music or loathe it, ed. - what a good question. Hmmm, now I wanted toI wanted to talk about"
+205,1,2.0,guided,1,1,1,6.411998271942139,30.7859,0.0,"whether you like rap music or loathe it, but no matter what your kids say in real, I don't ashamed to know that they love it"
+205,0,4.0,unguided,0,1,0,6.474072456359863,,,"whether you like rap music or loathe it, ed. - what a good question. Hmmm, now I wanted toI wanted to talk about"
+205,0,4.0,guided,0,1,0,5.2569499015808105,31.161,0.0008,"whether you like rap music or loathe it, but you't need to be trapped in the discussion. You just needs to be capable of making it"
+205,1,4.0,unguided,0,0,0,6.474072456359863,,,"whether you like rap music or loathe it, ed. - what a good question. Hmmm, now I wanted toI wanted to talk about"
+205,1,4.0,guided,1,1,1,6.588062286376953,31.6857,0.0,"whether you like rap music or loathe it, but listen on what happened I say in this review, it is up to every all of you it"
+214,1,-1,realtext,1,1,1,,,,"dazzles with its fully-written characters, its determined stylishness ( which always relates to characters and story ) and johnny dankworth's best soundtrack in"
+214,0,2.0,unguided,1,0,1,3.9764182567596436,,,"dazzles with its fully-written characters,  A fully-written characters' partially-written characters,  Its partially-written characters"
+214,0,2.0,guided,1,0,1,6.994986057281494,26.0399,0.0,"dazzles with its fully-written characters, it is show such a beauty with its writing by the characters, it show, it it of with"
+214,1,2.0,unguided,1,1,1,3.9764182567596436,,,"dazzles with its fully-written characters,  A fully-written characters' partially-written characters,  Its partially-written characters"
+214,1,2.0,guided,1,1,1,4.326785564422607,17.8611,0.0527,"dazzles with its fully-written characters, is to be dazzles with its fully-written characters, which is to be dled with"
+214,0,4.0,unguided,1,0,1,3.9764182567596436,,,"dazzles with its fully-written characters,  A fully-written characters' partially-written characters,  Its partially-written characters"
+214,0,4.0,guided,1,0,1,7.608058929443359,31.8624,0.0008,"dazzles with its fully-written characters, it its  written characters, its characters� its and  characters with, it it and with"
+214,1,4.0,unguided,1,1,1,3.9764182567596436,,,"dazzles with its fully-written characters,  A fully-written characters' partially-written characters,  Its partially-written characters"
+214,1,4.0,guided,1,1,1,2.4132659435272217,21.3096,0.0514,"dazzles with its fully-written characters,.  dazzles with its fully-written characters,.dazzles with its fully"
+223,0,-1,realtext,1,0,1,,,,"if you believe any of this, i can make you a real deal on leftover enron stock that will double in value a week from friday."
+223,0,2.0,unguided,1,0,1,5.0029120445251465,,,"if you believe any of this, i can make a based on it worthif you do believe and read this, i can make one based on this"
+223,0,2.0,guided,0,1,0,3.7708184719085693,21.1728,0.0427,"if you believe any of this, i can make a mistake if you believe none of these, i can make a dent if you believe all of this"
+223,1,2.0,unguided,1,1,1,5.0029120445251465,,,"if you believe any of this, i can make a based on it worthif you do believe and read this, i can make one based on this"
+223,1,2.0,guided,1,1,1,2.892723560333252,21.1497,0.0487,"if you believe any of this, i can make you happy if you believe any of these, i can make you believe if you believe all of this"
+223,0,4.0,unguided,1,0,1,5.0029120445251465,,,"if you believe any of this, i can make a based on it worthif you do believe and read this, i can make one based on this"
+223,0,4.0,guided,1,0,0,6.4194159507751465,31.7586,0.0008,"if you believe any of this, i can make you believe any of this, anyif if any believe it. i to i to true this this"
+223,1,4.0,unguided,1,1,1,5.0029120445251465,,,"if you believe any of this, i can make a based on it worthif you do believe and read this, i can make one based on this"
+223,1,4.0,guided,1,1,1,6.435704231262207,31.8165,0.0008,"if you believe any of this, i can make you believe all of this, if my team and we can. i to i to be this make"
+232,1,-1,realtext,1,1,1,,,,"chilling, well-acted, and finely directed : david jacobson's dahmer."
+232,0,2.0,unguided,1,0,1,6.536842346191406,,,"chilling, well-acted, and finely directed scenes that seek rivets. And you cannot wait. News of the unexpected, of the unexpected."
+232,0,2.0,guided,1,0,1,7.958465576171875,31.4484,0.0,"chilling, well-acted, and finely directed, and and thely of well to. the a andly is, and- compelling, and"
+232,1,2.0,unguided,1,1,1,6.536842346191406,,,"chilling, well-acted, and finely directed scenes that seek rivets. And you cannot wait. News of the unexpected, of the unexpected."
+232,1,2.0,guided,1,1,1,5.516529560089111,28.4092,0.0012,"chilling, well-acted, and finely directed scenes: 7:00 of the show, 7:00pm at the end of the show,"
+232,0,4.0,unguided,1,0,1,6.536842346191406,,,"chilling, well-acted, and finely directed scenes that seek rivets. And you cannot wait. News of the unexpected, of the unexpected."
+232,0,4.0,guided,1,0,1,7.5516791343688965,31.4815,0.0,"chilling, well-acted, and finely directed.  and the the of in to. - a of to is to - and, a's"
+232,1,4.0,unguided,1,1,1,6.536842346191406,,,"chilling, well-acted, and finely directed scenes that seek rivets. And you cannot wait. News of the unexpected, of the unexpected."
+232,1,4.0,guided,1,1,1,4.882733345031738,29.4727,0.0211,"chilling, well-acted, and finely directed. This masterpiece is, at the same time, unbeatable. That depends, of course, upon"
+241,1,-1,realtext,1,1,1,,,,"an entertaining, colorful, action-filled crime story with an intimate heart."
+241,0,2.0,unguided,1,0,0,5.007096767425537,,,"an entertaining, colorful, action-filled crime story! It can only have one element, continuity.  10. A secret agent tries to assassinate"
+241,0,2.0,guided,1,0,1,6.071835517883301,31.9106,0.0016,"an entertaining, colorful, action-filled crime story,an  an,an an, or interesting and  an is a,an  "
+241,1,2.0,unguided,1,1,0,5.007096767425537,,,"an entertaining, colorful, action-filled crime story! It can only have one element, continuity.  10. A secret agent tries to assassinate"
+241,1,2.0,guided,1,1,1,4.017213344573975,23.7396,0.0729,"an entertaining, colorful, action-filled crime story.  Posted: March 18, 2012  Updated Monday, March 3, 2012  "
+241,0,4.0,unguided,1,0,0,5.007096767425537,,,"an entertaining, colorful, action-filled crime story! It can only have one element, continuity.  10. A secret agent tries to assassinate"
+241,0,4.0,guided,1,0,1,7.141268253326416,31.9582,0.0,"an entertaining, colorful, action-filled crime story,an  an,an,an or interesting and or oran or ,an or,"
+241,1,4.0,unguided,1,1,0,5.007096767425537,,,"an entertaining, colorful, action-filled crime story! It can only have one element, continuity.  10. A secret agent tries to assassinate"
+241,1,4.0,guided,1,1,1,4.298324108123779,23.8793,0.0724,"an entertaining, colorful, action-filled crime story.  Date: March 18, 2012  Ded on: 3, 2013  "
+250,0,-1,realtext,0,1,0,,,,k-19 exploits our substantial collective fear of nuclear holocaust to generate cheap hollywood tension.
+250,0,2.0,unguided,1,0,0,6.409129619598389,,,k-19 exploits our substantial collective fear of nuclear disaster that has collective influence influence on the collective individual the collective influence 
+250,0,2.0,guided,0,1,0,8.318449974060059,31.8886,0.0,k-19 exploits our substantial collective fear of nuclear weapons to nucleark-18 gives us the collective belief fears we would fear the atomic of weapons to
+250,1,2.0,unguided,1,1,0,6.409129619598389,,,k-19 exploits our substantial collective fear of nuclear disaster that has collective influence influence on the collective individual the collective influence 
+250,1,2.0,guided,0,0,1,4.786150932312012,29.4513,0.0109,k-19 exploits our substantial collective fear of nuclear weapons that has yet to be achieved.  Bk-19 exploits the substantial significant collective fear
+250,0,4.0,unguided,1,0,0,6.409129619598389,,,k-19 exploits our substantial collective fear of nuclear disaster that has collective influence influence on the collective individual the collective influence 
+250,0,4.0,guided,0,1,0,9.087684631347656,31.993,0.0,k-19 exploits our substantial collective fear of nuclear weapons to exploit collectivek that18 exploit a the not of a collective fear is too significant. the
+250,1,4.0,unguided,1,1,0,6.409129619598389,,,k-19 exploits our substantial collective fear of nuclear disaster that has collective influence influence on the collective individual the collective influence 
+250,1,4.0,guided,1,1,1,3.553691864013672,31.2532,0.0118,k-19 exploits our substantial collective fear of nuclear weapons. Kk-19 demonstrates that it is be a a threat to the U.S.
+259,0,-1,realtext,0,1,0,,,,its well of thorn and vinegar ( and simple humanity ) has long been plundered by similar works featuring the insight and punch this picture so conspicuously lac
+259,0,2.0,unguided,0,1,0,8.172316551208496,,,"its well of thorn and vinegar ( and simple humanity (its leaves alone).  In any case, hunger (and) thirst, tea ding ding"
+259,0,2.0,guided,1,0,0,7.998345851898193,31.3994,0.0,its well of thorn and vinegar ( and simple humanity does human ( or simple) as a characteristic of any human being ( or) or simple a nature
+259,1,2.0,unguided,0,0,0,8.172316551208496,,,"its well of thorn and vinegar ( and simple humanity (its leaves alone).  In any case, hunger (and) thirst, tea ding ding"
+259,1,2.0,guided,0,0,0,6.466251373291016,28.6124,0.045,its well of thorn and vinegar ( and simple humanity not of all things).  7. 10:15:26 8. 10:18:
+259,0,4.0,unguided,0,1,0,8.172316551208496,,,"its well of thorn and vinegar ( and simple humanity (its leaves alone).  In any case, hunger (and) thirst, tea ding ding"
+259,0,4.0,guided,0,1,0,9.227108001708984,31.8936,0.0,"its well of thorn and vinegar ( and simple humanity (its all wrong here of is have not and), and) all) () of human"
+259,1,4.0,unguided,0,0,0,8.172316551208496,,,"its well of thorn and vinegar ( and simple humanity (its leaves alone).  In any case, hunger (and) thirst, tea ding ding"
+259,1,4.0,guided,0,0,1,7.559004306793213,31.6156,0.0,"its well of thorn and vinegar ( and simple humanity (with more e-science): Nothing is human, the rest is human, it's a the"
+268,1,-1,realtext,1,1,1,,,,an intriguing cinematic omnibus and round-robin that occasionally is more interesting in concept than in execution.
+268,0,2.0,unguided,1,0,1,8.248833656311035,,,"an intriguing cinematic omnibus and round-robin studio movie.  Baaa process, for an add-on, Dragonfly an upgrade pack"
+268,0,2.0,guided,1,0,1,9.920283317565918,30.9336,0.0,an intriguing cinematic omnibus and round-robin movies of..-.t-an an ancm of-- ofro round and
+268,1,2.0,unguided,1,1,1,8.248833656311035,,,"an intriguing cinematic omnibus and round-robin studio movie.  Baaa process, for an add-on, Dragonfly an upgrade pack"
+268,1,2.0,guided,1,1,1,5.050711154937744,20.7256,0.1714,an intriguing cinematic omnibus and round-robin.an.anan.anan.anan intriguing cinematic omnibus and round-robin
+268,0,4.0,unguided,1,0,1,8.248833656311035,,,"an intriguing cinematic omnibus and round-robin studio movie.  Baaa process, for an add-on, Dragonfly an upgrade pack"
+268,0,4.0,guided,1,0,1,10.186752319335938,30.9136,0.0,"an intriguing cinematic omnibus and round-robin documentary of to toan-an groan to an unnamedan,-an of with� in"
+268,1,4.0,unguided,1,1,1,8.248833656311035,,,"an intriguing cinematic omnibus and round-robin studio movie.  Baaa process, for an add-on, Dragonfly an upgrade pack"
+268,1,4.0,guided,1,1,1,5.050711154937744,20.7256,0.1714,an intriguing cinematic omnibus and round-robin.an.anan.anan.anan intriguing cinematic omnibus and round-robin
+277,0,-1,realtext,0,1,0,,,,hit and miss as far as the comedy goes and a big ole'miss in the way of story.
+277,0,2.0,unguided,0,1,1,6.749578952789307,,,hit and miss as far as the comedy goes and this is a vital presence in the company.  MAUL B. WILBRIGUE
+277,0,2.0,guided,0,1,0,5.145162105560303,27.9933,0.0033,"hit and miss as far as the comedy goes and goes, but not go, go, go and but not as far as the comedy going on and"
+277,1,2.0,unguided,0,0,1,6.749578952789307,,,hit and miss as far as the comedy goes and this is a vital presence in the company.  MAUL B. WILBRIGUE
+277,1,2.0,guided,0,0,0,4.771992206573486,26.7502,0.0121,"hit and miss as far as the comedy goes and goes, and not so the other, on and roll, as far as the comedy goes and goes"
+277,0,4.0,unguided,0,1,1,6.749578952789307,,,hit and miss as far as the comedy goes and this is a vital presence in the company.  MAUL B. WILBRIGUE
+277,0,4.0,guided,0,1,0,6.471801280975342,30.6382,0.0008,"hit and miss as far as the comedy goes and so, is not it, it is better if it, I think it is it, it not"
+277,1,4.0,unguided,0,0,1,6.749578952789307,,,hit and miss as far as the comedy goes and this is a vital presence in the company.  MAUL B. WILBRIGUE
+277,1,4.0,guided,0,0,1,6.229258060455322,28.3698,0.0008,"hit and miss as far as the comedy goes and goes, as some as the comedy is on and roll, as you see the comedy go still more"
+286,1,-1,realtext,0,0,1,,,,broomfield turns his distinctive ` blundering'style into something that could really help clear up the case.
+286,0,2.0,unguided,0,1,0,11.282049179077148,,,"broomfield turns his distinctive ` blundering plumber’s tailbearerlicks by the kolps`, then again in the evening"
+286,0,2.0,guided,0,1,1,4.2284770011901855,30.1133,0.0255,"broomfield turns his distinctive ` blundering`-blundering,  broomfield turns his distinctive ` blundering,`"
+286,1,2.0,unguided,0,0,0,11.282049179077148,,,"broomfield turns his distinctive ` blundering plumber’s tailbearerlicks by the kolps`, then again in the evening"
+286,1,2.0,guided,0,0,1,6.636445045471191,30.8658,0.0,broomfield turns his distinctive ` blundering ` style of 1970s and early80s by the young team at B.O.L.
+286,0,4.0,unguided,0,1,0,11.282049179077148,,,"broomfield turns his distinctive ` blundering plumber’s tailbearerlicks by the kolps`, then again in the evening"
+286,0,4.0,guided,0,1,0,9.705945014953613,31.8324,0.0,"broomfield turns his distinctive ` blundering bl blundering ` trademark'blbl bl, blbl bl, bl bl into, bl"
+286,1,4.0,unguided,0,0,0,11.282049179077148,,,"broomfield turns his distinctive ` blundering plumber’s tailbearerlicks by the kolps`, then again in the evening"
+286,1,4.0,guided,0,0,1,5.493081569671631,30.4696,0.0118,"broomfield turns his distinctive ` blundering blublubrooma/broomfield/broom/broomfield,b"
+295,1,-1,realtext,1,1,1,,,,it deserves to be seen by anyone with even a passing interest in the events shaping the world beyond their own horizons.
+295,0,2.0,unguided,0,1,1,5.574052333831787,,,it deserves to be seen by anyone with even a modicum of anhehehehehehehehehehehewhewhehe
+295,0,2.0,guided,1,0,0,7.554928779602051,31.7526,0.0016,it deserves to be seen by anyone with even a moment of as of its own. One of the internet’s most is is is a to
+295,1,2.0,unguided,0,0,1,5.574052333831787,,,it deserves to be seen by anyone with even a modicum of anhehehehehehehehehehehewhewhehe
+295,1,2.0,guided,1,1,1,8.727343559265137,31.5843,0.0025,"it deserves to be seen by anyone with even a small heart who pays its love to one of the most stifying sports on the planet, professional hockey"
+295,0,4.0,unguided,0,1,1,5.574052333831787,,,it deserves to be seen by anyone with even a modicum of anhehehehehehehehehehehewhewhehe
+295,0,4.0,guided,0,1,0,9.843657493591309,31.8917,0.0008,it deserves to be seen by anyone with even a moment of being than an � or ”  ”It truly is sort just a�
+295,1,4.0,unguided,0,0,1,5.574052333831787,,,it deserves to be seen by anyone with even a modicum of anhehehehehehehehehehehewhewhehe
+295,1,4.0,guided,0,0,1,7.990905284881592,31.7183,0.0024,it deserves to be seen by anyone with even a drop of skin of its own. One of thea’s top is is the a its

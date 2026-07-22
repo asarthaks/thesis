@@ -1,3 +1,6 @@
+> **Superseded by `README.md`** (the new top-level guide, which absorbs this file). Kept
+> in place for its detailed concern-by-concern run notes; nothing here has been deleted.
+
 # Revision experiments and analyses: exact run guide
 
 Every script here follows the harness contract: a job is DONE when

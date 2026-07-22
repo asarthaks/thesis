@@ -1,0 +1,298 @@
+prompt_idx,target_label,gamma,arm,judged_label,hit_target,clf_self_label,span_nll,mean_eligible,frac_le1_eligible,text
+8,0,-1,realtext,0,1,0,,,,... the film suffers from a lack of humor ( something needed to balance out the violence )...
+8,0,2.0,unguided,0,1,0,5.927417278289795,,,... the film suffers from a lack of humor (nightly images are a way to mount the absurdity in this case)... the film suffers from a lack
+8,0,2.0,guided,0,1,0,4.366133213043213,25.9337,0.0565,... the film suffers from a lack of humor (a film)...  ... the film misses the film (the film...)  ... the film
+8,1,2.0,unguided,0,0,0,5.927417278289795,,,... the film suffers from a lack of humor (nightly images are a way to mount the absurdity in this case)... the film suffers from a lack
+8,1,2.0,guided,0,0,0,5.951979160308838,29.9213,0.0049,... the film suffers from a lack of humor (seeO)... the film's and does not have the level of creativity ( or)... the film
+8,0,4.0,unguided,0,1,0,5.927417278289795,,,... the film suffers from a lack of humor (nightly images are a way to mount the absurdity in this case)... the film suffers from a lack
+8,0,4.0,guided,0,1,0,3.687896728515625,29.7321,0.0214,... the film suffers from a lack of humor (  ...) the film almost wasn't a good picture (  ...)  ... the film
+8,1,4.0,unguided,0,0,0,5.927417278289795,,,... the film suffers from a lack of humor (nightly images are a way to mount the absurdity in this case)... the film suffers from a lack
+8,1,4.0,guided,0,0,0,9.135066986083984,30.8501,0.0008,... the film suffers from a lack of humor (...)))... a... and film  have a in ( film of.  ...a film
+17,1,-1,realtext,1,1,1,,,,"a delectable and intriguing thriller filled with surprises, read my lips is an original."
+17,0,2.0,unguided,1,0,1,5.68092679977417,,,"a delectable and intriguing thriller filled with surprises, mysteries, twists, thriller twists, and a favorite novel spinoff of the delectable thriller"
+17,0,2.0,guided,1,0,1,9.517953872680664,31.0812,0.0,"a delectable and intriguing thriller filled with surprises and surprisesa areaa by�a a to , of or with a it- "
+17,1,2.0,unguided,1,1,1,5.68092679977417,,,"a delectable and intriguing thriller filled with surprises, mysteries, twists, thriller twists, and a favorite novel spinoff of the delectable thriller"
+17,1,2.0,guided,1,1,1,4.477654457092285,23.8735,0.0349,"a delectable and intriguing thriller filled with surprises, mysteries, gossip, and intrigue, a heartwarming thriller with suspense, a delectable thriller"
+17,0,4.0,unguided,1,0,1,5.68092679977417,,,"a delectable and intriguing thriller filled with surprises, mysteries, twists, thriller twists, and a favorite novel spinoff of the delectable thriller"
+17,0,4.0,guided,1,0,1,8.796965599060059,31.0757,0.0,"a delectable and intriguing thriller filled with surprises which are, are anda a�a a to , of the with its it- "
+17,1,4.0,unguided,1,1,1,5.68092679977417,,,"a delectable and intriguing thriller filled with surprises, mysteries, twists, thriller twists, and a favorite novel spinoff of the delectable thriller"
+17,1,4.0,guided,1,1,1,5.18673849105835,25.332,0.031,"a delectable and intriguing thriller filled with surprises, intrigue, action, and intrigue, a heart-break movie of, a delectable thriller"
+26,0,-1,realtext,0,1,0,,,,"it doesn't believe in itself, it has no sense of humor... it's just plain bored."
+26,0,2.0,unguided,0,1,0,6.668717861175537,,,"it doesn't believe in itself, it has it [it isn] not,, isn't true In it, it's not [it]"
+26,0,2.0,guided,0,1,0,5.561158180236816,30.5805,0.0,"it doesn't believe in itself, it has never existed, exists, or breathed, or learned from it, and doesn't believe in it,"
+26,1,2.0,unguided,0,0,0,6.668717861175537,,,"it doesn't believe in itself, it has it [it isn] not,, isn't true In it, it's not [it]"
+26,1,2.0,guided,0,0,0,7.3250861167907715,31.6801,0.0008,"it doesn't believe in itself, it has a sense in self itself N. believes in herself. N. N. N in that it's"
+26,0,4.0,unguided,0,1,0,6.668717861175537,,,"it doesn't believe in itself, it has it [it isn] not,, isn't true In it, it's not [it]"
+26,0,4.0,guided,0,1,0,5.269484043121338,29.8727,0.0041,"it doesn't believe in itself, it has't done it right itself It does't believe in itself, it doesn't exist, and it's"
+26,1,4.0,unguided,0,0,0,6.668717861175537,,,"it doesn't believe in itself, it has it [it isn] not,, isn't true In it, it's not [it]"
+26,1,4.0,guided,1,1,1,8.02617359161377,31.9286,0.0,"it doesn't believe in itself, it has made heard think about itself, it has faith really believes has can believe, it doesn has has itself"
+35,1,-1,realtext,1,1,1,,,,holm... embodies the character with an effortlessly regal charisma.
+35,0,2.0,unguided,1,0,1,8.414706230163574,,,"holm... embodies the character with an effortlessly regal theatrical flair.  Umbtainto: Straightened shoulders, tip over and under the shoulders"
+35,0,2.0,guided,1,0,1,9.42699909210205,31.9682,0.0,"holm... embodies the character with an effortlessly regal look, of...holm "" of-holm... his name...holm...  his the... he"
+35,1,2.0,unguided,1,1,1,8.414706230163574,,,"holm... embodies the character with an effortlessly regal theatrical flair.  Umbtainto: Straightened shoulders, tip over and under the shoulders"
+35,1,2.0,guided,1,1,1,4.733428955078125,28.9944,0.0267,"holm... embodies the character with an effortlessly regal look, she conveys this sense of class and power in a way that it is seductive and"
+35,0,4.0,unguided,1,0,1,8.414706230163574,,,"holm... embodies the character with an effortlessly regal theatrical flair.  Umbtainto: Straightened shoulders, tip over and under the shoulders"
+35,0,4.0,guided,1,0,1,11.054336547851562,32.0,0.0,"holm... embodies the character with an effortlessly regal vis instead of...holm "" of- character...v "", ofThe "" the character..."
+35,1,4.0,unguided,1,1,1,8.414706230163574,,,"holm... embodies the character with an effortlessly regal theatrical flair.  Umbtainto: Straightened shoulders, tip over and under the shoulders"
+35,1,4.0,guided,1,1,1,6.134360313415527,31.136,0.0172,"holm... embodies the character with an effortlessly regal appearance, a courtly set-image, and a truly royal demeanor.... Oliver Ekholm..."
+44,1,-1,realtext,1,1,1,,,,"mr. tsai is a very original artist in his medium, and what time is it there?"
+44,0,2.0,unguided,1,0,1,7.678405284881592,,,mr. tsai is a very original artist in Shuo Zuzhou-Madurgao. R. A. m. tsai has type
+44,0,2.0,guided,1,0,1,7.17721700668335,31.4035,0.0,"mr. tsai is a very original artist in which of the of art a for Ts that to a the tai is a very original to,"
+44,1,2.0,unguided,1,1,1,7.678405284881592,,,mr. tsai is a very original artist in Shuo Zuzhou-Madurgao. R. A. m. tsai has type
+44,1,2.0,guided,1,1,1,3.957181692123413,28.348,0.0395,"mr. tsai is a very original artist in the history of Chinese art-making, design and art., tsai is a very original artist"
+44,0,4.0,unguided,1,0,1,7.678405284881592,,,mr. tsai is a very original artist in Shuo Zuzhou-Madurgao. R. A. m. tsai has type
+44,0,4.0,guided,1,0,1,8.686324119567871,31.6174,0.0,"mr. tsai is a very original artist in his art and of of a to Ts in to he his, to Mr an very and the,"
+44,1,4.0,unguided,1,1,1,7.678405284881592,,,mr. tsai is a very original artist in Shuo Zuzhou-Madurgao. R. A. m. tsai has type
+44,1,4.0,guided,1,1,1,3.9878201484680176,21.1202,0.2023,mr. tsai is a very original artist in his own form of art and possesses many creative talentsmr. tsai is a very original artist in
+53,1,-1,realtext,1,1,1,,,,the primitive force of this film seems to bubble up from the vast collective memory of the combatants.
+53,0,2.0,unguided,1,0,1,6.619960308074951,,,the primitive force of this film seems to bubble up from the fringes. there’s a signal from the left side looking north to the right
+53,0,2.0,guided,1,0,0,6.225476264953613,31.6205,0.0031,the primitive force of this film seems to bubble up in thea.J thisK. the primitive force of this film seems to bubble in.I
+53,1,2.0,unguided,1,1,1,6.619960308074951,,,the primitive force of this film seems to bubble up from the fringes. there’s a signal from the left side looking north to the right
+53,1,2.0,guided,1,1,1,5.0210700035095215,27.9408,0.0502,the primitive force of this film seems to bubble up in the Martian atmosphere. It’s back-in-its-on-the-ground
+53,0,4.0,unguided,1,0,1,6.619960308074951,,,the primitive force of this film seems to bubble up from the fringes. there’s a signal from the left side looking north to the right
+53,0,4.0,guided,1,0,1,4.340226650238037,31.5977,0.0054,the primitive force of this film seems to bubble up into the places its own is me. the primitive force of this film seems to bubble up at the
+53,1,4.0,unguided,1,1,1,6.619960308074951,,,the primitive force of this film seems to bubble up from the fringes. there’s a signal from the left side looking north to the right
+53,1,4.0,guided,1,1,1,4.602477073669434,25.312,0.0401,the primitive force of this film seems to bubble up in itself.  ofthe primitive force of this film seems to bubble up in intensity. The
+62,1,-1,realtext,0,0,0,,,,"one of creepiest, scariest movies to come along in a long, long time, easily rivaling blair witch or the others."
+62,0,2.0,unguided,1,0,1,7.152207374572754,,,"one of creepiest, scariest movies to touch by decades of justice in the face of societal challenges that range far-flung in scope,"
+62,0,2.0,guided,1,0,1,7.63952112197876,31.6379,0.0008,"one of creepiest, scariest movies to date  and movie of ( ). and movies outiest  the.  ."
+62,1,2.0,unguided,1,1,1,7.152207374572754,,,"one of creepiest, scariest movies to touch by decades of justice in the face of societal challenges that range far-flung in scope,"
+62,1,2.0,guided,1,1,1,6.276466369628906,21.6466,0.0377,"one of creepiest, scariest movies to be made creep/epest/scariestest of all- creepest/scariest"
+62,0,4.0,unguided,1,0,1,7.152207374572754,,,"one of creepiest, scariest movies to touch by decades of justice in the face of societal challenges that range far-flung in scope,"
+62,0,4.0,guided,0,1,0,9.264938354492188,31.5895,0.0,"one of creepiest, scariest movies to date.  One of horror worst-’s worst    of�� all"
+62,1,4.0,unguided,1,1,1,7.152207374572754,,,"one of creepiest, scariest movies to touch by decades of justice in the face of societal challenges that range far-flung in scope,"
+62,1,4.0,guided,1,1,1,3.634420871734619,22.5474,0.0617,"one of creepiest, scariest movies to date,one of creepest, scariest movies,one of creepest, scariest"
+71,0,-1,realtext,0,1,1,,,,it's one pussy-ass world when even killer-thrillers revolve around group therapy sessions.
+71,0,2.0,unguided,0,1,0,5.510276794433594,,,it's one pussy-ass world when even shit don't even shit.  Some know even shit.  Some can speak even shit
+71,0,2.0,guided,0,1,0,5.914475917816162,31.6993,0.0008,it's one pussy-ass world when even there of one pussyass world there and even outside of that pussyassworld one pussy of one pussy
+71,1,2.0,unguided,0,0,0,5.510276794433594,,,it's one pussy-ass world when even shit don't even shit.  Some know even shit.  Some can speak even shit
+71,1,2.0,guided,0,0,0,5.1386003494262695,27.6922,0.0,it's one pussy-ass world when even cats don't be panties.  Tears of Cats  Tears of a Dog 
+71,0,4.0,unguided,0,1,0,5.510276794433594,,,it's one pussy-ass world when even shit don't even shit.  Some know even shit.  Some can speak even shit
+71,0,4.0,guided,0,1,0,10.545215606689453,31.9122,0.0,"it's one pussy-ass world when even some women pussy't't pussy get pussy the end of that when- ass ass' one ""-"
+71,1,4.0,unguided,0,0,0,5.510276794433594,,,it's one pussy-ass world when even shit don't even shit.  Some know even shit.  Some can speak even shit
+71,1,4.0,guided,0,0,1,8.573695182800293,31.9122,0.0,"it's one pussy-ass world when even some women of ass, ass. the the outside of ass when- ass ass that one one-"
+80,1,-1,realtext,1,1,1,,,,"hardly a masterpiece, but it introduces viewers to a good charitable enterprise and some interesting real people."
+80,0,2.0,unguided,1,0,0,6.866987705230713,,,"hardly a masterpiece, but it introduces viewers to the annals of the première of the County Art Society’s landmark in San Francisco"
+80,0,2.0,guided,1,0,0,5.408420562744141,30.3055,0.0077,"hardly a masterpiece, but it introduces viewers to the fact that this is not a masterpiece or is not, and this is not an masterpiece. but"
+80,1,2.0,unguided,1,1,0,6.866987705230713,,,"hardly a masterpiece, but it introduces viewers to the annals of the première of the County Art Society’s landmark in San Francisco"
+80,1,2.0,guided,1,1,1,6.744988918304443,25.9384,0.0494,"hardly a masterpiece, but it introduces viewers to the true meaning of the art form.” Sorenson’s response, “"
+80,0,4.0,unguided,1,0,0,6.866987705230713,,,"hardly a masterpiece, but it introduces viewers to the annals of the première of the County Art Society’s landmark in San Francisco"
+80,0,4.0,guided,1,0,0,8.521923065185547,31.9883,0.0,"hardly a masterpiece, but it introduces viewers to one of of instead of as�- a is not the are the the the it.ss"
+80,1,4.0,unguided,1,1,0,6.866987705230713,,,"hardly a masterpiece, but it introduces viewers to the annals of the première of the County Art Society’s landmark in San Francisco"
+80,1,4.0,guided,1,1,1,4.747288227081299,31.3315,0.0008,"hardly a masterpiece, but it introduces viewers to a world with a world and a world with a compelling and a compelling, about a world and a"
+89,0,-1,realtext,0,1,1,,,,"his last movie was poetically romantic and full of indelible images, but his latest has nothing going for it."
+89,0,2.0,unguided,1,0,1,6.606597423553467,,,"his last movie was poetically romantic and full of tragedy. There’s a huge element of creativity, energy and joy that emerged in this whole"
+89,0,2.0,guided,1,0,1,6.009532451629639,30.1614,0.0,"his last movie was poetically romantic and full of love romance, and, of this is of the the in to tohis last movie was poetically"
+89,1,2.0,unguided,1,1,1,6.606597423553467,,,"his last movie was poetically romantic and full of tragedy. There’s a huge element of creativity, energy and joy that emerged in this whole"
+89,1,2.0,guided,1,1,1,6.0373945236206055,30.7771,0.006,his last movie was poetically romantic and full of happy endings to the ending hehehehehehehe I had thought that it was the whole
+89,0,4.0,unguided,1,0,1,6.606597423553467,,,"his last movie was poetically romantic and full of tragedy. There’s a huge element of creativity, energy and joy that emerged in this whole"
+89,0,4.0,guided,1,0,0,9.130999565124512,31.9938,0.0,"his last movie was poetically romantic and full of humor where on was, was  is of the the was to to last- movie movie he."
+89,1,4.0,unguided,1,1,1,6.606597423553467,,,"his last movie was poetically romantic and full of tragedy. There’s a huge element of creativity, energy and joy that emerged in this whole"
+89,1,4.0,guided,1,1,1,4.972820281982422,31.8904,0.0,"his last movie was poetically romantic and full of love and emotional depth, which was met with a film in which characters that he felt was the right"
+98,0,-1,realtext,0,1,0,,,,"scores no points for originality, wit, or intelligence."
+98,0,2.0,unguided,0,1,0,9.240638732910156,,,"scores no points for originality, wit, discernment, and abscitant everyone creates rating everyone on the server, both 8 on and 8"
+98,0,2.0,guided,0,1,0,5.999551296234131,28.7585,0.0,"scores no points for originality, wit, humour, originality,, and personality, and sub-scores for subscores and no"
+98,1,2.0,unguided,0,0,0,9.240638732910156,,,"scores no points for originality, wit, discernment, and abscitant everyone creates rating everyone on the server, both 8 on and 8"
+98,1,2.0,guided,0,0,1,2.4863476753234863,18.2925,0.1869,"scores no points for originality, wit, wit,  subscores no points for originality, wit,  subscores"
+98,0,4.0,unguided,0,1,0,9.240638732910156,,,"scores no points for originality, wit, discernment, and abscitant everyone creates rating everyone on the server, both 8 on and 8"
+98,0,4.0,guided,0,1,0,8.146574974060059,29.3388,0.0031,"scores no points for originality, wit, i,, gscscores noscscscscsc score  scscores no"
+98,1,4.0,unguided,0,0,0,9.240638732910156,,,"scores no points for originality, wit, discernment, and abscitant everyone creates rating everyone on the server, both 8 on and 8"
+98,1,4.0,guided,0,0,0,4.96417760848999,23.3674,0.0197,"scores no points for originality, wit, humour,  subscribing no, and please no,  subscribing no,"
+107,0,-1,realtext,0,1,0,,,,it seems to me the film is about the art of ripping people off without ever letting them consciously know you have done so
+107,0,2.0,unguided,1,0,1,4.79293155670166,,,it seems to me the film is about the art of photography.  Andy: I am an amazing coach; I have trained many of the top
+107,0,2.0,guided,1,0,0,4.33698034286499,31.109,0.0024,it seems to me the film is about the art of having a how the seems like in that it seems to me the film is about the art of
+107,1,2.0,unguided,1,1,1,4.79293155670166,,,it seems to me the film is about the art of photography.  Andy: I am an amazing coach; I have trained many of the top
+107,1,2.0,guided,0,0,0,3.23229718208313,30.3392,0.0137,it seems to me the film is about the art of making the film seems seems seems to me the film is about the art of making the film on
+107,0,4.0,unguided,1,0,1,4.79293155670166,,,it seems to me the film is about the art of photography.  Andy: I am an amazing coach; I have trained many of the top
+107,0,4.0,guided,1,0,0,8.958269119262695,31.146,0.0,"it seems to me the film is about the art of the it of the thes in. is isit seems. toI seems, of on"
+107,1,4.0,unguided,1,1,1,4.79293155670166,,,it seems to me the film is about the art of photography.  Andy: I am an amazing coach; I have trained many of the top
+107,1,4.0,guided,1,1,0,3.665743350982666,31.0437,0.0016,it seems to me the film is about the art of like a and the seems like art and it seems to me the film is about the art of
+116,0,-1,realtext,0,1,1,,,,"in execution, this clever idea is far less funny than the original, killers from space."
+116,0,2.0,unguided,0,1,0,3.5859768390655518,,,"in execution, this clever idea is far less funny https://www.facebook.com/pages/Funny-Chef-My-Own-"
+116,0,2.0,guided,0,1,0,4.291291236877441,25.1029,0.0272,"in execution, this clever idea is far less funny than Jupin execution, this clever idea is far less funny than Jollin execution, this"
+116,1,2.0,unguided,0,0,0,3.5859768390655518,,,"in execution, this clever idea is far less funny https://www.facebook.com/pages/Funny-Chef-My-Own-"
+116,1,2.0,guided,0,0,0,4.291291236877441,25.3048,0.0357,"in execution, this clever idea is far less funny than Jupin execution, this clever idea is far less funny than Jollin execution, this"
+116,0,4.0,unguided,0,1,0,3.5859768390655518,,,"in execution, this clever idea is far less funny https://www.facebook.com/pages/Funny-Chef-My-Own-"
+116,0,4.0,guided,0,1,0,6.175790786743164,30.622,0.0063,"in execution, this clever idea is far less funny than you would think, this is is one and as only things that can be to to people who"
+116,1,4.0,unguided,0,0,0,3.5859768390655518,,,"in execution, this clever idea is far less funny https://www.facebook.com/pages/Funny-Chef-My-Own-"
+116,1,4.0,guided,0,0,0,4.326320171356201,29.1119,0.0016,"in execution, this clever idea is far less funny than you would think, and the your a of this clever idea is far less intelligent than you would"
+125,1,-1,realtext,1,1,0,,,,what better message than ` love thyself'could young women of any size receive?
+125,0,2.0,unguided,1,0,0,5.664687633514404,,,what better message than ` love thyself'could have stood out. It was about male-to-male dating the last part of my partner's
+125,0,2.0,guided,1,0,0,6.943572998046875,31.855,0.0,"what better message than ` love thyself'could have thereasons to be on it- It's Day and in the all than a we """
+125,1,2.0,unguided,1,1,0,5.664687633514404,,,what better message than ` love thyself'could have stood out. It was about male-to-male dating the last part of my partner's
+125,1,2.0,guided,1,1,1,7.563258647918701,31.6852,0.0,what better message than ` love thyself'could be delivered? It in's about be of It's Day in the heart of the Church of in
+125,0,4.0,unguided,1,0,0,5.664687633514404,,,what better message than ` love thyself'could have stood out. It was about male-to-male dating the last part of my partner's
+125,0,4.0,guided,1,0,0,4.793435573577881,24.6144,0.0008,what better message than ` love thyself'could be sent how than thy selfself it waswhat better message than ` love thyself'could be
+125,1,4.0,unguided,1,1,0,5.664687633514404,,,what better message than ` love thyself'could have stood out. It was about male-to-male dating the last part of my partner's
+125,1,4.0,guided,1,1,1,7.837765693664551,31.7577,0.0,"what better message than ` love thyself'could be delivered?? a's about it of It's Day in the heart,? a we is"
+134,1,-1,realtext,1,1,1,,,,"a big, gorgeous, sprawling swashbuckler that delivers its diversions in grand, uncomplicated fashion."
+134,0,2.0,unguided,1,0,1,11.445540428161621,,,"a big, gorgeous, sprawling swashbuckler’s ocean “mebuck”, mis-quilver 2000 2000 2000 2000"
+134,0,2.0,guided,1,0,1,8.965165138244629,31.9532,0.0,"a big, gorgeous, sprawling swashbuckler,andash big, gorgeous,, aash sw andash and. of ita, "
+134,1,2.0,unguided,1,1,1,11.445540428161621,,,"a big, gorgeous, sprawling swashbuckler’s ocean “mebuck”, mis-quilver 2000 2000 2000 2000"
+134,1,2.0,guided,1,1,0,3.744406223297119,18.8857,0.1249,"a big, gorgeous, sprawling swashbuckler ship, huge, majestic swashbuckler ship, a, mighty swashbuckler ship,"
+134,0,4.0,unguided,1,0,1,11.445540428161621,,,"a big, gorgeous, sprawling swashbuckler’s ocean “mebuck”, mis-quilver 2000 2000 2000 2000"
+134,0,4.0,guided,1,0,1,8.143946647644043,31.9121,0.0,"a big, gorgeous, sprawling swashbuckler,ashash,,,,, aash sw andash and. ofasha, "
+134,1,4.0,unguided,1,1,1,11.445540428161621,,,"a big, gorgeous, sprawling swashbuckler’s ocean “mebuck”, mis-quilver 2000 2000 2000 2000"
+134,1,4.0,guided,1,1,1,1.9733079671859741,16.2057,0.1736,"a big, gorgeous, sprawling swashbuckler big, gorgeous, sprawling swashbuckler big, gorgeous, sprawling swashbuckler big,"
+143,0,-1,realtext,0,1,0,,,,"there seems to be no clear path as to where the story's going, or how long it's going to take to get there."
+143,0,2.0,unguided,0,1,0,4.609132289886475,,,"there seems to be no clear path as to where you’re going, therethere seems to be no clear path as to where you’"
+143,0,2.0,guided,0,1,0,4.016273021697998,10.1589,0.4544,"there seems to be no clear path as to where you’re going, andthere seems to be no clear path as to where you’"
+143,1,2.0,unguided,0,0,0,4.609132289886475,,,"there seems to be no clear path as to where you’re going, therethere seems to be no clear path as to where you’"
+143,1,2.0,guided,0,0,0,8.542119026184082,31.929,0.0,"there seems to be no clear path as to where the person heading the the, I no the are the to to of to the path and no a"
+143,0,4.0,unguided,0,1,0,4.609132289886475,,,"there seems to be no clear path as to where you’re going, therethere seems to be no clear path as to where you’"
+143,0,4.0,guided,0,1,0,4.166579723358154,31.162,0.0017,there seems to be no clear path as to where I'm heading. I can turn my head to wonder where I'm going but I can only look
+143,1,4.0,unguided,0,0,0,4.609132289886475,,,"there seems to be no clear path as to where you’re going, therethere seems to be no clear path as to where you’"
+143,1,4.0,guided,0,0,0,7.6703338623046875,31.9095,0.0,"there seems to be no clear path as to where we're heading the the, I, the are the to to of to the path and is a"
+152,1,-1,realtext,0,0,1,,,,if you dig on david mamet's mind tricks... rent this movie and enjoy!
+152,0,2.0,unguided,0,1,1,4.760318756103516,,,if you dig on david mamet's dogattt you dig on david mamet's dog;if you dig on your own
+152,0,2.0,guided,1,0,1,6.644223690032959,31.8006,0.0015,"if you dig on david mamet's website,and m mamss, link on david mamet's website,then"
+152,1,2.0,unguided,0,0,1,4.760318756103516,,,if you dig on david mamet's dogattt you dig on david mamet's dog;if you dig on your own
+152,1,2.0,guided,0,0,1,1.7858247756958008,12.6825,0.287,if you dig on david mamet's web siteif you dig on david mamet's web siteif you dig on david m
+152,0,4.0,unguided,0,1,1,4.760318756103516,,,if you dig on david mamet's dogattt you dig on david mamet's dog;if you dig on your own
+152,0,4.0,guided,0,1,1,11.045382499694824,31.9623,0.0,"if you dig on david mamet's d thenands mamsif' on on m "" on David m '-etets"
+152,1,4.0,unguided,0,0,1,4.760318756103516,,,if you dig on david mamet's dogattt you dig on david mamet's dog;if you dig on your own
+152,1,4.0,guided,0,0,1,1.7858247756958008,12.5921,0.2908,if you dig on david mamet's web siteif you dig on david mamet's web siteif you dig on david m
+161,0,-1,realtext,0,1,0,,,,"though perry and hurley make inspiring efforts to breathe life into the disjointed, haphazard script by jay scherick and david ronn, neither the actors nor dire"
+161,0,2.0,unguided,1,0,1,7.513418674468994,,,though perry and hurley make inspiring efforts to pull themselves out of near collapse perry and hurley are legends former world champions crowned 2018 world ch
+161,0,2.0,guided,1,0,1,5.428762912750244,30.8087,0.0024,though perry and hurley make inspiring efforts to take care of themselves to be still perry and hurley still their inspire efforts to take care of
+161,1,2.0,unguided,1,1,1,7.513418674468994,,,though perry and hurley make inspiring efforts to pull themselves out of near collapse perry and hurley are legends former world champions crowned 2018 world ch
+161,1,2.0,guided,1,1,1,4.24141263961792,23.0619,0.0983,though perry and hurley make inspiring efforts to look down on our fellow citizens.  Though perry and hurley make inspiring efforts to look
+161,0,4.0,unguided,1,0,1,7.513418674468994,,,though perry and hurley make inspiring efforts to pull themselves out of near collapse perry and hurley are legends former world champions crowned 2018 world ch
+161,0,4.0,guided,1,0,1,7.301820278167725,31.4965,0.0016,though perry and hurley make inspiring efforts to save theirry to andrythough perry and hurley make inspiring efforts to inspire theirryry
+161,1,4.0,unguided,1,1,1,7.513418674468994,,,though perry and hurley make inspiring efforts to pull themselves out of near collapse perry and hurley are legends former world champions crowned 2018 world ch
+161,1,4.0,guided,1,1,1,4.462014198303223,27.972,0.0385,"though perry and hurley make inspiring efforts to take lives of, to take livesthough perry and hurley make inspiring efforts to take lives of"
+170,1,-1,realtext,1,1,1,,,,"morton uses her face and her body language to bring us morvern's soul, even though the character is almost completely deadpan."
+170,0,2.0,unguided,0,1,1,9.178997039794922,,,morton uses her face and her body language to protect against carry immunity. Play: The Graveyard is an angular device that usually starts with 3600 and
+170,0,2.0,guided,1,0,1,11.566136360168457,32.0,0.0,morton uses her face and her body language to lead him her to is is's. the it� hison  she this to� and use
+170,1,2.0,unguided,0,0,1,9.178997039794922,,,morton uses her face and her body language to protect against carry immunity. Play: The Graveyard is an angular device that usually starts with 3600 and
+170,1,2.0,guided,0,0,1,6.95643949508667,27.3512,0.065,morton uses her face and her body language to defend Sorenson Sorenson to defend Sorenson in Sorenson uses his face and
+170,0,4.0,unguided,0,1,1,9.178997039794922,,,morton uses her face and her body language to protect against carry immunity. Play: The Graveyard is an angular device that usually starts with 3600 and
+170,0,4.0,guided,1,0,1,11.566136360168457,32.0,0.0,morton uses her face and her body language to lead him her to is is's. the it� hison  she this to� and use
+170,1,4.0,unguided,0,0,1,9.178997039794922,,,morton uses her face and her body language to protect against carry immunity. Play: The Graveyard is an angular device that usually starts with 3600 and
+170,1,4.0,guided,0,0,1,4.245153427124023,31.5145,0.0,morton uses her face and her body language to intimidate and harass her. If she has an agreement with the school that she is not a girl's
+179,1,-1,realtext,1,1,1,,,,"an artful, intelligent film that stays within the confines of a well-established genre."
+179,0,2.0,unguided,1,0,1,6.703607082366943,,,"an artful, intelligent film that stays within the rules and sets expectations so low, that everyone is achieving their full potential. After credits: “"
+179,0,2.0,guided,1,0,1,9.109186172485352,31.966,0.0,"an artful, intelligent film that stays within the rules of its� of� work and not within the all of art toan� a.000"
+179,1,2.0,unguided,1,1,1,6.703607082366943,,,"an artful, intelligent film that stays within the rules and sets expectations so low, that everyone is achieving their full potential. After credits: “"
+179,1,2.0,guided,1,1,1,1.2391489744186401,23.4448,0.0584,"an artful, intelligent film that stays within the boundaries of a film. A film that stays within the boundaries of a film. A film that stays"
+179,0,4.0,unguided,1,0,1,6.703607082366943,,,"an artful, intelligent film that stays within the rules and sets expectations so low, that everyone is achieving their full potential. After credits: “"
+179,0,4.0,guided,1,0,1,11.967572212219238,31.9985,0.0,"an artful, intelligent film that stays within the rules of its� of�, and/���’ toan� a story�"
+179,1,4.0,unguided,1,1,1,6.703607082366943,,,"an artful, intelligent film that stays within the rules and sets expectations so low, that everyone is achieving their full potential. After credits: “"
+179,1,4.0,guided,1,1,1,4.75186014175415,29.5105,0.0124,"an artful, intelligent film that stays within the range of a sense of humour, that stays within the range of a sense of humour to tell people"
+188,1,-1,realtext,1,1,1,,,,the movie understands like few others how the depth and breadth of emotional intimacy give the physical act all of its meaning and most of its pleasure.
+188,0,2.0,unguided,1,0,1,8.047813415527344,,,"the movie understands like few others how the depth and how realistic the toztussian sense is going to be. And if in a history,"
+188,0,2.0,guided,1,0,1,6.932521343231201,31.9866,0.0,"the movie understands like few others how the depth and flexibility of the thethe to a, the the has a right to has a to for from is"
+188,1,2.0,unguided,1,1,1,8.047813415527344,,,"the movie understands like few others how the depth and how realistic the toztussian sense is going to be. And if in a history,"
+188,1,2.0,guided,1,1,1,5.435597896575928,29.6383,0.0182,the movie understands like few others how the depth and richness of the scenes can be I have the critics to thank for where they are in terms of films
+188,0,4.0,unguided,1,0,1,8.047813415527344,,,"the movie understands like few others how the depth and how realistic the toztussian sense is going to be. And if in a history,"
+188,0,4.0,guided,1,0,1,7.1602373123168945,32.0,0.0,the movie understands like few others how the depth and how of the are to like a how the notion of a than the the the movie something like a
+188,1,4.0,unguided,1,1,1,8.047813415527344,,,"the movie understands like few others how the depth and how realistic the toztussian sense is going to be. And if in a history,"
+188,1,4.0,guided,1,1,1,5.2904839515686035,30.1765,0.0138,the movie understands like few others how the depth and mystery of the story can be used as a tool to look for those at times in the history of
+197,0,-1,realtext,0,1,0,,,,"of course, by more objective measurements it's still quite bad."
+197,0,2.0,unguided,0,1,1,4.912099361419678,,,"of course, by more objective measurements it's to, butof course, by more subjective measurements it's to, by more subjective breakdowns"
+197,0,2.0,guided,0,1,1,4.881300926208496,22.3183,0.0026,"of course, by more objective measurements it's possible to understand more subjective resulting in more subjective ways. Of course, by more subjective measures "
+197,1,2.0,unguided,0,0,1,4.912099361419678,,,"of course, by more objective measurements it's to, butof course, by more subjective measurements it's to, by more subjective breakdowns"
+197,1,2.0,guided,0,0,1,2.0876152515411377,13.9628,0.1151,"of course, by more objective measurements it's more objective.of course, by more subjective measurements it's more subjective.of course, by"
+197,0,4.0,unguided,0,1,1,4.912099361419678,,,"of course, by more objective measurements it's to, butof course, by more subjective measurements it's to, by more subjective breakdowns"
+197,0,4.0,guided,0,1,0,6.8570556640625,28.4874,0.0,"of course, by more objective measurements it's supposed to to of course, by by less subjective about is course, by more subjective measures subjective,"
+197,1,4.0,unguided,0,0,1,4.912099361419678,,,"of course, by more objective measurements it's to, butof course, by more subjective measurements it's to, by more subjective breakdowns"
+197,1,4.0,guided,0,0,1,3.6178243160247803,15.8558,0.1329,"of course, by more objective measurements it's possible to,of course, by more subjective measurementsof course, by more subjective measurements it's"
+206,1,-1,realtext,1,1,1,,,,not since japanese filmmaker akira kurosawa's ran have the savagery of combat and the specter of death been visualized with such operatic grandeur.
+206,0,2.0,unguided,1,0,1,2.542752504348755,,,not since japanese filmmaker akira kuro -not since japanese filmmaker akira kuro not not since japanese filmmaker akira
+206,0,2.0,guided,1,0,1,4.654090881347656,27.8794,0.0085,not since japanese filmmaker akira kuro  hasnot since japanese filmmaker akira kuroiarenot since japanese filmmaker
+206,1,2.0,unguided,1,1,1,2.542752504348755,,,not since japanese filmmaker akira kuro -not since japanese filmmaker akira kuro not not since japanese filmmaker akira
+206,1,2.0,guided,1,1,1,2.542752504348755,13.4295,0.2295,not since japanese filmmaker akira kuro -not since japanese filmmaker akira kuro not not since japanese filmmaker akira
+206,0,4.0,unguided,1,0,1,2.542752504348755,,,not since japanese filmmaker akira kuro -not since japanese filmmaker akira kuro not not since japanese filmmaker akira
+206,0,4.0,guided,1,0,1,4.464234828948975,27.8794,0.0085,not since japanese filmmaker akira kuro  hasnot since japanese filmmaker akira kuroi (not since japanese filmmaker
+206,1,4.0,unguided,1,1,1,2.542752504348755,,,not since japanese filmmaker akira kuro -not since japanese filmmaker akira kuro not not since japanese filmmaker akira
+206,1,4.0,guided,1,1,1,2.542752504348755,13.4202,0.2382,not since japanese filmmaker akira kuro -not since japanese filmmaker akira kuro not not since japanese filmmaker akira
+215,1,-1,realtext,1,1,1,,,,it's a work by an artist so in control of both his medium and his message that he can improvise like a jazzman.
+215,0,2.0,unguided,1,0,1,6.837568759918213,,,it's a work by an artist so in fact it's easy to switch some artist going from artist to and it's easy from artist to art
+215,0,2.0,guided,1,0,0,5.675914287567139,24.6649,0.0362,it's a work by an artist so in this case it’s by. so it�'s a work by an artist so in
+215,1,2.0,unguided,1,1,1,6.837568759918213,,,it's a work by an artist so in fact it's easy to switch some artist going from artist to and it's easy from artist to art
+215,1,2.0,guided,1,1,1,5.014991283416748,20.8165,0.0129,it's a work by an artist so in theory it's nice to learn from an artist it’s a work by an artist so in
+215,0,4.0,unguided,1,0,1,6.837568759918213,,,it's a work by an artist so in fact it's easy to switch some artist going from artist to and it's easy from artist to art
+215,0,4.0,guided,1,0,0,7.440791606903076,31.9651,0.0,"it's a work by an artist so in the case it of a 'it' is an by by a artists is "" a'this work"
+215,1,4.0,unguided,1,1,1,6.837568759918213,,,it's a work by an artist so in fact it's easy to switch some artist going from artist to and it's easy from artist to art
+215,1,4.0,guided,1,1,1,4.1340012550354,24.8389,0.0168,it's a work by an artist so in my case I want to talk art about art. It's a work by an artist so art
+224,0,-1,realtext,0,1,0,,,,attempts by this ensemble film to impart a message are so heavy-handed that they instead pummel the audience.
+224,0,2.0,unguided,0,1,1,3.2223994731903076,,,attempts by this ensemble film to impart a motion of reattempts by this ensemble film to impart a motion of reattempts by
+224,0,2.0,guided,0,1,0,9.18915843963623,31.938,0.0,"attempts by this ensemble film to impart a reality or, this is, alas, that for the first time this att� the of "
+224,1,2.0,unguided,0,0,1,3.2223994731903076,,,attempts by this ensemble film to impart a motion of reattempts by this ensemble film to impart a motion of reattempts by
+224,1,2.0,guided,0,0,1,2.0111520290374756,12.5327,0.3311,attempts by this ensemble film to impart a sense of itattempts by this ensemble film to impart a sense of itattempts by
+224,0,4.0,unguided,0,1,1,3.2223994731903076,,,attempts by this ensemble film to impart a motion of reattempts by this ensemble film to impart a motion of reattempts by
+224,0,4.0,guided,0,1,0,12.190068244934082,31.9992,0.0,"attempts by this ensemble film to impart a kind or not a not,""� a� by the� this s� the of "
+224,1,4.0,unguided,0,0,1,3.2223994731903076,,,attempts by this ensemble film to impart a motion of reattempts by this ensemble film to impart a motion of reattempts by
+224,1,4.0,guided,1,1,1,5.51127815246582,30.8479,0.021,"attempts by this ensemble film to impart a sense of uniqueness into an area that is known for having a sense of openness, security, identity,"
+233,0,-1,realtext,0,1,0,,,,"it can't decide if it wants to be a mystery/thriller, a romance or a comedy."
+233,0,2.0,unguided,0,1,0,6.828195095062256,,,"it can't decide if it wants to be. We had one operatic, so let's only have one. Let's have only oneatic"
+233,0,2.0,guided,0,1,0,5.143787860870361,22.7857,0.0593,"it can't decide if it wants to be one instead of one or none, so let's have just one. Let's have just one."
+233,1,2.0,unguided,0,0,0,6.828195095062256,,,"it can't decide if it wants to be. We had one operatic, so let's only have one. Let's have only oneatic"
+233,1,2.0,guided,0,0,0,7.107998847961426,31.0327,0.0084,it can't decide if it wants to be anyone's. of a while that does decide if it wants to be a's best. that decides
+233,0,4.0,unguided,0,1,0,6.828195095062256,,,"it can't decide if it wants to be. We had one operatic, so let's only have one. Let's have only oneatic"
+233,0,4.0,guided,0,1,0,4.824793338775635,31.7348,0.0016,"it can't decide if it wants to be a person Rather, a person like me decide if it wants to be a person then after that decides"
+233,1,4.0,unguided,0,0,0,6.828195095062256,,,"it can't decide if it wants to be. We had one operatic, so let's only have one. Let's have only oneatic"
+233,1,4.0,guided,0,0,0,7.589062690734863,31.9962,0.0,"it can't decide if it wants to be a and or it. It will). ca.it in a a c n.t,"
+242,1,-1,realtext,1,1,1,,,,"for this reason and this reason only -- the power of its own steadfast, hoity-toity convictions -- chelsea walls deserves a medal."
+242,0,2.0,unguided,1,0,0,7.517121315002441,,,"for this reason and this reason only -- the power to create order (R) and promote informality at once. In Constructed, we sort of"
+242,0,2.0,guided,1,0,1,2.230764150619507,23.2542,0.1037,for this reason and this reason only -- the power is that the power is that the power is that the power is that the power is that the power
+242,1,2.0,unguided,1,1,0,7.517121315002441,,,"for this reason and this reason only -- the power to create order (R) and promote informality at once. In Constructed, we sort of"
+242,1,2.0,guided,1,1,0,7.2315568923950195,31.6033,0.0,"for this reason and this reason only -- the power that is of of powers that are going into, is in and is in, to be to all"
+242,0,4.0,unguided,1,0,0,7.517121315002441,,,"for this reason and this reason only -- the power to create order (R) and promote informality at once. In Constructed, we sort of"
+242,0,4.0,guided,1,0,1,3.6474454402923584,26.3928,0.0034,for this reason and this reason only -- the power -- the power -- is all in the power -- the power -- the power -- the power -- all
+242,1,4.0,unguided,1,1,0,7.517121315002441,,,"for this reason and this reason only -- the power to create order (R) and promote informality at once. In Constructed, we sort of"
+242,1,4.0,guided,0,0,1,8.903647422790527,31.6604,0.0,for this reason and this reason only -- the power that power power to power all power all power it one power and power power its to power to all
+251,1,-1,realtext,1,1,1,,,,"at its best, queen is campy fun like the vincent price horror classics of the '60s."
+251,0,2.0,unguided,1,0,1,6.368985652923584,,,"at its best, queen is campy fun like th.7, king is a physical energy like th.7, the caretaker is stricken and"
+251,0,2.0,guided,1,0,0,2.7208011150360107,29.0786,0.018,"at its best, queen is campy fun like queen at her best, queen is campy fun like queen at her best, queen is not camp"
+251,1,2.0,unguided,1,1,1,6.368985652923584,,,"at its best, queen is campy fun like th.7, king is a physical energy like th.7, the caretaker is stricken and"
+251,1,2.0,guided,1,1,1,5.448155879974365,30.283,0.0,"at its best, queen is campy fun like her pal and friend, just a little different people can be fun like her. queen: thank you"
+251,0,4.0,unguided,1,0,1,6.368985652923584,,,"at its best, queen is campy fun like th.7, king is a physical energy like th.7, the caretaker is stricken and"
+251,0,4.0,guided,1,0,0,9.04538631439209,31.9504,0.0,"at its best, queen is campy fun like the couple of queen and  with are camp queen fun and a ton of queen,, isy"
+251,1,4.0,unguided,1,1,1,6.368985652923584,,,"at its best, queen is campy fun like th.7, king is a physical energy like th.7, the caretaker is stricken and"
+251,1,4.0,guided,1,1,1,5.061899185180664,27.12,0.0223,"at its best, queen is campy fun like her and at the same time, campy people can be fun like her. queen: thank you"
+260,1,-1,realtext,1,1,1,,,,travels a fascinating arc from hope and euphoria to reality and disillusionment.
+260,0,2.0,unguided,1,0,1,6.024476051330566,,,travels a fascinating arc from hope and euphoria.  AsuccessfulPreviously  Asuccessful  Initially  sorry  Many 
+260,0,2.0,guided,1,0,1,9.959063529968262,31.3833,0.0,"travels a fascinating arc from hope and euphoria and of�’ . a,, �, a a a “,. a"
+260,1,2.0,unguided,1,1,1,6.024476051330566,,,travels a fascinating arc from hope and euphoria.  AsuccessfulPreviously  Asuccessful  Initially  sorry  Many 
+260,1,2.0,guided,1,1,1,4.53214168548584,29.0204,0.0023,"travels a fascinating arc from hope and euphoria.  Ooh, that is a good thing, what do you say to you? "
+260,0,4.0,unguided,1,0,1,6.024476051330566,,,travels a fascinating arc from hope and euphoria.  AsuccessfulPreviously  Asuccessful  Initially  sorry  Many 
+260,0,4.0,guided,1,0,1,10.061097145080566,31.3591,0.0,"travels a fascinating arc from hope and euphoria and’’ , a,, �, a a a to�, a a"
+260,1,4.0,unguided,1,1,1,6.024476051330566,,,travels a fascinating arc from hope and euphoria.  AsuccessfulPreviously  Asuccessful  Initially  sorry  Many 
+260,1,4.0,guided,1,1,1,5.408694744110107,29.5455,0.0235,"travels a fascinating arc from hope and euphoria  When we’re blessed with the grace of God, we know that we’"
+269,1,-1,realtext,1,1,0,,,,the second coming of harry potter is a film far superior to its predecessor.
+269,0,2.0,unguided,1,0,0,7.223620891571045,,,the second coming of harry potter is a form of exercise that takes aim at ones lack of physical fit and powerfully injects emotional and spiritual cues
+269,0,2.0,guided,0,1,0,3.6374123096466064,21.8373,0.0984,the second coming of harry potter is a little less a year older than the first coming of harry potter is a little more a year
+269,1,2.0,unguided,1,1,0,7.223620891571045,,,the second coming of harry potter is a form of exercise that takes aim at ones lack of physical fit and powerfully injects emotional and spiritual cues
+269,1,2.0,guided,0,0,0,4.365720272064209,23.6515,0.1015,the second coming of harry potter is a matter for hrythe second coming of harry potter is a matter for harry  of
+269,0,4.0,unguided,1,0,0,7.223620891571045,,,the second coming of harry potter is a form of exercise that takes aim at ones lack of physical fit and powerfully injects emotional and spiritual cues
+269,0,4.0,guided,0,1,0,3.275892734527588,22.7998,0.083,the second coming of harry potter is a little more interesting thanthe first coming of harry potter is a little less interesting than the first
+269,1,4.0,unguided,1,1,0,7.223620891571045,,,the second coming of harry potter is a form of exercise that takes aim at ones lack of physical fit and powerfully injects emotional and spiritual cues
+269,1,4.0,guided,1,1,0,6.540159702301025,23.1113,0.0761,the second coming of harry potter is a force for celebration ofthe first coming of harry potter is a recipe of the second coming of
+278,1,-1,realtext,1,1,1,,,,"you 'll gasp appalled and laugh outraged and possibly, watching the spectacle of a promising young lad treading desperately in a nasty sea, shed an errant tear."
+278,0,2.0,unguided,1,0,1,9.60340404510498,,,"you 'll gasp appalled and laugh outraged and possibly die in sprinklesles ""The FLINE is topped by a south american yell from lowland"
+278,0,2.0,guided,1,0,0,8.392297744750977,31.9744,0.0,"you 'll gasp appalled and laugh outraged and possibly will and by a you an the or!"" or the ""i""; or  probably would not really"
+278,1,2.0,unguided,1,1,1,9.60340404510498,,,"you 'll gasp appalled and laugh outraged and possibly die in sprinklesles ""The FLINE is topped by a south american yell from lowland"
+278,1,2.0,guided,1,1,1,3.9084250926971436,27.3271,0.027,"you 'll gasp appalled and laugh outraged and possibly outraged. ""s."" "" ""s "" ""s "" ""s."" "" ""s "" """
+278,0,4.0,unguided,1,0,1,9.60340404510498,,,"you 'll gasp appalled and laugh outraged and possibly die in sprinklesles ""The FLINE is topped by a south american yell from lowland"
+278,0,4.0,guided,1,0,0,8.7824125289917,32.0,0.0,you 'll gasp appalled and laugh outraged and possibly a and by a n an an a which  the is' in'not ab ab in-
+278,1,4.0,unguided,1,1,1,9.60340404510498,,,"you 'll gasp appalled and laugh outraged and possibly die in sprinklesles ""The FLINE is topped by a south american yell from lowland"
+278,1,4.0,guided,1,1,1,5.279565334320068,30.8253,0.0128,"you 'll gasp appalled and laugh outraged and possibly outraged,"" he said. ""And that,"" he adds, ""is what you're saying the same"
+287,1,-1,realtext,1,1,1,,,,"a pleasant enough romance with intellectual underpinnings, the kind of movie that entertains even as it turns maddeningly predictable."
+287,0,2.0,unguided,1,0,1,8.04521656036377,,,"a pleasant enough romance with intellectual underpinnings. thyThy, sensitivity and wisdom thyThy, wit and equhearted thy"
+287,0,2.0,guided,0,1,0,7.295103549957275,30.1854,0.0016,a pleasant enough romance with intellectual underpinnings and not not not is not not that intellectual under not not it is not intellectual underpinnings
+287,1,2.0,unguided,1,1,1,8.04521656036377,,,"a pleasant enough romance with intellectual underpinnings. thyThy, sensitivity and wisdom thyThy, wit and equhearted thy"
+287,1,2.0,guided,1,1,1,4.611393928527832,20.3246,0.0759,"a pleasant enough romance with intellectual underpinnings(a)—a pleasant enough romance and intellectual underpinnings—underpinnings,a"
+287,0,4.0,unguided,1,0,1,8.04521656036377,,,"a pleasant enough romance with intellectual underpinnings. thyThy, sensitivity and wisdom thyThy, wit and equhearted thy"
+287,0,4.0,guided,1,0,0,6.6440629959106445,30.264,0.0016,"a pleasant enough romance with intellectual underpinnings and no not not intellectual or not and not not not not it is not underpinnings,"
+287,1,4.0,unguided,1,1,1,8.04521656036377,,,"a pleasant enough romance with intellectual underpinnings. thyThy, sensitivity and wisdom thyThy, wit and equhearted thy"
+287,1,4.0,guided,1,1,1,4.611393928527832,20.3246,0.0759,"a pleasant enough romance with intellectual underpinnings(a)—a pleasant enough romance and intellectual underpinnings—underpinnings,a"
+296,0,-1,realtext,0,1,0,,,,"in an effort, i suspect, not to offend by appearing either too serious or too lighthearted, it offends by just being wishy-washy."
+296,0,2.0,unguided,0,1,0,4.678771495819092,,,"in an effort, i suspect, not to offend or make a lesser effort, i suspect, not to offend in the first place, i suspect,"
+296,0,2.0,guided,0,1,0,5.098865509033203,22.2732,0.0678,"in an effort, i suspect, not to offend others in a manner, i suspect, but to offend others in a manner, i suspect, and"
+296,1,2.0,unguided,0,0,0,4.678771495819092,,,"in an effort, i suspect, not to offend or make a lesser effort, i suspect, not to offend in the first place, i suspect,"
+296,1,2.0,guided,0,0,0,3.5659642219543457,27.6004,0.0276,"in an effort, i suspect, not to offend, in a way, i suspect, not to offend, in the effort, i suspect, not"
+296,0,4.0,unguided,0,1,0,4.678771495819092,,,"in an effort, i suspect, not to offend or make a lesser effort, i suspect, not to offend in the first place, i suspect,"
+296,0,4.0,guided,0,1,0,3.52362060546875,27.7483,0.0154,"in an effort, i suspect, not to offend others, not to intend to offend, not to attempt to offend others, not to attempt to offend"
+296,1,4.0,unguided,0,0,0,4.678771495819092,,,"in an effort, i suspect, not to offend or make a lesser effort, i suspect, not to offend in the first place, i suspect,"
+296,1,4.0,guided,0,0,0,8.427424430847168,31.9874,0.0,"in an effort, i suspect, not to offend all. that who had to express the, of that. people by, in i to that was"
