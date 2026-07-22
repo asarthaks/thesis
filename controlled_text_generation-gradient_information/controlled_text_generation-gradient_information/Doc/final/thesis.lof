@@ -1,0 +1,17 @@
+\babel@toc {english}{}\relax 
+\babel@toc {german}{}\relax 
+\babel@toc {english}{}\relax 
+\contentsline {figure}{\numberline {1}{\ignorespaces Discrete Langevin Sampler trajectories, 50-step schedule.}}{46}{figure.caption.4}%
+\contentsline {figure}{\numberline {2}{\ignorespaces The same sampler over a 100-step schedule.}}{47}{figure.caption.5}%
+\contentsline {figure}{\numberline {3}{\ignorespaces Decomposition of the acceptance ratio in the continuous sampler.}}{49}{figure.caption.6}%
+\contentsline {figure}{\numberline {4}{\ignorespaces Gradient surrogate against the true energy change.}}{56}{figure.caption.9}%
+\contentsline {figure}{\numberline {5}{\ignorespaces Surrogate-to-truth correlation by candidate embedding distance.}}{57}{figure.caption.10}%
+\contentsline {figure}{\numberline {6}{\ignorespaces Gradient norm and energy-only acceptance against downstream context length.}}{70}{figure.caption.16}%
+\contentsline {figure}{\numberline {7}{\ignorespaces Self and future terms of the true energy change.}}{93}{figure.caption.26}%
+\contentsline {figure}{\numberline {8}{\ignorespaces Top-$k$ recall of gradient ranking against a random baseline.}}{93}{figure.caption.27}%
+\contentsline {figure}{\numberline {9}{\ignorespaces Acceptance rate conditioned on boundary crossing.}}{94}{figure.caption.28}%
+\contentsline {figure}{\numberline {10}{\ignorespaces Per-token likelihood against repetition and diversity, GPT-2 Large.}}{94}{figure.caption.29}%
+\contentsline {figure}{\numberline {11}{\ignorespaces Pairwise token-embedding distance distributions.}}{95}{figure.caption.30}%
+\contentsline {figure}{\numberline {12}{\ignorespaces Total log-likelihood against generated length, GPT-2 Large.}}{95}{figure.caption.31}%
+\contentsline {figure}{\numberline {13}{\ignorespaces Full-space distances along one seeded sampling trajectory.}}{101}{figure.caption.34}%
+\contentsline {figure}{\numberline {14}{\ignorespaces PCA projection of the same seeded trace.}}{102}{figure.caption.35}%

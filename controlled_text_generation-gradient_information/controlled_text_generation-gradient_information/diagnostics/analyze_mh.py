@@ -151,7 +151,7 @@ def main():
                 ha="center", fontsize=11, fontweight="bold")
     ax.set_ylabel("Metropolis-Hastings acceptance rate")
     ax.set_ylim(0, max(1.0, max(v for v in vals if not np.isnan(v)) * 1.2))
-    ax.set_title("MH accepts only the proposals that do nothing")
+    ax.set_title("Acceptance rate by whether the proposal crossed a cell boundary")  # Phase 8: was a verdict
     save(fig, args.fig_dir, "fig_mh_accept")
 
     # ---------- Plot 2B ----------
@@ -175,8 +175,8 @@ def main():
         ax.set_xlabel(title)
         ax.set_ylabel("Count")
         ax.legend(frameon=False, fontsize=8.5)
-    fig.suptitle("Decomposing the acceptance ratio: the target term is fine, "
-                 "the proposal term is fatal", y=1.03, fontsize=10.5)
+    fig.suptitle("Metropolis--Hastings acceptance ratio, target and proposal terms, "
+                 "by whether the proposal crossed a Voronoi cell boundary", y=1.03, fontsize=10.5)
     save(fig, args.fig_dir, "fig_mh_decomposition")
 
     # ---------- optional DLS contrast ----------
@@ -187,7 +187,7 @@ def main():
                [d2.accepted.mean(), df.accepted.mean()],
                color=[C_OK, C_BAD], width=0.5)
         ax.set_ylabel("MH acceptance rate")
-        ax.set_title("The same correction, on the same model, in two state spaces")
+        ax.set_title("The same correction in the two state spaces")  # Phase 8: was a verdict
         save(fig, args.fig_dir, "fig_mh_dls_vs_cls")
         print(f"  DLS acceptance rate: {d2.accepted.mean():.4f}")
 

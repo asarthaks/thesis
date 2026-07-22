@@ -11,7 +11,7 @@ This section collects supporting figures referenced in Chapter~\ref{ch:results}.
 \begin{figure}[h]
     \centering
     \includegraphics[width=0.80\textwidth]{figures/fig_lin_decomposition.pdf}
-    \caption{Decomposition of the true energy change into the self term and the future term, plotted against the gradient surrogate, for GPT-2 Large. The surrogate correlates weakly with the future term and is anti-correlated with the self term, to which it is structurally blind. This figure supports the argument of Section~\ref{sec:results-linradius}.}
+    \caption[Self and future terms of the true energy change.]{The true energy change decomposed into its self term and its future term, each plotted against the gradient surrogate, for GPT-2 Large. This figure supports Section~\ref{sec:results-linradius}.}
     \label{fig:lin-decomp}
 \end{figure}
 
@@ -20,7 +20,7 @@ This section collects supporting figures referenced in Chapter~\ref{ch:results}.
 \begin{figure}[h]
     \centering
     \includegraphics[width=0.80\textwidth]{figures/fig_lin_topk.pdf}
-    \caption{Recall of the true top-$k$ token substitutions by the gradient-ranked top-$k$, against a random-ranking baseline, for GPT-2 Large. Gradient ranking does not exceed chance, corroborating the null correlation reported in Section~\ref{sec:results-linradius}.}
+    \caption[Top-$k$ recall of gradient ranking against a random baseline.]{Recall of the true top-$k$ token substitutions by the gradient-ranked top-$k$, against a random-ranking baseline, for GPT-2 Large. This figure supports Section~\ref{sec:results-linradius}.}
     \label{fig:lin-topk}
 \end{figure}
 
@@ -29,8 +29,28 @@ This section collects supporting figures referenced in Chapter~\ref{ch:results}.
 \begin{figure}[h]
     \centering
     \includegraphics[width=0.70\textwidth]{figures/fig_mh_accept.pdf}
-    \caption{Metropolis--Hastings acceptance rate in the continuous sampler, conditioned on whether the proposal crossed a Voronoi cell boundary. Moves that change a token are almost never accepted. This figure supports Section~\ref{sec:results-mh}.}
+    \caption[Acceptance rate conditioned on boundary crossing.]{Metropolis--Hastings acceptance rate in the continuous sampler, conditioned on whether the proposal crossed a Voronoi cell boundary. This figure supports Section~\ref{sec:results-mh}.}
     \label{fig:mh-accept}
+\end{figure}
+
+% SOURCE: figures/fig_trap_scatter.pdf produced by plot_diagnostics.py
+% from results_diag/diag_likelihood_trap_gpt2sft.csv.
+% MOVED HERE from Section 5.7 in Phase 8 (float pruning, supporting diagnostic).
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.92\textwidth]{figures/fig_trap_scatter.pdf}
+    \caption[Per-token likelihood against repetition and diversity, GPT-2 Large.]{Mean per-token log-probability against 4-gram repetition rate and distinct-2 diversity for GPT-2 Large, one point per generation, coloured by decoding strategy. This figure supports Section~\ref{sec:results-trap}.}
+    \label{fig:trap}
+\end{figure}
+
+% SOURCE: figures/fig_aniso_hist.pdf produced by plot_diagnostics.py
+% from results_diag/diag_anisotropy_*_dists.npz.
+% MOVED HERE from Section 5.8 in Phase 8 (float pruning, supporting diagnostic).
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.92\textwidth]{figures/fig_aniso_hist.pdf}
+    \caption[Pairwise token-embedding distance distributions.]{Distributions of pairwise token-embedding distances in GPT-2 Large and Llama-3, plotted on separate scales. This figure supports Section~\ref{sec:results-aniso}.}
+    \label{fig:aniso}
 \end{figure}
 
 % SOURCE: figures/fig_trap_length.pdf produced by plot_diagnostics.py
@@ -38,7 +58,7 @@ This section collects supporting figures referenced in Chapter~\ref{ch:results}.
 \begin{figure}[h]
     \centering
     \includegraphics[width=0.80\textwidth]{figures/fig_trap_length.pdf}
-    \caption{Total log-likelihood against generated length for GPT-2 Large. The negative slope, approximately $-1.12$ nats per token, is the implicit brevity incentive in an unnormalized-likelihood reward, discussed in Section~\ref{sec:results-trap} and Section~\ref{sec:results-gfn}. The slope is estimable only where the forty-token length cap does not bind; for GPT-2 Large nearly all generations reach the cap, so the uncensored estimate shown here is the informative one, while on the length-normalized GFlowNet, where length varies, the censored slope steepens to $-2.36$.}
+    \caption[Total log-likelihood against generated length, GPT-2 Large.]{Total log-likelihood against generated length for GPT-2 Large, with the fitted regression line. This figure supports Section~\ref{sec:results-trap} and Section~\ref{sec:results-gfn}, where the slope and its censoring caveat are discussed.}
     \label{fig:trap-length}
 \end{figure}
 
@@ -56,7 +76,11 @@ The count arises as $145 = 5 \times 29$, five energy functions times twenty-nine
 
 \begin{table}[h]
     \centering
-    \small
+    % PHASE 8 (print): this tabular was 88pt wider than the text block and ran into the
+    % right margin. Column separation tightened and the font stepped down one notch; no
+    % cell content changed.
+    \footnotesize
+    \setlength{\tabcolsep}{4pt}
     \begin{tabular}{lcccc}
         \toprule
         Configuration & GPT-2 Large & GFN lb0-500 & GFN lb0-2000 & GFN lb1-500 \\
@@ -71,7 +95,7 @@ The count arises as $145 = 5 \times 29$, five energy functions times twenty-nine
         CLS policy, no-MH, no-gn, s50  & $8.083$ & $7.799$ & $8.198$ & $13.732$ \\
         \bottomrule
     \end{tabular}
-    \caption[Representative subset of the final-KL configuration grid.]{Representative subset of the final-KL configuration grid, from \texttt{final\_kl\_by\_model.csv}. Note that the DLS policy and grad-norm-preserved random rows are near-identical under both normalization settings, which is the gradient fallacy of Section~\ref{sec:results-fallacy}. Note also that the CLS rows with and without the Metropolis--Hastings correction are identical to three decimals, because under the correction the sampler rejects essentially all proposals and does not move, as established in Section~\ref{sec:results-mh}.}
+    \caption[Representative subset of the final-KL configuration grid.]{Representative subset of the final-KL configuration grid, from \texttt{final\_kl\_by\_model.csv}. Rows are configurations, columns are the four GPT-2-family energy functions.}
     \label{tab:full-grid}
 \end{table}
 
@@ -79,7 +103,7 @@ The count arises as $145 = 5 \times 29$, five energy functions times twenty-nine
 \section{Computational Cost}
 \label{app:cost}
 
-Because one conclusion of the thesis is that gradient-free methods match or beat the gradient-guided samplers on the same energy, it is worth setting out the computational cost of each, which differs by more than a constant factor. Table~\ref{tab:cost} gives the number of network evaluations each method spends to recover a masked span, counted as forward and backward passes, where $S$ denotes the schedule length (either $50$ or $100$), $M$ the number of masked positions, $T$ the number of Gibbs sweeps, and $k$ the number of candidates a rescoring pass considers.
+Because gradient-free methods match or beat the gradient-guided samplers on the same energy, their computational cost is set out here; it differs by more than a constant factor. Table~\ref{tab:cost} gives the number of network evaluations each method spends to recover a masked span, counted as forward and backward passes, where $S$ denotes the schedule length (either $50$ or $100$), $M$ the number of masked positions, $T$ the number of Gibbs sweeps, and $k$ the number of candidates a rescoring pass considers.
 % SOURCE: pass counts from core/base_sampler.get_gradient_and_log_joint (one forward +
 % one backward per gradient evaluation), core/dls.py and core/cls.py (_step calls it once
 % per step, and again at the proposed point when mh_sampling is on), and the baseline
@@ -87,10 +111,14 @@ Because one conclusion of the thesis is that gradient-free methods match or beat
 
 \begin{table}[h]
     \centering
+    % PHASE 8 (print): the free-text Note column was set as an `l' column, so it could not
+    % wrap and the tabular ran 74pt past the right margin. It is now a fixed-width p column.
+    % No cell content changed.
     \small
-    \begin{tabular}{lccl}
+    \setlength{\tabcolsep}{4pt}
+    \begin{tabular}{lccp{3.9cm}}
         \toprule
-        Method & Forward passes & Backward passes & Note \\
+        Method & Forward & Backward & Note \\
         \midrule
         DLS / CLS, no correction  & $S$    & $S$  & one gradient per step \\
         DLS / CLS, with correction & $2S$   & $2S$ & extra gradient at the proposed point \\
@@ -99,7 +127,7 @@ Because one conclusion of the thesis is that gradient-free methods match or beat
         Gibbs                      & $M\,T$ & $0$  & $M$ positions, $T$ sweeps, no gradient \\
         \bottomrule
     \end{tabular}
-    \caption{Network evaluations per recovered span. The gradient-guided samplers spend a backward pass at every step, doubled when the Metropolis--Hastings correction is enabled, whereas the gradient-free baselines spend none. The single-pass rescoring method, which was the strongest baseline of Section~\ref{sec:results-baselines}, costs a small constant number of forward passes and no backward pass at all.}
+    \caption[Network evaluations per recovered span.]{Network evaluations per recovered span, counted as forward and backward network passes. $S$ is the schedule length, $M$ the number of masked positions, $T$ the number of Gibbs sweeps, and $k$ the number of candidates a rescoring pass considers.}
     \label{tab:cost}
 \end{table}
 
@@ -128,7 +156,7 @@ Because \texttt{collect\_traces} advances the random-number state across configu
     \includegraphics[width=0.92\textwidth]{figures/fig_traj_distance.png}
     % SOURCE: figures/fig_traj_distance.png from revision/plot_trajectories.py
     % (traces_gpt2sft_plot_traj.npz + full wte from the gpt2sft checkpoint).
-    \caption{Full-space distances along the sampling trajectory for one seeded trace (index $5$), on a symmetric-log axis. Solid line: $L2$ distance to the ground-truth token embedding; dashed line (continuous sampler only): $L2$ distance to the nearest token of any kind. The discrete sampler sits exactly on the token manifold at every step (nearest-token distance identically zero, so it is not drawn) and moves from token to token; the continuous sampler with the correction on is quenched roughly $120$ to $150$ units off the nearest token and its proposals are rejected at almost every step (red ticks); with the correction off it wanders as far as about $980$ units before collapsing back toward a token. Neither continuous variant lands on the ground truth.}
+    \caption[Full-space distances along one seeded sampling trajectory.]{Full-space distances along the sampling trajectory for one seeded trace, index $5$, on a symmetric-log axis, one panel per configuration. Solid line: $L2$ distance to the ground-truth token embedding. Dashed line, continuous sampler only: $L2$ distance to the nearest token of any kind. Red ticks mark rejected proposals. The discrete sampler's nearest-token distance is identically zero and is therefore not drawn.}
     \label{fig:traj-distance}
 \end{figure}
 
@@ -146,16 +174,151 @@ Read for what it can show, it agrees with the distances: the discrete trajectori
     \centering
     \includegraphics[width=0.88\textwidth]{figures/fig_traj_pca.png}
     % SOURCE: figures/fig_traj_pca.png from revision/plot_trajectories.py.
-    \caption{PCA projection of the same seeded trace, one panel per configuration, with the vocabulary embeddings as a grey cloud, the start state as an open circle, the end as a filled dot, and the ground-truth token as a star. This projection is illustration only: its two components capture $3.3\%$ of the embedding variance, and the full-space distances of Figure~\ref{fig:traj-distance} are the evidence. The discrete trajectories stay inside the cone; the continuous trajectories, especially with the correction off, leave it entirely.}
+    \caption[PCA projection of the same seeded trace.]{PCA projection of the same seeded trace, one panel per configuration. Grey cloud: the vocabulary embeddings. Open circle: the start state. Filled dot: the end state. Star: the ground-truth token. The two components capture $3.3\%$ of the embedding variance, so this projection is illustration only and the full-space distances of Figure~\ref{fig:traj-distance} carry the argument.}
     \label{fig:traj-pca}
 \end{figure}
 
 Read together, the two figures make the central geometric claim visible: the samplers either fail to move in any directed way, the discrete sampler and the free continuous sampler both wandering without bending toward the ground-truth token, or fail to move at all, the corrected continuous sampler frozen far off the manifold, and in neither case does the path converge on the target, which is the spatial signature of a gradient that carries no directional signal.
 
 \clearpage
-\section{Guided-Generation Examples}
+\section{Classifier-Guided Steering: Full Results}
+\label{app:guided}
+
+This section holds the detail of the exploratory guidance study summarized in
+Section~\ref{sec:results-diffusion-guided}: the off-domain run, the guide-judge agreement
+ladder, and the per-class confusion analysis.
+
+\subsection{Off-Domain Guidance Without a Trust Region}
+\label{app:guided-offdomain}
+
+The first setting uses prompts from a MuCoLa-style continuation set that neither the guiding
+classifier nor the judge was trained on, and imposes no fluency constraint.
+Table~\ref{tab:diffusion-guided} reports it. The guidance mechanism works on the instrument
+it optimizes: it moves the guiding classifier's own verdict toward the target at every
+strength and for both labels, by seven to eighteen points. Measured by the independent judge
+it steers monotonically in the negative direction, from a six-point gain at $\gamma=1$ to a
+$16.7$-point gain at $\gamma=4$ whose confidence interval excludes zero, and it does not move
+the judge in the positive direction. The guiding classifier and the judge agree on only
+fifty-six to sixty-four percent of these generated texts, and stronger guidance drives the
+text further off the fluent manifold, with the per-token negative log-likelihood under the
+autoregressive model rising from $7.1$ to $11.0$ as $\gamma$ grows.
+% SOURCE: rev_sedd_guided_g{1,2,4}.json by_label.*.
+Guiding hard toward one classifier's notion of a label therefore need not raise the other's,
+which is the same off-manifold breakdown that Section~\ref{sec:results-constrained} observed
+for the constraint-only arm.
+
+\begin{table}[h]
+    \centering
+    \small
+    \begin{tabular}{lccccc}
+        \toprule
+        & \multicolumn{2}{c}{Judge target-hit (\%)} & Judge gain & Self gain & NLL/token \\
+        \cmidrule(lr){2-3}
+        $\gamma$, target & unguided & guided & (pts, [CI]) & (pts) & (un$\to$guided) \\
+        \midrule
+        $1$, negative & 49 & 55 & $+6.0\ [-1.3,13.3]$ & $+9.7$ & $7.1\to8.5$ \\
+        $1$, positive & 44 & 39 & $-5.3\ [-12.3,1.7]$ & $+11.0$ & $7.2\to8.5$ \\
+        $2$, negative & 49 & 60 & $+10.7\ [3.3,18.0]$ & $+7.7$ & $7.1\to9.7$ \\
+        $2$, positive & 44 & 44 & $+0.0\ [-7.0,7.0]$ & $+12.0$ & $7.2\to9.6$ \\
+        $4$, negative & 49 & 66 & $+16.7\ [9.7,24.0]$ & $+7.3$ & $7.1\to11.0$ \\
+        $4$, positive & 44 & 39 & $-5.3\ [-13.0,2.7]$ & $+18.3$ & $7.2\to11.0$ \\
+        \bottomrule
+    \end{tabular}
+    % SOURCE: rev_sedd_guided_g{1,2,4}.json by_label.{0,1}: unguided_hit_pct, guided_hit_pct,
+    % gain_pts + gain_ci95, self_gain_pts, unguided_span_nll -> guided_span_nll.
+    \caption[Off-domain classifier-guided diffusion generation.]{Classifier-guided diffusion generation on the off-domain continuation task, scored by the independent frozen-model judge and never by the guiding classifier. Judge gain is the guided minus unguided target-hit percentage with a paired bootstrap $95\%$ confidence interval; self gain is the guiding classifier's own verdict; the last column is the span negative log-likelihood before and after guidance.}
+    \label{tab:diffusion-guided}
+\end{table}
+
+\subsection{The Guide-Judge Agreement Ladder}
+\label{app:guided-ladder}
+
+The off-domain result leaves two explanations entangled. The guidance might steer only in one
+fixed direction, or the two independently trained classifiers might disagree on off-domain
+text they were never calibrated for, with stronger guidance driving the text further off the
+fluent manifold where the disagreement is worst. The continuation run varies domain and
+fluency together and so cannot separate them. The on-domain control of
+Section~\ref{sec:results-diffusion-guided} holds fluency fixed and moves the instruments
+on-domain. Its prompts are the first three hundred held-out SST-2 validation sentences of at
+least twelve tokens; neither the guiding classifier nor the judge trained on this split,
+both having only read it under \texttt{no\_grad} for an accuracy readout, so the split is
+calibration-clean by construction. The trust region caps guidance to candidates within
+$\delta=5$ nats of the diffusion model's top choice at each commitment, so a committed token
+is always within $\delta$ nats of the model's own preference and guidance can only reshuffle
+mass among near-equally-fluent options. Unguided and guided generations share a seed per
+prompt, so each pair differs only by the intervention.
+
+The agreement between the guiding classifier and the judge climbs a clean ladder as the text
+they score moves on-domain: from the off-domain band of $56$ to $64\%$, to $71.7\%$
+(95\% CI $[66.7, 76.7]$) on the unguided on-domain generations, to $79.7\%$
+($[75.0, 84.0]$) on the real held-out sentences themselves, where the judge and the guide
+reach $88\%$ and $79.7\%$ accuracy against the gold labels.
+% SOURCE: results_revision/rev_gprime.json diagnosis_unguided_gen_agreement_pct 71.667 [66.667,76.667]; realtext_agreement_pct 79.667 [75,84]; realtext_judge_acc_pct 88.0; realtext_clf_acc_pct 79.667; phase4_offdomain_agreement_band_pct [56,64].
+The two classifiers are therefore not miscalibrated in a fixed way; they agree more the closer
+the scored text sits to the distribution they were trained on, which is what the off-domain
+diagnosis predicted.
+
+The working direction flips between the two settings: off-domain the judge moved on the
+negative target and not the positive, on-domain the reverse, with fluency no longer a
+confound. That flip is what identifies the residual limit. It is not a fluency artifact,
+because the trust region removed the fluency cost and the asymmetry remained, and it is not a
+fixed unreachable sentiment, because the reachable direction moved when the setting changed.
+What remains is an instrument-alignment effect: the two independently trained classifiers
+still disagree on about $28\%$ of the on-domain generations, and steering toward one
+classifier's notion of a label registers on the other only where the two align on the
+generated text.
+
+\subsection{Per-Class Confusion on the Neutral Calibration Surface}
+\label{app:guided-confusion}
+
+One explanation of the flip is that the residual disagreement falls asymmetrically by class,
+so that the guide's positive verdict transfers to the judge more reliably than its negative
+verdict. Table~\ref{tab:confusion} tests that supposition on the unguided on-domain
+generations, which are neutral with respect to the intervention, and does not support it. The
+per-class accuracies rule out a silent label-map flip: the guide is $79.4\%$ accurate on
+negative and $79.9\%$ on positive held-out sentences, the judge $85.8\%$ and $89.9\%$, both
+balanced.
+% SOURCE: results_revision/rev_confusion.json label_alignment_sanity.
+On the unguided generations the judge confirms the guide's positive verdict $67.9\%$ of the
+time and its negative verdict $75.7\%$, a paired difference of $-7.7$ points whose $95\%$
+confidence interval $[-18.0, +2.6]$ includes zero and leans, if at all, the other way.
+% SOURCE: results_revision/rev_confusion.json confusion_unguided_ondomain: P_judge_pos_given_guide_pos 67.95 [60.4,75.3], P_judge_neg_given_guide_neg 75.69 [68.5,82.4], conditional_diff -7.75 [-18.0,2.6].
+The two conditional agreement rates are statistically indistinguishable. The confusion table
+therefore confirms the overall alignment gap that the ladder measures, and does not identify a
+by-class asymmetry that would explain the transfer direction. The transfer asymmetry is
+reported as observed and setting-contingent, and no class-level mechanism is claimed beyond
+the alignment gap.
+
+\input{chapters/tab_confusion}
+
+% MOVED HERE (Phase 8, evaluation section 5 item 9: "Sections 5.13.4 and 5.13.5 are
+% interesting, but they begin to resemble a second thesis [...] The cleanest positive control
+% needs only show: diffusion produces a meaningful local score; it improves token recovery;
+% substituting its proposal signal into the existing chain improves recovery. Those are
+% Sections 5.13.1 to 5.13.3 [...] Sections 5.13.4 and 5.13.5 could be shortened substantially,
+% moved to an appendix, or presented as exploratory follow-up work. This is probably the single
+% largest opportunity to improve focus."). All three are applied: the main text keeps a
+% one-page subsection explicitly labelled exploratory and carrying the single on-domain
+% trust-region table, and the off-domain table, the agreement ladder and the confusion analysis
+% move here. No number is changed and none is dropped.
+
+\clearpage
+\section{Qualitative Examples}
 \label{app:gprime-examples}
-The following pairs make the classifier-guided steering of Section~\ref{sec:results-diffusion-gprime} visible in text. The on-domain draws are seeded and unfiltered (\texttt{np.random.default\_rng(0)}, three pairs per cell), so dull or crude draws are kept; the statistics are in Table~\ref{tab:gprime} and Table~\ref{tab:confusion}, and these are illustration. For each pair, \emph{g} is the guiding classifier's verdict and \emph{j} the independent judge's, so a pair where they disagree shows the partial instrument alignment directly rather than a failure. The second block places the highest-fluency-cost pairs from the off-domain run beside them, where guidance without a trust region collapses into word salad at a negative log-likelihood near $16$; the on-domain trust-region pairs stay bounded. Garbled bytes the diffusion model emits are shown as \texttt{[?]}.
+\label{app:showcase}
+
+All qualitative material in this thesis is collected here under one selection policy, so that no example shown anywhere was chosen for how well it made a point. Every draw below is seeded with \texttt{np.random.default\_rng(0)} and unfiltered: dull, crude and failing draws are kept, and the only subsequent pruning is deterministic, a fixed positional subset stated at each table and reversible from the source of this document. No number in this thesis is taken from these tables; the statistics are in Table~\ref{tab:baselines}, Table~\ref{tab:diffusion-recovery}, Table~\ref{tab:gprime} and Table~\ref{tab:confusion}. Garbled bytes that the diffusion model emits are shown as \texttt{[?]}.
+
+% CONSOLIDATED (Phase 8, evaluation section 6: "The appendices contain several overlapping
+% qualitative sections: guided-generation examples, qualitative recovery and steering showcase,
+% infill recovery showcase, trust-region before/after, ten seeded sequences. These should be
+% consolidated. A smaller representative set with an explicit selection policy is better than
+% many showcases."). They are now one section with one stated policy. Both former labels,
+% app:gprime-examples and app:showcase, are kept so existing \ref calls resolve.
+
+\subsection{Classifier-Guided Generations}
+\label{app:examples-guided}
+The pairs below make the guided steering of Section~\ref{sec:results-diffusion-guided} visible in text. Table~\ref{tab:gprime-examples} gives the on-domain, trust-region generations, two pairs per cell. Table~\ref{tab:gprime-trustregion} gives the highest-fluency-cost pairs from the off-domain run, which used no trust region and where guidance collapses into word salad; the on-domain pairs stay bounded. For each pair \emph{g} is the guiding classifier's verdict and \emph{j} the independent judge's, so a pair where they disagree shows the partial instrument alignment directly.
 \input{chapters/gprime_examples}
 
 \clearpage

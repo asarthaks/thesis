@@ -1,13 +1,13 @@
 \chapter{Introduction}
 \label{ch:introduction}
 
-Text generation with large language models has, in the space of a few years, moved from a research curiosity to a technology that underpins a wide range of applications, from writing assistants and conversational agents to summarization, translation, and code synthesis. The dominant paradigm behind these systems is \textbf{autoregressive generation}: a model factorizes the probability of a sequence into a product of next-token conditionals and produces text one token at a time, from left to right, sampling or maximizing each token given the tokens already committed \citep{radford2019language, brown2020language}. This factorization is what makes modern language models trainable at scale and fast at inference, and it is the reason they work as well as they do. It is also, as this thesis will argue at length, the reason a particular and popular approach to controlling them does not.
+Text generation with large language models has, in the space of a few years, moved from a research curiosity to a technology that underpins a wide range of applications, from writing assistants and conversational agents to summarization, translation, and code synthesis. The dominant paradigm behind these systems is \textbf{autoregressive generation}: a model factorizes the probability of a sequence into a product of next-token conditionals and produces text one token at a time, from left to right, sampling or maximizing each token given the tokens already committed \citep{radford2019language, brown2020language}. This factorization is what makes modern language models trainable at scale and fast at inference, and it is the reason they work as well as they do. It is also, as this thesis argues, the reason one popular approach to controlling them does not.
 
 The same factorization that makes autoregressive models practical is the source of a persistent and practically important limitation. Because generation proceeds strictly from left to right, and because each token is fixed the moment it is emitted, an autoregressive model has no mechanism for revising an earlier decision in light of a later one. If the model, having committed to the first half of a sentence, discovers as it generates the second half that the sentence has become logically inconsistent or has drifted into a tone the user did not want, it cannot go back. Its only recourse is to continue, or to discard the entire generation and start again. This is not a problem when the objective is simply to produce fluent continuations, which is what these models are trained to do. It becomes a problem the moment we want to \emph{control} what the model produces.
 
-The reason control is hard has a precise structure, and it is worth stating carefully because it motivates everything that follows. Many of the properties we care about most, such as the overall sentiment of a passage, its topical focus, its adherence to a factual constraint, or the absence of toxic content, are \textbf{global properties} of a completed sequence rather than local properties of any single token. Whether a paragraph is positive in sentiment cannot be read off its first word; it is a property of the whole. A greedy, left-to-right decision about the next token cannot see such a property, for the simple reason that the object which would be evaluated against it, the finished text, does not yet exist at the moment the decision is made. Enforcing a global constraint autoregressively therefore requires something like generating many complete sequences and keeping the ones that happen to satisfy the constraint, which is wasteful when the constraint is easy to satisfy and effectively impossible when it is not. The problem of steering a language model toward such global objectives, while keeping its output fluent, is the problem of \textbf{controllable text generation}, and it is the subject of this thesis.
+The reason control is hard has a precise structure. Many of the properties we care about most, such as the overall sentiment of a passage, its topical focus, its adherence to a factual constraint, or the absence of toxic content, are \textbf{global properties} of a completed sequence rather than local properties of any single token. Whether a paragraph is positive in sentiment cannot be read off its first word; it is a property of the whole. A greedy, left-to-right decision about the next token cannot see such a property, for the simple reason that the object which would be evaluated against it, the finished text, does not yet exist at the moment the decision is made. Enforcing a global constraint autoregressively therefore requires something like generating many complete sequences and keeping the ones that happen to satisfy the constraint, which is wasteful when the constraint is easy to satisfy and effectively impossible when it is not. The problem of steering a language model toward such global objectives, while keeping its output fluent, is the problem of \textbf{controllable text generation}, and it is the subject of this thesis.
 
-\section{Two Established Routes to Control, and Their Costs}
+\section{Established Routes to Control and Their Costs}
 \label{sec:intro-routes}
 
 There are, broadly, two established ways of imposing control on a language model, and each carries a cost that motivates the search for a third.
@@ -35,19 +35,53 @@ The attraction of this view for controllable generation is that the energy can b
 \end{equation}
 where the first term is the negative log-likelihood of a frozen, pretrained language model and supplies \emph{fluency}, pulling samples toward text the model considers natural, and the second term $C(\bm{x})$ is an arbitrary differentiable \emph{constraint}, weighted by a coefficient $\lambda$ that trades off fluency against constraint satisfaction. Because the constraint is simply added on, it can be specified at the moment of generation and swapped freely. A practitioner who wants positive sentiment today writes $C$ as the negative log-probability of the positive class under a sentiment classifier; one who wants factual consistency tomorrow writes a different $C$; and in both cases the language model is untouched. This is the promise of plug-and-play, inference-time controllable generation, and it is an appealing one. A substantial and growing body of recent work pursues it, through gradient-guided decoders such as PPLM \citep{dathathri2020plug}, FUDGE \citep{yang2021fudge}, and GeDi \citep{krause2021gedi}, and, most directly related to this thesis, through sampling-based methods such as COLD \citep{qin2022cold} and MuCoLa \citep{kumar2022gradient}, which draw samples from the energy in \eqref{eq:intro-energy} using continuous relaxations and dynamics derived from Langevin sampling.
 
-Every method in this family rests on a single assumption, and because that assumption is the pivot of the entire thesis it is worth isolating with care. To sample from the energy in \eqref{eq:intro-energy} using a gradient-guided method, two things must be true. First, one must be able to compute a gradient of $-\log p_{\text{LM}}(\bm{x})$ that points, at least on average, in the direction of better sequences. Second, one must be able to \emph{follow} that gradient across the space of possible texts, moving from a worse sequence to a better one by steps the gradient recommends. Taken together, these amount to the presupposition that the frozen likelihood of an autoregressive language model, viewed as a function over whole sequences, defines a \emph{landscape that a sampler can actually navigate}: a surface with meaningful slopes, whose downhill direction can be computed locally and trusted to lead somewhere good. This presupposition is intuitive. It is also, remarkably, almost never tested directly in the literature that relies on it. Testing it, and explaining what is found, is the central business of this thesis, and the central finding is that for standard autoregressive language models on discrete text, the presupposition does not hold.
+Every method in this family rests on one assumption, which is worth isolating. To sample from the energy in \eqref{eq:intro-energy} using a gradient-guided method, two things must be true. First, one must be able to compute a gradient of $-\log p_{\text{LM}}(\bm{x})$ that points, at least on average, in the direction of better sequences. Second, one must be able to \emph{follow} that gradient across the space of possible texts, moving from a worse sequence to a better one by steps the gradient recommends. Taken together, these amount to the presupposition that the frozen likelihood of an autoregressive language model, viewed as a function over whole sequences, defines a \emph{landscape that a sampler can actually navigate}: a surface with meaningful slopes, whose downhill direction can be computed locally and trusted to lead somewhere good. This presupposition is intuitive, and it is almost never tested directly in the literature that relies on it. Testing it, and explaining what is found, is the subject of this thesis. In the tested token-substitution settings, the input-embedding gradient of frozen autoregressive sequence likelihood provided no reliable proposal advantage over a norm-matched random direction.
+% SCOPING (Phase 8, evaluation section 8 formulation 1): the earlier sentence asserted the
+% presupposition "does not hold" for "standard autoregressive language models on discrete
+% text", which is universal. Replaced by the evaluation's scoped formulation, used verbatim
+% and identically in the abstract, Section 5.5, Section 6.1, Section 6.2 and Chapter 7.
+% Also removed the phrase "the central business of this thesis" (evaluation section 1).
 
 \section{From Sampling to Amortization}
 \label{sec:intro-amortize}
 
 The natural response to a gradient that will not cooperate is to stop using the gradient. There is a version of the energy-based idea that does not differentiate the energy at all. If a per-sequence energy can still be \emph{evaluated}, that is, if one can take a finished sequence and compute its score, even when one cannot usefully \emph{differentiate} that score to decide how to improve a sequence, then one can treat the language model as a black box that ranks finished sequences and learn a separate policy that generates in proportion to that ranking. This is the idea of \textbf{amortized inference}: rather than paying the cost of a search procedure afresh for every sample, one pays a one-time training cost to learn a generator that produces good samples directly.
 
-The most principled recent realization of this idea for sequence generation is the \textbf{Generative Flow Network}, or GFlowNet \citep{bengio2021flow, bengio2023gflownet}, which trains a generative policy so that the probability of producing a complete sequence is proportional to its reward. Applied to language models, GFlowNets have been proposed as a way to sample diverse, high-reward text without the mode-collapse that afflicts reward-maximizing reinforcement learning \citep{hu2024amortizing}. The second half of this thesis asks a specific and critical question about this approach: does amortizing the search, and thereby never touching the gradient, escape the difficulties that defeat the gradient-guided samplers? The answer, established in Chapter~\ref{ch:results}, is that it does not, and the reason it does not is illuminating, because it shows that the difficulty was never in the search procedure at all but in the energy that both the sampler and the amortized policy inherit from the frozen model.
-
-\section{The Shape of the Investigation}
-\label{sec:intro-shape}
-
-It will help the reader to know in advance that this thesis is structured as an investigation rather than as the presentation of a working method, and that this structure is a consequence of what the experiments found rather than a stylistic choice. The work began with the goal of building controllable generation on faithful Langevin dynamics, and it proceeded by first establishing whether the foundation, energy-guided sampling on a frozen model, was sound. It was not. Rather than build control on a foundation shown to be unsound, which would have produced numbers without interpretable meaning, the work turned to the more valuable question of \emph{why} the foundation fails, and it pursued that question until it had an answer supported by direct measurement and reached by two independent routes. The narrative of the results chapter follows this investigative path: each experiment is motivated by a question left open by the one before it, each states what outcome was expected, and each ends by naming the new question its result raises. This is, we will argue, the honest way to present a diagnostic result, because the reasoning chain is itself the contribution.
+The most principled recent realization of this idea for sequence generation is the \textbf{Generative Flow Network}, or GFlowNet \citep{bengio2021flow, bengio2023gflownet}, which trains a generative policy so that the probability of producing a complete sequence is proportional to its reward. Applied to language models, GFlowNets have been proposed as a way to sample diverse, high-reward text without the mode-collapse that afflicts reward-maximizing reinforcement learning \citep{hu2024amortizing}. The second half of this thesis asks a specific question about this approach: does amortizing the search, and thereby never touching the gradient, escape the difficulties that defeat the gradient-guided samplers? The answer, established in Chapter~\ref{ch:results}, is that it does not. Because the initial sampling experiments failed, the study developed into a diagnostic investigation of the underlying mechanisms.
+% REMOVED (Phase 8, evaluation section 5 item 2: Section 1.4 "The Shape of the Investigation"
+% "can be removed almost entirely [...] The current section explains and defends the
+% rhetorical structure instead of advancing the scientific argument."). Replaced by the single
+% sentence the evaluation proposes, placed at the end of Section 1.3. The removed section is
+% preserved here in full:
+%
+% \section{The Shape of the Investigation}
+% \label{sec:intro-shape}
+%
+% It will help the reader to know in advance that this thesis is structured as an investigation
+% rather than as the presentation of a working method, and that this structure is a consequence
+% of what the experiments found rather than a stylistic choice. The work began with the goal of
+% building controllable generation on faithful Langevin dynamics, and it proceeded by first
+% establishing whether the foundation, energy-guided sampling on a frozen model, was sound. It
+% was not. Rather than build control on a foundation shown to be unsound, which would have
+% produced numbers without interpretable meaning, the work turned to the more valuable question
+% of why the foundation fails, and it pursued that question until it had an answer supported by
+% direct measurement and reached by two independent routes. The narrative of the results chapter
+% follows this investigative path: each experiment is motivated by a question left open by the
+% one before it, each states what outcome was expected, and each ends by naming the new question
+% its result raises. This is, we will argue, the honest way to present a diagnostic result,
+% because the reasoning chain is itself the contribution.
+%
+% Also removed from the paragraph above (evaluation section 2.B: "Section 1.3 says that
+% GFlowNet fails because the difficulty was never in the search procedure at all but in the
+% energy. That is already a discussion-level causal conclusion."): the clause
+% "and the reason it does not is illuminating, because it shows that the difficulty was never
+% in the search procedure at all but in the energy that both the sampler and the amortized
+% policy inherit from the frozen model." The scoped version of that claim is stated once, in
+% Section 6.1 and Section 6.2, per evaluation section 8 formulation 3.
+%
+% NOTE (IMS checklist): the checklist item "Intro: overview of approach" was previously mapped
+% to this section. It is now carried by the sentence above plus the contributions list in
+% Section 1.4, so the checklist item remains satisfied.
 
 \section{Research Questions and Contributions}
 \label{sec:intro-rqs}
@@ -61,11 +95,52 @@ The work is organized around four research questions, which the results chapter 
     \item[RQ4.] Can an additive constraint term steer generation toward a target attribute on this energy landscape, as the plug-and-play framework requires?
 \end{description}
 
-In answering these questions the thesis makes the following contributions. It establishes, through a controlled ablation that separates the direction of the gradient from its magnitude, that the frozen autoregressive gradient carries no usable information for discrete sampling, and it replicates this finding across five distinct energy functions. It identifies and measures the \emph{linearization failure} that is the geometric cause of this result, showing that the region over which the sampler's first-order approximation is valid is smaller than the smallest possible discrete step, so that the gradient is not merely imprecise but inapplicable. It measures the \emph{likelihood trap} on the study's own models, demonstrating that the lowest-energy text is the most degenerate, so that the very objective the methods pursue is undesirable. It provides a precise, measured account of the \emph{Metropolis--Hastings breakdown} in continuous space, attributing the collapse of the acceptance ratio to the proposal term rather than the target term and connecting it to the non-Lipschitz drift induced by nearest-neighbour projection. It documents three mechanistically distinct failure modes of GFlowNet fine-tuning on a frozen-likelihood reward, and shows in a unifying experiment that Langevin sampling on the amortized energy is indistinguishable from sampling on the untuned base, thereby locating the cause in the energy rather than the search.
+In answering these questions the thesis makes five contributions.
+
+\begin{enumerate}
+    \item A controlled ablation that separates the direction of the gradient from its magnitude, run across five energy functions, establishing that in the tested token-substitution settings the input-embedding gradient of frozen autoregressive sequence likelihood provided no reliable proposal advantage over a norm-matched random direction.
+    \item A measurement of the \emph{linearization failure} behind that result: the region over which the sampler's first-order approximation holds is smaller than the smallest admissible token substitution, so the gradient is inapplicable rather than merely imprecise.
+    \item A decomposition of the Metropolis--Hastings acceptance ratio in continuous space that attributes its collapse to the proposal term rather than the target term, together with a measurement of the \emph{likelihood trap} on the study's own models, in which the lowest-energy text is the most degenerate.
+    \item A documented taxonomy of three failure modes of GFlowNet fine-tuning on a frozen-likelihood reward, and a unifying experiment showing that Langevin sampling on the amortized energy is indistinguishable from sampling on the untuned base.
+    \item A diffusion positive control, run rather than proposed, in which a score-trained model on the same tokenizer supplies the local direction the autoregressive gradient lacks and performs the recovery the gradient-guided sampler could not.
+\end{enumerate}
+
 % PRIOR WORDING (Phase 3): Finally, it reports a constrained-generation extension confirming that the constraint gradient carries no reliable steering signal, and it proposes a positive-control experiment on a diffusion language model that would falsify the thesis's central explanation.
-It reports a constrained-generation extension showing that, unlike the fluency gradient, the constraint gradient does carry a directional signal, but that this signal cannot rescue generation off the fluent manifold and, even with fluency held fixed by a trust region, transfers to an independent judge only as far as two separately trained classifiers agree. And it runs, rather than merely proposes, the positive control: a score-trained diffusion language model on the same tokenizer supplies the local direction the autoregressive gradient lacks and performs the recovery the gradient machinery could not, isolating the training objective as the causal variable and confirming the thesis's central explanation.
+% COMPRESSED (Phase 8, evaluation section 5 item 3: "Convert the long paragraph into four or
+% five compact contributions. Currently it reproduces the complete Results chapter in
+% miniature."). Prior single-paragraph wording preserved:
+% "In answering these questions the thesis makes the following contributions. It establishes,
+% through a controlled ablation that separates the direction of the gradient from its magnitude,
+% that the frozen autoregressive gradient carries no usable information for discrete sampling,
+% and it replicates this finding across five distinct energy functions. It identifies and
+% measures the linearization failure that is the geometric cause of this result, showing that
+% the region over which the sampler's first-order approximation is valid is smaller than the
+% smallest possible discrete step, so that the gradient is not merely imprecise but inapplicable.
+% It measures the likelihood trap on the study's own models, demonstrating that the lowest-energy
+% text is the most degenerate, so that the very objective the methods pursue is undesirable. It
+% provides a precise, measured account of the Metropolis--Hastings breakdown in continuous space,
+% attributing the collapse of the acceptance ratio to the proposal term rather than the target
+% term and connecting it to the non-Lipschitz drift induced by nearest-neighbour projection. It
+% documents three mechanistically distinct failure modes of GFlowNet fine-tuning on a
+% frozen-likelihood reward, and shows in a unifying experiment that Langevin sampling on the
+% amortized energy is indistinguishable from sampling on the untuned base, thereby locating the
+% cause in the energy rather than the search. It reports a constrained-generation extension
+% showing that, unlike the fluency gradient, the constraint gradient does carry a directional
+% signal, but that this signal cannot rescue generation off the fluent manifold and, even with
+% fluency held fixed by a trust region, transfers to an independent judge only as far as two
+% separately trained classifiers agree. And it runs, rather than merely proposes, the positive
+% control: a score-trained diffusion language model on the same tokenizer supplies the local
+% direction the autoregressive gradient lacks and performs the recovery the gradient machinery
+% could not, isolating the training objective as the causal variable and confirming the thesis's
+% central explanation."
+% The constrained-generation result is reported in Section 5.11 and its two-statement RQ4 answer
+% in Section 6.1; it is not previewed here.
 
 \section{Structure of the Thesis}
 \label{sec:intro-structure}
 
-Chapter~\ref{ch:background} introduces the background needed to follow the technical development: the energy-based view of generation, Langevin dynamics and the Metropolis--Hastings correction, the discrete and continuous samplers studied here, and GFlowNets, with an emphasis throughout on the specific assumption each tool makes. Chapter~\ref{ch:related} situates the work within the literature on controllable and energy-based text generation, traces how the field arrived at energy-based sampling, and identifies the unexamined assumption on which it rests. Chapter~\ref{ch:methodology} describes the experimental platform, the diagnostic task and why it was chosen, the five energy functions, the sampler configurations, the evaluation metrics and the reasoning behind each, and the four diagnostic experiments designed to isolate the mechanisms. Chapter~\ref{ch:results} presents the results as a connected investigation, from the calibration of the samplers through the annealing dynamics, the Metropolis--Hastings breakdown, and the central gradient-fallacy result, to the GFlowNet experiments and the constrained-generation extension. Chapter~\ref{ch:discussion} draws the findings together into a single account, answers each research question explicitly, connects the results to the related work, and reports the diffusion positive control that tests the central explanation. Chapter~\ref{ch:conclusion} concludes.
+Chapter~\ref{ch:background} develops the technical background: the energy-based view of generation, Langevin dynamics, the Metropolis--Hastings correction, the two samplers studied here, and GFlowNets. Chapter~\ref{ch:related} reviews the literature on controllable and energy-based text generation and states the gap this work addresses. Chapter~\ref{ch:methodology} describes the task, the five energy functions, the sampler configurations, the evaluation metrics, and the diagnostic experiments. Chapter~\ref{ch:results} reports the sampling results, the diagnostics that explain them, the GFlowNet experiments, the constrained-generation extension, and the diffusion positive control. Chapter~\ref{ch:discussion} answers each research question, synthesizes the mechanism, and states the limitations and implications. Chapter~\ref{ch:conclusion} concludes.
+% COMPRESSED (Phase 8, evaluation section 5 item 4: "The section-by-section roadmap is overly
+% detailed. One concise paragraph is enough."). The prior version described the contents of each
+% chapter clause by clause and previewed the results; it is superseded rather than deleted,
+% since every element it listed is reachable from the table of contents.

@@ -1,0 +1,370 @@
+\relax 
+\providecommand \babel@aux [2]{\global \let \babel@toc \@gobbletwo }
+\@nameuse{bbl@beforestart}
+\catcode `"\active 
+\providecommand\hyper@newdestlabel[2]{}
+\providecommand\HyField@AuxAddToFields[1]{}
+\providecommand\HyField@AuxAddToCoFields[2]{}
+\babel@aux{english}{}
+\babel@aux{german}{}
+\babel@aux{english}{}
+\citation{radford2019language,brown2020language}
+\@writefile{toc}{\contentsline {section}{\numberline {1}Introduction}{10}{section.1}\protected@file@percent }
+\newlabel{ch:introduction}{{1}{10}{Introduction}{section.1}{}}
+\citation{ouyang2022training}
+\@writefile{toc}{\contentsline {subsection}{\numberline {1.1}Established Routes to Control and Their Costs}{11}{subsection.1.1}\protected@file@percent }
+\newlabel{sec:intro-routes}{{1.1}{11}{Established Routes to Control and Their Costs}{subsection.1.1}{}}
+\citation{lecun2006tutorial,hinton2002training}
+\citation{dathathri2020plug}
+\citation{yang2021fudge}
+\citation{krause2021gedi}
+\citation{qin2022cold}
+\citation{kumar2022gradient}
+\@writefile{toc}{\contentsline {subsection}{\numberline {1.2}Energy-Based Control and Its Central Assumption}{12}{subsection.1.2}\protected@file@percent }
+\newlabel{sec:intro-ebm}{{1.2}{12}{Energy-Based Control and Its Central Assumption}{subsection.1.2}{}}
+\newlabel{eq:intro-ebm}{{1}{12}{Energy-Based Control and Its Central Assumption}{equation.1}{}}
+\newlabel{eq:intro-energy}{{2}{12}{Energy-Based Control and Its Central Assumption}{equation.2}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {1.3}From Sampling to Amortization}{13}{subsection.1.3}\protected@file@percent }
+\newlabel{sec:intro-amortize}{{1.3}{13}{From Sampling to Amortization}{subsection.1.3}{}}
+\citation{bengio2021flow,bengio2023gflownet}
+\citation{hu2024amortizing}
+\@writefile{toc}{\contentsline {subsection}{\numberline {1.4}Research Questions and Contributions}{14}{subsection.1.4}\protected@file@percent }
+\newlabel{sec:intro-rqs}{{1.4}{14}{Research Questions and Contributions}{subsection.1.4}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {1.5}Structure of the Thesis}{15}{subsection.1.5}\protected@file@percent }
+\newlabel{sec:intro-structure}{{1.5}{15}{Structure of the Thesis}{subsection.1.5}{}}
+\citation{vaswani2017attention}
+\@writefile{toc}{\contentsline {section}{\numberline {2}Background Work}{16}{section.2}\protected@file@percent }
+\newlabel{ch:background}{{2}{16}{Background Work}{section.2}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.1}Autoregressive Language Models as Energy Functions}{16}{subsection.2.1}\protected@file@percent }
+\newlabel{sec:bg-ebm}{{2.1}{16}{Autoregressive Language Models as Energy Functions}{subsection.2.1}{}}
+\newlabel{eq:bg-chain}{{3}{16}{Autoregressive Language Models as Energy Functions}{equation.3}{}}
+\citation{roberts1996exponential,welling2011bayesian}
+\newlabel{eq:bg-energy}{{4}{17}{Autoregressive Language Models as Energy Functions}{equation.4}{}}
+\citation{welling2011bayesian}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.2}Langevin Dynamics}{18}{subsection.2.2}\protected@file@percent }
+\newlabel{sec:bg-langevin}{{2.2}{18}{Langevin Dynamics}{subsection.2.2}{}}
+\newlabel{eq:bg-langevin}{{5}{18}{Langevin Dynamics}{equation.5}{}}
+\citation{roberts1996exponential}
+\citation{metropolis1953equation,hastings1970monte}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.3}The Metropolis--Hastings Correction}{19}{subsection.2.3}\protected@file@percent }
+\newlabel{sec:bg-mh}{{2.3}{19}{The Metropolis--Hastings Correction}{subsection.2.3}{}}
+\newlabel{eq:bg-mh}{{6}{19}{The Metropolis--Hastings Correction}{equation.6}{}}
+\citation{grathwohl2021oops}
+\citation{zhang2022langevin}
+\citation{zhang2022langevin}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.4}Sampling in a Discrete Space: DLS and CLS}{21}{subsection.2.4}\protected@file@percent }
+\newlabel{sec:bg-samplers}{{2.4}{21}{Sampling in a Discrete Space: DLS and CLS}{subsection.2.4}{}}
+\citation{kumar2022gradient}
+\newlabel{eq:bg-discrete-proposal}{{7}{22}{Sampling in a Discrete Space: DLS and CLS}{equation.7}{}}
+\newlabel{eq:bg-cls-energy}{{8}{23}{Sampling in a Discrete Space: DLS and CLS}{equation.8}{}}
+\citation{vincent2011connection}
+\citation{song2019generative,ho2020denoising}
+\citation{bengio2021flow,bengio2023gflownet}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.5}Score Matching and the Score Function}{24}{subsection.2.5}\protected@file@percent }
+\newlabel{sec:bg-score}{{2.5}{24}{Score Matching and the Score Function}{subsection.2.5}{}}
+\citation{malkin2022trajectory}
+\citation{madan2023learning}
+\citation{hu2024amortizing}
+\citation{hu2022lora}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.6}Amortized Inference with GFlowNets}{25}{subsection.2.6}\protected@file@percent }
+\newlabel{sec:bg-gflownet}{{2.6}{25}{Amortized Inference with GFlowNets}{subsection.2.6}{}}
+\citation{ouyang2022training}
+\citation{keskar2019ctrl}
+\@writefile{toc}{\contentsline {section}{\numberline {3}Related Work}{26}{section.3}\protected@file@percent }
+\newlabel{ch:related}{{3}{26}{Related Work}{section.3}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.1}Controllable Text Generation}{26}{subsection.3.1}\protected@file@percent }
+\newlabel{sec:rel-ctg}{{3.1}{26}{Controllable Text Generation}{subsection.3.1}{}}
+\citation{dathathri2020plug}
+\citation{yang2021fudge}
+\citation{krause2021gedi}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.2}Energy-Based and Sampling-Based Decoding}{27}{subsection.3.2}\protected@file@percent }
+\newlabel{sec:rel-energy}{{3.2}{27}{Energy-Based and Sampling-Based Decoding}{subsection.3.2}{}}
+\citation{qin2022cold}
+\citation{kumar2022gradient}
+\citation{sha2020gradient}
+\citation{grathwohl2021oops}
+\citation{zhang2022langevin}
+\citation{mireshghallah2022mixmatch}
+\citation{lew2023sequential}
+\citation{zhao2024probabilistic}
+\citation{bengio2021flow}
+\citation{bengio2023gflownet}
+\citation{malkin2022trajectory}
+\citation{madan2023learning}
+\citation{hu2024amortizing}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.3}Amortized Sampling and GFlowNets}{29}{subsection.3.3}\protected@file@percent }
+\newlabel{sec:rel-gflownet}{{3.3}{29}{Amortized Sampling and GFlowNets}{subsection.3.3}{}}
+\citation{hu2022lora}
+\citation{gao2019representation,ethayarajh2019contextual}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.4}The Geometry and Behaviour of Language-Model Representations}{30}{subsection.3.4}\protected@file@percent }
+\newlabel{sec:rel-geometry}{{3.4}{30}{The Geometry and Behaviour of Language-Model Representations}{subsection.3.4}{}}
+\citation{holtzman2020curious}
+\citation{li2022diffusion}
+\citation{lou2024discrete}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.5}Diffusion Models for Text and the Score Function}{31}{subsection.3.5}\protected@file@percent }
+\newlabel{sec:rel-diffusion}{{3.5}{31}{Diffusion Models for Text and the Score Function}{subsection.3.5}{}}
+\citation{vincent2011connection}
+\citation{song2019generative,ho2020denoising}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.6}The Gap Addressed by This Thesis}{32}{subsection.3.6}\protected@file@percent }
+\newlabel{sec:rel-gap}{{3.6}{32}{The Gap Addressed by This Thesis}{subsection.3.6}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {4}Methodology}{33}{section.4}\protected@file@percent }
+\newlabel{ch:methodology}{{4}{33}{Methodology}{section.4}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.1}Task: Masked Token Recovery}{33}{subsection.4.1}\protected@file@percent }
+\newlabel{sec:meth-task}{{4.1}{33}{Task: Masked Token Recovery}{subsection.4.1}{}}
+\citation{mostafazadeh2016corpus}
+\citation{hu2024amortizing}
+\citation{radford2019language}
+\citation{dubey2024llama}
+\citation{grathwohl2021oops}
+\citation{zhang2022langevin}
+\citation{kumar2022gradient}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2}Energy Functions}{35}{subsection.4.2}\protected@file@percent }
+\newlabel{sec:meth-models}{{4.2}{35}{Energy Functions}{subsection.4.2}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.3}Samplers and Configurations}{35}{subsection.4.3}\protected@file@percent }
+\newlabel{sec:meth-configs}{{4.3}{35}{Samplers and Configurations}{subsection.4.3}{}}
+\citation{ethayarajh2019contextual}
+\citation{kullback1951information}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.4}Evaluation Metrics}{37}{subsection.4.4}\protected@file@percent }
+\newlabel{sec:meth-metrics}{{4.4}{37}{Evaluation Metrics}{subsection.4.4}{}}
+\newlabel{eq:meth-kl}{{9}{37}{Evaluation Metrics}{equation.9}{}}
+\citation{holtzman2020curious}
+\citation{zhang2020bertscore}
+\citation{hu2024amortizing}
+\citation{malkin2022trajectory,madan2023learning}
+\citation{hu2022lora}
+\citation{kumar2022gradient}
+\citation{qin2022cold}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.5}GFlowNet Training}{39}{subsection.4.5}\protected@file@percent }
+\newlabel{sec:meth-gfn}{{4.5}{39}{GFlowNet Training}{subsection.4.5}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.6}Constrained Generation Extension}{40}{subsection.4.6}\protected@file@percent }
+\newlabel{sec:meth-constrained}{{4.6}{40}{Constrained Generation Extension}{subsection.4.6}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.7}Diagnostic Experiments}{40}{subsection.4.7}\protected@file@percent }
+\newlabel{sec:meth-diagnostics}{{4.7}{40}{Diagnostic Experiments}{subsection.4.7}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.8}Reproducibility, Seeds, and Hardware}{42}{subsection.4.8}\protected@file@percent }
+\newlabel{sec:meth-repro}{{4.8}{42}{Reproducibility, Seeds, and Hardware}{subsection.4.8}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {5}Results}{43}{section.5}\protected@file@percent }
+\newlabel{ch:results}{{5}{43}{Results}{section.5}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.1}Step-Size Calibration and Embedding Geometry}{44}{subsection.5.1}\protected@file@percent }
+\newlabel{sec:results-stepsize}{{5.1}{44}{Step-Size Calibration and Embedding Geometry}{subsection.5.1}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.2}Annealing Dynamics and the Quenching Effect}{45}{subsection.5.2}\protected@file@percent }
+\newlabel{sec:results-quench}{{5.2}{45}{Annealing Dynamics and the Quenching Effect}{subsection.5.2}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces Discrete Langevin Sampler trajectories, 50-step schedule.}}{46}{figure.caption.4}\protected@file@percent }
+\providecommand*\caption@xref[2]{\@setref\relax\@undefined{#1}}
+\newlabel{fig:dls-traj-50}{{1}{46}{Discrete Langevin Sampler trajectories, 50-step schedule}{figure.caption.4}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces The same sampler over a 100-step schedule.}}{47}{figure.caption.5}\protected@file@percent }
+\newlabel{fig:dls-traj-100}{{2}{47}{The same sampler over a 100-step schedule}{figure.caption.5}{}}
+\citation{roberts1996exponential}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.3}The Metropolis--Hastings Breakdown in Continuous Space}{48}{subsection.5.3}\protected@file@percent }
+\newlabel{sec:results-mh}{{5.3}{48}{The Metropolis--Hastings Breakdown in Continuous Space}{subsection.5.3}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces Decomposition of the acceptance ratio in the continuous sampler.}}{49}{figure.caption.6}\protected@file@percent }
+\newlabel{fig:mh-decomp}{{3}{49}{Decomposition of the acceptance ratio in the continuous sampler}{figure.caption.6}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.4}Sampler Trajectories in Embedding Space}{49}{subsection.5.4}\protected@file@percent }
+\newlabel{sec:results-traj}{{5.4}{49}{Sampler Trajectories in Embedding Space}{subsection.5.4}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.5}Gradient Direction Against a Norm-Matched Random Direction}{50}{subsection.5.5}\protected@file@percent }
+\newlabel{sec:results-fallacy}{{5.5}{50}{Gradient Direction Against a Norm-Matched Random Direction}{subsection.5.5}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces Final KL for the true gradient against a norm-preserved random direction.}}{52}{table.caption.7}\protected@file@percent }
+\newlabel{tab:fallacy}{{1}{52}{Final KL for the true gradient against a norm-preserved random direction}{table.caption.7}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.5.1}Robustness of the Null Result}{53}{subsubsection.5.5.1}\protected@file@percent }
+\newlabel{sec:results-robust}{{5.5.1}{53}{Robustness of the Null Result}{subsubsection.5.5.1}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {2}{\ignorespaces Gradient-free reference baselines on masked-token recovery.}}{54}{table.caption.8}\protected@file@percent }
+\newlabel{tab:baselines}{{2}{54}{Gradient-free reference baselines on masked-token recovery}{table.caption.8}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.5.2}Gradient-Free Baselines}{54}{subsubsection.5.5.2}\protected@file@percent }
+\newlabel{sec:results-baselines}{{5.5.2}{54}{Gradient-Free Baselines}{subsubsection.5.5.2}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.5.3}External-Judge Rescoring}{55}{subsubsection.5.5.3}\protected@file@percent }
+\newlabel{sec:results-judge}{{5.5.3}{55}{External-Judge Rescoring}{subsubsection.5.5.3}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.6}The Linearization Radius}{55}{subsection.5.6}\protected@file@percent }
+\newlabel{sec:results-linradius}{{5.6}{55}{The Linearization Radius}{subsection.5.6}{}}
+\citation{vaswani2017attention}
+\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces Gradient surrogate against the true energy change.}}{56}{figure.caption.9}\protected@file@percent }
+\newlabel{fig:lin-scatter}{{4}{56}{Gradient surrogate against the true energy change}{figure.caption.9}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces Surrogate-to-truth correlation by candidate embedding distance.}}{57}{figure.caption.10}\protected@file@percent }
+\newlabel{fig:lin-radius}{{5}{57}{Surrogate-to-truth correlation by candidate embedding distance}{figure.caption.10}{}}
+\citation{holtzman2020curious}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.7}The Likelihood Trap}{58}{subsection.5.7}\protected@file@percent }
+\newlabel{sec:results-trap}{{5.7}{58}{The Likelihood Trap}{subsection.5.7}{}}
+\citation{gao2019representation,ethayarajh2019contextual}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.8}Embedding Anisotropy}{60}{subsection.5.8}\protected@file@percent }
+\newlabel{sec:results-aniso}{{5.8}{60}{Embedding Anisotropy}{subsection.5.8}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {3}{\ignorespaces Two diagnostics across the five energy functions.}}{61}{table.caption.11}\protected@file@percent }
+\newlabel{tab:crossmodel}{{3}{61}{Two diagnostics across the five energy functions}{table.caption.11}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.9}Consistency Across Models and Architectures}{61}{subsection.5.9}\protected@file@percent }
+\newlabel{sec:results-crossmodel}{{5.9}{61}{Consistency Across Models and Architectures}{subsection.5.9}{}}
+\citation{bengio2021flow,hu2024amortizing}
+\citation{hu2024amortizing}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.10}GFlowNet Fine-Tuning and the Amortized Energy}{62}{subsection.5.10}\protected@file@percent }
+\newlabel{sec:results-gfn}{{5.10}{62}{GFlowNet Fine-Tuning and the Amortized Energy}{subsection.5.10}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {4}{\ignorespaces Final KL on the base model and the three GFlowNet variants.}}{64}{table.caption.12}\protected@file@percent }
+\newlabel{tab:gfn-unify}{{4}{64}{Final KL on the base model and the three GFlowNet variants}{table.caption.12}{}}
+\citation{kumar2022gradient}
+\citation{qin2022cold}
+\@writefile{lot}{\contentsline {table}{\numberline {5}{\ignorespaces Divergence between the base and GFlowNet-tuned energies.}}{65}{table.caption.13}\protected@file@percent }
+\newlabel{tab:divergence}{{5}{65}{Divergence between the base and GFlowNet-tuned energies}{table.caption.13}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.11}Constrained Generation with an Additive Sentiment Term}{65}{subsection.5.11}\protected@file@percent }
+\newlabel{sec:results-constrained}{{5.11}{65}{Constrained Generation with an Additive Sentiment Term}{subsection.5.11}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {6}{\ignorespaces Steering effect of the sentiment constraint, discrete sampler, infilling.}}{67}{table.caption.14}\protected@file@percent }
+\newlabel{tab:constrained}{{6}{67}{Steering effect of the sentiment constraint, discrete sampler, infilling}{table.caption.14}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.12}The Final-Position Case}{67}{subsection.5.12}\protected@file@percent }
+\newlabel{sec:results-lasttoken}{{5.12}{67}{The Final-Position Case}{subsection.5.12}{}}
+\citation{vincent2011connection}
+\citation{lou2024discrete}
+\@writefile{lot}{\contentsline {table}{\numberline {7}{\ignorespaces Recovery by number of downstream scored terms, $n=200$ per condition.}}{69}{table.caption.15}\protected@file@percent }
+\newlabel{tab:lasttoken}{{7}{69}{Recovery by number of downstream scored terms, $n=200$ per condition}{table.caption.15}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces Gradient norm and energy-only acceptance against downstream context length.}}{70}{figure.caption.16}\protected@file@percent }
+\newlabel{fig:lasttoken}{{6}{70}{Gradient norm and energy-only acceptance against downstream context length}{figure.caption.16}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.13}The Diffusion Positive Control}{70}{subsection.5.13}\protected@file@percent }
+\newlabel{sec:results-diffusion}{{5.13}{70}{The Diffusion Positive Control}{subsection.5.13}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.13.1}Linearization on the Unified Corpus}{71}{subsubsection.5.13.1}\protected@file@percent }
+\newlabel{sec:results-diffusion-lin}{{5.13.1}{71}{Linearization on the Unified Corpus}{subsubsection.5.13.1}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {8}{\ignorespaces Linearization correlation, autoregressive gradient against diffusion score.}}{72}{table.caption.17}\protected@file@percent }
+\newlabel{tab:diffusion-lin}{{8}{72}{Linearization correlation, autoregressive gradient against diffusion score}{table.caption.17}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.13.2}Native Recovery of a Flipped Token}{72}{subsubsection.5.13.2}\protected@file@percent }
+\newlabel{sec:results-diffusion-recovery}{{5.13.2}{72}{Native Recovery of a Flipped Token}{subsubsection.5.13.2}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {9}{\ignorespaces Native diffusion recovery of one flipped token.}}{73}{table.caption.18}\protected@file@percent }
+\newlabel{tab:diffusion-recovery}{{9}{73}{Native diffusion recovery of one flipped token}{table.caption.18}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.13.3}The Repaired Signal Inside the Exact-Energy Chain}{73}{subsubsection.5.13.3}\protected@file@percent }
+\newlabel{sec:results-diffusion-hybrid}{{5.13.3}{73}{The Repaired Signal Inside the Exact-Energy Chain}{subsubsection.5.13.3}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {10}{\ignorespaces The hybrid sampler: same exact energy, different proposal.}}{74}{table.caption.19}\protected@file@percent }
+\newlabel{tab:diffusion-hybrid}{{10}{74}{The hybrid sampler: same exact energy, different proposal}{table.caption.19}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.13.4}Classifier-Guided Steering (Exploratory Follow-Up)}{74}{subsubsection.5.13.4}\protected@file@percent }
+\newlabel{sec:results-diffusion-guided}{{5.13.4}{74}{Classifier-Guided Steering (Exploratory Follow-Up)}{subsubsection.5.13.4}{}}
+\newlabel{sec:results-diffusion-gprime}{{5.13.4}{74}{Classifier-Guided Steering (Exploratory Follow-Up)}{subsubsection.5.13.4}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {11}{\ignorespaces On-domain trust-region guided diffusion generation, held-out SST-2 prompts.}}{75}{table.caption.20}\protected@file@percent }
+\newlabel{tab:gprime}{{11}{75}{On-domain trust-region guided diffusion generation, held-out SST-2 prompts}{table.caption.20}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {6}Discussion}{76}{section.6}\protected@file@percent }
+\newlabel{ch:discussion}{{6}{76}{Discussion}{section.6}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.1}Answers to the Research Questions}{76}{subsection.6.1}\protected@file@percent }
+\newlabel{sec:disc-rqs}{{6.1}{76}{Answers to the Research Questions}{subsection.6.1}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.2}The Unified Mechanism}{78}{subsection.6.2}\protected@file@percent }
+\newlabel{sec:disc-unified}{{6.2}{78}{The Unified Mechanism}{subsection.6.2}{}}
+\citation{holtzman2020curious}
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.3}Connections to the Related Work}{80}{subsection.6.3}\protected@file@percent }
+\newlabel{sec:disc-related}{{6.3}{80}{Connections to the Related Work}{subsection.6.3}{}}
+\citation{gao2019representation}
+\citation{ethayarajh2019contextual}
+\citation{roberts1996exponential}
+\citation{qin2022cold}
+\citation{kumar2022gradient}
+\citation{welling2011bayesian}
+\citation{hu2024amortizing}
+\citation{mireshghallah2022mixmatch}
+\citation{lew2023sequential}
+\citation{zhao2024probabilistic}
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.4}Scope and Limitations}{82}{subsection.6.4}\protected@file@percent }
+\newlabel{sec:disc-scope}{{6.4}{82}{Scope and Limitations}{subsection.6.4}{}}
+\citation{li2022diffusion,lou2024discrete}
+\citation{vincent2011connection,song2019generative,ho2020denoising}
+\citation{lou2024discrete}
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.5}Implications}{83}{subsection.6.5}\protected@file@percent }
+\newlabel{sec:disc-future}{{6.5}{83}{Implications}{subsection.6.5}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {7}Conclusion}{84}{section.7}\protected@file@percent }
+\newlabel{ch:conclusion}{{7}{84}{Conclusion}{section.7}{}}
+\bibstyle{plainnat}
+\bibdata{references}
+\bibcite{bengio2021flow}{{1}{2021}{{Bengio et~al.}}{{Bengio, Jain, Korablyov, Precup, and Bengio}}}
+\bibcite{bengio2023gflownet}{{2}{2023}{{Bengio et~al.}}{{Bengio, Lahlou, Deleu, et~al.}}}
+\bibcite{brown2020language}{{3}{2020}{{Brown et~al.}}{{Brown, Mann, Ryder, et~al.}}}
+\bibcite{dathathri2020plug}{{4}{2020}{{Dathathri et~al.}}{{Dathathri, Madotto, Lan, et~al.}}}
+\bibcite{dubey2024llama}{{5}{2024}{{Dubey et~al.}}{{Dubey, Jauhri, Pandey, et~al.}}}
+\bibcite{ethayarajh2019contextual}{{6}{2019}{{Ethayarajh}}{{}}}
+\bibcite{gao2019representation}{{7}{2019}{{Gao et~al.}}{{Gao, He, Tan, Qin, Wang, and Liu}}}
+\bibcite{grathwohl2021oops}{{8}{2021}{{Grathwohl et~al.}}{{Grathwohl, Swersky, Hashemi, Duvenaud, and Maddison}}}
+\bibcite{hastings1970monte}{{9}{1970}{{Hastings}}{{}}}
+\bibcite{hinton2002training}{{10}{2002}{{Hinton}}{{}}}
+\bibcite{ho2020denoising}{{11}{2020}{{Ho et~al.}}{{Ho, Jain, and Abbeel}}}
+\bibcite{holtzman2020curious}{{12}{2020}{{Holtzman et~al.}}{{Holtzman, Buys, Du, Forbes, and Choi}}}
+\bibcite{hu2022lora}{{13}{2022}{{Hu et~al.}}{{Hu, Shen, Wallis, et~al.}}}
+\bibcite{hu2024amortizing}{{14}{2024}{{Hu et~al.}}{{Hu, Jain, Elmoznino, Kaddar, Lajoie, Bengio, and Malkin}}}
+\bibcite{keskar2019ctrl}{{15}{2019}{{Keskar et~al.}}{{Keskar, McCann, Varshney, Xiong, and Socher}}}
+\bibcite{krause2021gedi}{{16}{2021}{{Krause et~al.}}{{Krause, Gotmare, McCann, et~al.}}}
+\bibcite{kullback1951information}{{17}{1951}{{Kullback and Leibler}}{{}}}
+\bibcite{kumar2022gradient}{{18}{2022}{{Kumar et~al.}}{{Kumar, Paria, and Tsvetkov}}}
+\bibcite{lecun2006tutorial}{{19}{2006}{{LeCun et~al.}}{{LeCun, Chopra, Hadsell, Ranzato, and Huang}}}
+\bibcite{lew2023sequential}{{20}{2023}{{Lew et~al.}}{{Lew, Zhi-Xuan, Grand, and Mansinghka}}}
+\bibcite{li2022diffusion}{{21}{2022}{{Li et~al.}}{{Li, Thickstun, Gulrajani, Liang, and Hashimoto}}}
+\bibcite{lou2024discrete}{{22}{2024}{{Lou et~al.}}{{Lou, Meng, and Ermon}}}
+\bibcite{madan2023learning}{{23}{2023}{{Madan et~al.}}{{Madan, Rector-Brooks, Korablyov, et~al.}}}
+\bibcite{malkin2022trajectory}{{24}{2022}{{Malkin et~al.}}{{Malkin, Jain, Bengio, Sun, and Bengio}}}
+\bibcite{metropolis1953equation}{{25}{1953}{{Metropolis et~al.}}{{Metropolis, Rosenbluth, Rosenbluth, Teller, and Teller}}}
+\bibcite{mireshghallah2022mixmatch}{{26}{2022}{{Mireshghallah et~al.}}{{Mireshghallah, Goyal, and Berg-Kirkpatrick}}}
+\bibcite{mostafazadeh2016corpus}{{27}{2016}{{Mostafazadeh et~al.}}{{Mostafazadeh, Chambers, He, et~al.}}}
+\bibcite{ouyang2022training}{{28}{2022}{{Ouyang et~al.}}{{Ouyang, Wu, Jiang, et~al.}}}
+\bibcite{qin2022cold}{{29}{2022}{{Qin et~al.}}{{Qin, Welleck, Khashabi, and Choi}}}
+\bibcite{radford2019language}{{30}{2019}{{Radford et~al.}}{{Radford, Wu, Child, Luan, Amodei, and Sutskever}}}
+\bibcite{roberts1996exponential}{{31}{1996}{{Roberts and Tweedie}}{{}}}
+\bibcite{sha2020gradient}{{32}{2020}{{Sha}}{{}}}
+\bibcite{song2019generative}{{33}{2019}{{Song and Ermon}}{{}}}
+\bibcite{vaswani2017attention}{{34}{2017}{{Vaswani et~al.}}{{Vaswani, Shazeer, Parmar, et~al.}}}
+\bibcite{vincent2011connection}{{35}{2011}{{Vincent}}{{}}}
+\bibcite{welling2011bayesian}{{36}{2011}{{Welling and Teh}}{{}}}
+\bibcite{yang2021fudge}{{37}{2021}{{Yang and Klein}}{{}}}
+\bibcite{zhang2022langevin}{{38}{2022}{{Zhang et~al.}}{{Zhang, Liu, and Liu}}}
+\bibcite{zhang2020bertscore}{{39}{2020}{{Zhang et~al.}}{{Zhang, Kishore, Wu, Weinberger, and Artzi}}}
+\bibcite{zhao2024probabilistic}{{40}{2024}{{Zhao et~al.}}{{Zhao, Brekelmans, Makhzani, and Grosse}}}
+\@writefile{toc}{\contentsline {section}{\numberline {A}Appendix}{92}{section.A}\protected@file@percent }
+\newlabel{ch:appendix}{{A}{92}{Appendix}{section.A}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {A.1}Additional Diagnostic Figures}{92}{subsection.A.1}\protected@file@percent }
+\newlabel{app:figures}{{A.1}{92}{Additional Diagnostic Figures}{subsection.A.1}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {7}{\ignorespaces Self and future terms of the true energy change.}}{93}{figure.caption.26}\protected@file@percent }
+\newlabel{fig:lin-decomp}{{7}{93}{Self and future terms of the true energy change}{figure.caption.26}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {8}{\ignorespaces Top-$k$ recall of gradient ranking against a random baseline.}}{93}{figure.caption.27}\protected@file@percent }
+\newlabel{fig:lin-topk}{{8}{93}{Top-$k$ recall of gradient ranking against a random baseline}{figure.caption.27}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {9}{\ignorespaces Acceptance rate conditioned on boundary crossing.}}{94}{figure.caption.28}\protected@file@percent }
+\newlabel{fig:mh-accept}{{9}{94}{Acceptance rate conditioned on boundary crossing}{figure.caption.28}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {10}{\ignorespaces Per-token likelihood against repetition and diversity, GPT-2 Large.}}{94}{figure.caption.29}\protected@file@percent }
+\newlabel{fig:trap}{{10}{94}{Per-token likelihood against repetition and diversity, GPT-2 Large}{figure.caption.29}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {11}{\ignorespaces Pairwise token-embedding distance distributions.}}{95}{figure.caption.30}\protected@file@percent }
+\newlabel{fig:aniso}{{11}{95}{Pairwise token-embedding distance distributions}{figure.caption.30}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {12}{\ignorespaces Total log-likelihood against generated length, GPT-2 Large.}}{95}{figure.caption.31}\protected@file@percent }
+\newlabel{fig:trap-length}{{12}{95}{Total log-likelihood against generated length, GPT-2 Large}{figure.caption.31}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {A.2}Full Configuration Grid}{96}{subsection.A.2}\protected@file@percent }
+\newlabel{app:grid}{{A.2}{96}{Full Configuration Grid}{subsection.A.2}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {12}{\ignorespaces Representative subset of the final-KL configuration grid.}}{97}{table.caption.32}\protected@file@percent }
+\newlabel{tab:full-grid}{{12}{97}{Representative subset of the final-KL configuration grid}{table.caption.32}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {A.3}Computational Cost}{98}{subsection.A.3}\protected@file@percent }
+\newlabel{app:cost}{{A.3}{98}{Computational Cost}{subsection.A.3}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {13}{\ignorespaces Network evaluations per recovered span.}}{98}{table.caption.33}\protected@file@percent }
+\newlabel{tab:cost}{{13}{98}{Network evaluations per recovered span}{table.caption.33}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {A.4}Geometry of Sampler Trajectories in Embedding Space}{99}{subsection.A.4}\protected@file@percent }
+\newlabel{app:trajectory}{{A.4}{99}{Geometry of Sampler Trajectories in Embedding Space}{subsection.A.4}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {13}{\ignorespaces Full-space distances along one seeded sampling trajectory.}}{101}{figure.caption.34}\protected@file@percent }
+\newlabel{fig:traj-distance}{{13}{101}{Full-space distances along one seeded sampling trajectory}{figure.caption.34}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {14}{\ignorespaces PCA projection of the same seeded trace.}}{102}{figure.caption.35}\protected@file@percent }
+\newlabel{fig:traj-pca}{{14}{102}{PCA projection of the same seeded trace}{figure.caption.35}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {A.5}Classifier-Guided Steering: Full Results}{103}{subsection.A.5}\protected@file@percent }
+\newlabel{app:guided}{{A.5}{103}{Classifier-Guided Steering: Full Results}{subsection.A.5}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {A.5.1}Off-Domain Guidance Without a Trust Region}{103}{subsubsection.A.5.1}\protected@file@percent }
+\newlabel{app:guided-offdomain}{{A.5.1}{103}{Off-Domain Guidance Without a Trust Region}{subsubsection.A.5.1}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {A.5.2}The Guide-Judge Agreement Ladder}{103}{subsubsection.A.5.2}\protected@file@percent }
+\newlabel{app:guided-ladder}{{A.5.2}{103}{The Guide-Judge Agreement Ladder}{subsubsection.A.5.2}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {14}{\ignorespaces Off-domain classifier-guided diffusion generation.}}{104}{table.caption.36}\protected@file@percent }
+\newlabel{tab:diffusion-guided}{{14}{104}{Off-domain classifier-guided diffusion generation}{table.caption.36}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {A.5.3}Per-Class Confusion on the Neutral Calibration Surface}{105}{subsubsection.A.5.3}\protected@file@percent }
+\newlabel{app:guided-confusion}{{A.5.3}{105}{Per-Class Confusion on the Neutral Calibration Surface}{subsubsection.A.5.3}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {15}{\ignorespaces Per-class agreement of the guide and the independent judge.}}{106}{table.caption.37}\protected@file@percent }
+\newlabel{tab:confusion}{{15}{106}{Per-class agreement of the guide and the independent judge}{table.caption.37}{}}
+\gdef \LT@i {\LT@entry 
+    {1}{80.28818pt}\LT@entry 
+    {1}{344.89673pt}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {A.6}Qualitative Examples}{107}{subsection.A.6}\protected@file@percent }
+\newlabel{app:gprime-examples}{{A.6}{107}{Qualitative Examples}{subsection.A.6}{}}
+\newlabel{app:showcase}{{A.6}{107}{Qualitative Examples}{subsection.A.6}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {A.6.1}Classifier-Guided Generations}{107}{subsubsection.A.6.1}\protected@file@percent }
+\newlabel{app:examples-guided}{{A.6.1}{107}{Classifier-Guided Generations}{subsubsection.A.6.1}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {16}{\ignorespaces On-domain trust-region guided generations.}}{107}{table.16}\protected@file@percent }
+\newlabel{tab:gprime-examples}{{16}{107}{On-domain trust-region guided generations}{table.16}{}}
+\gdef \LT@ii {\LT@entry 
+    {1}{80.28818pt}\LT@entry 
+    {1}{344.89673pt}}
+\@writefile{lot}{\contentsline {table}{\numberline {17}{\ignorespaces Off-domain guidance without a trust region.}}{110}{table.17}\protected@file@percent }
+\newlabel{tab:gprime-trustregion}{{17}{110}{Off-domain guidance without a trust region}{table.17}{}}
+\gdef \LT@iii {\LT@entry 
+    {1}{140.0387pt}\LT@entry 
+    {1}{268.07741pt}\LT@entry 
+    {1}{26.16322pt}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {A.6.2}Infill Recovery on Seeded Sequences}{111}{subsubsection.A.6.2}\protected@file@percent }
+\newlabel{app:showcase-infill}{{A.6.2}{111}{Infill Recovery on Seeded Sequences}{subsubsection.A.6.2}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {18}{\ignorespaces Infill recovery on four seeded sequences.}}{111}{table.18}\protected@file@percent }
+\newlabel{tab:showcase-infill}{{18}{111}{Infill recovery on four seeded sequences}{table.18}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {A.7}Use of AI-Tools}{116}{subsection.A.7}\protected@file@percent }
+\newlabel{app:ai-tools}{{A.7}{116}{Use of AI-Tools}{subsection.A.7}{}}
+\gdef \@abspage@last{117}

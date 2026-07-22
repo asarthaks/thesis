@@ -1,0 +1,21 @@
+\babel@toc {english}{}\relax 
+\babel@toc {german}{}\relax 
+\babel@toc {english}{}\relax 
+\contentsline {table}{\numberline {1}{\ignorespaces Final KL for the true gradient against a norm-preserved random direction.}}{52}{table.caption.7}%
+\contentsline {table}{\numberline {2}{\ignorespaces Gradient-free reference baselines on masked-token recovery.}}{54}{table.caption.8}%
+\contentsline {table}{\numberline {3}{\ignorespaces Two diagnostics across the five energy functions.}}{61}{table.caption.11}%
+\contentsline {table}{\numberline {4}{\ignorespaces Final KL on the base model and the three GFlowNet variants.}}{64}{table.caption.12}%
+\contentsline {table}{\numberline {5}{\ignorespaces Divergence between the base and GFlowNet-tuned energies.}}{65}{table.caption.13}%
+\contentsline {table}{\numberline {6}{\ignorespaces Steering effect of the sentiment constraint, discrete sampler, infilling.}}{67}{table.caption.14}%
+\contentsline {table}{\numberline {7}{\ignorespaces Recovery by number of downstream scored terms, $n=200$ per condition.}}{69}{table.caption.15}%
+\contentsline {table}{\numberline {8}{\ignorespaces Linearization correlation, autoregressive gradient against diffusion score.}}{72}{table.caption.17}%
+\contentsline {table}{\numberline {9}{\ignorespaces Native diffusion recovery of one flipped token.}}{73}{table.caption.18}%
+\contentsline {table}{\numberline {10}{\ignorespaces The hybrid sampler: same exact energy, different proposal.}}{74}{table.caption.19}%
+\contentsline {table}{\numberline {11}{\ignorespaces On-domain trust-region guided diffusion generation, held-out SST-2 prompts.}}{75}{table.caption.20}%
+\contentsline {table}{\numberline {12}{\ignorespaces Representative subset of the final-KL configuration grid.}}{97}{table.caption.32}%
+\contentsline {table}{\numberline {13}{\ignorespaces Network evaluations per recovered span.}}{98}{table.caption.33}%
+\contentsline {table}{\numberline {14}{\ignorespaces Off-domain classifier-guided diffusion generation.}}{104}{table.caption.36}%
+\contentsline {table}{\numberline {15}{\ignorespaces Per-class agreement of the guide and the independent judge.}}{106}{table.caption.37}%
+\contentsline {table}{\numberline {16}{\ignorespaces On-domain trust-region guided generations.}}{107}{table.16}%
+\contentsline {table}{\numberline {17}{\ignorespaces Off-domain guidance without a trust region.}}{110}{table.17}%
+\contentsline {table}{\numberline {18}{\ignorespaces Infill recovery on four seeded sequences.}}{111}{table.18}%

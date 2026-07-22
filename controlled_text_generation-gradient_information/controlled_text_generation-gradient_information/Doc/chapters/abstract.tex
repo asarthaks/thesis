@@ -2,18 +2,77 @@
 \begin{center}
     {\Large\bfseries Abstract}
 \end{center}
-\vspace{0.5cm}
+\vspace{0.3cm}
 
-\noindent Controllable text generation asks a language model to produce text that satisfies a global property, such as a sentiment, a topic, or a factual constraint, that cannot be evaluated until a sequence is complete. A promising and increasingly popular family of methods approaches this problem without retraining the model: it treats the frozen likelihood of a pretrained autoregressive language model as an \emph{energy function} over sequences and samples from that energy with gradient-guided Markov chain Monte Carlo, most commonly a discretization of Langevin dynamics. The appeal of the framework is that an arbitrary constraint can be added to the energy at inference time, so a single frozen model can, in principle, be steered toward any objective without a new fine-tuning run. This thesis sets out to realize that promise and, in the course of doing so, finds that its central premise does not hold.
+\noindent Controllable text generation asks a language model to produce text satisfying a global property, such as a sentiment or a factual constraint, that cannot be evaluated until a sequence is complete. One prominent family of methods pursues this without retraining: it treats the frozen likelihood of a pretrained autoregressive language model as an \emph{energy function} over sequences and samples from that energy with gradient-guided Markov chain Monte Carlo, usually a discretization of Langevin dynamics. An arbitrary constraint can then be added to the energy at inference time, so a single frozen model could in principle be steered toward any objective without a new training run. This thesis tests the premise the construction rests on, that the gradient of the frozen likelihood is a usable local search direction on discrete text.
 
-We conduct a systematic study across five energy functions, spanning a supervised fine-tuned GPT-2 Large, three GFlowNet-tuned variants of the same base model, and a Llama-3 8B cross-architecture control, comprising one hundred and forty-five sampling configurations on a masked-token recovery benchmark constructed from ROCStories. We evaluate two samplers, a Discrete Langevin Sampler that remains in token space and a Continuous Langevin Sampler that operates in the embedding space, under a factorial combination of Metropolis--Hastings correction, gradient normalization, and annealing schedule length. The headline result is negative and it is consistent: the gradient of a frozen autoregressive likelihood is not a usable search direction on the discrete text manifold. In a controlled ablation that isolates the direction of the gradient from its magnitude, following the exact gradient is statistically indistinguishable from following a random direction of the same norm, on every model tested.
+\noindent The study covers five energy functions, a supervised fine-tuned GPT-2 Large, three GFlowNet-tuned variants of it, and a Llama-3 8B cross-architecture control, across one hundred and forty-five sampling configurations on a masked-token recovery benchmark built from ROCStories. Two samplers are evaluated, one remaining in token space and one operating in the embedding space, under a factorial combination of Metropolis--Hastings correction, gradient normalization, and annealing schedule length. The central result is negative and consistent across these models: in the tested token-substitution settings, the input-embedding gradient of frozen autoregressive sequence likelihood provided no reliable proposal advantage over a norm-matched random direction.
 
-Rather than stopping at this observation, the thesis explains it. We establish three interlocking mechanisms. First, a \emph{linearization failure}: the first-order Taylor surrogate that the discrete sampler uses to rank candidate tokens is essentially uncorrelated with the true change in sequence energy, because the smallest admissible discrete move in the embedding space is far larger than the radius over which the local linear model is valid. Second, a \emph{likelihood trap}: on our own models, the text of highest likelihood is the most degenerate, so any procedure that concentrates probability mass on low-energy regions is optimizing toward poor text by construction; we measure a monotone relationship between per-token likelihood and repetition rate. Third, a \emph{Metropolis--Hastings breakdown} that is specific to the continuous sampler: because the energy is defined through a nearest-neighbour projection into the vocabulary, its drift is discontinuous at every cell boundary, and we measure that the acceptance ratio is destroyed by the proposal term rather than the target term, so the correction rejects precisely the moves that would change a token.
+\noindent The principal mechanism is a \emph{linearization failure}: the first-order Taylor surrogate by which the discrete sampler ranks candidate tokens is uncorrelated with the true change in sequence energy, because the smallest admissible token substitution moves further in embedding space than the radius over which the local linear model holds.
 
-We then ask whether amortizing the search escapes these mechanisms. Using a GFlowNet, which learns a sampling policy from a scalar reward and never differentiates the energy, we observe three distinct failure modes and show, in a unifying experiment, that Langevin sampling on the GFlowNet-tuned energy is indistinguishable from Langevin sampling on the untuned base model. The pathology survives amortization because it is a property of the training objective of autoregressive language models, which shapes local conditional distributions and never a global energy over sequences.
+\noindent Amortizing the search with a GFlowNet, which evaluates the energy as a scalar reward and never differentiates it, did not escape the failure: three collapse modes appeared, and Langevin sampling on the tuned energy was indistinguishable from sampling on the untuned base even though tuning had moved that energy by tens of nats. As a positive control, a score-entropy discrete diffusion model on the same tokenizer supplies a clearly positive local direction where the autoregressive gradient was statistically zero and, substituted as the proposal inside this thesis's own exact-energy chain, raises exact recovery from zero to thirty-nine percent. The combined GFlowNet and diffusion results support the interpretation that the training objective, rather than only the sampling algorithm, is a key source of the failure.
 
-% PRIOR WORDING (Phase 3), replaced with the three-claim shape below to match the revised results:
-% A constrained-generation extension with a sentiment classifier confirms the picture: the constraint gradient carries no reliable steering signal on this energy landscape. The contribution of this thesis is therefore a mechanism, established twice by independent means, for why energy-guided sampling on frozen autoregressive language models fails, together with a positive-control experiment that would falsify it.
-The thesis states its conclusions as three claims of deliberately different strength. First, at full strength and established both by measurement and by proof: the gradient of the frozen autoregressive likelihood carries no usable search direction on discrete text, statistically indistinguishable from a random direction of equal norm on every model tested, and provably identically zero at the final token, the one position where the energy difference between candidate tokens is maximally informative. Second, stated more precisely than a blanket null: an additive constraint gradient does carry a directional signal, unlike the fluency gradient, but it cannot rescue generation once the sample leaves the fluent manifold, and even when fluency is held fixed by a trust region its transfer to an independent judge is bounded by how far two separately trained classifiers happen to agree rather than by any fixed reachable direction. Third, the training-free premise on which the whole framework rests is tested and refuted: a score-trained diffusion model on the same tokenizer supplies the very local direction the autoregressive gradient lacks and natively performs the recovery the gradient machinery could not, so the capability the promise assumed for free is available only at the price of an objective trained to provide it. The contribution of this thesis is therefore a mechanism, established by independent routes and confirmed by a positive control, for why energy-guided sampling on frozen autoregressive language models fails and for what would repair it.
+% REMOVED (Phase 8, evaluation section 2.A and section 5 item 1: the abstract "functions more
+% like an extended executive summary"; 775 words -> 383, one page). Cut here and preserved in
+% full, together with the two supporting mechanisms (the likelihood trap and the
+% Metropolis--Hastings breakdown), which the evaluation's keep-list does not include and which
+% are reported in Sections 5.7 and 5.3:
+% " Two further measurements support the diagnosis. On these models the highest-likelihood text
+% is also the most repetitive, a likelihood trap, and in the continuous sampler the acceptance
+% ratio collapses through its proposal term at the cell boundaries a nearest-neighbour
+% projection creates."
+% Earlier cuts:
+% the three-claim hierarchy paragraph, the classifier-transfer and trust-region
+% qualifications, and the full last-token explanation. All three survive in the body
+% (Sections 5.11, 5.12, 5.13.4, 5.13.5 and Chapter 6). Prior wording:
+%
+% "We conduct a systematic study across five energy functions [...] The headline result is
+% negative and it is consistent: the gradient of a frozen autoregressive likelihood is not a
+% usable search direction on the discrete text manifold. In a controlled ablation that
+% isolates the direction of the gradient from its magnitude, following the exact gradient is
+% statistically indistinguishable from following a random direction of the same norm, on every
+% model tested."
+%
+% "Rather than stopping at this observation, the thesis explains it. We establish three
+% interlocking mechanisms. First, a linearization failure: [...] Second, a likelihood trap:
+% [...] Third, a Metropolis--Hastings breakdown that is specific to the continuous sampler:
+% [...]"
+%
+% "We then ask whether amortizing the search escapes these mechanisms. Using a GFlowNet, which
+% learns a sampling policy from a scalar reward and never differentiates the energy, we observe
+% three distinct failure modes and show, in a unifying experiment, that Langevin sampling on the
+% GFlowNet-tuned energy is indistinguishable from Langevin sampling on the untuned base model.
+% The pathology survives amortization because it is a property of the training objective of
+% autoregressive language models, which shapes local conditional distributions and never a
+% global energy over sequences."
+%
+% "The thesis states its conclusions as three claims of deliberately different strength. First,
+% at full strength and established both by measurement and by proof: the gradient of the frozen
+% autoregressive likelihood carries no usable search direction on discrete text, statistically
+% indistinguishable from a random direction of equal norm on every model tested, and provably
+% identically zero at the final token, the one position where the energy difference between
+% candidate tokens is maximally informative. Second, stated more precisely than a blanket null:
+% an additive constraint gradient does carry a directional signal, unlike the fluency gradient,
+% but it cannot rescue generation once the sample leaves the fluent manifold, and even when
+% fluency is held fixed by a trust region its transfer to an independent judge is bounded by how
+% far two separately trained classifiers happen to agree rather than by any fixed reachable
+% direction. Third, the training-free premise on which the whole framework rests is tested and
+% refuted: a score-trained diffusion model on the same tokenizer supplies the very local
+% direction the autoregressive gradient lacks and natively performs the recovery the gradient
+% machinery could not, so the capability the promise assumed for free is available only at the
+% price of an objective trained to provide it. The contribution of this thesis is therefore a
+% mechanism, established by independent routes and confirmed by a positive control, for why
+% energy-guided sampling on frozen autoregressive language models fails and for what would
+% repair it."
+%
+% PRIOR WORDING (Phase 3), itself replaced earlier by the three-claim shape:
+% "A constrained-generation extension with a sentiment classifier confirms the picture: the
+% constraint gradient carries no reliable steering signal on this energy landscape. The
+% contribution of this thesis is therefore a mechanism, established twice by independent means,
+% for why energy-guided sampling on frozen autoregressive language models fails, together with
+% a positive-control experiment that would falsify it."
+%
+% NOTE: there is no German Kurzfassung in this thesis, so the "update in lockstep" instruction
+% has no second target. The IMS checklist does not require one for an English thesis.
 
 \clearpage

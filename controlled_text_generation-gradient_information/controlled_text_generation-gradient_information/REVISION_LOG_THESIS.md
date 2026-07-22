@@ -483,3 +483,78 @@ and training-free claims at full strength; the Part G asymmetric steering result
 reframed promise are in Results/Discussion but the abstract was not touched (consistent
 with the Phase 3 decision to leave abstract wording to the author). (2) The Phase 3
 appendix trajectory PCA plots remain placeholders (unchanged, separate item).
+## 2026-07-22 14:27 CEST - TEMPLATE-EXPLICIT VERSION in Doc/final/ (author-requested override)
+
+Author explicitly requested a version that follows the official IMS single-file
+article/\section template verbatim (overriding the earlier "keep chapters" decision),
+kept in a NEW folder inside Doc/ so the original report-class thesis is untouched. Author
+also supplied the two title-page facts that were open decisions: submission date
+29 July 2026, and second examiner Dr. Antje Schweitzer. Nothing in the original Doc/ was
+moved, renamed, or deleted; nothing in core/ or results touched. Numbers diff re-run: ALL OK.
+
+LOCATION: Doc/final/ (new). Contents: thesis.tex (single template-style master file),
+chapters/ (converted copies of every chapter incl. abstract, 05a, tab_confusion,
+gprime_examples, showcase_appendix), references.bib (byte-identical copy of the swept bib).
+
+WHAT WAS DONE
+ 1. Preamble built on the template: \documentclass[12pt,leqno,a4paper]{article}, and the
+    template's exact mechanical settings verbatim (natbib, epsfig, booktabs, geometry
+    left=3cm right=3cm, inputenc utf8, \baselinestretch 1.3, \parskip=\medskipamount,
+    \frenchspacing, \bibpunct[; ]{(}{)}{;}{a}{,}{;}, \bibliographystyle{plainnat}).
+    babel: reproduced the template's two languages but with english as the EXPLICIT main
+    language (main=english,german) so the English thesis keeps English float/TOC labels
+    (Figure/Table/Contents/References); the literal template order [english,german] would
+    make german the main language and render "Abbildung"/"Tabelle"/"Inhaltsverzeichnis"
+    in an English thesis, which is clearly not intended. Content-required packages that
+    the minimal template lacks were added in a separate, clearly-commented block (fontenc
+    T1, amsmath/amssymb/amsfonts/bm, longtable, multirow, url+xurl, caption; math shorthands;
+    \graphicspath to ../figures). No fancyhdr/titlesec/setspace/microtype/xcolor/hyperref/
+    subcaption: dropped because the template does not use them and the content does not need
+    them (verified: no \href, \textcolor, subfigure, or in-body \url usage).
+ 2. Headings demoted one level uniformly so numbering is PRESERVED exactly (article
+    section/subsection/subsubsection = report chapter/section/subsection = N / N.M / N.M.K):
+    8 \chapter -> \section, 51 \section -> \subsection, 9 \subsection -> \subsubsection.
+    Verified via TOC render (1 Introduction, 1.1 ...; 2 Background Work, 2.1 ...).
+ 3. Prose "Chapter~\ref" -> "Section~\ref" (24 spots) and the standalone word
+    chapter/Chapter/chapters/Chapters -> section/... so references to former chapters read
+    correctly; cross-refs render as "Section 2 introduces ... Section 7 concludes".
+    (Side effect caught and fixed: the word-level replace had rewritten "chapters/" inside
+    the four \input paths to "sections/"; restored to \input{chapters/...}.)
+ 4. Title page: template layout, fields filled - IMS block, "Master thesis", full title,
+    Sarthak Singh, Studiengang M.Sc. Computational Linguistics, Prüfer*innen: Prof. Dr.
+    Ngoc Thang Vu + Dr. Antje Schweitzer, Betreuer*in: Prof. Dr. Ngoc Thang Vu, Ende der
+    Arbeit 29.07.2026. Beginn der Arbeit left blank (AUTHOR DECISION, not supplied). The
+    template's fixed \vspace values overflowed the longer real title onto a 2nd page;
+    added top/bottom=2cm to the titlepage geometry and trimmed the two \vspace and the
+    blank tabular rows so it fits on one page (verified by render).
+ 5. Declaration: template Erklärung with current KI-Tools wording + the template's English
+    translation footnote; signed line "Stuttgart, 29. Juli 2026" then "(Sarthak Singh)";
+    on the FIRST content page (page 2). Template's "Hilfsmitel" typo not replicated
+    (correct "Hilfsmittel" kept). Rendered and inspected.
+ 6. LoF/LoT kept in addition to the TOC (template has only TOC; guidelines recommend LoF/LoT,
+    and they were present in the source). This is the one intentional addition beyond the
+    bare template.
+
+INTEGRITY CHECKS
+ - Re-derived the exact transform from the pristine Doc/chapters/ into a temp dir and
+   diffed against Doc/final/chapters/: IDENTICAL. Proves the conversion is exactly
+   heading-demotion + chapter->section wording + input-path fix, with NO numeric or
+   content edits.
+ - Doc/final/references.bib is byte-identical to the swept Doc/references.bib.
+ - numbers_diff_phase6.py: RESULT ALL OK (source of truth unchanged by this work).
+ - Compile: latexmk -pdf clean, exit 0, 142 pages (more than the report version's 125
+   only because the template geometry sets no top/bottom margin, so default article
+   vertical margins reflow the text; content is identical). thesis.log: ZERO undefined
+   references/citations. Overfull >40pt: 2, the same pre-existing bibliography author-line
+   wraps, within margin.
+ - Rendered and inspected: title page (1 page, all fields, 2nd examiner + 29.07.2026),
+   declaration (KI-Tools + English footnote + Stuttgart/29.07.2026), Contents (hierarchical
+   numbering preserved), a List-of-Tables page, a body page, and the References page
+   (brace-protected model names, URLs break, no overflow).
+
+REMAINING AUTHOR DECISION (only one): Beginn der Arbeit (start date) - not supplied,
+left blank on the title page.
+
+NOTE: Doc/final/ is the template-explicit deliverable. The original multi-chapter
+report-class thesis in Doc/ remains the substantive master and is unchanged except for the
+earlier compliance edits (bibpunct, babel, title page, declaration, references.bib, SEDD).

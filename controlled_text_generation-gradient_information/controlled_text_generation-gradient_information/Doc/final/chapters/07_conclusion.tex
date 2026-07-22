@@ -1,0 +1,88 @@
+\section{Conclusion}
+\label{ch:conclusion}
+
+This thesis set out to build controllable text generation on faithful Langevin dynamics, treating the frozen likelihood of an autoregressive language model as an energy function and steering it at inference time with an additive constraint. It tested the premise that construction rests on, and found the premise did not hold in the settings examined.
+
+\paragraph*{What was tested.} One hundred and forty-five sampling configurations across five energy functions, a supervised fine-tuned GPT-2 Large, three GFlowNet-tuned variants of it, and a Llama-3 8B cross-architecture control, on a masked-token recovery benchmark and on a free-form continuation task. Two samplers were run, one remaining in token space and one operating in the embedding space, under a factorial combination of Metropolis--Hastings correction, gradient normalization, and annealing schedule length, alongside five diagnostic experiments and a diffusion positive control at two scales.
+
+\paragraph*{What was found.} In the tested token-substitution settings, the input-embedding gradient of frozen autoregressive sequence likelihood provided no reliable proposal advantage over a norm-matched random direction. The mechanism is that the first-order surrogate the discrete sampler ranks by is uncorrelated with the true change in energy across the whole admissible range of substitution distances, and that the input-embedding gradient is structurally blind to how well a candidate token fits its own left context, exactly so at the final position under the shifted causal indexing. The energy itself is not at fault: a single top-$k$ rescoring pass and a gradient-free Gibbs sampler both recover coherent text on the identical energy, at a fraction of the cost. Applied faithfully, the Metropolis--Hastings correction improves the discrete sampler and disables the continuous one, the acceptance ratio collapsing through its proposal term at the cell boundaries a nearest-neighbour projection creates. On these models the lowest-energy text is also the most degenerate, so the objective the methods pursue is not the objective one would want. Amortizing the search with a GFlowNet did not escape the failure in the tested setup: three collapse modes appeared and Langevin sampling on the tuned energy was indistinguishable from sampling on the untuned base, although the tuning had moved that energy by tens of nats. As a positive control, a score-trained diffusion model on the same tokenizer supplied a clearly positive local direction where the autoregressive gradient was statistically zero and, substituted as the proposal inside this thesis's own exact-energy chain, raised exact recovery from zero to thirty-nine percent.
+
+\paragraph*{What remains uncertain.} The combined GFlowNet and diffusion results support the interpretation that the training objective, rather than only the sampling algorithm, is a key source of the failure, but that remains an interpretation rather than a proof covering all autoregressive language models: the GFlowNet result bounds the variants trained here, not amortized inference in general, and the diffusion pilots use smaller, differently trained models on a qualitative comparison. On the frozen autoregressive landscape, plug-and-play constraint steering failed; on a score-trained diffusion landscape it became partly possible, subject to fluency and classifier-alignment limits, and how far that extends beyond one noisy guide at this scale is not settled here.
+
+\paragraph*{The main practical implication.} The experiments refute the premise that the frozen autoregressive sequence-likelihood gradient can supply the required local score for this class of Langevin-based methods without additional training. They do not refute the training-free premise as such, since gradient-free training-free methods remained viable throughout, in this study's own baselines as well as in the published work of Section~\ref{sec:rel-energy}. For a practitioner building inference-time control on a frozen autoregressive model, the usable object is the energy and not its input-embedding gradient. For the gradient-guided route to be recovered, the model would have to be trained to supply the score the route assumes, which is what the diffusion control indicates and what a score-matching fine-tune of the sequence density would attempt directly.
+
+% REWRITTEN (Phase 8, evaluation section 2.E and section 5 item 10: "The Conclusion should not
+% repeat all evidence. It should state: what was tested, what was found, what remains uncertain,
+% what the main practical implication is."). The four paragraph headings above are exactly that
+% structure. The prior conclusion restated the full evidence chain a third time, after Section
+% 6.1 had answered the research questions and Section 6.2 had synthesized the mechanism. It is
+% preserved here in full.
+%
+% PRIOR WORDING (Phase 6):
+% "This thesis set out to realize the promise of energy-based controllable text generation, in
+% which a frozen autoregressive language model is treated as an energy function and steered at
+% inference time by sampling from it with gradient-guided Markov chain Monte Carlo. The appeal of
+% that promise is real: a single frozen model, augmented with an additive constraint at
+% generation time, could in principle be steered toward any objective without the cost of
+% retraining. Across a systematic study of one hundred and forty-five sampling configurations,
+% five energy functions, and two samplers, complemented by four diagnostic experiments, the
+% thesis found that the central premise on which the promise rests does not hold. The frozen
+% likelihood of an autoregressive language model does not admit local gradient-based navigation
+% on discrete text: its gradient is not a usable search direction. The narrower phrasing is
+% deliberate and is earned by the evidence, because the energy itself proves searchable by
+% gradient-free means, a single top-$k$ rescoring pass and a Gibbs sampler both recovering
+% coherent text on the same benchmark; what fails is not the evaluation of the energy but the
+% attempt to follow its gradient.
+%
+% The contribution of the thesis is not this negative observation alone, which the difficulty the
+% field has had with these methods already hints at, but the mechanistic account that accompanies
+% it, established by independent means and supported at every step by direct measurement.
+% Following the true gradient was shown to be statistically indistinguishable from following a
+% random direction of equal magnitude, on all five energy functions, once a normalization
+% confound was removed by an ablation designed for that purpose. This gradient fallacy was
+% explained by a linearization failure: the first-order surrogate that the discrete sampler uses
+% to rank candidate tokens is uncorrelated with the true change in energy, because the smallest
+% admissible discrete step is far larger than the radius over which the local linear model is
+% valid, and the input-embedding gradient is in addition structurally blind to a substantial part
+% of the energy change. The Metropolis--Hastings correction, applied faithfully rather than
+% omitted, was shown to paralyze the continuous sampler, and the trace analysis located the cause
+% precisely in the proposal term of the acceptance ratio, which collapses because the
+% nearest-neighbour projection makes the drift discontinuous at every cell boundary. A likelihood
+% trap was measured on the study's own models, showing that the lowest-energy text is the most
+% degenerate, so that success at the optimization objective is failure at the underlying goal.
+% Turning to amortized inference, the GFlowNet experiments exhibited three distinct failure
+% modes, and a unifying experiment showed that Langevin sampling on the GFlowNet-tuned energy is
+% indistinguishable from sampling on the untuned base, demonstrating that the pathology survives
+% amortization and is therefore a property of the energy rather than of any sampler.
+% A constrained-generation extension refined rather than merely repeated this picture: unlike the
+% fluency gradient, the constraint gradient does carry a directional signal, but it does not
+% produce reliable control on the discrete sampler, and where a signal appears it is entangled
+% with the departure from the fluent manifold that a constraint-only objective causes.
+%
+% Taken together, these findings locate the cause of the failure in the training objective of
+% autoregressive language models, which shapes accurate local conditional distributions but never
+% a smooth global energy over sequences. This diagnosis is not an endpoint but a signpost,
+% because it makes a falsifiable prediction: a diffusion language model, whose objective does
+% shape a score function over the data, should not fail in the same way.
+% The thesis runs that positive control rather than only proposing it. A score-entropy discrete
+% diffusion model on the same tokenizer, tested at two scales, supplies a clearly positive local
+% direction where the autoregressive gradient was statistically zero, natively recovers the
+% flipped token the gradient-guided sampler never recovered, and, in the sharpest form of the
+% test, lifts recovery from zero to thirty-nine percent when it replaces only the proposal inside
+% the thesis's own exact-energy chain; a trained noisy-state classifier steers an independent
+% judge, with a reach bounded and setting-contingent for the same off-manifold reasons the
+% constraint experiment exposed. These are pilots on smaller, differently trained models, and are
+% read as such, but every arm of the prediction is borne out, which isolates the training
+% objective as the causal variable and points to the complementary route of aligning a model's
+% sequence density with a target energy by score matching. What the thesis provides to the larger
+% effort of building inference-time controllable generation on frozen models is therefore a
+% precise characterization of where and why the most common approach breaks down, drawn carefully
+% enough to guide what comes next, together with a positive control that confirms the
+% explanation. A negative result about a method, when it is accompanied by a mechanism, a
+% measurement, and a falsifiable hypothesis, is a positive result about understanding, and it is
+% in that spirit that this work is offered."
+%
+% PRIOR WORDING (Phase 3), superseded earlier: "A constrained-generation extension confirmed
+% that the constraint gradient carries no reliable steering signal on this landscape." and
+% "...and the thesis sets out that positive-control experiment as the natural and immediate next
+% step..."

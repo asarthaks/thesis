@@ -85,7 +85,7 @@ def plot_linearization(res_dir, fig_dir, model_key="gpt2sft"):
     r_all = spearmanr(df.surrogate, df.true_delta)[0]
     ax.set_xlabel(r"Taylor surrogate  $\hat{\Delta}(v) = \nabla_{e_i}\log p^\top (e(v)-e(x_i))$")
     ax.set_ylabel(r"True energy change  $\Delta(v) = \log p(x_{i \to v}) - \log p(x)$")
-    ax.set_title("The proposal surrogate does not predict the true energy change")
+    ax.set_title("Taylor surrogate against the true energy change")  # Phase 8: was a verdict
     ax.text(0.03, 0.95, rf"Spearman $\rho$ = {r_all:.3f}",
             transform=ax.transAxes, va="top", fontsize=11,
             bbox=dict(fc="white", ec="0.7", alpha=0.9))
@@ -112,21 +112,22 @@ def plot_linearization(res_dir, fig_dir, model_key="gpt2sft"):
         return
     print(f"   fig_lin_radius: {len(centres)} bins, {min(ns)}-{max(ns)} rows each")
 
-    fig, ax = plt.subplots(figsize=(6.4, 4.4))
+    # PHASE 8 (print legibility): the two vertical-line annotations used to be drawn as
+    # floating ax.text labels, which collided with the legend entry at the lower left and
+    # with the data line at the top. They are now legend entries, so nothing can overlap,
+    # and the title is descriptive rather than a verdict.
+    fig, ax = plt.subplots(figsize=(6.6, 4.6))
     ax.plot(centres, rhos, "o-", color=C_POLICY, lw=2, ms=5,
             label=r"Spearman $\rho$ within distance bin")
     ax.axhline(0, color="0.4", lw=0.8)
 
     ylo, yhi = ax.get_ylim()
-    span = yhi - ylo
 
     mean_d = float(df.dist.mean())
-    ax.axvline(mean_d, ls="--", color=C_BAD, lw=1.4)
-    ax.text(mean_d, yhi - 0.04 * span,
-            f" mean inter-token\n distance = {mean_d:.2f}",
-            color=C_BAD, fontsize=9, va="top", ha="left")
+    ax.axvline(mean_d, ls="--", color=C_BAD, lw=1.4,
+               label=f"mean candidate distance = {mean_d:.2f}")
 
-    # the linearization radius: the distance at which rho first falls below 0.1
+    # the distance at which the binned correlation first falls below 0.1
     r_thresh = 0.1
     rad = None
     for c, r in zip(centres, rhos):
@@ -134,20 +135,22 @@ def plot_linearization(res_dir, fig_dir, model_key="gpt2sft"):
             rad = c
             break
     if rad is not None:
-        ax.axvline(rad, ls=":", color=C_ACCENT, lw=1.6)
-        ax.text(rad, ylo + 0.05 * span,
-                f" linearization\n radius $r \\approx$ {rad:.2f}",
-                color=C_ACCENT, fontsize=9, va="bottom", ha="left")
+        ax.axvline(rad, ls=":", color=C_ACCENT, lw=1.6,
+                   label=rf"first bin with $\rho < {r_thresh}$, at {rad:.2f}")
     else:
         print("   note: rho never fell below 0.1, so no linearization radius was "
               "identified. That would be a POSITIVE result for gradient guidance "
               "and it would contradict the thesis. Check the data before writing.")
 
-    ax.set_ylim(ylo, yhi)
-    ax.set_xlabel(r"Embedding distance of the candidate token, $\|e(v)-e(x_i)\|_2$")
-    ax.set_ylabel(r"Spearman $\rho$ (surrogate vs. true energy change)")
-    ax.set_title("The gradient is informative only at distances the sampler cannot use")
-    ax.legend(loc="lower left", fontsize=8.5, frameon=False)
+    ax.set_ylim(ylo, yhi + 0.30 * (yhi - ylo))
+    ax.set_xlabel(r"Embedding distance of the candidate token, $\|e(v)-e(x_i)\|_2$",
+                  fontsize=11)
+    ax.set_ylabel(r"Spearman $\rho$ (surrogate vs. true energy change)", fontsize=11)
+    ax.set_title("Surrogate-to-truth correlation by candidate embedding distance",
+                 fontsize=11)
+    ax.tick_params(labelsize=10)
+    ax.legend(loc="upper right", fontsize=9, frameon=True, framealpha=0.95,
+              edgecolor="0.8")
     save(fig, fig_dir, "fig_lin_radius")
 
     # ---------- 1C: the decomposition ----------
@@ -165,8 +168,8 @@ def plot_linearization(res_dir, fig_dir, model_key="gpt2sft"):
         ax.set_ylabel(lab)
         ax.set_title(rf"$\rho$ = {rho:.3f}")
 
-    fig.suptitle("The surrogate is structurally blind to the term that matters most",
-                 y=1.02, fontsize=11)
+    fig.suptitle("Surrogate against the self and future terms of the true change",
+                 y=1.02, fontsize=11)  # Phase 8: was a verdict
     fig.text(0.5, -0.06,
              f"mean |self| = {df.true_delta_self.abs().mean():.2f} nats,   "
              f"mean |future| = {df.true_delta_future.abs().mean():.2f} nats.   "
@@ -198,7 +201,7 @@ def plot_linearization(res_dir, fig_dir, model_key="gpt2sft"):
     ax.set_xticks(x); ax.set_xticklabels([f"top-{k}" for k in ks])
     ax.set_ylabel("Recall of the true top-$k$ tokens")
     ax.set_xlabel("Cutoff")
-    ax.set_title("Gradient ranking of candidate tokens is no better than chance")
+    ax.set_title("Top-$k$ recall of gradient ranking against a random ranker")  # Phase 8: was a verdict
     ax.legend(frameon=False, fontsize=9)
     save(fig, fig_dir, "fig_lin_topk")
 
@@ -342,8 +345,8 @@ def plot_likelihood_trap(res_dir, fig_dir, model_key="gpt2sft"):
         ax.set_xlabel(r"mean per-token $\log p$   (higher = lower energy)")
         ax.set_ylabel(ylab)
     axes[0].legend(frameon=False, fontsize=8, ncol=2)
-    fig.suptitle("The lowest-energy text is the worst text: the likelihood trap",
-                 y=1.02, fontsize=11)
+    fig.suptitle("Per-token likelihood against repetition and diversity",
+                 y=1.02, fontsize=11)  # Phase 8: was a verdict
     save(fig, fig_dir, "fig_trap_scatter")
 
     # ---------- 4B ----------
@@ -357,7 +360,7 @@ def plot_likelihood_trap(res_dir, fig_dir, model_key="gpt2sft"):
             label=rf"slope = {lr.slope:.2f} nats/token  ($r$ = {lr.rvalue:.2f})")
     ax.set_xlabel("Generated sequence length (tokens)")
     ax.set_ylabel(r"Total $\log p$   (the unnormalised GFlowNet reward)")
-    ax.set_title("The unnormalised reward is dominated by a length penalty")
+    ax.set_title("Total log-likelihood against generated length")  # Phase 8: was a verdict
     ax.legend(frameon=False, fontsize=9)
     save(fig, fig_dir, "fig_trap_length")
 
@@ -382,8 +385,8 @@ def plot_anisotropy(res_dir, fig_dir):
         ax.set_title(name)
         ax.set_xlabel(r"Pairwise $L_2$ distance between token embeddings")
         ax.set_ylabel("Count")
-    fig.suptitle("Inter-token distance differs by an order of magnitude between models, "
-                 "so no step-size schedule transfers", y=1.03, fontsize=10.5)
+    fig.suptitle("Pairwise token-embedding distance distributions, GPT-2 Large and Llama-3",
+                 y=1.03, fontsize=10.5)  # Phase 8: was a verdict
     save(fig, fig_dir, "fig_aniso_hist")
 
 

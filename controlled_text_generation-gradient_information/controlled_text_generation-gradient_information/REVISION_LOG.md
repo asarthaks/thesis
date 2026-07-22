@@ -2050,3 +2050,824 @@ IMS cover-page, declaration, table-of-contents, introduction, main-part, conclus
 bibliography, appendix, and abbreviation requirements of the checklist and guidelines,
 and matches the official template on every mechanical setting that does not fight the
 approved chapter structure. No substantive content, results, or arguments were altered.
+## 2026-07-22 14:27 CEST - TEMPLATE-EXPLICIT VERSION in Doc/final/ (author-requested override)
+
+Author explicitly requested a version that follows the official IMS single-file
+article/\section template verbatim (overriding the earlier "keep chapters" decision),
+kept in a NEW folder inside Doc/ so the original report-class thesis is untouched. Author
+also supplied the two title-page facts that were open decisions: submission date
+29 July 2026, and second examiner Dr. Antje Schweitzer. Nothing in the original Doc/ was
+moved, renamed, or deleted; nothing in core/ or results touched. Numbers diff re-run: ALL OK.
+
+LOCATION: Doc/final/ (new). Contents: thesis.tex (single template-style master file),
+chapters/ (converted copies of every chapter incl. abstract, 05a, tab_confusion,
+gprime_examples, showcase_appendix), references.bib (byte-identical copy of the swept bib).
+
+WHAT WAS DONE
+ 1. Preamble built on the template: \documentclass[12pt,leqno,a4paper]{article}, and the
+    template's exact mechanical settings verbatim (natbib, epsfig, booktabs, geometry
+    left=3cm right=3cm, inputenc utf8, \baselinestretch 1.3, \parskip=\medskipamount,
+    \frenchspacing, \bibpunct[; ]{(}{)}{;}{a}{,}{;}, \bibliographystyle{plainnat}).
+    babel: reproduced the template's two languages but with english as the EXPLICIT main
+    language (main=english,german) so the English thesis keeps English float/TOC labels
+    (Figure/Table/Contents/References); the literal template order [english,german] would
+    make german the main language and render "Abbildung"/"Tabelle"/"Inhaltsverzeichnis"
+    in an English thesis, which is clearly not intended. Content-required packages that
+    the minimal template lacks were added in a separate, clearly-commented block (fontenc
+    T1, amsmath/amssymb/amsfonts/bm, longtable, multirow, url+xurl, caption; math shorthands;
+    \graphicspath to ../figures). No fancyhdr/titlesec/setspace/microtype/xcolor/hyperref/
+    subcaption: dropped because the template does not use them and the content does not need
+    them (verified: no \href, \textcolor, subfigure, or in-body \url usage).
+ 2. Headings demoted one level uniformly so numbering is PRESERVED exactly (article
+    section/subsection/subsubsection = report chapter/section/subsection = N / N.M / N.M.K):
+    8 \chapter -> \section, 51 \section -> \subsection, 9 \subsection -> \subsubsection.
+    Verified via TOC render (1 Introduction, 1.1 ...; 2 Background Work, 2.1 ...).
+ 3. Prose "Chapter~\ref" -> "Section~\ref" (24 spots) and the standalone word
+    chapter/Chapter/chapters/Chapters -> section/... so references to former chapters read
+    correctly; cross-refs render as "Section 2 introduces ... Section 7 concludes".
+    (Side effect caught and fixed: the word-level replace had rewritten "chapters/" inside
+    the four \input paths to "sections/"; restored to \input{chapters/...}.)
+ 4. Title page: template layout, fields filled - IMS block, "Master thesis", full title,
+    Sarthak Singh, Studiengang M.Sc. Computational Linguistics, Prüfer*innen: Prof. Dr.
+    Ngoc Thang Vu + Dr. Antje Schweitzer, Betreuer*in: Prof. Dr. Ngoc Thang Vu, Ende der
+    Arbeit 29.07.2026. Beginn der Arbeit left blank (AUTHOR DECISION, not supplied). The
+    template's fixed \vspace values overflowed the longer real title onto a 2nd page;
+    added top/bottom=2cm to the titlepage geometry and trimmed the two \vspace and the
+    blank tabular rows so it fits on one page (verified by render).
+ 5. Declaration: template Erklärung with current KI-Tools wording + the template's English
+    translation footnote; signed line "Stuttgart, 29. Juli 2026" then "(Sarthak Singh)";
+    on the FIRST content page (page 2). Template's "Hilfsmitel" typo not replicated
+    (correct "Hilfsmittel" kept). Rendered and inspected.
+ 6. LoF/LoT kept in addition to the TOC (template has only TOC; guidelines recommend LoF/LoT,
+    and they were present in the source). This is the one intentional addition beyond the
+    bare template.
+
+INTEGRITY CHECKS
+ - Re-derived the exact transform from the pristine Doc/chapters/ into a temp dir and
+   diffed against Doc/final/chapters/: IDENTICAL. Proves the conversion is exactly
+   heading-demotion + chapter->section wording + input-path fix, with NO numeric or
+   content edits.
+ - Doc/final/references.bib is byte-identical to the swept Doc/references.bib.
+ - numbers_diff_phase6.py: RESULT ALL OK (source of truth unchanged by this work).
+ - Compile: latexmk -pdf clean, exit 0, 142 pages (more than the report version's 125
+   only because the template geometry sets no top/bottom margin, so default article
+   vertical margins reflow the text; content is identical). thesis.log: ZERO undefined
+   references/citations. Overfull >40pt: 2, the same pre-existing bibliography author-line
+   wraps, within margin.
+ - Rendered and inspected: title page (1 page, all fields, 2nd examiner + 29.07.2026),
+   declaration (KI-Tools + English footnote + Stuttgart/29.07.2026), Contents (hierarchical
+   numbering preserved), a List-of-Tables page, a body page, and the References page
+   (brace-protected model names, URLs break, no overflow).
+
+REMAINING AUTHOR DECISION (only one): Beginn der Arbeit (start date) - not supplied,
+left blank on the title page.
+
+NOTE: Doc/final/ is the template-explicit deliverable. The original multi-chapter
+report-class thesis in Doc/ remains the substantive master and is unchanged except for the
+earlier compliance edits (bibpunct, babel, title page, declaration, references.bib, SEDD).
+
+## 2026-07-22 17:08 CEST - PHASE 8 KICKOFF: external evaluation resolution + the unrun style pass
+
+Scope of this session: resolve every point in `evaluation_feedback.md` (the external
+evaluation, 608 lines, read in full), and do the work of the Phase 7 style pass that was
+planned and never run. The verdict internalized: the spine is strong, the RQs are answered,
+the defects are over-explanation, repetition, and claim overreach. Remedy is compression
+and scoping. No experiment, number, or result is removed from the record.
+
+Read before touching anything: CLAUDE.md; the closing reports in this log (Phase 4 closing,
+Phase 6 closing certification, IMS compliance pass, Doc/final template-explicit version);
+`evaluation_feedback.md` in full; `IoannaThesis/Ioannathesis.tex` end to end; and every
+file under `Doc/chapters/` plus `Doc/thesis.tex` and `Doc/final/thesis.tex`.
+
+### Which document the evaluator read
+
+The evaluation says "the uploaded 142-page thesis". That is `Doc/final/` (the article,
+template-explicit version), not the 125-page report-class master in `Doc/`. Section numbers
+are identical between the two (the conversion was heading demotion only, verified byte-exact
+in the 2026-07-22 14:27 entry), so every section reference in the evaluation maps to both.
+Figure and table NUMBERS differ: `Doc/` numbers per chapter (5.1, 5.2, ...), `Doc/final/`
+numbers flat (1, 2, 3, ...). This matters for the author's figure complaints below.
+
+DECISION: all substantive edits are made in `Doc/chapters/` (the master). `Doc/final/chapters/`
+is regenerated at the end by re-deriving the same documented mechanical transform, so the two
+stay in sync and the integrity check of the 14:27 entry still holds.
+
+### Baseline measurements (report version, before this pass)
+
+Compiled PDF 125 physical pages. Printed-page spans of the main text:
+
+| Part | Printed pages | Count |
+|------|---------------|-------|
+| Abstract (physical 3-4) | - | 2 |
+| 1 Introduction | 1-7 | 7 |
+| 2 Background Work | 8-17 | 10 |
+| 3 Related Work | 18-24 | 7 |
+| 4 Methodology | 25-33 | 9 |
+| 5 Results | 34-70 | 37 |
+| 6 Discussion | 71-81 | 11 |
+| 7 Conclusion | 82-83 | 2 |
+| Main text total (before bibliography) | 1-83 | 83 |
+| Bibliography | 84-88 | 5 |
+| A Appendix | 89-111 | 23 |
+
+Two corrections to the evaluation's own page arithmetic, recorded so the targets are honest:
+the evaluation reports the conclusion as "roughly eight pages" from its start on p.108 to the
+appendix at p.116 in the 142-page render. That span is conclusion PLUS the five-page
+bibliography. The conclusion itself is already 2 pages in the report build and about 3 in the
+article build, so it is already inside the evaluation's own "two to three pages" target. The
+conclusion is therefore rewritten for CONTENT (no third recap of the evidence chain) rather
+than cut for length. Likewise the abstract is 2 pages in the report build, not 3; the
+900-1000 word estimate is close (measured 775 words of prose) and the 350-500 word target stands.
+
+Target after cuts: main text 83 -> about 66 printed pages (20 percent), abstract 1 page.
+
+### Four additional requirements supplied by the author mid-session (print quality)
+
+Raised against the `Doc/final/` render, so the figure numbers are the flat ones:
+
+1. Figures must be legible in print. Figure 2 (flat numbering) = `fig:dls-traj-100`, the
+   100-step DLS trajectory panel, is far too small. Verified: the source PNG is 3277x975,
+   an aspect ratio of 3.36:1 with a legend outside the axes; set at 0.9\textwidth on a 15cm
+   text block it renders about 4cm tall, putting the tick labels near 4pt. Its twin,
+   Figure 1 = `fig:dls-traj-50`, has the identical defect.
+2. Figure 8 = `fig:lasttoken`: the acceptance line and its "100%" annotation are drawn
+   through the legend box. Verified in the source PNG.
+3. Figure 5 = `fig:lin-radius`: the orange "linearization radius r = 0.89" annotation
+   overlaps the black legend entry "Spearman rho within distance bin", and the red
+   "mean inter-token distance = 2.35" annotation sits on top of the data line. Verified.
+4. Cross-references to sections, figures and tables must be clickable. ROOT CAUSE FOUND:
+   `Doc/final/thesis.tex` does not load `hyperref` at all (grep count 0), because the pass
+   that built it copied only the packages the official template uses plus the ones the
+   content needs to compile, and hyperref is in neither list. `Doc/thesis.tex` does load it
+   (`\usepackage[hidelinks]{hyperref}`), so the report build is already clickable and only
+   the template-explicit build is not.
+
+All four are handled in this session and are logged with the rest.
+
+## 2026-07-22 17:22 CEST - STYLE MEMO (Ioanna register capture, from IoannaThesis/Ioannathesis.tex read end to end)
+
+Her thesis is a style reference only. Nothing below is copied into `Doc/`. What is imitated
+is register and format: heading grammar, opener shape, caption format, the text-versus-caption
+split, and paragraph length. Quotations here are for calibration inside this log.
+
+### (a) Section-title grammar: noun phrases, never questions
+
+Five headings quoted verbatim from her source:
+
+1. `\subsection{The Voice Privacy Challenge Initiative}`
+2. `\subsection{Alternative Metrics Focusing on Individual Speakers}`
+3. `\subsection{Prosodic Features as Indicators of Speaker Identification}`
+4. `\subsection{Baseline Performance and EER as an Incomplete Privacy Metric}`
+5. `\subsection{Linkability \& Singling Out: A Different Threat Assessment Metric}`
+
+Observations that become rules for our retitling. Every one of the 33 headings in her file
+is a noun phrase. Not one is a question. Not one is a claim or a verdict. Two use a colon,
+and in both cases the colon separates a NAMED OBJECT from a NEUTRAL CHARACTERIZATION of it
+("Linkability & Singling Out: A Different Threat Assessment Metric"), never a label followed
+by a punchline. Headings name the topic under discussion, and the reader learns the finding
+from the prose. Her one near-exception, "What ZEBRA Adds: Its Divergence from EER", is still
+a noun phrase ("What ZEBRA Adds"), not an interrogative.
+
+### (b) How she opens chapters and sections
+
+Chapter openers state the contents of the chapter in one or two flat sentences and then
+start. From the Results opener: "In the current chapter, the results of the experiments and
+analyses described in Section~\ref{sec:methodology} are presented. First, the results from
+the trial partitions of LibriSpeech in VPC 2024 ... are reported for global EER, global
+\texttt{dECE} ..., speaker-level EER, and speaker-level \texttt{dECE}. Next, the results for
+Linkability \& Singling Out are presented and lastly, the results of the phonetic, acoustic,
+embedding-based, and linguistic feature analyses are reported."
+
+Section openers go straight to the object. "Table~\ref{tab:dev_f_zebra_eer_ranks} reports
+per-speaker ZEBRA, \texttt{dECE} and EER results for the LibriSpeech development female trial
+set." "The results in Section~\ref{subsec:results_for_eer_and_zebra} show that global EER,
+although convenient, can give an incomplete picture of anonymization effectiveness."
+
+What is absent, and this is the operative point: no opener narrates the argument's shape, no
+opener recaps the previous section at length, no opener promises what the reader will feel or
+see, no opener defends the way the material is organized.
+
+### (c) Sentence rhythm and voice
+
+Medium sentences, mostly one clause plus one qualifier. Impersonal or passive for procedure
+("Three matrices are computed", "Systems are evaluated jointly on privacy and utility"),
+occasional first person singular in the conclusion only. Hedges are frequent and plain:
+"seem to", "suggests that", "may reflect", "should therefore be interpreted as exploratory".
+Numbers are given inline with the claim they support and nothing more is made of them.
+Emphasis is carried by `\textbf{}` on named entities, not by rhetorical construction. No
+sentence in her file is built for effect.
+
+Representative: "The fact that these speakers remain vulnerable across fundamentally
+different architectures suggests that the failures are not only system-specific, but may
+also reflect persistent speaker-dependent properties." Claim, evidence, hedge, stop.
+
+### (d) Caption format: three quoted verbatim
+
+1. "Target minus non-target feature-space cosine similarity separation across systems and
+   trial sets. ASV emb. denotes ASV embedding similarity."
+2. "Spearman correlations between feature-space similarity and ASV score across all trials.
+   ASV emb. denotes ASV embedding similarity."
+3. "Per-speaker ZEBRA dECE, EER, and performance ranks for individual speakers for B3, B4,
+   B5 on \texttt{dev-f}, with ranking of 1 meaning best privacy preservation. DR=dECE speaker
+   rank, ER=EER speaker rank. Red: Speakers with EER below $30\%$ across all systems."
+
+The shape is invariant: a noun phrase naming what is plotted or tabulated, then, only if
+needed, a legend gloss (what an abbreviation means, what a colour marks, which direction is
+better). Her longest caption is still only a naming clause plus three glosses.
+
+### (e) Interpretation lives in the text, not the caption
+
+Not one of her captions contains a finding, a comparison between systems, a limitation, or a
+conclusion. The caption says what the object is; the paragraph next to it says what it means.
+Our thesis currently does BOTH, which is exactly what the evaluation flags in section 6
+("Choose one: detailed caption plus compact prose, or concise caption plus full prose.
+Currently the thesis often does both."). Since the IMS checklist requires every table to be
+talked through in prose, prose wins and the captions lose their interpretation.
+
+### (f) Paragraph length and transitions
+
+Paragraphs run four to eight sentences and hold one idea. Transitions are single connectives
+carrying no argumentative weight: "However", "In contrast", "Moreover", "Here", "For example",
+"Lastly", "Overall". There is no paragraph whose job is to bridge two other paragraphs. A new
+subsection begins by naming its object, not by summarizing the one before it.
+
+### AI-flavored patterns to remove from our text
+
+Enumerated so the rewriting has a checklist. Each is a pattern our draft has and hers does not.
+
+1. QUESTION-FORM AND VERDICT HEADINGS. Ours: "Does Amortization Escape the Failure? GFlowNet
+   Fine-Tuning", "A Correction That Breaks the Sampler", "The Central Result: The Gradient
+   Fallacy", "Gradient-Free Baselines: The Energy Is Not the Problem", "Why the Gradient
+   Fails, Part One". All become noun phrases. Labels stay unchanged.
+2. FORMULAIC EMPHASIS OPENERS. "Notably", "Crucially", "Importantly", "Strikingly", "Tellingly",
+   "It is worth noting", "It is worth stating", "It is worth pausing", "It is essential",
+   "It is important to be exact", "worth dwelling on", "The reader should hold ... in mind".
+   Our draft uses the "worth X-ing" construction 20 times across the seven chapters. Ioanna uses it zero times.
+3. SYMMETRIC TRIADS AND ANAPHORA. "it is not smooth ...; it is not a good measure ...; and its
+   gradient does not point ...", "blind to the linearization failure, blind to the
+   discontinuous drift, blind to everything that defeated ...", "not three separate
+   deficiencies but three faces of one absence". Effective once; ours has them in every
+   synthesis paragraph.
+4. STACKED SIGNPOSTING. Chapter and section openers that announce the shape of the argument
+   ("It proceeds in the order in which the study actually developed, because that order is
+   also the logical one"), plus closers that name the next question ("That question is the
+   central one, and the next section confronts it directly"). Ours does both at nearly every
+   boundary. One directional sentence per section, at most.
+5. THE FIVE-BEAT RESULTS PARAGRAPH the evaluation names: state result, say why it matters,
+   fit it to the thesis, name the next question, restate the mechanism. Results paragraphs
+   become: state result, give the one reading the reader needs, stop.
+6. THEATRICAL RECURRING PHRASES the evaluation quotes: "the central business of this thesis",
+   "a closed case against", "protected from their own objective", "the strange silver lining",
+   "the falsifying experiment", "the sufficiency half of the diagnosis", "the lowest-energy
+   text is the worst text", "a correction that breaks the sampler". One memorable phrasing per
+   idea at first use, plain reporting thereafter.
+7. SELF-JUSTIFYING META-PROSE. "This is, we will argue, the honest way to present a diagnostic
+   result", "which is what makes it evidence for the thesis's single underlying diagnosis
+   rather than merely one more disappointing table", "and it is worth marking clearly precisely
+   because it is the exception". The thesis should not argue for its own rhetorical choices.
+8. INTERPRETIVE CAPTIONS. Per (e).
+9. FIGURE TITLES THAT STATE VERDICTS. Ours: "The gradient is informative only at distances the
+   sampler cannot use", "At the final token the gradient is provably zero yet the energy is
+   exact". These are headline claims baked into the image, unfixable by an examiner and, in the
+   first case, an overstatement of the very result the evaluation asks us to scope. They become
+   neutral descriptive titles when the figures are regenerated.
+
+## 2026-07-22 17:41 CEST - CALIBRATION SAMPLE: Section 5.2 rewritten, before and after
+
+Section 5.2 was rewritten first and checked against the style memo above before any other
+prose was touched. Every number, every `% SOURCE` comment, and both figures are unchanged.
+Prose 700 words -> 331 words. Heading changed from a verdict phrase to a noun phrase; label
+`sec:results-quench` unchanged.
+
+### BEFORE (verbatim)
+
+> \section{An Apparent Convergence: Annealing Dynamics and the Quenching Effect}
+>
+> With the step size calibrated, the discrete sampler moves, and the next question is how it
+> behaves over the course of a run. Run without the Metropolis--Hastings correction, it
+> exhibits a striking and suggestive pattern: its metrics remain noisy and unimproving for the
+> majority of the annealing schedule and then, near the end, drop abruptly to much better
+> values. The natural reading of this pattern, and the one we initially entertained, is that
+> the sampler has finally converged: that after a long period of exploration it has located a
+> good sequence and settled into it. If that reading were correct, it would be modest good news
+> for the method.
+>
+> A controlled test refutes the reading, and the design of the test is the point. If the late
+> drop marked genuine convergence, it would occur when the model had found a good sequence, and
+> its timing would be governed by the difficulty of the problem, not by the schedule. If instead
+> the drop were an artifact of the annealing schedule, its timing would track the schedule:
+> lengthen the schedule, and the drop would move. We therefore extended the schedule from $50$
+> steps to $100$ and observed where the drop occurred. It moved, from around step $40$ to around
+> step $85$, tracking the schedule rather than remaining fixed at the point where a good sequence
+> might have been found. The drop is therefore not convergence but what we term a \textbf{quenching
+> effect} [...]
+>
+> The mechanism is a direct consequence of the annealing schedule interacting with the absence of
+> the correction. [...] The abrupt late-schedule drop is the signature of this collapse. The name
+> is borrowed from metallurgy, where quenching denotes a rapid cooling that freezes a material into
+> whatever configuration it happened to occupy at the moment the cooling began, and the analogy is
+> exact: removing the noise freezes the sampler into its current local optimum rather than allowing
+> it to continue exploring toward a better one. The drop looks like convergence because the metrics
+> improve, but it is the improvement of a system that has stopped moving, not one that has found
+> the right place.
+>
+> There is a revealing contrast when the Metropolis--Hastings correction is enabled: the quenching
+> pattern does not occur. The chain converges smoothly and early, within the first twenty steps,
+> and remains stable thereafter, maintaining a low divergence for the rest of the schedule. In the
+> discrete sampler, then, the theoretically motivated correction is also the empirically better
+> choice, and this is worth marking clearly precisely because it is the exception. It is the one
+> place in the entire study where making the sampler correct also makes it work. That observation
+> naturally raises the next question, and it is a question the correction itself poses: if the
+> correction rescues the discrete sampler, what does it do to the continuous one, whose landscape,
+> as Section~\ref{sec:bg-samplers} warned, violates the smoothness the correction assumes? The next
+> section takes up that question, and the answer is the opposite of what the discrete case might
+> lead one to expect.
+
+Figure captions before, both carrying the finding:
+> "... The metrics remain unimproving for most of the run and drop abruptly near the end as the
+> noise schedule approaches zero, the signature of quenching rather than convergence."
+> "The same sampler over a 100-step schedule. The abrupt drop has moved from around step 40 to
+> around step 85, tracking the annealing schedule rather than remaining fixed. This confirms that
+> the drop is an artifact of cooling and not evidence of model convergence."
+
+### AFTER (verbatim, as now in Doc/chapters/05_results.tex)
+
+> \section{Annealing Dynamics and the Quenching Effect}
+>
+> With the step size calibrated, the discrete sampler moves, and its behaviour over a run can be
+> read from the per-step metrics. Without the Metropolis--Hastings correction it shows one dominant
+> pattern: the metrics stay noisy and unimproving for most of the annealing schedule and then drop
+> abruptly near its end. Two readings are available, and they differ in a way that a single
+> experiment separates. If the drop marks convergence on a good sequence, its timing is governed by
+> the difficulty of the problem. If it is an artifact of the annealing schedule, its timing tracks
+> the schedule. Extending the schedule from $50$ steps to $100$ moves the drop from around step
+> $40$ to around step $85$. The drop tracks the schedule. We call this the \textbf{quenching
+> effect}, and Figures~\ref{fig:dls-traj-50} and~\ref{fig:dls-traj-100} show it at the two schedule
+> lengths.
+>
+> The mechanism follows from the schedule and the missing correction together. Early in the run the
+> step size is large and the injected Gaussian noise dominates the update, so the sampler, having no
+> mechanism to reject a bad proposal, bounces across the vocabulary at high entropy and poor
+> contextual fit. As the step size anneals toward zero the noise vanishes and the update degenerates
+> into deterministic gradient descent, which collapses into whatever local optimum is nearest. The
+> late drop is the signature of that collapse. The name is borrowed from metallurgy, where quenching
+> denotes a rapid cooling that freezes a material into the configuration it occupied when the cooling
+> began. The metrics improve because the sampler has stopped moving, not because it has found the
+> right place.
+>
+> With the correction enabled the pattern does not occur. The chain converges within the first
+> twenty steps and stays stable for the rest of the schedule, ending at a final KL of $6.541$
+> against $9.499$ without the correction. This is the one configuration in the study where making
+> the sampler theoretically correct also makes it perform better.
+
+Figure captions after, short form plus a naming caption, interpretation moved to the prose:
+> \caption[Discrete Langevin Sampler trajectories, 50-step schedule.]{Discrete Langevin Sampler
+> trajectories on GPT-2 Large over a 50-step annealing schedule, averaged across sequences. Panels,
+> left to right: embedding distance, contextual fit measured by KL divergence, and proposal entropy.
+> Solid lines are runs with the Metropolis--Hastings correction, dashed lines without it.}
+> \caption[The same sampler over a 100-step schedule.]{Discrete Langevin Sampler trajectories on
+> GPT-2 Large over a 100-step annealing schedule, averaged across sequences. Panels, axes, and line
+> styles as in Figure~\ref{fig:dls-traj-50}.}
+
+### Check against the style memo
+
+| Memo item | Status in the rewrite |
+|-----------|----------------------|
+| (a) noun-phrase heading | "Annealing Dynamics and the Quenching Effect". No verdict, no colon-punchline. |
+| (b) opener names the object | Opens on the per-step metrics, not on a recap of 5.1 and not on the argument's shape. |
+| (c) rhythm and voice | Medium sentences, one claim each. No sentence built for effect. Numbers inline. |
+| (d) caption format | Naming clause plus panel/line-style gloss, `\caption[short]{...}` for the LoF. |
+| (e) interpretation in text | "signature of quenching", "artifact of cooling" now live only in the prose. |
+| (f) paragraphs and transitions | Three paragraphs, one idea each, no bridging paragraph, no closing signpost. |
+| AI pattern 4 (stacked signposting) | Closing "raises the next question" paragraph removed to a `%` block. |
+| AI pattern 5 (five-beat) | Result, one reading, stop. The "modest good news" beat and the "we initially entertained" beat are gone. |
+| AI pattern 7 (self-justifying meta-prose) | "the design of the test is the point", "this is worth marking clearly precisely because it is the exception" removed. |
+| Numbers unchanged | 50, 100, step 40, step 85, 6.541, 9.499 all present and unmoved; both `% SOURCE` blocks intact. |
+
+The register of this rewrite is the register used for the rest of the session.
+
+## 2026-07-22 19:05 CEST - RETITLING TABLE (B2)
+
+Every question-form, verdict-form or colon-punchline heading became a noun phrase, per the
+style memo. `\label` keys are all unchanged, so every `\ref` and the RQ-to-subsection map
+still resolve; only displayed titles moved. Section 1.4 was removed outright (C2), which
+renumbers the two introduction sections after it; their labels are unchanged.
+
+| Old heading | New heading | Label (unchanged) |
+|-------------|-------------|-------------------|
+| 1.1 Two Established Routes to Control, and Their Costs | Established Routes to Control and Their Costs | sec:intro-routes |
+| 1.4 The Shape of the Investigation | (removed; one sentence at the end of 1.3) | sec:intro-shape (retired) |
+| 5.1 A First Obstacle: Step-Size Calibration and Embedding Geometry | Step-Size Calibration and Embedding Geometry | sec:results-stepsize |
+| 5.2 An Apparent Convergence: Annealing Dynamics and the Quenching Effect | Annealing Dynamics and the Quenching Effect | sec:results-quench |
+| 5.3 A Correction That Breaks the Sampler: The Metropolis--Hastings Breakdown in Continuous Space | The Metropolis--Hastings Breakdown in Continuous Space | sec:results-mh |
+| 5.4 A Spatial View of the Breakdown: Trajectory Analysis | Sampler Trajectories in Embedding Space | sec:results-traj |
+| 5.5 The Central Result: The Gradient Fallacy | Gradient Direction Against a Norm-Matched Random Direction | sec:results-fallacy |
+| 5.5.1 Robustness of the Gradient Fallacy | Robustness of the Null Result | sec:results-robust |
+| 5.5.2 Gradient-Free Baselines: The Energy Is Not the Problem | Gradient-Free Baselines | sec:results-baselines |
+| 5.5.3 An External Judge Reaches the Same Verdict | External-Judge Rescoring | sec:results-judge |
+| 5.6 Why the Gradient Fails, Part One: The Linearization Radius | The Linearization Radius | sec:results-linradius |
+| 5.7 Why the Gradient Fails, Part Two: The Likelihood Trap | The Likelihood Trap | sec:results-trap |
+| 5.8 The Geometry Underneath: Embedding Anisotropy | Embedding Anisotropy | sec:results-aniso |
+| 5.10 Does Amortization Escape the Failure? GFlowNet Fine-Tuning | GFlowNet Fine-Tuning and the Amortized Energy | sec:results-gfn |
+| 5.11 The Plug-and-Play Claim Tested Directly: Constrained Generation | Constrained Generation with an Additive Sentiment Term | sec:results-constrained |
+| 5.12 The Last-Token Analysis | The Final-Position Case | sec:results-lasttoken |
+| 5.13.1 The signal: linearization on the unified corpus | Linearization on the Unified Corpus | sec:results-diffusion-lin |
+| 5.13.2 The capability: native recovery of a flipped token | Native Recovery of a Flipped Token | sec:results-diffusion-recovery |
+| 5.13.3 Sufficiency: the repaired signal inside the thesis's own machinery | The Repaired Signal Inside the Exact-Energy Chain | sec:results-diffusion-hybrid |
+| 5.13.4 Trained guidance: steering with a noisy-state classifier + 5.13.5 On-domain guidance under a fluency trust region | (merged) Classifier-Guided Steering (Exploratory Follow-Up) | sec:results-diffusion-guided, and sec:results-diffusion-gprime kept as an alias on the same subsection |
+| 6.2 A Single Defect, Reached by Two Routes | The Unified Mechanism | sec:disc-unified |
+| 6.4 What the Results Do and Do Not Show | Scope and Limitations | sec:disc-scope |
+| 6.5 Implications and the Falsifying Experiment | Implications | sec:disc-future |
+| A.5 Guided-Generation Examples + A.6 Qualitative Recovery and Steering Showcase | (merged) Qualitative Examples | app:gprime-examples and app:showcase both kept |
+| (new) | A.5 Classifier-Guided Steering: Full Results | app:guided |
+
+Headings NOT changed, because they were already noun phrases: 1.2, 1.3, 1.5, all of Chapter 2,
+all of Chapter 3, all of Chapter 4, 5.9, 5.13, 6.1, 6.3, and the appendix sections A.1 to A.4.
+
+## 2026-07-22 19:05 CEST - FLOAT DECISION TABLE (B2, RQ-gated)
+
+Rule applied: a float stays in the main text only if the running text cites it as direct
+evidence for a named RQ or for a step in the diagnosis chain answering them. Numbering below
+is the report build's.
+
+| Float | Decision | Reason |
+|-------|----------|--------|
+| Fig 5.1 DLS trajectories, s50 | BODY | RQ2, the quenching evidence itself |
+| Fig 5.2 DLS trajectories, s100 | BODY | RQ2, the controlled test that separates convergence from artifact |
+| Fig 5.3 MH acceptance decomposition | BODY | RQ2 core, the target-versus-proposal term result |
+| Fig 5.4 linearization scatter | BODY | RQ1 mechanism |
+| Fig 5.5 linearization radius | BODY | RQ1 mechanism |
+| Fig 5.6 likelihood-trap scatter | MOVED TO APPENDIX A.1 | supporting diagnostic; the correlations are in the text |
+| Fig 5.7 anisotropy histogram | MOVED TO APPENDIX A.1 | supporting diagnostic; the distances are in the text |
+| Fig 5.8 final-position figure | BODY | RQ1 structural confirmation |
+| Tab 5.1 gradient vs norm-matched random | BODY | the central RQ1 comparison |
+| Tab 5.2 gradient-free baselines | BODY | RQ1, the energy-versus-gradient separation |
+| Tab (new) cross-model summary | BODY, NEW | replaces the prose that re-reported ten correlations (C8) |
+| Tab 5.3 GFlowNet unifying experiment | BODY | RQ3 core |
+| Tab 5.4 base-to-tuned divergence | BODY | RQ3, makes the unifying result load-bearing |
+| Tab 5.5 constrained steering | BODY | RQ4, first statement |
+| Tab 5.6 final-position experiment | BODY | RQ1 structural confirmation |
+| Tab 5.7 diffusion linearization | BODY | positive control, signal level |
+| Tab 5.8 diffusion native recovery | BODY | positive control, capability level |
+| Tab 5.9 hybrid sampler | BODY | positive control, sufficiency |
+| Tab 5.10 off-domain guided generation | MOVED TO APPENDIX A.5 | exploratory follow-up (C10) |
+| Tab 5.11 on-domain trust-region guidance | BODY | the single table of the one-page exploratory subsection, per B2 |
+| Tab 5.12 guide-judge confusion | MOVED TO APPENDIX A.5 | exploratory follow-up (C10) |
+| Figs A.1-A.4, A.5-A.6, Tabs A.1-A.2 | APPENDIX, unchanged | already appendix material |
+| Guided-generation example tables, infill showcase | APPENDIX, consolidated | C13, one section with one selection policy |
+
+Nothing was deleted. Two figures and two tables moved from body to appendix, one table was
+added, and each moved float is cross-referenced once from the section that used to hold it.
+
+ONE DEVIATION FROM B2, logged: B2's expected body set lists "trajectory distance figure".
+C7 says the opposite in more specific terms, that Section 5.4's figures "are already in the
+appendix; point there". C7 was followed, since it is the more specific instruction and the
+trajectory figures are the detail of a supporting diagnostic under the D emphasis tiers.
+The main text keeps the off-manifold numbers and the geometric conclusion, and points to
+Appendix A.4.
+
+## 2026-07-22 19:20 CEST - PAGE AND WORD DELTAS (F), and the print-quality work
+
+### Per-chapter page deltas, report build (printed page numbers)
+
+| Chapter | Before | After | Delta |
+|---------|--------|-------|-------|
+| Abstract | 2 | 1 | -1 |
+| 1 Introduction | 7 | 6 | -1 |
+| 2 Background Work | 10 | 9 | -1 |
+| 3 Related Work | 7 | 7 | 0 |
+| 4 Methodology | 9 | 9 | 0 |
+| 5 Results | 37 | 28 | -9 |
+| 6 Discussion | 11 | 8 | -3 |
+| 7 Conclusion | 2 | 2 | 0 |
+| MAIN TEXT (before references) | 83 | 69 | -14, or -16.9 percent |
+| Whole PDF | 125 | 102 | -23 |
+
+### Per-file prose word deltas (comments, tabulars, figures and equations excluded)
+
+| File | Before | After | Delta |
+|------|--------|-------|-------|
+| abstract | 775 | 399 | -49% |
+| 01_introduction | 2304 | 1868 | -19% |
+| 02_background | 3670 | 3300 | -10% |
+| 03_related_work | 2233 | 2233 | 0% |
+| 04_methodology | 3367 | 3330 | -1% |
+| 05_results | 9734 | 6623 | -32% |
+| 05a_diffusion_control | 2245 | 1450 | -35% |
+| 06_discussion | 4418 | 2755 | -38% |
+| 07_conclusion | 814 | 613 | -25% |
+| 08_appendix | 1449 | 2228 | +54% (material moved in) |
+| TOTAL | 31009 | 24799 | -20% |
+| TOTAL excluding the appendix | 29560 | 22571 | -23.6% |
+
+Read these two tables together. Main-text PROSE is down 23.6 percent, which is the target the
+evaluation actually set ("cutting 15 to 20% of the prose, not 15 to 20% of the experiments").
+Main-text PAGES are down only 16.9 percent, and the difference is deliberate: the print-quality
+work below made several figures substantially taller. Trading about three pages of white space
+for legible figures is the right trade for a document that will be printed, and no experiment,
+number or result was removed to make either figure.
+
+### The author's four print-quality items
+
+1. FIGURE LEGIBILITY. `figures/gpt2-large.dls.gn.free.s{50,100}_new_trajectories.png`
+   (Figures 5.1 and 5.2; flat Figures 1 and 2) were regenerated by a new script,
+   `revision/plot_dls_trajectories.py`, from the same per-step CSVs in `results_gpt2_v2/`.
+   The originals came from `notebook_plotting.plot_graphs` at figsize (22, 6), a 3.7:1 strip
+   with an outside legend column, which at \textwidth rendered about 4cm tall with roughly
+   4pt tick labels. The new layout stacks the three metric panels vertically at 6.6 x 6.9
+   inches, shares one x axis, puts a single legend under the axes, and adds sparse per-method
+   markers so the grad-norm-preserved and fully random curves stay distinguishable where they
+   coincide (that coincidence is the Section 5.5 result, and it should be visible rather than
+   hidden by overplotting). `notebook_plotting.py` was NOT touched: its docstring records that
+   it must stay byte-comparable with the original notebook figures.
+   Two further defects were caught by rendering the figure in place rather than standalone:
+   the long y-axis labels ran into each other once the panels were short, and the legend sat on
+   the x-axis label. Both fixed, verified at 110 dpi on the typeset page.
+   LaTeX float parameters were relaxed (\topfraction 0.9, \textfraction 0.1) and the two
+   figures set to [htbp], because the default \topfraction of 0.7 refused a float this tall and
+   pushed both several pages past their discussion. They now land on printed pages 34 and 35,
+   inside Section 5.2, which is where they are discussed.
+
+2. FIGURE 8 (`fig_lasttoken`), LEGEND COLLISION. The acceptance line and its "100%" annotation
+   were drawn straight through the legend box. The generator for this figure was never kept in
+   the repository, so `revision/plot_last_token.py` was written to reproduce it from
+   `results_revision/last_token_figure.csv`, the same CSV the original used. Every value is
+   read from that file; nothing is recomputed. The legend now sits in reserved headroom created
+   by extending the left axis, so no artist can reach it. The interpretive footer line under
+   the axes was removed (it was a second caption); the result it stated is in the prose and in
+   Table 5.6.
+
+3. FIGURE 5 (`fig_lin_radius`), OVERLAPPING TEXT. The orange "linearization radius" annotation
+   overlapped the black legend entry and the red "mean inter-token distance" annotation sat on
+   the data line. Both floating annotations are now legend entries in
+   `diagnostics/plot_diagnostics.py`, so overlap is structurally impossible, and the y-axis
+   headroom was extended so the legend clears the data.
+
+4. CLICKABLE CROSS-REFERENCES. Root cause: `Doc/final/thesis.tex` did not load `hyperref` at
+   all. The pass that built the template-explicit version copied the official template's
+   packages plus the ones the content needs to compile, and hyperref is in neither list, so
+   nothing in the PDF the examiners read was clickable. `\usepackage[hidelinks]{hyperref}` is
+   now loaded there, last in the preamble as hyperref requires, with `hidelinks` so the printed
+   page is unchanged (no coloured text, no link boxes). Verified: the final build now carries
+   588 link annotations and the report build 587. The report build in `Doc/thesis.tex` always
+   loaded hyperref and was already clickable.
+
+### Additional print defects found and fixed while verifying the above
+
+ - SIX PARAGRAPHS protruded 12 to 18pt into the right margin in the report build.
+   `\emergencystretch=1.5em` added to `Doc/thesis.tex`, which lets TeX stretch inter-word space
+   on the hardest lines instead of overflowing. Content unaffected.
+ - NINE TABLES protruded past the right text edge, two of them badly: Table A.1 by 44pt and
+   Table A.2 by 74pt, the latter because its free-text "Note" column was set as an `l` column
+   and could not wrap. These are PRE-EXISTING, not regressions: measured on the baseline PDF
+   saved at the start of this session, Table A.1 reached x=553.9 and Table A.2 x=584.0, exactly
+   as in the current build before the fix, against a text-block right edge of 510.2. Fixed by
+   tightening `\tabcolsep` to 4pt on the nine tables and turning the Note column into a
+   `p{3.9cm}`. No cell content changed.
+ - RESULT: overfull hboxes above 40pt went from 2 to 0. Pages whose text exceeds the text
+   block went from 14 (worst case 12.7pt over) to 5, of which the worst is 1.9pt and the other
+   four are the known bibliography URL wraps at 1.5pt. Below half a millimetre, so invisible in
+   print.
+
+### E2, the two layout bugs
+
+1. TITLE PAGE. `Doc/thesis.tex` had `{\large Sarthak Singh}\\[2cm]` before the Studiengang
+   tabular, and `Doc/final/thesis.tex` had `\vspace{1.5cm}` followed by `\vfill`. The template
+   uses `\vfill`, which is safe only under the template's own vertical margins; under the
+   top/bottom margins both of our builds set, a `\vfill` opens a several-centimetre void, which
+   is the gap the author reported. The report title page now uses a single fixed 1.5cm skip,
+   matching the template's visual proportion without depending on the page geometry, and the
+   examiner and date rows were filled in from the facts the author supplied earlier (second
+   examiner Dr. Antje Schweitzer, Ende der Arbeit 29.07.2026; the declaration date likewise
+   changed from `\today` to 29. Juli 2026). Rendered and compared side by side against
+   `ThesisExample.zip` page 1: the block now sits at the same height and with the same spacing.
+   Beginn der Arbeit is still blank in the report build, deliberately, because it was never
+   supplied (see the author decision below).
+2. ABSTRACT WIDTH. Not a geometry bug. The abstract page measured 429.4pt wide against 425.2pt
+   for every body page in the previous `Doc/final` build, and the cause is in that build's log:
+   `Overfull \hbox (4.19777pt too wide) in paragraph at lines 9--10` of `chapters/abstract.tex`,
+   a single justified line protruding into the margin. The report build did not show it because
+   it loads `microtype`, which the template-explicit build does not. Fixed by adding
+   `\emergencystretch=1.5em` to `Doc/final/thesis.tex`. Verified: the abstract page and body
+   pages of the final build now both measure exactly 425.2pt. A sweep of every page in both
+   builds found no other page whose geometry deviates, so there is no unrestored `\newgeometry`.
+
+### Doc/final kept in sync
+
+`revision/make_final_build.py` (new) re-derives `Doc/final/chapters/` from `Doc/chapters/` by
+the transform documented in the 2026-07-22 14:27 entry: heading demotion by one level, which
+preserves numbering; `Chapter~\ref` and the standalone word chapter/chapters rewritten to
+section; and the `\input{chapters/...}` paths restored afterwards. Run with `--verify` it
+reconstructs the previous `Doc/final/chapters/` from the committed `Doc/chapters/`
+byte-for-byte, all 13 files OK, which certifies the transform is exactly the documented one
+before it is used to regenerate. Both builds compile clean.
+
+## 2026-07-22 19:30 CEST - NUMERICAL DISCREPANCY FOUND, NOT SILENTLY FIXED (author decision)
+
+Found while regenerating the trajectory figures, which required recomputing the mean per-step
+curves from the same CSVs the figures and Section 5.2 both cite. Reported here rather than
+edited, because this pass is compression and scoping and the standing invariant is that
+reported numbers do not change without the author.
+
+Section 5.2 states, and its `% SOURCE` comment attributes to
+`results_gpt2_v2/gpt2-large.dls.policy.nomh.gn.free.s{50,100}.csv`, that extending the
+schedule from 50 to 100 steps moves the late drop "from around step 40 to around step 85".
+Recomputing directly from those two files, averaging over all sequences:
+
+| quantity | s50 | s100 |
+|----------|-----|------|
+| step of the steepest fall in mean proposal entropy | 48 | 98 |
+| step by which entropy has fallen 1 percent of its total drop (onset) | 46 | 92 |
+| step of the steepest fall in mean KL | 11 | 11 |
+| mean KL, last tenth of the run | 9.16 | 9.05 |
+
+Three observations. First, the quantity that shows the abrupt late collapse in the mean curves
+is the proposal ENTROPY, not the KL: the mean KL does not fall late at all. Second, the
+entropy collapse is at 48 of 50 and 98 of 100, not 40 and 85. Third, and this is why the
+section's argument is unaffected either way, the collapse tracks the schedule rather than the
+problem on either set of numbers: it lands at 96 percent of the run in one case and 98 percent
+in the other, whereas a convergence-driven drop would sit at the same ABSOLUTE step in both.
+The load-bearing claim of Section 5.2, that the drop is an annealing artifact and not
+convergence, is what the s50-versus-s100 comparison establishes, and it survives.
+
+AUTHOR DECISION. The two figures "around step 40" and "around step 85" are left exactly as
+they were, in the text and in the `% SOURCE` comment. If the author wants them to match the
+mean curves recomputed here, the edit is one sentence in `Doc/chapters/05_results.tex`,
+Section 5.2: replace "moves the drop from around step 40 to around step 85" with "moves the
+collapse in proposal entropy from around step 46 to around step 92", and update the `% SOURCE`
+comment to name the entropy channel. Nothing else in the thesis depends on those two figures.
+
+## 2026-07-22 19:30 CEST - INVARIANTS VERIFIED
+
+ - NUMBERS DIFF: `revision/numbers_diff_phase6.py` RESULT ALL OK, on the final build. All 44
+   Phase-6 checks pass against their source JSONs.
+ - FULL NUMERIC SWEEP, beyond the 44: every numeric token in the previous visible text of all
+   thirteen chapter files was compared against the new files. 286 distinct tokens before; only
+   TWO are absent from the new files entirely, and both are benign. `0.9` occurred only as the
+   `width=0.9\textwidth` of the two trajectory figures, now `\textwidth`. `18` occurred only as
+   the numeral in the old Table 5.6 caption ("recover between $18\%$ and $55\%$"); the same
+   fact is in the prose as "between eighteen and fifty-five percent" and the value 18.0 is in
+   the table body. A further 29 tokens moved from visible text into `%` comment blocks, which
+   is the intended behaviour for the pruned qualitative examples and the removed detail. No
+   result, no experiment and no measured value left the record.
+ - `% SOURCE` COMMENTS: unchanged wherever the number they annotate is unchanged. Where prose
+   around a source comment was rewritten, the comment moved with it intact. New `% SOURCE`
+   comments were added for the numbers relocated into Appendix A.5 and for the new cross-model
+   summary table, which draws on the same JSONs already cited elsewhere.
+ - IMS COMPLIANCE: untouched. The one checklist item affected by the removal of Section 1.4 is
+   "Intro: overview of approach", which the compliance pass had mapped to that section; it is
+   now carried by the closing sentence of Section 1.3 and the contributions list in Section 1.4
+   (renumbered), and this is recorded in a comment at the removal site. Cover page, declaration,
+   table of contents, lists of figures and tables, reproducibility section, bibliography and the
+   Use of AI-Tools appendix are all unchanged and still present.
+ - LISTS OF FIGURES AND TABLES: regenerated, 14 figure entries and 18 table entries in both
+   builds, now one line each because every caption carries a `\caption[short]{...}`.
+ - IOANNA REGISTER: no sentence or phrase of hers appears in `Doc/`. Verified by extracting
+   every sentence of eight words or more from `IoannaThesis/Ioannathesis.tex` and searching for
+   each in the chapter sources; zero matches. What was imitated is heading grammar, opener
+   shape, caption format and paragraph length, per the style memo.
+ - NO EM-DASHES: a line-by-line scan that strips comments first finds ZERO visible em-dash or
+   `---` occurrences across all thirteen chapter files and both `thesis.tex` preambles. The only
+   em-dashes anywhere in the sources are inside the `%`-commented WikiText corpus excerpts in
+   the pruned half of `showcase_appendix.tex`, which are dataset text rather than prose and are
+   not typeset. `Metropolis--Hastings` is a LaTeX en-dash and was already there.
+ - IOANNA SENTENCE REUSE: 657 sentences of eight words or more were extracted from her thesis
+   and searched for in `Doc/chapters/`. Verbatim matches: 0. Shared 10-grams between the two
+   documents: 0.
+
+## 2026-07-22 19:45 CEST - PHASE 8 RESOLUTION REPORT, addressed to evaluation_feedback.md
+
+Every numbered concern and every section-8 formulation from `evaluation_feedback.md`, with the
+action taken, the location in `Doc/`, and its status. Locations use the report build's
+numbering; `Doc/final/` carries the identical numbering.
+
+### Section 1: does it contain blabbering?
+
+| Evaluation point | Action | Location | Status |
+|---|---|---|---|
+| Paragraphs "do three things when one would be enough"; the five-beat pattern is the default | Results paragraphs cut to result plus the one reading the reader needs. Mechanism synthesis moved to the discussion and stated once. Section 5.2 was rewritten first as the calibration sample and its before/after is in this log | Chapter 5 throughout; 6.2 | DONE |
+| "Rhetorically strong, but sometimes too theatrical"; ten quoted phrases | All ten removed or rewritten. "the central business of this thesis" (1.2), "a closed case against" (5.10), "protected from their own objective" and "the strange silver lining" (5.7), "the falsifying experiment" (6.5 heading), "the sufficiency half of the diagnosis" (5.13.3), "a correction that breaks the sampler" (5.3 heading), "the lowest-energy text is the worst text" (4.7 and the trap figure title). Removed text preserved in `%` blocks | 1.2, 4.7, 5.3, 5.7, 5.10, 5.13.3, 6.5 | DONE |
+| "The term gradient fallacy is particularly risky [...] retain perhaps two memorable labels, for example linearization failure and likelihood trap, but use more neutral section headings elsewhere" | "linearization failure" and "likelihood trap" retained. "Gradient fallacy" removed from every heading and every recurring use; it survives in exactly one discussion paragraph that introduces it as the thesis's shorthand and scopes it in the same sentence | 6.2 | DONE, and this is the one AUTHOR DECISION (see the end of this report) |
+
+### Section 2: is it repeating itself?
+
+| Evaluation point | Action | Location | Status |
+|---|---|---|---|
+| 2.A abstract is three pages / 900-1000 words, an extended executive summary; reduce by at least 40 percent; cut the three-claim hierarchy, the classifier-transfer qualifications, the full last-token explanation | Rewritten to 399 words on one page, a 49 percent cut. Keeps problem, models and samplers, the scoped central result, the principal mechanism in one sentence, GFlowNet in one sentence, diffusion control in one sentence. All three cut items are in `%` comments and all three are reported in the body | abstract.tex | DONE. Measured 775 words before, not 900-1000, and 2 pages in the report build, not 3 |
+| 2.B the introduction gives away and interprets nearly every later result; reduce from seven pages to four or five | Six pages. The discussion-level causal conclusion in 1.3 removed; contributions compressed; roadmap compressed | Chapter 1 | DONE |
+| 2.B most removable section: 1.4 "The Shape of the Investigation" | Removed entirely, replaced by the evaluation's own single sentence at the end of 1.3. Full text preserved in a `%` block | 1.3 | DONE |
+| 2.C background repeatedly anticipates the results; potential reduction 2 to 3 pages | Chapter opener de-signposted; the six anticipations the evaluation lists are removed or reduced to one forward pointer each; all derivations kept | Chapter 2 | PARTIAL: 1 page, not 2 to 3. Prose is down 10 percent; the shortfall is deliberate, because the brief requires every derivation to be kept and Chapter 2 is mostly derivation. What was removed is the anticipation the evaluation names, not the mathematics |
+| 2.D results sections repeatedly recap previous sections | Every section opener that summarized the previous one is now at most one sentence. The likelihood-trap section reports its result and no longer re-derives the central claim | 5.1 to 5.13 | DONE |
+| 2.D the last-token analysis "should be presented explicitly as a formal or structural confirmation, not another full central-result chapter" | Section 5.12 now opens by saying it adds no new claim and that exactness is its distinct contribution | 5.12 | DONE |
+| 2.E discussion and conclusion repeat the same synthesis again; 6.1 is excellent and should remain | 6.1 kept and extended only where a claim needed scoping. 6.2 cut from five long paragraphs to five short ones. 6.3 trimmed. 6.4 and 6.5 rewritten so mechanism, literature, limitations and implications each appear once | Chapter 6 | DONE |
+| 2.E conclusion should be two to three pages | 2 pages, restructured to what was tested / what was found / what remains uncertain / the main practical implication | Chapter 7 | DONE. NOTE: the conclusion was already 2 pages. The evaluation's "roughly eight pages" measured p.108 to p.116, which is the conclusion PLUS the five-page bibliography. The rewrite was therefore for content, not length |
+
+### Section 3: are the central questions answered?
+
+| Evaluation point | Action | Location | Status |
+|---|---|---|---|
+| RQ1 strongly answered; "a safer formulation would be [...]" | The evaluation's scoped formulation adopted verbatim and used identically in all five places the claim appears | abstract, 1.2, 5.5, 6.1, Chapter 7 | DONE |
+| RQ2 clearly answered; but keep the piecewise-constant energy and the differentiable pathway exact | See section E below | 2.4, 5.3, 6.1 | DONE |
+| RQ3 "answered empirically, but the explanation should be phrased as [...]" | The evaluation's formulation adopted, including the list of alternative causes (reward design, stability, parameterization, capacity, exploration, termination, scaling) | 5.10, 6.1 | DONE |
+| RQ4 "the thesis should separate two conclusions more sharply" | The two statements are now separate paragraphs in the RQ4 answer, with an explicit note that the second uses a different landscape and is partly a repair experiment | 6.1 | DONE |
+
+### Section 4 and 5: length and what to shorten
+
+| Evaluation point | Action | Status |
+|---|---|---|
+| Cut 15 to 20 percent of the prose, not the experiments | Main-text prose down 23.6 percent (29,560 to 22,571 words). Main-text pages down 16.9 percent (83 to 69). No experiment, number or result removed | DONE |
+| 5.1 abstract | See 2.A | DONE |
+| 5.2 Section 1.4 | Removed | DONE |
+| 5.3 contributions paragraph to four or five compact contributions | Five numbered contributions, one to two sentences each | DONE |
+| 5.4 roadmap to one concise paragraph | One paragraph | DONE |
+| 5.5 repeated DLS surrogate explanation, "state that once" | Stated once, at the end of the proposal derivation | DONE |
+| 5.6 CLS acceptance anticipation, save "well under a percent" for Results | All measured outcomes removed from Chapter 2; they appear only in 5.3 | DONE |
+| 5.7 Section 5.4 trajectory analysis to a one-page summary | One page: the off-manifold numbers and the geometric conclusion, pointing to Appendix A.4 | DONE |
+| 5.8 Section 5.9 to one summary table and two paragraphs | Exactly that; a new cross-model table replaces prose that re-reported ten correlations | DONE |
+| 5.9 guided diffusion "the single largest opportunity to improve focus"; shorten, move to appendix, or label exploratory | All three applied. 5.13.1 to 5.13.3 stay as the positive control. 5.13.4 and 5.13.5 merged into one one-page subsection explicitly labelled exploratory follow-up, carrying one table; the off-domain table, agreement ladder and confusion analysis moved to Appendix A.5 | DONE |
+| 5.10 discussion and conclusion overlap | See 2.E | DONE |
+
+### Section 6: lower-value parts
+
+| Evaluation point | Action | Status |
+|---|---|---|
+| "The Shape of the Investigation" mostly unnecessary | Removed | DONE |
+| Marble analogy can be reduced by half; the "fair draw from the landscape" claim needs care | Halved, and the convergence claim now says explicitly that the interpretation holds only under the theorem's technical conditions | DONE |
+| "Choose one: detailed caption plus compact prose, or concise caption plus full prose. Currently the thesis often does both" | Concise caption plus full prose adopted everywhere, since the IMS checklist requires prose walkthroughs. Every caption in both builds is now `\caption[short]{...}` and carries no interpretation, limitation or comparison | DONE |
+| Extremely long list-of-figure and list-of-table captions | Both lists regenerated from the short forms: 14 figure and 18 table entries, one line each | DONE |
+| Consolidate the overlapping qualitative appendices; smaller representative set with an explicit selection policy | One appendix section, one stated selection policy, deterministic pruning: 4 of 10 seeded infill sequences and 2 of 3 pairs per guidance cell. The remainder is in `%` comments and is restored by regenerating | DONE |
+
+### Section 7: does it maintain a clear central line?
+
+| Evaluation point | Action | Status |
+|---|---|---|
+| Divide the secondary claims into core evidence, supporting diagnostics, exploratory extensions | Applied inside the existing chapter structure. Core (gradient vs random, linearization, gradient-free baselines, MH decomposition, diffusion control) keep full sections. Supporting (anisotropy, quenching, trajectories, likelihood trap, cross-model) are compact sections pointing to appendix detail, and their two figures moved to the appendix. Exploratory (GFlowNet failure taxonomy, guided diffusion, trust region, guide-judge agreement) are labelled exploratory in one clause where they appear | DONE |
+
+### Section 8: are any claims too strong?
+
+| Formulation | Replacement adopted | Where it now appears |
+|---|---|---|
+| "The gradient of the frozen autoregressive likelihood carries no usable search direction on discrete text" | "In the tested token-substitution settings, the input-embedding gradient of frozen autoregressive sequence likelihood provided no reliable proposal advantage over a norm-matched random direction." | abstract, 1.2, 5.5, 6.1, Chapter 7, identically in all five |
+| "Provably identically zero at the final token" | Always states which gradient, with respect to which representation, and under which indexing: the gradient of the sequence log-likelihood with respect to the FINAL TOKEN'S INPUT EMBEDDING, under the shifted causal indexing in which position t predicts token t+1. It now also says explicitly that this is not a claim that all gradients involving the final token vanish | 5.12, 6.1, 6.2, Chapter 7. The abstract no longer states this result at all |
+| "The pathology survives amortization because it is a property of the training objective" | "The combined GFlowNet and diffusion results support the interpretation that the training objective, rather than only the sampling algorithm, is a key source of the failure." | 5.13 closing, 6.1, 6.2, Chapter 7 |
+| "The training-free premise is refuted" | "The experiments refute the premise that the frozen autoregressive sequence-likelihood gradient can supply the required local score for this class of Langevin-based methods without additional training." Plus an explicit note that gradient-free training-free methods remained viable, evidenced by this thesis's own Gibbs and top-k baselines | 6.4, Chapter 7 |
+
+### Section 9: suggested revised structure
+
+| Evaluation point | Action | Status |
+|---|---|---|
+| Combine Chapters 2 and 3; renumber into "Core Sampling Results" and "Amortization and Positive Control" | CONSIDERED AND DECLINED, per the Phase 8 brief. The evaluation itself calls the current separation "defensible", and a restructure at this stage is risk without benefit: it would renumber every chapter, section and cross-reference in a document the examiners have already read, for a gain the emphasis triage of section 7 delivers without moving anything. The three-tier emphasis was applied inside the existing structure instead | DECLINED, logged |
+
+### Author's print-quality items, raised during this session
+
+| Item | Action | Status |
+|---|---|---|
+| Figures too small to read in print, e.g. Figure 2 | Figures 1 and 2 regenerated by `revision/plot_dls_trajectories.py` at a print-legible stacked layout; float parameters relaxed so they land next to their discussion | DONE |
+| Figure 8: the plot runs over the legend | Regenerated by the new `revision/plot_last_token.py` with the legend in reserved headroom | DONE |
+| Figure 5: overlapping text, the yellow on the black | Both floating annotations became legend entries in `diagnostics/plot_diagnostics.py` | DONE |
+| Cross-references not clickable | Root cause: `Doc/final/thesis.tex` never loaded `hyperref`. Added with `hidelinks`; 588 link annotations now present | DONE |
+| (found while verifying) nine tables and six paragraphs protruding into the right margin | `\tabcolsep` tightened, one free-text column made wrapping, `\emergencystretch` added. Overfull above 40pt: 2 before, 0 now | DONE |
+
+### Final gate
+
+ - `latexmk -pdf` clean, exit 0, both builds.
+ - Zero undefined references, zero undefined citations, both builds.
+ - Zero overfull hboxes above 40pt, both builds (2 before, both pre-existing appendix tables).
+ - Lists of figures and tables regenerated with the new short captions: 14 and 18 entries.
+ - Numbers diff `revision/numbers_diff_phase6.py`: RESULT ALL OK.
+ - Full numeric sweep beyond those 44 checks: of 286 distinct numeric tokens in the previous
+   visible text, 2 are absent and both are benign (a figure width and a numeral respelled as
+   words); 29 moved into `%` comments as intended.
+ - Rendered and inspected at 80 to 110 dpi: title page (against the template's page 1),
+   abstract page (fits on one page), a core results page (5.5), the exploratory subsection page
+   (5.13.4), the conclusion opening, and Figure 5.1 in place on the typeset page.
+ - `Doc/final/chapters/` re-derived by `revision/make_final_build.py`, whose `--verify` mode
+   reconstructs the previous final build from the committed master byte-for-byte on all 13 files.
+
+### Page count
+
+Report build `Doc/`: 125 pages before, **102 pages** after. Main text before references: 83
+printed pages before, **69** after. Abstract: 1 page. Conclusion: 2 pages.
+Template-explicit build `Doc/final/`: 142 pages before, **117 pages** after.
+
+### Open items requiring the author
+
+Every item in `evaluation_feedback.md` is resolved or explicitly deferred to the author below.
+There are three deferrals, one expected and two found during the work.
+
+1. EXPECTED. The gradient-fallacy default (evaluation section 1). The term now appears exactly
+   once, in Section 6.2, introduced as the thesis's shorthand and scoped in the same sentence.
+   Deleting that paragraph removes the term from the thesis entirely and nothing else depends
+   on it. The author may overrule in either direction.
+2. FOUND. The Section 5.2 quenching-step figures, "around step 40" and "around step 85", do not
+   reproduce from the mean curves of the CSVs they cite; the schedule-tracking collapse is in
+   proposal entropy at steps 46 and 92. Left unchanged, with the measurement and the one-sentence
+   fix recorded in the 19:30 entry above. The section's argument is unaffected either way.
+3. FOUND. `Doc/final/thesis.tex` carries `Beginn der Arbeit: 01.03.2026` with an inline comment
+   saying the start date was never supplied. A placeholder date that reads as a real one is worse
+   than a blank, so the report build leaves that field empty. The author should either supply the
+   real start date in both builds or blank it in `Doc/final/`.
+
+NOTHING EXPERIMENTAL WAS RUN OR RE-RUN. No GPU work. Compression, scoping, layout and figure
+regeneration only, from existing result files. The author commits; no commit was made by this
+session.

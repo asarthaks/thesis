@@ -1,0 +1,177 @@
+\documentclass[12pt,leqno,a4paper]{article}
+% ============================================================
+% IMS thesis, cast into the official single-file article template
+% (Schweitzer/Reiter, updated Anstein May 2026). Every layout setting
+% below is taken verbatim from that template; the only additions are the
+% packages the math-heavy, multi-table content needs in order to compile,
+% which are grouped and labelled separately.
+% ============================================================
+
+% ---- template packages and settings (verbatim from ThesisExample) ----
+\usepackage{natbib}
+\usepackage{epsfig}
+\usepackage{booktabs}
+\usepackage[paper=a4paper,left=3cm,right=3cm]{geometry}% http://ctan.org/pkg/geometry
+\usepackage[utf8]{inputenc}
+% Template loads both languages. english is set as the explicit main language so an
+% English thesis keeps English float/TOC labels (Figure/Table/Contents/References);
+% german remains available for the Erklaerung, exactly as in the template's usage.
+\usepackage[main=english,german]{babel}
+
+\renewcommand{\baselinestretch}{1.3}
+\parskip = \medskipamount
+\frenchspacing
+\bibpunct[; ]{(}{)}{;}{a}{,}{;}
+
+% ---- packages required by the thesis content (not in the base template; added only so the
+%      derivations, long appendix tables and long bibliography URLs typeset correctly) ----
+\usepackage[T1]{fontenc}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{bm}
+\usepackage{longtable} % multi-page guided-generation example tables in the appendix
+\usepackage{multirow} % two-by-two confusion table in the diffusion-control section
+\usepackage{url}
+\usepackage{xurl}      % break long URLs so bibliography entries do not overflow the margin
+\urlstyle{same}
+\usepackage{caption}
+\captionsetup{font=small,labelfont=bf}
+
+% PHASE 8 (print legibility): the trajectory figures were re-laid-out as tall stacked
+% panels so they are readable at \textwidth in print. LaTeX's default \topfraction of
+% 0.7 refuses to place a float that tall at the top of a text page, which pushed both
+% figures several pages past their discussion. These are the standard relaxations; they
+% change placement only, never content.
+\renewcommand{\topfraction}{0.9}
+\renewcommand{\bottomfraction}{0.7}
+\renewcommand{\textfraction}{0.1}
+\renewcommand{\floatpagefraction}{0.75}
+% PHASE 8: hyperref was absent from this build, so no cross-reference, citation or
+% table-of-contents entry was clickable in the PDF the examiners read. It is loaded
+% last, as hyperref requires, with hidelinks so the printed page is unchanged (no
+% coloured text, no link boxes) while the electronic copy is navigable. The report
+% build in ../thesis.tex has always loaded it; only this template-explicit build did not.
+\usepackage[hidelinks]{hyperref}
+% Guard against a single over-long justified line protruding into the right margin,
+% which is what made the abstract page look wider than the text block in the previous
+% build (Overfull \hbox of 4.20pt in the abstract paragraph). The report build avoids
+% this via microtype, which the template does not use.
+\emergencystretch=1.5em
+\graphicspath{{../}{../figures/}{./}} % figures live in ../figures relative to this folder
+
+% ---- notation shorthands used throughout the body ----
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\vs}{\bm{s}}
+\newcommand{\ve}{\bm{e}}
+\newcommand{\vg}{\bm{g}}
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\newcommand{\energy}{E}
+\newcommand{\grad}{\nabla}
+\DeclareMathOperator*{\argmax}{arg\,max}
+\DeclareMathOperator*{\argmin}{arg\,min}
+\DeclareMathOperator{\KL}{KL}
+
+
+\begin{document}
+
+% ============================================================
+% TITLE PAGE (template layout, fields filled)
+% ============================================================
+\begin{titlepage}
+  % different margin so titlepage fits into template (top/bottom added so the longer
+  % real title and the examiner block fit on a single page)
+  \newgeometry{left=3.5cm,right=2cm,top=2cm,bottom=2cm}
+  \large
+   \begin{center}
+    Institut für Maschinelle Sprachverarbeitung\\
+    Universität Stuttgart\\
+    Pfaffenwaldring 5B\\
+    D-70569 Stuttgart\\
+
+    \vspace{2cm}
+    Master thesis \\
+    {\LARGE \bf Energy-Guided Sampling for Controllable Text Generation: From Langevin Dynamics to Amortized Inference} \\
+    \vspace{1.5cm}
+    Sarthak Singh\\
+       \vfill
+    \begin{tabular}[t]{lr}
+    Studiengang: & M.Sc. Computational Linguistics \\
+    \\
+    {Prüfer*innen:} & Prof. Dr. Ngoc Thang Vu\\
+     & Dr. Antje Schweitzer\\
+    {Betreuer*in:} & Prof. Dr. Ngoc Thang Vu\\
+    \\
+    {Beginn der Arbeit:} & 01.03.2026\\ % AUTHOR DECISION: enter the start date (not supplied)
+    {Ende der Arbeit:} & 29.07.2026\\
+    \end{tabular}
+  \end{center}
+\setlength{\hoffset}{0cm}
+
+  \normalsize
+\end{titlepage}
+
+% back to original geometry
+\newgeometry{left=3cm,right=3cm}
+
+\newpage
+\thispagestyle{empty}
+
+% ============================================================
+% STATEMENT OF AUTHORSHIP (template Erklaerung, current KI-Tools wording)
+% On the FIRST page, as required for CL/MSV theses.
+% ============================================================
+\begin{otherlanguage}{german}
+\noindent\textbf{Erklärung (Statement of Authorship)}\\
+
+
+\noindent Hiermit erkläre ich, dass ich die vorliegende Arbeit selbstständig verfasst und dabei keine anderen als die angegebenen Quellen und Hilfsmittel benutzt habe. Sämtliche wörtlichen oder sinngemäßen Übernahmen und Zitate aus anderen Werken sind kenntlich gemacht und nachgewiesen. Ich versichere, dass ich keine Hilfsmittel verwendet habe, deren Nutzung die Prüferin oder der Prüfer explizit ausgeschlossen hat. Im Anhang „Nutzung von KI-Tools“ habe ich dokumentiert, welche KI-Tools zur Erstellung wesentlicher Teile dieser Arbeit in welcher Art und Weise verwendet wurden. Mit Abgabe der Arbeit übernehme ich die volle Verantwortung für alle Inhalte. Die Grundsätze zur KI-Nutzung für Studierende an der Universität Stuttgart habe ich zur Kenntnis genommen und befolgt. Weder diese Arbeit noch wesentliche Teile daraus waren bisher Gegenstand eines anderen Prüfungsverfahrens. Das elektronische Exemplar stimmt mit allen eingereichten Exemplaren überein.
+\end{otherlanguage}
+\footnote{Non-binding translation for convenience: I hereby declare that the work presented in this thesis is entirely my own. I did not use any other sources and aids than the listed ones. I have marked all direct or indirect transfers from other sources contained therein as referenced quotations. I assure that I have not used any aids that were explicitly ruled out by the examiner. In the Appendix „Use of AI Tools“ I have documented which AI tools were used and how they contributed in the creation of this work. By submitting this work, I assume full responsibility for all content. I have taken notice of and I comply with the Principles for the Use of Artificial Intelligence by Students at the University of Stuttgart. Neither this work nor significant parts of it were part of another examination procedure. The electronic copy is consistent with all submitted hard copies.}\\[2cm]
+
+
+\noindent Stuttgart, 29. Juli 2026\\[1.5cm]
+\noindent (Sarthak Singh)
+
+\newpage
+
+% ============================================================
+% ABSTRACT
+% ============================================================
+\input{chapters/abstract}
+
+% ============================================================
+% FRONT MATTER
+% ============================================================
+\tableofcontents
+\newpage
+\listoffigures
+\newpage
+\listoftables
+\newpage
+
+% ============================================================
+% BODY
+% ============================================================
+\input{chapters/01_introduction}
+\input{chapters/02_background}
+\input{chapters/03_related_work}
+\input{chapters/04_methodology}
+\input{chapters/05_results}
+\input{chapters/06_discussion}
+\input{chapters/07_conclusion}
+
+% ============================================================
+% BIBLIOGRAPHY
+% ============================================================
+\bibliographystyle{plainnat}
+\bibliography{references}
+
+% ============================================================
+% APPENDIX
+% ============================================================
+\appendix
+\input{chapters/08_appendix}
+
+\end{document}

@@ -1,0 +1,549 @@
+\section{Results}
+\label{ch:results}
+
+This section reports the experimental findings. It begins with the calibration of the samplers and the embedding geometry that governs it, then the annealing dynamics of the discrete sampler, then the Metropolis--Hastings correction in each of the two samplers. It next reports the central comparison between the gradient direction and a norm-matched random direction, followed by the diagnostics that account for it: the linearization radius, the likelihood trap, and embedding anisotropy. It closes with the GFlowNet experiments, the constrained-generation extension, the last-token analysis, and the diffusion positive control. Each reported number is annotated in the source of this document with a comment naming the results file it was drawn from, so that every quantitative claim is traceable without cluttering the text.
+
+\subsection{Step-Size Calibration and Embedding Geometry}
+\label{sec:results-stepsize}
+
+The study began by running the two samplers on GPT-2 Large with a step-size schedule already made to work on Llama-3. One term needs fixing first, because the section uses it repeatedly. A schedule \emph{works} if it produces \textbf{calibrated motion}: the sampler's projected tokens change over the run and its metrics evolve rather than freezing. That is a weaker property than \textbf{guided motion}, motion toward better sequences, which the later sections test separately.
+
+On GPT-2 Large, with the Llama-tuned schedule, the samplers did not move at all. The entropy of the discrete proposal collapsed to zero within a few steps and no token was ever changed. The cause is the geometry of the embedding space. The anisotropy analysis, reported in Section~\ref{sec:results-aniso}, measures the mean distance between neighbouring token embeddings as approximately $1.82$ in GPT-2 Large against approximately $0.59$ in Llama-3, and the mean pairwise distance as $2.77$ against $0.84$, a difference of roughly a factor of three in each case.
+% SOURCE: results_diag/diag_anisotropy_gpt2sft.json (mean_nearest_neighbour_l2=1.8222,
+% mean_pairwise_l2=2.7725) and results_diag/diag_anisotropy_llama3-8b.json (0.585, 0.835).
+The reason for the trapped sampler follows immediately. A step size calibrated for the tighter geometry of Llama-3 is simply too small to carry the continuous state across a Voronoi cell boundary in the more dispersed geometry of GPT-2, so the projected token never changes and the sampler sits frozen in its initial cell. Recovering the correct scale required an oracle sweep over candidate step sizes, which yielded a schedule running from $\epsilon_{\text{start}} = 10.5$ to $\epsilon_{\text{end}} = 0.1$ for the GPT-2 family, and this schedule is used throughout the rest of the study.
+% SOURCE: schedule established via the *.dls.*.oracle.s50 runs in results_gpt2_v2/,
+% e.g. gpt2-large.dls.policy.nomh.gn.oracle.s50.json.
+
+Two consequences follow. There is no universal step-size schedule for these methods: the correct scale is a property of the model's embedding geometry and must be rediscovered for each model, which qualifies the plug-and-play framing, since a method requiring per-model recalibration before it will move at all is not model-agnostic in the strong sense. And calibration establishes motion without establishing that the motion is informed. The oracle configuration, which selects the ideal step size at each iteration using knowledge of the ground-truth token, separates the two by establishing the best any schedule could do, so that a failure of calibration can be told apart from a failure of guidance. Section~\ref{sec:results-fallacy} makes that comparison. This section answers the first half of RQ1: theoretically faithful Langevin dynamics cannot be applied off the shelf, because the step size that makes the sampler move at all is model-specific.
+
+\subsection{Annealing Dynamics and the Quenching Effect}
+\label{sec:results-quench}
+
+With the step size calibrated, the discrete sampler moves, and its behaviour over a run can be read from the per-step metrics. Without the Metropolis--Hastings correction it shows one dominant pattern: the metrics stay noisy and unimproving for most of the annealing schedule and then drop abruptly near its end. Two readings are available, and they differ in a way that a single experiment separates. If the drop marks convergence on a good sequence, its timing is governed by the difficulty of the problem. If it is an artifact of the annealing schedule, its timing tracks the schedule. Extending the schedule from $50$ steps to $100$ moves the drop from around step $40$ to around step $85$.
+% SOURCE: results_gpt2_v2/gpt2-large.dls.policy.nomh.gn.free.s50.csv (drop near step 40)
+% vs gpt2-large.dls.policy.nomh.gn.free.s100.csv (drop near step 85); per-step
+% trajectories in figures_gpt2/*dls*s50*trajectories and *s100*trajectories.
+The drop tracks the schedule. We call this the \textbf{quenching effect}, and Figures~\ref{fig:dls-traj-50} and~\ref{fig:dls-traj-100} show it at the two schedule lengths.
+
+The mechanism follows from the schedule and the missing correction together. Early in the run the step size is large and the injected Gaussian noise dominates the update, so the sampler, having no mechanism to reject a bad proposal, bounces across the vocabulary at high entropy and poor contextual fit. As the step size anneals toward zero the noise vanishes and the update degenerates into deterministic gradient descent, which collapses into whatever local optimum is nearest. The late drop is the signature of that collapse. The name is borrowed from metallurgy, where quenching denotes a rapid cooling that freezes a material into the configuration it occupied when the cooling began. The metrics improve because the sampler has stopped moving, not because it has found the right place.
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=\textwidth]{figures/gpt2-large.dls.gn.free.s50_new_trajectories.png}
+    % SOURCE: figures_gpt2/gpt2-large.dls.gn.free.s50_new_trajectories.png
+    \caption[Discrete Langevin Sampler trajectories, 50-step schedule.]{Discrete Langevin Sampler trajectories on GPT-2 Large over a 50-step annealing schedule, averaged across sequences. Panels, top to bottom: embedding distance, contextual fit measured by KL divergence, and proposal entropy. Solid lines are runs with the Metropolis--Hastings correction, dashed lines without it. Marker shape distinguishes the three proposal methods where their curves coincide.}
+    \label{fig:dls-traj-50}
+\end{figure}
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=\textwidth]{figures/gpt2-large.dls.gn.free.s100_new_trajectories.png}
+    % SOURCE: figures_gpt2/gpt2-large.dls.gn.free.s100_new_trajectories.png
+    \caption[The same sampler over a 100-step schedule.]{Discrete Langevin Sampler trajectories on GPT-2 Large over a 100-step annealing schedule, averaged across sequences. Panels, axes, line styles and markers as in Figure~\ref{fig:dls-traj-50}.}
+    \label{fig:dls-traj-100}
+\end{figure}
+
+With the correction enabled the pattern does not occur. The chain converges within the first twenty steps and stays stable for the rest of the schedule, ending at a final KL of $6.541$ against $9.499$ without the correction.
+% SOURCE: compare gpt2-large.dls.policy.mh.gn.free.s50 (final KL 6.541, stable)
+% against the nomh counterpart (final KL 9.499) in final_kl_by_model.csv.
+This is the one configuration in the study where making the sampler theoretically correct also makes it perform better.
+% REMOVED (Phase 8, evaluation section 1 "five-beat paragraph" and section 2.D "results
+% sections repeatedly recap"): the closing signpost that re-asked the next section's
+% question and predicted its answer. Retained here for provenance:
+% "That observation naturally raises the next question, and it is a question the correction
+% itself poses: if the correction rescues the discrete sampler, what does it do to the
+% continuous one, whose landscape, as Section~\ref{sec:bg-samplers} warned, violates the
+% smoothness the correction assumes? The next section takes up that question, and the answer
+% is the opposite of what the discrete case might lead one to expect."
+
+\subsection{The Metropolis--Hastings Breakdown in Continuous Space}
+\label{sec:results-mh}
+
+In the continuous sampler the correction has the opposite effect. Decomposing the logged proposals by whether they crossed a Voronoi cell boundary, and therefore changed the projected token, the continuous policy sampler with gradient normalization disabled and \emph{without} the correction accepts within-cell proposals, which change no token, $0.03\%$ of the time and boundary-crossing proposals $3.7\%$ of the time; enabling the correction raises these only to $0.63\%$ within a cell and $8.56\%$ across a boundary. % SOURCE: results_revision/rev_reconcile.json mh_acceptance_by_boundary (traces_gpt2sft_mh.csv): cls policy MH=False within 0.034% / boundary 3.665%; MH=True within 0.627% / boundary 8.557%. The 0.03/3.7 pair is the correction-DISABLED (no-MH) CLS split.
+The discrete sampler under the same correction accepts within-cell moves with probability $1.0$, because such moves are exactly reversible, and boundary-crossing moves at $9.3\%$. % SOURCE: rev_reconcile.json mh_acceptance_by_boundary dls policy MH=True within 100.0% / boundary 9.272%.
+That difference in within-cell acceptance, essentially one against essentially zero, is what separates the two cases: the discrete sampler's token can move freely inside a cell and then cross to a neighbour, while the continuous sampler, unable to accept even a move within its own cell, barely leaves the cell it started in.
+% SOURCE: results_diag/traces_gpt2sft.json, config dls_policy_gn_mh:
+% accept_rate_stayed=1.0, accept_rate_crossed=0.0927, accept_rate_overall=0.1213.
+
+Whether the correction rejects boundary-crossing moves because the moves are bad, or because it cannot verify their reversibility, is settled by the two terms of the acceptance ratio. For proposals that crossed a boundary, the mean \emph{target} log-ratio is $+4.60$, that is, positive: on average these moves improve the sequence probability, so the distribution being sampled would welcome them. The mean \emph{proposal} log-ratio for the same moves is $-1325$.
+% SOURCE: results_diag/traces_gpt2sft.json, config cls_policy_gnoff_mh:
+% mean_log_target_ratio_crossed=4.6035, mean_log_proposal_ratio_crossed=-1325.44.
+The reverse proposal assigns effectively zero density to the return move, and this term alone, dwarfing the favourable target term by three orders of magnitude, drives the acceptance probability to zero. Figure~\ref{fig:mh-decomp} shows the two distributions side by side. The rejection is driven by the proposal term, not the target term.
+
+\begin{figure}[t]
+    \centering
+    \includegraphics[width=\textwidth]{figures/fig_mh_decomposition.pdf}
+    % SOURCE: figures/fig_mh_decomposition.pdf produced by analyze_mh.py from traces_gpt2sft_mh.csv
+    \caption[Decomposition of the acceptance ratio in the continuous sampler.]{Decomposition of the Metropolis--Hastings acceptance ratio in the continuous sampler, for proposals that stay within a Voronoi cell against those that cross a boundary. Left: the target log-ratio. Right: the proposal log-ratio. Both on a log-probability scale.}
+    \label{fig:mh-decomp}
+\end{figure}
+
+This is the measured form of the argument of Section~\ref{sec:bg-mh}. The Metropolis-adjusted Langevin algorithm requires a Lipschitz-continuous drift \citep{roberts1996exponential}, and the drift derived from the differentiable pathway of Section~\ref{sec:bg-samplers} is not Lipschitz across a cell boundary. When a proposal crosses one, the reverse proposal mean is computed from the drift on the far side, which, because the pathway's prediction target has changed there, points somewhere unrelated to the direction back toward the original state. The original state falls deep in the tail of the reverse Gaussian, the reverse density vanishes, and the correction rejects the move as irreversible. The correction is not malfunctioning; the landscape violates the assumption it depends on. The consequence is that the continuous sampler appears to function only when the correction is omitted, that is, when it runs as a biased optimizer that ignores reversibility. The same behaviour is observed on both GPT-2 Large and Llama-3. This answers RQ2 for the continuous sampler: making it theoretically correct does not make it work.
+
+\subsection{Sampler Trajectories in Embedding Space}
+\label{sec:results-traj}
+
+The same breakdown can be read spatially. The trajectory experiment logs, for a small number of sequences, the full continuous state at every step, the distance from that state to the nearest token embedding, and the Voronoi cell the state occupies. Two summaries suffice here; the full walkthrough, the exact full-space distance figure, and the reduced-dimensionality projection are in Appendix~\ref{app:trajectory}.
+
+The first is the number of distinct Voronoi cells a run visits over its fifty steps, a direct count of how often the projected token changed. With the correction enabled the continuous sampler visits about two cells across the whole run, and exactly one in half the traced sequences.
+% PRIOR WORDING (Phase 3, canonical traces_gpt2sft_traj.npz: mean unique cells 1.0):
+% "visits, on average, exactly one cell across the entire run. It never leaves the cell it started in."
+% SOURCE: figures/fig_traj_stats.json per_config cls_policy_gnoff_mh distinct_cells_mean 2.17 (regeneration run traces_gpt2sft_plot_traj.npz, the run the trajectory figures use).
+With the correction disabled it visits about $45$ of a possible $50$.
+% SOURCE: figures/fig_traj_stats.json cls_policy_gnoff_nomh distinct_cells_mean 44.7.
+The discrete sampler visits about five.
+% SOURCE: figures/fig_traj_stats.json dls_policy_gn_mh distinct_cells_mean 5.3.
+
+The second is the distance from the continuous state to the nearest token embedding, which measures drift off the manifold of actual tokens. With the correction on, the continuous state sits between $118$ and $151$ units from the nearest token across the whole run; with it off, while forcing its way across cell boundaries, the state reaches roughly $980$ units and ends about $17$ units away.
+% PRIOR WORDING (Phase 3, canonical traces_gpt2sft_traj.npz: max 588.2, end 17.3).
+% SOURCE: figures/fig_traj_stats.json cls_policy_gnoff_mh nearest_token_dist 117.6-151.3;
+% cls_policy_gnoff_nomh nearest_token_dist_max 978.7, end_nearest_token_dist_mean 17.0.
+Against a mean nearest-neighbour spacing of $1.82$ and a mean pairwise spacing of $2.77$, an off-manifold distance of $118$ to $151$ is roughly $65$ to $83$ times the spacing between neighbouring tokens. The discrete sampler sits at distance zero at every step, its state always being a genuine token embedding.
+% SOURCE: figures/fig_traj_stats.json dls_policy_gn_mh / dls_random_gn_mh nearest_token_dist identically 0.0.
+
+The geometric conclusion is that the continuous relaxation buys genuine Langevin dynamics at the cost of leaving the token manifold, after which it must either respect the correction and freeze or ignore it and wander through the space between tokens, where the projected energy is a poor guide. The discrete sampler avoids the choice by never leaving the manifold.
+% COMPRESSED (Phase 8, evaluation section 5 item 7: "The trajectory analysis is visually useful
+% but may not require a full standalone main-text section [...] The main text can summarize the
+% relevant geometric conclusion in one page."). The prose removed from this section restated the
+% acceptance result of Section 5.3 in spatial language ("This is the same paralysis reported in
+% Section 5.3, now seen from the side [...] and the two descriptions are the same fact"), gave a
+% three-way narrative recap of the three trajectories, and closed by previewing Section 5.5
+% ("even though, as the next section shows, the signal it moves by is no better than noise").
+% Every number is retained above and the detail is in Appendix A.4.
+
+\subsection{Gradient Direction Against a Norm-Matched Random Direction}
+\label{sec:results-fallacy}
+
+The preceding sections concern how the samplers move. This one concerns the signal that drives them. The ablation of Section~\ref{sec:meth-configs} compares three proposal methods: the true gradient (\emph{policy}), a random direction rescaled to the gradient's norm (\emph{grad-norm-preserved}), and a fully random vector (\emph{random}). The three-way design separates the two things a gradient can contribute. If the gradient's \emph{direction} is informative, the policy method should outperform the norm-preserved random method, which differs from it only in direction. If the gradient's \emph{magnitude} is informative, the norm-preserved method should outperform the fully random method, which differs from it only in magnitude.
+
+One confound has to be removed first. Gradient normalization, applied by default for numerical stability, rescales every proposal direction to unit norm. Under normalization the norm-preserved random method and the fully random method become the same object, a random unit vector, so an observed equality between the policy and random methods admits two explanations: either the gradient's direction is uninformative, or normalization has discarded a real signal carried by the magnitude. The extended ablation therefore repeats the whole comparison \emph{with gradient normalization disabled}, so that the policy and norm-preserved methods both carry the gradient's full unnormalized magnitude and differ only in direction, and any gap between them is attributable to direction alone. Doubling the ablation in this way is the reason the study comprises $145$ configurations rather than half as many.
+
+With the confound removed, Table~\ref{tab:fallacy} reports the final KL divergence for the policy and norm-preserved methods with normalization disabled and the correction enabled, across four energy functions, together with their difference.
+% SOURCE: final_kl_by_model.csv, rows dls.policy.mh.nogn.free.s50 and
+% dls.grad_norm_preserved_random_dir.mh.nogn.free.s50, columns gpt2-large / gfn-lb0-500 /
+% gfn-lb0-2000 / gfn-lb1-500. policy=(6.474,6.009,6.698,6.008), gnp=(6.430,6.001,6.552,5.338).
+The differences are small and inconsistent in sign. On GPT-2 Large the policy method is worse than the random direction by $0.044$; on one GFlowNet variant it is worse by $0.008$; on another it is better by $0.146$; and on the length-normalized variant the random direction is better by $0.670$. That last gap exceeds the across-seed noise scale of about $0.18$ nats measured in Section~\ref{sec:meth-repro}, so it is not run-to-run variation: on that variant the true gradient is reliably \emph{worse} than a random direction. In no case does the true gradient reliably outperform a random direction of the same magnitude. In the tested token-substitution settings, then, the input-embedding gradient of frozen autoregressive sequence likelihood provided no reliable proposal advantage over a norm-matched random direction. Because the norm-preserved and fully random methods are themselves indistinguishable in the separate comparison, the same holds for the magnitude.
+% SCOPING (Phase 8, evaluation section 8 formulation 1). The universal sentences "Following the
+% exact gradient is statistically indistinguishable from following a random direction. The
+% direction of the frozen autoregressive gradient carries no usable information for discrete
+% sampling. [...] The gradient, in both its direction and its magnitude, is no better than
+% noise." are replaced by the evaluation's scoped formulation, used verbatim and identically in
+% the abstract, Section 1.2, Section 6.1, Section 6.2 and Section 7.
+
+To bound the equivalence rather than rest it on the eye, the flagship configuration was analyzed as a paired comparison over its two hundred sequences, pairing the policy method against the norm-preserved random direction on each sample. For the discrete sampler on GPT-2 Large with the correction and gradient normalization enabled over fifty steps, the paired mean difference in final KL is $+0.171$ nats, with a $95\%$ bootstrap confidence interval of $[-0.285,\, +0.619]$ that straddles zero, a Wilcoxon signed-rank $p$ of $0.40$, and a difference detectable at eighty percent power only if it were as large as $0.652$.
+% SOURCE: results_revision/rev_stats_gpt2.json comparisons[0] (gpt2-large dls mh gn s50,
+% comparator grad_norm_preserved_random_dir): mean_diff 0.17122, diff_ci95
+% [-0.28523, 0.61853], wilcoxon_p 0.40024, min_detectable_diff_80pow 0.65208,
+% tost.margin 0.32704, tost.equivalent false, n_paired 200.
+These three figures say the same thing three ways: the observed difference is small, it is not statistically distinguishable from zero, and the experiment was powered to detect only differences several times larger than the one it found. The formal equivalence test of Section~\ref{sec:meth-metrics} stops just short of certifying equivalence here, but for an instructive reason: the confidence interval, at this sample size, is wider than the equivalence margin of $0.327$, so the data cannot yet close the gap in either direction. That is not evidence of an effect; it is a statement that any real effect must be smaller than two hundred sequences can resolve, which is precisely the bounded-effect reading the thesis relies on. The result is therefore reported throughout as ``no reliable difference'' rather than as an exact numerical equality.
+
+\begin{table}[t]
+    \centering
+    \small
+    \begin{tabular}{lccc}
+        \toprule
+        Energy function & Policy & Grad-norm-preserved & Difference \\
+        \midrule
+        GPT-2 Large (SFT) & $6.474$ & $6.430$ & $+0.044$ \\
+        GFlowNet, \texttt{len\_beta}$=0$, 500 & $6.009$ & $6.001$ & $+0.008$ \\
+        GFlowNet, \texttt{len\_beta}$=0$, 2000 & $6.698$ & $6.552$ & $+0.146$ \\
+        GFlowNet, \texttt{len\_beta}$=1$, 500 & $6.008$ & $5.338$ & $+0.670$ \\
+        \bottomrule
+    \end{tabular}
+    \caption[Final KL for the true gradient against a norm-preserved random direction.]{Final KL divergence (lower is better) for the true gradient against a norm-preserved random direction, with gradient normalization disabled and the Metropolis--Hastings correction enabled, on the discrete sampler at 50 steps. Difference is policy minus grad-norm-preserved.}
+    \label{tab:fallacy}
+\end{table}
+
+One contrast in the matrix is statistically clear, and it points against gradient guidance. On Llama-3, with the correction disabled, the true gradient produces a \emph{higher} final KL divergence than a random direction. A gradient that points toward the minimizer of a \emph{local linearization} of a landscape that is not locally linear may point somewhere systematically unhelpful, which is worse than no information at all; Section~\ref{sec:results-linradius} measures whether that is what happens. This section answers the second half of RQ1 and locates the failure in the gradient rather than in an incidental choice of scale or correction.
+
+\subsubsection{Robustness of the Null Result}
+\label{sec:results-robust}
+
+Four variations were examined and none overturned the null. First, extending the annealing schedule from fifty steps to one hundred does not create a gap between the policy and the random directions: with the longer schedule the policy and grad-norm-preserved methods remain within noise of one another on every model, so the null is not a consequence of insufficient optimization budget.
+% SOURCE: final_kl_by_model.csv, s100 rows dls.policy.mh.gn.free.s100 vs
+% dls.grad_norm_preserved_random_dir.mh.gn.free.s100: near-identical across all four models.
+Second, the phenomenon holds under both settings of the Metropolis--Hastings correction and both settings of gradient normalization, so it is not produced by the interaction of the ablation with any one of those switches. Third, the same behaviour was observed for multi-token recovery, in which two or three coupled positions are corrupted and must be recovered jointly, as well as for the single-token case reported in the tables. As the number of coupled masked tokens increases the absolute recovery quality degrades, as one would expect from a harder task, but the relative behaviour of the sampling methods is preserved: the policy gradient does not pull ahead of a random direction at any corruption level. Fourth, the null is not an artifact of the masked-recovery task. Repeating the core comparison on a free-form prefix-continuation task, in which the sampler generates a twenty-token span with no reference token to recover, reproduces the equivalence: the policy method reaches a mean final KL of $8.818$, with a $95\%$ confidence interval of $[8.61,\, 9.02]$, against $8.850$ with interval $[8.65,\, 9.04]$ for the random direction, the two intervals almost wholly overlapping and the norm-preserved and fully random arms numerically identical.
+% SOURCE: results_revision/rev_continuation_gpt2sft.json by_method: policy
+% mean_final_kl 8.8180 [8.6122, 9.0193]; grad_norm_preserved 8.8501 [8.6521, 9.0440];
+% random identical to grad_norm_preserved; n=100, span=20, steps=50.
+The null therefore survives the move from a constrained infilling bench to open-ended generation, and is robust to the schedule, the correction, the normalization, the difficulty of the recovery task, and the choice of task.
+
+\subsubsection{Gradient-Free Baselines}
+\label{sec:results-baselines}
+
+Whether the fault lies in the gradient or in the energy it is computed from is separated by scoring the same energy with methods that do not use its gradient. Table~\ref{tab:baselines} does this on the masked-recovery metric for GPT-2 Large. The ground-truth fill sits at the metric floor of $0.00$; leaving the corrupted token in place gives $9.14$ and replacing it with a random token gives $9.39$, the two no-effort references. A single conditional forward pass already improves on these, reaching $8.24$ by taking the argmax of the model's own next-token distribution at the masked position and $8.62$ by sampling from it. The last two rows are the decisive ones. A single forward pass that reranks the top-$k$ candidate tokens by their effect on the sequence reaches $4.43$, better than every Langevin configuration in the entire grid, whose best discrete cell sits near $6.4$; and a gradient-free Gibbs sampler on exactly the same energy, resampling one masked position at a time from the model's conditional, reaches $6.69$, matching the best gradient-guided Langevin result without ever computing a gradient.
+% SOURCE: results_revision/rev_klbase_gpt2sft.json by_baseline.<name>.mean_kl:
+% ground_truth ~0 (exact_match 100%), untouched 9.142, random_token 9.392,
+% cond_argmax 8.236, cond_sample 8.622, cond_topk_rescore 4.427, gibbs 6.691.
+
+\begin{table}[t]
+    \centering
+    \small
+    \begin{tabular}{lc}
+        \toprule
+        Method (no gradient of the energy) & Mean KL \\
+        \midrule
+        Ground-truth fill (metric floor)        & $0.00$ \\
+        Untouched (corrupted token left in place) & $9.14$ \\
+        Random-token fill                        & $9.39$ \\
+        Conditional argmax (one forward pass)    & $8.24$ \\
+        Conditional sample (one forward pass)    & $8.62$ \\
+        Top-$k$ rescore (one forward pass)       & $4.43$ \\
+        Gibbs (gradient-free sampler)            & $6.69$ \\
+        \bottomrule
+    \end{tabular}
+    \caption[Gradient-free reference baselines on masked-token recovery.]{Reference baselines on masked-token recovery for GPT-2 Large, scored with the same KL metric as the Langevin grid (lower is better). None of these methods uses the gradient of the energy.}
+    \label{tab:baselines}
+\end{table}
+
+Two methods that evaluate the frozen likelihood but never differentiate it, a single rescoring pass and a gradient-free sampler, both do at least as well as the gradient-guided samplers, and the rescoring pass does markedly better. What the Langevin samplers add over these baselines is the gradient. The energy is therefore searchable without its gradient, which is what licenses narrowing the thesis's claim to the gradient rather than to the energy. The gradient-free baselines are also cheaper, spending no backward pass at all, as Appendix~\ref{app:cost} sets out.
+
+\subsubsection{External-Judge Rescoring}
+\label{sec:results-judge}
+
+A null measured with the model's own predictive distribution invites the objection that the metric is built from the same model that produced the recoveries. The recovered sequences were therefore rescored under perplexity by an independent judge, a Llama-3 model that took no part in the sampling. The policy recoveries score a mean judge perplexity of $178.4$ and the random ones $181.3$, a difference under two percent, with the norm-preserved and fully random arms again identical; the per-token negative log-likelihoods, $4.44$ against $4.45$, tell the same story.
+% SOURCE: results_revision/rev_judge_score_gpt2sft.json by_method: mean_judge_ppl
+% policy 178.42, grad_norm_preserved 181.32, random 181.32 (gradnorm==random);
+% mean_judge_nll_per_tok 4.438 vs 4.450; judge = llama3-8b.
+The external judge returns the same reading as the internal metric, so the indistinguishability of the methods is not an artifact of the evaluation model.
+
+\subsection{The Linearization Radius}
+\label{sec:results-linradius}
+
+The mechanism behind the null is tested directly on the surrogate the discrete proposal uses. That proposal ranks a candidate token $v$ by the first-order term $\hat{\Delta}(v) = \vg^\top(\ve(v) - \ve(x_i))$, a linear approximation to the true change in log-likelihood a substitution would produce (Section~\ref{sec:bg-samplers}). The linearization experiment of Section~\ref{sec:meth-diagnostics} computes both quantities for thousands of candidate substitutions and correlates them.
+
+Figure~\ref{fig:lin-scatter} plots the surrogate against the true change over all candidate--sequence pairs for GPT-2 Large. There is no relationship: the Spearman correlation between the surrogate and the truth is $-0.011$, negligible in magnitude and negative in sign. This is not a peculiarity of the base model: the same correlation is negligible on every one of the five energy functions, with $|\rho| < 0.06$ throughout (GPT-2 Large $-0.011$, Llama-3 $0.021$, and the three GFlowNet variants $0.024$, $0.046$, and $0.057$), each estimated over $n = 400{,}000$ candidate--sequence pairs.
+% SOURCE: results_revision/rev_reconcile.json spearman_phrasing (max_abs_spearman 0.0573);
+% per-model spearman_surrogate_vs_true_ALL from diag_linearization_*.json
+% (gpt2sft -0.0108, llama3-8b 0.0208, gfn-lb0-2000 0.0237, gfn-lb1-500 0.0462,
+% gfn-lb0-500 0.0573), n_pairs=400000 each.
+Ranking candidate tokens by the gradient surrogate is therefore equivalent to ranking them at random. The measurement is made at the level of the proposal itself rather than through the downstream sampling metric, so it is the more direct of the two observations.
+% SOURCE: diag_linearization_gfn-lb0-2000.json (0.0237), gfn-lb0-500.json (0.0573),
+% gfn-lb1-500.json (0.0462). The per-variant repetition of these three numbers, which appeared
+% twice in the same paragraph before Phase 8, is now stated once, inline above.
+
+\begin{figure}[t]
+    \centering
+    \includegraphics[width=0.82\textwidth]{figures/fig_lin_scatter.pdf}
+    % SOURCE: figures/fig_lin_scatter.pdf from plot_diagnostics.py / diag_linearization_gpt2sft.csv
+    \caption[Gradient surrogate against the true energy change.]{The first-order Taylor surrogate used by the discrete proposal, plotted against the true change in sequence log-likelihood for GPT-2 Large, coloured by the embedding distance of the candidate token. $n = 400{,}000$ candidate--sequence pairs.}
+    \label{fig:lin-scatter}
+\end{figure}
+
+The cause is a mismatch between two length scales. A Taylor expansion is accurate only within a small neighbourhood of the point at which it is taken, and a Transformer \citep{vaswani2017attention}, with its layer normalization and attention nonlinearities, is a strongly nonlinear function of its input embeddings, so that neighbourhood is small. Whether it is large enough to contain any move the sampler must make is answered by Figure~\ref{fig:lin-radius}, which computes the surrogate-to-truth correlation \emph{within} bins of embedding distance, so that one can see how far from the current token the linear model remains valid. The correlation is at best weakly positive at the very smallest distances and has decayed to zero well before the mean linearization-candidate distance of $2.35$, the average embedding distance of the candidate tokens the experiment scores, is reached, and indeed well before even the mean nearest-neighbour distance of $1.82$ reported in Section~\ref{sec:results-aniso}.
+% SOURCE: diag_linearization_gpt2sft.json, mean_inter_token_distance=2.354 (the
+% linearization-candidate mean); nearest-neighbour 1.822 from diag_anisotropy_gpt2sft.json;
+% within-bin correlations plotted in figures/fig_lin_radius.pdf.
+The nearest-neighbour distance is by definition the scale of the smallest possible substitution, since to change a token at all is to move to another token's embedding. The entire admissible range of substitutions therefore lies beyond the distances at which the surrogate carries signal. The gradient is not merely imprecise here but \emph{inapplicable}: a first-order method is being asked to make finite jumps, and the first order does not survive the jump.
+
+\begin{figure}[t]
+    \centering
+    \includegraphics[width=0.82\textwidth]{figures/fig_lin_radius.pdf}
+    % SOURCE: figures/fig_lin_radius.pdf from plot_diagnostics.py / diag_linearization_gpt2sft.csv
+    \caption[Surrogate-to-truth correlation by candidate embedding distance.]{Correlation between the gradient surrogate and the true energy change as a function of the embedding distance of the candidate token, for GPT-2 Large. Dashed line: the mean linearization-candidate distance, $2.35$. Dotted line: the smallest binned distance at which the correlation falls below $0.1$.}
+    \label{fig:lin-radius}
+\end{figure}
+
+A second limitation compounds the first, and the decomposition built into the experiment exposes it. The gradient is taken with respect to the input embedding of the masked position, and it can therefore only register the effect of a substitution on the \emph{future} tokens, whose probabilities depend on that embedding as it flows forward through the network. It is structurally blind to the effect of the substitution on the probability of the candidate token \emph{itself}, given its left context, because that probability depends on the candidate through a discrete index into the output softmax rather than through the continuous input embedding the gradient sees. The decomposition measures both effects. The mean absolute magnitude of the self term is $15.0$ nats and that of the future term is $24.2$ nats, so the self term, to which the gradient is blind, is not a rounding error but a substantial fraction of the total, and the surrogate correlates with the future term ($\rho = 0.03$) rather than the self term ($\rho = -0.10$), exactly as the structural argument predicts.
+% SOURCE: diag_linearization_gpt2sft.json: mean_abs_true_delta_self=15.02,
+% mean_abs_true_delta_future=24.21, spearman_..._SELF=-0.0956, spearman_..._FUTURE=0.0318.
+The gradient is therefore evaluated outside the range where it would be valid, and even within that range it would be blind to a large part of what determines whether a substitution is good. The full decomposition is in Figure~\ref{fig:lin-decomp} and the top-$k$ recall analysis, which finds that gradient ranking does not recover the true best substitutions better than chance, in Figure~\ref{fig:lin-topk}, both in Appendix~\ref{app:figures}. Together they answer the ``why not'' of RQ1, and they account for the Llama-3 case in which the gradient underperformed a random direction: a surrogate that is systematically mis-specified rather than merely uninformative can point away from good moves.
+
+\subsection{The Likelihood Trap}
+\label{sec:results-trap}
+
+The energy-based framework rests on the premise that low energy, that is, high likelihood, corresponds to good text. The likelihood-trap experiment tests that premise on the study's own models, reproducing quantitatively the neural-text-degeneration phenomenon of \citet{holtzman2020curious}.
+
+The experiment decodes with several strategies and measures the relationship between the per-token likelihood of the generated text and its repetition rate. The relationship is monotone: as per-token likelihood increases, that is, as energy decreases, repetition rises and lexical diversity falls (Figure~\ref{fig:trap}, Appendix~\ref{app:figures}). The correlation is reported \emph{within} each decoding strategy, because pooling generations from strategies of very different likelihood, greedy at one end and ancestral sampling at the other, can manufacture a correlation out of the gap between strategies rather than any relationship inside them. Measured this way the maximum within-strategy correlation between per-token likelihood and four-gram repetition is $+0.51$ on the base GPT-2 model, $+0.83$, $+0.82$, and $+0.91$ on the three GFlowNet variants, and $+0.77$ on Llama-3.
+% SOURCE: rev_ltrap_within.json max_abs_within_strategy_pearson: gpt2sft 0.5111,
+% gfn-lb0-500 0.8297, gfn-lb0-2000 0.8214, gfn-lb1-500 0.9094, llama3-8b 0.7723.
+The pattern between strategies points the same way: the highest-likelihood strategies, greedy and beam search, produce the most repetitive and least diverse text, while the lowest-likelihood strategies, ancestral and nucleus sampling, produce the least repetitive. On Llama-3 the pooled correlation is weaker, at $+0.22$, yet the within-strategy signal is strong and the model exhibits a blunt degeneracy of its own, never emitting an end-of-sequence token and running to the length cap in every generation.
+% SOURCE: rev_ltrap_within.json pooled_sampling_logp_vs_rep4 llama3-8b pearson 0.2183;
+% numbers.json diag_likelihood_trap_llama3-8b frac_hit_cap 1.0, frac_emitted_eos 0.0.
+Beam search, which most nearly approximates the mode of the distribution, produces both the highest-likelihood and the most degenerate text. The following is a representative beam-search output from the length-normalized GFlowNet variant, which achieves among the highest per-token likelihoods in the study:
+
+\begin{quote}
+\ttfamily aebb-aebb-aebb-aebb-aebb-aebb-aebb-aebb-aebb-aebb-
+\end{quote}
+
+This string has a per-token log-probability of $-0.40$, higher than almost any coherent text the model produces, and a four-gram repetition rate of $0.89$.
+% SOURCE: diag_likelihood_trap_gfn-lb1-500.csv, beam20 rows: sample
+% "aebb-aebb-..." mean_logp=-0.40, rep4=0.89.
+By the model's own energy it is an excellent sequence, and it is gibberish. This is the \textbf{likelihood trap}.
+
+% FLOAT MOVED TO APPENDIX (Phase 8, prompt B2 float pruning + evaluation section 7 emphasis
+% tiers: the likelihood trap and embedding anisotropy are supporting diagnostics, not core
+% RQ evidence, so their figures live in Appendix A.1 and are cross-referenced once from here).
+
+
+The implication for the energy-based programme is that any procedure concentrating probability mass on the lowest-energy regions of this energy, whether an annealed Langevin sampler in its quenching phase or a GFlowNet trained on the likelihood as a reward, is concentrating it on degenerate text. Success at the stated optimization objective is failure at the underlying goal.
+% REMOVED (Phase 8, evaluation section 1: theatrical recurring phrases). Prior closing:
+% "The gradient-guided samplers, as the earlier sections showed, cannot reach the low-energy
+% regions effectively, and the likelihood trap reveals the strange silver lining in that
+% failure: reaching them would not have helped, because the destination is bad. The methods
+% are, in a sense, protected from their own objective by their inability to optimize it."
+% The same idea is stated once, plainly, in Section 6.2.
+
+The experiment also yields the brevity slope that Section~\ref{sec:results-gfn} uses. The regression of total log-likelihood on generated length, computed over the sampled generations where length varies, has a slope of $-1.12$ nats per token.
+% SOURCE: diag_likelihood_trap_gpt2sft.json, length_vs_total_logp.pooled_sampling.slope=-1.123.
+This headline figure must be read with a censoring caveat, because for GPT-2 Large nearly every generation runs to the forty-token cap (a fraction of $0.997$ hits it), so length barely varies and the censored slope, estimated only on the few generations that stop short, is effectively null. The negative slope is therefore visible only where the cap does not bind: on the length-normalized GFlowNet variant, whose generations do vary in length, the uncensored slope is $-0.505$ nats per token while the censored slope steepens to $-2.361$, which shows both that the incentive is real and that the cap masks its magnitude.
+% SOURCE: rev_reconcile.json length_slopes_censored_vs_uncensored:
+% diag_likelihood_trap_gpt2sft.csv uncensored -1.1234 (censored null, frac_hit_cap 0.997);
+% diag_likelihood_trap_gfn-lb1-500.csv uncensored -0.5046, censored -2.3611 (n=1148).
+Because every additional token lowers the unnormalized log-likelihood by this much on average, an energy defined as the raw log-likelihood carries an implicit incentive toward brevity: shorter sequences are lower-energy by virtue of being shorter. The incentive is invisible in the Langevin experiments, which recover fixed-length masked spans, and becomes decisive when a method is free to choose its own length. The regression is shown in Figure~\ref{fig:trap-length}, Appendix~\ref{app:figures}.
+
+\subsection{Embedding Anisotropy}
+\label{sec:results-aniso}
+
+The anisotropy of Transformer embeddings is a documented phenomenon \citep{gao2019representation, ethayarajh2019contextual}. Measuring it on the two models here quantifies the consequences it has for the samplers, and accounts for both the step-size failure of Section~\ref{sec:results-stepsize} and the unreliability of Euclidean distance noted in Section~\ref{sec:meth-metrics}.
+
+Three distance statistics recur in this thesis and are defined once here. The \textbf{mean nearest-neighbour distance} is the average distance from a token embedding to its single closest neighbour; the \textbf{mean pairwise distance} is the average distance between two embeddings drawn at random; and the \textbf{mean linearization-candidate distance} is the average distance of the stratified candidate tokens scored in the linearization experiment of Section~\ref{sec:results-linradius}. In GPT-2 Large the mean pairwise distance between token embeddings is $2.77$, the mean nearest-neighbour distance is $1.82$, and the mean linearization-candidate distance is $2.35$; in Llama-3 the pairwise and nearest-neighbour figures are $0.84$ and $0.59$, with a linearization-candidate distance of $0.66$.
+% SOURCE: diag_anisotropy_gpt2sft.json (pairwise 2.7725, NN 1.8222),
+% diag_anisotropy_llama3-8b.json (0.8355, 0.5850), and
+% diag_linearization_{gpt2sft,llama3-8b}.json mean_inter_token_distance (2.354, 0.659). The mean pairwise cosine similarity is well above zero in both models, at $0.086$ and $0.018$ respectively, which is the signature of the cone-shaped anisotropy: embeddings are not spread through the space but clustered in a narrow region where they point in broadly similar directions.
+% SOURCE: diag_anisotropy_gpt2sft.json (mean_pairwise_l2=2.7725,
+% mean_nearest_neighbour_l2=1.8222, mean_pairwise_cosine=0.0861) and
+% diag_anisotropy_llama3-8b.json (0.8355, 0.5850, 0.0185).
+The top principal component of the embedding matrix accounts for only a small fraction of the total variance, so the anisotropy is a broad property of the space rather than the effect of a single dominant direction that could be projected away.
+% SOURCE: diag_anisotropy_gpt2sft.json, var_explained_top1=0.0225, var_explained_top10=0.0809.
+Figure~\ref{fig:aniso} in Appendix~\ref{app:figures} shows the full distributions of pairwise distances for the two models, on their separate scales.
+
+% FLOAT MOVED TO APPENDIX (Phase 8, prompt B2 float pruning + evaluation section 7 emphasis
+% tiers: the likelihood trap and embedding anisotropy are supporting diagnostics, not core
+% RQ evidence, so their figures live in Appendix A.1 and are cross-referenced once from here).
+
+
+Two consequences follow. The threefold difference in inter-token distance between the models is the quantitative cause of the step-size failure of Section~\ref{sec:results-stepsize}: a step calibrated to cross a cell boundary in one geometry is too small to cross one in the other. And the compression of distances that anisotropy produces is why a token can be close to the target in embedding space yet grammatically wrong, which is why the study uses KL divergence rather than Euclidean distance as its primary metric.
+
+\subsection{Consistency Across Models and Architectures}
+\label{sec:results-crossmodel}
+
+Table~\ref{tab:crossmodel} collects the two diagnostics across the five energy functions.
+
+\begin{table}[t]
+    \centering
+    \small
+        % PHASE 8 (print): column separation tightened so the tabular fits inside the text
+    % block; it protruded into the right margin before. No cell content changed.
+    \setlength{\tabcolsep}{4pt}
+    \begin{tabular}{lcc}
+        \toprule
+        Energy function & Linearization $\rho$ & Max within-strategy trap correlation \\
+        \midrule
+        GPT-2 Large (SFT base)              & $-0.011$ & $+0.51$ \\
+        GFlowNet, \texttt{len\_beta}$=0$, 500  & $+0.057$ & $+0.83$ \\
+        GFlowNet, \texttt{len\_beta}$=0$, 2000 & $+0.024$ & $+0.82$ \\
+        GFlowNet, \texttt{len\_beta}$=1$, 500  & $+0.046$ & $+0.91$ \\
+        Llama-3 8B (cross-architecture)     & $+0.021$ & $+0.77$ \\
+        \bottomrule
+    \end{tabular}
+    % SOURCE: linearization rho = spearman_surrogate_vs_true_ALL from diag_linearization_*.json
+    % (gpt2sft -0.0108, gfn-lb0-500 0.0573, gfn-lb0-2000 0.0237, gfn-lb1-500 0.0462,
+    % llama3-8b 0.0208); trap correlation = rev_ltrap_within.json
+    % max_abs_within_strategy_pearson (0.5111, 0.8297, 0.8214, 0.9094, 0.7723).
+    \caption[Two diagnostics across the five energy functions.]{Surrogate-to-truth Spearman correlation from the linearization experiment (Section~\ref{sec:results-linradius}) and the maximum within-strategy correlation between per-token likelihood and 4-gram repetition (Section~\ref{sec:results-trap}), for each energy function. Llama-3 figures are not on a shared numerical axis with the GPT-2 family.}
+    \label{tab:crossmodel}
+\end{table}
+
+Across the GPT-2 family the two diagnostics agree. The linearization correlation is negligible on the base and on all three GFlowNet variants, and the maximum within-strategy likelihood-repetition correlation runs from $+0.51$ on the base to $+0.91$ on the length-normalized GFlowNet, so the likelihood trap is if anything stronger on the tuned models, consistent with tuning having concentrated probability mass more tightly on the high-likelihood region. The final-KL values of Table~\ref{tab:fallacy} move together across these four models and the policy-minus-random difference stays small on each.
+
+The Llama-3 control has a limited and specific role. Its tokenizer differs and its embedding space is roughly a third the scale of GPT-2's, so a KL divergence or an inter-token distance from Llama is not comparable digit for digit with one from GPT-2, and no such comparison is made. What the Llama runs establish is cross-architectural and qualitative: the Metropolis--Hastings breakdown occurs there as on GPT-2, the anisotropy is present at a different scale, and Llama-3 is the one setting in which the true gradient measurably underperforms a random direction. The control therefore rules out the reading that the diagnosis is an artifact of one model's idiosyncrasies, without licensing a numerical comparison across the two families.
+% COMPRESSED (Phase 8, evaluation section 5 item 8: "Reduce to: one summary table, one
+% paragraph on GPT-2 variants, one paragraph on Llama-3 scope. Much of the existing prose
+% re-reports prior numbers."). The five linearization correlations and five trap correlations
+% previously appeared inline here for the third and second time respectively; they are now
+% tabulated once. No number changed.
+
+\subsection{GFlowNet Fine-Tuning and the Amortized Energy}
+\label{sec:results-gfn}
+
+If the gradient is the problem, one remedy is to abandon the gradient. A GFlowNet \citep{bengio2021flow, hu2024amortizing} learns to sample from a reward without ever differentiating it, so the linearization failure and the discontinuous drift are invisible to it. This section reports what the tested GFlowNet variants did. The load-bearing result is the unifying experiment at the end, which compares Langevin sampling on the tuned energy against the untuned base; the taxonomy of failure modes that precedes it is exploratory, in the sense that it describes how these particular training runs broke rather than establishing a general property of amortized inference. Three distinct failure modes appeared.
+
+The first is \textbf{capacity collapse}. The initial GFlowNet experiments used the smaller GPT-2 base, and they produced non-linguistic output regardless of how the reward was configured, which indicated that the policy simply lacked the capacity to represent the task at all. Moving to GPT-2 Large, the model of the reference implementation of \citet{hu2024amortizing}, resolved this, and GPT-2 Large is therefore the base for all the GFlowNet results reported here. It is recorded here as a separate failure, but it is one of capacity rather than of the energy.
+
+The second is \textbf{length collapse}, and it follows directly and quantitatively from the likelihood trap of the previous section. With the unnormalized reward, at $\texttt{len\_beta}=0$, the reward is the raw log-likelihood, and Section~\ref{sec:results-trap} measured that every additional token lowers that quantity by around $1.12$ nats. The reward therefore carries an implicit incentive toward brevity, and the policy discovers it, learning to produce extremely short sequences because short sequences are high-reward by being short.
+% SOURCE: brevity slope from diag_likelihood_trap_gpt2sft.json (-1.123 nats/token);
+% length-collapse behaviour in the free-running generations of the gfn-lb0-* checkpoints.
+The extreme form of this is visible in the decoding behaviour: under free-running ancestral sampling, the length-collapse variants never emit an end-of-sequence token at all, running to the generation cap in every case, because the policy has learned that terminating early is the way to keep the reward high and, in the limit, that the safest policy is one that resists stopping in the manner the reward rewards.
+% SOURCE: diag_likelihood_trap_gfn-lb0-500.json and gfn-lb0-2000.json,
+% frac_emitted_eos=0.0 across all decoding strategies.
+The length collapse is not a defect of the optimizer but the optimizer following a reward whose implicit incentive the designer did not intend.
+
+The obvious fix is to remove the brevity incentive by normalizing the reward by length, and this produces the third mode, \textbf{reward hacking}. At $\texttt{len\_beta}=1$ the reward is normalized by sequence length, the brevity incentive is gone, and the sequences do indeed return to a normal length. But the output ceases to be linguistic. The policy discovers sequences that achieve high length-normalized likelihood without being coherent text at all, strings of individually high-probability tokens assembled into grammatical nonsense. The following greedy output from this variant is representative:
+
+\begin{quote}
+\ttfamily b8d8b8b8b8b8. [\ldots] keredkeredkeredkeredkeredkered
+\end{quote}
+
+Such strings recur across the length-normalized variant's high-reward outputs, and they are the reward-hacking counterpart of the length collapse: where the unnormalized reward was gamed by getting shorter, the normalized reward is gamed by finding degenerate high-probability token sequences.
+% SOURCE: gfn-lb1-500 generations; diag_likelihood_trap_gfn-lb1-500.csv greedy/beam rows,
+% e.g. "b8d8b8b8b8b8...keredkered..." and "aebb-aebb-...".
+The two settings of the single length parameter thus produce two opposite degeneracies, brevity at one extreme and gibberish at the other, and no intermediate setting of the parameter was tested that resolves both; only the two endpoints, $\texttt{len\_beta}=0$ and $\texttt{len\_beta}=1$, were run.
+
+The common element in the three modes is that length is the axis along which the failure manifests rather than its cause: the reward, an autoregressive likelihood never shaped to serve as an energy over free-form sequences, has no well-behaved optimum where coherent text lies, so repairing one degeneracy surfaces another. Whether the tuning nonetheless made the energy more navigable is tested directly. If GFlowNet training had reshaped the likelihood into a smoother landscape, running the Langevin sampler on the tuned model should differ from running it on the untuned base. Table~\ref{tab:gfn-unify} reports the final KL divergence of the discrete sampler on the base model and on the three GFlowNet variants, under identical conditions.
+% SOURCE: final_kl_by_model.csv, row dls.policy.mh.gn.free.s50:
+% gpt2-large=6.541, gfn-lb0-500=6.306, gfn-lb0-2000=6.721, gfn-lb1-500=6.415.
+The four values are within noise of one another, and the null of Section~\ref{sec:results-fallacy} replicates on every GFlowNet variant, as the linearization correlations of Table~\ref{tab:crossmodel} also show. This answers RQ3 in the negative for the tested setup: amortization did not escape the observed problems, and modifying the model through the GFlowNet objective did not produce an energy whose local gradient became more useful.
+% SCOPING (Phase 8, evaluation section 3 RQ3 and section 8 formulation 3: the inference that
+% the pathology "survives amortization because it is a property of the training objective" is
+% stronger than the direct evidence, since a GFlowNet's failure can also depend on reward
+% design, training stability, policy parameterization, capacity, exploration, termination
+% handling and reward scaling). Prior wording: "Amortizing the energy does not repair the
+% landscape. The frozen-likelihood pathology survives retraining, which is the strongest
+% evidence the study can offer that the pathology is a property of the energy and not of any
+% sampler or any search procedure. This answers RQ3 directly and in the negative: amortization
+% does not escape the failure, because the failure is in the energy that both the sampler and
+% the amortized policy inherit from the frozen model." The interpretive claim now appears once,
+% in the evaluation's own formulation, in Section 6.1 and Section 6.2.
+
+\begin{table}[t]
+    \centering
+    \small
+    \begin{tabular}{lc}
+        \toprule
+        Energy function & Final KL (DLS, 50 steps, policy, MH, gn) \\
+        \midrule
+        GPT-2 Large (SFT base) & $6.541$ \\
+        GFlowNet, \texttt{len\_beta}$=0$, 500 & $6.306$ \\
+        GFlowNet, \texttt{len\_beta}$=0$, 2000 & $6.721$ \\
+        GFlowNet, \texttt{len\_beta}$=1$, 500 & $6.415$ \\
+        \bottomrule
+    \end{tabular}
+    \caption[Final KL on the base model and the three GFlowNet variants.]{Final KL divergence of the discrete Langevin sampler on the base model and on the three GFlowNet-tuned variants, under identical conditions: policy proposal, Metropolis--Hastings correction on, gradient normalization on, 50 steps.}
+    \label{tab:gfn-unify}
+\end{table}
+
+The result would be trivial if GFlowNet training had barely moved the energy, so that sampling on the tuned model and on the base agreed only because the two energies were nearly identical. Table~\ref{tab:divergence} reports how far each tuned energy has drifted from the base. The mean absolute difference in sequence log-likelihood between base and tuned is $31.0$, $36.0$, and $57.3$ nats across the three variants; the next-token KL divergence between their conditional distributions is $1.02$, $1.35$, and $3.05$; and the base-to-tuned correlation of sequence log-likelihoods falls from $0.98$ on the two lightly tuned variants to $0.77$ on the length-normalized one. Tuning moved the energy substantially, and moved it most where the reward was most aggressive.
+% SOURCE: results_revision/rev_divergence_{gfn-lb0-500,gfn-lb0-2000,gfn-lb1-500}.json:
+% mean_abs_loglik_diff 30.976 / 35.983 / 57.309 nats;
+% mean_nexttok_kl_base_vs_tuned 1.0228 / 1.3453 / 3.0532;
+% pearson_base_tuned_loglik 0.9831 / 0.9785 / 0.7699.
+The linearization correlation on those same tuned energies nonetheless stays flat, as Table~\ref{tab:crossmodel} records. The energy moved substantially and its navigability by gradient did not change, which rules out the reading that the samplers agree only because the models agree.
+
+\begin{table}[t]
+    \centering
+    \small
+        % PHASE 8 (print): column separation tightened so the tabular fits inside the text
+    % block; it protruded into the right margin before. No cell content changed.
+    \setlength{\tabcolsep}{4pt}
+    \begin{tabular}{lccc}
+        \toprule
+        GFlowNet variant & Mean abs.\ log-lik.\ diff.\ (nats) & Next-token KL & Base--tuned Pearson \\
+        \midrule
+        \texttt{len\_beta}$=0$, 500  & $31.0$ & $1.02$ & $0.98$ \\
+        \texttt{len\_beta}$=0$, 2000 & $36.0$ & $1.35$ & $0.98$ \\
+        \texttt{len\_beta}$=1$, 500  & $57.3$ & $3.05$ & $0.77$ \\
+        \bottomrule
+    \end{tabular}
+    \caption[Divergence between the base and GFlowNet-tuned energies.]{Divergence between the base energy and each GFlowNet-tuned energy: mean absolute change in sequence log-likelihood, next-token KL between the conditional distributions, and the base-to-tuned Pearson correlation of sequence log-likelihoods.}
+    \label{tab:divergence}
+\end{table}
+
+\subsection{Constrained Generation with an Additive Sentiment Term}
+\label{sec:results-constrained}
+
+RQ4 asks whether an additive constraint can steer generation toward a target attribute, as the plug-and-play formulation of \eqref{eq:intro-energy} requires. The constrained-generation extension adds a sentiment constraint to the energy in the manner of \citet{kumar2022gradient} and \citet{qin2022cold} and measures whether the target sentiment can be induced. The constraint gradient is a different object from the fluency gradient, so the test is run rather than inferred. Table~\ref{tab:constrained} reports the steering effect for the discrete sampler across the five constraint modes on the infilling task with a positive-sentiment target.
+% SOURCE: results_constrained/gpt2-large.infill.ours.dls.init-random_token.*.lbl1.json,
+% steering_gain: lm_only=0.0, cons_only=-8.0, full=-1.0, random=-7.0, cons_random=+1.0;
+% final_kl: 8.558, 8.308, 8.541, 8.512, 8.528.
+The steering gains are small and inconsistent in sign. The full combined energy, the intended plug-and-play configuration, produces a gain of $-1.0$; the constraint-only mode produces $-8.0$, worse than the baseline; and no mode produces systematic movement toward the target sentiment. The generated text shows the same degeneracy observed throughout: a representative infilled span reads \texttt{The rostr Bill of H PM americanus bears one or connected sp}, in which the masked positions have been filled with locally plausible but globally incoherent tokens.
+% SOURCE: results_constrained/gpt2-large.infill.ours.dls.init-random_token.full.lbl1.json,
+% examples field, recovered span text.
+The raw steering gains in Table~\ref{tab:constrained} are not the statistic to trust. Across setups every arm, including the pure-fluency \emph{lm\_only} baseline and the fully random arm, flips the sign of its gain when the target label is switched from positive to negative, which is the signature of a fixed sentiment drift in the underlying generations that swamps any contribution from the constraint. A gain that moves with the target regardless of whether the constraint gradient is even present cannot be read as steering. The statistic that cancels this shared bias is the paired contrast between the constraint-only arm and the arm in which only the constraint gradient is replaced by noise, \emph{cons\_only} minus \emph{cons\_random}, because the two share the same fluency dynamics and differ only in whether the constraint direction is real.
+
+Measured this way the picture is setup-dependent. On the discrete sampler of this thesis the contrast is essentially zero on both target labels, so the constraint direction buys no control there. On a MuCoLa-style continuous baseline running free-form continuation, the contrast is $+27.3$ points for a negative-sentiment target and $+36.7$ for a positive one, which does indicate that the constraint gradient's direction carries some signal in that setting, unlike the fluency gradient, whose direction was found to carry none anywhere.
+% SOURCE: results_revision/rev_constrained.json, contrasts constraint_direction_value:
+% continuation/mucola 27.333 (target negative, label0) and 36.667 (target positive, label1);
+% continuation/ours (DLS) 0.0 (label0) and 0.667 (label1); one_sided_artifact_flag true.
+That signal has to be read with a caveat that lives in the constraint-only arm. When the energy is driven by the constraint alone, with no fluency term to hold the sample on the manifold of natural text, the optimization leaves that manifold: it produces text that maximizes the classifier's response while ceasing to be fluent language. A sentiment classifier evaluated on such text is reporting on a distribution it was never trained for, so its outputs there are not a trustworthy measure of sentiment, and the large \emph{cons\_only} contrast is at least partly an artifact of scoring off-manifold text rather than evidence of controllable generation. The safe conclusion is the one the discrete sampler gives directly: on the energy landscape this thesis studies, the additive constraint does not produce reliable control, and the one place a constraint-direction signal does appear is entangled with the departure from the fluent manifold that the constraint-only objective causes.
+
+On the frozen autoregressive energy landscape studied here, plug-and-play constraint steering therefore failed. Section~\ref{sec:results-diffusion-guided} reports the separate question of what happens on a score-trained landscape, and Section~\ref{sec:disc-rqs} keeps the two answers apart.
+
+\begin{table}[t]
+    \centering
+    \small
+    \begin{tabular}{lcc}
+        \toprule
+        Constraint mode & Steering gain & Final KL \\
+        \midrule
+        lm\_only & $0.0$ & $8.558$ \\
+        cons\_only & $-8.0$ & $8.308$ \\
+        full & $-1.0$ & $8.541$ \\
+        random & $-7.0$ & $8.512$ \\
+        cons\_random & $+1.0$ & $8.528$ \\
+        \bottomrule
+    \end{tabular}
+    \caption[Steering effect of the sentiment constraint, discrete sampler, infilling.]{Steering effect of the sentiment constraint under the discrete sampler on the infilling task with a positive-sentiment target. The steering gain is the change, in percentage points, in the share of generations classified as the target sentiment relative to the unconstrained baseline.}
+    \label{tab:constrained}
+\end{table}
+
+\subsection{The Final-Position Case}
+\label{sec:results-lasttoken}
+
+% Phase 2 last-token experiment now RUN. Empirical companions below are sourced from
+% results_revision/rev_last_token_gpt2sft.json (n=200) and last_token_figure.csv.
+% Analytic derivation (next paragraph) is unchanged and needs no experiment.
+
+This section adds no new claim. It confirms the result already established in Sections~\ref{sec:results-fallacy} and~\ref{sec:results-linradius} at one position where the argument can be made exactly rather than statistically, and exactness is its distinct contribution.
+
+The self-and-future decomposition of Section~\ref{sec:results-linradius} showed that the input-embedding gradient sees a substituted token only through its effect on the tokens that follow it. At the last position there are no following tokens. Under causal attention the input embedding of the final token feeds only the logits that would predict a next token which does not exist, and those logits appear in no term of the sequence log-likelihood of \eqref{eq:bg-chain}. The statement to be exact about is therefore this one: the gradient of the sequence log-likelihood, taken with respect to the \emph{final token's input embedding}, under the shifted causal indexing of \eqref{eq:bg-chain} in which position $t$ predicts token $t+1$, is exactly zero. It is not a claim that every gradient involving the final token vanishes; gradients with respect to earlier positions, or with respect to model parameters, are unaffected. The energy difference between two candidate final tokens, by contrast, is exactly the model's conditional log-probability ratio between them given the fixed preceding context. At that one position the energy is maximally informative about which token is better and the input-embedding gradient carries none of that information.
+% SCOPING (Phase 8, evaluation section 8 formulation 2: "Provably identically zero at the final
+% token [...] must always specify which gradient, with respect to which representation, under
+% which likelihood indexing convention. Otherwise readers may incorrectly interpret it as saying
+% that all gradients involving the final token are zero."). All three qualifiers are now stated
+% here, and the bare phrasing is not used anywhere in the thesis; the abstract no longer states
+% this result at all, and Sections 6.1 and 6.2 and Section 7 carry the qualified form.
+
+A direct experiment measures the consequence. The masked position is placed at each of three points that differ only in how many scored terms of the log-likelihood its embedding can reach: the final token, which feeds no realized prediction; the second-to-last token, which feeds exactly one; and a middle token, which feeds many. Only that one position is corrupted, the surrounding context is left clean, and the same corrupted sequence is handed to every arm, so the sole variable is the amount of downstream context the input-embedding gradient can act on. The recovery arms are the discrete Langevin sampler with the true gradient (policy) and with a random direction of equal norm; three energy-only methods that never touch the gradient (argmax and top-$k$ rescoring of the left-context conditional, and an independence Metropolis sampler that proposes from that conditional and accepts by the exact sequence-log-likelihood ratio); and a recorder of the raw language-model gradient norm the sampler consumes at each step.
+
+Table~\ref{tab:lasttoken} reports the outcome. At the final position the language-model gradient norm the sampler consumes is $0.0000$ in both mean and maximum over roughly fifteen thousand gradient evaluations: not a small number but an exact zero, the theorem realized inside the live sampler. % SOURCE: rev_last_token_gpt2sft.json by_condition.final.dls_policy_mean_lm_grad_norm=0.0, dls_policy_max_lm_grad_norm=0.0
+With that gradient the discrete sampler recovers the target token in $0.0\%$ of two hundred sequences whether it uses the true direction or a random one, and the paired policy-minus-random difference straddles zero on every metric (rank difference $-17.3$, $95\%$ CI $[-513,+499]$). % SOURCE: rev_last_token_gpt2sft.json by_condition.final policy_minus_random_paired.rank
+The energy at the same position is fully usable: the independence sampler that proposes from the conditional and accepts by the exact sequence-log-likelihood ratio accepts $100.00\%$ of its moves in both mean and minimum, since target proportional to proposal forces an acceptance probability of one. That also certifies that the implemented energy carries no term beyond the sequence log-likelihood. % SOURCE: rev_last_token_gpt2sft.json by_condition.final independence_mh_accept_pct_mean=100.0, _min=100.0
+The energy-only methods recover the token between $34.5\%$ and $40.0\%$ of the time where the gradient arms recover none.
+
+The second-to-last position answers the one open empirical question the design poses. With a single downstream scored term the gradient is no longer zero, its mean norm being $12.945$, and it is still not usable: the policy arm remains at $0.0\%$ recovery and indistinguishable from the random arm, while the energy-only methods recover roughly half the tokens. % SOURCE: rev_last_token_gpt2sft.json by_condition.second_to_last (grad norm mean 12.945; dls exact 0.0; cond_topk 55.0)
+The null is therefore not confined to the zero-gradient edge case: it persists once the gradient becomes nonzero. Across all three positions the discrete Langevin arms never recover the target in six hundred trials, while the exact-energy methods recover between eighteen and fifty-five percent.
+
+\begin{table}[h]
+    \centering
+    \small
+        % PHASE 8 (print): column separation tightened so the tabular fits inside the text
+    % block; it protruded into the right margin before. No cell content changed.
+    \setlength{\tabcolsep}{4pt}
+    \begin{tabular}{lccc}
+        \toprule
+        & \multicolumn{3}{c}{Exact recovery (\%), by downstream scored terms} \\
+        \cmidrule(lr){2-4}
+        Arm & Final (0) & Second-to-last (1) & Middle (many) \\
+        \midrule
+        DLS, true gradient (policy) & 0.0 & 0.0 & 0.0 \\
+        DLS, random direction & 0.0 & 0.0 & 0.0 \\
+        Conditional argmax (energy only) & 40.0 & 50.0 & 18.0 \\
+        Top-$k$ rescore (energy only) & 40.0 & 55.0 & 39.0 \\
+        Independence MH (energy only) & 34.5 & 49.5 & 31.5 \\
+        \midrule
+        DLS-policy LM gradient norm (mean) & 0.000 & 12.945 & 23.976 \\
+        Independence-MH acceptance (\%) & 100.0 & 63.4 & 30.3 \\
+        \bottomrule
+    \end{tabular}
+    % SOURCE: rev_last_token_gpt2sft.json by_condition.{final,second_to_last,middle};
+    % exact_match_pct per arm; dls_policy_mean_lm_grad_norm; independence_mh_accept_pct_mean.
+    \caption[Recovery by number of downstream scored terms, $n=200$ per condition.]{The final-position experiment, $n=200$ sequences per condition. The three columns differ only in the number of downstream scored terms the masked token's input embedding can influence. Upper block: exact recovery per arm. Lower block: the mean language-model gradient norm the discrete sampler consumes, and the independence sampler's acceptance rate.}
+    \label{tab:lasttoken}
+\end{table}
+
+Figure~\ref{fig:lasttoken} draws the three quantities together against the amount of downstream context. As the masked position moves from the end of the sequence into the interior, the gradient norm the sampler consumes climbs from zero and the energy-only sampler's acceptance falls from one hundred percent, because the energy begins to weigh downstream terms the left-context proposal ignores. The policy-minus-random gap stays at zero across the whole range.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.85\textwidth]{figures/fig_lasttoken.png}
+    % SOURCE: results_revision/last_token_figure.png (data last_token_figure.csv):
+    % panel A dls_policy_grad_norm_mean {0.000, 12.945, 23.976}; panel B
+    % indep_mh_accept_pct {100.0, 63.35, 30.27}; shaded band policy_minus_random rank gap
+    % {-17.3, -85.3, +1349} all CIs crossing zero, against downstream context length.
+    \caption[Gradient norm and energy-only acceptance against downstream context length.]{The final-position experiment against the number of downstream scored terms. Left axis, bars: the mean language-model gradient norm the discrete sampler consumes. Right axis, line: the independence sampler's acceptance rate.}
+    \label{fig:lasttoken}
+\end{figure}
+
+\input{chapters/05a_diffusion_control}
