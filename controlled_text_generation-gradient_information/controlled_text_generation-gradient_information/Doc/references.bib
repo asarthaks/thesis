@@ -52,63 +52,87 @@
   url={https://arxiv.org/abs/1912.02164}
 }
 @inproceedings{yang2021fudge,
-  title={FUDGE: Controlled text generation with future discriminators},
+  title={{FUDGE}: Controlled text generation with future discriminators},
   author={Yang, Kevin and Klein, Dan},
-  booktitle={Proceedings of NAACL-HLT},
+  booktitle={Proceedings of the 2021 Conference of the North American Chapter of the Association for Computational Linguistics: Human Language Technologies (NAACL-HLT)},
+  pages={3511--3535},
   year={2021},
-  url={https://arxiv.org/abs/2104.05218}
+  publisher={Association for Computational Linguistics},
+  url={https://aclanthology.org/2021.naacl-main.276/}
 }
 @inproceedings{krause2021gedi,
-  title={GeDi: Generative discriminator guided sequence generation},
+  title={{GeDi}: Generative discriminator guided sequence generation},
   author={Krause, Ben and Gotmare, Akhilesh Deepak and McCann, Bryan and others},
-  booktitle={Findings of EMNLP},
+  booktitle={Findings of the Association for Computational Linguistics: EMNLP 2021},
+  pages={4929--4952},
   year={2021},
-  url={https://arxiv.org/abs/2009.06367}
+  publisher={Association for Computational Linguistics},
+  url={https://aclanthology.org/2021.findings-emnlp.424/}
 }
 @inproceedings{qin2022cold,
-  title={COLD decoding: Energy-based constrained text generation with Langevin dynamics},
+  title={{COLD} decoding: Energy-based constrained text generation with {Langevin} dynamics},
   author={Qin, Lianhui and Welleck, Sean and Khashabi, Daniel and Choi, Yejin},
   booktitle={Advances in Neural Information Processing Systems (NeurIPS)},
+  volume={35},
+  pages={9538--9551},
   year={2022},
-  url={https://arxiv.org/abs/2202.11705}
+  publisher={Curran Associates, Inc.},
+  url={https://proceedings.neurips.cc/paper_files/paper/2022/hash/3e25d1aff47964c8409fd5c8dc0438d7-Abstract-Conference.html}
 }
 @inproceedings{kumar2022gradient,
   title={Gradient-based constrained sampling from language models},
   author={Kumar, Sachin and Paria, Biswajit and Tsvetkov, Yulia},
-  booktitle={Proceedings of EMNLP},
+  booktitle={Proceedings of the 2022 Conference on Empirical Methods in Natural Language Processing (EMNLP)},
+  pages={2251--2277},
   year={2022},
-  url={https://arxiv.org/abs/2205.12558}
+  publisher={Association for Computational Linguistics},
+  url={https://aclanthology.org/2022.emnlp-main.144/}
 }
 @inproceedings{mireshghallah2022mixmatch,
   title={Mix and match: Learning-free controllable text generation using energy language models},
   author={Mireshghallah, Fatemehsadat and Goyal, Kartik and Berg-Kirkpatrick, Taylor},
-  booktitle={Proceedings of ACL},
+  booktitle={Proceedings of the 60th Annual Meeting of the Association for Computational Linguistics (Volume 1: Long Papers)},
+  pages={401--415},
   year={2022},
-  url={https://arxiv.org/abs/2203.13299}
+  publisher={Association for Computational Linguistics},
+  url={https://aclanthology.org/2022.acl-long.31/}
 }
-@inproceedings{lew2023sequential,
-  title={Sequential Monte Carlo steering of large language models using probabilistic programs},
+% lew2023sequential: no archival published version. Checked ACL Anthology (no hit), ICML 2023
+% main proceedings / PMLR v202 (Lew's only ICML 2023 PMLR entry is the separate SMCP3 paper),
+% and DBLP; the work appears only as an oral at the non-archival ICML 2023 workshop "Sampling
+% and Optimization in Discrete Space" (OpenReview). Per the IMS rule, arXiv is the correct cite.
+@article{lew2023sequential,
+  title={Sequential {Monte Carlo} steering of large language models using probabilistic programs},
   author={Lew, Alexander K and Zhi-Xuan, Tan and Grand, Gabriel and Mansinghka, Vikash K},
-  booktitle={arXiv preprint arXiv:2306.03081},
+  journal={arXiv preprint arXiv:2306.03081},
   year={2023},
   url={https://arxiv.org/abs/2306.03081}
 }
 @inproceedings{zhao2024probabilistic,
-  title={Probabilistic inference in language models via twisted sequential Monte Carlo},
-  author={Zhao, Stephen and Brekelmans, Rob and Makhzani, Alireza and Grosse, Roger},
-  booktitle={International Conference on Machine Learning (ICML)},
+  title={Probabilistic inference in language models via twisted sequential {Monte Carlo}},
+  author={Zhao, Stephen and Brekelmans, Rob and Makhzani, Alireza and Grosse, Roger Baker},
+  booktitle={Proceedings of the 41st International Conference on Machine Learning (ICML)},
+  series={Proceedings of Machine Learning Research},
+  volume={235},
+  pages={60704--60748},
   year={2024},
-  url={https://arxiv.org/abs/2404.17546}
+  publisher={PMLR},
+  url={https://proceedings.mlr.press/v235/zhao24c.html}
 }
 @inproceedings{sha2020gradient,
   title={Gradient-guided unsupervised lexically constrained text generation},
   author={Sha, Lei},
-  booktitle={Proceedings of EMNLP},
+  booktitle={Proceedings of the 2020 Conference on Empirical Methods in Natural Language Processing (EMNLP)},
+  pages={8692--8703},
   year={2020},
+  publisher={Association for Computational Linguistics},
   url={https://aclanthology.org/2020.emnlp-main.701/}
 }
+% keskar2019ctrl: arXiv/tech-report only. Checked DBLP (indexed only under journals/corr),
+% ACL Anthology, and conference proceedings: no peer-reviewed venue. Salesforce Research
+% technical report released on arXiv, so arXiv is the correct cite under the IMS rule.
 @article{keskar2019ctrl,
-  title={CTRL: A conditional transformer language model for controllable generation},
+  title={{CTRL}: A conditional transformer language model for controllable generation},
   author={Keskar, Nitish Shirish and McCann, Bryan and Varshney, Lav R and Xiong, Caiming and Socher, Richard},
   journal={arXiv preprint arXiv:1909.05858},
   year={2019},
@@ -122,14 +146,14 @@
   url={https://arxiv.org/abs/2102.04509}
 }
 @inproceedings{zhang2022langevin,
-  title={A Langevin-like sampler for discrete distributions},
+  title={A {Langevin}-like sampler for discrete distributions},
   author={Zhang, Ruqi and Liu, Xingchao and Liu, Qiang},
   booktitle={International Conference on Machine Learning (ICML)},
   year={2022},
   url={https://arxiv.org/abs/2206.09914}
 }
 @article{roberts1996exponential,
-  title={Exponential convergence of Langevin distributions and their discrete approximations},
+  title={Exponential convergence of {Langevin} distributions and their discrete approximations},
   author={Roberts, Gareth O and Tweedie, Richard L},
   journal={Bernoulli},
   volume={2},
@@ -139,7 +163,7 @@
   url={https://projecteuclid.org/journals/bernoulli/volume-2/issue-4/Exponential-convergence-of-Langevin-distributions-and-their-discrete-approximations/bj/1178291835.full}
 }
 @inproceedings{welling2011bayesian,
-  title={Bayesian learning via stochastic gradient Langevin dynamics},
+  title={{Bayesian} learning via stochastic gradient {Langevin} dynamics},
   author={Welling, Max and Teh, Yee Whye},
   booktitle={International Conference on Machine Learning (ICML)},
   year={2011},
@@ -156,7 +180,7 @@
   url={https://doi.org/10.1063/1.1699114}
 }
 @article{hastings1970monte,
-  title={Monte Carlo sampling methods using Markov chains and their applications},
+  title={{Monte Carlo} sampling methods using {Markov} chains and their applications},
   author={Hastings, W Keith},
   journal={Biometrika},
   volume={57},
@@ -173,10 +197,12 @@
   url={https://arxiv.org/abs/2106.04399}
 }
 @article{bengio2023gflownet,
-  title={GFlowNet foundations},
+  title={{GFlowNet} foundations},
   author={Bengio, Yoshua and Lahlou, Salem and Deleu, Tristan and others},
   journal={Journal of Machine Learning Research},
   volume={24},
+  number={210},
+  pages={1--55},
   year={2023},
   url={https://arxiv.org/abs/2111.09266}
 }
@@ -188,21 +214,21 @@
   url={https://arxiv.org/abs/2310.04363}
 }
 @inproceedings{malkin2022trajectory,
-  title={Trajectory balance: Improved credit assignment in GFlowNets},
+  title={Trajectory balance: Improved credit assignment in {GFlowNets}},
   author={Malkin, Nikolay and Jain, Moksh and Bengio, Emmanuel and Sun, Chen and Bengio, Yoshua},
   booktitle={Advances in Neural Information Processing Systems (NeurIPS)},
   year={2022},
   url={https://arxiv.org/abs/2201.13259}
 }
 @inproceedings{madan2023learning,
-  title={Learning GFlowNets from partial episodes for improved convergence and stability},
+  title={Learning {GFlowNets} from partial episodes for improved convergence and stability},
   author={Madan, Kanika and Rector-Brooks, Jarrid and Korablyov, Maksym and others},
   booktitle={International Conference on Machine Learning (ICML)},
   year={2023},
   url={https://arxiv.org/abs/2209.12782}
 }
 @inproceedings{hu2022lora,
-  title={LoRA: Low-rank adaptation of large language models},
+  title={{LoRA}: Low-rank adaptation of large language models},
   author={Hu, Edward J and Shen, Yelong and Wallis, Phillip and others},
   booktitle={International Conference on Learning Representations (ICLR)},
   year={2022},
@@ -215,15 +241,18 @@
   year={2016},
   url={https://aclanthology.org/N16-1098/}
 }
+% dubey2024llama: arXiv/tech-report only. Checked ACL Anthology, PMLR, conference/journal
+% proceedings, and DBLP/ADS: indexed only as arXiv 2024. Meta AI technical report, so arXiv
+% is the correct cite under the IMS rule.
 @article{dubey2024llama,
-  title={The Llama 3 herd of models},
+  title={The {Llama 3} herd of models},
   author={Dubey, Abhimanyu and Jauhri, Abhinav and Pandey, Abhinav and others},
   journal={arXiv preprint arXiv:2407.21783},
   year={2024},
   url={https://arxiv.org/abs/2407.21783}
 }
 @inproceedings{zhang2020bertscore,
-  title={BERTScore: Evaluating text generation with BERT},
+  title={{BERTScore}: Evaluating text generation with {BERT}},
   author={Zhang, Tianyi and Kishore, Varsha and Wu, Felix and Weinberger, Kilian Q and Artzi, Yoav},
   booktitle={International Conference on Learning Representations (ICLR)},
   year={2020},
@@ -244,10 +273,12 @@
   url={https://arxiv.org/abs/1907.12009}
 }
 @inproceedings{ethayarajh2019contextual,
-  title={How contextual are contextualized word representations? Comparing the geometry of BERT, ELMo, and GPT-2 embeddings},
+  title={How contextual are contextualized word representations? Comparing the geometry of {BERT}, {ELMo}, and {GPT-2} embeddings},
   author={Ethayarajh, Kawin},
-  booktitle={Proceedings of EMNLP-IJCNLP},
+  booktitle={Proceedings of the 2019 Conference on Empirical Methods in Natural Language Processing and the 9th International Joint Conference on Natural Language Processing (EMNLP-IJCNLP)},
+  pages={55--65},
   year={2019},
+  publisher={Association for Computational Linguistics},
   url={https://aclanthology.org/D19-1006/}
 }
 @article{vincent2011connection,
@@ -275,7 +306,7 @@
   url={https://arxiv.org/abs/2006.11239}
 }
 @inproceedings{li2022diffusion,
-  title={Diffusion-LM improves controllable text generation},
+  title={{Diffusion-LM} improves controllable text generation},
   author={Li, Xiang Lisa and Thickstun, John and Gulrajani, Ishaan and Liang, Percy and Hashimoto, Tatsunori B},
   booktitle={Advances in Neural Information Processing Systems (NeurIPS)},
   year={2022},
@@ -298,3 +329,5 @@
   year={1951},
   url={https://doi.org/10.1214/aoms/1177729694}
 }
+</content>
+</invoke>

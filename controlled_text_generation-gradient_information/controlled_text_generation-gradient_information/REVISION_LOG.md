@@ -1580,3 +1580,473 @@ sampler recorders + verify_equivalence_suite.py + backups) into the traces secti
 reproduction knowledge was lost. Added a one-line "superseded by README.md" banner to the
 top of REVISION_README.md (file kept in place; nothing deleted). Deferred-reorg TODO is
 mirrored in this log (see the DEFERRED TODO entry above).
+
+## 2026-07-22 10:24 CEST - PHASE 6 CLOSEOUT KICKOFF + PART 1 PRE-REGISTRATION
+
+Phase 6 is the final session: mechanism proof (per-class confusion), guided-generation
+examples, trajectory figure redesign, all remaining Doc/ edits, closing certification.
+Everything CPU except at most one tiny Phase 4 off-domain regeneration for Part 2. Repo
+reorg stays DEFERRED. Sequencing: Part 1 (confusion) runs and is decided BEFORE one word
+of the G section is written.
+
+AUDIT for Part 1: rev_gprime.csv (2700 rows) holds every verdict needed, no rerun.
+Label semantics confirmed from run_gprime.py:
+- realtext rows (300): target_label = TRUE SST-2 val label; judged_label = judge argmax
+  (concern-11 frozen-GPT-2 head); clf_self_label = guide (noisy classifier) argmax;
+  hit_target = (judge == true). Per-class guide/judge accuracy = group these by
+  target_label. Overall must reproduce judge 88.0%, guide 79.67% (logged Stage 1a).
+- unguided rows: judged_label + clf_self_label are the two instruments' verdicts on the
+  SAME unguided on-domain generation; each unguided gen is duplicated across the 4 cells
+  (2 gammas x 2 labels), so the confusion table dedupes to one unguided row per prompt_idx
+  (300 unique). This is the neutral calibration surface (unguided, not guided) demanded.
+- guided rows: same two verdicts on guided text; reported ONLY as labeled context.
+
+PART 1 PRE-REGISTERED PREDICTIONS (logged BEFORE computing anything):
+P1 (label-alignment sanity): overall guide acc reproduces 79.67%, judge 88.0% on the 300
+   realtext rows; per-class accuracies are all well above 50% for both instruments (no
+   silent label-map flip; a flip would show one class near 0% and the other near 100%).
+P2 (the mechanism): on the 300 unique UNGUIDED on-domain generations the two conditional
+   agreement rates P(judge=pos | guide=pos) and P(judge=neg | guide=neg) are ASYMMETRIC,
+   and the HIGHER channel is POSITIVE, matching the direction that transferred to the judge
+   in G-prime (positive label steered, negative did not).
+Decision rule (from the brief): asymmetry with the positive channel higher = the
+instrument-alignment mechanism is demonstrated, the table goes in the thesis, and the G
+section states the residual cause at that strength. If symmetric (or the higher channel is
+negative), the G section says the residual cause is NOT fully identified and invents no
+post-hoc explanation. Bootstrap CIs (10k resamples, seed 0) decide "asymmetric": the two
+conditional rates' CIs must be separated (or their paired difference CI exclude 0) to call
+it asymmetric; overlapping = symmetric.
+
+## 2026-07-22 10:29 CEST - PART 1 CONFUSION / MECHANISM PROOF: OUTCOME (prediction REFUTED, honest version)
+
+Code: revision/analyze_confusion.py (CPU, no rerun; reads rev_gprime.csv). Artifacts:
+results_revision/rev_confusion.json + rev_confusion.tex (staged). n_boot=10000, seed 0.
+
+P1 LABEL-ALIGNMENT SANITY: PASSES cleanly. On the 300 realtext (held-out SST-2 val)
+rows, guide per-class acc = 79.4% (neg, n=141) / 79.9% (pos, n=159), overall 79.67%;
+judge = 85.8% (neg) / 89.9% (pos), overall 88.0%. Both reproduce the logged overall
+figures exactly and are balanced across classes. No silent label-map flip (a flip would
+put one class near 0%). The confusion table is therefore trustworthy.
+
+P2 THE MECHANISM (pre-registered: conditional agreement asymmetric, positive channel
+higher): REFUTED. On the 300 unique UNGUIDED on-domain generations:
+  2x2 (rows guide verdict, cols judge verdict):  neg/neg 109  neg/pos 35
+                                                 pos/neg  50  pos/pos 106
+  P(judge=pos | guide=pos) = 67.9% [60.4, 75.3]
+  P(judge=neg | guide=neg) = 75.7% [68.5, 82.4]
+  paired difference (pos - neg) = -7.7 pts, 95% CI [-18.0, +2.6] -> INCLUDES ZERO.
+The higher channel is NEGATIVE, not positive, and the difference is not statistically
+distinguishable from zero. Both halves of the prediction fail: not CI-separated, and the
+lean is opposite the predicted direction. Guided-text agreement (labeled context only,
+NOT evidence): overall 72.6%, gamma2 74.5%, gamma4 70.7%.
+
+DECISION (per the brief's decision rule, and its explicit "write the honest version if a
+prediction fails" instruction): this is the SYMMETRIC / refuted case. The G section will
+NOT claim a by-class instrument-alignment mechanism explains the G-prime transfer
+asymmetry. What the table DOES license, and what goes in the thesis:
+ - The overall agreement ladder is validated and IS the instrument-alignment story:
+   56-64% off-domain < 71.7% [66.3,76.7] on-domain unguided gen < 79.67% real on-domain
+   text. The two independently trained instruments are only partially aligned even when
+   calibrated, ~28% residual disagreement.
+ - That residual disagreement does NOT fall asymmetrically by class in a way that explains
+   why positive steering transferred and negative did not. The transfer asymmetry (Table:
+   pos label steered on the judge, neg did not, both gammas) is reported as OBSERVED and
+   SETTING-CONTINGENT (it flipped direction vs Phase 4), with the class-level cause left
+   explicitly unidentified. No post-hoc mechanism invented.
+This is a cleaner and more defensible claim than the inferred one. Running Part 1 first
+did exactly its job: it stopped a convenient-but-unsupported sentence entering the thesis.
+The confusion table still goes in (it is the calibration evidence and the honest null),
+with the caption auto-selected by the data (the not-clearly-asymmetric branch fired).
+
+## 2026-07-22 10:40 CEST - PART 2 GUIDED-GENERATION EXAMPLES: DONE
+
+Code: revision/build_gprime_examples.py (CPU; loads GPT-2 tokenizer + SST-2 val OFFLINE
+only to reconstruct the exact 10-token prompts; no GPU, no regeneration needed because
+Phase 4 per-item text WAS stored in rev_sedd_guided_g4.csv). Artifacts:
+results_revision/gprime_examples.{json,md,tex} (all staged).
+
+IMMUTABLE SELECTION (drawn once, logged, never changed): np.random.default_rng(0); cells
+in fixed order [(g2,neg),(g2,pos),(g4,neg),(g4,pos)]; sorted(rng.choice(300,3,replace=
+False)) per cell. Drawn prompt indices:
+  gamma2 neg: [153,190,253]  gamma2 pos: [4,12,22]
+  gamma4 neg: [151,193,272]  gamma4 pos: [163,189,217]
+12 pairs, unfiltered (crude/dull draws kept). Each shows prompt, unguided continuation,
+guided continuation, and BOTH instruments' verdicts on each; guide-judge disagreements
+are labeled as the partial instrument alignment made visible, not as failures. Several
+draws land exactly on disagreement pairs (e.g. g2/neg idx153 unguided guide=pos judge=neg;
+g4/pos idx163 guided guide=pos judge=neg), which is the honest picture.
+
+TRUST-REGION BEFORE/AFTER: the 3 highest-guided-NLL rows of the Phase 4 off-domain gamma-4
+run (deterministic rule, no RNG): (pidx1,s11) NLL 16.0, (pidx3,s14) 16.0, (pidx11,s5) 15.9,
+each paired to its unguided partner (NLL ~7.1-8.3). Off-domain guidance without a trust
+region collapses into word salad at NLL ~16; the on-domain gamma-4 G-prime pairs stay
+bounded (NLL 8-11, several below their unguided partner). This visualizes the trust region
+doing its job.
+
+pdfLaTeX + utf8 inputenc safety: the .tex sanitizes model output to ASCII (curly quotes /
+dashes mapped; CJK, U+FFFD and other exotic bytes the diffusion model emits collapse to a
+visible [?] marker, 5 occurrences), so the appendix compiles. The .md keeps raw unicode for
+direct reading. gprime_examples.md is printed in full in the Part 5 closing report.
+
+## 2026-07-22 10:45 CEST - PART 3 TRAJECTORY FIGURES, REDESIGNED: DONE
+
+Code: revision/plot_trajectories.py fully reworked (CPU; loads the FULL wte matrix
+transformer.wte.weight 50257x1280 from the gpt2sft safetensors for ALL decoding and
+distance; the npz vocab_embeddings 6000-token subsample is used ONLY for nothing now, PCA
+is fit on a 12k sample of the FULL vocab). t-SNE dropped. Artifacts: figures/
+fig_traj_distance.png (primary), fig_traj_pca.png (secondary), fig_traj_stats.json.
+
+SEEDED SEQUENCE: seq_idx = int(np.random.default_rng(0).integers(0,6)) = 5, same index in
+every panel. CAVEAT (logged, and in the figure/JSON): collect_traces advances the torch RNG
+across configs, so trace index 5 is the same source sentence but the masked position (hence
+gt token) differs per config (gt tokens: dls_policy 'one', dls_random 'though', cls_mh
+'aked', cls_nomh 'finish'). Each panel uses its own EXACT stored gt_emb; the cross-panel
+claim is about on- vs off-manifold DYNAMICS, which does not need a shared token. This is the
+honest handling; "same sequence across panels" is satisfied at the index/sentence level.
+
+PRIMARY FIGURE: 4 stacked panels, symlog y (linthresh 1). Solid = L2 dist to GT token
+embedding; dashed (CLS only) = L2 dist to nearest token of any kind. Token strip under each
+axis (decoded token at each change, capped 15 with elision noted). CLS rejected steps
+(identical consecutive states) as red ticks. Landing vs GT printed at right with match flag.
+Reads exactly as the spine: DLS stays on the manifold, CLS floats far off it, MH-on quenched
+(near-total rejection), MH-off wanders then collapses.
+
+fig_traj_stats.json (full-matrix, all 6 seqs x 50 steps):
+  dls_policy_gn_mh : nearest-token dist = 0.00 at every step (ON the manifold); final dist
+                     to GT mean 2.16; token changes 1-8/seq.
+  dls_random_gn_mh : nearest-token dist = 0.00 (on manifold); final GT 2.36; changes 1-4.
+  cls_policy_gnoff_mh (MH on)  : nearest-token dist 117.6-151.3 (mean 135.6); token changes
+                     0-3/seq (quenched, barely moves); final dist to GT 136.
+  cls_policy_gnoff_nomh (MH off): nearest-token dist 16.6-978.7 (mean 96.8); token changes
+                     41-46/seq (chaotic); final dist to GT 17.3 (collapses back near a token).
+  PCA 2-comp explained variance = 3.31% (0.0223 + 0.0108). This 3.3% is itself the proof
+  that a 2D projection cannot carry the argument.
+
+NUMBERS DIFF / MISMATCH SURFACED (never silently fixed): the Stage 1c log quoted the CLS
+MH-on off-manifold distance as "~115-128" and the 6000-token subsample-based dist_to_manifold
+underlies that. Recomputed against the FULL wte matrix (as Part 3 mandates), the MH-on range
+is 117.6-151.3 (mean 135.6). The MH-off max 979 is CONFIRMED (978.7). So the thesis body text
+uses the full-matrix numbers: MH-on off-manifold ~118-151, factor 65-83x the token nearest-
+neighbour spacing (1.82) or ~43-55x the mean pairwise spacing (2.77); MH-off max ~979. The
+old "115-128 / factor 40-70" phrasing must be updated in Doc/ to the full-matrix values,
+because the subsample number was the decoding-trap artifact Part 3 warns against.
+
+## 2026-07-22 13:15 CEST - PART 4 THESIS EDITS (Doc/): DONE
+
+All Doc/ edits applied, compiled clean (125 pages, zero undefined references/citations),
+changed pages rendered and inspected. Removed text kept in % comments throughout.
+
+4.1 G SECTION (05a, new subsection sec:results-diffusion-gprime): the Phase 4 off-domain
+    table (5.10) relabelled off-domain; the on-domain trust-region G-prime table (5.11)
+    added with the agreement ladder (56-64 off < 71.7 on-domain gen < 79.7 real text), the
+    trust-region NLL result (climb eliminated), the flip stated as setting-contingent (the
+    working direction tracks instrument alignment, NOT a general "positive steers"), and
+    Part 1's confusion table (5.12) with the HONEST conclusion (overall alignment gap
+    confirmed; by-class asymmetry NOT identified, CI includes zero). Examples cross-ref to
+    Appendix. Discussion RQ4 and the guidance sentence updated to match.
+4.2 ABSTRACT rewritten to the three-claim shape (gradient full-strength; constraint signal
+    exists but bounded by instrument alignment; training-free premise refuted by the run
+    diffusion pilot); old text in % comment. NO German Kurzfassung/Zusammenfassung exists
+    in the front matter (only the English abstract + the German Erklaerung), so nothing to
+    mirror. Intro contribution sentence + structure sentence and Conclusion constraint +
+    diffusion-control sentences updated so none contradicts the softened abstract (the
+    positive control is now reported as RUN, not proposed).
+4.3 TRAJECTORY: appendix placeholders replaced by the redesigned primary distance figure
+    (A.5) and the single PCA secondary (A.6); t-SNE dropped. Off-manifold numbers promoted
+    into results 5.5 and the appendix, sourced to fig_traj_stats.json; the epistemic
+    "projection is illustration, distances are the evidence" sentence is in the body text
+    and the caption.
+4.4 SHOWCASE appendix placed (Doc/chapters/showcase_appendix.tex, infill-recovery table);
+    its redundant Stage-1b six-pair guided block removed in the Doc copy (superseded by the
+    Part 2 twelve-pair examples), original staged file untouched.
+4.5 CITATIONS: lew2023sequential (malformed: arXiv id in booktitle) and zhao2024probabilistic
+    (twisted SMC, claimed ICML) both converted to arXiv-preprint @article entries with the
+    IDs from their URLs; no venue guessed. Rest of the bibliography swept: remaining venues
+    are specific canonical venues for well-known papers, left as-is.
+4.6 AVAILABILITY statement (methodology) now points at README.md and the artifact map. RQ4
+    answer in the discussion updated for the new G-prime subsection.
+4.7 COMPLETENESS SWEEP: TODO/PLACEHOLDER/FIXME grep clean (only the removed trajectory
+    placeholders, now gone). latexmk clean, zero undefined refs/citations. LoF/LoT populated
+    with A.5/A.6 and tables 5.10/5.11/5.12/A.3/A.4/A.5. Bibliography page 2 rendered: URLs
+    break, no margin overflow. Fixed a pre-existing 92pt List-of-Tables overfull (the
+    tab:full-grid \texttt{...csv} filename) with a short LoT caption. Remaining 2 overfull
+    >40pt are pre-existing bibliography author-line wraps, within margin (verified in render).
+    Rendered and inspected: abstract, G-prime table 5.11, confusion table 5.12, trajectory
+    figure A.5, guided-examples longtable, showcase, bib page 2, LoF.
+
+    LATENT BUG FOUND AND FIXED (nothing-incomplete gate did its job): several paragraphs in
+    the diffusion-control section had an inline "% SOURCE:" comment placed MID-LINE inside a
+    single-line paragraph, so LaTeX commented out the rest of the paragraph. This silently
+    dropped real prose from the compiled PDF, including the PRE-EXISTING Phase 4 sentence
+    "During generation this classifier reweights ... which is the thesis's own principle"
+    (line 90, dropped in every prior compile) and my new agreement-ladder, guide-steers-
+    both-ways, one-directional-transfer, and confusion-continuation sentences. All such
+    inline comments moved to their own lines; verified via PDF-text extraction that every
+    dropped sentence is now present.
+
+4.8 NUMBERS DIFF (revision/numbers_diff_phase6.py): all 44 checked Phase-6 numbers in Doc/
+    match their source JSON (rev_gprime.json, rev_confusion.json, fig_traj_stats.json,
+    numbers.json) exactly. RESULT: ALL OK. One DELIBERATE re-sourcing reported, not a silent
+    fix: the trajectory body numbers moved from the canonical traces_gpt2sft_traj.npz (max
+    drift 588; cells 1.0/46.2/7.0) to the regeneration run traces_gpt2sft_plot_traj.npz /
+    fig_traj_stats.json (max 979; cells 2.2/44.7/5.3), because Part 3 mandates the FULL wte
+    matrix and the published figure is built from that run. Qualitative story unchanged.
+
+## 2026-07-22 13:25 CEST - PHASE 6 CLOSING CERTIFICATION (final report)
+
+The 19-concern revision and all Phase 2-6 experiments are complete. The thesis compiles
+clean (125 pages, zero undefined references or citations). Nothing experimental remains
+open. Below: every concern with its final status and thesis location; every phase
+experiment with its result file; the artifact map; the completeness sweep; compile status.
+
+### The 19 examiner concerns (all resolved)
+ 1. Statistical machinery for the null. DONE. Paired bootstrap CI, Wilcoxon, TOST margin,
+    retrospective power (min detectable 0.652). Sec 5.6 + Table 5.2; TOST margin in Sec 4.4;
+    power in Sec 5.6. Source: rev_stats_gpt2.json.
+ 2. Missing KL baselines. DONE. Ground-truth floor, cond argmax/sample, top-k rescore,
+    Gibbs, random, untouched. Sec 5.6.2 + Table 5.3. Source: rev_klbase_gpt2sft.json.
+ 3. Circular evaluation. DONE (minus the optional human study, explicitly out of scope and
+    not claimed). External Llama-3 judge, ppl 178.4 vs 181.3. Sec 5.6.3. Source:
+    rev_judge_score_gpt2sft.json.
+ 4. Overclaimed scope. DONE. Headline narrowed to "gradient is not a usable search
+    direction" (abstract, intro, conclusion); likelihood trap stated separately; Chapter 3
+    non-gradient-sampler paragraph; in-platform Gibbs. Writing across ch 1/3/5/6/7.
+ 5. GFlowNet unifying / did tuning move the energy. DONE. Divergence 31/36/57 nats, next-tok
+    KL 1.02/1.35/3.05, Pearson 0.98/0.98/0.77. Sec 5.10 + Table 5.4. Source:
+    rev_divergence_gfn-*.json.
+ 6. Internal numerical inconsistencies. DONE. MH boundary split, censored/uncensored length
+    slope, config-count reconciliation. Sec 5.3, 5.8, App A.2. Source: rev_reconcile.json /
+    numbers.json.
+ 7. CLS energy underspecified. DONE. Energy equation and within-cell acceptance derivation.
+    Sec 2.4 + Sec 5.3.
+ 8. Diffusion positive control (was designed-but-never-run). DONE, RUN at two scales in
+    Phase 4 and extended in Phase 6. Sec 5.12: linearization (Table diffusion-lin), native
+    recovery (diffusion-recovery), hybrid exact-energy sufficiency (diffusion-hybrid),
+    off-domain guidance (Table 5.10), on-domain trust-region guidance (Table 5.11), and the
+    per-class confusion mechanism proof (Table 5.12). Sources: rev_sedd_lin_{small,medium}.json,
+    rev_sedd_recovery_*.json, rev_sedd_hybrid.json, rev_sedd_guided_g{1,2,4}.json,
+    rev_gprime.json, rev_confusion.json.
+ 9. Task generality. DONE. Free-form continuation reproduces the null (8.818 vs 8.850).
+    Sec 5.6.1. Source: rev_continuation_gpt2sft.json.
+10. Likelihood trap within-strategy + Llama. DONE. Within-strategy 0.51-0.91; Llama pooled
+    0.22 + run-to-cap degeneracy. Sec 5.8. Source: rev_ltrap_within.json.
+11. Constraint experiment. DONE. cons_only - cons_random contrast (+27.3 / +36.7 on
+    mucola-continuation, ~0 on the DLS setup), bias-flip caveat, off-manifold caveat. Sec
+    5.11 + Table 5.5. Source: rev_constrained.json.
+12. Oracle step-size fairness. DONE. Oracle sweep and its role explained. Sec 5.2.
+13. "Schedule worked on Llama-3" undefined. DONE. "Calibrated motion" vs "guided motion"
+    defined. Sec 5.2 (writing).
+14. len_beta coverage. DONE. Only the two endpoints run, stated explicitly. Sec 5.10.
+15. Configuration-count arithmetic. DONE. 145 = 5 x 29, breakdown verified against folders.
+    App A.2.
+16. Seeds, variance, code availability. DONE. Reproducibility section + availability now
+    pointing at README.md and the artifact map. Sec 4.5.
+17. Spearman phrasing. DONE. |rho| < 0.06 throughout, max 0.0573. Sec 5.7.
+18. Prose repetition. DONE. Copy-edit (writing).
+19. Computational cost comparison. DONE. Pass-count table + wall-clock. App A.3.
+
+### Phase experiments (beyond the 19) and their result files
+ - Phase 2 last-token (zero-gradient theorem, energy-only working sampler, position
+   ablation): Sec 5.9 + Table 5.6 + Fig 5.7. Source: rev_last_token_gpt2sft.json,
+   last_token_figure.csv.
+ - Phase 4 SEDD real control + noisy-state classifier: see concern 8. noisy_classifier.pt,
+   noisy_classifier_train.json.
+ - Phase 5 G-prime on-domain trust-region control: Sec 5.12.5 + Table 5.11. rev_gprime.json.
+ - Phase 5 qualitative showcase: App A.6. qualitative_showcase.json.
+ - Phase 5/6 trajectory traces + redesigned figures: Sec 5.4 + App A.4, Figs A.5/A.6.
+   traces_gpt2sft_plot_traj.npz, figures/fig_traj_stats.json.
+ - Phase 6 per-class confusion mechanism proof: Table 5.12. rev_confusion.json.
+ - Phase 6 guided-generation examples: App A.5, Tables A.3/A.4. gprime_examples.json/.md/.tex.
+
+### Artifact map, completeness, compile
+ - Artifact map confirmed complete: README.md links each thesis table/figure to its
+   producing script and result file; numbers_diff_phase6.py checks 44 Phase-6 numbers
+   against their JSONs, RESULT ALL OK; every in-text number carries a % SOURCE comment.
+ - Completeness sweep: TODO/PLACEHOLDER/FIXME grep clean; trajectory placeholders replaced;
+   LoF/LoT populated and current; bibliography page-2 URLs break with no margin overflow;
+   the one pre-existing 92pt List-of-Tables overfull fixed with a short caption; the two
+   remaining >40pt overfulls are within-margin bibliography author-line wraps. A latent
+   mid-line-comment bug that had been silently dropping prose (including a pre-existing
+   Phase 4 sentence) was found and fixed; all dropped sentences verified present in the PDF.
+ - ONE open item needing an author decision (not experimental): the optional small human
+   evaluation from concern 3 was never run and is not claimed anywhere in the thesis. If the
+   examiner requires it, it is the only remaining data-collection task; the thesis stands
+   without it because the external-judge rescoring already closes the circularity objection.
+ - Compile status: latexmk -pdf clean, 125 pages, zero undefined references/citations.
+
+NOTHING EXPERIMENTAL REMAINS OPEN. The revision is complete. The author commits; no commit
+was made by this session.
+
+## 2026-07-22 13:45 CEST - IMS DEPARTMENT COMPLIANCE PASS (not a rewrite)
+
+Compliance-only pass against the three IMS reference documents in the repo
+(ThesisExample.zip = official Schweitzer/Reiter template, updated by S. Anstein May
+2026; Guidelines_for_academic_thesis_writing_at_the_IMS.pdf; Checklist_Masterthesis.pdf).
+No results, numbers, or arguments changed. Nothing moved, renamed, or deleted. Removed
+text kept as % comments. Numbers diff re-run at the end: ALL OK (no drift). Final
+compile: latexmk clean, 125 pages, zero undefined references/citations.
+
+### PART 1 - Template mechanical reconciliation (decided before editing)
+
+The guidelines call the template "recommended", not mandatory, so the multi-chapter
+report-class structure is KEPT (chapters not flattened to sections). Only mechanical
+settings were reconciled toward the template where they do not fight the chapter layout.
+
+| Setting            | Official template                         | Doc/ before                                   | Reconciliation |
+|--------------------|-------------------------------------------|-----------------------------------------------|----------------|
+| Document class     | article, 12pt leqno a4paper               | report, 12pt leqno a4paper                    | KEEP report. Guidelines permit chapters; converting would flatten the structure the examiners already reviewed. One-line reason: chapter layout is allowed and load-bearing. |
+| Left/right margins | left=3cm, right=3cm                        | left=3cm, right=3cm (+top=2.5, bottom=2.5)    | Match on L/R (identical). KEEP top/bottom (template sets none; 2.5cm is neutral and does not fight anything). |
+| \baselinestretch   | 1.3                                       | 1.3                                           | Identical. No change. |
+| \parskip           | \medskipamount                            | \medskipamount                                | Identical. No change. |
+| \frenchspacing     | on                                        | on                                            | Identical. No change. |
+| Citation package   | natbib + \bibliographystyle{plainnat}     | natbib + plainnat                             | Identical. No change. |
+| \bibpunct          | \bibpunct[; ]{(}{)}{;}{a}{,}{;}           | ABSENT (plainnat default)                     | ADDED verbatim from template. |
+| babel              | [english,german]                          | [english] (german auto-imported dynamically) | CHANGED to [german,english] so english stays the MAIN language (last option) while german is explicitly loaded for the Erklaerung, matching the template's "both languages loaded". Did NOT copy the template's [english,german] order because that would make german the main language of an English thesis. |
+| Table rules        | booktabs (\toprule/\midrule/\bottomrule)  | booktabs, same commands                       | Identical. No change. |
+| Graphics           | epsfig                                     | graphicx                                       | KEEP graphicx. epsfig is legacy; graphicx is its modern replacement and does not fight anything. One-line reason: functionally equivalent, graphicx is current. |
+| inputenc           | utf8                                       | utf8 (+ fontenc T1)                            | Identical core; T1 fontenc is an additive improvement. No change. |
+
+Not changed, with reason: report class (chapters allowed and load-bearing);
+graphicx over epsfig (modern equivalent); extra packages in Doc (amsmath, hyperref,
+booktabs already present, longtable, multirow, titlesec, xurl) are additive and do
+not conflict with any template setting.
+
+Files touched: Doc/thesis.tex (preamble: babel option, \bibpunct line added).
+
+### PART 2 - Mandatory initial pages and declaration
+
+Title page field check (against template required set; rendered pg-001.png inspected):
+
+| Required field                    | Status before        | Action |
+|-----------------------------------|----------------------|--------|
+| IMS name + address block          | present, correct     | none |
+| "Master thesis"                   | "Master Thesis"      | none (label acceptable) |
+| Title                             | present              | none |
+| Author                            | present (Sarthak Singh) | none |
+| TWO examiners, label Prüfer*innen | ONLY ONE examiner    | FIXED: added a second examiner row under the Prüfer*innen label (blank, AUTHOR DECISION comment). Label already correct. |
+| Supervisor, label Betreuer*in     | label was "Betreuer:"| FIXED: relabelled to "Betreuer*in:" per the May-2026 template. |
+| Beginn / Ende der Arbeit dates    | present but empty     | LEFT empty with AUTHOR DECISION comments (dates are the author's to supply). |
+
+Declaration (Erklärung) - character-level comparison to template:
+ - German paragraph: MATCHES the template's current KI-Tools wording word-for-word,
+   including the sentences on the Appendix "Nutzung von KI-Tools" and on the Stuttgart
+   AI principles ("Die Grundsätze zur KI-Nutzung ... zur Kenntnis genommen und befolgt").
+   ONE deliberate deviation: the template misspells "Hilfsmittel" as "Hilfsmitel" (twice);
+   Doc/ carries the correct spelling "Hilfsmittel" both times. This is a template typo we
+   do NOT replicate; content is otherwise identical.
+ - English footnote translation: was ABSENT in Doc/. ADDED verbatim from the template
+   (the "Non-binding translation for convenience..." footnote), wrapped in
+   \foreignlanguage{english} so it typesets in English. Rendered (pg-002.png): present.
+ - Signed location-and-date line: template shows only "(Name)"; the guidelines require
+   location AND date. Doc/ had "(Sarthak Singh, Stuttgart)" (location, no date). CHANGED
+   to a "Stuttgart, <date>" line above "(Sarthak Singh)"; \today is a placeholder flagged
+   AUTHOR DECISION (set the real submission date; sign by hand on the printed copy).
+ - Page placement: declaration is on the FIRST content page (physical page 2), as required
+   for CL/MSV theses (not last). Confirmed in render.
+
+Files touched: Doc/thesis.tex (title-page tabular, declaration block).
+
+### PART 3 - Bibliography compliance sweep (arXiv-to-published is a REPLACEMENT)
+
+This REVERSES the earlier "default to arXiv" instruction. Every @misc/arXiv/preprint
+entry was checked for a published version (web search: ACL Anthology, PMLR, conference
+and journal proceedings, DBLP). Per-entry table (40 entries, all cited, none dangling):
+
+| Key                       | Before                     | After / status | Fields completed |
+|---------------------------|----------------------------|----------------|------------------|
+| zhao2024probabilistic     | arXiv preprint             | REPLACED -> ICML 2024 (@inproceedings) | PMLR v235, pp. 60704-60748, publisher PMLR |
+| mireshghallah2022mixmatch | "Proceedings of ACL"       | COMPLETED -> ACL 2022 (60th Annual Meeting, Vol.1 Long Papers) | pp. 401-415, anthology 2022.acl-long.31 |
+| yang2021fudge             | "Proceedings of NAACL-HLT" | COMPLETED -> NAACL-HLT 2021 full title | pp. 3511-3535, anthology 2021.naacl-main.276 |
+| kumar2022gradient         | "Proceedings of EMNLP"     | COMPLETED -> EMNLP 2022 full title | pp. 2251-2277, anthology 2022.emnlp-main.144 |
+| qin2022cold               | "NeurIPS" (arXiv url)      | COMPLETED -> NeurIPS 2022 | vol. 35, pp. 9538-9551, Curran Associates |
+| krause2021gedi            | "Findings of EMNLP"        | COMPLETED -> Findings of ACL: EMNLP 2021 | pp. 4929-4952 (web-verified), anthology 2021.findings-emnlp.424 |
+| sha2020gradient           | "Proceedings of EMNLP"     | COMPLETED -> EMNLP 2020 full title | pp. 8692-8703 (web-verified), anthology 2020.emnlp-main.701 |
+| ethayarajh2019contextual  | "Proceedings of EMNLP-IJCNLP" | COMPLETED -> EMNLP-IJCNLP 2019 full title | pp. 55-65 (web-verified), anthology D19-1006 |
+| lew2023sequential         | arXiv preprint             | KEPT arXiv | Checked ACL Anthology (miss), ICML 2023 main/PMLR v202 (only the separate SMCP3 paper), DBLP; exists only as a non-archival ICML 2023 workshop oral -> arXiv is compliant. Check noted in a % comment above the entry. |
+| keskar2019ctrl            | arXiv preprint             | KEPT arXiv | Checked DBLP (journals/corr only), ACL Anthology, proceedings; Salesforce tech report, never peer-reviewed. Check noted in a % comment. |
+| dubey2024llama            | arXiv preprint             | KEPT arXiv | Checked ACL Anthology, PMLR, proceedings, DBLP/ADS; Meta AI tech report, arXiv-only. Check noted in a % comment. |
+| radford2019language       | OpenAI Technical Report    | KEPT | genuine tech report, no venue. |
+| (remaining 26 entries)    | canonical venues           | KEPT | already carry their canonical published venue + year; brace-protection added (see below). |
+
+Other rule enforcement:
+ - Capitalization: proper nouns and model/system names brace-protected in titles so
+   plainnat does not lowercase them: FUDGE, GeDi, COLD, CTRL, LoRA, BERTScore, BERT,
+   ELMo, GPT-2, Diffusion-LM, GFlowNet(s), Langevin, Bayesian, Monte Carlo, Markov,
+   Llama 3. Verified in render (bib pages 100-102): all display with correct casing.
+ - First-name convention: full first names throughout (never abbreviated) - already
+   consistent, left as-is.
+ - "and others" (et al.) remains on 9 large-author entries (brown, ouyang, vaswani,
+   krause, bengio2023, hu2022lora, mostafazadeh, madan, dubey) where the full author
+   list was not independently verified. This is the one consistency item not fully
+   closed; it is an AUTHOR DECISION whether to expand these to full author lists. The
+   first-name-abbreviation rule (the checklist's actual "consistent" requirement) is met.
+ - Every reference cited: 40 defined == 40 cited, no dangling entries, no uncited entries
+   (verified by set-diff of \cite keys vs @-keys).
+ - In-text citations: single consistent natbib format (\citep / \citet) throughout;
+   \bibpunct now matches the template so parenthetical style is the template's.
+ - Borrowed figures: the only reproduced-style figures are the study's own generated
+   plots (trajectory PCA/distance figures, all produced by revision/plot_trajectories.py);
+   no uncredited third-party depiction. Captions carry no external source because none is
+   borrowed.
+
+Files touched: Doc/references.bib (full sweep, content preserved, venues/fields/braces).
+
+### PART 4 - Checklist gate and final compile
+
+Checkbox table (Checklist_Masterthesis.pdf section 2 + Guidelines):
+
+| Item                                   | Status | Where in Doc/ |
+|----------------------------------------|--------|---------------|
+| Cover page                             | OK     | thesis.tex title page (all required fields; 2 examiner names + dates = AUTHOR DECISION) |
+| Declaration of authorship              | OK     | thesis.tex, first content page; current KI-Tools wording + English footnote + location/date |
+| Table of contents                      | OK     | \tableofcontents (front matter) |
+| Intro: introduce topic                 | OK     | 01_introduction.tex para 1 |
+| Intro: explain the problem             | OK     | 01 paras 2-3 (left-to-right irreversibility; global vs local properties) |
+| Intro: narrow topic down               | OK     | 01 sec "Energy-Based Control and Its Central Assumption" |
+| Intro: state the goal                  | OK     | 01 sec "Energy-Based Control..."; "The Shape of the Investigation" |
+| Intro: define research questions       | OK     | 01 sec "Research Questions and Contributions" (RQ1-RQ4, description list) |
+| Intro: relevance                       | OK     | 01 para 3 + "Two Established Routes to Control" |
+| Intro: overview of approach            | OK     | 01 "The Shape of the Investigation" + contributions paragraph |
+| Intro: outline of thesis               | OK     | 01 sec "Structure of the Thesis" |
+| Background sufficiency                 | OK     | 02_background.tex (EBM view, Langevin, MH, DLS/CLS, GFlowNets) |
+| Related work                           | OK     | 03_related_work.tex |
+| Materials/Methods conceptual vs impl.  | OK     | 04_methodology.tex; math/conceptual in body, implementation referenced only by filename (core/base_sampler.py etc.), no code snippets mixed into derivations; dedicated "Reproducibility, Seeds, and Hardware" section |
+| Experiments/results, every table in prose | OK  | 05_results.tex + 05a_diffusion_control.tex; each table introduced and talked through |
+| Reproducibility addressed              | OK     | 04 sec 4.5 (seeds 1000-1003, sd 0.183, hardware, README artifact map) |
+| Discussion + interpretation            | OK     | 06_discussion.tex |
+| Conclusion answers every RQ            | OK     | 06 "Answers to the Research Questions" answers RQ1-RQ4 by label with section map; 07_conclusion.tex re-summarizes all four |
+| Conclusion outlook / future work       | OK     | 07 closing paragraphs (score-matching route, positive control) |
+| Bibliography                           | OK     | plainnat, swept (Part 3) |
+| Appendix (optional)                    | OK     | 08_appendix.tex (figures, full grid, cost, trajectory geometry, guided examples, Use of AI-Tools) |
+| All abbreviations at first use         | OK     | Spot-checked: MCMC ("Markov chain Monte Carlo" used, acronym not needed), KL/Kullback-Leibler, PCA ("principal component" precedes), GFlowNet ("Generative Flow Network"), SEDD (FIXED: added "(SEDD)" at first mention in 05a). System names (COLD, FUDGE, GeDi, PPLM, MuCoLa) are cited proper names, not expanded-acronym cases. |
+| List of Tables / List of Figures       | OK     | present and current: LoF 14 entries, LoT 17 entries (\listoffigures/\listoftables) |
+
+Compile / render verification:
+ - latexmk -pdf clean, exit 0, 125 pages, thesis.log reports ZERO undefined
+   references/citations. bibtex ran (thesis.bbl regenerated); blg shows 0 warnings.
+ - Overfull hboxes > 40pt: 2, both pre-existing bibliography author-line wraps, within
+   the printed margin (verified in render). No new overflow introduced by this pass.
+ - Rendered and inspected: title page (pg-001), declaration (pg-002), bibliography
+   (bib-100..102). Title-page fields correct and none overflow; Erklärung + English
+   footnote + Stuttgart/date line correct; published-venue bib entries and brace-protected
+   model names display correctly; URLs break with no margin overflow.
+ - Numbers diff (revision/numbers_diff_phase6.py): RESULT ALL OK - this compliance pass
+   changed no reported number.
+
+Files touched this pass: Doc/thesis.tex, Doc/references.bib,
+Doc/chapters/05a_diffusion_control.tex. Nothing else.
+
+REMAINING AUTHOR DECISIONS (cannot be supplied from the materials present, flagged not invented):
+ 1. Second examiner name (Prüfer*innen requires two; slot added, name blank).
+ 2. Beginn der Arbeit and Ende der Arbeit dates (registration and end dates).
+ 3. Declaration date: replace \today with the actual submission date, and sign the
+    printed copy by hand.
+ 4. Optional: expand the 9 "and others" bibliography entries to full author lists (the
+    first-name-abbreviation consistency rule is already satisfied; this is completeness
+    polish only).
+
+COMPLIANCE VERDICT: with the four author decisions above supplied, the thesis meets the
+IMS cover-page, declaration, table-of-contents, introduction, main-part, conclusion,
+bibliography, appendix, and abbreviation requirements of the checklist and guidelines,
+and matches the official template on every mechanical setting that does not fight the
+approved chapter structure. No substantive content, results, or arguments were altered.

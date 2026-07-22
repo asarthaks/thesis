@@ -1,0 +1,75 @@
+{
+  "experiment": "confusion_mechanism_proof",
+  "source_csv": "results_revision/rev_gprime.csv",
+  "n_boot": 10000,
+  "seed": 0,
+  "label_alignment_sanity": {
+    "n_realtext": 300,
+    "guide": {
+      "0": {
+        "n": 141,
+        "acc_pct": 79.43262411347519
+      },
+      "1": {
+        "n": 159,
+        "acc_pct": 79.87421383647799
+      },
+      "overall_acc_pct": 79.66666666666666
+    },
+    "judge": {
+      "0": {
+        "n": 141,
+        "acc_pct": 85.81560283687944
+      },
+      "1": {
+        "n": 159,
+        "acc_pct": 89.937106918239
+      },
+      "overall_acc_pct": 88.0
+    }
+  },
+  "confusion_unguided_ondomain": {
+    "n_unguided_unique": 300,
+    "counts_guideVerdict_x_judgeVerdict": {
+      "guide0_judge0": 109,
+      "guide0_judge1": 35,
+      "guide1_judge0": 50,
+      "guide1_judge1": 106
+    },
+    "n_guide_pos": 156,
+    "n_guide_neg": 144,
+    "P_judge_pos_given_guide_pos_pct": 67.94871794871796,
+    "P_judge_pos_given_guide_pos_ci95": [
+      60.438988095238095,
+      75.29429482636428
+    ],
+    "P_judge_neg_given_guide_neg_pct": 75.69444444444444,
+    "P_judge_neg_given_guide_neg_ci95": [
+      68.50393700787401,
+      82.39999999999999
+    ],
+    "conditional_diff_pos_minus_neg_pts": -7.745726495726487,
+    "conditional_diff_ci95": [
+      -18.005915636612748,
+      2.568020412479734
+    ],
+    "overall_agreement_pct": 71.66666666666667,
+    "overall_agreement_ci95": [
+      66.33333333333333,
+      76.66666666666667
+    ],
+    "higher_channel": "negative",
+    "asymmetry_by_diff_ci": false,
+    "asymmetry_confirmed_higher_is_positive": false
+  },
+  "guided_text_agreement_context": {
+    "overall_agreement_pct": 72.58333333333333,
+    "n": 1200,
+    "gamma2.0_agreement_pct": 74.5,
+    "gamma4.0_agreement_pct": 70.66666666666667
+  },
+  "prediction": {
+    "P2_asymmetric_higher_positive": true,
+    "result_asymmetry_confirmed": false
+  }
+}

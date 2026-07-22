@@ -1,0 +1,155 @@
+{
+  "experiment": "trajectory_stats",
+  "npz": "results_diag/traces_gpt2sft_plot_traj.npz",
+  "checkpoint": "/mount/studenten-temp1/users/singhsk/thesis/thesis/gfn-lm-tuning/infill_subj_arithmetic/gpt2_large_sft_output",
+  "seq_idx_seeded": 5,
+  "seq_idx_rule": "int(np.random.default_rng(0).integers(0,6))",
+  "trace_index_caveat": "collect_traces advances the torch RNG across configs, so trace index i is the same source sentence but the masked position (hence gt token) differs per config; each panel uses its own exact gt_emb.",
+  "token_spacing_reference": {
+    "mean_nearest_neighbour_l2": 1.8222060203552246,
+    "mean_pairwise_l2": 2.772538661956787,
+    "source": "results_revision/numbers.json:diag_anisotropy_gpt2sft"
+  },
+  "per_config": {
+    "dls_policy_gn_mh": {
+      "is_cls": false,
+      "nearest_token_dist_min": 0.0,
+      "nearest_token_dist_max": 0.0013810679083690047,
+      "nearest_token_dist_mean": 0.0001622416020836681,
+      "end_nearest_token_dist_mean": 0.00011508899236408372,
+      "final_dist_to_gt_mean": 2.1615979075431824,
+      "final_dist_to_gt_per_seq": [
+        2.418,
+        1.549,
+        2.374,
+        1.812,
+        2.308,
+        2.51
+      ],
+      "token_changes_per_seq": [
+        8,
+        2,
+        1,
+        6,
+        3,
+        6
+      ],
+      "distinct_cells_mean": 5.333333333333333
+    },
+    "dls_random_gn_mh": {
+      "is_cls": false,
+      "nearest_token_dist_min": 0.0,
+      "nearest_token_dist_max": 0.0009765625,
+      "nearest_token_dist_mean": 0.00016812575631774962,
+      "end_nearest_token_dist_mean": 0.0,
+      "final_dist_to_gt_mean": 2.3579564690589905,
+      "final_dist_to_gt_per_seq": [
+        2.297,
+        2.699,
+        1.901,
+        2.653,
+        2.476,
+        2.121
+      ],
+      "token_changes_per_seq": [
+        4,
+        1,
+        2,
+        4,
+        4,
+        4
+      ],
+      "distinct_cells_mean": 4.166666666666667
+    },
+    "cls_policy_gnoff_mh": {
+      "is_cls": true,
+      "nearest_token_dist_min": 117.62841033935547,
+      "nearest_token_dist_max": 151.28025817871094,
+      "nearest_token_dist_mean": 135.58457946777344,
+      "end_nearest_token_dist_mean": 135.75534311930338,
+      "final_dist_to_gt_mean": 136.1020711263021,
+      "final_dist_to_gt_per_seq": [
+        151.706,
+        130.219,
+        137.703,
+        133.704,
+        131.575,
+        131.707
+      ],
+      "token_changes_per_seq": [
+        0,
+        3,
+        0,
+        2,
+        1,
+        1
+      ],
+      "distinct_cells_mean": 2.1666666666666665
+    },
+    "cls_policy_gnoff_nomh": {
+      "is_cls": true,
+      "nearest_token_dist_min": 16.603696823120117,
+      "nearest_token_dist_max": 978.7369384765625,
+      "nearest_token_dist_mean": 96.7695083618164,
+      "end_nearest_token_dist_mean": 16.963078180948894,
+      "final_dist_to_gt_mean": 17.258591651916504,
+      "final_dist_to_gt_per_seq": [
+        17.611,
+        16.842,
+        17.338,
+        17.057,
+        17.131,
+        17.572
+      ],
+      "token_changes_per_seq": [
+        44,
+        46,
+        41,
+        46,
+        45,
+        41
+      ],
+      "distinct_cells_mean": 44.666666666666664
+    }
+  },
+  "chosen_seq_landing": {
+    "dls_policy_gn_mh": {
+      "landing_token": "checking",
+      "gt_token": "one",
+      "match": false
+    },
+    "dls_random_gn_mh": {
+      "landing_token": "dude",
+      "gt_token": "though",
+      "match": false
+    },
+    "cls_policy_gnoff_mh": {
+      "landing_token": "\u30a1",
+      "gt_token": "aked",
+      "match": false
+    },
+    "cls_policy_gnoff_nomh": {
+      "landing_token": "orbits",
+      "gt_token": "finish",
+      "match": false
+    }
+  },
+  "pca_explained_variance_ratio_2comp": [
+    0.02231581322848797,
+    0.010822927579283714
+  ],
+  "pca_explained_variance_sum": 0.03313874080777168,
+  "offmanifold_factor_summary": {
+    "cls_mh_on_nn_dist_range": [
+      117.62841033935547,
+      151.28025817871094
+    ],
+    "cls_mh_off_nn_dist_max": 978.7369384765625,
+    "token_nn_spacing": 1.8222060203552246,
+    "token_mean_pairwise": 2.772538661956787,
+    "factor_vs_nn_spacing_mh_on": [
+      64.6,
+      83.0
+    ]
+  }
+}

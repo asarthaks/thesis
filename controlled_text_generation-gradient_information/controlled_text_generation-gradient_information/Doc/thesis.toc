@@ -46,22 +46,26 @@
 \contentsline {section}{\numberline {5.9}Consistency Across Models and Architectures}{53}{section.5.9}%
 \contentsline {section}{\numberline {5.10}Does Amortization Escape the Failure? GFlowNet Fine-Tuning}{54}{section.5.10}%
 \contentsline {section}{\numberline {5.11}The Plug-and-Play Claim Tested Directly: Constrained Generation}{57}{section.5.11}%
-\contentsline {section}{\numberline {5.12}The Last-Token Analysis}{59}{section.5.12}%
+\contentsline {section}{\numberline {5.12}The Last-Token Analysis}{60}{section.5.12}%
 \contentsline {section}{\numberline {5.13}The Diffusion Positive Control}{62}{section.5.13}%
 \contentsline {subsection}{\numberline {5.13.1}The signal: linearization on the unified corpus}{63}{subsection.5.13.1}%
 \contentsline {subsection}{\numberline {5.13.2}The capability: native recovery of a flipped token}{64}{subsection.5.13.2}%
-\contentsline {subsection}{\numberline {5.13.3}Sufficiency: the repaired signal inside the thesis's own machinery}{64}{subsection.5.13.3}%
+\contentsline {subsection}{\numberline {5.13.3}Sufficiency: the repaired signal inside the thesis's own machinery}{65}{subsection.5.13.3}%
 \contentsline {subsection}{\numberline {5.13.4}Trained guidance: steering with a noisy-state classifier}{66}{subsection.5.13.4}%
-\contentsline {chapter}{\numberline {6}Discussion}{68}{chapter.6}%
-\contentsline {section}{\numberline {6.1}Answers to the Research Questions}{68}{section.6.1}%
-\contentsline {section}{\numberline {6.2}A Single Defect, Reached by Two Routes}{70}{section.6.2}%
-\contentsline {section}{\numberline {6.3}Connections to the Related Work}{72}{section.6.3}%
-\contentsline {section}{\numberline {6.4}What the Results Do and Do Not Show}{74}{section.6.4}%
-\contentsline {section}{\numberline {6.5}Implications and the Falsifying Experiment}{76}{section.6.5}%
-\contentsline {chapter}{\numberline {7}Conclusion}{78}{chapter.7}%
-\contentsline {chapter}{\numberline {A}Appendix}{85}{chapter.A}%
-\contentsline {section}{\numberline {A.1}Additional Diagnostic Figures}{85}{section.A.1}%
-\contentsline {section}{\numberline {A.2}Full Configuration Grid}{88}{section.A.2}%
-\contentsline {section}{\numberline {A.3}Computational Cost}{89}{section.A.3}%
-\contentsline {section}{\numberline {A.4}Geometry of Sampler Trajectories in Embedding Space}{90}{section.A.4}%
-\contentsline {section}{\numberline {A.5}Use of AI-Tools}{92}{section.A.5}%
+\contentsline {subsection}{\numberline {5.13.5}On-domain guidance under a fluency trust region}{67}{subsection.5.13.5}%
+\contentsline {chapter}{\numberline {6}Discussion}{71}{chapter.6}%
+\contentsline {section}{\numberline {6.1}Answers to the Research Questions}{71}{section.6.1}%
+\contentsline {section}{\numberline {6.2}A Single Defect, Reached by Two Routes}{73}{section.6.2}%
+\contentsline {section}{\numberline {6.3}Connections to the Related Work}{75}{section.6.3}%
+\contentsline {section}{\numberline {6.4}What the Results Do and Do Not Show}{77}{section.6.4}%
+\contentsline {section}{\numberline {6.5}Implications and the Falsifying Experiment}{79}{section.6.5}%
+\contentsline {chapter}{\numberline {7}Conclusion}{82}{chapter.7}%
+\contentsline {chapter}{\numberline {A}Appendix}{89}{chapter.A}%
+\contentsline {section}{\numberline {A.1}Additional Diagnostic Figures}{89}{section.A.1}%
+\contentsline {section}{\numberline {A.2}Full Configuration Grid}{92}{section.A.2}%
+\contentsline {section}{\numberline {A.3}Computational Cost}{93}{section.A.3}%
+\contentsline {section}{\numberline {A.4}Geometry of Sampler Trajectories in Embedding Space}{94}{section.A.4}%
+\contentsline {section}{\numberline {A.5}Guided-Generation Examples}{98}{section.A.5}%
+\contentsline {section}{\numberline {A.6}Qualitative Recovery and Steering Showcase}{103}{section.A.6}%
+\contentsline {subsection}{\numberline {A.6.1}Qualitative infill recovery showcase}{103}{subsection.A.6.1}%
+\contentsline {section}{\numberline {A.7}Use of AI-Tools}{111}{section.A.7}%

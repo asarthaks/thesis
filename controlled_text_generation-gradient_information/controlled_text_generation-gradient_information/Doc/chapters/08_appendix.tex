@@ -71,7 +71,7 @@ The count arises as $145 = 5 \times 29$, five energy functions times twenty-nine
         CLS policy, no-MH, no-gn, s50  & $8.083$ & $7.799$ & $8.198$ & $13.732$ \\
         \bottomrule
     \end{tabular}
-    \caption{Representative subset of the final-KL configuration grid, from \texttt{final\_kl\_by\_model.csv}. Note that the DLS policy and grad-norm-preserved random rows are near-identical under both normalization settings, which is the gradient fallacy of Section~\ref{sec:results-fallacy}. Note also that the CLS rows with and without the Metropolis--Hastings correction are identical to three decimals, because under the correction the sampler rejects essentially all proposals and does not move, as established in Section~\ref{sec:results-mh}.}
+    \caption[Representative subset of the final-KL configuration grid.]{Representative subset of the final-KL configuration grid, from \texttt{final\_kl\_by\_model.csv}. Note that the DLS policy and grad-norm-preserved random rows are near-identical under both normalization settings, which is the gradient fallacy of Section~\ref{sec:results-fallacy}. Note also that the CLS rows with and without the Metropolis--Hastings correction are identical to three decimals, because under the correction the sampler rejects essentially all proposals and does not move, as established in Section~\ref{sec:results-mh}.}
     \label{tab:full-grid}
 \end{table}
 
@@ -113,42 +113,53 @@ The comparison is stark: the gradient-free baselines reach comparable or better 
 \section{Geometry of Sampler Trajectories in Embedding Space}
 \label{app:trajectory}
 
-This section examines the spatial paths the samplers trace through the embedding space, which gives a concrete, visual counterpart to the acceptance statistics of Section~\ref{sec:results-mh} and the trajectory summaries of Section~\ref{sec:results-traj}. The original reduced-dimensionality plots were lost, and the two figures below are placeholders with exact regeneration instructions; the surrounding prose is written to stand on its own so that the geometric argument is legible even before the plots are recreated.
+This section examines the spatial paths the samplers trace through the embedding space, which gives a concrete counterpart to the acceptance statistics of Section~\ref{sec:results-mh} and the trajectory summaries of Section~\ref{sec:results-traj}.
+% PRIOR WORDING (Phase 3): the two figures below were placeholders because the original
+% reduced-dimensionality plots were lost. They are now recreated, and the primary figure is
+% redesigned to be exact in the full embedding space rather than a projection.
+The primary figure is deliberately \emph{not} a projection. A two-dimensional projection of a $1280$-dimensional space cannot carry the argument, as the explained-variance figure below makes plain, so the load-bearing figure reports exact $L2$ distances in the full space and the projection is demoted to a single illustrative panel. All distances and all nearest-token decoding here use the full $50{,}257\times 1280$ embedding matrix of the model, not any subsample.
 
-The reduction is a principal-component projection of the continuous state at a masked position, fitted on the model's vocabulary embedding matrix so that the axes are the directions of greatest spread among real token embeddings. The anisotropy measured in Section~\ref{sec:results-aniso} sets the scale on which these trajectories should be read: with a mean nearest-neighbour distance of $1.82$ and a mean pairwise distance of $2.77$ in GPT-2 Large, the token embeddings occupy a narrow cone, so a path that moves a long way in raw distance may cover very few token cells, and a path confined to the cone can nonetheless drift far from any token.
-
-\begin{figure}[h]
-    \centering
-    \framebox{\parbox[c][4.5cm][c]{0.8\textwidth}{\centering \textbf{[PLOT PLACEHOLDER: Plot 1]}\\[4pt] PCA trajectories of the discrete sampler at a masked position over the 50-step schedule, one line for the policy method and one for the random method, correction enabled, with the ground-truth token embedding marked.}}
-    % REGENERATION (Plot 1):
-    % 1. Load s_ids_history for a single config from the stored trajectory run: the traces
-    %    npz in results_diag (traces_gpt2sft_traj.npz), or rerun collect_traces on one
-    %    config (gpt2-large.dls.{policy,random}.mh.gn.free.s50).
-    % 2. Fit PCA(n_components=2) on the vocabulary embedding matrix (core.prep
-    %    get_embedding_matrix), then transform the masked-position embedding at each step.
-    % 3. Plot one polyline per method (policy, random), mark the ground-truth token's PCA
-    %    coordinates with a star. Expectation: both wander within the anisotropy cone with
-    %    no directed motion toward the target, which is the gradient fallacy seen spatially.
-    \caption{[Placeholder] PCA of the discrete-sampler state at a masked position over the schedule, policy against random, correction on, with the ground-truth token marked. The expected picture is undirected wandering within the anisotropy cone: neither method converges on the target, consistent with the gradient fallacy of Section~\ref{sec:results-fallacy}.}
-    \label{fig:traj-dls-pca}
-\end{figure}
+Figure~\ref{fig:traj-distance} is the primary view. For one seeded trace (index $5$, chosen once by \texttt{np.random.default\_rng(0)}), it plots, at every step and on a symmetric-log axis so that exact zeros remain visible, the $L2$ distance from the sampler's state to the ground-truth token embedding, and for the continuous sampler also the distance to the nearest token of any kind, the off-manifold measure.
+% SOURCE: figures/fig_traj_stats.json (seq_idx_seeded 5) and revision/plot_trajectories.py, from results_diag/traces_gpt2sft_plot_traj.npz.
+Because \texttt{collect\_traces} advances the random-number state across configurations, trace index $5$ is the same source sentence in every panel but its randomly masked position, and hence its ground-truth token, differs by configuration; each panel therefore uses its own exact ground-truth embedding, and the cross-panel claim is about the on-manifold-versus-off-manifold dynamics, which does not require a shared token. The token strip under each axis shows the decoded token at each change, and for the continuous sampler the steps at which the proposal was rejected, inferred exactly from identical consecutive states, are marked as ticks.
 
 \begin{figure}[h]
     \centering
-    \framebox{\parbox[c][4.5cm][c]{0.8\textwidth}{\centering \textbf{[PLOT PLACEHOLDER: Plot 2]}\\[4pt] PCA trajectories of the continuous sampler with the correction on and off, showing the correction-on path pinned at its start and the correction-off path jumping between Voronoi cells.}}
-    % REGENERATION (Plot 2):
-    % 1. Load s_ids_history and the continuous state for cls_policy_gnoff_mh and
-    %    cls_policy_gnoff_nomh from traces_gpt2sft_traj.npz (or rerun collect_traces).
-    % 2. Same PCA fit on the vocabulary embedding matrix; transform the continuous state
-    %    each step. Overlay Voronoi-cell changes (cell_id transitions) as markers.
-    % 3. Expectation: the correction-on trajectory is a single point (mean unique cells 1.0,
-    %    the flatline of Section 5.3); the correction-off trajectory visits ~46 of 50 cells
-    %    and drifts far off the token manifold (max ~588 units).
-    \caption{[Placeholder] PCA of the continuous-sampler state with the correction on and off. The expected picture is a correction-on trajectory frozen at its starting cell against a correction-off trajectory that jumps between cells and drifts off the token manifold, the two failure modes of the continuous sampler described in Section~\ref{sec:results-mh} and Section~\ref{sec:results-traj}.}
-    \label{fig:traj-cls-pca}
+    \includegraphics[width=0.92\textwidth]{figures/fig_traj_distance.png}
+    % SOURCE: figures/fig_traj_distance.png from revision/plot_trajectories.py
+    % (traces_gpt2sft_plot_traj.npz + full wte from the gpt2sft checkpoint).
+    \caption{Full-space distances along the sampling trajectory for one seeded trace (index $5$), on a symmetric-log axis. Solid line: $L2$ distance to the ground-truth token embedding; dashed line (continuous sampler only): $L2$ distance to the nearest token of any kind. The discrete sampler sits exactly on the token manifold at every step (nearest-token distance identically zero, so it is not drawn) and moves from token to token; the continuous sampler with the correction on is quenched roughly $120$ to $150$ units off the nearest token and its proposals are rejected at almost every step (red ticks); with the correction off it wanders as far as about $980$ units before collapsing back toward a token. Neither continuous variant lands on the ground truth.}
+    \label{fig:traj-distance}
 \end{figure}
 
-Read against the anisotropy scale, the two figures make the central geometric claim visible: the samplers either fail to move in any directed way (the discrete sampler and the free continuous sampler both wander) or fail to move at all (the corrected continuous sampler freezes), and in neither case does the path bend toward the ground-truth token, which is the spatial signature of a gradient that carries no directional signal.
+The distances make the geometry exact. The discrete sampler, policy and random alike, sits at distance zero from the token manifold at every step, because its state is always a genuine token embedding; it visits about five distinct tokens over the run and ends about $2.2$ units from the ground truth, a token or so away.
+% SOURCE: figures/fig_traj_stats.json per_config dls_policy_gn_mh / dls_random_gn_mh (nearest_token_dist 0.0; distinct_cells_mean 5.3/4.2; final_dist_to_gt_mean 2.16/2.36).
+The continuous sampler with the correction on is quenched: its state sits between $118$ and $151$ units from the nearest token across the run and it changes its projected token about twice in fifty steps, the spatial form of the near-total rejection measured in Section~\ref{sec:results-mh}. With the correction off it visits about $45$ of $50$ cells and drifts as far as roughly $980$ units off the manifold before collapsing back to about $17$ units at the end.
+% SOURCE: figures/fig_traj_stats.json per_config cls_policy_gnoff_mh (nearest 117.6-151.3, distinct_cells 2.2) and cls_policy_gnoff_nomh (nearest max 978.7, distinct_cells 44.7, end_nearest 17.0).
+Against a mean nearest-neighbour token spacing of $1.82$ and a mean pairwise spacing of $2.77$, an off-manifold distance of $120$ to $150$ is a factor of roughly $65$ to $83$ times the spacing between neighbouring tokens, so the continuous state spends its run in essentially empty space where the projected energy is a poor guide, which is why the boundary-crossing correction almost always rejects.
+
+Figure~\ref{fig:traj-pca} is the secondary, illustrative view: the same trace projected onto the first two principal components of the full vocabulary embedding matrix. It is shown for intuition only, and its own caption records why it cannot be the evidence: the two components capture just $3.3\%$ of the embedding variance, so the projection discards almost all of the geometry the distances above measure exactly.
+% SOURCE: figures/fig_traj_stats.json pca_explained_variance_sum 0.0331.
+Read for what it can show, it agrees with the distances: the discrete trajectories stay inside the vocabulary cone while the continuous ones escape far outside it.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.88\textwidth]{figures/fig_traj_pca.png}
+    % SOURCE: figures/fig_traj_pca.png from revision/plot_trajectories.py.
+    \caption{PCA projection of the same seeded trace, one panel per configuration, with the vocabulary embeddings as a grey cloud, the start state as an open circle, the end as a filled dot, and the ground-truth token as a star. This projection is illustration only: its two components capture $3.3\%$ of the embedding variance, and the full-space distances of Figure~\ref{fig:traj-distance} are the evidence. The discrete trajectories stay inside the cone; the continuous trajectories, especially with the correction off, leave it entirely.}
+    \label{fig:traj-pca}
+\end{figure}
+
+Read together, the two figures make the central geometric claim visible: the samplers either fail to move in any directed way, the discrete sampler and the free continuous sampler both wandering without bending toward the ground-truth token, or fail to move at all, the corrected continuous sampler frozen far off the manifold, and in neither case does the path converge on the target, which is the spatial signature of a gradient that carries no directional signal.
+
+\clearpage
+\section{Guided-Generation Examples}
+\label{app:gprime-examples}
+The following pairs make the classifier-guided steering of Section~\ref{sec:results-diffusion-gprime} visible in text. The on-domain draws are seeded and unfiltered (\texttt{np.random.default\_rng(0)}, three pairs per cell), so dull or crude draws are kept; the statistics are in Table~\ref{tab:gprime} and Table~\ref{tab:confusion}, and these are illustration. For each pair, \emph{g} is the guiding classifier's verdict and \emph{j} the independent judge's, so a pair where they disagree shows the partial instrument alignment directly rather than a failure. The second block places the highest-fluency-cost pairs from the off-domain run beside them, where guidance without a trust region collapses into word salad at a negative log-likelihood near $16$; the on-domain trust-region pairs stay bounded. Garbled bytes the diffusion model emits are shown as \texttt{[?]}.
+\input{chapters/gprime_examples}
+
+\clearpage
+\input{chapters/showcase_appendix}
 
 \clearpage
 \section{Use of AI-Tools}
