@@ -1,0 +1,81 @@
+Here is the examiner's report on the proposal, first on its own merits against the IMS proposal criteria, then measured against what the thesis actually delivered.
+
+---
+
+## Part 1: The Proposal as a Standalone Document
+
+### Executive Summary
+
+A structurally complete, technically substantive proposal that clearly identifies a real gap (Langevin-inspired decoders that are actually noisy gradient descent) and commits to concrete methods with actual mathematics rather than hand-waving. It reads like a proposal written by someone who has already touched the code, which is a good sign. It is weakened by notation and sign errors in the method section, sloppy RQ-to-method cross-referencing, hedged evaluation commitments, thin references, and, most consequentially in hindsight, the complete absence of a risk analysis: the proposal takes the usability of the frozen-likelihood gradient entirely for granted and has no stated fallback if the premise fails, which is exactly what happened.
+
+### Structural Adherence (Proposal Checklist)
+
+Topic and Motivation: present (Sec. 1). Related Work: present and well organized (Sec. 2). Statement and Research Questions: present (Sec. 3), though there is no explicit "Contributions" statement, only RQs. Materials and Methods: present with formulas, datasets, and metrics (Secs. 4-5). Work Plan with milestones: present (Sec. 6, month-by-month). Length: 10 pages including references, at the upper bound of the 6-10 page guideline. All required components are there.
+
+### Strengths
+
+- The research gap is stated precisely and is the correct one: the field omits MH correction and proper annealing, so its "samplers" are biased optimizers. This exact observation became the backbone of the thesis, so the proposal identified the right thread to pull.
+- The methods section is unusually concrete for a proposal: the actual DLS transition kernel from Zhang et al., the CLS update in explicit form, the MH acceptance ratio written out. Most proposals at this stage name methods; this one specifies them.
+- The RQ hierarchy (methodological fidelity, application, efficiency) is a sensible decomposition, and RQ3's mention of amortized inference and GFlowNets shows foresight, since that is where the second half of the thesis went.
+- The literature review's taxonomy (stage of intervention crossed with constraint granularity) is clean and the coverage of the directly relevant systems (COLD, MuCoLa, PPLM, FUDGE, GeDi, DExperts, NeuroLogic) is appropriate.
+- The stated intent to study "the internal mechanics of the Llama 3 (8B) model, specifically focusing on its gradient signals and embedding distributions" turned out to be prophetic; the thesis delivered exactly this, at depth.
+- The timeline is realistic, front-loads implementation, and marks one item explicitly as conditional ("if time permits"), which shows calibration.
+
+### Critical Issues and Weaknesses
+
+**1. No risk analysis or contingency plan.** The proposal's entire experimental program presupposes that gradient-guided sampling on a frozen LM works well enough to then be controlled and made efficient. There is no "what if the gradient signal is weak" branch, no fallback deliverable, no diagnostic framing. A strong proposal for a method-evaluation thesis should state what constitutes success, what constitutes informative failure, and what the thesis becomes in the second case. The student was rescued by good scientific instincts during the work itself, not by the plan.
+
+**2. Sign and notation errors in Section 4.** The DLS kernel is written as q(θ′|θ) ∝ exp(−(1/2α)‖θ′ − θ − (α/2)∇U(θ)‖²) with U(θ) = −log p(θ) + λC(θ). Centering the proposal at θ + (α/2)∇U ascends the energy; for a sampler targeting exp(−U) the drift must follow ∇log p, i.e. −∇U. Zhang et al.'s formulation is in terms of ∇log p, and transplanting it while redefining U flipped the sign. Relatedly, calling λ a "Lagrange multiplier" is a misnomer; it is a fixed penalty weight, since nothing in the procedure solves for λ against a constraint. And η is used for the noise term in Eq. (2) but as the step size in Sec. 4.2, a notation collision within one document. None of these would survive contact with an implementation (and evidently did not, since the thesis gets all of this right), but in a proposal they signal that the math was transcribed rather than fully digested at the time of writing.
+
+**3. RQ-to-method cross-references are wrong.** Section 4.1 says DLS addresses RQ2, but the DLS-versus-CLS comparison is literally RQ1a. Section 4.5 says the AR baseline answers RQ3, but RQ3 is about amortized inference; the AR baseline is a quality floor for RQ2. These mismatches suggest the RQ section and the methods section were written at different times and never reconciled.
+
+**4. Hedged evaluation commitment.** "During the course of the thesis, we will select the most relevant subset" is an honest statement, but a proposal should commit to a primary metric per RQ and mark the rest as secondary. Notably, RQ1 promises to assess "posterior coverage," and no metric in Section 5.3 measures posterior coverage at all; there is no proposal-level answer to how one would even know the sampler covers the posterior.
+
+**5. Writing and references.** Typos ("fullfills," the mangled quotation marks around "static," encoding artifacts throughout). More substantively, roughly half the bibliography entries (Alhafni, Hu 2018, Kumar, Li, Gong, Zhang 2022, Zhang 2023, Ouyang) carry no venue and no URL, which does not meet the standard the IMS expects even at proposal stage, and which the thesis later corrected. The Xu et al. entry's page range for an ICLR paper is also dubious.
+
+**6. A minor conceptual tension.** Section 2.4 positions diffusion models as a competitor to be avoided because they "require training separate neural networks," while claiming the Langevin route "enables zero-shot transfer." The proposal never notices that this claimed advantage rests on the untested assumption that the frozen model supplies a usable score for free. This is not a fault unique to the student, the literature made the same assumption, but a proposal that had flagged it would have anticipated its own thesis.
+
+### Estimated Grade (Proposal): 1.7 (Gut)
+
+Justification against the criteria: goals and RQs clearly defined (very good), methodological plan concrete and coherent (very good), related work appropriate for the stage (very good), correctness marred by the sign/notation/cross-reference errors (satisfactory to good), completeness weakened by the missing contingency plan, the unmeasurable "posterior coverage" promise, and the hedged metric selection (good), presentation and references below the standard of the ideas they carry (satisfactory). A tightened version with the Section 4 math corrected, RQ mappings fixed, a risk paragraph added, and the bibliography completed would have been a 1.3.
+
+---
+
+## Part 2: The Proposal Measured Against the Delivered Thesis
+
+This is the assessment a committee actually cares about: did the thesis do what was promised, and where it did not, was the deviation justified and documented?
+
+### What was delivered as promised
+
+- DLS and CLS, implemented faithfully and compared exactly as RQ1a envisioned, with the discrete-versus-continuous contrast becoming the thesis's structural device for attributing failure to the energy rather than a sampler.
+- The MH correction study (proposal RQ1b) was delivered far beyond the promise: not just "does MH mitigate discretization bias" but a full decomposition of the acceptance ratio proving the collapse lives in the proposal term, plus the within-cell versus boundary-crossing split. This is the proposal's best question, answered better than it was asked.
+- Gibbs sampling: promised as a comparison, delivered as a gradient-free baseline (thesis 5.5.2), where it does real argumentative work.
+- AR decoding baselines: promised as a performance floor, delivered inside the likelihood-trap experiment across five decoding strategies.
+- Flipped-token recovery on ROCStories: delivered as the central diagnostic bench, exactly as Section 5.1 of the proposal described.
+- Llama-3 gradient and embedding analysis: promised in Section 3, delivered as the anisotropy study, the step-size non-transferability result, and the cross-architecture control.
+- NFE/efficiency accounting: promised, delivered in Appendix A.3 with wall-clock measurements.
+- GFlowNet-based amortization (RQ3a): delivered, though with its purpose transformed (see below).
+
+### What was dropped, and whether the drop is justified
+
+- CommonGen: never appears in the thesis. Justified implicitly (ROCStories sufficed for the diagnostic and matched the Hu et al. codebase), but the thesis never says so. One sentence would fix this.
+- Toxicity control on RealToxicityPrompts, and IMDb: dropped. Justified by the pivot: once sentiment steering failed on the same machinery (thesis 5.11), toxicity steering was moot. Defensible, but again the thesis does not state the inference explicitly.
+- MAUVE, Self-BLEU, LLM-as-judge: dropped. MAUVE and Self-BLEU are distribution-level generation metrics that make little sense for fixed-span infilling, so the drop follows from the task pivot; the external Llama-3 perplexity judge partially substitutes for the LLM-judge item, though at 8B rather than the promised 70B scale. Defensible, undocumented.
+- "Posterior coverage" as an evaluand: quietly abandoned, and rightly, since the thesis showed the samplers never reach a regime where coverage is a meaningful question. But the proposal-to-thesis reader deserves that sentence.
+
+### What was transformed rather than dropped
+
+Two deviations are not losses but the intellectual core of the thesis, and both deserve explicit credit:
+
+- Proposal RQ3 framed GFlowNets as an efficiency improvement for a working method. The thesis repurposed them as a falsification instrument: does a method that never differentiates the reward escape the failure? That reframing is what turns a pile of collapsed training runs into contribution 4. It is a better question than the one proposed.
+- The proposal treated diffusion models as the competitor whose training cost the Langevin route would avoid (Sec. 2.4). The thesis inverted this completely: the diffusion model became the positive control demonstrating that the "cost" the proposal wanted to avoid is precisely the price of the score function the whole approach silently assumed was free. That inversion is the single largest conceptual distance between the two documents, and it is the thesis's deepest insight.
+
+### The one genuine gap
+
+The proposal's headline application promise, RQ2a's quality-control trade-off curves (control adherence against fluency and diversity), was never delivered, because the prerequisite failed. Thesis Section 6.4 addresses this head-on ("the work turned to the question of why rather than building control on a foundation it had shown to be unsound"), which is the correct and honest handling. My only requirement is the one from my thesis report: the proposal-to-thesis delta should be traceable item by item, and currently it is traceable only for a reader holding both documents. A short paragraph or footnote in 6.4 listing the dropped deliverables (CommonGen, toxicity, MAUVE, Self-BLEU, 70B judge) with one clause of justification each would close the examination file cleanly.
+
+### Overall Verdict on the Pair
+
+This is, in the end, a model case of how a proposal and thesis should relate when a project's premise collapses mid-flight. The proposal promised to make a family of methods rigorous; the thesis discovered that rigor kills the methods and explained why, at a level of depth the proposal never anticipated. Committees do not penalize that trajectory when it is documented, mechanistically grounded, and honest, and here it is all three. The proposal's own weaknesses (no contingency plan, the untested central assumption) are visible precisely because the thesis exposed them, and the student's response to the collapse, pivoting to diagnosis rather than salvaging cosmetic positives, reflects mature scientific judgment.
+
+The proposal grade of 1.7 and the thesis grade of 1.3 are consistent with each other: the distance between them is the growth that happened during the work, which is exactly what the two documents together are supposed to show. For the defense, be ready for one question this comparison invites: "Your proposal assumed the gradient works. When did you first suspect it did not, and what would you now put in a proposal to catch such an assumption earlier?" You have a good answer; make sure it is rehearsed.

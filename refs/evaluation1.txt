@@ -1,0 +1,567 @@
+## Overall assessment of the revised version
+
+This version is **substantially better than the previous one**. The thesis has gone from 142 pages to 117 pages, and the main text now ends around page 91 instead of page 115. More importantly, the reduction is not merely cosmetic. Several of the earlier structural problems have been addressed:
+
+* The abstract has been reduced to roughly two pages.
+* “The Shape of the Investigation” has been removed.
+* The contributions are now presented as a concise numbered list.
+* The section titles are more neutral and less theatrical.
+* Most of the classifier-guided diffusion material has been moved to the appendix.
+* The central claims are now more carefully limited to “the tested token-substitution settings”.
+* The limitations explicitly distinguish failure of gradient-guided methods from failure of training-free methods in general.
+* The conclusion now separates what was tested, what was found, and what remains uncertain.
+
+These are meaningful improvements. The thesis is now much closer to a focused, defensible master’s thesis rather than an oversized research narrative. 
+
+My current verdict is:
+
+* **Blabbering:** Low to moderate, rather than moderate to high.
+* **Repetition:** Still present, but no longer a major structural weakness.
+* **Research questions:** Clearly and directly answered.
+* **Length:** Reasonable for the amount of experimental work, although another 5 to 8 pages could still be cut.
+* **Unnecessary material:** Some remains, particularly in the background, related work, and conclusion.
+* **Scientific focus:** Much improved.
+* **Readiness:** Close to submission quality, assuming the mathematical claims, citations, experimental reproducibility, and numerical results are correct.
+
+# 1. What has improved most?
+
+## The abstract is now appropriately focused
+
+The revised abstract now contains:
+
+1. the problem,
+2. the tested premise,
+3. the experimental setup,
+4. the central negative result,
+5. the principal mechanism,
+6. the GFlowNet result,
+7. the diffusion positive control,
+8. a cautious interpretation.
+
+That is exactly the right architecture for an abstract.
+
+The wording is also significantly more defensible:
+
+> “In the tested token-substitution settings, the input-embedding gradient of frozen autoregressive sequence likelihood provided no reliable proposal advantage over a norm-matched random direction.”
+
+This is much better than the earlier broad claim that the autoregressive gradient carries “no usable search direction on discrete text”. It identifies:
+
+* the experimental setting,
+* the exact gradient,
+* the measured comparison,
+* the fact that the result is an absence of reliable advantage rather than a universal impossibility theorem.
+
+The abstract could still be shortened slightly, especially the description of the 145 configurations and the GFlowNet energy moving by “tens of nats”, but it no longer feels bloated.
+
+## The introduction is much more disciplined
+
+Removing the separate “Shape of the Investigation” section was the correct decision. The useful information from it has been compressed into one sentence:
+
+> “Because the initial sampling experiments failed, the study developed into a diagnostic investigation of the underlying mechanisms.”
+
+That is sufficient.
+
+The contributions are now five clear items rather than one very long paragraph. This makes the thesis easier to evaluate because an examiner can later check whether each contribution was actually delivered.
+
+The roadmap in Section 1.5 is also concise enough now. I would not insist on removing it.
+
+## The section titles are more academic
+
+The previous version used titles such as:
+
+* “The Gradient Fallacy”
+* “A Correction That Breaks the Sampler”
+* “The Plug-and-Play Claim Tested Directly”
+* “The Last-Token Analysis”
+* “Why the Gradient Fails, Part One”
+
+The revised titles are more neutral:
+
+* “Gradient Direction Against a Norm-Matched Random Direction”
+* “The Metropolis–Hastings Breakdown in Continuous Space”
+* “Constrained Generation with an Additive Sentiment Term”
+* “The Final-Position Case”
+* “The Linearization Radius”
+
+This improves credibility. The reader is invited to examine the result rather than being told in advance how dramatic it is.
+
+## The exploratory diffusion work is now better separated
+
+Section 5.13.4 is explicitly labelled:
+
+> “Classifier-Guided Steering (Exploratory Follow-Up)”
+
+It also states that the positive control is complete at Section 5.13.3 and that the remaining material broadens the study into classifier-guided diffusion and evaluator alignment. The full details have been moved to Appendix A.5. 
+
+This resolves much of my earlier concern that the thesis was turning into two separate theses. The core argument now ends cleanly with:
+
+* diffusion supplies a useful direction,
+* diffusion performs recovery,
+* the diffusion proposal improves recovery inside the original exact-energy chain.
+
+That is a convincing positive control.
+
+# 2. Does the revised thesis still contain blabbering?
+
+## Some, but not enough to seriously damage it
+
+The prose remains more expansive than necessary. The author frequently explains not only what something is, but also:
+
+* why it matters,
+* why it appears at that point,
+* what later section will test it,
+* what conceptual distinction the reader should preserve.
+
+This is often helpful, but the same explanatory style is used even when the technical point is already clear.
+
+The remaining verbosity is concentrated in three areas.
+
+## Background explanations
+
+The DLS explanation is still repetitive. The thesis first explains that the gradient inner product is a first-order Taylor surrogate. It then derives the full proposal. It then explains again that the first term is the Taylor estimate. It then says:
+
+> “Everything the sampler knows about which token is good, as opposed to merely near, is contained in that first term…”
+
+and then:
+
+> “The surrogate is therefore the sampler’s entire claim to be gradient-guided rather than random…”
+
+Both statements are useful, but one is enough. The section could lose approximately half a page without sacrificing clarity.
+
+The CLS section is technically careful, which is good. The distinction between:
+
+* the piecewise-constant projected target energy, and
+* the differentiable input-embedding pathway used to compute drift
+
+is important and appears to have been improved substantially. However, the section still derives the expected MH behaviour in considerable detail and then tells the reader that Section 5.3 will report it. Some of that belongs in Results rather than Background.
+
+## Related-work interpretation
+
+The related-work chapter does more than position prior research. It repeatedly interprets the prior literature through the thesis’s eventual findings.
+
+For example, Section 3.2 already argues that correction-free methods are better understood as biased optimizers and that their apparent success may be optimization under early stopping. That is a substantial interpretive claim and would fit more naturally in the Discussion.
+
+Similarly, the gradient-free Gibbs result from Section 5.5.2 is already described in Related Work:
+
+> “That in-platform result is the clean separation between evaluating the energy, which works, and differentiating it, which does not…”
+
+This is effectively a results conclusion appearing before the methodology and results chapters.
+
+The related-work chapter should primarily establish:
+
+* what prior methods do,
+* what assumptions they make,
+* what has not been tested,
+* how this thesis differs.
+
+It does not need to preview the thesis’s verdict at every stage.
+
+## Conclusion
+
+The revised conclusion is much better organized, but it still occupies approximately eight pages, from page 84 to page 91. For a thesis whose discussion already answers the RQs and synthesizes the mechanism, that is still too long.
+
+The headings:
+
+* “What was tested”
+* “What was found”
+* “What remains uncertain”
+* “The main practical implication”
+
+are useful. The problem is that “What was found” reproduces nearly every major result in detail. It includes:
+
+* gradient versus random,
+* linearization,
+* self-term blindness,
+* gradient-free baselines,
+* MH correction,
+* likelihood degeneration,
+* GFlowNet collapse,
+* diffusion recovery.
+
+That is closer to a second abstract or executive summary than a conclusion.
+
+A conclusion can mention all of these, but in a more compressed form. The current conclusion could probably be shortened from roughly eight pages to four or five.
+
+# 3. Is it still repetitive?
+
+## Yes, but the repetition is now mostly conventional
+
+A thesis is expected to state its central argument in:
+
+* the abstract,
+* the introduction,
+* the results,
+* the discussion,
+* the conclusion.
+
+That is not automatically bad repetition. The question is whether each occurrence performs a different function.
+
+In the revised version:
+
+* The abstract summarizes.
+* The introduction motivates and states the hypothesis.
+* Results provide evidence.
+* Discussion answers the RQs and interprets them.
+* Conclusion summarizes and qualifies.
+
+That macro-structure now works.
+
+The remaining repetition is mostly local.
+
+## Repetition of the central formulation
+
+The distinction between:
+
+> “a well-trained local conditional”
+> and
+> “a well-behaved global energy”
+
+appears in several places:
+
+* Introduction
+* Background
+* Related Work
+* Discussion
+* Conclusion
+
+It is the thesis’s central conceptual formulation, so repetition is justified. However, it should perhaps be stated memorably in the Background and then referred to more compactly later.
+
+## Repetition of “evaluate the energy versus differentiate the energy”
+
+This is another strong formulation:
+
+> the frozen likelihood is useful to evaluate and search gradient-free, but not useful to differentiate in the tested settings.
+
+It appears in:
+
+* Related Work,
+* Results,
+* Discussion,
+* Scope and Limitations,
+* Conclusion.
+
+Again, this is central, but the Related Work occurrence is premature. Removing or reducing that early statement would improve the progression.
+
+## Repetition around the diffusion positive control
+
+The same three-step logic appears several times:
+
+1. the diffusion score has positive linearization correlation,
+2. it recovers the flipped token,
+3. it improves the exact-energy chain when substituted as the proposal.
+
+This is well designed and should appear fully in Results. In the Discussion and Conclusion, it can be compressed into one sentence.
+
+## Repetition around classifier alignment
+
+The exploratory section summarises:
+
+* self-steering under the guide,
+* weaker transfer to the independent judge,
+* guide-judge agreement,
+* domain effects,
+* fluency trust region.
+
+The appendix then provides the complete analysis. This is acceptable now, but the main-text summary remains dense. Since it is explicitly exploratory, it could be reduced from roughly two pages to one page.
+
+# 4. Are the research questions answered?
+
+## RQ1 is answered very strongly
+
+> Can frozen autoregressive likelihood be sampled effectively with theoretically faithful Langevin dynamics on discrete text, and if not, why not?
+
+The thesis answers:
+
+* No reliable gradient advantage was found over a norm-matched random direction.
+* The DLS Taylor surrogate is uncorrelated with the true energy change.
+* The gradient is structurally blind to the candidate token’s self-fit term.
+* At the final position, under shifted causal indexing, the relevant input-embedding gradient is exactly zero.
+* Gradient-free methods operating on the same energy perform substantially better.
+* A score-trained diffusion proposal supplies the missing useful direction.
+
+This is a coherent answer at three levels:
+
+* empirical,
+* mechanistic,
+* positive-control validation.
+
+The revised wording also avoids claiming that the energy itself is unusable.
+
+## RQ2 is clearly answered
+
+> What role does the MH correction play in DLS and CLS?
+
+The thesis distinguishes the two cases:
+
+* In the discrete sampler, the correction improves theoretical faithfulness and prevents misleading annealing or quenching behaviour.
+* In the continuous sampler, it disables useful movement because the reverse proposal term collapses around projection-induced cell boundaries.
+
+The decomposition into target and proposal terms is a strong diagnostic. The revised Background also now carefully separates the piecewise-constant target energy from the differentiable pathway used for the drift. That makes the later claim more mathematically precise.
+
+## RQ3 is answered with appropriate limitations
+
+> Does GFlowNet amortization escape the failures?
+
+The answer is:
+
+* Not in the tested variants.
+* Three collapse modes were observed.
+* The tuned energy changed substantially.
+* Yet the local Langevin navigability did not improve.
+* Therefore, changing the model through these GFlowNet objectives did not repair the gradient property being studied.
+
+The revised thesis now explicitly says that this result applies to the trained variants and **does not establish that amortized inference fails in general**. This is exactly the qualification that was previously missing. 
+
+One small conceptual point remains: RQ3 asks whether amortizing the energy escapes failures of gradient-guided samplers. A GFlowNet can fail for reasons unrelated to the local gradient, including reward pathologies and training collapse. The thesis acknowledges this through the taxonomy. It should therefore keep the answer empirical rather than suggesting that the GFlowNet result alone identifies the training objective as the unique cause.
+
+The conclusion now handles this more carefully:
+
+> the combined GFlowNet and diffusion results “support the interpretation” that the training objective is a key source, but do not prove this for all autoregressive models. 
+
+That is scientifically appropriate.
+
+## RQ4 is answered, although it remains the least clean RQ
+
+> Can an additive constraint steer generation on this energy landscape?
+
+For the frozen autoregressive landscape, the answer is no:
+
+* steering is small and inconsistent,
+* the constraint signal does not reliably produce externally validated control,
+* leaving the fluent manifold makes classifier-based guidance unreliable.
+
+The diffusion follow-up shows that steering can become partly possible on a score-trained landscape, but that is not the same landscape described by RQ4.
+
+The revised thesis now makes this distinction explicit in the conclusion:
+
+* steering failed on the frozen autoregressive landscape,
+* it became partly possible on the diffusion landscape,
+* transfer remained subject to fluency and classifier-alignment limits. 
+
+That is a good answer.
+
+A possible improvement would be to state the direct answer at the beginning of the RQ4 discussion:
+
+> On the frozen autoregressive energy studied here, no reliable steering was obtained.
+
+Then treat the diffusion guidance as a separate constructive extension rather than part of the direct answer.
+
+# 5. Can it still be shortened?
+
+## Yes, but no longer drastically
+
+The previous version could reasonably lose 15 to 25 pages. This version has already done most of that work.
+
+A realistic remaining reduction is approximately **5 to 8 pages of main text**.
+
+I would not recommend cutting experimental evidence simply to achieve a smaller page number. The thesis is technically ambitious, and 90 pages of main content is not unreasonable. The remaining reduction should come from prose compression.
+
+## Specific remaining cuts
+
+### 1. Introduction: 0.5 to 1 page
+
+The opening three paragraphs explain:
+
+* autoregressive generation,
+* inability to revise earlier tokens,
+* global sequence properties.
+
+They are clear, but somewhat slow. The first and second paragraphs could be compressed because the target audience already understands autoregressive generation.
+
+The sentence revealing the central result at the end of Section 1.2 is also optional:
+
+> “In the tested token-substitution settings…”
+
+The abstract has already stated the result, but the introduction could preserve more suspense by ending with the research premise rather than the answer.
+
+### 2. Langevin background: 0.5 page
+
+The marble analogy is improved by the new technical caveat, but it remains longer than needed. It could be shortened to three or four sentences.
+
+Also reconsider the exact wording around convergence. The text attributes a convergence statement to Welling and Teh and then qualifies it carefully. Given that this is a technical thesis, a more formal and less metaphorical presentation may be safer.
+
+### 3. DLS/CLS background: 1 page
+
+The DLS derivation should remain.
+
+Cut one of the two paragraphs explaining why the Taylor term is the sampler’s sole informative signal.
+
+In the CLS section, keep the distinction between target energy and differentiable pathway. That is essential. Shorten the subsequent within-cell acceptance derivation and leave measured consequences to Results.
+
+### 4. Related Work: 1 to 1.5 pages
+
+Sections 3.2 and 3.3 contain discussion-level conclusions.
+
+For example, reduce claims such as:
+
+* prior methods are “better understood as biased optimizers”,
+* correction-free success is optimization under early stopping,
+* the literature already hints that evaluating works and differentiating fails,
+* the axis reconciling GFlowNet findings is whether the reward has a coherent-text optimum.
+
+These are interesting interpretations, but they should be developed in Section 6.3 rather than fully argued in Related Work.
+
+### 5. Methodology introductions: 0.5 page
+
+The opening paragraph of Methodology explains the order of the chapter and why every design choice is justified. This can be reduced.
+
+Likewise, the opening of masked token recovery spends several paragraphs motivating why open-ended generation is difficult to evaluate. The reasoning is valid, but it can be made more compact.
+
+### 6. Section 5.13.4: 0.5 to 1 page
+
+The four-statement summary is dense and still contains many exact numbers. Since full results are in the appendix, main text can state:
+
+* guide self-steering works,
+* external transfer is weaker and setting-dependent,
+* trust-region guidance controls fluency,
+* the experiment remains exploratory.
+
+Table 11 plus a concise interpretation would be enough.
+
+### 7. Conclusion: 2 to 3 pages
+
+This is the largest remaining opportunity.
+
+The current conclusion is scientifically careful but overcomplete. It repeats nearly all the Results and Discussion.
+
+A tighter conclusion could be:
+
+1. One paragraph on the research objective and setup.
+2. One paragraph on the central result and mechanism.
+3. One paragraph on GFlowNet and diffusion.
+4. One paragraph on scope and uncertainty.
+5. One paragraph on practical implication and future work.
+
+That would likely fit in four pages or fewer.
+
+# 6. Is anything now unnecessary?
+
+## Section 5.4, Sampler Trajectories in Embedding Space
+
+This appears to be brief in the revised version, and most detailed trajectory figures are in Appendix A.4. It is no longer a major problem.
+
+Still, ask whether the main-text section contributes evidence not already supplied by:
+
+* MH decomposition,
+* quenching curves,
+* boundary-crossing acceptance rates.
+
+If it only provides qualitative visualization, it could be merged into Section 5.3.
+
+## Section 5.8, Embedding Anisotropy
+
+This section is relevant to:
+
+* step-size non-transferability,
+* weaknesses of Euclidean distance,
+* embedding geometry.
+
+However, anisotropy does not seem to be the main cause of the central null result. The linearization result is stronger.
+
+Therefore, anisotropy should be framed as a secondary diagnostic, not part of the core causal mechanism. If the section is short, retain it. If it spends several pages, move some detail to the appendix.
+
+## External-judge rescoring in Section 5.5.3
+
+This is useful because it reduces concern that the primary KL metric merely favors the same model used to define the energy. It should remain, but it does not need extensive discussion if the conclusion is simply that an external judge yields the same ordering.
+
+## Likelihood trap
+
+This remains valuable, but it is logically distinct from the gradient failure:
+
+* Gradient failure says the sampler cannot follow the energy.
+* Likelihood trap says the energy’s optimum may be undesirable even if it could be followed.
+
+The thesis should continue presenting these as separate problems. It should avoid implying that the likelihood trap explains the gradient null result.
+
+## Classifier-guided diffusion follow-up
+
+It is no longer unnecessary because it is clearly marked as exploratory and mostly moved to the appendix. However, it is still optional to the main thesis.
+
+An examiner could reasonably ask:
+
+> Why is this needed after the positive control is already complete?
+
+The thesis already anticipates that question. The answer is that it reconnects the positive control to controllable generation. That is a legitimate reason, but the subsection should remain brief.
+
+# 7. Remaining claims to watch carefully
+
+## “The smallest admissible substitution moves further than the radius”
+
+The limitations section now clarifies that “linearization radius” is a summary of a gradual decay, not a sharp threshold. That is important.
+
+Because of that qualification, the abstract and contributions may still be slightly too categorical when saying:
+
+> “the smallest admissible token substitution moves further … than the radius over which the local linear model holds.”
+
+If there is no empirically identified sharp radius, a safer version is:
+
+> “the surrogate is already uninformative at the distances corresponding to admissible token substitutions.”
+
+That directly matches the evidence and avoids suggesting a mathematically estimated boundary.
+
+## “The energy itself is not at fault”
+
+This is memorable but slightly broad.
+
+The gradient-free baselines show that the energy can be searched effectively for the masked-token recovery task. The likelihood-trap experiment simultaneously shows that optimizing the same energy in open-ended generation can lead toward degeneration.
+
+Therefore:
+
+* the energy is not the reason for failure on masked-token recovery,
+* but the raw likelihood energy can still be a poor objective for open-ended generation.
+
+The thesis generally distinguishes these points, but the sentence “the energy itself is not at fault” can obscure that nuance.
+
+A better phrase is:
+
+> “The energy remains usable for exact evaluation and gradient-free search on the recovery task.”
+
+## “Five diagnostic experiments”
+
+The earlier structure referred to four diagnostics, while the revised conclusion says five diagnostic experiments. Check that this count is consistent across:
+
+* abstract,
+* methodology,
+* introduction,
+* conclusion,
+* captions or contribution list.
+
+This is minor, but examiners notice inconsistent experiment counts.
+
+## “One hundred and forty-five configurations”
+
+Ensure that the 145 number is reproducibly derived in the Methodology or full-grid appendix. The reader should be able to determine what is counted as one configuration and whether models, seeds, samplers, schedules, and correction settings are included in that total.
+
+# 8. Final honest judgment
+
+The revised version has addressed the majority of my earlier concerns.
+
+The first version was intellectually strong but over-written. This version is still detailed, but it now feels like a thesis that knows what its main contribution is and has moved secondary material out of the way.
+
+### My assessment now
+
+| Criterion                | Assessment                                |
+| ------------------------ | ----------------------------------------- |
+| Central argument         | Very clear                                |
+| Research questions       | Explicitly and convincingly answered      |
+| Methodological coherence | Strong                                    |
+| Repetition               | Moderate but acceptable                   |
+| Blabbering               | Limited, mostly in explanatory background |
+| Scope control            | Much improved                             |
+| Claim precision          | Stronger and mostly appropriate           |
+| Conclusion               | Still too long                            |
+| Appendix use             | Much better                               |
+| Overall focus            | Strong                                    |
+
+### Remaining priority edits
+
+Before submission, I would focus on only four things:
+
+1. **Shorten the conclusion by roughly one-third to one-half.**
+2. **Remove discussion-level interpretation from Related Work.**
+3. **Compress the DLS and CLS explanatory repetition.**
+4. **Make the “linearization radius” wording consistent with the limitation that no sharp threshold is claimed.**
+
+I would no longer recommend major restructuring. The thesis can still be shortened, but it does **not need another drastic cut**. A final reduction of approximately 5 to 8 pages would make it sharper, but even at its current length, it is defensible given the number of experiments and the level of technical detail.
+
+The main risk is no longer that the thesis rambles. The main risk is that a few interpretive claims remain stronger than the exact experimental scope. The revised limitations and conclusion already address that risk much better than before.
