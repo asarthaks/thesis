@@ -78,14 +78,19 @@ plt.rcParams.update({
 })
 
 
-def load(steps):
-    """Mean per-step curve for each (method, MH) cell, from the run CSVs."""
+def load(steps, gn=True):
+    """Mean per-step curve for each (method, MH) cell, from the run CSVs.
+
+    gn=True reads the gradient-normalization-enabled runs (the three proposal methods
+    coincide there); gn=False reads the gradient-normalization-disabled runs, where the
+    policy, grad-norm-preserved, and random arms separate (author issue list item 21)."""
+    gntag = "gn" if gn else "nogn"
     rows = []
     for meth in METHOD_LABEL:
         for mh, mh_lab in ((True, "With MH"), (False, "No MH")):
             tag = "mh" if mh else "nomh"
             path = os.path.join(
-                RES, f"gpt2-large.dls.{meth}.{tag}.gn.free.s{steps}.csv")
+                RES, f"gpt2-large.dls.{meth}.{tag}.{gntag}.free.s{steps}.csv")
             if not os.path.exists(path):
                 continue
             df = pd.read_csv(path)
@@ -107,8 +112,9 @@ def load(steps):
     return df.groupby(["Method", "Sampling", "Step"]).mean().reset_index()
 
 
-def draw(steps, out_name):
-    g = load(steps)
+def draw(steps, out_name, gn=True):
+    from matplotlib.lines import Line2D
+    g = load(steps, gn=gn)
     fig, axes = plt.subplots(3, 1, figsize=(6.6, 6.9), sharex=True)
 
     for ax, (col, title) in zip(axes, METRICS):
@@ -119,7 +125,7 @@ def draw(steps, out_name):
                     continue
                 ax.plot(sub["Step"], sub[col],
                         color=METHOD_COLOR[meth], lw=2.0,
-                        ls="-" if samp == "With MH" else "--",
+                        ls="-" if samp == "With MH" else (0, (6, 4)),
                         marker=METHOD_MARKER[meth], markevery=max(1, steps // 10),
                         ms=5, markeredgecolor="white", markeredgewidth=0.6,
                         label=f"{meth}, {samp}")
@@ -127,18 +133,26 @@ def draw(steps, out_name):
         ax.tick_params(labelsize=10)
 
     axes[-1].set_xlabel("Annealing step", fontsize=11)
-    fig.subplots_adjust(hspace=0.18, bottom=0.14)
+    fig.subplots_adjust(hspace=0.18, bottom=0.17)
 
-    handles, labels = axes[0].get_legend_handles_labels()
-    seen, h, l = set(), [], []
-    for hi, li in zip(handles, labels):
-        if li not in seen:
-            seen.add(li)
-            h.append(hi)
-            l.append(li)
-    # legend below the axes, so it can never cover data (Phase 8 print fix)
-    fig.legend(h, l, fontsize=9, frameon=True, framealpha=0.95, edgecolor="0.8",
-               loc="upper center", bbox_to_anchor=(0.5, 0.045), ncol=2)
+    # Phase 9 (author issue list item 21): build the legend from custom handles so its two
+    # dimensions read cleanly. Method is colour plus marker on a solid line; the
+    # Metropolis-Hastings correction is line style alone, on marker-free grey handles with a
+    # long dash pattern, so "with the correction" (solid) and "without" (long dashes) are
+    # unambiguous rather than hidden behind the method markers.
+    method_handles = [
+        Line2D([0], [0], color=METHOD_COLOR[m], lw=2.0, marker=METHOD_MARKER[m],
+               ms=6, markeredgecolor="white", markeredgewidth=0.6, label=m)
+        for m in METHOD_COLOR
+    ]
+    corr_handles = [
+        Line2D([0], [0], color="0.35", lw=2.0, ls="-", label="With the correction"),
+        Line2D([0], [0], color="0.35", lw=2.0, ls=(0, (6, 4)), label="Without the correction"),
+    ]
+    all_handles = method_handles + corr_handles
+    fig.legend(all_handles, [h.get_label() for h in all_handles],
+               fontsize=9, frameon=True, framealpha=0.95, edgecolor="0.8",
+               loc="upper center", bbox_to_anchor=(0.5, 0.06), ncol=2)
 
     fig.align_ylabels(axes)
     os.makedirs(OUT, exist_ok=True)
@@ -151,3 +165,6 @@ def draw(steps, out_name):
 if __name__ == "__main__":
     draw(50, "gpt2-large.dls.gn.free.s50_new_trajectories")
     draw(100, "gpt2-large.dls.gn.free.s100_new_trajectories")
+    # Phase 9 (author issue list item 21): the gradient-normalization-disabled companion, in
+    # which the three proposal arms separate rather than coincide.
+    draw(50, "gpt2-large.dls.nogn.free.s50_companion", gn=False)

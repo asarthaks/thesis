@@ -1,0 +1,74 @@
+\babel@toc {english}{}\relax 
+\babel@toc {german}{}\relax 
+\babel@toc {english}{}\relax 
+\contentsline {section}{\numberline {1}Introduction}{9}{section.1}%
+\contentsline {subsection}{\numberline {1.1}Established Routes to Control and Their Costs}{10}{subsection.1.1}%
+\contentsline {subsection}{\numberline {1.2}Energy-Based Control and Its Central Assumption}{10}{subsection.1.2}%
+\contentsline {subsection}{\numberline {1.3}From Sampling to Amortization}{12}{subsection.1.3}%
+\contentsline {subsection}{\numberline {1.4}Research Questions and Contributions}{13}{subsection.1.4}%
+\contentsline {subsection}{\numberline {1.5}Structure of the Thesis}{15}{subsection.1.5}%
+\contentsline {section}{\numberline {2}Background Work}{15}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Autoregressive Language Models as Energy Functions}{15}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}Langevin Dynamics}{17}{subsection.2.2}%
+\contentsline {subsection}{\numberline {2.3}The Metropolis--Hastings Correction}{18}{subsection.2.3}%
+\contentsline {subsection}{\numberline {2.4}Sampling in a Discrete Space: DLS and CLS}{20}{subsection.2.4}%
+\contentsline {subsection}{\numberline {2.5}Score Matching and the Score Function}{23}{subsection.2.5}%
+\contentsline {subsection}{\numberline {2.6}Discrete Diffusion and the Concrete Score}{24}{subsection.2.6}%
+\contentsline {subsection}{\numberline {2.7}Amortized Inference with GFlowNets}{25}{subsection.2.7}%
+\contentsline {section}{\numberline {3}Related Work}{26}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Controllable Text Generation}{26}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}Energy-Based and Sampling-Based Decoding}{28}{subsection.3.2}%
+\contentsline {subsection}{\numberline {3.3}Amortized Sampling and GFlowNets}{30}{subsection.3.3}%
+\contentsline {subsection}{\numberline {3.4}The Geometry and Behaviour of Language-Model Representations}{31}{subsection.3.4}%
+\contentsline {subsection}{\numberline {3.5}Diffusion Models for Text and the Score Function}{32}{subsection.3.5}%
+\contentsline {subsection}{\numberline {3.6}The Gap Addressed by This Thesis}{33}{subsection.3.6}%
+\contentsline {section}{\numberline {4}Methodology}{33}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Task: Masked Token Recovery}{34}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}Energy Functions}{36}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.3}Samplers and Configurations}{37}{subsection.4.3}%
+\contentsline {subsection}{\numberline {4.4}Evaluation Metrics}{39}{subsection.4.4}%
+\contentsline {subsection}{\numberline {4.5}GFlowNet Training}{41}{subsection.4.5}%
+\contentsline {subsection}{\numberline {4.6}Constrained Generation Extension}{42}{subsection.4.6}%
+\contentsline {subsection}{\numberline {4.7}Diagnostic Experiments}{43}{subsection.4.7}%
+\contentsline {subsection}{\numberline {4.8}Reproducibility, Seeds, and Hardware}{45}{subsection.4.8}%
+\contentsline {section}{\numberline {5}Results}{46}{section.5}%
+\contentsline {subsection}{\numberline {5.1}Step-Size Calibration and Embedding Geometry}{46}{subsection.5.1}%
+\contentsline {subsection}{\numberline {5.2}Annealing Dynamics and the Quenching Effect}{47}{subsection.5.2}%
+\contentsline {subsection}{\numberline {5.3}The Metropolis--Hastings Breakdown in Continuous Space}{52}{subsection.5.3}%
+\contentsline {subsection}{\numberline {5.4}Sampler Trajectories in Embedding Space}{54}{subsection.5.4}%
+\contentsline {subsection}{\numberline {5.5}Gradient Direction Against a Norm-Matched Random Direction}{55}{subsection.5.5}%
+\contentsline {subsubsection}{\numberline {5.5.1}Robustness of the Null Result}{57}{subsubsection.5.5.1}%
+\contentsline {subsubsection}{\numberline {5.5.2}Gradient-Free Baselines}{58}{subsubsection.5.5.2}%
+\contentsline {subsubsection}{\numberline {5.5.3}External-Judge Rescoring}{59}{subsubsection.5.5.3}%
+\contentsline {subsection}{\numberline {5.6}The Linearization Radius}{59}{subsection.5.6}%
+\contentsline {subsection}{\numberline {5.7}The Likelihood Trap}{63}{subsection.5.7}%
+\contentsline {subsection}{\numberline {5.8}Embedding Anisotropy}{64}{subsection.5.8}%
+\contentsline {subsection}{\numberline {5.9}Consistency Across Models and Architectures}{66}{subsection.5.9}%
+\contentsline {subsection}{\numberline {5.10}GFlowNet Fine-Tuning and the Amortized Energy}{67}{subsection.5.10}%
+\contentsline {subsection}{\numberline {5.11}Constrained Generation with an Additive Sentiment Term}{70}{subsection.5.11}%
+\contentsline {subsection}{\numberline {5.12}The Final-Position Case}{72}{subsection.5.12}%
+\contentsline {subsection}{\numberline {5.13}The Diffusion Positive Control}{74}{subsection.5.13}%
+\contentsline {subsubsection}{\numberline {5.13.1}Linearization on the Unified Corpus}{76}{subsubsection.5.13.1}%
+\contentsline {subsubsection}{\numberline {5.13.2}Native Recovery of a Flipped Token}{77}{subsubsection.5.13.2}%
+\contentsline {subsubsection}{\numberline {5.13.3}The Repaired Signal Inside the Exact-Energy Chain}{78}{subsubsection.5.13.3}%
+\contentsline {subsubsection}{\numberline {5.13.4}Classifier-Guided Steering (Exploratory Follow-Up)}{79}{subsubsection.5.13.4}%
+\contentsline {section}{\numberline {6}Discussion}{81}{section.6}%
+\contentsline {subsection}{\numberline {6.1}Answers to the Research Questions}{82}{subsection.6.1}%
+\contentsline {subsection}{\numberline {6.2}The Unified Mechanism}{84}{subsection.6.2}%
+\contentsline {subsection}{\numberline {6.3}Connections to the Related Work}{86}{subsection.6.3}%
+\contentsline {subsection}{\numberline {6.4}Scope and Limitations}{88}{subsection.6.4}%
+\contentsline {subsection}{\numberline {6.5}Implications}{89}{subsection.6.5}%
+\contentsline {section}{\numberline {7}Conclusion}{90}{section.7}%
+\contentsline {section}{\numberline {A}Appendix}{99}{section.A}%
+\contentsline {subsection}{\numberline {A.1}Additional Diagnostic Figures}{99}{subsection.A.1}%
+\contentsline {subsection}{\numberline {A.2}Full Configuration Grid}{104}{subsection.A.2}%
+\contentsline {subsection}{\numberline {A.3}Computational Cost}{106}{subsection.A.3}%
+\contentsline {subsection}{\numberline {A.4}Geometry of Sampler Trajectories in Embedding Space}{107}{subsection.A.4}%
+\contentsline {subsection}{\numberline {A.5}Classifier-Guided Steering: Full Results}{111}{subsection.A.5}%
+\contentsline {subsubsection}{\numberline {A.5.1}Off-Domain Guidance Without a Trust Region}{111}{subsubsection.A.5.1}%
+\contentsline {subsubsection}{\numberline {A.5.2}The Guide-Judge Agreement Ladder}{111}{subsubsection.A.5.2}%
+\contentsline {subsubsection}{\numberline {A.5.3}Per-Class Confusion on the Neutral Calibration Surface}{113}{subsubsection.A.5.3}%
+\contentsline {subsection}{\numberline {A.6}Qualitative Examples}{115}{subsection.A.6}%
+\contentsline {subsubsection}{\numberline {A.6.1}Classifier-Guided Generations}{115}{subsubsection.A.6.1}%
+\contentsline {subsubsection}{\numberline {A.6.2}Infill Recovery on Seeded Sequences}{119}{subsubsection.A.6.2}%
+\contentsline {subsection}{\numberline {A.7}Use of AI-Tools}{124}{subsection.A.7}%

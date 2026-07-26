@@ -1,0 +1,126 @@
+\begin{thebibliography}{}
+
+\bibitem[Alhafni et~al.,
+  2024]{alhafni2024personalizedtextgenerationfinegrained}
+Alhafni, B., Kulkarni, V., Kumar, D., and Raheja, V. (2024).
+\newblock Personalized text generation with fine-grained linguistic control.
+
+\bibitem[Dathathri et~al., 2020]{dathathri2020plugplaylanguagemodels}
+Dathathri, S., Madotto, A., Lan, J., Hung, J., Frank, E., Molino, P., Yosinski,
+  J., and Liu, R. (2020).
+\newblock Plug and play language models: A simple approach to controlled text
+  generation.
+\newblock In {\em International Conference on Learning Representations (ICLR)}.
+
+\bibitem[Gong et~al., 2023]{gong2023diffuseqsequencesequencetext}
+Gong, S., Li, M., Feng, J., Wu, Z., and Kong, L. (2023).
+\newblock Diffuseq: Sequence to sequence text generation with diffusion models.
+\newblock In {\em International Conference on Learning Representations (ICLR)}.
+
+\bibitem[Hu et~al., 2017]{hu2018controlledgenerationtext}
+Hu, Z., Yang, Z., Liang, X., Salakhutdinov, R., and Xing, E.~P. (2017).
+\newblock Toward controlled generation of text.
+\newblock In {\em International Conference on Machine Learning (ICML)}.
+
+\bibitem[Krause et~al., 2021]{krause-etal-2021-gedi-generative}
+Krause, B., Gotmare, A.~D., McCann, B., Keskar, N.~S., Joty, S., Socher, R.,
+  and Rajani, N.~F. (2021).
+\newblock {G}e{D}i: Generative discriminator guided sequence generation.
+\newblock In Moens, M.-F., Huang, X., Specia, L., and Yih, S. W.-t., editors,
+  {\em Findings of the Association for Computational Linguistics: EMNLP 2021},
+  pages 4929--4952, Punta Cana, Dominican Republic. Association for
+  Computational Linguistics.
+
+\bibitem[Kumar et~al., 2022]{kumar2022gradientbasedconstrainedsamplinglanguage}
+Kumar, S., Paria, B., and Tsvetkov, Y. (2022).
+\newblock Gradient-based constrained sampling from language models.
+\newblock In {\em Proceedings of the 2022 Conference on Empirical Methods in
+  Natural Language Processing (EMNLP)}.
+
+\bibitem[Li et~al., 2024]{li2024reinforcementlearningtokenlevelfeedback}
+Li, W., Wei, W., Xu, K., Xie, W., Chen, D., and Cheng, Y. (2024).
+\newblock Reinforcement learning with token-level feedback for controllable
+  text generation.
+
+\bibitem[Liu et~al., 2021]{liu-etal-2021-dexperts}
+Liu, A., Sap, M., Lu, X., Swayamdipta, S., Bhagavatula, C., Smith, N.~A., and
+  Choi, Y. (2021).
+\newblock {DE}xperts: Decoding-time controlled text generation with experts and
+  anti-experts.
+\newblock In Zong, C., Xia, F., Li, W., and Navigli, R., editors, {\em
+  Proceedings of the 59th Annual Meeting of the Association for Computational
+  Linguistics and the 11th International Joint Conference on Natural Language
+  Processing (Volume 1: Long Papers)}, pages 6691--6706, Online. Association
+  for Computational Linguistics.
+
+\bibitem[Lu et~al., 2021]{lu-etal-2021-neurologic}
+Lu, X., West, P., Zellers, R., Le~Bras, R., Bhagavatula, C., and Choi, Y.
+  (2021).
+\newblock {N}euro{L}ogic decoding: (un)supervised neural text generation with
+  predicate logic constraints.
+\newblock In Toutanova, K., Rumshisky, A., Zettlemoyer, L., Hakkani-Tur, D.,
+  Beltagy, I., Bethard, S., Cotterell, R., Chakraborty, T., and Zhou, Y.,
+  editors, {\em Proceedings of the 2021 Conference of the North American
+  Chapter of the Association for Computational Linguistics: Human Language
+  Technologies}, pages 4288--4299, Online. Association for Computational
+  Linguistics.
+
+\bibitem[Ouyang et~al., 2022]{ouyang2022traininglanguagemodelsfollow}
+Ouyang, L., Wu, J., Jiang, X., Almeida, D., Wainwright, C.~L., Mishkin, P.,
+  Zhang, C., Agarwal, S., Slama, K., Ray, A., Schulman, J., Hilton, J., Kelton,
+  F., Miller, L., Simens, M., Askell, A., Welinder, P., Christiano, P., Leike,
+  J., and Lowe, R. (2022).
+\newblock Training language models to follow instructions with human feedback.
+\newblock In {\em Advances in Neural Information Processing Systems (NeurIPS)}.
+
+\bibitem[Pascual et~al., 2021]{pascual-etal-2021-plug-play}
+Pascual, D., Egressy, B., Meister, C., Cotterell, R., and Wattenhofer, R.
+  (2021).
+\newblock A plug-and-play method for controlled text generation.
+\newblock In Moens, M.-F., Huang, X., Specia, L., and Yih, S. W.-t., editors,
+  {\em Findings of the Association for Computational Linguistics: EMNLP 2021},
+  pages 3973--3997, Punta Cana, Dominican Republic. Association for
+  Computational Linguistics.
+
+\bibitem[Qin et~al., 2022]{10.5555/3600270.3600963}
+Qin, L., Welleck, S., Khashabi, D., and Choi, Y. (2022).
+\newblock Cold decoding: energy-based constrained text generation with langevin
+  dynamics.
+\newblock In {\em Proceedings of the 36th International Conference on Neural
+  Information Processing Systems}, NIPS '22, Red Hook, NY, USA. Curran
+  Associates Inc.
+
+\bibitem[Welling and Teh, 2011]{10.5555/3104482.3104568}
+Welling, M. and Teh, Y.~W. (2011).
+\newblock Bayesian learning via stochastic gradient langevin dynamics.
+\newblock In {\em Proceedings of the 28th International Conference on
+  International Conference on Machine Learning}, ICML'11, page 681–688,
+  Madison, WI, USA. Omnipress.
+
+\bibitem[Xu et~al., 2025]{ICLR2025_535baca3}
+Xu, M., Geffner, T., Kreis, K., Nie, W., Xu, Y., Leskovec, J., Ermon, S., and
+  Vahdat, A. (2025).
+\newblock Energy-based diffusion language models for text generation.
+\newblock In Yue, Y., Garg, A., Peng, N., Sha, F., and Yu, R., editors, {\em
+  International Conference on Learning Representations}, volume 2025, pages
+  33769--33789.
+
+\bibitem[Yang and Klein, 2021]{Yang_2021}
+Yang, K. and Klein, D. (2021).
+\newblock Fudge: Controlled text generation with future discriminators.
+\newblock In {\em Proceedings of the 2021 Conference of the North American
+  Chapter of the Association for Computational Linguistics: Human Language
+  Technologies}, page 3511–3535. Association for Computational Linguistics.
+
+\bibitem[Zhang et~al., 2023]{zhang2023surveycontrollabletextgeneration}
+Zhang, H., Song, H., Li, S., Zhou, M., and Song, D. (2023).
+\newblock A survey of controllable text generation using transformer-based
+  pre-trained language models.
+\newblock {\em ACM Computing Surveys}.
+
+\bibitem[Zhang et~al., 2022]{zhang2022langevinlikesamplerdiscretedistributions}
+Zhang, R., Liu, X., and Liu, Q. (2022).
+\newblock A langevin-like sampler for discrete distributions.
+\newblock In {\em International Conference on Machine Learning (ICML)}.
+
+\end{thebibliography}

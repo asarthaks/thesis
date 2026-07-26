@@ -1,6 +1,6 @@
 {
   "experiment": "trajectory_stats",
-  "npz": "results_diag/traces_gpt2sft_plot_traj.npz",
+  "npz": "results/diagnostics/diag/traces_gpt2sft_plot_traj.npz",
   "checkpoint": "/mount/studenten-temp1/users/singhsk/thesis/thesis/gfn-lm-tuning/infill_subj_arithmetic/gpt2_large_sft_output",
   "seq_idx_seeded": 5,
   "seq_idx_rule": "int(np.random.default_rng(0).integers(0,6))",
@@ -8,7 +8,7 @@
   "token_spacing_reference": {
     "mean_nearest_neighbour_l2": 1.8222060203552246,
     "mean_pairwise_l2": 2.772538661956787,
-    "source": "results_revision/numbers.json:diag_anisotropy_gpt2sft"
+    "source": "results/revision/numbers.json:diag_anisotropy_gpt2sft"
   },
   "per_config": {
     "dls_policy_gn_mh": {
@@ -110,6 +110,32 @@
         41
       ],
       "distinct_cells_mean": 44.666666666666664
+    },
+    "dls_policy_gn_nomh": {
+      "is_cls": false,
+      "nearest_token_dist_min": 0.0,
+      "nearest_token_dist_max": 0.0,
+      "nearest_token_dist_mean": 0.0,
+      "end_nearest_token_dist_mean": 0.0,
+      "final_dist_to_gt_mean": 2.4561041394869485,
+      "final_dist_to_gt_per_seq": [
+        2.57,
+        2.63,
+        1.988,
+        2.267,
+        2.591,
+        2.691
+      ],
+      "token_changes_per_seq": [
+        47,
+        47,
+        48,
+        48,
+        48,
+        48
+      ],
+      "distinct_cells_mean": 48.666666666666664,
+      "source_note": "no-MH DLS from traces_gpt2sft_dlsnomh (Phase 9 item 23); same 6 source sentences, independently seeded corruption; DLS on-manifold so nearest-token distances are 0."
     }
   },
   "chosen_seq_landing": {

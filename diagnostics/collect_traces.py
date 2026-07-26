@@ -161,6 +161,11 @@ CONFIGS = [
     # (or any subset) with --configs. Order preserved so the four originals reproduce
     # bit-for-bit when all five are run at the canonical --n_seqs.
     ("dls_random_gn_mh",      "dls",  "random", True,  True),
+    # Phase 9 (author issue list item 23): the no-MH DLS trajectory, so fig_traj_stats.json
+    # holds both DLS configs and Section 5.4 can report the DLS with-correction vs
+    # without-correction distinct-cell contrast, mirroring the CLS pair. Appended last so the
+    # five configs above still reproduce bit-for-bit when the full set is run.
+    ("dls_policy_gn_nomh",    "dls",  "policy", False, True),
 ]
 
 

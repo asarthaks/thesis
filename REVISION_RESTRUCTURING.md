@@ -507,3 +507,35 @@ documented reconcile command; it existed at HEAD and is unrelated to the move.
 ### (6) Rollback
 
 `git reset --hard 4bd1ee46b51f8e2277936cb841338d1b21f91d60`
+
+---
+
+## ADDENDUM: final Doc tree (2026-07-26)
+
+After the 2026-07-25 pass, the thesis document area was organized one level further
+than PART 1.4 recorded. The canonical tree is now:
+
+- `Doc/final/thesis/`   canonical thesis: `thesis.tex` master (article/template class),
+  `chapters/` (01..08, 05a, abstract, showcase_appendix, gprime_examples, tab_confusion),
+  `references.bib`.
+- `Doc/final/proposal/` `proposal.tex`.
+- `Doc/final/beamer/`   `Presentation.tex` (+ `bg.png`).
+- `Doc/figures/`        thesis figure PDFs/PNGs (the LaTeX build inputs).
+- `Doc/prev_version/`   the pre-revision source, kept for reference.
+- `refs/ meetings/ archive/ external/` as before.
+
+PART 1.4 recorded the master as `Doc/final/thesis.tex` with
+`\graphicspath{{../}{../figures/}{./}}`, which resolved `figures/...` to `Doc/figures/`
+because the master sat directly in `Doc/final/`. The master was subsequently moved one
+level deeper to `Doc/final/thesis/thesis.tex`, which silently broke that resolution
+(`{../figures/}` then pointed at the non-existent `Doc/final/figures/`, so every figure
+fell back to a draft box). Fixed 2026-07-26 by setting
+`\graphicspath{{../../}{../}{../figures/}{./}}`: `includegraphics` carries a `figures/`
+prefix, so `../../` from `Doc/final/thesis/` resolves `../../figures/...` = `Doc/figures/...`.
+The final master now builds with zero missing figures.
+
+Stale `%` source-comment paths in the final chapters were also swept
+(`figures_gpt2/` -> `figures/gpt2/`, `figures_compare/` -> `figures/compare/`), and the
+config-count prose in the appendix now names the current folders
+(`results/grid/{gpt2_v2,llama,gfn}`). Historical logs above are not hand-edited; only
+live tex comments and README were updated, per the standing rule.

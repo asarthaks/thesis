@@ -24,12 +24,15 @@ This section collects supporting figures referenced in Section~\ref{ch:results}.
     \label{fig:lin-topk}
 \end{figure}
 
-% SOURCE: figures/fig_mh_accept.pdf produced by analyze_mh.py
-% from results/diagnostics/diag/traces_gpt2sft_mh.csv (acceptance conditioned on boundary crossing).
+% SOURCE: figures/fig_mh_accept.pdf produced by analyze_mh.py --config cls_policy_gnoff_mh
+% from results/diagnostics/diag/traces_gpt2sft_mh.csv (acceptance conditioned on boundary
+% crossing, for the single continuous policy configuration only). Part 1, Alarm 1: the
+% earlier figure pooled three configs (cls gnoff/gnon MH plus the dls control) and reported
+% a misleading combined bar (stayed 0.064, crossed 0.074); regenerated for one config 2026-07-26.
 \begin{figure}[h]
     \centering
     \includegraphics[width=0.70\textwidth]{figures/fig_mh_accept.pdf}
-    \caption[Acceptance rate conditioned on boundary crossing.]{Metropolis--Hastings acceptance rate in the continuous sampler, conditioned on whether the proposal crossed a Voronoi cell boundary. This figure supports Section~\ref{sec:results-mh}.}
+    \caption[Acceptance rate conditioned on boundary crossing.]{Metropolis--Hastings acceptance rate for the continuous policy sampler with gradient normalization off and the correction enabled (configuration \texttt{cls\_policy\_gnoff\_mh}), conditioned on whether the proposal crossed a Voronoi cell boundary. Within-cell moves are accepted essentially never and boundary crossings only $3.7\%$ of the time. This figure supports Section~\ref{sec:results-mh}.}
     \label{fig:mh-accept}
 \end{figure}
 
@@ -58,7 +61,7 @@ This section collects supporting figures referenced in Section~\ref{ch:results}.
 \begin{figure}[h]
     \centering
     \includegraphics[width=0.80\textwidth]{figures/fig_trap_length.pdf}
-    \caption[Total log-likelihood against generated length, GPT-2 Large.]{Total log-likelihood against generated length for GPT-2 Large, with the fitted regression line. This figure supports Section~\ref{sec:results-trap} and Section~\ref{sec:results-gfn}, where the slope and its censoring caveat are discussed.}
+    \caption[Total log-likelihood against generated length, GPT-2 Large.]{Total log-likelihood against generated length for GPT-2 Large. The regression is fitted over the three stochastic decoders (ancestral, top-$p$, temperature), where length varies, giving a slope of $-1.12$ nats per token; the deterministic decoders pinned at the length cap carry no length information and are shown faintly but excluded from the fit. This figure supports Section~\ref{sec:results-trap} and Section~\ref{sec:results-gfn}, where the slope and its censoring caveat are discussed.}
     \label{fig:trap-length}
 \end{figure}
 
@@ -66,10 +69,10 @@ This section collects supporting figures referenced in Section~\ref{ch:results}.
 \subsection{Full Configuration Grid}
 \label{app:grid}
 
-% SOURCE: figures_compare/final_kl_by_model.csv (all 29 configuration rows x 5 models).
+% SOURCE: figures/compare/final_kl_by_model.csv (all 29 configuration rows x 5 models).
 Table~\ref{tab:full-grid} reports the final KL divergence for a representative subset of the full configuration grid across the four GPT-2-family energy functions, drawn from the aggregated results file \texttt{final\_kl\_by\_model.csv}. The complete grid comprises the factorial combination of sampler (DLS, CLS), proposal method (policy, grad-norm-preserved, random), Metropolis--Hastings correction (on, off), gradient normalization (on, off), and schedule length (50, 100), evaluated on each of the five energy functions, for a total of $145$ configurations.
 
-The count arises as $145 = 5 \times 29$, five energy functions times twenty-nine configurations each, and the twenty-nine is worth setting out because the naive factorial overcounts it. A fully crossed design over the five binary and ternary axes above would give $2 \times 3 \times 2 \times 2 \times 2 = 48$ cells per energy function, or $240$ in total, but two prunings reduce this. The continuous sampler is run for only the policy and random proposal methods, not the grad-norm-preserved method, and across four of the gradient-normalization and schedule variants, giving $8$ CLS configurations per energy function; the discrete sampler is run for all three proposal methods across seven of the correction, normalization, and schedule variants, giving $21$ DLS configurations. The sum is $8 + 21 = 29$ per energy function. The count was verified directly against the result folders, which hold $29$ configurations for GPT-2 Large (\texttt{results\_gpt2\_v2}), $29$ for Llama-3 (\texttt{results\_llama}), and $87$ across the three GFlowNet variants (\texttt{results\_gfn}), and $29 + 29 + 87 = 145$.
+The count arises as $145 = 5 \times 29$, five energy functions times twenty-nine configurations each, and the twenty-nine is worth setting out because the naive factorial overcounts it. A fully crossed design over the five binary and ternary axes above would give $2 \times 3 \times 2 \times 2 \times 2 = 48$ cells per energy function, or $240$ in total, but two prunings reduce this. The continuous sampler is run for only the policy and random proposal methods, not the grad-norm-preserved method, and across four of the gradient-normalization and schedule variants, giving $8$ CLS configurations per energy function; the discrete sampler is run for all three proposal methods across seven of the correction, normalization, and schedule variants, giving $21$ DLS configurations. The sum is $8 + 21 = 29$ per energy function. The count was verified directly against the result folders, which hold $29$ configurations for GPT-2 Large (\texttt{results/grid/gpt2\_v2}), $29$ for Llama-3 (\texttt{results/grid/llama}), and $87$ across the three GFlowNet variants (\texttt{results/grid/gfn}), and $29 + 29 + 87 = 145$.
 % SOURCE: REVISION_LOG.md concern 15; run-name counts in results/grid/gpt2_v2 (29),
 % results/grid/llama (29), results/grid/gfn (87). The nominal 2x3x2x2x2x5=240 overcounts because
 % CLS drops the grad-norm-preserved method and some gn/schedule cells.
@@ -91,13 +94,19 @@ The count arises as $145 = 5 \times 29$, five energy functions times twenty-nine
         DLS gnp-random, MH, gn, s50    & $6.370$ & $6.105$ & $6.548$ & $5.525$ \\
         DLS policy, MH, no-gn, s50     & $6.474$ & $6.009$ & $6.698$ & $6.008$ \\
         DLS gnp-random, MH, no-gn, s50 & $6.430$ & $6.001$ & $6.552$ & $5.338$ \\
-        CLS policy, MH, no-gn, s50     & $8.083$ & $7.799$ & $8.198$ & $13.732$ \\
+        CLS policy, MH, no-gn, s50     & $9.202$ & $8.834$ & $9.748$ & $9.025$ \\
+        % SOURCE (Part 1, Alarm 2): final_kl_by_model.csv row cls.policy.mh.nogn.free.s50
+        % = 9.202 / 8.834 / 9.748 / 9.025 (gpt2-large, gfn-lb0-500, gfn-lb0-2000, gfn-lb1-500);
+        % grid JSON gpt2-large.cls.policy.mh.nogn.free.s50.json mean_kl[-1] = 9.20179.
+        % The submitted table duplicated the no-MH row's numbers here; corrected 2026-07-26.
         CLS policy, no-MH, no-gn, s50  & $8.083$ & $7.799$ & $8.198$ & $13.732$ \\
         \bottomrule
     \end{tabular}
     \caption[Representative subset of the final-KL configuration grid.]{Representative subset of the final-KL configuration grid, from \texttt{final\_kl\_by\_model.csv}. Rows are configurations, columns are the four GPT-2-family energy functions.}
     \label{tab:full-grid}
 \end{table}
+
+This full grid is part of the released artifact set. Under the code-availability statement of Section~\ref{sec:meth-repro}, the complete per-configuration results, the aggregated \texttt{final\_kl\_by\_model.csv} from which this table is drawn, and the artifact map that links every number, table, and figure in this thesis to the script that produces it and the result file it reads are retained with the code, so the entire grid can be regenerated from the recorded seeds rather than reproduced from this representative subset alone.
 
 \clearpage
 \subsection{Computational Cost}
@@ -162,7 +171,11 @@ Because \texttt{collect\_traces} advances the random-number state across configu
 
 The distances make the geometry exact. The discrete sampler, policy and random alike, sits at distance zero from the token manifold at every step, because its state is always a genuine token embedding; it visits about five distinct tokens over the run and ends about $2.2$ units from the ground truth, a token or so away.
 % SOURCE: figures/fig_traj_stats.json per_config dls_policy_gn_mh / dls_random_gn_mh (nearest_token_dist 0.0; distinct_cells_mean 5.3/4.2; final_dist_to_gt_mean 2.16/2.36).
-The continuous sampler with the correction on is quenched: its state sits between $118$ and $151$ units from the nearest token across the run and it changes its projected token about twice in fifty steps, the spatial form of the near-total rejection measured in Section~\ref{sec:results-mh}. With the correction off it visits about $45$ of $50$ cells and drifts as far as roughly $980$ units off the manifold before collapsing back to about $17$ units at the end.
+The continuous sampler with the correction on is quenched: its state sits between $118$ and $151$ units from the nearest token across the run and it changes its projected token about twice in fifty steps, the spatial form of the near-total rejection measured in Section~\ref{sec:results-mh}. With the correction off it visits about $45$ of $50$ cells and drifts as far as roughly $980$ units off the manifold before collapsing back to about $17$ units at the end. The discrete sampler shows the same dependence on the correction but without the off-manifold cost: with the correction it visits about $5$ of $50$ cells, and with the correction removed it visits about $49$, accepting almost every proposal, yet it never leaves the token manifold, so its wandering is among real tokens rather than through the empty space between them.
+% SOURCE (Phase 9, author issue list item 23): fig_traj_stats.json per_config
+% dls_policy_gn_mh distinct_cells_mean 5.33 (MH on) and dls_policy_gn_nomh distinct_cells_mean
+% 48.67 (MH off, from traces_gpt2sft_dlsnomh; same 6 source sentences, independently seeded
+% corruption; DLS on-manifold, nearest-token distance 0).
 % SOURCE: figures/fig_traj_stats.json per_config cls_policy_gnoff_mh (nearest 117.6-151.3, distinct_cells 2.2) and cls_policy_gnoff_nomh (nearest max 978.7, distinct_cells 44.7, end_nearest 17.0).
 Against a mean nearest-neighbour token spacing of $1.82$ and a mean pairwise spacing of $2.77$, an off-manifold distance of $120$ to $150$ is a factor of roughly $65$ to $83$ times the spacing between neighbouring tokens, so the continuous state spends its run in essentially empty space where the projected energy is a poor guide, which is why the boundary-crossing correction almost always rejects.
 

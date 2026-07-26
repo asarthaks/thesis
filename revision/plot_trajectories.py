@@ -78,8 +78,12 @@ def nearest_tokens(states, wte, wte_sq):
     return nn_id, nn_dist
 
 
-def token_strip(ax, steps, decoded, changes, rejected, cap=15):
-    """Annotate the decoded token at each change step, capped at ~cap labels."""
+def token_strip(ax, steps, decoded, changes, rejected, cap=10):
+    """Annotate the decoded token at each change step, capped at ~cap labels.
+
+    Phase 9 (evaluation2 item 10): the strip labels were 6pt and borderline illegible in
+    print. The font is enlarged to 8.5pt and the label cap reduced from 15 to 10 so the
+    enlarged labels do not overlap; over-long tokens are truncated a little harder to fit."""
     tr = blended_transform_factory(ax.transData, ax.transAxes)
     ch = list(changes)
     elided = False
@@ -90,13 +94,13 @@ def token_strip(ax, steps, decoded, changes, rejected, cap=15):
     for t in ch:
         lab = decoded[t].strip() or "_"
         lab = lab.replace("\n", " ")
-        if len(lab) > 10:
-            lab = lab[:9] + "."
-        ax.annotate(lab, xy=(t, 0.02), xycoords=tr, rotation=90, fontsize=6.0,
-                    va="bottom", ha="center", color="#333333")
+        if len(lab) > 8:
+            lab = lab[:7] + "."
+        ax.annotate(lab, xy=(t, 0.02), xycoords=tr, rotation=90, fontsize=8.5,
+                    va="bottom", ha="center", color="#222222")
     if elided:
         ax.annotate("(token labels subsampled to %d changes)" % cap, xy=(0.5, 0.14),
-                    xycoords="axes fraction", fontsize=6, ha="center", color="0.4",
+                    xycoords="axes fraction", fontsize=7.5, ha="center", color="0.4",
                     style="italic")
     for t in rejected:
         ax.plot([t, t], [0.0, 0.03], transform=tr, color="#cc3311", lw=0.8, zorder=6)

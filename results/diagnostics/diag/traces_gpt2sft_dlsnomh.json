@@ -1,0 +1,8 @@
+{
+  "experiment": "traces",
+  "configs": {},
+  "run_name": "traces_gpt2sft_dlsnomh",
+  "n_seqs": 6,
+  "steps": 50,
+  "n_masks": 1
+}

@@ -1,0 +1,18 @@
+Dear Prof. Vu,
+
+The attached proposal is amended in two small ways only. First, it adds a "Risk Analysis
+and Contingency" section (the branch we agreed on): should the theoretically rigorous
+Langevin frameworks not improve on the correction-free heuristics, the thesis turns to
+mechanistic diagnosis, with the diagnostic instruments and the diffusion positive control
+named as planned tools. Second, it fixes the minor errata raised in review: the sign of the
+discrete-Langevin drift, the naming of the constraint weight (previously mislabelled a
+Lagrange multiplier), a step-size/noise notation collision, two RQ cross-references, a typo,
+and the bibliography venues.
+
+The four research questions are unchanged. The thesis-to-proposal mapping is: proposal
+RQ1 and RQ1a map to thesis RQ1, RQ1b to RQ2, RQ3a to RQ3, and RQ2a to RQ4, with RQ2b
+(energy-based recovery vs. autoregressive decoding) answered by the gradient-free baselines.
+Nothing else in the proposal changes.
+
+Best regards,
+Sarthak Singh

@@ -10,6 +10,8 @@
 % \date{December 2025}
 \usepackage{amsfonts}
 \usepackage{amsmath}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
 
 \begin{document}
 
@@ -75,13 +77,13 @@
 % This thesis proposes to bridge this gap by implementing and evaluating mathematically rigorous Langevin-based sampling frameworks. By investigating optimization in both discrete token spaces and continuous embedding spaces, this research seeks to determine if a faithful implementation of Langevin Dynamics can improve the reliability and semantic coherence of controllable text generation, particularly in text-infilling tasks.
 
 
-Large Language Models (LLMs) have achieved unprecedented performance in text generation and reasoning. However, despite their fluency, standard autoregressive (AR) decoding provides limited mechanisms for fine-grained, inference-time control. For example, if an autoregressive model generates a fluent but logically inconsistent or toxic phrase, it possesses no mechanism to revise earlier tokens without discarding and regenerating the entire subsequent sequence. Furthermore, enforcing constraints on full sequences is intractable for auto-regressive models, as it requires generating many full sequences in order to pick the one that fullfills the constraints best. While the probabilistic nature of AR decoding is well understood, steering the output to satisfy complex global constraints (such as sentiment, style, or logical consistency) without expensive retraining remains a significant challenge.
+Large Language Models (LLMs) have achieved unprecedented performance in text generation and reasoning. However, despite their fluency, standard autoregressive (AR) decoding provides limited mechanisms for fine-grained, inference-time control. For example, if an autoregressive model generates a fluent but logically inconsistent or toxic phrase, it possesses no mechanism to revise earlier tokens without discarding and regenerating the entire subsequent sequence. Furthermore, enforcing constraints on full sequences is intractable for auto-regressive models, as it requires generating many full sequences in order to pick the one that fulfills the constraints best. While the probabilistic nature of AR decoding is well understood, steering the output to satisfy complex global constraints (such as sentiment, style, or logical consistency) without expensive retraining remains a significant challenge.
 
 % Controllable Text Generation (CTG) aims to ensure model outputs adhere to specific constraints while maintaining fluency. Current alignment techniques like Reinforcement Learning from Human Feedback (RLHF) provide a static "safety layer" but lack the flexibility to adapt to diverse, run-time constraints. A promising alternative is Energy-Based Model (EBM) guidance, where decoding is treated as an optimization problem.
 
-Controllable Text Generation (CTG) ~\cite{hu2018controlledgenerationtext, zhang2023surveycontrollabletextgeneration} aims to ensure model outputs adhere to specific constraints while maintaining fluency. Alignment techniques like Reinforcement Learning from Human Feedback (RLHF) can be used to control auto-regressive generation. However, they require a preference dataset and are a "static". More specifically, aligned models cannot easily adapt to new user-defined constraints at runtime without collecting further data that reflects the new preferences and without further fine-tuning. A promising alternative is Energy-Based Model (EBM) guidance, where decoding is treated as an optimization problem. Energy-based decoding methods generate sequences by iteratively refining the whole sequence, often using gradient information as guidance (Langevin Dynamics). Global constraints or guidance signals can be integrated naturally into this framework by adding terms that measure the quality of a sequence to the energy function.
+Controllable Text Generation (CTG) ~\cite{hu2018controlledgenerationtext, zhang2023surveycontrollabletextgeneration} aims to ensure model outputs adhere to specific constraints while maintaining fluency. Alignment techniques like Reinforcement Learning from Human Feedback (RLHF) can be used to control auto-regressive generation. However, they require a preference dataset and are a ``static''. More specifically, aligned models cannot easily adapt to new user-defined constraints at runtime without collecting further data that reflects the new preferences and without further fine-tuning. A promising alternative is Energy-Based Model (EBM) guidance, where decoding is treated as an optimization problem. Energy-based decoding methods generate sequences by iteratively refining the whole sequence, often using gradient information as guidance (Langevin Dynamics). Global constraints or guidance signals can be integrated naturally into this framework by adding terms that measure the quality of a sequence to the energy function.
 
-Recently, methods inspired by Langevin Dynamics have been proposed to navigate the text generation landscape. However, many existing approaches adopt Langevin-inspired updates but deviate from classical Stochastic Gradient Langevin Dynamics (SGLD) assumptions ~\cite{10.5555/3104482.3104568} regarding noise scaling, step-size annealing, or Metropolis-Hastings correction. Consequently, these methods often function more like "noisy gradient descent" rather than true posterior sampling, potentially compromising the trade-off between control adherence and text diversity.
+Recently, methods inspired by Langevin Dynamics have been proposed to navigate the text generation landscape. However, many existing approaches adopt Langevin-inspired updates but deviate from classical Stochastic Gradient Langevin Dynamics (SGLD) assumptions ~\cite{10.5555/3104482.3104568} regarding noise scaling, step-size annealing, or Metropolis-Hastings correction. Consequently, these methods often function more like ``noisy gradient descent'' rather than true posterior sampling, potentially compromising the trade-off between control adherence and text diversity.
 
 % This thesis proposes to bridge this gap by implementing and evaluating mathematically rigorous Langevin-based sampling frameworks. By investigating optimization in both discrete token spaces and continuous embedding spaces, we seek to determine if a faithful implementation of Langevin Dynamics can improve the reliability and semantic coherence of controllable text generation.
 
@@ -406,13 +408,13 @@ Can the proposed rigorous Langevin frameworks satisfy predefined control conditi
 
 
 \section{Methods}
-The objective of this research is to move beyond "noisy gradient descent" and implement a mathematically sound sampling framework for Controllable Text Generation (CTG). The study will focus on Energy-Based Model (EBM) guidance, where the goal is to sample from a target distribution $p(x) \propto \exp(-E(x))$ defined by an energy function $E(x)$.
+The objective of this research is to move beyond ``noisy gradient descent'' and implement a mathematically sound sampling framework for Controllable Text Generation (CTG). The study will focus on Energy-Based Model (EBM) guidance, where the goal is to sample from a target distribution $p(x) \propto \exp(-E(x))$ defined by an energy function $E(x)$.
 \subsection{Baseline 1  - Discrete Langevin Sampler (DLS)}
 
 % \textbf{NOTE} This paragraph will talk about baseline, but our baseline is not ready for conditional text generation yet,
 
 
-To address RQ2, this work will implement the gradient-based proposal for discrete variables proposed by \cite{zhang2022langevinlikesamplerdiscretedistributions}. Unlike standard Langevin which requires a continuous space, this sampler operates in the discrete token space $\Theta$.
+To address RQ1a, this work will implement the gradient-based proposal for discrete variables proposed by \cite{zhang2022langevinlikesamplerdiscretedistributions}. Unlike standard Langevin which requires a continuous space, this sampler operates in the discrete token space $\Theta$.
 
 % \paragraph{Gradient Approximation:}
 % Since the token space \(\Theta\)
@@ -429,8 +431,9 @@ We define a local proposal distribution $q(\theta' \mid \theta)$ by scoring cand
 \paragraph{Transition Kernel:} 
 The next discrete state $\theta'$ is sampled based on the proposal distribution:
 \[
-q(\theta^{\prime}|\theta)=\frac{\exp(-\frac{1}{2\alpha}||\theta^{\prime}-\theta-\frac{\alpha}{2}\nabla U(\theta)||_{2}^{2})}{Z_{\Theta}(\theta)}
+q(\theta^{\prime}|\theta)=\frac{\exp(-\frac{1}{2\alpha}||\theta^{\prime}-\theta+\frac{\alpha}{2}\nabla U(\theta)||_{2}^{2})}{Z_{\Theta}(\theta)}
 \]
+The proposal is centred on the descent direction $-\nabla U(\theta)$, so the drift moves toward lower energy, that is, higher probability under the target $p(\theta)\propto\exp(-U(\theta))$. This follows the discrete-Langevin proposal of \cite{zhang2022langevinlikesamplerdiscretedistributions}, which is written there in terms of the log-density gradient $\nabla\log p(\theta)=-\nabla U(\theta)$; the earlier draft centred the proposal on $+\nabla U$, which would have ascended the energy.
 
 
 \paragraph{Normalizing Constant:} 
@@ -439,7 +442,7 @@ The term $Z_{\Theta}(\theta)$ is calculated by summing over the discrete vocabul
 \paragraph{Conditioning:} To enable controllable generation,  the project will incorporate differentiable constraints $C$ (e.g., sentiment scores) into the energy function 
 \[
 U(\theta) = -\log p(\theta) + \lambda C(\theta)
-\], where $\lambda$ is a Lagrange multiplier for the constraint.
+\], where $\lambda$ is a fixed constraint weight (a penalty weight, not a Lagrange multiplier, since nothing in the procedure solves for $\lambda$ against a constraint).
 
 
  
@@ -491,7 +494,7 @@ discrete variables.
 
 This method will address RQ1 and RQ2 by performing optimization in the embedding space of the Large Language Model (LLM). The sequence of embeddings $S \in \mathbb{R}^{L \times D}$ will be treated as continuous latent variables.
 
-The methodology involves converting the embedding of the output sequence to a "soft sequence" and subsequently optimizing it using Langevin dynamics.
+The methodology involves converting the embedding of the output sequence to a ``soft sequence'' and subsequently optimizing it using Langevin dynamics.
 
 \paragraph{Core Idea.}
 The corrupted segment embedding 
@@ -500,14 +503,15 @@ S \in \mathbb{R}^{L \times D}
 \]
 is treated as continuous latent variables, where $L$ is the number of infilling positions and $D$ is the embedding dimension.
 \paragraph{Langevin Step (theoretical form).}
+Here $\epsilon_t$ is the step size (matching the notation of Equation~(2), where $\epsilon_t$ is the step size and $\eta_t$ the noise) and $\xi_t$ is the standard-normal noise, so the noise symbol from Equation~(2) is not reused for the step size:
 \[
 s_{t+1}
 =
 s_t
 +
-\eta_t \nabla_s \log \pi(s_t)
+\frac{\epsilon_t}{2} \nabla_s \log \pi(s_t)
 +
-\sqrt{\eta_t}\,\xi_t,
+\sqrt{\epsilon_t}\,\xi_t,
 \qquad
 \xi_t \sim \mathcal{N}(0, I).
 \]
@@ -519,7 +523,7 @@ m_t
 =
 s_t
 +
-\eta_t \nabla_s \log \pi(s_t).
+\frac{\epsilon_t}{2} \nabla_s \log \pi(s_t).
 \]
 
 Then sample
@@ -528,7 +532,7 @@ s_{t+1}
 \sim
 \mathcal{N}\!\left(
 m_t,\,
-\eta_t I
+\epsilon_t I
 \right).
 \]
 
@@ -549,7 +553,7 @@ $$x_i \sim p(x_i | x_{-i}, \text{conditions})$$
 The study will evaluate the trade-offs of this approach, specifically comparing its potentially slower convergence against the parallelizable nature of Langevin Dynamics.
 
 \subsection{Autoregressive (AR) Decoding Baseline}
-To answer RQ3, standard Autoregressive (AR) decoding methods, such as Top-P or Beam Search, will be utilized as a performance floor. This baseline represents the model's natural generation without energy-based intervention, allowing for a measurement of the "cost" of control regarding fluency and diversity.
+As the quality floor for RQ2, standard Autoregressive (AR) decoding methods, such as Top-P or Beam Search, will be utilized. This baseline represents the model's natural generation without energy-based intervention, allowing for a measurement of the ``cost'' of control regarding fluency and diversity.
 
 % We might add this later
 % \subsection{Supervised Alignment (SFT) Baseline}
@@ -559,7 +563,7 @@ To answer RQ3, standard Autoregressive (AR) decoding methods, such as Top-P or B
 \section{Experiment}
 
 \subsection{Text Infilling and Token Recovery}
-We will evaluate the models on a "flipped token recovery" task using the CommonGen and ROCStories datasets. This serves as a diagnostic task: random tokens in a sequence will be masked or replaced, and the method must utilize the energy gradient from the surrounding context to recover semantic coherence.
+We will evaluate the models on a ``flipped token recovery'' task using the CommonGen and ROCStories datasets. This serves as a diagnostic task: random tokens in a sequence will be masked or replaced, and the method must utilize the energy gradient from the surrounding context to recover semantic coherence.
 \subsection{Controlled Generation}
 We will generate text conditioned on Sentiment (Positive/Negative) and Toxicity (Non-toxic) using the IMDb and RealToxicityPrompts datasets.
 
@@ -594,7 +598,11 @@ The following list represents a comprehensive set of potential metrics. During t
 % Please add the following required packages to your document preamble:
 % \usepackage{booktabs}
 \begin{table}[!h]
-\begin{tabular}{|p{6cm}|p{10.5cm}|}
+\small
+\setlength{\tabcolsep}{4pt}
+% Phase 9 (Part 7 gate): column widths reduced from 6cm/10.5cm (16.5cm, wider than the 15cm
+% text block, a 49.9pt overfull) to 4.2cm/9.8cm so the table fits the margins. Content unchanged.
+\begin{tabular}{|p{4.2cm}|p{9.8cm}|}
 \hline
 Month                                             & Working Packages / Milestones                                                                                                                                                                                                                                \\ \hline
 Month 1: Literature Review \& Baseline   Setup    & \begin{tabular}[c]{@{}l@{}}• Literature review:   Energy-based decoding, \\diffusion/LD for LLMs\\      • Define evaluation metrics\\      • Implement initial Langevin baseline\end{tabular}                                                                  \\ \hline
@@ -607,6 +615,16 @@ Month 6: Finalization \& Writing                  & \begin{tabular}[c]{@{}l@{}}�
 \caption{Proposed Thesis Timeline}
 \label{tab:timeline}
 \end{table}
+
+\section{Risk Analysis and Contingency}
+
+The programme above presupposes that the frozen model's gradient supplies a usable search direction, so that a faithful Langevin sampler can first be built and then controlled. Should that presupposition fail, that is, should the theoretically rigorous frameworks not improve on the correction-free heuristics they are meant to replace, the thesis will be redirected rather than abandoned. Under that branch it will turn to \emph{mechanistic diagnosis}, treating a negative answer to a research question as a finding to be characterized rather than a dead end: the object of study becomes why the frozen likelihood is, or is not, a navigable energy, established by direct measurement.
+
+The instruments for that diagnosis are named here as planned tools rather than improvised later. They include a controlled ablation that separates the direction of the gradient from its magnitude, comparing the true gradient against a norm-matched random direction; a linearization test correlating the first-order proposal surrogate against the true change in energy as a function of embedding distance; a decomposition of the Metropolis--Hastings acceptance ratio into its target and proposal terms; and a measurement of whether maximizing the model's own likelihood corresponds to good text.
+
+Under this branch the diffusion discussion of the competitive-landscape section is promoted from a competitor to be avoided into an explicit \emph{fallback hypothesis} and positive control: if the difficulty is that the autoregressive likelihood was never trained to provide a score, then a score-trained diffusion model on the same tokenizer should supply the local direction the autoregressive gradient lacks, and substituting it as the proposal would isolate the training objective as the cause. The amortization step of RQ3a folds into the same branch, since a GFlowNet that only ever evaluates the reward and never differentiates it tests whether learning to sample sidesteps a gradient pathology; a trained proposal is therefore available both as an efficiency measure and as a diagnostic instrument.
+
+Two reservations are stated in advance. First, the datasets and metrics may be adjusted as the diagnostic questions sharpen, as the evaluation plan of Section~\ref{subsec:evaluation_metrics} already anticipates in reserving the choice of the most relevant subset. Second, under the diagnostic branch the research questions will be sharpened into diagnostic form while preserving their substance: RQ1 becomes whether and why the gradient is usable, RQ2 becomes whether steering is possible on the landscape as it stands, and RQ3 becomes whether amortization repairs it, so that each question is answered as the characterization of a mechanism rather than as the demonstration of a working system.
 
 
 

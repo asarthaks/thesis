@@ -58,7 +58,7 @@
 % build (Overfull \hbox of 4.20pt in the abstract paragraph). The report build avoids
 % this via microtype, which the template does not use.
 \emergencystretch=1.5em
-\graphicspath{{../}{../figures/}{./}} % figures live in ../figures relative to this folder
+\graphicspath{{../../}{../}{../figures/}{./}} % includegraphics uses the figures/ prefix; figures live in Doc/figures, so the prefix ../../ (this file is Doc/final/thesis/) resolves ../../figures/... The restructuring moved the master one level deeper than Doc/final/, breaking the original {../}; path corrected 2026-07-26.
 
 % ---- notation shorthands used throughout the body ----
 \newcommand{\R}{\mathbb{R}}
@@ -80,9 +80,14 @@
 % TITLE PAGE (template layout, fields filled)
 % ============================================================
 \begin{titlepage}
-  % different margin so titlepage fits into template (top/bottom added so the longer
-  % real title and the examiner block fit on a single page)
-  \newgeometry{left=3.5cm,right=2cm,top=2cm,bottom=2cm}
+  % E2 item 1 (third strike, 2026-07-26): the titlepage now matches the official
+  % ThesisExample template VERBATIM in geometry and vertical spacing. The previous build
+  % added top=2cm,bottom=2cm here, which enlarged the text height so the template's \vfill
+  % (kept, as in the template) opened a several-centimetre void between the author name and
+  % the examiner block. Reverting to the template's {left=3.5cm,right=2cm} (default top and
+  % bottom) and the template's 2.5cm / 2cm skips and blank tabular rows reproduces the
+  % template's balanced layout. See the side-by-side render in REVISION_WRITING.md.
+  \newgeometry{left=3.5cm,right=2cm}
   \large
    \begin{center}
     Institut für Maschinelle Sprachverarbeitung\\
@@ -90,18 +95,20 @@
     Pfaffenwaldring 5B\\
     D-70569 Stuttgart\\
 
-    \vspace{2cm}
+    \vspace{2.5cm}
     Master thesis \\
     {\LARGE \bf Energy-Guided Sampling for Controllable Text Generation: From Langevin Dynamics to Amortized Inference} \\
-    \vspace{1.5cm}
+    \vspace{2cm}
     Sarthak Singh\\
        \vfill
     \begin{tabular}[t]{lr}
     Studiengang: & M.Sc. Computational Linguistics \\
     \\
+    \\
     {Prüfer*innen:} & Prof. Dr. Ngoc Thang Vu\\
      & Dr. Antje Schweitzer\\
     {Betreuer*in:} & Prof. Dr. Ngoc Thang Vu\\
+    \\
     \\
     {Beginn der Arbeit:} & 01.03.2026\\ % AUTHOR DECISION: enter the start date (not supplied)
     {Ende der Arbeit:} & 29.07.2026\\
@@ -112,8 +119,11 @@
   \normalsize
 \end{titlepage}
 
-% back to original geometry
-\newgeometry{left=3cm,right=3cm}
+% back to the document body geometry. \restoregeometry restores the preamble geometry
+% (left=3cm,right=3cm + default top/bottom) EXACTLY, so the abstract that follows uses the
+% same text block as the rest of the body. The previous \newgeometry{left=3cm,right=3cm}
+% was the "unrestored" case the author flagged; \restoregeometry is the canonical undo.
+\restoregeometry
 
 \newpage
 \thispagestyle{empty}

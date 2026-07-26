@@ -2,15 +2,24 @@
 \begin{center}
     {\Large\bfseries Abstract}
 \end{center}
-\vspace{0.3cm}
 
-\noindent Controllable text generation asks a language model to produce text satisfying a global property, such as a sentiment or a factual constraint, that cannot be evaluated until a sequence is complete. One prominent family of methods pursues this without retraining: it treats the frozen likelihood of a pretrained autoregressive language model as an \emph{energy function} over sequences and samples from that energy with gradient-guided Markov chain Monte Carlo, usually a discretization of Langevin dynamics. An arbitrary constraint can then be added to the energy at inference time, so a single frozen model could in principle be steered toward any objective without a new training run. This thesis tests the premise the construction rests on, that the gradient of the frozen likelihood is a usable local search direction on discrete text.
+% Phase 9 (evaluation2 item 8, one-page hard limit): the abstract body uses a slightly tighter
+% line spacing than the 1.3 body default, so the fully compressed abstract fits on a single
+% page as the author requires. Spacing only; no content is removed by this group.
+{\renewcommand{\baselinestretch}{1.12}\normalsize
+\noindent Controllable text generation asks a language model to produce text satisfying a global property, such as a sentiment or a factual constraint, that cannot be checked until a sequence is complete. One prominent family pursues this without retraining: it treats the frozen likelihood of a pretrained autoregressive language model as an \emph{energy function} over sequences and samples from it with gradient-guided Markov chain Monte Carlo, usually a discretization of Langevin dynamics, adding an arbitrary constraint to the energy at inference time so that a single frozen model could in principle be steered toward any objective without a new training run. This thesis tests the premise the construction rests on, that the gradient of the frozen likelihood is a usable local search direction on discrete text.
 
-\noindent The study covers five energy functions, a supervised fine-tuned GPT-2 Large, three GFlowNet-tuned variants of it, and a Llama-3 8B cross-architecture control, across one hundred and forty-five sampling configurations on a masked-token recovery benchmark built from ROCStories. Two samplers are evaluated, one remaining in token space and one operating in the embedding space, under a factorial combination of Metropolis--Hastings correction, gradient normalization, and annealing schedule length. The central result is negative and consistent across these models: in the tested token-substitution settings, the input-embedding gradient of frozen autoregressive sequence likelihood provided no reliable proposal advantage over a norm-matched random direction.
+\noindent The study covers five energy functions, a GPT-2 Large fine-tuned on ROCStories, three GFlowNet-tuned variants, and a Llama-3 8B cross-architecture control, across 145 sampling configurations on a masked-token recovery benchmark on WikiText-2 validation, with a token-space and an embedding-space sampler. The central result is negative and consistent across these models: in the tested token-substitution settings, the input-embedding gradient of frozen autoregressive sequence likelihood provided no reliable proposal advantage over a norm-matched random direction.
+% COMPRESSED (Phase 9, evaluation2 item 8, one-page limit): dropped the factorial-combination
+% clause ("under a factorial combination of Metropolis--Hastings correction, gradient
+% normalization, and annealing schedule length"), which is stated in Chapter 4.
 
-\noindent The principal mechanism is a \emph{linearization failure}: the first-order Taylor surrogate by which the discrete sampler ranks candidate tokens is uncorrelated with the true change in sequence energy, because the smallest admissible token substitution moves further in embedding space than the radius over which the local linear model holds.
+\noindent The principal mechanism is a \emph{linearization failure}: the first-order Taylor surrogate by which the discrete sampler ranks candidate tokens is uncorrelated with the true change in sequence energy, being already uninformative at the distances any admissible token substitution must move.
 
-\noindent Amortizing the search with a GFlowNet, which evaluates the energy as a scalar reward and never differentiates it, did not escape the failure: three collapse modes appeared, and Langevin sampling on the tuned energy was indistinguishable from sampling on the untuned base even though tuning had moved that energy by tens of nats. As a positive control, a score-entropy discrete diffusion model on the same tokenizer supplies a clearly positive local direction where the autoregressive gradient was statistically zero and, substituted as the proposal inside this thesis's own exact-energy chain, raises exact recovery from zero to thirty-nine percent. The combined GFlowNet and diffusion results support the interpretation that the training objective, rather than only the sampling algorithm, is a key source of the failure.
+\noindent Amortizing the search with a GFlowNet, which evaluates the energy as a scalar reward and never differentiates it, did not escape the failure: Langevin sampling on the tuned energy was indistinguishable from sampling on the untuned base. As a positive control, a score-entropy discrete diffusion model on the same tokenizer supplies a clearly positive local direction where the autoregressive gradient was statistically zero and, as the proposal in the same exact-energy chain, raises exact recovery from 0 to 39\%. These results support the interpretation that the training objective, rather than only the sampling algorithm, is a key source of the failure. The practical implication is direct: evaluate the frozen energy and search it without gradients rather than differentiate it.
+% COMPRESSED (Phase 9, evaluation2 item 8, one-page limit): dropped "three collapse modes
+% appeared" and "even though tuning had moved that energy by tens of nats" (both in Chapter 5),
+% and merged the interpretation and practical-implication sentences.
 
 % REMOVED (Phase 8, evaluation section 2.A and section 5 item 1: the abstract "functions more
 % like an extended executive summary"; 775 words -> 383, one page). Cut here and preserved in
@@ -74,5 +83,6 @@
 %
 % NOTE: there is no German Kurzfassung in this thesis, so the "update in lockstep" instruction
 % has no second target. The IMS checklist does not require one for an English thesis.
+\par}
 
 \clearpage

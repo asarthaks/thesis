@@ -326,8 +326,11 @@ def plot_likelihood_trap(res_dir, fig_dir, model_key="gpt2sft"):
     df = pd.read_csv(csv)
 
     order = ["beam20", "beam5", "greedy", "temp07", "topp90", "ancestral"]
-    cmap = {"beam20": C_BAD, "beam5": "#D06A4C", "greedy": "#E08A5B",
-            "temp07": "#7FA8A3", "topp90": C_POLICY, "ancestral": C_NEUTRAL}
+    # Phase 9 (author issue list item 28): six clearly distinct hues so the decoding
+    # strategies do not blend in the scatter (the earlier red/orange ramp for the three
+    # deterministic decoders was hard to tell apart).
+    cmap = {"beam20": "#B5402F", "beam5": "#E8A33D", "greedy": "#6A4C93",
+            "temp07": "#2E7D77", "topp90": "#1F6FB2", "ancestral": "#2B2B2B"}
 
     # ---------- 4A ----------
     fig, axes = plt.subplots(1, 2, figsize=(9.6, 4.2))
@@ -350,18 +353,35 @@ def plot_likelihood_trap(res_dir, fig_dir, model_key="gpt2sft"):
     save(fig, fig_dir, "fig_trap_scatter")
 
     # ---------- 4B ----------
+    # Phase 9 (Part 1, Alarm 3): the fitted line and its annotated slope now match
+    # the regression the thesis text cites (Sections 5.7 and 5.10), which is
+    # run_diagnostic's pooled_sampling fit: the three stochastic decoders
+    # (ancestral, topp90, temp07) where length varies, regressing total_logp on
+    # scored_len. Fitting over ALL rows instead washed the slope to about -0.11,
+    # because roughly 99.7 percent of generations are pinned at the length cap and
+    # carry no length information. Source: diag_likelihood_trap_gpt2sft.json
+    # length_vs_total_logp.pooled_sampling (slope -1.12, r -0.08, n 1500).
     from scipy.stats import linregress
-    lr = linregress(df.gen_len, df.total_logp)
+    sampling = ["ancestral", "topp90", "temp07"]
+    fit_df = df[df.strategy.isin(sampling) & (df.scored_len > 0)]
+    lr = linregress(fit_df.scored_len, fit_df.total_logp)
     fig, ax = plt.subplots(figsize=(6.0, 4.2))
-    ax.scatter(df.gen_len, df.total_logp, s=6, alpha=0.25,
-               color=C_NEUTRAL, linewidths=0)
-    xs = np.linspace(df.gen_len.min(), df.gen_len.max(), 50)
+    # context: the cap-pinned mass (deterministic decoders, and any sampling
+    # generation that ran to the cap), drawn faintly so it does not drive the eye
+    capped = df[~df.strategy.isin(sampling)]
+    ax.scatter(capped.scored_len, capped.total_logp, s=6, alpha=0.12,
+               color="0.7", linewidths=0,
+               label="pinned at the length cap (excluded from the fit)")
+    ax.scatter(fit_df.scored_len, fit_df.total_logp, s=6, alpha=0.30,
+               color=C_NEUTRAL, linewidths=0,
+               label="stochastic decoders, length varies (fitted)")
+    xs = np.linspace(fit_df.scored_len.min(), fit_df.scored_len.max(), 50)
     ax.plot(xs, lr.intercept + lr.slope * xs, color=C_BAD, lw=2,
             label=rf"slope = {lr.slope:.2f} nats/token  ($r$ = {lr.rvalue:.2f})")
-    ax.set_xlabel("Generated sequence length (tokens)")
+    ax.set_xlabel("Scored sequence length (tokens)")
     ax.set_ylabel(r"Total $\log p$   (the unnormalised GFlowNet reward)")
     ax.set_title("Total log-likelihood against generated length")  # Phase 8: was a verdict
-    ax.legend(frameon=False, fontsize=9)
+    ax.legend(frameon=False, fontsize=8)
     save(fig, fig_dir, "fig_trap_length")
 
 

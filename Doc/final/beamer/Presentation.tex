@@ -1,213 +1,446 @@
-                                       
-% This template was created for future students affiliated with the Department of Economics at the University of Bergamo by:
-% - Manuel Donà (Energy Market Modeler at Falck Renewables SpA);
-% - Andrea Lopes (PhD Candidate in Economics at University of Milan);
-% - Andrea Zoccatelli (Data Scientist at GroupM).
-
-
-
+% Defense talk: Energy-Guided Sampling for Controllable Text Generation.
+% Phase 9, Part 6. Built on the located beamer template (Madrid/whale), adapted for the IMS
+% (title page with institute + two examiners, clean sectioned flow, short-phrase slides).
+% Story arc follows PROMPT_PHASE9_FINAL_DOCS Part 6. Numbers are the verified thesis numbers.
+% Design notes and the minute budget are in PRESENTATION_LOG.md.
 
 \documentclass{beamer}
-%\hypersetup{pdfpagemode=FullScreen} %full screen mode
 \setbeamertemplate{navigation symbols}{}
 
-
-\usepackage[english]{babel} 
-\usepackage[latin1]{inputenc} 
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
 \usepackage{amsmath,amssymb}
-\usepackage[T1]{fontenc} 
-\usepackage{curves}
-\usepackage{verbatim}
-\usepackage{multimedia}
-\usepackage{mathptmx}
+\usepackage{bm}
 \usepackage{graphicx}
 \usepackage{booktabs}
-\usepackage{hyperref}
-\usepackage{multirow}
 \usepackage{xcolor}
-\usepackage{algorithm,algorithmic}
-\renewcommand{\algorithmicrequire}{\textbf{Input:}}
-\renewcommand{\algorithmicensure}{\textbf{Output:}}
-\usepackage{lipsum}
-\setbeamertemplate{caption}[numbered] % For numbering figures
+\usepackage{tikz}
+\usetikzlibrary{positioning,arrows.meta,shapes.geometric,calc,decorations.pathmorphing}
 
-\mode<presentation> {
+\graphicspath{{../../figures/}{../figures/}{./}} % result figures live in Doc/figures
 
-\usetheme{Madrid} 
-
-\usecolortheme{whale} 
-
-%\setbeamertemplate{footline} % To remove the footer line in all slides uncomment this line
-
-
-\setbeamertemplate{navigation symbols}{} % To remove the navigation symbols from the bottom of all slides uncomment this line
+\mode<presentation>{
+  \usetheme{Madrid}
+  \usecolortheme{whale}
+  \setbeamertemplate{navigation symbols}{}
 }
-
-\usepackage{graphicx}
-\usepackage{booktabs} 
+\setbeamertemplate{caption}[numbered]
+\setbeamertemplate{itemize items}[circle]
 \setbeamercovered{transparent}
-\setbeamertemplate{bibliography item}[text]
-\setbeamertemplate{theorems}[numbered]
-\setbeamerfont{title}{size=\Large}%\miniscule,command,tiny, scriptsize,footnotesize,small,normalsize,large,Large,LARGE,huge,Huge,HUGE
-\setbeamerfont{date}{size=\tiny}%{\fontsize{40}{48} \selectfont Text}
 
-\setbeamertemplate{itemize items}[ball] % if you want a ball
-\setbeamertemplate{itemize subitem}[circle] % if you want a circle
-\setbeamertemplate{itemize subsubitem}[triangle] % if you want a triangle
+% IMS-ish structure colour (deep blue) so the deck does not read as a stock template
+\definecolor{imsblue}{HTML}{1B2A4A}
+\definecolor{imsteal}{HTML}{2E7D77}
+\definecolor{imsred}{HTML}{B5402F}
+\definecolor{imsamber}{HTML}{E8A33D}
+\setbeamercolor{structure}{fg=imsblue}
 
-%-------customized frame-------
-\newcounter{cont}
+\title[Energy-Guided Sampling]{Energy-Guided Sampling for Controllable Text Generation}
+\subtitle{From Langevin Dynamics to Amortized Inference}
+\author[Sarthak Singh]{Sarthak Singh}
+\institute[IMS Stuttgart]{%
+  Institut f\"ur Maschinelle Sprachverarbeitung, Universit\"at Stuttgart\\[0.6em]
+  {\footnotesize Examiners: Prof.\ Dr.\ Ngoc Thang Vu \quad Dr.\ Antje Schweitzer}\\
+  {\footnotesize Supervisor: Prof.\ Dr.\ Ngoc Thang Vu}\\[0.4em]
+  {\footnotesize M.Sc.\ Computational Linguistics}}
+\date{Thesis Defense}
 
-\makeatletter
-%allowframebreaks numbering in the title
-\setbeamertemplate{frametitle continuation}{%
-   % \setcounter{cont}{\beamer@endpageofframe}%
-    %\addtocounter{cont}{1}%
-   % \addtocounter{cont}{-\beamer@startpageofframe}%
-   % (\insertcontinuationcount/\arabic{cont})%
+% ---- reusable TikZ styles ----
+\tikzset{
+  box/.style={draw=imsblue, thick, rounded corners, align=center, fill=imsblue!5, inner sep=5pt, font=\footnotesize},
+  op/.style={draw=imsteal, thick, rounded corners, align=center, fill=imsteal!10, inner sep=5pt, font=\footnotesize},
+  ar/.style={-{Latex[length=2mm]}, thick, imsblue},
 }
-\makeatother
 
-%--------------------------
-%	TITLE PAGE
-%--------------------------
-
-\title[Master's Thesis\_or title in short]{TITLE TITLE TITLE} % The short title appears at the bottom of every slide, the full title is only on the title page
-
-\author[name\_surname]{\texorpdfstring{{\normalsize Candidate's name\_surname}}{Author}}
-
-\institute[STUDENT ID] %matricola
-{
-
-{\small Supervisor/s}\\
-\medskip
-{\small Professor insert\_here\_professor's\_name\_and\_surname}\\
-%\begin{center}
-%\includegraphics[width=0.1\textwidth]{uoh.png}
-%\end{center}
-\vspace{2cm}
-\medskip
-Department of Economics\\
-University of Bergamo% Your institution for the title page
-
-%\medskip
-%\textit{john@smith.com} % Your email address
-}
-%This will place the image at position "30 right/left and 120 up/down" relative to the top left corner of the current page.
-\titlegraphic{%
-  \begin{picture}(0,0)
-    \put(37,146){\makebox(0,0)[rt]{\includegraphics[width=2.5cm]{bg.png}}}
-  \end{picture}} % you can modify the UNIBG logo to center it.
- \date{insert date} % Date
- 
 \begin{document}
-\definecolor{your_color}{HTML}{172642}
-\setbeamercolor{structure}{fg=your_color}
-\begin{frame}
-\titlepage % Print the title page as the first slide
-\setbeamertemplate{footline}[page number]
 
+% =====================================================================
+\begin{frame}[plain]
+  \titlepage
 \end{frame}
-\setbeamertemplate{footline}[page number]
+\setbeamertemplate{footline}[frame number]
 
+% =====================================================================
+\section{Motivation}
 
-%-------------------------------
-%	PRESENTATION SLIDES
-%-------------------------------
-
-\section{Name\_1} 
-\begin{frame}[allowframebreaks]
-\frametitle{Slides\_title}
-
-
-\end{frame}
-
-
-%---------------------------------------
-
-%---------------------------------------------------------------
-\section{Name\_2}
-\begin{frame}[allowframebreaks]
-\frametitle{Slides\_title}
-\textbf{Bullets title}
-\vspace{0.3cm}
-\begin{itemize}
-\item 
-\vspace{0.15cm}
-\item 
-\end{itemize}
-
+\begin{frame}{The problem autoregressive models cannot solve natively}
+  \begin{itemize}
+    \item Autoregressive generation: one token at a time, left to right.
+    \item A token is fixed the moment it is emitted.\\
+          \emph{No mechanism to revise an earlier token in light of a later one.}
+    \item Global properties (sentiment, factual constraint) live in the \emph{whole} sequence.
+  \end{itemize}
+  \vspace{0.6em}
+  \begin{center}
+  \begin{tikzpicture}[font=\footnotesize]
+    \foreach \i/\w in {0/The, 1/movie, 2/was, 3/absolutely} {
+      \node[box, minimum width=1.4cm] (t\i) at (\i*1.7,0) {\w};
+    }
+    \node[draw=imsred, thick, rounded corners, minimum width=1.4cm, fill=imsred!10] (t4) at (4*1.7,0) {?};
+    \foreach \i in {0,...,3}{ \pgfmathtruncatemacro\j{\i+1} \draw[ar] (t\i) -- (t\j); }
+    \draw[imsred, thick, -{Latex}, dashed] (t4.north) to[bend right=35] node[above, font=\scriptsize]{cannot flow back} (t0.north);
+  \end{tikzpicture}
+  \end{center}
+  \begin{center}\small Control means steering the \emph{completed} object. That is a global problem.\end{center}
 \end{frame}
 
-%----------------------------------------
-
-\section{Name\_3}
-\begin{frame}[allowframebreaks]
-\frametitle{Slides\_title}\small
-
-\begin{block}{insert block name (e.g. proposition or key assumption)}
-    write your proposition here
-\end{block} % insert in the block fundamental assumptions, propositions, lemmas and so on, with the CORRECT block title (e.g., Proposition 1).
-
-
-
-
+\begin{frame}{The energy-based promise, and its one assumption}
+  \begin{columns}[T]
+    \begin{column}{0.54\textwidth}
+      Treat the frozen likelihood as an \textbf{energy} over sequences and sample from it:
+      \[ p(\bm{x}) \propto \exp\!\big(-E(\bm{x})\big),\quad E = -\log p_{\text{LM}} + \lambda\,C. \]
+      \begin{itemize}
+        \item Add any constraint $C$ at inference time.
+        \item One frozen model, any objective. \textbf{Plug and play.}
+      \end{itemize}
+      \vspace{0.4em}
+      \structure{The untested assumption:}\\
+      \emph{the gradient of the frozen likelihood is a usable search direction on discrete text.}
+    \end{column}
+    \begin{column}{0.46\textwidth}
+      \begin{center}
+      \begin{tikzpicture}[scale=0.9]
+        \draw[->,gray] (-0.2,0) -- (4.4,0) node[right,font=\scriptsize]{sequence};
+        \draw[->,gray] (0,-0.2) -- (0,2.6) node[above,font=\scriptsize]{energy};
+        \draw[imsblue, thick, decorate, decoration={random steps,segment length=5pt,amplitude=1.3pt}]
+          (0.2,2.2) .. controls (1.2,0.4) and (1.8,2.1) .. (2.4,0.9)
+          .. controls (2.9,1.9) and (3.6,0.3) .. (4.2,1.6);
+        \node[imsred,font=\scriptsize] at (2.2,2.5) {gradient points\ldots\ where?};
+        \draw[imsred,thick,-{Latex}] (2.4,0.9) -- ++(0.7,0.35);
+      \end{tikzpicture}
+      \\[-0.3em]{\scriptsize A jagged landscape: the local slope need not lead anywhere good.}
+      \end{center}
+    \end{column}
+  \end{columns}
 \end{frame}
 
-%---------------------------------------
-\section{Name\_4}
-\begingroup
-{
-\setbeamercolor{background canvas}{bg=your_color}
-\setbeamertemplate{footline}{}
-\begin{frame}[c]
-\vfill
-\begin{center}
-\Large\textcolor{white}{Key question}
-\end{center}
-\vfill
-\end{frame}
-}
-\endgroup
-
-
-\section{References}
-\begin{frame}[allowframebreaks]
-\frametitle{References}\scriptsize
-
-insert your references here
-
-
+\begin{frame}{Research questions}
+  \begin{enumerate}
+    \item[RQ1] Can the frozen likelihood be sampled with faithful Langevin dynamics on discrete text, and if not, why?
+    \item[RQ2] What does the Metropolis--Hastings correction do in each sampler?
+    \item[RQ3] Does amortizing with a GFlowNet escape the failure?
+    \item[RQ4] Can an additive constraint steer generation on this landscape?
+  \end{enumerate}
+  \vspace{0.8em}
+  \begin{center}\small The outcome is told up front: the thesis is an \emph{explanation}, not a reveal.\end{center}
 \end{frame}
 
-%-------------------------------
-\begin{frame}
-\Huge{\centerline{Thank You}}
+% =====================================================================
+\section{The faithful implementation}
+
+\begin{frame}{Two samplers, implemented faithfully}
+  \begin{columns}[T]
+    \begin{column}{0.5\textwidth}
+      \begin{itemize}
+        \item \textbf{DLS} (discrete): stays in token space; gradient only builds a proposal.
+        \item \textbf{CLS} (continuous): relaxes into embedding space; projects back to tokens.
+        \item \textbf{Metropolis--Hastings} correction: applied faithfully (usually omitted in the literature).
+        \item Step size set by \textbf{oracle calibration} ($\epsilon: 10.5 \to 0.1$).
+      \end{itemize}
+      \vspace{0.3em}
+      {\footnotesize 5 energy functions, 145 configurations, paired seeds, equivalence margin.}
+    \end{column}
+    \begin{column}{0.5\textwidth}
+      \begin{center}
+      \begin{tikzpicture}[node distance=6mm and 9mm]
+        \node[box] (s) {state};
+        \node[op, right=of s] (g) {gradient\\$\to$ proposal};
+        \node[op, below=of g] (mh) {MH\\accept / reject};
+        \node[box, left=of mh] (p) {project\\to token};
+        \draw[ar] (s) -- (g);
+        \draw[ar] (g) -- (mh);
+        \draw[ar] (mh) -- (p);
+        \draw[ar] (p) -- (s);
+        \node[font=\scriptsize, imsred, right=1mm of mh, text width=2.2cm] {the step the field skips};
+      \end{tikzpicture}
+      \\[0.3em]{\scriptsize One sampler loop, run to convergence, not stopped early.}
+      \end{center}
+    \end{column}
+  \end{columns}
 \end{frame}
 
-%-------------------------------
-\begingroup
-{
-\setbeamercolor{background canvas}{bg=your_color}
-\setbeamertemplate{footline}{}
-\begin{frame}[c]
-\vfill
-\begin{center}
-\Large\textcolor{white}{Thank you}
-\end{center}
-\vfill
+% =====================================================================
+\section{The null}
+
+\begin{frame}{The central result: gradient vs.\ a norm-matched random direction}
+  \begin{columns}[T]
+    \begin{column}{0.52\textwidth}
+      A three-way ablation isolates the gradient's \emph{direction} from its \emph{magnitude}.
+      \vspace{0.5em}
+      \begin{block}{Paired comparison, flagship config}
+        \small
+        mean difference $+0.171$ nats\\
+        95\% CI $[-0.285,\,+0.619]$ \structure{(straddles zero)}\\
+        Wilcoxon $p = 0.40$\\
+        detectable only if $\geq 0.652$
+      \end{block}
+    \end{column}
+    \begin{column}{0.48\textwidth}
+      \small
+      \begin{tabular}{lcc}
+        \toprule
+        Energy & policy & random \\
+        \midrule
+        GPT-2 Large & $6.474$ & $6.430$ \\
+        GFN lb0-500 & $6.009$ & $6.001$ \\
+        GFN lb0-2000 & $6.698$ & $6.552$ \\
+        GFN lb1-500 & $6.008$ & $5.338$ \\
+        \bottomrule
+      \end{tabular}
+      \\[0.5em]{\scriptsize Final KL (lower better). Differences small and inconsistent in sign.}
+    \end{column}
+  \end{columns}
+  \vspace{0.4em}
+  \begin{center}
+  \structure{In the tested settings, the gradient gives no reliable advantage over noise of the same norm.}
+  \end{center}
 \end{frame}
-} 
 
-\endgroup
+% =====================================================================
+\section{Why the gradient fails}
 
-% Choose your favorite thank you slide
-
-%-------------------------------
-\section{Appendix}
-\begin{frame}{Appendix}
-    insert here an appendix if needed
+\begin{frame}{Why, part 1: the linearization fails before the first move}
+  \begin{columns}[T]
+    \begin{column}{0.46\textwidth}
+      The proposal ranks tokens by a first-order surrogate. It is uncorrelated with the true energy change: $|\rho| < 0.06$ on all five energies ($n=400{,}000$).
+      \vspace{0.5em}
+      \begin{itemize}
+        \item Smallest token move: $1.82$ (nearest-neighbour spacing).
+        \item The surrogate is already uninformative at that distance.
+      \end{itemize}
+      \structure{The gradient is inapplicable, not merely imprecise.}
+    \end{column}
+    \begin{column}{0.54\textwidth}
+      \begin{center}
+      \begin{tikzpicture}[scale=0.85, font=\scriptsize]
+        \foreach \x/\y in {0/0, 1.6/0.3, 3.0/-0.2, 1.0/1.4, 2.4/1.2, 0.4/-1.2, 2.9/-1.4}{
+          \fill[imsblue] (\x,\y) circle (1.2pt);
+        }
+        \node[circle, draw=imsteal, thick, minimum size=0.5cm] (r) at (0,0) {};
+        \node[imsteal, below=0pt of r, yshift=3pt] {radius};
+        \draw[imsred, thick, -{Latex}] (0,0) -- (1.6,0.3) node[midway, above, sloped, imsred]{smallest move $\approx 1.82$};
+        \node[align=center, font=\scriptsize, text width=4.6cm] at (1.4,-2.0) {valid radius $\ll$ smallest admissible substitution};
+      \end{tikzpicture}
+      \\[0.2em]
+      \includegraphics[width=0.85\textwidth]{fig_lin_radius.pdf}
+      \end{center}
+    \end{column}
+  \end{columns}
 \end{frame}
 
+\begin{frame}{Why, part 2: the correction breaks the continuous sampler}
+  \begin{columns}[T]
+    \begin{column}{0.5\textwidth}
+      Decompose the Metropolis--Hastings acceptance for boundary-crossing moves:
+      \begin{block}{The two terms}
+        \small
+        target log-ratio $= +4.60$ \structure{(moves are good)}\\
+        proposal log-ratio $= -1325$ \structure{(kills them)}
+      \end{block}
+      \begin{itemize}
+        \item The projected drift is not Lipschitz across a Voronoi boundary.
+        \item CLS accepts within-cell moves $\approx 0\%$; DLS accepts them $100\%$.
+      \end{itemize}
+      \structure{Faithful correction disables CLS; it rescues DLS.}
+    \end{column}
+    \begin{column}{0.5\textwidth}
+      \begin{center}
+      \includegraphics[width=\textwidth]{fig_mh_decomposition.pdf}
+      \end{center}
+    \end{column}
+  \end{columns}
+\end{frame}
+
+% =====================================================================
+\section{The energy still works}
+
+\begin{frame}{The energy is fine; its gradient is not}
+  Score the \emph{same} energy without its gradient (GPT-2 Large, masked recovery):
+  \vspace{0.5em}
+  \begin{center}
+  \small
+  \begin{tabular}{lc}
+    \toprule
+    Method (no gradient of the energy) & mean KL \\
+    \midrule
+    Ground-truth fill (floor) & $0.00$ \\
+    Best Langevin configuration (uses the gradient) & $\sim 6.4$ \\
+    Gradient-free Gibbs sampler & $6.69$ \\
+    Top-$k$ rescore, one forward pass & \textbf{$4.43$} \\
+    \bottomrule
+  \end{tabular}
+  \end{center}
+  \vspace{0.5em}
+  \begin{center}
+  \structure{Evaluate the energy: works. Differentiate it: does not.}\\
+  {\footnotesize The claim is narrowed to the gradient, not the energy.}
+  \end{center}
+\end{frame}
+
+% =====================================================================
+\section{Amortization and positive control}
+
+\begin{frame}{GFlowNet amortization does not escape the failure}
+  A GFlowNet only ever \emph{evaluates} the reward, never differentiates it.
+  \vspace{0.5em}
+  \begin{itemize}
+    \item Three failure modes: \textbf{capacity collapse}, \textbf{length collapse}, \textbf{reward hacking}.
+    \item Tuning moved the energy by $31$--$57$ nats\ldots
+    \item \ldots yet Langevin sampling on the tuned energy is \emph{indistinguishable} from the untuned base.
+  \end{itemize}
+  \vspace{0.4em}
+  \begin{center}
+  \structure{Changing the model through this objective did not make the gradient useful.}\\
+  {\footnotesize The failure is a property of the training objective, not one sampler.}
+  \end{center}
+\end{frame}
+
+\begin{frame}{The exact case: the final-token gradient is zero}
+  \begin{columns}[T]
+    \begin{column}{0.56\textwidth}
+      Under causal attention with \texttt{inputs\_embeds}, the gradient of the sequence log-likelihood w.r.t.\ the \emph{final} token's input embedding is
+      \[ \nabla_{\bm{e}_L}\log p_{\text{LM}}(\bm{x}) = \bm{0} \quad\text{(exactly)}, \]
+      while the energy \emph{difference} between candidate final tokens is exactly the model's conditional log-ratio.
+      \vspace{0.4em}
+      \structure{Energy maximally usable; gradient provably useless.}
+    \end{column}
+    \begin{column}{0.44\textwidth}
+      \small
+      \begin{tabular}{lc}
+        \toprule
+        Position & LM grad norm \\
+        \midrule
+        final token & $0.0000$ \\
+        second-to-last & $>0$ \\
+        middle & $>0$ \\
+        \bottomrule
+      \end{tabular}
+      \\[0.4em]{\scriptsize Langevin recovers $0\%$ at all three positions; exact-energy methods $18$--$55\%$.}
+    \end{column}
+  \end{columns}
+\end{frame}
+
+\begin{frame}{The positive control: a score-trained model supplies the direction}
+  \begin{columns}[T]
+    \begin{column}{0.5\textwidth}
+      Same energy, same Metropolis chain, same sequences. Swap only the proposal direction: autoregressive gradient $\to$ diffusion (SEDD) score.
+      \begin{block}{Exact recovery in the same exact-energy chain}
+        \small
+        autoregressive gradient: \textbf{0\%}\\
+        left-conditional proposal: $23.5\%$\\
+        diffusion proposal (hybrid): \textbf{39\%}
+      \end{block}
+      \structure{The missing direction was the training objective, not the sampler.}
+    \end{column}
+    \begin{column}{0.5\textwidth}
+      \begin{center}
+      \begin{tikzpicture}[node distance=8mm, font=\footnotesize]
+        \node[op] (sedd) {SEDD score\\(diffusion)};
+        \node[box, below=of sedd] (prop) {proposal\\direction};
+        \node[box, right=14mm of prop] (mh) {MH accept\\by \textbf{AR energy}};
+        \node[box, below=of mh] (out) {recovered\\token};
+        \draw[ar] (sedd) -- (prop);
+        \draw[ar] (prop) -- (mh);
+        \draw[ar] (mh) -- (out);
+        \node[font=\scriptsize, imsteal, above=1mm of sedd] {proposes};
+      \end{tikzpicture}
+      \\[0.4em]{\scriptsize SEDD proposes; the frozen AR energy accepts. $0 \to 39\%$.}
+      \end{center}
+    \end{column}
+  \end{columns}
+\end{frame}
+
+% =====================================================================
+\section{Takeaways}
+
+\begin{frame}{Takeaways}
+  \begin{enumerate}
+    \item In the tested settings, the frozen autoregressive gradient is no better than a norm-matched random direction.
+    \item The mechanism: linearization failure and, in continuous space, a Metropolis--Hastings breakdown at projection boundaries.
+    \item The energy is usable: gradient-free rescoring and Gibbs recover coherent text; amortization inherits, not escapes, the problem; a score-trained model repairs it.
+  \end{enumerate}
+  \vspace{0.8em}
+  \begin{center}
+  \Large\structure{Evaluate the energy; do not differentiate it.}\\[0.3em]
+  \normalsize Training objectives determine landscapes.
+  \end{center}
+\end{frame}
+
+\begin{frame}[plain]
+  \begin{center}
+  \Large Thank you.\\[0.6em]
+  \normalsize Questions?
+  \end{center}
+\end{frame}
+
+% =====================================================================
+% BACKUP SLIDES
+% =====================================================================
+\appendix
+\section*{Backup}
+
+\begin{frame}{Backup: the linearization radius and self-term blindness}
+  \begin{columns}[T]
+    \begin{column}{0.5\textwidth}
+      \small
+      \begin{itemize}
+        \item The surrogate correlates with the \emph{future} term ($\rho = 0.03$), never the \emph{self} term ($\rho = -0.10$).
+        \item Mean absolute self term $15.0$ nats; future term $24.2$ nats.
+        \item The input-embedding gradient is structurally blind to the candidate's own left-context fit, which enters as a discrete index.
+      \end{itemize}
+    \end{column}
+    \begin{column}{0.5\textwidth}
+      \includegraphics[width=\textwidth]{fig_lin_scatter.pdf}
+    \end{column}
+  \end{columns}
+\end{frame}
+
+\begin{frame}{Backup: the Metropolis--Hastings chain}
+  \small
+  \[ \alpha = \min\!\left\{1,\ \frac{p(\bm{s}')\,q(\bm{s}\mid\bm{s}')}{p(\bm{s})\,q(\bm{s}'\mid\bm{s})}\right\} \]
+  \begin{itemize}
+    \item Target ratio: prefers good states. Proposal ratio: enforces reversibility.
+    \item MALA needs a Lipschitz drift (Roberts and Tweedie 1996; Dalalyan 2017; Durmus and Moulines 2017).
+    \item The projected target is piecewise constant; the differentiable pathway's drift jumps across a cell boundary, so the reverse density vanishes.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Backup: likelihood is a poor objective, yet used everywhere}
+  \small
+  \begin{itemize}
+    \item The \textbf{likelihood trap}: the lowest-energy text is the most degenerate (Holtzman 2020, reproduced here). Within-strategy repetition correlation up to $+0.91$.
+    \item Resolution: likelihood ranks single-token substitutions well (used by the KL metric and Gibbs), but maximizing absolute sequence likelihood in free generation is degenerate.
+    \item So using it as the KL metric, the reward, and the SEDD comparison is consistent: relative-to-reference fit, not absolute likelihood as quality.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Backup: MuCoLa / COLD, and why they appear to work}
+  \small
+  \begin{itemize}
+    \item The continuous sampler follows the COLD/MuCoLa mechanism faithfully, including the correction those works typically omit.
+    \item Where they report success without the exact correction, it comes from an early-stopped biased optimizer plus post-hoc filtering, not from sampling the energy.
+    \item The constrained \emph{mucola} arm is that comparison, run at the energy level (final KL under the same base model), not the task level.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Backup: task design and corpus}
+  \small
+  \begin{itemize}
+    \item Masked-token recovery on WikiText-2 validation; the base GPT-2 Large is fine-tuned on ROCStories (out-of-domain test).
+    \item In-domain ROCStories diagnostics reproduce the null and the likelihood trap: not a domain-shift artifact.
+    \item The KL metric compares the recovered token's next-token conditional against the ground-truth-conditioned reference; synonyms score well.
+    \item Llama-3 is a cross-architecture control, never on a shared numerical axis; there the gradient is reliably \emph{worse} (CI $[0.45, 2.09]$, $p = 0.015$).
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Backup: why a GFlowNet, and the task-comparability caveat}
+  \small
+  \begin{itemize}
+    \item A GFlowNet samples in proportion to reward (not the mode), and never differentiates it, so a gradient pathology would be invisible to it.
+    \item It reformulates infilling as left-to-right generation under a restructured prompt; the samplers do in-place bidirectional substitution.
+    \item The comparison is therefore run at the energy level, not the task level; the left-to-right reformulation is not adopted for the samplers because it would dissolve the revision capability under study.
+  \end{itemize}
+\end{frame}
 
 \end{document}

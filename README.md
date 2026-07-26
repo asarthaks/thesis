@@ -41,7 +41,9 @@ concern-by-concern run notes).
   instrument-alignment asymmetry.
 
 The authoritative statement of every claim, number, table, and figure is the thesis
-LaTeX under `Doc/` (compile with `latexmk -pdf` in `Doc/`).
+LaTeX under `Doc/final/thesis/` (compile with `latexmk -pdf thesis.tex` in
+`Doc/final/thesis/`; figures resolve from `Doc/figures/`). The proposal is at
+`Doc/final/proposal/` and the defense talk at `Doc/final/beamer/`.
 
 ## Environment
 
@@ -98,8 +100,12 @@ scripts/             entry runners + launchers, all run from the repo root:
                      run_queue.sh worker.sh reset_incomplete.sh   the tmux job queue,
                      run_sedd_slate.sh run_gprime_slate.sh        SEDD / G-prime shard launchers,
                      launch_experiments.sh launch_multi.sh run_constraint_ablation.sh gpu_monitor.sh
-Doc/                 thesis LaTeX (thesis.tex master; chapters/ 01..08 + 05a + abstract;
-                     references.bib; figures under Doc/figures/). Doc/final/ is an article-class variant.
+Doc/final/thesis/    canonical thesis LaTeX: thesis.tex master (article/template class),
+                     chapters/ 01..08 + 05a + abstract + showcase/gprime/tab_confusion,
+                     references.bib. Figures resolve from Doc/figures/ (graphicspath ../../)
+Doc/final/proposal/  proposal.tex (amended: contingency section + errata)
+Doc/final/beamer/    Presentation.tex defense talk (+ bg.png)
+Doc/figures/         thesis figure PDFs/PNGs (LaTeX build inputs); Doc/prev_version/ pre-revision source
 figures/             code-output figures (pdf/png; plot scripts write here via --fig_dir figures);
                      figures/{gpt2,gfn,llama,compare}/ hold the per-model plot outputs
 results/
@@ -269,10 +275,17 @@ Anchored on `results/revision/numbers.json` (grid + reconcile, keyed by run_name
   measurements (e.g. judge ppl 181.32 for both; continuation 8.850 for both). This is
   expected: normalizing the gradient magnitude and then substituting a random direction of
   the same norm collapses the two arms. Report them as one where this holds.
-- **Concern 6a attribution.** The reported CLS acceptance pair (0.03% within / 3.7%
-  boundary) matches the CLS-policy *no-MH* split in the refreshed reconcile
-  (0.034 / 3.665); the MH=True split is 0.627% / 8.56%, and the DLS-MH within-cell /
-  boundary contrast is 100% / 9.3%. The thesis now reports all three explicitly.
+- **CLS acceptance attribution (corrected 2026-07-26, Part 1 Alarm 1).** The two CLS
+  acceptance pairs are BOTH MH-on; they differ by gradient normalization, not by the MH
+  switch. `reconcile_numbers.py:115` groups by `["sampler","method","grad_norm"]`, so the
+  boolean in `rev_reconcile.json`'s `('cls','policy',False/True)` keys is `grad_norm`:
+  grad-norm off (`cls_policy_gnoff_mh`) is 0.034% within / 3.665% boundary, grad-norm on
+  (`cls_policy_gnon_mh`) is 0.627% / 8.557%. There is no MH-off acceptance rate in the
+  trace file, because `collect_traces.py:259` logs acceptance only when MH is on (under
+  MH-off every proposal is accepted, rate 1.0). The DLS-MH within-cell / boundary contrast
+  is 100% / 9.3%. Section 5.3 now attributes the two numbers to the grad-norm split under
+  the correction, and `fig_mh_accept` is regenerated for the single config
+  `cls_policy_gnoff_mh`.
 - **Trajectory figures use a clean 5-config regeneration** (`traces_gpt2sft_plot`), not the
   canonical `traces_gpt2sft` npz, because the torch RNG carries across configs (so a single
   config cannot be spliced at the canonical RNG state) and the figures were placeholders.

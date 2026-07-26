@@ -105,10 +105,25 @@ def main():
     ap.add_argument("--csv", required=True, help="mh_log.csv from the patched CLS")
     ap.add_argument("--dls_csv", default=None, help="optional: the same log for DLS")
     ap.add_argument("--fig_dir", default="figures")
+    ap.add_argument("--config", default=None,
+                    help="Phase 9 (Part 1, Alarm 1): restrict to a single config in "
+                         "the 'config' column, e.g. cls_policy_gnoff_mh. Without this, "
+                         "a multi-config trace file (cls gnoff/gnon MH plus dls) is "
+                         "pooled, which mixes the paralysed continuous sampler with the "
+                         "100-percent-within-cell discrete control and produces a "
+                         "misleading combined bar (stayed 0.064, crossed 0.074).")
     args = ap.parse_args()
     os.makedirs(args.fig_dir, exist_ok=True)
 
     df = pd.read_csv(args.csv)
+    if args.config is not None:
+        if "config" not in df.columns:
+            raise SystemExit(f"--config given but the CSV has no 'config' column: {args.csv}")
+        present = set(df.config.unique())
+        if args.config not in present:
+            raise SystemExit(f"config {args.config!r} not in {sorted(present)}")
+        df = df[df.config == args.config].copy()
+        print(f"[config] restricted to {args.config!r}: {len(df)} rows")
 
     stayed = df[df.crossed == 0]
     crossed = df[df.crossed == 1]
@@ -165,12 +180,15 @@ def main():
         lo = np.nanpercentile(df[col], 1)
         hi = np.nanpercentile(df[col], 99)
         bins = np.linspace(lo, hi, 60)
+        # Phase 9 (author issue list item 22): draw one distribution as a translucent fill
+        # and the other as a solid step outline on top, with explicit zorder, so the overlap
+        # region does not blend the two colours into a spurious third colour.
         if len(stayed):
-            ax.hist(stayed[col].clip(lo, hi), bins=bins, alpha=0.7,
-                    color=C_OK, label="stayed in cell", linewidth=0)
+            ax.hist(stayed[col].clip(lo, hi), bins=bins, alpha=0.45,
+                    color=C_OK, label="stayed in cell", linewidth=0, zorder=2)
         if len(crossed):
-            ax.hist(crossed[col].clip(lo, hi), bins=bins, alpha=0.7,
-                    color=C_BAD, label="crossed a boundary", linewidth=0)
+            ax.hist(crossed[col].clip(lo, hi), bins=bins, histtype="step",
+                    color=C_BAD, label="crossed a boundary", linewidth=1.6, zorder=3)
         ax.axvline(0, color="0.3", lw=0.9)
         ax.set_xlabel(title)
         ax.set_ylabel("Count")
