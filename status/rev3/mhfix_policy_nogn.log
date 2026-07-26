@@ -1,0 +1,13 @@
+[mhfix_policy_nogn] loading /mount/studenten-temp1/users/singhsk/thesis/thesis/gfn-lm-tuning/infill_subj_arithmetic/gpt2_large_sft_output (float32) ...
+[mhfix_policy_nogn] 282 candidate sentences
+[mhfix_policy_nogn] 25/200
+[mhfix_policy_nogn] 50/200
+[mhfix_policy_nogn] 75/200
+[mhfix_policy_nogn] 100/200
+[mhfix_policy_nogn] 125/200
+[mhfix_policy_nogn] 150/200
+[mhfix_policy_nogn] 175/200
+[mhfix_policy_nogn] 200/200
+[mhfix_policy_nogn] DONE  n=200  acc=0.00%  final_kl=6.474  final_l2=2.416  accept=9.9%
+[mhfix_policy_nogn] wrote results/grid/rev3/mhfix_policy_nogn.json
+[mhfix_policy_nogn] wrote results/grid/rev3/mhfix_policy_nogn.csv

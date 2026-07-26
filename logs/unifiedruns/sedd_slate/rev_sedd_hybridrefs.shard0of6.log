@@ -1,0 +1,15 @@
+[hybrid_refs] gpt2sft loaded in 27.5s (no SEDD)
+[hybrid_refs shard0] 20 seqs, 5.5m
+[done] results_revision/rev_sedd_hybridrefs.shard0of6.json (10.0 min)
+{
+  "experiment": "hybrid_refs",
+  "shard_idx": 0,
+  "num_shards": 6,
+  "n_rows": 34,
+  "mh_steps": 50,
+  "dls_steps": 50,
+  "shard_done": true,
+  "run_name": "rev_sedd_hybridrefs.shard0of6",
+  "gpt2sft_path": "/mount/studenten-temp1/users/singhsk/thesis/thesis/gfn-lm-tuning/infill_subj_arithmetic/gpt2_large_sft_output",
+  "wall_time_sec": 601.8943212032318
+}

@@ -2871,3 +2871,781 @@ There are three deferrals, one expected and two found during the work.
 NOTHING EXPERIMENTAL WAS RUN OR RE-RUN. No GPU work. Compression, scoping, layout and figure
 regeneration only, from existing result files. The author commits; no commit was made by this
 session.
+
+---
+
+## 2026-07-26 (evaluation3 pass) PART A: quenching verified by fresh re-run
+
+Trigger: `refs/evaluation3.md` section 3.10 flags that Figures 1 to 3 do not show the
+drop the Section 5.2 text describes. The author asked for a code-history audit followed
+by an actual re-run rather than a re-analysis, because the mismatch had been seen before.
+
+### A1. Prior-note audit (done before touching any GPU)
+
+`REVISION_LOG.md` 2026-07-22 19:30 CEST already records this discrepancy
+("NUMERICAL DISCREPANCY FOUND, NOT SILENTLY FIXED") and the closeout at the tail of the
+file repeats it as open item 2. That entry measured the entropy onset at steps 46 and 92
+and left the text unchanged pending an author decision. Nothing in that entry, in
+`REVISION_WRITING.md`, or in `REVISION_RESTRUCTURING.md` records a code change to the
+samplers. Confirmed against git.
+
+### A2. Code-history audit
+
+`git log --follow` on `core/dls.py` and `core/base_sampler.py`: the last content change
+before the grid was `49341f7` ("experiments"); `f31a50f` ("code for diagnostics") added
+the recorders; `0722c4d` was the restructuring move. Diffing `49341f7` against HEAD:
+
+- `core/dls.py`: additive only. The `proposal_log`, `mh_log` and `traj_log` blocks, all
+  gated on `getattr(self, ..., None) is not None`, plus whitespace. The proposal
+  construction, the MH block and the RNG draw order are byte-identical.
+- `core/base_sampler.py`: one new keyword `init_s=None` (MuCoLa centroid init) and the
+  same `optimize` loop otherwise.
+
+`scripts/verify_equivalence_suite.py --sampler dls --mode both --quick` on the real data
+path: "VERDICT: safe to switch. Identical behaviour on the real data path."
+
+### A3. The re-run (single A6000, GPU 5, ~20 min)
+
+    scripts/run_experiment.py --sampler dls --method policy --grad_norm --steps 50 \
+      --model_path $GPT2SFT --model_tag gpt2-large --dtype float32 --n_samples 200 \
+      --num_masks 1 --data_seed 0 --eps_start 10.5 --eps_end 0.1 --temperature 5.0 \
+      --out_dir results/grid/verify
+
+Fresh run against the archived `results/grid/gpt2_v2/` CSV, all 200 samples x 50 steps:
+
+| channel | max abs difference |
+|---|---|
+| avg_l2_distance | 0.000e+00 |
+| avg_kl_divergence | 0.000e+00 |
+| entropy | 0.000e+00 |
+
+BIT-IDENTICAL. The archived data is sound and there is no code drift. The quenching
+mismatch is therefore a claim-versus-data problem, not a stale-results problem.
+
+### A4. What the data actually shows (measured on the fresh run)
+
+| quantity | first | last | steepest change |
+|---|---|---|---|
+| mean KL | 8.7645 | 9.4987 | step 12 of 50 |
+| mean proposal entropy | 10.8248 | 10.2760 | step 49 of 50 |
+| mean embedding distance | 2.5264 | 2.4071 | step 49 of 50 |
+
+Token-change rate by decile: 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 0.991.
+
+Three facts follow, and all three contradict the Section 5.2 prose.
+
+1. The mean KL does not fall late. It RISES over the schedule, 8.76 to 9.50. The section
+   says the metrics "drop abruptly near its end".
+2. The only late movement is proposal entropy, and it falls from 10.78 to 10.28 against
+   log|V| = 10.8249. That is not a collapse into a local optimum; the proposal still has
+   an effective support of roughly 29,000 tokens at its sharpest.
+3. The chain is still changing tokens on 99.1 percent of steps in the final decile.
+   Nothing freezes. The section says the update "degenerates into deterministic gradient
+   descent, which collapses into whatever local optimum is nearest" and that "the metrics
+   improve because the sampler has stopped moving". Neither is true of this data.
+
+The entropy floor over the ENTIRE run is 10.2760 nats. Checked across every DLS
+configuration in the grid: the minimum is 10.18 to 10.28 for the free-epsilon runs and
+exactly 10.825 (uniform to float precision) for the oracle runs. The proposal is
+numerically uniform over the 50,257-token vocabulary at every step of every configuration.
+
+CONCLUSION. Quenching, as described, is not in the data. The mechanism that IS in the
+data is simpler and explains more: the DLS proposal never sharpens, so without the
+correction the chain is a uniform random walk over the vocabulary that never converges
+(final KL 9.50, worse than its start), and with the correction it is a uniform-proposal
+independence sampler whose entire behaviour comes from the accept/reject filter
+(final KL 6.541 at a 9.98 percent acceptance rate). This also explains the 0.0 percent
+exact recovery in 139 of 145 configurations. Section 5.2 is to be rewritten around this;
+the s100 companion run is in flight to confirm the schedule-tracking half.
+
+### A5. One-hot / simplex gradient re-analysis (no GPU)
+
+New script `revision/analyze_onehot_surrogate.py`, output
+`results/revision/rev_onehot_surrogate.json`. For a causal LM the one-hot gradient's
+v-th coordinate is log p(v | x_<i) + g^T e(v), so the candidate surrogate is
+`true_delta_self + Dhat_emb`, and `true_delta_self` is already a column of every
+`diag_linearization_*.csv`. The comparison is therefore an exact algebraic re-analysis;
+no forward pass was run.
+
+Spearman against the true energy change, n = 400,000 candidate pairs per model:
+
+| energy | embedding gradient | self term only | one-hot gradient |
+|---|---|---|---|
+| gpt2sft | -0.0108 | +0.5952 | +0.5878 |
+| llama3-8b | +0.0208 | +0.5130 | +0.5130 |
+| gfn-lb0-500 | +0.0573 | +0.3740 | +0.3785 |
+| gfn-lb0-2000 | +0.0237 | +0.4427 | +0.4392 |
+| gfn-lb1-500 | +0.0462 | +0.3745 | +0.3650 |
+
+Restricted to the NEAR stratum, mean embedding distance 1.94 (0.45 for Llama), which is
+the admissible substitution range Section 5.6 argues about:
+
+| energy | embedding gradient | one-hot gradient |
+|---|---|---|
+| gpt2sft | +0.0275 | +0.7303 |
+| llama3-8b | +0.0387 | +0.5962 |
+| gfn-lb0-500 | +0.1107 | +0.6489 |
+| gfn-lb0-2000 | +0.0907 | +0.7063 |
+| gfn-lb1-500 | +0.0512 | +0.6097 |
+
+Note that adding the embedding gradient to the self term slightly DEGRADES the
+correlation on gpt2sft (0.5878 against 0.5952) and on two GFlowNet variants. The
+input-embedding gradient is not weak signal; on this task it is noise.
+
+Consequence for the thesis claim. "The gradient of the frozen likelihood carries no
+usable direction" is too broad and is refuted by the thesis's own diagnostic data. The
+supported claim is narrower and constructive: the usable direction exists in closed form
+on the OUTPUT side, and differentiating with respect to the INPUT EMBEDDING, which is
+what MuCoLa and COLD do and what this thesis implemented faithfully, is the Jacobian
+slice that discards it. This unifies the final-position theorem (where the embedding
+gradient is exactly zero and the self term is the whole energy difference), the
+gradient-free baselines (top-k rescore 4.43, Gibbs 6.69, both output-side), and the SEDD
+control (whose concrete score is a ratio, also output-side).
+
+### A6. Chain statistics (no GPU)
+
+New script `revision/analyze_chain_stats.py`, output
+`results/revision/rev_chain_stats.json`, figures `figures/fig_forest_chain.{pdf,png}`
+and `figures/fig_forest_last.{pdf,png}`. Recomputes four statistics per sample from the
+per-sample trajectories already stored in the grid CSVs, and runs the paired contrast
+with a 5,000-sample percentile bootstrap, Wilcoxon, and TOST at the pre-registered
+margin of 0.327 nats, for every configuration with at least two arms.
+
+Flagship `gpt2-large.dls.*.mh.gn.free.s50`, policy minus norm-matched random:
+
+| statistic | policy | gnp-random | paired diff | 95% CI | Wilcoxon p |
+|---|---|---|---|---|---|
+| final step (as reported) | 6.541 | 6.370 | +0.171 | [-0.291, +0.614] | 0.400 |
+| chain mean, 2nd half | 6.667 | 6.665 | +0.002 | [-0.332, +0.347] | 0.747 |
+| min over trajectory | 4.625 | 4.669 | -0.043 | [-0.271, +0.177] | 0.678 |
+
+Across the whole grid, 35 configurations pair: on the chain-mean statistic 19 are
+TOST-equivalent at +-0.327 and only 2 have a CI excluding zero. The last-iterate
+statistic is the noisiest of the four and is the one the thesis reported. The
+min-over-trajectory statistic already certifies equivalence at the pre-registered margin;
+the chain-mean misses by 0.02 nats, which is what the n~1000 power runs are for.
+
+### A7. Instrumentation added (defaults preserve the archived grid)
+
+- `core/base_sampler.py`: `get_gradient_and_log_joint(..., return_self_logprobs=True)`
+  returns log p(v | x_<m) at each masked position; `apply_method_variation` accepts the
+  new `policy_onehot` method; `metrics_history` carries `proposal_stats`.
+- `core/dls.py`: `policy_onehot` proposal (t2 gains 0.5 * log p(v | x_<m));
+  `record_proposal_stats` persists entropy, t1_std, t2_std, t2_over_t1, logit_std per
+  step; `mh_exact_all_arms` computes the reverse-proposal term for EVERY arm by holding
+  the step's random direction fixed across the forward and reverse evaluation (each q_g
+  is then a valid pi-invariant MH kernel, and a mixture of pi-invariant kernels is
+  pi-invariant).
+- `core/cls.py`: the same `mh_exact_all_arms` treatment, replacing the false "symmetric
+  cancellation" for the random arms.
+- `scripts/run_experiment.py`: `--method policy_onehot`, `--mh_exact_all_arms`,
+  `--log_proposal_stats`; the JSON gains `ever_accuracy` (did the chain visit the
+  ground-truth token at ANY step) and `proposal_stats`.
+
+REGRESSION GATE. With all flags off, the flagship config reproduces the archived CSV
+bit-identically (max abs diff 0.000e+00 over 8 samples x 50 steps). The equivalence
+suite passes for both samplers.
+
+### A8. GPU slate launched (`manifest_rev3.tsv`, 99 jobs, out `results/grid/rev3`)
+
+- `sweep` 75 jobs: eps_start in {1.05, 10.5, 105, 1050, 10500} x temperature in
+  {0.05, 0.25, 1.0, 5.0, 25.0} x 3 arms, n=50, MH on, grad-norm OFF (with it on the
+  gradient is rescaled to unit norm, so the distance term dominates by construction and
+  the sweep could not answer its own question). Tests whether the null survives where
+  the gradient term is load-bearing.
+- `power` 12 jobs: flagship config over corruption seeds 1000/2000/3000/4000, pooled
+  with the archived seed-0 run for n ~ 1000. WikiText-2 validation yields only 282
+  sentences under the 10-to-40-word filter, so the extra n comes from independent
+  corruptions of the same sentences, which is disclosed rather than presented as new
+  sentences.
+- `mhfix` 6 jobs: 3 arms x grad-norm on/off with `--mh_exact_all_arms`.
+- `onehot` 6 jobs: `policy_onehot` at {mh, nomh} x {gn, nogn}, plus the two most
+  gradient-favourable sweep cells.
+
+
+### A4b. The s100 companion re-run (confirms A4)
+
+`gpt2-large.dls.policy.nomh.gn.free.s100`, fresh run, against the archived CSV: max abs
+difference 0.000e+00 on avg_l2_distance, avg_kl_divergence and entropy. Measured:
+
+| quantity | first | last | steepest change |
+|---|---|---|---|
+| mean KL | 8.7645 | 9.0975 | step 98 of 100 |
+| mean proposal entropy | 10.8248 | 10.2533 | step 99 of 100 |
+
+Token-change rate by decile: 1.0 x9, then 0.995. Entropy floor over the whole run 10.2533.
+
+So on BOTH schedules the mean KL rises rather than falls, and the only late event is the
+entropy dip at 98 to 99 percent of the run, not at 80 and 85 percent as Section 5.2 stated.
+The dip does move with the schedule, but as an end effect of the annealing floor: it takes
+the proposal from near-uniform (10.78) to near-uniform (10.25) and produces no improvement
+in contextual fit, while the chain keeps changing tokens on 99.5 percent of final-decile
+steps. The "quenching effect" is withdrawn and Section 5.2 is rewritten around the
+near-uniform proposal, which is the mechanism the data does support.
+
+## 2026-07-26 (evaluation3 pass) PART B: the (epsilon, temperature) sweep and the MH control
+
+Queue: `manifest_rev3.tsv`, out `results/grid/rev3`, status `status/rev3`. Run across three
+hosts sharing the filesystem (this server plus kapweihe and madagaskarweihe, started by the
+author) against ONE manifest; the `mkdir` lock is atomic across hosts, so 97 of 99 jobs were
+claimed within minutes with zero collisions and zero failures. Nine `mhfixsweep_*` jobs were
+appended to the live manifest mid-run and picked up without relaunching any worker, because
+`worker.sh` re-reads the manifest on each outer pass.
+
+### B1. The sweep does reach the regimes the main grid never enters
+
+5 values of eps (1.05 to 10500) x 5 temperatures (0.05 to 25) x 3 arms, n=50, MH on,
+grad-norm OFF, with `--log_proposal_stats`. Measured coverage:
+
+- mean t2/t1 from 1.42 to 13877, i.e. from the distance and gradient terms contributing
+  equally to the gradient term dominating by four orders of magnitude.
+- minimum proposal entropy from 10.822 nats (uniform) down to 0.000 nats (deterministic).
+- The thesis's calibrated cell sits at t2/t1 = 11.1, entropy 10.22: the near-uniform corner.
+
+So the sweep answers the objection the main grid cannot.
+
+### B2. The null holds everywhere; exact recovery never exceeds 2 percent
+
+Across all 25 cells, including the fully deterministic gradient-driven corner, the true
+gradient never reaches a lower final KL than the norm-matched random direction by more than
+cell-to-cell noise, and the best exact-match in any cell of the sweep is 2.0 percent.
+
+### B3. The apparent "gradient is WORSE" finding is an artifact of the MH asymmetry
+
+This is the most important correction of the pass, and it goes against a claim the thesis
+currently makes.
+
+Under the main grid's MH treatment (exact reverse-proposal term for the policy arm, zero for
+the random arms) the sharp cells showed the policy arm losing by large margins. Rerunning the
+three sharpest cells with `--mh_exact_all_arms`:
+
+| eps | T | legacy policy | legacy random | diff | exact policy | exact random | diff |
+|---|---|---|---|---|---|---|---|
+| 1.05 | 0.05 | 8.414 | 7.132 | +1.281 | 8.414 | 8.583 | -0.169 |
+| 10.50 | 0.05 | 8.166 | 5.831 | +2.336 | 8.166 | 8.416 | -0.250 |
+| 10.50 | 1.00 | 5.760 | 5.593 | +0.167 | 5.760 | 5.768 | -0.009 |
+
+The policy column is byte-for-byte unchanged across the two treatments, as it must be, since
+only the comparators' treatment changed. That is the consistency check on the code change.
+
+CONSEQUENCE. The penalty was the reversibility term charged to the policy arm alone. The
+thesis's Llama-3 "the gradient is reliably worse" contrast (CI [0.45, 2.09], p 0.015) is a
+correction-enabled comparison of exactly this shape and is now presumed to be the same
+artifact. Every passage asserting anti-guidance has been withdrawn:
+- 5.5 the length-normalized 0.670 gap (the "exceeds the across-seed noise scale" argument,
+  which was not a valid test in any case) is rescoped.
+- 5.5 the Llama-3 paragraph now states the multiplicity problem and the confound, and
+  explicitly declines to build on the contrast.
+- 5.6 the "systematically mis-specified surrogate can point away from good moves"
+  interpretation is removed.
+- 7 the conclusion is corrected.
+The supported claim is INDIFFERENCE, not harm.
+
+### B4. Thesis edits applied so far in this pass
+
+- 5.2 rewritten around the near-uniform proposal; new Table tab:proposal-sharpness
+  (t1_std, t2_std, t2/t1, entropy at steps 0/10/25/40/49 of the flagship). The quenching
+  effect is withdrawn in the text, with the withdrawal stated rather than silently dropped.
+  NOTE: this overrides PROMPT_PHASE9_FINAL_DOCS Part 2 item 20 ("Quenching: keep the term"),
+  on the strength of the re-run the author requested. Flagged for the author.
+- 5.5 opens by scoping its own null against the entropy measurement; new Table
+  tab:chainstats (last iterate vs chain mean vs trajectory minimum); the 0.0 percent exact
+  recovery across 139 of 145 configurations is now stated in the results chapter; new
+  Figure fig:forest, the whole-grid forest plot of paired contrasts with the equivalence band.
+- New 5.6 "Does the Null Survive a Load-Bearing Gradient?" (sec:results-sweep) with
+  Table tab:mhfix.
+- New 5.6.1 "Which Gradient?" with Table tab:onehot (the one-hot re-analysis).
+- 4.3 discloses the MH asymmetry, states why the symmetric-cancellation argument is unsound,
+  and documents the `mh_exact_all_arms` fix and why holding g fixed across the forward and
+  reverse evaluation yields a valid pi-invariant kernel.
+- Related work gains the MT-mode line (stahlberg2019nmt, eikema2020map, meister2023locally,
+  deng2020residual) and the gradient-free-MH antecedents (wang2019bert, miao2019cgmh);
+  6 bib entries added with full author lists, 47 -> 53.
+- 5.7 cites the MT results at the likelihood trap.
+- Abstract and conclusion: 0 percent recovery stated; "0 to 39%" now carries the 33 percent
+  gradient-free comparator; the one-hot reframe added. Abstract recompressed to 406 words to
+  hold the ONE PAGE limit of PHASE9 item 8 (verified: page 4 is the table of contents).
+- `revision/strip_revision_comments.py`: 673 lines of revision archaeology removed from the
+  submitted .tex (evaluation3 section 3.11), `% SOURCE:` provenance kept (185 lines).
+  Verified by pdftotext diff: rendered text byte-identical before and after.
+- Length: the two near-duplicate full-page trajectory figures moved to Appendix A.1;
+  "Background Work" renamed to "Background".
+
+### B5. Reconciliation against thesis_questions_knowledge_base.md
+
+The 5.2 rewrite resolves rather than orphans the KB's open questions on that section:
+- G1-44 and G1-46 asked how annealing makes the injected noise vanish and how that produces
+  the collapse. The premise was wrong; the rewrite removes that mechanism, so the questions
+  no longer arise. G1-46's own objection (that sqrt(eps) noise shrinking is not the same as
+  the drift dominating) was the correct instinct.
+- G1-45 asked how MH-on can reach 6.541 against 9.499 if the gradient is useless, and
+  suspected the correction. The rewrite answers it directly and affirmatively: the proposal
+  is near-uniform, so the accept/reject filter supplies the entire selection pressure.
+- G1-42 (which per-step metrics) and G1-48 (why the arms overlap, and where the grad-norm
+  state is stated) are answered by the figure caption and the gn statement added in Phase 9,
+  both retained.
+Every other PHASE9 and evaluation1/2 fix listed in REVISION_WRITING.md's resolution tables
+was checked to still be present after this pass. The single deliberate override is PHASE9
+Part 2 item 20 (quenching), recorded in B4 and surfaced to the author.
+
+### B6. Chain-level recovery statistic (new metric, `ever_accuracy`)
+
+`scripts/run_experiment.py` now also records whether the chain occupied the ground-truth
+token at ANY step, not only at the last one. This separates two readings of the 0 percent
+exact match: a chain that finds the answer and walks away, versus one that never reaches it.
+
+Over the 74 completed sweep cells (n=50 x 50 steps each, roughly 185,000 proposal draws):
+
+| statistic | mean | max | cells at exactly 0 |
+|---|---|---|---|
+| final exact match | 0.108% | 2.0% | 70 of 74 |
+| ever visited ground truth | 0.135% | 2.0% | 69 of 74 |
+
+The two rates are the same to within one or two sequences, and `ever` exceeds `final` in a
+single cell. The chain never reaches the correct token at all. This is stated in the sweep
+section. NOTE: `ever_accuracy` cannot be back-computed for the archived grid, because its
+per-sample trajectory column stores only l2, KL and entropy, not per-step token ids.
+
+### B7. Further thesis edits (length and scope)
+
+- 5.13 now bounds its own attribution before reporting: SEDD differs from GPT-2 in objective,
+  scale, corpus AND conditioning direction, so the design cannot separate score training from
+  bidirectional conditioning. The discriminating control (a bidirectional masked LM, which is
+  not score-trained but is bidirectional) is named and explicitly not run, with wang2019bert
+  as its antecedent, and the closing attribution sentence is qualified to match. This is the
+  cheap answer to evaluation3 section 3.7 and to defence question 5.
+- Table tab:constrained (raw steering gains) moved to a new Appendix subsection
+  app:constrained-raw, since Section 5.11 discounts those numbers in the following sentence
+  (evaluation3 section 3.8).
+- Section 5.13.4 (exploratory classifier-guided steering) reduced in the body to a
+  four-finding summary; its detail and table moved into Appendix A.5, whose label app:guided
+  is now defined once.
+
+### B8. Build state at this point
+
+latexmk exit 0; 139 pages; ZERO undefined references, ZERO undefined citations, ZERO
+multiply-defined labels; all 53 bibliography entries are cited; max overfull hbox 19.64pt
+(gate 40pt). `revision/numbers_diff_phase6.py` reports RESULT: ALL OK, so none of this pass's
+edits broke the existing number-to-source traceability.
+
+LENGTH, stated plainly rather than claimed as a win. Body (sections 1 to 7) went from 83 to
+87 pages and the whole document from 125 to 139. Roughly 12 pages of new material were added
+because the fixes required it (the one-hot section and table, the sweep section and the MH
+control table, the chain-statistics table, the proposal-sharpness table, the forest plot, two
+related-work paragraphs), against roughly 8 pages moved out to the appendix (three figures,
+one table, one exploratory subsection). Net body +4. Reducing the body below its original
+size needs a dedicated prose-compression pass over Chapters 2, 4 and 6, which is deliberately
+NOT attempted here, because doing it quickly is how the PHASE9 and evaluation1/2 fixes get
+silently undone. Flagged for the author as a separable job.
+
+### B9. Early read on the one-hot SAMPLER arm (distinct from the one-hot surrogate)
+
+`onehot_nomh_gn` (policy_onehot, no MH, grad-norm on, eps 10.5->0.1, T=5.0, n=200):
+final KL 9.760 against 9.499 for the legacy policy arm and 8.940 for random at the same
+config; exact match 0.0 percent; ever-visited 1.0 percent; proposal entropy 10.754 at step 0
+with a floor of 10.114.
+
+Reading, stated carefully because it is easy to overclaim here. The one-hot term DOES
+dominate the distance term (t2/t1 = 38.6 at step 0, against 0.96 for the embedding gradient),
+so the ranking inside the proposal is now driven by log p(v | x_<i). But the proposal is
+still near-uniform, because the temperature of 5.0 divides the whole logit vector and the
+self term's spread across the vocabulary is only a few nats. The one-hot proposal is
+flattened by exactly the same configuration choice that flattens the embedding proposal.
+
+CONSEQUENCE FOR WHAT MAY BE CLAIMED. The one-hot SURROGATE result (rho 0.60 to 0.73 at
+admissible distances, Section 5.6.1) is a measurement of ranking quality and is independent
+of temperature, since a monotone rescaling does not change a Spearman correlation. It stands.
+Whether that ranking translates into RECOVERY when used as a sampler is a separate question
+that this cell does not answer, because this cell cannot express any ranking. The two
+`onehot_sweep_*` cells (eps 1050 T 1.0, eps 10500 T 0.25), where the proposal is sharp, are
+the ones that answer it. Nothing about the one-hot sampler arm is written into the thesis
+until those land.
+
+### B10. Manifest extension: the one-hot (epsilon, temperature) sweep
+
+Author reported spare capacity (kapweihe, 9x RTX 3090 24GB). Rather than leave it idle, 25
+`ohsweep_*` cells were appended to the live manifest: the SAME 5x5 (eps, temperature) grid
+already run for the embedding-gradient proposal, but with `--method policy_onehot`. Job
+footprint is ~4 GB (GPT-2 Large fp32), so `--per_gpu 4` is safe on a 24 GB card.
+
+Rationale, and it is a correction to this pass's own evidential balance. Section 5.6 was
+about to claim that the embedding gradient fails across a full sweep while testing the
+one-hot alternative at only two points. That asymmetry would have been the obvious thing to
+attack at the defence. The one-hot proposal now gets the identical treatment.
+
+Note on what the first one-hot cell already shows (B9): at the calibrated temperature the
+one-hot proposal is flattened just as the embedding proposal is, so the sweep is not optional
+decoration; the two sharp cells and this grid are the only place the question can be answered.
+
+Manifest 108 -> 133 jobs. Locks are shared across all three hosts, so the new cells were
+claimed within minutes without relaunching the running workers on the other machines.
+
+## 2026-07-26 (evaluation3 pass) PART C: power, MH control, and the bidirectional-MLM control
+
+### C1. n=1000 CERTIFIES EQUIVALENCE (revision/analyze_power.py -> rev_power.json)
+
+Flagship config pooled over five independent corruption seeds (0, 1000, 2000, 3000, 4000);
+pairs on (data_seed, sample_idx). n=1000 paired.
+
+| statistic | policy | norm-matched random | diff | 95% CI | Wilcoxon p | TOST at +-0.327 |
+|---|---|---|---|---|---|---|
+| final step | 6.674 | 6.541 | +0.133 | [-0.063, +0.326] | 0.154 | PASS |
+| chain mean, 2nd half | 6.853 | 6.716 | +0.136 | [-0.012, +0.287] | 0.062 | PASS |
+| minimum over chain | 4.636 | 4.603 | +0.033 | [-0.079, +0.145] | 0.620 | PASS |
+
+The thesis may now state CERTIFIED EQUIVALENCE at the pre-registered margin rather than
+"no reliable difference". Disclosure: the extra n comes from independent corruptions of the
+same 282 WikiText-2 sentences, not from new sentences, so this is corruption-level rather
+than corpus-level variation. Stated in the script docstring and to be stated in 5.5.
+
+### C2. The MH asymmetry scales with proposal sharpness
+
+| configuration | legacy diff | exact-all-arms diff |
+|---|---|---|
+| calibrated, grad-norm on (flagship) | +0.171 | +0.121 |
+| calibrated, grad-norm off (Table 2) | +0.045 | +0.034 |
+| sharp cells (T 0.05 to 1.0) | +0.17 to +2.34 | -0.009 to -0.25 |
+
+Mechanism: the reverse-proposal term is negligible when the proposal is near-uniform and
+large when it is sharp. So the confound does NOT threaten the headline null (and it penalizes
+the policy arm, i.e. it is conservative), but it does account for the sharp-cell penalties.
+
+### C3. CORRECTION TO C2's SCOPE: the Llama contrast is NOT an MH artifact
+
+Caught by checking rev_stats_llama.json rather than assuming. The cited Llama contrast has
+`"mh": "nomh"` -- the correction is DISABLED -- so the reversibility asymmetry cannot apply
+to it. Furthermore Llama's proposal genuinely DOES sharpen (entropy floor 2.2306 against
+log|V| = 11.7618 for its 128256-token vocabulary), unlike GPT-2's, so it is a real
+sharp-proposal case in which the gradient underperforms (policy 6.444 vs comparator 5.219,
+CI [0.453, 2.088], p 0.0148).
+
+An earlier edit in this pass wrongly attributed that contrast to the MH asymmetry. Corrected
+in 5.5: the hedge now rests on (a) multiplicity, one contrast among dozens uncorrected, and
+(b) the fact that an MH-off comparison compares two biased optimizers rather than two
+samplers. Rather than withdraw a claim that may be true, nine MH-OFF sharp-proposal cells on
+GPT-2 were queued (`nomhsweep_*`, 3 arms x 3 cells, n=50). If the gradient also underperforms
+there, the original anti-guidance reading is supported and will be RESTORED; if not, the
+Llama result is isolated and stays hedged.
+
+### C4. Bidirectional-MLM control BUILT AND RUN (diagnostics/run_mlm_control.py)
+
+The control evaluation3 section 3.7 asked for and that 5.13 could previously only name.
+RoBERTa-large is NOT score-trained but IS bidirectional; it is used as the proposal inside
+the SAME exact-energy MH chain, on the same sequences, with the same corruption (the grid's
+own `build_corruption` is IMPORTED, not reimplemented, after a first version that
+reimplemented it was found to consume the RNG differently and was discarded). The proposal is
+an independence sampler, so the Hastings ratio q(x_cur)/q(x_prop) is exact and in closed form.
+A tokenizer bridge maps 50240 of 50265 RoBERTa ids (100.0%) to a single GPT-2 token.
+
+LEAKAGE CONTROL, run because 60% at n=10 was implausibly good: replacing the MLM conditional
+with a UNIFORM draw over the same bridged vocabulary, through identical code, gives 0.0%
+exact, 0.0% ever-visited, KL 7.07 -- indistinguishable from the Langevin samplers. The
+pipeline does not leak. Both the control and the uniform arm are being run at n=200; at
+75/200 the MLM arm is at 49.3% and the uniform arm at 0.0%.
+
+IMPLICATION IF IT HOLDS. A non-score-trained bidirectional model supplies a usable proposal
+in this chain, so the operative variable in Section 5.13 is BIDIRECTIONAL CONDITIONING, not
+score training. That is a revision of the thesis's causal claim, not a caveat, and 5.13 must
+be rewritten accordingly (the bound added earlier in this pass becomes an answer).
+
+### C5. Incident: OOM on six queued jobs, and the fix
+
+Six `nomhsweep_*` jobs failed with CUDA OOM on GPU 0. Cause: `worker.sh`'s `--vram` gate is a
+DECLARED number compared against the worker's configured budget, not a check of actual free
+memory, and GPU 0 was holding another user's 37 GB process. Only the six failed jobs' locks
+were cleared (NOT `reset_incomplete.sh`, which would have unlocked jobs still in flight on
+the other two hosts and caused duplicate work), and the retry queue was restricted to GPUs
+with genuinely free memory. Zero results were lost; the failures were clean crashes before
+any JSON write.
+
+### C6. Incident: 25 jobs stranded by a silently dead remote worker
+
+Symptom: the author reported kapweihe's tmux session running but occupying no GPUs. Diagnosis:
+24 `ohsweep_*` jobs plus one `sweep_*` job were CLAIMED (lock present) but their logs had been
+silent for ~31 minutes, ending cleanly after "282 candidate sentences" with NO traceback. A
+clean stop with no exception is SIGKILL, not a Python error; combined with zero GPU occupancy
+this is consistent with those processes never acquiring a GPU on that host and being killed
+while competing for system RAM on CPU.
+
+Impact: the locks are the queue's resume ledger, so 25 jobs were unreachable by every other
+host. Nothing was corrupt (no JSON had been written); the cost was ~31 minutes of dead time.
+
+Fix applied: locks were cleared ONLY for jobs whose log had been silent for more than 600
+seconds, then the work was requeued on local GPUs verified to have free memory. Note that the
+blunt tool, `reset_incomplete.sh $STATUS $OUTDIR`, would have been WRONG here: it clears the
+lock of every job lacking a JSON, which at that moment included jobs still running on the
+third host, and would have caused duplicate execution.
+
+DESIGN NOTE for the reproducibility section. `worker.sh` releases a lock only on clean exit or
+explicit failure, so a SIGKILLed worker strands its claims permanently. A heartbeat (touch the
+lock dir periodically, treat a lock whose mtime is older than N minutes as reclaimable) would
+make the queue robust to host death. This is a genuine limitation of the harness as described
+in Section 4.8 and is worth one sentence there rather than being hidden.
+
+### C7. Correction to C6's diagnosis, and the real cause
+
+The author checked kapweihe directly: `torch 2.12.0+cu130`, `cuda.is_available() True`, 9 GPUs,
+RTX 3090 driver 610.43.02. So the "no GPU on that host" hypothesis in C6 is WRONG and is
+withdrawn. The actual cause is host RAM: the launch command specified `--per_gpu 4` across 9
+GPUs, i.e. 36 concurrent workers, each of which loads GPT-2 Large into CPU memory before
+moving it to the card. That is on the order of 100 GB of transient host RAM, and the OOM
+killer terminates processes immediately after load with no Python traceback, which is exactly
+the signature observed. The fault is in the launch parameters that were recommended, not in
+the host.
+
+Fix: relaunch with `--per_gpu 1` or 2 on that machine. The lock-stranding consequence and the
+heartbeat design note in C6 stand unchanged; only the attributed cause is corrected.
+
+### C8. BIDIRECTIONAL MLM CONTROL: RESULT (n=200)
+
+`results/revision/rev_mlm_control.json` and `rev_mlm_uniform.json`.
+
+Tokenizer bridge covers 50240 of 50265 RoBERTa ids (99.95 percent); ZERO ground-truth tokens
+in the evaluation set fell outside it, so nothing is unreachable by construction.
+
+Every proposal ever run in this exact-energy chain, same 200 WikiText-2 sequences, same
+corruption seed, same MH accept/reject, only the proposal differs:
+
+| proposal | conditioning | score-trained | exact % | mean KL |
+|---|---|---|---|---|
+| input-embedding gradient | none | no | 0.0 | 6.854 |
+| norm-matched random direction | none | no | 0.0 | 6.584 |
+| uniform over the vocabulary | none | -- | 0.5 | 6.538 |
+| autoregressive conditional | left only | no | 23.5 | 5.170 |
+| SEDD-small concrete score | bidirectional | yes | 38.5 | 3.120 |
+| SEDD-medium concrete score | bidirectional | yes | 39.0 | 3.017 |
+| RoBERTa-large masked LM | bidirectional | NO | 44.5 | 2.737 |
+
+TWO FINDINGS.
+
+(1) The uniform-proposal control reproduces the flagship Langevin sampler to three significant
+figures: 0.5 percent vs 0.0, KL 6.538 vs 6.541, acceptance 9.48 vs 9.98 percent. This was run
+from a separate implementation (diagnostics/run_mlm_control.py) that shares only
+build_corruption with the grid, so it is an INDEPENDENT confirmation of the Section 5.2 claim
+that the DLS proposal is effectively uniform. This corroboration was not planned.
+
+(2) A model that was never trained with a score objective beats both score-trained diffusion
+models. Score training is therefore NOT the operative variable. What the working proposals
+share is access to the output side; what the bidirectional ones add is the right context.
+Note also that the frozen autoregressive model's OWN left-to-right conditional reaches 23.5
+percent when read from the output side, against 0.0 percent when differentiated with respect
+to its input embeddings, which is the same lesson as the one-hot result of Section 5.6.1
+arriving by a different route.
+
+THESIS CHANGES. New Section 5.13.x (sec:results-mlm) with Table tab:mlm; the attribution bound
+added earlier in this pass is replaced by a forward pointer since the question is now answered;
+the closing attribution of 5.13, the abstract, and the conclusion are all rewritten from "the
+training objective is a key source of the failure" to the sharper and better-supported "what a
+proposal may condition on, not the objective it was trained with". Bib entry liu2019roberta
+added. Abstract recompressed to 401 words to hold the one-page limit (verified: page 4 is the
+table of contents).
+
+### C9. THE ONE-HOT SURROGATE WORKS AS A SAMPLER (the headline result of this pass)
+
+The one-hot surrogate was substituted into the discrete sampler and run over the SAME 5x5
+(eps, temperature) grid as the embedding gradient, changing nothing else. Exact recovery,
+n=50 per cell, MH on, grad-norm off:
+
+| surrogate | T=0.05 | T=0.25 | T=1 | T=5 | T=25 |
+|---|---|---|---|---|---|
+| one-hot, eps 10.5 | 0.0 | 8.0 | **40.0** | -- | -- |
+| one-hot, eps 105 | 0.0 | 8.0 | **36.0** | 2.0 | 0.0 |
+| one-hot, eps 1050 | 0.0 | 8.0 | **38.0** | 2.0 | 0.0 |
+| input embedding, eps 10.5 | 0.0 | 0.0 | 0.0 | 0.0 | 0.0 |
+| input embedding, eps 105 | 0.0 | 0.0 | 2.0 | 0.0 | 0.0 |
+| input embedding, eps 1050 | 0.0 | 0.0 | 2.0 | 0.0 | 0.0 |
+
+Best one-hot cell 40.0 percent against a maximum of 2.0 percent for the embedding gradient
+ANYWHERE in its own 25-cell sweep. For scale, the score-trained SEDD proposal reaches 39.0
+percent and RoBERTa 44.5 percent on the same task; 40 percent is obtained from the FROZEN
+AUTOREGRESSIVE MODEL ALONE, using the same sampler the thesis already implemented, by changing
+which derivative is taken.
+
+Cross-model: the same substitution on the three GFlowNet energies gives 25.0, 21.0 and 9.0
+percent in the sharp configuration against 0.5 percent each at the calibrated one.
+
+NOTE ON THE TEMPERATURE. At T=5, the value the study calibrated on, even the one-hot proposal
+falls to 2.0 percent, because that temperature flattens the proposal to a near-uniform draw
+whatever surrogate feeds it. The temperature, not the model and not the objective, was the
+binding constraint on the whole grid. This closes the loop with Section 5.2.
+
+Written into 5.6.1 with Table tab:onehot-sweep.
+
+### C10. The MH-OFF sharp cells: the Llama anti-guidance result does NOT reproduce
+
+Purpose (see C3): the cited Llama contrast is MH-off with a genuinely sharp proposal, a regime
+GPT-2 had not been tested in. Three sharp cells on GPT-2 with the correction disabled:
+
+| eps | T | policy KL | policy minus random | min entropy |
+|---|---|---|---|---|
+| 1.05 | 0.05 | 7.504 | -0.371 | 0.000 |
+| 10.5 | 0.05 | 7.402 | -0.105 | 0.065 |
+| 10.5 | 1.00 | 8.524 | -0.724 | 0.252 |
+
+The gradient is BETTER than the random direction in all three, not worse. So the Llama finding
+does not generalize, and the decision to hedge rather than restore it is correct on evidence
+rather than on my earlier (mistaken) MH-asymmetry reasoning. The 5.5 text stands as corrected
+in C3: multiplicity plus the fact that an MH-off comparison compares biased optimizers.
+
+## PART D: length pass (started after integration, per the author's instruction)
+
+Starting point after all new evidence was integrated: 143 pages, body (sections 1 to 7)
+93 pages against 83 before this pass. The growth is five new experiments' worth of results:
+the sweep section and its MH-control table, the one-hot section with two tables, the MLM
+control section and table, the proposal-sharpness table, the chain-statistics table, the
+forest plot, and two related-work paragraphs.
+
+Applied so far:
+- Figure widths reduced (appendix figures to 0.68 textwidth, body figures individually to
+  0.72 to 0.85). No content change. 143 -> 141.
+- Section 6.2 "The Unified Mechanism" rewritten: 715 words -> 526, and simultaneously updated
+  for the one-hot and MLM findings, which it predated. 141 -> 140.
+- Bare `[h]` float specifiers replaced with `[htbp]` in 4 files. This removes the 13 silent
+  float-promotion warnings evaluation3 section 3.10 flagged; the log now reports zero.
+
+Tried and REVERTED: relaxing every float to `[htbp]` globally. Total page count was unchanged
+(140 either way) and it moved floats into worse positions, so the change bought nothing and
+cost layout predictability. Reverted from a backup taken before the edit.
+
+NOT DONE, and the reason. Further reduction requires a trade rather than a tidy-up. Chapters 2
+(11 pp) and 4 (14 pp) are dense rather than padded; the sections that would naturally be cut
+next -- 6.4 limitations, 5.11 the GFlowNet failure taxonomy, appendix A.7 qualitative examples
+-- are the ones evaluation2 and evaluation3 specifically praised. Cutting them to reach the
+old page count would trade material the examiners valued for material this pass added.
+
+ONE LEVER LEFT, deliberately not pulled: `Doc/final/thesis/thesis.tex:21` sets
+`\baselinestretch{1.3}`. Dropping it to 1.15 removes roughly ten pages with zero content
+change. Line spacing is an IMS template conformance question and therefore the author's
+decision, not this pass's; flagged rather than applied.
+
+### D1. AUTHOR DECISIONS (confirmed 2026-07-26)
+
+1. TEMPLATE UNCHANGED. `\baselinestretch{1.3}` in Doc/final/thesis/thesis.tex stays as the
+   IMS template requires. The ~10-page saving it would have bought is explicitly declined.
+   No line-spacing, margin or geometry change was made at any point in this pass.
+2. LENGTH CUTTING DEFERRED until all runs and data are compiled. The Part D work already
+   applied (figure widths, the 6.2 rewrite, the [h] -> [htbp] float fix) stands; nothing
+   further is cut for now.
+3. QUENCHING STAYS WITHDRAWN, confirmed by the author. This overrides
+   PROMPT_PHASE9_FINAL_DOCS Part 2 item 20 ("Quenching: keep the term"), on the strength of
+   the bit-identical re-run in Part A. Section 5.2 keeps the explicit withdrawal sentence
+   rather than dropping the term silently, so a reader of the earlier draft can see what
+   changed and why.
+
+### D2. Cross-model one-hot: Llama-3 calibrated cell is a NEGATIVE, and why
+
+`xm_onehot_llama` (policy_onehot, MH on, gn on, eps 0.1->0.001, T=5.0, n=200): exact 0.0
+percent, final KL 4.108, against the archived Llama baselines at the same configuration
+(policy 3.898, gnp/random 4.031, all three also 0.0 percent exact). So at Llama's calibrated
+configuration the one-hot surrogate does NOT reproduce the GPT-2 result. Reported as a
+limitation rather than omitted.
+
+The mechanism explains it without contradicting the GPT-2 finding. Llama's proposal IS sharp
+there, minimum entropy 0.0034 against log|V| = 11.7618, but it is sharp because eps = 0.1
+makes the distance term t1 = -dist^2 / (2 eps) enormous, so the softmax concentrates on the
+CURRENT token, i.e. on staying put; the measured mean t2/t1 is only 1.83, so the surrogate
+term never dominates. Sharpness produced by the distance term is not the same thing as
+sharpness produced by the surrogate, and only the latter tests the one-hot ranking. This is
+the same lesson the GPT-2 sweep taught: the one-hot proposal needed LARGE eps (which suppresses
+the distance term) AND low temperature TOGETHER; at GPT-2's own calibrated cell it also gave
+only 0.5 percent.
+
+`xm_onehot_llama_sharp` (eps 10.0 -> 0.1, T = 1.0) is the cell that actually puts the surrogate
+in charge on Llama, and it is the last job outstanding.
+
+INCIDENT: two processes were found running xm_onehot_llama_sharp concurrently, because a
+manual sequential launch and a queue worker both claimed it; the later process was killed.
+The JSON write is atomic (tmp + rename), so no result was at risk, but the shared status log
+was overwritten by the second process, which is why its progress appeared to reset. Another
+symptom of the lock/heartbeat gap recorded in C6.
+
+### D3. Sharding added to run_experiment.py (author question: why so slow, can it shard?)
+
+Answer to "why did the sharp job restart": operator error, not the queue. A sequential `for`
+loop launched earlier was still alive holding the second Llama job pending. When that job
+OOM'd, its lock was cleared and it was relaunched by hand; the original loop then reached its
+second iteration and started the SAME job again, overwriting the shared status log, which is
+why its progress appeared to reset. Two processes, one job. Root cause is the same as C6:
+hand-launching around the queue, which has no heartbeat to detect either duplicate claims or
+dead workers.
+
+Answer to "can't it shard": sharding existed only on the SEDD path (`run_sedd_cap.py` has
+`--shard_idx/--num_shards`, fanned out by `run_sedd_slate.sh`). `scripts/run_experiment.py`,
+which runs the entire 145-configuration grid and every job in this pass, had NONE, so each job
+was pinned to one GPU. Added now.
+
+Design point that makes it safe. A naive shard-by-index-modulo would change WHICH sequences a
+run covers, because the unsharded loop takes the first n_samples texts that yield a valid
+corruption. The implementation therefore resolves the sample plan FIRST, exactly as the
+unsharded run would (build_corruption needs only the tokenizer, so this is cheap), and only
+then partitions it. `sample_idx` in the CSV stays the GLOBAL index, so merged shards still pair
+correctly against the other arms in the paired analyses.
+
+REGRESSION TEST, 3-way shard against unsharded, GPT-2, n=12, 20 steps:
+
+| quantity | result |
+|---|---|
+| per-sample trajectory | max abs diff 0.000e+00 (BIT-IDENTICAL) |
+| mean_kl / mean_l2 / mean_entropy curves | max abs diff 8.9e-16 / 4.4e-16 / 1.8e-15 |
+| sample_idx sets | identical |
+| accuracy, accept_rate | identical |
+
+The 1e-16 residual is float summation order in the weighted merge, not a behavioural change.
+
+New file `revision/merge_shards.py` reassembles shards: curves by sample-count-weighted mean,
+rate scalars recomputed from totals rather than averaged, shard files suffixed `.merged`
+rather than deleted, and it refuses to merge an incomplete set.
+
+Applied immediately: `xm_onehot_llama_sharp` had done fewer than 25 of 200 samples in 57
+minutes (Llama-3 8B in fp32, and the one-hot path costs a third model call per gradient, so an
+MH step is about four passes through an 8B model; projected over 7 hours). Killed and
+relaunched as 4 shards on four A6000s, 50 samples each, projected under 2 hours.
+
+WORTH NOTING FOR THE THESIS: the Llama and GFlowNet families of the main grid could have run
+4 to 9 times faster with this. It belongs in Section 4.8 next to the heartbeat limitation as an
+honest account of the harness rather than a claim that it was optimal.
+
+### D4. Llama-3 one-hot: the result GENERALIZES (and my hedge was too weak)
+
+`xm_onehot_llama_sharp`, merged from 4 shards (50 samples each), n=200:
+
+    exact 41.0%   ever 46.0%   final KL 1.908   accept 14.72%
+    min entropy 7.0785 of 11.7618   mean t2/t1 229.48
+
+41.0 percent exact recovery on Llama-3 8B, at the lowest final KL any proposal in this study
+attains, against 0.0 percent and KL 3.898 for the input-embedding gradient on the same model
+and the same sequences. The GPT-2 figure is 40.0 percent. So the one-hot result is not
+particular to the base model, and the cautious wording written in D2 was too weak; it has been
+replaced rather than left standing.
+
+The two Llama cells together isolate exactly what the configuration must supply, which is a
+better result than either alone:
+
+| Llama config | eps | t2/t1 | min entropy | exact |
+|---|---|---|---|---|
+| calibrated | 0.1 | 1.83 | 0.0034 | 0.0% |
+| sharp | 10.0 | 229.48 | 7.0785 | 41.0% |
+
+BOTH proposals are sharp, so sharpness alone is not the variable. At the calibrated setting the
+small step size makes the distance term enormous and the proposal is sharp about STAYING PUT;
+in the recovering configuration a large eps suppresses the distance term and the proposal is
+sharp about the SURROGATE'S RANKING. Sharpness from the distance term and sharpness from the
+surrogate are different things and only the second puts the candidate ranking in charge. Note
+that the recovering cell has HIGHER entropy (7.08 vs 0.0034), so entropy alone would have been
+the wrong diagnostic; t2/t1 is the one that separates them. Written into 5.6.1.
+
+Thesis updated: 5.6.1 cross-model paragraph rewritten, 6.4 limitation 1 restated as a
+condition rather than a scope limit, abstract and conclusion carry the cross-model figures.
+Abstract recompressed to 395 words to hold the one-page limit (page 4 is the ToC).
+
+### D5. FINAL GATES
+
+- Experiments: 150 rev3 grid jobs + 2 MLM control runs. Zero outstanding failures (the one
+  `.failed` marker was a stale artefact of the OOM'd single-GPU attempt whose work later
+  completed via shards; cleared).
+- Build: latexmk exit 0, 142 pages, ZERO undefined references, ZERO undefined citations, ZERO
+  multiply-defined labels, ZERO float promotions, max overfull hbox 19.64pt against the 40pt
+  gate, 54 bibliography entries with none uncited.
+- `revision/numbers_diff_phase6.py`: RESULT ALL OK.
+- Author decisions honoured: IMS template untouched (baselinestretch 1.3), length cutting
+  deferred, quenching withdrawn.

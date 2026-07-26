@@ -1,0 +1,13 @@
+[power_policy_seed1000] loading /mount/studenten-temp1/users/singhsk/thesis/thesis/gfn-lm-tuning/infill_subj_arithmetic/gpt2_large_sft_output (float32) ...
+[power_policy_seed1000] 282 candidate sentences
+[power_policy_seed1000] 25/200
+[power_policy_seed1000] 50/200
+[power_policy_seed1000] 75/200
+[power_policy_seed1000] 100/200
+[power_policy_seed1000] 125/200
+[power_policy_seed1000] 150/200
+[power_policy_seed1000] 175/200
+[power_policy_seed1000] 200/200
+[power_policy_seed1000] DONE  n=200  acc=0.50%  final_kl=6.348  final_l2=2.362  accept=10.0%
+[power_policy_seed1000] wrote results/grid/rev3/power_policy_seed1000.json
+[power_policy_seed1000] wrote results/grid/rev3/power_policy_seed1000.csv

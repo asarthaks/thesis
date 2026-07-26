@@ -1,10 +1,7 @@
-\section{Background Work}
+\section{Background}
 \label{ch:background}
 
 This section develops the technical background the thesis relies on: the energy-based view of sequence generation and the way a frozen language model is repurposed as an energy function, Langevin dynamics as a gradient-guided sampling method, the Metropolis--Hastings correction that makes such samplers asymptotically exact, the two concrete samplers studied in the experiments, score matching, and GFlowNets as an amortized alternative. The aim throughout is to expose the assumption each tool makes rather than to survey the tools exhaustively.
-% COMPRESSED (Phase 8, evaluation section 2.C: the background "often does not stop at
-% explaining concepts. It explains the later failure in advance."). The opener previously
-% announced, clause by clause, which later result each subsection would set up.
 
 \subsection{Autoregressive Language Models as Energy Functions}
 \label{sec:bg-ebm}
@@ -38,28 +35,6 @@ where $\epsilon_t$ is a step size at iteration $t$. The update has two parts, an
 The first part, the \textbf{drift}, is a step of size $\epsilon_t/2$ in the direction of the gradient of the log-density. Taken on its own, iterating the drift alone is gradient ascent on $\log p$, and it drives the state monotonically toward the nearest mode of the distribution, where it comes to rest. If one wanted to \emph{find} the single most probable point, the drift alone would suffice. But finding the mode is not the goal; the goal is to draw a \emph{representative sample}, and a distribution is more than its mode. This is where the second part enters. The \textbf{diffusion} term injects fresh Gaussian noise at every step, scaled by $\sqrt{\epsilon_t}$, and this noise is what prevents the chain from simply collapsing onto the mode. It knocks the state off the deterministic ascent path, allowing it to climb away from a mode, cross into a neighbouring region, and in the limit visit every part of the distribution with the correct frequency.
 
 For intuition, the drift acts like gravity pulling a marble downhill on a landscape whose valleys are the high-probability regions, while the diffusion vibrates the surface so the marble does not settle in the first valley it finds. \textbf{Annealing} the step size $\epsilon_t$ toward zero on a suitable schedule makes the distribution of $\bm{s}_t$ converge to the target $p(\bm{s})$ rather than to its mode \citep{welling2011bayesian}, but this fair-draw reading holds only under the technical conditions of that result, in particular a suitable schedule and a well-behaved landscape, and does not follow in general simply because the vibration was switched off.
-% CUT FURTHER (Phase 9, author issue list item 5: "cut it; keep one plain sentence of
-% intuition and the corrected annealing caveat"). Removed the opening two marble sentences
-% ("A physical intuition makes the balance concrete. Imagine a marble on an uneven surface
-% whose height at each point is the negative log-density, so that valleys are regions of high
-% probability. The drift is gravity, pulling the marble downhill; the diffusion is a vibration
-% of the whole surface, which keeps the marble from settling into the first valley it finds.");
-% the corrected annealing caveat is retained.
-% CORRECTED and HALVED (Phase 8, evaluation section 6: "The marble-and-vibrating-surface
-% analogy is clear, but somewhat long [...] It can be reduced by half. Also, the statement that
-% gradually reducing vibration causes the final position to become a fair draw from the
-% landscape should be handled carefully. Annealing step sizes in stochastic-gradient Langevin
-% contexts and simulated annealing-like intuition are not identical, and the final sample
-% interpretation depends on technical conditions."). The removed half and the uncorrected
-% convergence claim are preserved:
-% "The drift is gravity, pulling the marble downhill into valleys. The diffusion is a vibration
-% applied to the whole surface, shaking the marble so that it does not simply settle into the
-% first valley it finds but continues to explore, occasionally hopping over ridges into other
-% valleys. If the vibration is held constant, the marble wanders forever and never settles. But
-% if the vibration is gradually reduced to nothing, the marble's final resting place is a fair
-% draw from the landscape: it settles preferentially in the deep, wide valleys, which is exactly
-% where the probability mass is. [...] The annealing schedule, and the artifacts it can produce
-% when the landscape is not what the theory assumes, will be a recurring theme in the results."
 
 The guarantees behind the method, however, rest on regularity conditions that are easy to pass over and that will matter a great deal later. The discretization error of \eqref{eq:bg-langevin} grows with the step size, so the finite-step chain is only an approximate sampler and its bias increases with $\epsilon_t$ \citep{roberts1996exponential}. The Metropolis-adjusted variant of the next section removes that bias in principle, but its acceptance rate degrades sharply once the drift loses smoothness, because the correction depends on the reverse move being predictable from the forward one. Non-asymptotic convergence guarantees for Langevin samplers are established under smoothness of the target, and typically under log-concavity or a related condition \citep{dalalyan2017theoretical, durmus2017nonasymptotic}, and in particular require the drift to be \textbf{Lipschitz continuous} \citep{roberts1996exponential}, so that a small step lands where the gradient at the starting point predicted. The continuous sampler of Section~\ref{sec:bg-samplers} violates these assumptions: the drift it uses is computed from a differentiable pathway whose prediction target changes discontinuously at each Voronoi cell boundary, so the drift is not Lipschitz across a boundary and neither the smoothness nor the log-concavity the guarantees assume holds there. Section~\ref{sec:results-mh} measures the consequence.
 
@@ -83,13 +58,6 @@ Two facts about the correction deserve emphasis, because both recur in the resul
 The difficulty that motivates the entire thesis is that text is not continuous. A sequence is a list of discrete tokens drawn from a finite vocabulary $V$, and there is no state \emph{between} two tokens: one cannot be halfway between the word \emph{cat} and the word \emph{dog}. Langevin dynamics, which assumes a continuous differentiable space in which infinitesimal steps are meaningful, cannot be applied to such a state without modification. Two strategies for adapting it are studied in this thesis, and they differ precisely in where they confront the discreteness, which is why studying both, rather than either alone, is what allows the results to be attributed to the energy rather than to one sampler's idiosyncrasies.
 
 The \textbf{Discrete Langevin Sampler} (DLS), following the discrete gradient-based samplers of \citet{grathwohl2021oops} and \citet{zhang2022langevin}, never leaves token space at all. Its state is always a genuine sequence of tokens. It uses the gradient of the log-likelihood, taken with respect to the continuous input embedding of a masked position, only as a \emph{score} for constructing a categorical proposal distribution over which token to place at that position next. Concretely, let $\ve(x_i)$ denote the embedding of the current token at a masked position $i$, and let $\vg = \grad_{\ve_i}\log p_{\text{LM}}(\bm{x})$ denote the gradient of the sequence log-likelihood with respect to that embedding. For a candidate token $v$ with embedding $\ve(v)$, the proposal assigns a logit that combines a term penalizing the embedding displacement $\norm{\ve(v) - \ve(x_i)}$, which keeps proposals local, with a term proportional to $\tfrac{1}{2}\vg^\top(\ve(v) - \ve(x_i))$, which biases the proposal toward tokens the gradient suggests will lower the energy. This second term is a \textbf{first-order Taylor surrogate}: it approximates the true change in log-likelihood that would result from substituting $v$ for $x_i$ by the inner product of the gradient with the embedding displacement, which is exactly the first-order term in the Taylor expansion of the log-likelihood around the current embedding.
-% REMOVED (Phase 8, evaluation section 5 item 5: "Remove sentences repeatedly explaining that
-% the surrogate is the sampler's entire claim to be gradient-guided and that Section 5.6 will
-% test it. State that once."). Removed here; the statement is kept once, at the end of the next
-% paragraph. Prior wording: "Whether this surrogate actually predicts the true change, and
-% therefore whether the gradient is a useful ranking signal, is the single most important
-% question the diagnostic experiments answer, and the reader should hold the definition of this
-% surrogate in mind, because Section~\ref{sec:results-linradius} tests it directly."
 
 Written out in full, the discrete sampler adapts the continuous Langevin proposal of \eqref{eq:bg-langevin} to a categorical distribution over the vocabulary by the construction of \citet{zhang2022langevin}. In the continuous case, a Gaussian proposal centred at $\bm{s} + \tfrac{\alpha}{2}\grad\log p(\bm{s})$ assigns to a candidate $\bm{s}'$ a log-density proportional to $-\tfrac{1}{2\alpha}\norm{\bm{s}' - \bm{s} - \tfrac{\alpha}{2}\grad\log p(\bm{s})}^2$. Expanding this and discarding terms constant in $\bm{s}'$ leaves a term linear in the displacement, $\tfrac{1}{2}\grad\log p(\bm{s})^\top(\bm{s}' - \bm{s})$, plus a quadratic penalty on the displacement itself. Transplanting this to the discrete setting, where the candidate states are token embeddings $\ve(v)$ and the current state is $\ve(x_i)$, gives a categorical proposal whose logit for token $v$ is
 \begin{equation}
@@ -114,32 +82,8 @@ Two objects must be kept apart here, and the rest of the thesis depends on the d
 % projected token proj_V(s) supplies the prediction target, so the within-cell surface
 % is nearly, not exactly, flat; the load-bearing discontinuity is the target-token jump.
 Inside a single cell the target token is fixed, so this pathway is a smooth function of $\bm{s}$ and its gradient is well defined; it is also, for the same reason, nearly but not exactly flat there, unlike the projected energy, which is exactly flat. Crossing a cell boundary changes the prediction target, so the pathway itself jumps, and the drift computed from it jumps with it. Every claim in this thesis about a discontinuous or non-Lipschitz drift attaches to this differentiable pathway \emph{across cell boundaries}, not to a classical gradient of the piecewise-constant energy of \eqref{eq:bg-cls-energy}, which does not exist. It is this arrangement, a pathway that is smooth within a cell and discontinuous across one, sampling a target that is flat within a cell and jumps across one, that puts the correction of Section~\ref{sec:bg-mh} under strain.
-% PRECISION (Phase 8, evaluation section 3 RQ2: "the thesis sometimes says the continuous
-% sampler's correction fails because the drift is non-Lipschitz or discontinuous while also
-% describing the projected energy as piecewise constant and the differentiable network input
-% pathway as smooth within cells. This distinction must remain mathematically exact [...] the
-% wording should avoid making it sound as though a classical gradient of the projected
-% piecewise-constant energy is directly being used."). Prior wording, which did read that way:
-% "The landscape the continuous sampler must traverse is thus not the smooth surface the
-% Langevin theory assumes but a collection of flat plateaus separated by cliffs, and it is
-% exactly on such a landscape that the Lipschitz condition of Section~\ref{sec:bg-mh} fails,
-% because the drift, which depends on the energy, is discontinuous at every boundary."
-% and "The projected token, and hence the energy, changes only when the state crosses a cell
-% boundary, which is the sense in which the surface is piecewise constant, while the gradient
-% the sampler differentiates is taken with respect to the continuous state as it enters the
-% network on the input side, so it is well defined within a cell and yet blind to the boundary
-% that actually matters. It is this split, a smooth interior and a jump at the boundary, that
-% breaks the correction."
 
 The arrangement has a direct consequence for the acceptance probability, derived once here. Consider a proposed move that stays within a single Voronoi cell, so that $\mathrm{proj}_V(\bm{s}') = \mathrm{proj}_V(\bm{s})$. The projected sequence, and therefore the energy of \eqref{eq:bg-cls-energy}, is unchanged, so the target ratio $p(\bm{s}')/p(\bm{s})$ is at or near unity and the acceptance probability of \eqref{eq:bg-mh} is governed almost entirely by the proposal ratio $q(\bm{s}\mid\bm{s}')/q(\bm{s}'\mid\bm{s})$. For the discrete sampler a within-cell move is the proposal of the same token, which is its own reverse and for which the forward and backward proposal probabilities coincide, so the proposal ratio is one and the move is accepted with certainty. For the continuous sampler a within-cell move is still a continuous displacement in embedding space, and its reverse proposal density is evaluated from the drift at the proposed point, which even inside the same cell need not make the return move likely, so the proposal ratio is not one and within-cell acceptance is not protected. Section~\ref{sec:results-mh} reports the measured acceptance rates on both sides of this split.
-% REMOVED (Phase 8, evaluation section 5 item 6: "The background should explain the geometry
-% and theoretical concern. It should not already state the measured acceptance outcome in
-% detail. Save 'well under a percent' and boundary-crossing comparisons for Results."). Prior
-% closing sentence, whose numbers now appear only in Section 5.3:
-% "The measured split in Section~\ref{sec:results-mh} bears this out precisely: the discrete
-% sampler accepts within-cell moves with probability one, while the continuous sampler accepts
-% them at well under a percent, and it is boundary-crossing moves, the only ones that change a
-% token, on which the correction collapses."
 
 \subsection{Score Matching and the Score Function}
 \label{sec:bg-score}

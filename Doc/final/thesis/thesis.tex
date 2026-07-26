@@ -38,20 +38,10 @@
 \usepackage{caption}
 \captionsetup{font=small,labelfont=bf}
 
-% PHASE 8 (print legibility): the trajectory figures were re-laid-out as tall stacked
-% panels so they are readable at \textwidth in print. LaTeX's default \topfraction of
-% 0.7 refuses to place a float that tall at the top of a text page, which pushed both
-% figures several pages past their discussion. These are the standard relaxations; they
-% change placement only, never content.
 \renewcommand{\topfraction}{0.9}
 \renewcommand{\bottomfraction}{0.7}
 \renewcommand{\textfraction}{0.1}
 \renewcommand{\floatpagefraction}{0.75}
-% PHASE 8: hyperref was absent from this build, so no cross-reference, citation or
-% table-of-contents entry was clickable in the PDF the examiners read. It is loaded
-% last, as hyperref requires, with hidelinks so the printed page is unchanged (no
-% coloured text, no link boxes) while the electronic copy is navigable. The report
-% build in ../thesis.tex has always loaded it; only this template-explicit build did not.
 \usepackage[hidelinks]{hyperref}
 % Guard against a single over-long justified line protruding into the right margin,
 % which is what made the abstract page look wider than the text block in the previous
@@ -66,13 +56,13 @@
 \newcommand{\vs}{\bm{s}}
 \newcommand{\ve}{\bm{e}}
 \newcommand{\vg}{\bm{g}}
+\newcommand{\vx}{\bm{x}}
 \newcommand{\norm}[1]{\left\lVert#1\right\rVert}
 \newcommand{\energy}{E}
 \newcommand{\grad}{\nabla}
 \DeclareMathOperator*{\argmax}{arg\,max}
 \DeclareMathOperator*{\argmin}{arg\,min}
 \DeclareMathOperator{\KL}{KL}
-
 
 \begin{document}
 
@@ -82,11 +72,6 @@
 \begin{titlepage}
   % E2 item 1 (third strike, 2026-07-26): the titlepage now matches the official
   % ThesisExample template VERBATIM in geometry and vertical spacing. The previous build
-  % added top=2cm,bottom=2cm here, which enlarged the text height so the template's \vfill
-  % (kept, as in the template) opened a several-centimetre void between the author name and
-  % the examiner block. Reverting to the template's {left=3.5cm,right=2cm} (default top and
-  % bottom) and the template's 2.5cm / 2cm skips and blank tabular rows reproduces the
-  % template's balanced layout. See the side-by-side render in REVISION_WRITING.md.
   \newgeometry{left=3.5cm,right=2cm}
   \large
    \begin{center}
@@ -135,11 +120,9 @@
 \begin{otherlanguage}{german}
 \noindent\textbf{Erklärung (Statement of Authorship)}\\
 
-
 \noindent Hiermit erkläre ich, dass ich die vorliegende Arbeit selbstständig verfasst und dabei keine anderen als die angegebenen Quellen und Hilfsmittel benutzt habe. Sämtliche wörtlichen oder sinngemäßen Übernahmen und Zitate aus anderen Werken sind kenntlich gemacht und nachgewiesen. Ich versichere, dass ich keine Hilfsmittel verwendet habe, deren Nutzung die Prüferin oder der Prüfer explizit ausgeschlossen hat. Im Anhang „Nutzung von KI-Tools“ habe ich dokumentiert, welche KI-Tools zur Erstellung wesentlicher Teile dieser Arbeit in welcher Art und Weise verwendet wurden. Mit Abgabe der Arbeit übernehme ich die volle Verantwortung für alle Inhalte. Die Grundsätze zur KI-Nutzung für Studierende an der Universität Stuttgart habe ich zur Kenntnis genommen und befolgt. Weder diese Arbeit noch wesentliche Teile daraus waren bisher Gegenstand eines anderen Prüfungsverfahrens. Das elektronische Exemplar stimmt mit allen eingereichten Exemplaren überein.
 \end{otherlanguage}
 \footnote{Non-binding translation for convenience: I hereby declare that the work presented in this thesis is entirely my own. I did not use any other sources and aids than the listed ones. I have marked all direct or indirect transfers from other sources contained therein as referenced quotations. I assure that I have not used any aids that were explicitly ruled out by the examiner. In the Appendix „Use of AI Tools“ I have documented which AI tools were used and how they contributed in the creation of this work. By submitting this work, I assume full responsibility for all content. I have taken notice of and I comply with the Principles for the Use of Artificial Intelligence by Students at the University of Stuttgart. Neither this work nor significant parts of it were part of another examination procedure. The electronic copy is consistent with all submitted hard copies.}\\[2cm]
-
 
 \noindent Stuttgart, 29. Juli 2026\\[1.5cm]
 \noindent (Sarthak Singh)

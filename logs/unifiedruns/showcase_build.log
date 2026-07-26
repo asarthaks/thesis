@@ -1,0 +1,14 @@
+[showcase] reconstructed 10 corruptions for [3, 8, 14, 34, 52, 60, 98, 122, 162, 199]
+[showcase] s3 done (pos 34, gt 'fish')
+[showcase] s8 done (pos 7, gt ' by')
+[showcase] s14 done (pos 4, gt ' Road')
+[showcase] s34 done (pos 37, gt ' resided')
+[showcase] s52 done (pos 35, gt ' like')
+[showcase] s60 done (pos 21, gt 'NT')
+[showcase] s98 done (pos 9, gt ' a')
+[showcase] s122 done (pos 18, gt ' close')
+[showcase] s162 done (pos 1, gt ' =')
+[showcase] s199 done (pos 10, gt ' 1990')
+
+[showcase] wrote results_revision/qualitative_showcase.json
+[verify] ok=100 warn=0

@@ -1,0 +1,413 @@
+{
+  "experiment": "onehot_vs_embedding_surrogate",
+  "run_name": "rev_onehot_surrogate",
+  "res_dir": "results/diagnostics/diag",
+  "note": "Dhat_onehot = true_delta_self + Dhat_emb, an exact algebraic identity for a causal LM; no new forward passes were run.",
+  "by_model": {
+    "gfn-lb0-2000": {
+      "n_pairs": 400000,
+      "mean_abs_self": 16.92578473656075,
+      "mean_abs_future": 27.418780751657486,
+      "ALL": {
+        "embedding_gradient": {
+          "spearman": 0.023697937664380123,
+          "pearson": 0.0458281854288376,
+          "spearman_ci95": [
+            0.020513948134381142,
+            0.026825219935385565
+          ]
+        },
+        "self_term_only": {
+          "spearman": 0.4426608477133328,
+          "pearson": 0.5256435230413533,
+          "spearman_ci95": [
+            0.4399969333997669,
+            0.4453226955803214
+          ]
+        },
+        "onehot_gradient": {
+          "spearman": 0.43917942160942164,
+          "pearson": 0.5240923207457077,
+          "spearman_ci95": [
+            0.43652662501430944,
+            0.44194734427165655
+          ]
+        }
+      },
+      "by_stratum": {
+        "mid": {
+          "n_pairs": 100000,
+          "mean_dist": 2.4063530518889427,
+          "embedding_gradient": {
+            "spearman": 0.015525546408185887,
+            "pearson": 0.01724378449509585
+          },
+          "self_term_only": {
+            "spearman": 0.259799666761536,
+            "pearson": 0.2837074530384981
+          },
+          "onehot_gradient": {
+            "spearman": 0.25684551907212416,
+            "pearson": 0.28217094579135266
+          }
+        },
+        "near": {
+          "n_pairs": 100000,
+          "mean_dist": 1.937559062409997,
+          "embedding_gradient": {
+            "spearman": 0.09071631650516915,
+            "pearson": 0.11571474916834802
+          },
+          "self_term_only": {
+            "spearman": 0.7078625473251433,
+            "pearson": 0.7092564678407729
+          },
+          "onehot_gradient": {
+            "spearman": 0.7062994221031644,
+            "pearson": 0.7088083408793514
+          }
+        },
+        "random": {
+          "n_pairs": 200000,
+          "mean_dist": 2.5362747100183367,
+          "embedding_gradient": {
+            "spearman": 0.010944333556054434,
+            "pearson": 0.01768325044630161
+          },
+          "self_term_only": {
+            "spearman": 0.32001444832155007,
+            "pearson": 0.35262979761492624
+          },
+          "onehot_gradient": {
+            "spearman": 0.3162111889688521,
+            "pearson": 0.3500152924098704
+          }
+        }
+      }
+    },
+    "gfn-lb0-500": {
+      "n_pairs": 400000,
+      "mean_abs_self": 15.938100936747023,
+      "mean_abs_future": 36.093102596760986,
+      "ALL": {
+        "embedding_gradient": {
+          "spearman": 0.05725233741962526,
+          "pearson": 0.05797122494402972,
+          "spearman_ci95": [
+            0.054281533577935456,
+            0.06040618757910029
+          ]
+        },
+        "self_term_only": {
+          "spearman": 0.3739692821431292,
+          "pearson": 0.44793977075518515,
+          "spearman_ci95": [
+            0.37091079392480186,
+            0.3768328854885974
+          ]
+        },
+        "onehot_gradient": {
+          "spearman": 0.378541509737416,
+          "pearson": 0.45325999875493067,
+          "spearman_ci95": [
+            0.3755947514040152,
+            0.3815440732321745
+          ]
+        }
+      },
+      "by_stratum": {
+        "mid": {
+          "n_pairs": 100000,
+          "mean_dist": 2.4063530518889427,
+          "embedding_gradient": {
+            "spearman": 0.04860773256481332,
+            "pearson": 0.029784340785653333
+          },
+          "self_term_only": {
+            "spearman": 0.17852705135636293,
+            "pearson": 0.1931886863822473
+          },
+          "onehot_gradient": {
+            "spearman": 0.1861849697432694,
+            "pearson": 0.19811432535711904
+          }
+        },
+        "near": {
+          "n_pairs": 100000,
+          "mean_dist": 1.937559062409997,
+          "embedding_gradient": {
+            "spearman": 0.11070271727351137,
+            "pearson": 0.12392075908133277
+          },
+          "self_term_only": {
+            "spearman": 0.6438648612219379,
+            "pearson": 0.6337157868513527
+          },
+          "onehot_gradient": {
+            "spearman": 0.6489056723426181,
+            "pearson": 0.6417526883985045
+          }
+        },
+        "random": {
+          "n_pairs": 200000,
+          "mean_dist": 2.5362747100183367,
+          "embedding_gradient": {
+            "spearman": 0.03681549755830884,
+            "pearson": 0.021909606298801836
+          },
+          "self_term_only": {
+            "spearman": 0.25235207332334725,
+            "pearson": 0.2813619922814471
+          },
+          "onehot_gradient": {
+            "spearman": 0.2574047368397719,
+            "pearson": 0.28331683715553807
+          }
+        }
+      }
+    },
+    "gfn-lb1-500": {
+      "n_pairs": 400000,
+      "mean_abs_self": 12.637050362716112,
+      "mean_abs_future": 29.45935038651347,
+      "ALL": {
+        "embedding_gradient": {
+          "spearman": 0.04624798375116917,
+          "pearson": -0.03159064658860833,
+          "spearman_ci95": [
+            0.04284684296194638,
+            0.04958703136968411
+          ]
+        },
+        "self_term_only": {
+          "spearman": 0.37446055791959704,
+          "pearson": 0.2803659924492186,
+          "spearman_ci95": [
+            0.3715466433281606,
+            0.37763720193735484
+          ]
+        },
+        "onehot_gradient": {
+          "spearman": 0.3650045307261776,
+          "pearson": 0.23208265256055752,
+          "spearman_ci95": [
+            0.3618849602885298,
+            0.36819624735023215
+          ]
+        }
+      },
+      "by_stratum": {
+        "mid": {
+          "n_pairs": 100000,
+          "mean_dist": 2.4063530518889427,
+          "embedding_gradient": {
+            "spearman": 0.03955059822126049,
+            "pearson": -0.05688538635490601
+          },
+          "self_term_only": {
+            "spearman": 0.22364026805595477,
+            "pearson": 0.17320149764908893
+          },
+          "onehot_gradient": {
+            "spearman": 0.2198066472672947,
+            "pearson": 0.11994877805761238
+          }
+        },
+        "near": {
+          "n_pairs": 100000,
+          "mean_dist": 1.937559062409997,
+          "embedding_gradient": {
+            "spearman": 0.05117086222937997,
+            "pearson": 0.010028345122182383
+          },
+          "self_term_only": {
+            "spearman": 0.6376876330894932,
+            "pearson": 0.46673366978375447
+          },
+          "onehot_gradient": {
+            "spearman": 0.6096827378162145,
+            "pearson": 0.4221720661175847
+          }
+        },
+        "random": {
+          "n_pairs": 200000,
+          "mean_dist": 2.5362747100183367,
+          "embedding_gradient": {
+            "spearman": 0.039953153154283993,
+            "pearson": -0.042055568902986194
+          },
+          "self_term_only": {
+            "spearman": 0.24935757209314752,
+            "pearson": 0.17268946131129242
+          },
+          "onehot_gradient": {
+            "spearman": 0.2519456125647617,
+            "pearson": 0.12443787781288783
+          }
+        }
+      }
+    },
+    "gpt2sft": {
+      "n_pairs": 400000,
+      "mean_abs_self": 15.024936207530153,
+      "mean_abs_future": 24.212467926902175,
+      "ALL": {
+        "embedding_gradient": {
+          "spearman": -0.010838970530935124,
+          "pearson": -0.022724589978759563,
+          "spearman_ci95": [
+            -0.014003643619895489,
+            -0.007350374449161296
+          ]
+        },
+        "self_term_only": {
+          "spearman": 0.595208041050171,
+          "pearson": 0.6492889537992711,
+          "spearman_ci95": [
+            0.5927959618632355,
+            0.5979210834532978
+          ]
+        },
+        "onehot_gradient": {
+          "spearman": 0.5877696822227108,
+          "pearson": 0.6374309004563512,
+          "spearman_ci95": [
+            0.5854136109041956,
+            0.5904409123992401
+          ]
+        }
+      },
+      "by_stratum": {
+        "mid": {
+          "n_pairs": 100000,
+          "mean_dist": 2.4063530518889427,
+          "embedding_gradient": {
+            "spearman": -0.0407598716648092,
+            "pearson": -0.06559321951125932
+          },
+          "self_term_only": {
+            "spearman": 0.48233451496683033,
+            "pearson": 0.5240612223434817
+          },
+          "onehot_gradient": {
+            "spearman": 0.4822245099314605,
+            "pearson": 0.5079323865272695
+          }
+        },
+        "near": {
+          "n_pairs": 100000,
+          "mean_dist": 1.937559062409997,
+          "embedding_gradient": {
+            "spearman": 0.027451225773962664,
+            "pearson": -0.006100693575589006
+          },
+          "self_term_only": {
+            "spearman": 0.72918214463801,
+            "pearson": 0.7267940466625605
+          },
+          "onehot_gradient": {
+            "spearman": 0.7302853862505172,
+            "pearson": 0.7237209728964699
+          }
+        },
+        "random": {
+          "n_pairs": 200000,
+          "mean_dist": 2.5362747100183367,
+          "embedding_gradient": {
+            "spearman": -0.0484399951689926,
+            "pearson": -0.061343637837307716
+          },
+          "self_term_only": {
+            "spearman": 0.5209286777888457,
+            "pearson": 0.5608159181117099
+          },
+          "onehot_gradient": {
+            "spearman": 0.5127389709696896,
+            "pearson": 0.539770203502201
+          }
+        }
+      }
+    },
+    "llama3-8b": {
+      "n_pairs": 400000,
+      "mean_abs_self": 17.330291026181456,
+      "mean_abs_future": 12.294519600887298,
+      "ALL": {
+        "embedding_gradient": {
+          "spearman": 0.020817098531733098,
+          "pearson": -0.02254337019158254,
+          "spearman_ci95": [
+            0.01726477773248881,
+            0.024139475547847424
+          ]
+        },
+        "self_term_only": {
+          "spearman": 0.5130439592378224,
+          "pearson": 0.5087465186919732,
+          "spearman_ci95": [
+            0.5106053408182872,
+            0.5151439959544417
+          ]
+        },
+        "onehot_gradient": {
+          "spearman": 0.5130137847433912,
+          "pearson": 0.5085930692831656,
+          "spearman_ci95": [
+            0.5106139629683234,
+            0.5151055829646759
+          ]
+        }
+      },
+      "by_stratum": {
+        "mid": {
+          "n_pairs": 100000,
+          "mean_dist": 0.7095143688088655,
+          "embedding_gradient": {
+            "spearman": 0.021581197534368164,
+            "pearson": -0.022779970941729816
+          },
+          "self_term_only": {
+            "spearman": 0.4963294618363015,
+            "pearson": 0.49491576928363906
+          },
+          "onehot_gradient": {
+            "spearman": 0.49662758581130095,
+            "pearson": 0.4949011568588933
+          }
+        },
+        "near": {
+          "n_pairs": 100000,
+          "mean_dist": 0.45278911541551353,
+          "embedding_gradient": {
+            "spearman": 0.03867225126866992,
+            "pearson": -0.023794589238086562
+          },
+          "self_term_only": {
+            "spearman": 0.5968311524421402,
+            "pearson": 0.599465136730277
+          },
+          "onehot_gradient": {
+            "spearman": 0.5962349028592239,
+            "pearson": 0.5987980717646963
+          }
+        },
+        "random": {
+          "n_pairs": 200000,
+          "mean_dist": 0.7358565272139013,
+          "embedding_gradient": {
+            "spearman": 0.011157824247906916,
+            "pearson": -0.0223393997245262
+          },
+          "self_term_only": {
+            "spearman": 0.47570144987572033,
+            "pearson": 0.46534417017088214
+          },
+          "onehot_gradient": {
+            "spearman": 0.47577909179683575,
+            "pearson": 0.46525917017578605
+          }
+        }
+      }
+    }
+  }
+}

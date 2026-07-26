@@ -1,0 +1,7 @@
+[sweep_gnp_e10500p0_t0p25] loading /mount/studenten-temp1/users/singhsk/thesis/thesis/gfn-lm-tuning/infill_subj_arithmetic/gpt2_large_sft_output (float32) ...
+[sweep_gnp_e10500p0_t0p25] 282 candidate sentences
+[sweep_gnp_e10500p0_t0p25] 25/50
+[sweep_gnp_e10500p0_t0p25] 50/50
+[sweep_gnp_e10500p0_t0p25] DONE  n=50  acc=0.00%  final_kl=6.379  final_l2=2.572  accept=9.8%
+[sweep_gnp_e10500p0_t0p25] wrote results/grid/rev3/sweep_gnp_e10500p0_t0p25.json
+[sweep_gnp_e10500p0_t0p25] wrote results/grid/rev3/sweep_gnp_e10500p0_t0p25.csv

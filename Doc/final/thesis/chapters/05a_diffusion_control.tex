@@ -5,16 +5,16 @@ The diagnosis of the preceding sections is causal: it attributes the failure of 
 
 One clarification governs the comparison throughout, because it is easy to state the contrast too loosely. The relevant difference between the two model families is not that one commits tokens within a pass and the other does not; absorbing diffusion also commits a token at each denoising step and does not thereafter change it. The difference is at the level of the revision \emph{operation}. To revise token $i$, a diffusion model re-masks that position and re-denoises it conditioned on both sides, which is an in-distribution bidirectional query it was trained to answer, whereas an autoregressive model has no conditioning path from the right context to a token at all. It is the availability of that bidirectional conditioning query, not the mere act of committing, that separates the two.
 
+This clarification also bounds what the control can attribute. SEDD differs from GPT-2 Large in more than one respect at once: in training objective, in scale, in training corpus, and in conditioning direction. The design isolates the direction signal within the sampler, by holding the chain, the energy and the task fixed, but it cannot by itself separate \emph{score training} from \emph{bidirectional conditioning}, because SEDD has both and the autoregressive baselines have neither. Section~\ref{sec:results-mlm} runs the experiment that separates them.
+
 \subsubsection{Linearization on the Unified Corpus}
 \label{sec:results-diffusion-lin}
 
 The first measurement repeats the linearization diagnostic of Section~\ref{sec:results-linradius} with the diffusion score in place of the autoregressive gradient, on exactly the same sequence set used for the reference baselines, so that the numbers sit on one axis. For each sequence and one masked position, a cheap one-pass surrogate, the model's denoising log-preference for filling the position, is correlated against an expensive per-candidate truth, the measured effect of committing each candidate on the reconstruction of the held-out remainder of the sequence. Table~\ref{tab:diffusion-lin} reports the Spearman correlation, pooled and by embedding-distance stratum. Under the autoregressive objective the surrogate is statistically indistinguishable from zero at every distance, with the magnitude of the correlation below $0.06$ throughout. Under the diffusion objective, on the same tokenizer and the same four hundred thousand candidate pairs, the correlation is clearly positive in every stratum and at both scales, with a pooled value near $0.13$ and a per-sequence mean near $0.18$, and the medium model exceeds the small one in the near stratum, the regime where a first-order surrogate is most expected to apply. On a second corpus of narrative text the same measurement gave a pooled correlation of $0.184$ and a near-stratum correlation of $0.306$; the near-stratum value is corpus-dependent and is not carried over, but the sign and order of magnitude are stable across both corpora. % SOURCE: rev_sedd_lin_small.json, rev_sedd_lin_medium.json (WikiText); rev_sedd_linearization.json (ROCStories); diag_linearization_gpt2sft.json (AR).
 
-\begin{table}[h]
+\begin{table}[htbp]
     \centering
     \small
-        % PHASE 8 (print): column separation tightened so the tabular fits inside the text
-    % block; it protruded into the right margin before. No cell content changed.
     \setlength{\tabcolsep}{4pt}
     \begin{tabular}{lccccc}
         \toprule
@@ -37,11 +37,9 @@ The first measurement repeats the linearization diagnostic of Section~\ref{sec:r
 
 A usable local direction is a necessary condition for the capability the gradient machinery lacked, but not obviously a sufficient one, so the second measurement asks the diffusion model to perform the operation itself. On the same corrupted sequences the reference baselines used, the flipped token is re-masked and the position is re-denoised conditioned on both sides, a single native draw with no reranking and no sampling of many candidates. Table~\ref{tab:diffusion-recovery} reports exact-match recovery, top-five recovery, and the KL divergence under the autoregressive model that the whole section uses as its yardstick. Both scales recover the exact token in roughly a third of cases and place the true token in the top five two-thirds of the time, and the resulting KL, near $3.7$, sits well below the untouched corruption at $9.14$ and well below the flagship Langevin configurations near $6.5$, with the medium model at least matching the small one on every metric. % SOURCE: rev_sedd_recovery_small.json, rev_sedd_recovery_medium.json; reference rows rev_klbase_gpt2sft.json. The comparison to the domain-tuned autoregressive baselines is presented for placement only, since scale and training domain differ; the load-bearing statement is the qualitative one, that a score-trained model natively performs, in a single conditioned pass, the recovery that the gradient-guided sampler could not perform at all.
 
-\begin{table}[h]
+\begin{table}[htbp]
     \centering
     \small
-        % PHASE 8 (print): column separation tightened so the tabular fits inside the text
-    % block; it protruded into the right margin before. No cell content changed.
     \setlength{\tabcolsep}{4pt}
     \begin{tabular}{lccc}
         \toprule
@@ -71,11 +69,9 @@ The recovery result changes the model, the sampler, and the energy all at once, 
 
 Swapping only the direction signal, inside the same Metropolis-corrected chain, on the same exact energy and the same task, changes the outcome. The gradient arm recovers the token in $0.0\%$ of cases, the autoregressive left-conditional proposal in $23.5\%$, and the diffusion-proposal hybrid in $38.5\%$ at the small scale and $39.0\%$ at the medium scale, with acceptance rising from $34.4\%$ for the left-conditional to above $40\%$ for the hybrid because the bidirectional proposal, seeing both sides of the mask, more often lands on tokens the exact energy will accept. % SOURCE: rev_sedd_hybrid.json by_arm.{hybrid_small,hybrid_medium,left_conditional,dls_policy,dls_random}. That the hybrid also exceeds the left-conditional arm, and not only the gradient arm, measures what the bidirectional conditioning adds beyond an exact reweighting of the left context alone. Together with Section~\ref{sec:results-lasttoken}, which shows that a usable direction cannot be extracted from the autoregressive input-embedding gradient at the final position, this result shows that a usable direction supplied by a score-trained model does work inside the same machinery.
 
-\begin{table}[h]
+\begin{table}[htbp]
     \centering
     \small
-        % PHASE 8 (print): column separation tightened so the tabular fits inside the text
-    % block; it protruded into the right margin before. No cell content changed.
     \setlength{\tabcolsep}{4pt}
     \begin{tabular}{lcccc}
         \toprule
@@ -95,47 +91,55 @@ Swapping only the direction signal, inside the same Metropolis-corrected chain, 
 
 \subsubsection{Classifier-Guided Steering (Exploratory Follow-Up)}
 \label{sec:results-diffusion-guided}
-\label{sec:results-diffusion-gprime} % PRESERVED: this subsection absorbed the former 5.13.5, whose label is kept so existing \ref calls resolve (Phase 8 prompt B2: keep every label key unchanged).
+\label{sec:results-diffusion-gprime} % PRESERVED: this subsection absorbed the former 5.13.5; both label keys are kept so existing \ref calls resolve.
 
-This subsection reports an exploratory follow-up rather than part of the positive control. The control proper is complete at Section~\ref{sec:results-diffusion-hybrid}: the diffusion score carries the local signal the autoregressive gradient lacked, it performs the recovery natively, and it works as a proposal inside the thesis's own exact-energy chain. What follows asks the further question of whether the constructive direction extends to \emph{control}, which broadens the study from a sampling diagnosis into classifier-guided diffusion and evaluator alignment. It is summarized here and reported in full in Appendix~\ref{app:guided}.
+The positive control proper is complete at Section~\ref{sec:results-diffusion-hybrid}. A further question, whether the repaired landscape also admits the \emph{constraint} steering that failed on the autoregressive energy in Section~\ref{sec:results-constrained}, was explored with a classifier trained to read the partially masked states the diffusion model occupies mid-denoising. It is reported as exploratory, and in full, in Appendix~\ref{app:guided}. Four findings summarize it. The constraint direction carries signal, moving the guiding classifier's own verdict toward the target at every strength and for both labels, by $+9.3$ to $+25.7$ points on-domain. Guidance steers the classifier that guides it more reliably than it steers an independent judge. Transfer to that independent judge is bounded not by a fixed reachable direction but by how far the two instruments agree on the text being scored, agreement rising from $56$ to $64\%$ off-domain to $72\%$ on generated and $80\%$ on real on-domain text. And an on-domain trust region removes the fluency cost that unconstrained guidance incurs, holding span negative log-likelihood at or below the unguided value in three of four cells against a climb from $7.1$ to $11.0$ nats without it.
+% SOURCE: rev_gprime.json and rev_sedd_guided_g{1,2,4}.json; the full tables, the agreement
+% ladder and the per-class confusion are in Appendix~\ref{app:guided}.
 
-A small classifier is trained to read a noisy, partially masked state, the state the diffusion model occupies mid-denoising, by corrupting each labelled example with the model's own forward absorbing process at a noise level drawn uniformly over the schedule. Its held-out accuracy at low noise is $81\%$.
-% SOURCE: noisy_classifier_train.json final_low_noise_acc=80.96.
-During generation it reweights the diffusion model's top thirty-two candidates at each commitment by the probability of the target label, raised to a guidance strength $\gamma$. Steering is scored, exactly as in Section~\ref{sec:results-constrained}, by the frozen-model sentiment judge, so the classifier that guides and the judge that grades are strictly separate. Two settings were run: an off-domain continuation setting on prompts neither classifier was calibrated for, and an on-domain setting on held-out SST-2 prompts with a fluency trust region that caps guidance to candidates within $\delta=5$ nats of the diffusion model's own top choice. Table~\ref{tab:gprime} reports the second.
+\subsection{Separating Bidirectionality from Score Training}
+\label{sec:results-mlm}
 
-Four statements summarize both settings. First, the constraint direction carries signal: the guiding classifier's own verdict moves toward the target at every strength and for both labels, by $+9.3$ to $+25.7$ points on-domain and by seven to eighteen points off-domain, with confidence intervals excluding zero.
-% SOURCE: rev_gprime.json by_cell.*.self_gain_pts and self_gain_ci95; rev_sedd_guided_g{1,2,4}.json by_label.*.self_gain_pts.
-Second, guidance steers the classifier that guides more reliably than it steers an independent judge. Third, transfer to that independent judge is bounded by how far the two instruments agree on the text being scored: agreement climbs from $56$ to $64\%$ off-domain, to $71.7\%$ on unguided on-domain generations, to $79.7\%$ on the held-out sentences themselves, and in each setting the judge moves in one direction only, the negative target off-domain and the positive target on-domain, with the working direction tracking that alignment rather than a fixed reachable sentiment.
-% SOURCE: results/revision/rev_gprime.json diagnosis_unguided_gen_agreement_pct 71.667 [66.667,76.667]; realtext_agreement_pct 79.667 [75,84]; phase4_offdomain_agreement_band_pct [56,64]; by_cell.*.gain_pts and gain_ci95.
-Fourth, the trust region removes the fluency cost: guided span negative log-likelihood stays at or below the unguided value in three of the four on-domain cells and rises by at most $0.26$ nats in the fourth, against a climb from $7.1$ to $11.0$ nats with guidance strength in the off-domain run.
-% SOURCE: rev_gprime.json by_cell.*.nll_cost (-0.74, -1.71, +0.26, -1.00); unguided_span_nll 7.014; rev_sedd_guided_g{1,2,4}.json unguided_span_nll -> guided_span_nll.
+The diffusion result leaves one variable unresolved, and it is the one the causal claim turns on. A bidirectional masked language model is the discriminating control: RoBERTa \citep{liu2019roberta} is \emph{not} score-trained, but it \emph{is} bidirectional and it answers exactly the query the revision operation needs, the distribution of a token given both of its contexts. If an MLM proposal also works in this chain, the operative variable is bidirectional conditioning and not the score objective.
 
-\begin{table}[h]
+The experiment holds everything but the proposal fixed against the autoregressive runs: the same WikiText-2 sequences, the same deterministic per-index corruption routine, the same exact GPT-2 Large energy, the same Metropolis--Hastings accept/reject, and the same KL metric. The proposal is an independence sampler, so its Hastings ratio $q(x_{\text{cur}})/q(x_{\text{prop}})$ is available in closed form. RoBERTa and GPT-2 index different vocabularies, so a once-off bridge maps each RoBERTa token whose surface string re-encodes to exactly one GPT-2 token; it covers $99.95$ percent of the vocabulary, and no ground-truth token in the evaluation set fell outside it.
+
+One control is needed before the result can be read, because a recovery rate far above the rest of the study invites the suspicion of leakage. Replacing the MLM conditional with a \emph{uniform} draw over the same bridged vocabulary, through identical code, gives $0.5$ percent exact recovery and a final KL of $6.538$ at a $9.48$ percent acceptance rate. Those figures reproduce the flagship Langevin sampler ($0.0$ percent, $6.541$, $9.98$ percent) to three significant figures, from a separate implementation. The pipeline therefore carries no information of its own, and it independently confirms the central measurement of Section~\ref{sec:results-quench}: a gradient-guided discrete Langevin chain on this energy performs exactly as a uniform-proposal chain performs.
+% SOURCE: results/revision/rev_mlm_uniform.json (uniform control) against
+% results/grid/gpt2_v2/gpt2-large.dls.policy.mh.gn.free.s50.json (accuracy 0.0,
+% mean_kl[-1] 6.541, accept_rate 9.98). Produced by diagnostics/run_mlm_control.py,
+% which IMPORTS build_corruption from scripts/run_experiment.py rather than reimplementing it.
+
+Table~\ref{tab:mlm} places every proposal that has been run in this chain on one axis. The ordering is unambiguous. The two arms with no output-side conditioning at all, the input-embedding gradient and its norm-matched random control, sit at zero recovery and are indistinguishable from a uniform draw. Adding left-only conditioning lifts recovery to $23.5$ percent. Adding bidirectional conditioning lifts it to $38.5$ to $39.0$ percent with a score-trained model, and to $44.5$ percent with one that is not score-trained.
+% SOURCE: results/revision/rev_mlm_control.json (exact 44.5, ever 59.0, kl_last 2.737,
+% accept 50.27, n 200, bridge 99.95%) and rev_mlm_uniform.json (exact 0.5, kl 6.538,
+% accept 9.48); SEDD arms from rev_sedd_hybrid.json by_arm (hybrid_medium 39.0 / 3.017,
+% hybrid_small 38.5 / 3.120, left_conditional 23.5 / 5.170, dls_policy 0.0 / 6.854,
+% dls_random 0.0 / 6.584), all at n=200, data_seed 0, min_words 10, max_words 40.
+
+\begin{table}[t]
     \centering
     \small
-        % PHASE 8 (print): column separation tightened so the tabular fits inside the text
-    % block; it protruded into the right margin before. No cell content changed.
     \setlength{\tabcolsep}{4pt}
-    \begin{tabular}{llccccc}
+    \begin{tabular}{llccc}
         \toprule
-        $\gamma$ & target & unguided & guided & judge gain [CI] & self gain & NLL (un$\to$guided) \\
+        Proposal & Conditioning & Score-tr. & Exact (\%) & Mean KL \\
         \midrule
-        $2$ & negative & $53.0$ & $50.7$ & $-2.3\ [-7.0, 2.3]$   & $+18.0$ & $7.01\to6.27$ \\
-        $2$ & positive & $47.0$ & $53.7$ & $+6.7\ [1.7, 11.7]$   & $+9.3$  & $7.01\to5.30$ \\
-        $4$ & negative & $53.0$ & $52.3$ & $-0.7\ [-5.3, 4.0]$   & $+25.7$ & $7.01\to7.28$ \\
-        $4$ & positive & $47.0$ & $54.3$ & $+7.3\ [2.7, 12.0]$   & $+17.7$ & $7.01\to6.01$ \\
+        Input-embedding gradient      & none          & no  & $0.0$          & $6.854$ \\
+        Norm-matched random dir.\      & none          & no  & $0.0$          & $6.584$ \\
+        Uniform over the vocabulary   & none          & --- & $0.5$          & $6.538$ \\
+        AR conditional                & left only     & no  & $23.5$         & $5.170$ \\
+        SEDD-small concrete score     & bidirectional & yes & $38.5$         & $3.120$ \\
+        SEDD-medium concrete score    & bidirectional & yes & $39.0$         & $3.017$ \\
+        RoBERTa-large masked LM       & bidirectional & \textbf{no} & $\mathbf{44.5}$ & $\mathbf{2.737}$ \\
         \bottomrule
     \end{tabular}
-    % SOURCE: results/revision/rev_gprime.json by_cell.{gamma2_label0,gamma2_label1,
-    % gamma4_label0,gamma4_label1}: unguided_hit_pct, guided_hit_pct, gain_pts+gain_ci95,
-    % self_gain_pts, unguided_span_nll -> guided_span_nll. n=300 pairs per cell.
-    \caption[On-domain trust-region guided diffusion generation, held-out SST-2 prompts.]{On-domain, trust-region guided diffusion generation on held-out SST-2 prompts, $n=300$ paired generations per cell, scored by the independent judge. Judge gain is the guided minus unguided target-hit percentage with a paired bootstrap $95\%$ confidence interval; self gain is the guiding classifier's own verdict; the last column is the span negative log-likelihood before and after guidance.}
-    \label{tab:gprime}
+    \caption[Proposals in the same exact-energy chain, ordered by conditioning.]{Every proposal run inside the same Metropolis--Hastings chain on the same frozen GPT-2 Large energy, the same $200$ WikiText-2 sequences and the same corruption seed. Only the proposal differs. Recovery tracks what the proposal can condition on, not whether it was trained with a score objective.}
+    \label{tab:mlm}
 \end{table}
 
-The claim the data licenses is therefore narrow and setting-contingent: with a single noisy guide at this scale, one-directional transfer to an independent judge is reachable under bounded fluency, while symmetric transfer at both labels is not. Appendix~\ref{app:guided} gives the off-domain table, the full agreement ladder, and the per-class confusion analysis that tests, and does not support, a by-class explanation of which direction transfers; Appendix~\ref{app:gprime-examples} gives representative guided pairs from both settings.
+The conclusion is that score training is not the operative variable. A model trained with ordinary masked-language-model cross-entropy, and never with a score-matching or score-entropy objective, supplies a proposal that recovers the corrupted token more often than either score-trained diffusion model tested. What the working proposals share is not their objective but their access: all of them read the candidate's probability from the model's output side, and the two bidirectional ones can additionally condition on the right context, which is the query an in-place revision actually poses.
 
-Taken together, the pilots complete the diffusion control. The signal the autoregressive gradient lacked is present in the diffusion score, the recovery the gradient machinery could not perform is performed natively, and the repaired direction works inside the thesis's own exact-energy chain. The combined GFlowNet and diffusion results support the interpretation that the training objective, rather than only the sampling algorithm, is a key source of the failure.
-% SCOPING (Phase 8, evaluation section 8 formulation 3). Prior closing sentence: "The training
-% objective is thereby isolated as the causal variable, at both the signal level and the
-% capability level."
+This revises, rather than qualifies, the attribution offered above. The earlier reading, that the training objective is the source of the failure, is too strong in one direction and too weak in another. Too strong, because an objective is not required: bidirectional conditioning is enough. Too weak, because even a purely left-to-right autoregressive conditional, the very model this thesis studies, reaches $23.5$ percent when read from the output side, against $0.0$ percent when differentiated with respect to its input embeddings. Both observations point the same way as Section~\ref{sec:results-onehot}: the information the samplers need is present in the frozen autoregressive model and is discarded by the choice of derivative, and what a bidirectional model adds on top is the right context, not a repaired gradient.
+
+Taken together, the pilots complete the diffusion control. The signal the autoregressive gradient lacked is present in the diffusion score, the recovery the gradient machinery could not perform is performed natively, and the repaired direction works inside the thesis's own exact-energy chain. The combined GFlowNet and diffusion results locate the failure outside the sampling algorithm, but Section~\ref{sec:results-mlm} identifies the operative variable more precisely than ``the training objective'': what the working proposals share is access to the model's output side, and what the bidirectional ones add is the right context. A score objective is sufficient to supply that access and is not necessary for it.

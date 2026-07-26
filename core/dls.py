@@ -28,9 +28,24 @@ class DiscreteLangevinSampler(BaseLangevinSampler):
         diff = token_embs - m
         return - (diff * diff).sum() / (2 * alpha)
 
+    def _onehot_bonus(self, self_logprobs):
+        """The self half of the one-hot gradient, ready to add to t2.
+
+        t2 already carries 0.5 * g^T (e(v) - s), the embedding-gradient half.
+        The one-hot gradient adds 0.5 * (log p(v | x_<m) - log p(x_m | x_<m));
+        the subtracted term is constant in v and a softmax ignores it, so only
+        0.5 * log p(v | x_<m) is returned.
+        """
+        return 0.5 * self_logprobs
+
     def _step(self, k, eps_k, s, s_idx, base_embs, input_ids, mask_indices_t, emb_gt):
         # 1. Gradients & Method Variation
-        raw_grad_s, log_joint = self.get_gradient_and_log_joint(s, s_idx, base_embs, input_ids, mask_indices_t)
+        onehot = (self.method == "policy_onehot")
+        if onehot:
+            raw_grad_s, log_joint, self_lp = self.get_gradient_and_log_joint(
+                s, s_idx, base_embs, input_ids, mask_indices_t, return_self_logprobs=True)
+        else:
+            raw_grad_s, log_joint = self.get_gradient_and_log_joint(s, s_idx, base_embs, input_ids, mask_indices_t)
         grad_s = self.apply_method_variation(raw_grad_s)
 
         # 2. Oracle Alpha Search
@@ -48,6 +63,8 @@ class DiscreteLangevinSampler(BaseLangevinSampler):
         grad_dot_emb = torch.matmul(grad_s, self.emb_matrix.T)
         grad_dot_s = torch.sum(grad_s * s_detached, dim=1, keepdim=True)
         t2 = 0.5 * (grad_dot_emb - grad_dot_s)
+        if onehot:
+            t2 = t2 + self._onehot_bonus(self_lp)
 
         scaled_logits = (t1 + t2) / self.temperature if self.temperature else (t1 + t2)
         probs = torch.softmax(scaled_logits, dim=1)
@@ -56,6 +73,23 @@ class DiscreteLangevinSampler(BaseLangevinSampler):
         entropy_t = -(probs * torch.log(probs + 1e-12)).sum(dim=1).mean().item()
 
         s_next = self.emb_matrix[next_token_ids].clone().detach().requires_grad_(True)
+
+        # Proposal sharpness, recorded for every step when asked for. This is the
+        # quantity that says whether the gradient term is load-bearing at all:
+        # t1 is the distance term, t2 the gradient-alignment term, and if t2 is
+        # small against t1 (and both small against log|V|) the proposal is a
+        # near-uniform draw over the vocabulary whatever the gradient says.
+        if getattr(self, "record_proposal_stats", False):
+            with torch.no_grad():
+                t1_std = float(t1.std().item())
+                t2_std = float(t2.std().item())
+                self._last_proposal_stats = dict(
+                    entropy=float(entropy_t),
+                    t1_std=t1_std,
+                    t2_std=t2_std,
+                    t2_over_t1=t2_std / (t1_std + 1e-12),
+                    logit_std=float(scaled_logits.std().item()),
+                )
 
         # ---------------- DIAGNOSTIC: EXPERIMENT 1, IN SITU ----------------
         # The t2 term IS the Taylor surrogate, up to the constant grad_dot_s:
@@ -87,7 +121,8 @@ class DiscreteLangevinSampler(BaseLangevinSampler):
         # 4. Metropolis-Hastings
         mh_rejected = False
         if self.mh_sampling:
-            if self.method == "policy":
+            exact_all = getattr(self, "mh_exact_all_arms", False)
+            if self.method in ("policy", "policy_onehot") or exact_all:
                 # Detailed balance requires the reverse proposal to be evaluated under the
                 # SAME kernel that produced the forward move, i.e. the method-varied
                 # (here normalized when grad_normalization is on) gradient at s_next.
@@ -95,23 +130,43 @@ class DiscreteLangevinSampler(BaseLangevinSampler):
                 # detailed balance whenever the forward proposal was normalized.
                 log_fwd_prob = torch.log_softmax(scaled_logits, dim=1).gather(1, next_token_ids.unsqueeze(1)).sum()
 
-                raw_grad_s_b, bw_log_joint = self.get_gradient_and_log_joint(s_next, next_token_ids, base_embs, input_ids, mask_indices_t)
-                grad_s_b = self.apply_method_variation(raw_grad_s_b)
+                if onehot:
+                    raw_grad_s_b, bw_log_joint, self_lp_b = self.get_gradient_and_log_joint(
+                        s_next, next_token_ids, base_embs, input_ids, mask_indices_t,
+                        return_self_logprobs=True)
+                else:
+                    raw_grad_s_b, bw_log_joint = self.get_gradient_and_log_joint(s_next, next_token_ids, base_embs, input_ids, mask_indices_t)
+
+                if self.method in ("policy", "policy_onehot"):
+                    grad_s_b = self.apply_method_variation(raw_grad_s_b)
+                else:
+                    # The random arms draw their direction independently of the state, so
+                    # for a single step the kernel q_g is a fixed, exactly computable
+                    # proposal. Reusing the SAME g backward (rather than redrawing, which
+                    # would not be the reverse of anything, or assuming symmetry, which is
+                    # false because the softmax normalisers differ) makes each step a valid
+                    # MH move under q_g; a mixture of pi-invariant kernels is pi-invariant.
+                    grad_s_b = grad_s
 
                 s_b_detached = s_next.detach()
                 dist_sq_b = self.emb_matrix_sq_norm.unsqueeze(0) + torch.sum(s_b_detached ** 2, dim=1, keepdim=True) - 2 * torch.matmul(s_b_detached, self.emb_matrix.T)
                 t1_b = -dist_sq_b / (2 * eps_k)
                 t2_b = 0.5 * (torch.matmul(grad_s_b, self.emb_matrix.T) - torch.sum(grad_s_b * s_b_detached, dim=1, keepdim=True))
+                if onehot:
+                    t2_b = t2_b + self._onehot_bonus(self_lp_b)
 
                 scaled_logits_b = (t1_b + t2_b) / self.temperature if self.temperature else (t1_b + t2_b)
                 log_bw_prob = torch.log_softmax(scaled_logits_b, dim=1).gather(1, s_idx.unsqueeze(1)).sum()
                 log_q_ratio = log_bw_prob - log_fwd_prob
             else:
-                # Random-direction baselines are symmetric random walks: q(x|x') = q(x'|x),
-                # so the proposal ratio cancels. This matches the CLS treatment and thesis
-                # Sec 4.3. Crucially we do NOT call apply_method_variation on the backward
-                # gradient here, so no extra torch.randn is drawn and the RNG stream stays
-                # aligned with the no-MH path. Only the likelihood term is needed.
+                # LEGACY (thesis grid) TREATMENT. Random-direction baselines were assumed to
+                # be symmetric random walks, so the proposal ratio was dropped. That is only
+                # approximately true: the distance term is symmetric but the softmax
+                # normalisers at x and x' differ. Set mh_exact_all_arms to compute it
+                # exactly for every arm instead. Kept as the default so the archived grid
+                # remains reproducible. Crucially we do NOT call apply_method_variation on
+                # the backward gradient here, so no extra torch.randn is drawn and the RNG
+                # stream stays aligned with the no-MH path.
                 _, bw_log_joint = self.get_gradient_and_log_joint(s_next, next_token_ids, base_embs, input_ids, mask_indices_t)
                 log_q_ratio = 0.0
 

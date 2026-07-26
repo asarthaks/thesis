@@ -71,15 +71,24 @@ class ContinuousLangevinSampler(BaseLangevinSampler):
         if self.mh_sampling:
             raw_grad_s_b, bw_log_joint = self.get_gradient_and_log_joint(s_prop, s_idx_prop, base_embs, input_ids, mask_indices_t)
 
-            if self.method == "policy":
-                grad_s_b = self.apply_method_variation(raw_grad_s_b)
+            exact_all = getattr(self, "mh_exact_all_arms", False)
+            if self.method == "policy" or exact_all:
+                # For the random arms the direction is state-independent, so holding the
+                # SAME g fixed across the forward and reverse evaluation gives a valid,
+                # exactly computable kernel q_g for the step. Assuming symmetry instead is
+                # wrong here: the mean 0.5 * (s + 0.5 eps g + proj(s + 0.5 eps g)) carries a
+                # drift and a nearest-neighbour projection, neither of which is symmetric.
+                grad_s_b = self.apply_method_variation(raw_grad_s_b) if self.method == "policy" else grad_s
                 interim_b = s_prop + 0.5 * eps_k * grad_s_b
                 m_prop = 0.5 * (interim_b + self.emb_matrix[project_to_vocab_by_l2(interim_b, self.emb_matrix)])
 
                 log_q_back = self._logq_gaussian(s, m_prop, eps_k * self.noise_scale)
                 log_q_fwd = self._logq_gaussian(s_prop, m_s, eps_k * self.noise_scale)
             else:
-                log_q_back, log_q_fwd = 0.0, 0.0  # Symmetric cancellation
+                # LEGACY (thesis grid) TREATMENT: assumed symmetric cancellation for the
+                # random arms. Kept as the default so the archived grid reproduces; set
+                # mh_exact_all_arms to charge every arm the same reversibility term.
+                log_q_back, log_q_fwd = 0.0, 0.0
 
             log_alpha = (bw_log_joint - log_joint) + (log_q_back - log_q_fwd)
             rejected = bool(torch.log(torch.rand((), device=self.device)) > log_alpha)

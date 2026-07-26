@@ -1,0 +1,13 @@
+[onehot_mh_nogn] loading /mount/studenten-temp1/users/singhsk/thesis/thesis/gfn-lm-tuning/infill_subj_arithmetic/gpt2_large_sft_output (float32) ...
+[onehot_mh_nogn] 282 candidate sentences
+[onehot_mh_nogn] 25/200
+[onehot_mh_nogn] 50/200
+[onehot_mh_nogn] 75/200
+[onehot_mh_nogn] 100/200
+[onehot_mh_nogn] 125/200
+[onehot_mh_nogn] 150/200
+[onehot_mh_nogn] 175/200
+[onehot_mh_nogn] 200/200
+[onehot_mh_nogn] DONE  n=200  acc=0.50%  final_kl=6.239  final_l2=2.314  accept=10.3%
+[onehot_mh_nogn] wrote results/grid/rev3/onehot_mh_nogn.json
+[onehot_mh_nogn] wrote results/grid/rev3/onehot_mh_nogn.csv

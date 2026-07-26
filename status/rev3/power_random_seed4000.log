@@ -1,0 +1,13 @@
+[power_random_seed4000] loading /mount/studenten-temp1/users/singhsk/thesis/thesis/gfn-lm-tuning/infill_subj_arithmetic/gpt2_large_sft_output (float32) ...
+[power_random_seed4000] 282 candidate sentences
+[power_random_seed4000] 25/200
+[power_random_seed4000] 50/200
+[power_random_seed4000] 75/200
+[power_random_seed4000] 100/200
+[power_random_seed4000] 125/200
+[power_random_seed4000] 150/200
+[power_random_seed4000] 175/200
+[power_random_seed4000] 200/200
+[power_random_seed4000] DONE  n=200  acc=1.00%  final_kl=6.730  final_l2=2.348  accept=10.5%
+[power_random_seed4000] wrote results/grid/rev3/power_random_seed4000.json
+[power_random_seed4000] wrote results/grid/rev3/power_random_seed4000.csv

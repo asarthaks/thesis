@@ -1,0 +1,14 @@
+[xm_onehot_gfn-lb0-500_sharp] loading gfn-lm-tuning/infill_subj_arithmetic/gpt2_large_sft_output (float32) ...
+[xm_onehot_gfn-lb0-500_sharp]   + merging GFlowNet adapter gfn-lm-tuning/infill_subj_arithmetic/outputs/2026-06-27/19-13-26/avid-leaf-24_490.pt
+[xm_onehot_gfn-lb0-500_sharp] 282 candidate sentences
+[xm_onehot_gfn-lb0-500_sharp] 25/200
+[xm_onehot_gfn-lb0-500_sharp] 50/200
+[xm_onehot_gfn-lb0-500_sharp] 75/200
+[xm_onehot_gfn-lb0-500_sharp] 100/200
+[xm_onehot_gfn-lb0-500_sharp] 125/200
+[xm_onehot_gfn-lb0-500_sharp] 150/200
+[xm_onehot_gfn-lb0-500_sharp] 175/200
+[xm_onehot_gfn-lb0-500_sharp] 200/200
+[xm_onehot_gfn-lb0-500_sharp] DONE  n=200  acc=25.00%  final_kl=4.539  final_l2=1.576  accept=22.3%
+[xm_onehot_gfn-lb0-500_sharp] wrote results/grid/rev3/xm_onehot_gfn-lb0-500_sharp.json
+[xm_onehot_gfn-lb0-500_sharp] wrote results/grid/rev3/xm_onehot_gfn-lb0-500_sharp.csv

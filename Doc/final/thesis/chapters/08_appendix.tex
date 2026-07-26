@@ -8,18 +8,18 @@ This section collects supporting figures referenced in Section~\ref{ch:results}.
 
 % SOURCE: figures/fig_lin_decomposition.pdf produced by plot_diagnostics.py
 % from results/diagnostics/diag/diag_linearization_gpt2sft.csv (self/future decomposition).
-\begin{figure}[h]
+\begin{figure}[htbp]
     \centering
-    \includegraphics[width=0.80\textwidth]{figures/fig_lin_decomposition.pdf}
+    \includegraphics[width=0.68\textwidth]{figures/fig_lin_decomposition.pdf}
     \caption[Self and future terms of the true energy change.]{The true energy change decomposed into its self term and its future term, each plotted against the gradient surrogate, for GPT-2 Large. This figure supports Section~\ref{sec:results-linradius}.}
     \label{fig:lin-decomp}
 \end{figure}
 
 % SOURCE: figures/fig_lin_topk.pdf produced by plot_diagnostics.py
 % from results/diagnostics/diag/diag_linearization_gpt2sft.csv (top-k recall vs random).
-\begin{figure}[h]
+\begin{figure}[htbp]
     \centering
-    \includegraphics[width=0.80\textwidth]{figures/fig_lin_topk.pdf}
+    \includegraphics[width=0.68\textwidth]{figures/fig_lin_topk.pdf}
     \caption[Top-$k$ recall of gradient ranking against a random baseline.]{Recall of the true top-$k$ token substitutions by the gradient-ranked top-$k$, against a random-ranking baseline, for GPT-2 Large. This figure supports Section~\ref{sec:results-linradius}.}
     \label{fig:lin-topk}
 \end{figure}
@@ -29,43 +29,60 @@ This section collects supporting figures referenced in Section~\ref{ch:results}.
 % crossing, for the single continuous policy configuration only). Part 1, Alarm 1: the
 % earlier figure pooled three configs (cls gnoff/gnon MH plus the dls control) and reported
 % a misleading combined bar (stayed 0.064, crossed 0.074); regenerated for one config 2026-07-26.
-\begin{figure}[h]
+\begin{figure}[htbp]
     \centering
-    \includegraphics[width=0.70\textwidth]{figures/fig_mh_accept.pdf}
+    \includegraphics[width=0.68\textwidth]{figures/fig_mh_accept.pdf}
     \caption[Acceptance rate conditioned on boundary crossing.]{Metropolis--Hastings acceptance rate for the continuous policy sampler with gradient normalization off and the correction enabled (configuration \texttt{cls\_policy\_gnoff\_mh}), conditioned on whether the proposal crossed a Voronoi cell boundary. Within-cell moves are accepted essentially never and boundary crossings only $3.7\%$ of the time. This figure supports Section~\ref{sec:results-mh}.}
     \label{fig:mh-accept}
 \end{figure}
 
 % SOURCE: figures/fig_trap_scatter.pdf produced by plot_diagnostics.py
 % from results/diagnostics/diag/diag_likelihood_trap_gpt2sft.csv.
-% MOVED HERE from Section 5.7 in Phase 8 (float pruning, supporting diagnostic).
-\begin{figure}[h]
+\begin{figure}[htbp]
     \centering
-    \includegraphics[width=0.92\textwidth]{figures/fig_trap_scatter.pdf}
+    \includegraphics[width=0.68\textwidth]{figures/fig_trap_scatter.pdf}
     \caption[Per-token likelihood against repetition and diversity, GPT-2 Large.]{Mean per-token log-probability against 4-gram repetition rate and distinct-2 diversity for GPT-2 Large, one point per generation, coloured by decoding strategy. This figure supports Section~\ref{sec:results-trap}.}
     \label{fig:trap}
 \end{figure}
 
 % SOURCE: figures/fig_aniso_hist.pdf produced by plot_diagnostics.py
 % from results/diagnostics/diag/diag_anisotropy_*_dists.npz.
-% MOVED HERE from Section 5.8 in Phase 8 (float pruning, supporting diagnostic).
-\begin{figure}[h]
+\begin{figure}[htbp]
     \centering
-    \includegraphics[width=0.92\textwidth]{figures/fig_aniso_hist.pdf}
+    \includegraphics[width=0.68\textwidth]{figures/fig_aniso_hist.pdf}
     \caption[Pairwise token-embedding distance distributions.]{Distributions of pairwise token-embedding distances in GPT-2 Large and Llama-3, plotted on separate scales. This figure supports Section~\ref{sec:results-aniso}.}
     \label{fig:aniso}
 \end{figure}
 
 % SOURCE: figures/fig_trap_length.pdf produced by plot_diagnostics.py
 % from results/diagnostics/diag/diag_likelihood_trap_gpt2sft.csv (length vs total logp regression).
-\begin{figure}[h]
+\begin{figure}[htbp]
     \centering
-    \includegraphics[width=0.80\textwidth]{figures/fig_trap_length.pdf}
+    \includegraphics[width=0.68\textwidth]{figures/fig_trap_length.pdf}
     \caption[Total log-likelihood against generated length, GPT-2 Large.]{Total log-likelihood against generated length for GPT-2 Large. The regression is fitted over the three stochastic decoders (ancestral, top-$p$, temperature), where length varies, giving a slope of $-1.12$ nats per token; the deterministic decoders pinned at the length cap carry no length information and are shown faintly but excluded from the fit. This figure supports Section~\ref{sec:results-trap} and Section~\ref{sec:results-gfn}, where the slope and its censoring caveat are discussed.}
     \label{fig:trap-length}
 \end{figure}
 
 \clearpage
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.68\textwidth]{figures/gpt2-large.dls.gn.free.s100_new_trajectories.png}
+    % SOURCE: figures/gpt2/gpt2-large.dls.gn.free.s100_new_trajectories.png
+    \caption[The same sampler over a 100-step schedule.]{Discrete Langevin Sampler trajectories on GPT-2 Large over a 100-step annealing schedule, averaged across sequences. Panels, axes, line styles and markers as in Figure~\ref{fig:dls-traj-50}.}
+    \label{fig:dls-traj-100}
+\end{figure}
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.68\textwidth]{figures/gpt2-large.dls.nogn.free.s50_companion.png}
+    % SOURCE: figures/gpt2-large.dls.nogn.free.s50_companion.png from
+    % revision/plot_dls_trajectories.py draw(50, ..., gn=False), reading the
+    % gpt2-large.dls.{policy,grad_norm_preserved_random_dir,random}.{mh,nomh}.nogn.free.s50
+    % grid CSVs (author issue list item 21).
+    \caption[The three proposal arms with gradient normalization disabled.]{The 50-step schedule with gradient normalization disabled. Unlike the enabled case of Figure~\ref{fig:dls-traj-50}, where the three proposal methods coincide, the policy, grad-norm-preserved random, and fully random arms here separate into distinct curves. Panels, axes, and line styles as in Figure~\ref{fig:dls-traj-50}; solid lines are runs with the Metropolis--Hastings correction, long-dashed lines without it.}
+    \label{fig:dls-traj-nogn}
+\end{figure}
+
 \subsection{Full Configuration Grid}
 \label{app:grid}
 
@@ -77,11 +94,8 @@ The count arises as $145 = 5 \times 29$, five energy functions times twenty-nine
 % results/grid/llama (29), results/grid/gfn (87). The nominal 2x3x2x2x2x5=240 overcounts because
 % CLS drops the grad-norm-preserved method and some gn/schedule cells.
 
-\begin{table}[h]
+\begin{table}[htbp]
     \centering
-    % PHASE 8 (print): this tabular was 88pt wider than the text block and ran into the
-    % right margin. Column separation tightened and the font stepped down one notch; no
-    % cell content changed.
     \footnotesize
     \setlength{\tabcolsep}{4pt}
     \begin{tabular}{lcccc}
@@ -118,11 +132,8 @@ Because gradient-free methods match or beat the gradient-guided samplers on the 
 % per step, and again at the proposed point when mh_sampling is on), and the baseline
 % definitions in diagnostics/run_revision.py.
 
-\begin{table}[h]
+\begin{table}[htbp]
     \centering
-    % PHASE 8 (print): the free-text Note column was set as an `l' column, so it could not
-    % wrap and the tabular ran 74pt past the right margin. It is now a fixed-width p column.
-    % No cell content changed.
     \small
     \setlength{\tabcolsep}{4pt}
     \begin{tabular}{lccp{3.9cm}}
@@ -151,18 +162,15 @@ The comparison is stark: the gradient-free baselines reach comparable or better 
 \label{app:trajectory}
 
 This section examines the spatial paths the samplers trace through the embedding space, which gives a concrete counterpart to the acceptance statistics of Section~\ref{sec:results-mh} and the trajectory summaries of Section~\ref{sec:results-traj}.
-% PRIOR WORDING (Phase 3): the two figures below were placeholders because the original
-% reduced-dimensionality plots were lost. They are now recreated, and the primary figure is
-% redesigned to be exact in the full embedding space rather than a projection.
 The primary figure is deliberately \emph{not} a projection. A two-dimensional projection of a $1280$-dimensional space cannot carry the argument, as the explained-variance figure below makes plain, so the load-bearing figure reports exact $L2$ distances in the full space and the projection is demoted to a single illustrative panel. All distances and all nearest-token decoding here use the full $50{,}257\times 1280$ embedding matrix of the model, not any subsample.
 
 Figure~\ref{fig:traj-distance} is the primary view. For one seeded trace (index $5$, chosen once by \texttt{np.random.default\_rng(0)}), it plots, at every step and on a symmetric-log axis so that exact zeros remain visible, the $L2$ distance from the sampler's state to the ground-truth token embedding, and for the continuous sampler also the distance to the nearest token of any kind, the off-manifold measure.
 % SOURCE: figures/fig_traj_stats.json (seq_idx_seeded 5) and revision/plot_trajectories.py, from results/diagnostics/diag/traces_gpt2sft_plot_traj.npz.
 Because \texttt{collect\_traces} advances the random-number state across configurations, trace index $5$ is the same source sentence in every panel but its randomly masked position, and hence its ground-truth token, differs by configuration; each panel therefore uses its own exact ground-truth embedding, and the cross-panel claim is about the on-manifold-versus-off-manifold dynamics, which does not require a shared token. The token strip under each axis shows the decoded token at each change, and for the continuous sampler the steps at which the proposal was rejected, inferred exactly from identical consecutive states, are marked as ticks.
 
-\begin{figure}[h]
+\begin{figure}[htbp]
     \centering
-    \includegraphics[width=0.92\textwidth]{figures/fig_traj_distance.png}
+    \includegraphics[width=0.68\textwidth]{figures/fig_traj_distance.png}
     % SOURCE: figures/fig_traj_distance.png from revision/plot_trajectories.py
     % (traces_gpt2sft_plot_traj.npz + full wte from the gpt2sft checkpoint).
     \caption[Full-space distances along one seeded sampling trajectory.]{Full-space distances along the sampling trajectory for one seeded trace, index $5$, on a symmetric-log axis, one panel per configuration. Solid line: $L2$ distance to the ground-truth token embedding. Dashed line, continuous sampler only: $L2$ distance to the nearest token of any kind. Red ticks mark rejected proposals. The discrete sampler's nearest-token distance is identically zero and is therefore not drawn.}
@@ -171,7 +179,7 @@ Because \texttt{collect\_traces} advances the random-number state across configu
 
 The distances make the geometry exact. The discrete sampler, policy and random alike, sits at distance zero from the token manifold at every step, because its state is always a genuine token embedding; it visits about five distinct tokens over the run and ends about $2.2$ units from the ground truth, a token or so away.
 % SOURCE: figures/fig_traj_stats.json per_config dls_policy_gn_mh / dls_random_gn_mh (nearest_token_dist 0.0; distinct_cells_mean 5.3/4.2; final_dist_to_gt_mean 2.16/2.36).
-The continuous sampler with the correction on is quenched: its state sits between $118$ and $151$ units from the nearest token across the run and it changes its projected token about twice in fifty steps, the spatial form of the near-total rejection measured in Section~\ref{sec:results-mh}. With the correction off it visits about $45$ of $50$ cells and drifts as far as roughly $980$ units off the manifold before collapsing back to about $17$ units at the end. The discrete sampler shows the same dependence on the correction but without the off-manifold cost: with the correction it visits about $5$ of $50$ cells, and with the correction removed it visits about $49$, accepting almost every proposal, yet it never leaves the token manifold, so its wandering is among real tokens rather than through the empty space between them.
+The continuous sampler with the correction on is frozen in place: its state sits between $118$ and $151$ units from the nearest token across the run and it changes its projected token about twice in fifty steps, the spatial form of the near-total rejection measured in Section~\ref{sec:results-mh}. With the correction off it visits about $45$ of $50$ cells and drifts as far as roughly $980$ units off the manifold before collapsing back to about $17$ units at the end. The discrete sampler shows the same dependence on the correction but without the off-manifold cost: with the correction it visits about $5$ of $50$ cells, and with the correction removed it visits about $49$, accepting almost every proposal, yet it never leaves the token manifold, so its wandering is among real tokens rather than through the empty space between them.
 % SOURCE (Phase 9, author issue list item 23): fig_traj_stats.json per_config
 % dls_policy_gn_mh distinct_cells_mean 5.33 (MH on) and dls_policy_gn_nomh distinct_cells_mean
 % 48.67 (MH off, from traces_gpt2sft_dlsnomh; same 6 source sentences, independently seeded
@@ -183,9 +191,9 @@ Figure~\ref{fig:traj-pca} is the secondary, illustrative view: the same trace pr
 % SOURCE: figures/fig_traj_stats.json pca_explained_variance_sum 0.0331.
 Read for what it can show, it agrees with the distances: the discrete trajectories stay inside the vocabulary cone while the continuous ones escape far outside it.
 
-\begin{figure}[h]
+\begin{figure}[htbp]
     \centering
-    \includegraphics[width=0.88\textwidth]{figures/fig_traj_pca.png}
+    \includegraphics[width=0.68\textwidth]{figures/fig_traj_pca.png}
     % SOURCE: figures/fig_traj_pca.png from revision/plot_trajectories.py.
     \caption[PCA projection of the same seeded trace.]{PCA projection of the same seeded trace, one panel per configuration. Grey cloud: the vocabulary embeddings. Open circle: the start state. Filled dot: the end state. Star: the ground-truth token. The two components capture $3.3\%$ of the embedding variance, so this projection is illustration only and the full-space distances of Figure~\ref{fig:traj-distance} carry the argument.}
     \label{fig:traj-pca}
@@ -196,6 +204,46 @@ Read together, the two figures make the central geometric claim visible: the sam
 \clearpage
 \subsection{Classifier-Guided Steering: Full Results}
 \label{app:guided}
+
+
+This subsection reports an exploratory follow-up rather than part of the positive control. The control proper is complete at Section~\ref{sec:results-diffusion-hybrid}: the diffusion score carries the local signal the autoregressive gradient lacked, it performs the recovery natively, and it works as a proposal inside the thesis's own exact-energy chain. What follows asks the further question of whether the constructive direction extends to \emph{control}, which broadens the study from a sampling diagnosis into classifier-guided diffusion and evaluator alignment. It is summarized here and reported in full in Appendix~\ref{app:guided}.
+
+A small classifier is trained to read a noisy, partially masked state, the state the diffusion model occupies mid-denoising, by corrupting each labelled example with the model's own forward absorbing process at a noise level drawn uniformly over the schedule. Its held-out accuracy at low noise is $81\%$.
+% SOURCE: noisy_classifier_train.json final_low_noise_acc=80.96.
+During generation it reweights the diffusion model's top thirty-two candidates at each commitment by the probability of the target label, raised to a guidance strength $\gamma$. Steering is scored, exactly as in Section~\ref{sec:results-constrained}, by the frozen-model sentiment judge, so the classifier that guides and the judge that grades are strictly separate. Two settings were run: an off-domain continuation setting on prompts neither classifier was calibrated for, and an on-domain setting on held-out SST-2 prompts with a fluency trust region that caps guidance to candidates within $\delta=5$ nats of the diffusion model's own top choice. Table~\ref{tab:gprime} reports the second.
+
+Four statements summarize both settings. First, the constraint direction carries signal: the guiding classifier's own verdict moves toward the target at every strength and for both labels, by $+9.3$ to $+25.7$ points on-domain and by seven to eighteen points off-domain, with confidence intervals excluding zero.
+% SOURCE: rev_gprime.json by_cell.*.self_gain_pts and self_gain_ci95; rev_sedd_guided_g{1,2,4}.json by_label.*.self_gain_pts.
+Second, guidance steers the classifier that guides more reliably than it steers an independent judge. Third, transfer to that independent judge is bounded by how far the two instruments agree on the text being scored: agreement climbs from $56$ to $64\%$ off-domain, to $71.7\%$ on unguided on-domain generations, to $79.7\%$ on the held-out sentences themselves, and in each setting the judge moves in one direction only, the negative target off-domain and the positive target on-domain, with the working direction tracking that alignment rather than a fixed reachable sentiment.
+% SOURCE: results/revision/rev_gprime.json diagnosis_unguided_gen_agreement_pct 71.667 [66.667,76.667]; realtext_agreement_pct 79.667 [75,84]; phase4_offdomain_agreement_band_pct [56,64]; by_cell.*.gain_pts and gain_ci95.
+Fourth, the trust region removes the fluency cost: guided span negative log-likelihood stays at or below the unguided value in three of the four on-domain cells and rises by at most $0.26$ nats in the fourth, against a climb from $7.1$ to $11.0$ nats with guidance strength in the off-domain run.
+% SOURCE: rev_gprime.json by_cell.*.nll_cost (-0.74, -1.71, +0.26, -1.00); unguided_span_nll 7.014; rev_sedd_guided_g{1,2,4}.json unguided_span_nll -> guided_span_nll.
+
+\begin{table}[htbp]
+    \centering
+    \small
+    \setlength{\tabcolsep}{4pt}
+    \begin{tabular}{llccccc}
+        \toprule
+        $\gamma$ & target & unguided & guided & judge gain [CI] & self gain & NLL (un$\to$guided) \\
+        \midrule
+        $2$ & negative & $53.0$ & $50.7$ & $-2.3\ [-7.0, 2.3]$   & $+18.0$ & $7.01\to6.27$ \\
+        $2$ & positive & $47.0$ & $53.7$ & $+6.7\ [1.7, 11.7]$   & $+9.3$  & $7.01\to5.30$ \\
+        $4$ & negative & $53.0$ & $52.3$ & $-0.7\ [-5.3, 4.0]$   & $+25.7$ & $7.01\to7.28$ \\
+        $4$ & positive & $47.0$ & $54.3$ & $+7.3\ [2.7, 12.0]$   & $+17.7$ & $7.01\to6.01$ \\
+        \bottomrule
+    \end{tabular}
+    % SOURCE: results/revision/rev_gprime.json by_cell.{gamma2_label0,gamma2_label1,
+    % gamma4_label0,gamma4_label1}: unguided_hit_pct, guided_hit_pct, gain_pts+gain_ci95,
+    % self_gain_pts, unguided_span_nll -> guided_span_nll. n=300 pairs per cell.
+    \caption[On-domain trust-region guided diffusion generation, held-out SST-2 prompts.]{On-domain, trust-region guided diffusion generation on held-out SST-2 prompts, $n=300$ paired generations per cell, scored by the independent judge. Judge gain is the guided minus unguided target-hit percentage with a paired bootstrap $95\%$ confidence interval; self gain is the guiding classifier's own verdict; the last column is the span negative log-likelihood before and after guidance.}
+    \label{tab:gprime}
+\end{table}
+
+The claim the data licenses is therefore narrow and setting-contingent: with a single noisy guide at this scale, one-directional transfer to an independent judge is reachable under bounded fluency, while symmetric transfer at both labels is not. Appendix~\ref{app:guided} gives the off-domain table, the full agreement ladder, and the per-class confusion analysis that tests, and does not support, a by-class explanation of which direction transfers; Appendix~\ref{app:gprime-examples} gives representative guided pairs from both settings.
+
+
+
 
 This section holds the detail of the exploratory guidance study summarized in
 Section~\ref{sec:results-diffusion-guided}: the off-domain run, the guide-judge agreement
@@ -220,7 +268,7 @@ Guiding hard toward one classifier's notion of a label therefore need not raise 
 which is the same off-manifold breakdown that Section~\ref{sec:results-constrained} observed
 for the constraint-only arm.
 
-\begin{table}[h]
+\begin{table}[htbp]
     \centering
     \small
     \begin{tabular}{lccccc}
@@ -304,30 +352,35 @@ the alignment gap.
 
 \input{chapters/tab_confusion}
 
-% MOVED HERE (Phase 8, evaluation section 5 item 9: "Sections 5.13.4 and 5.13.5 are
-% interesting, but they begin to resemble a second thesis [...] The cleanest positive control
-% needs only show: diffusion produces a meaningful local score; it improves token recovery;
-% substituting its proposal signal into the existing chain improves recovery. Those are
-% Sections 5.13.1 to 5.13.3 [...] Sections 5.13.4 and 5.13.5 could be shortened substantially,
-% moved to an appendix, or presented as exploratory follow-up work. This is probably the single
-% largest opportunity to improve focus."). All three are applied: the main text keeps a
-% one-page subsection explicitly labelled exploratory and carrying the single on-domain
-% trust-region table, and the off-domain table, the agreement ladder and the confusion analysis
-% move here. No number is changed and none is dropped.
-
 \clearpage
+\subsection{Raw Steering Gains for the Constrained Extension}
+\label{app:constrained-raw}
+
+Table~\ref{tab:constrained} gives the raw target-hit gains for the constrained-generation extension. They are placed here rather than in Section~\ref{sec:results-constrained} because that section discounts them: every arm, including the pure-fluency and random-direction baselines, flips sign with the target label, which shows that a fixed unconditional sentiment drift dominates the raw gain. The trustworthy statistic is the paired contrast of Table~\ref{tab:constrained-contrast}, which cancels that shared drift.
+
+\begin{table}[t]
+    \centering
+    \small
+    \begin{tabular}{lcc}
+        \toprule
+        Constraint mode & Steering gain & Final KL \\
+        \midrule
+        lm\_only & $0.0$ & $8.558$ \\
+        cons\_only & $-8.0$ & $8.308$ \\
+        full & $-1.0$ & $8.541$ \\
+        random & $-7.0$ & $8.512$ \\
+        cons\_random & $+1.0$ & $8.528$ \\
+        \bottomrule
+    \end{tabular}
+    \caption[Steering effect of the sentiment constraint, discrete sampler, infilling.]{Steering effect of the sentiment constraint under the discrete sampler on the infilling task with a positive-sentiment target. The steering gain is the change, in percentage points, in the share of generations classified as the target sentiment relative to the unconstrained baseline.}
+    \label{tab:constrained}
+\end{table}
+
 \subsection{Qualitative Examples}
 \label{app:gprime-examples}
 \label{app:showcase}
 
 All qualitative material in this thesis is collected here under one selection policy, so that no example shown anywhere was chosen for how well it made a point. Every draw below is seeded with \texttt{np.random.default\_rng(0)} and unfiltered: dull, crude and failing draws are kept, and the only subsequent pruning is deterministic, a fixed positional subset stated at each table and reversible from the source of this document. No number in this thesis is taken from these tables; the statistics are in Table~\ref{tab:baselines}, Table~\ref{tab:diffusion-recovery}, Table~\ref{tab:gprime} and Table~\ref{tab:confusion}. Garbled bytes that the diffusion model emits are shown as \texttt{[?]}.
-
-% CONSOLIDATED (Phase 8, evaluation section 6: "The appendices contain several overlapping
-% qualitative sections: guided-generation examples, qualitative recovery and steering showcase,
-% infill recovery showcase, trust-region before/after, ten seeded sequences. These should be
-% consolidated. A smaller representative set with an explicit selection policy is better than
-% many showcases."). They are now one section with one stated policy. Both former labels,
-% app:gprime-examples and app:showcase, are kept so existing \ref calls resolve.
 
 \subsubsection{Classifier-Guided Generations}
 \label{app:examples-guided}

@@ -1,0 +1,7 @@
+[nomhsweep_policy_e10p5_t0p05] loading /mount/studenten-temp1/users/singhsk/thesis/thesis/gfn-lm-tuning/infill_subj_arithmetic/gpt2_large_sft_output (float32) ...
+[nomhsweep_policy_e10p5_t0p05] 282 candidate sentences
+[nomhsweep_policy_e10p5_t0p05] 25/50
+[nomhsweep_policy_e10p5_t0p05] 50/50
+[nomhsweep_policy_e10p5_t0p05] DONE  n=50  acc=0.00%  final_kl=7.402  final_l2=2.565  accept=nan%
+[nomhsweep_policy_e10p5_t0p05] wrote results/grid/rev3/nomhsweep_policy_e10p5_t0p05.json
+[nomhsweep_policy_e10p5_t0p05] wrote results/grid/rev3/nomhsweep_policy_e10p5_t0p05.csv

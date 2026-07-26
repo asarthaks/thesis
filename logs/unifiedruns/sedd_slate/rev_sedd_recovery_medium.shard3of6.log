@@ -1,0 +1,27 @@
+/mount/studenten-temp1/users/singhsk/thesis/thesis/gfn-lm-tuning/gfn/lib64/python3.11/site-packages/huggingface_hub/file_download.py:949: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+  warnings.warn(
+[recovery] models loaded in 45.5s (gpt2sft + sedd-medium)
+/mount/studenten-temp1/users/singhsk/thesis/thesis/Score-Entropy-Discrete-Diffusion/model/utils.py:44: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with torch.cuda.amp.autocast(dtype=torch.bfloat16):
+/mount/studenten-temp1/users/singhsk/thesis/thesis/Score-Entropy-Discrete-Diffusion/model/transformer.py:286: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with torch.cuda.amp.autocast(dtype=torch.bfloat16):
+/mount/studenten-temp1/users/singhsk/thesis/thesis/Score-Entropy-Discrete-Diffusion/model/transformer.py:45: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with torch.cuda.amp.autocast(enabled=False):
+/mount/studenten-temp1/users/singhsk/thesis/thesis/Score-Entropy-Discrete-Diffusion/model/transformer.py:176: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with torch.cuda.amp.autocast(enabled=False):
+[recovery medium shard3] 25 seqs, 1.9m
+[done] results_revision/rev_sedd_recovery_medium.shard3of6.json (3.4 min)
+{
+  "experiment": "recovery",
+  "scale": "medium",
+  "shard_idx": 3,
+  "num_shards": 6,
+  "n_rows": 33,
+  "predictor": "euler",
+  "steps": 128,
+  "sigma": 0.1,
+  "shard_done": true,
+  "run_name": "rev_sedd_recovery_medium.shard3of6",
+  "gpt2sft_path": "/mount/studenten-temp1/users/singhsk/thesis/thesis/gfn-lm-tuning/infill_subj_arithmetic/gpt2_large_sft_output",
+  "wall_time_sec": 201.52212953567505
+}

@@ -1,0 +1,55 @@
+/mount/studenten-temp1/users/singhsk/thesis/thesis/gfn-lm-tuning/gfn/lib64/python3.11/site-packages/datasets/load.py:1491: FutureWarning: The repository for wza/roc_stories contains custom code which must be executed to correctly load the dataset. You can inspect the repository content at https://hf.co/datasets/wza/roc_stories
+You can avoid this message in future by passing the argument `trust_remote_code=True`.
+Passing `trust_remote_code=True` will be mandatory to load this dataset from the next major release of `datasets`.
+  warnings.warn(
+6 sequences loaded
+[cls_policy_gnoff_mh] entry point: ContinuousLangevinSampler.optimize()
+  [cls_policy_gnoff_mh] accept overall 0.0433  | crossed 0.058823529411764705  | stayed 0.0
+[cls_policy_gnoff_nomh] entry point: ContinuousLangevinSampler.optimize()
+[cls_policy_gnon_mh] entry point: ContinuousLangevinSampler.optimize()
+  [cls_policy_gnon_mh] accept overall 0.0633  | crossed 0.07758620689655173  | stayed 0.014705882352941176
+[dls_policy_gn_mh] entry point: DiscreteLangevinSampler.optimize()
+  [dls_policy_gn_mh] accept overall 0.1333  | crossed 0.10652920962199312  | stayed 1.0
+[dls_random_gn_mh] entry point: DiscreteLangevinSampler.optimize()
+  [dls_random_gn_mh] accept overall 0.0967  | crossed 0.07191780821917808  | stayed 1.0
+wrote results_diag/traces_gpt2sft_plot_mh.csv
+wrote results_diag/traces_gpt2sft_plot_traj.npz
+wrote results_diag/traces_gpt2sft_plot.json
+{
+  "cls_policy_gnoff_mh": {
+    "n_proposals": 300,
+    "accept_rate_overall": 0.043333333333333335,
+    "accept_rate_crossed": 0.058823529411764705,
+    "accept_rate_stayed": 0.0,
+    "n_accepted_and_crossed": 13,
+    "mean_log_target_ratio_crossed": -4.621269812950721,
+    "mean_log_proposal_ratio_crossed": -844.4571174172794
+  },
+  "cls_policy_gnon_mh": {
+    "n_proposals": 300,
+    "accept_rate_overall": 0.06333333333333334,
+    "accept_rate_crossed": 0.07758620689655173,
+    "accept_rate_stayed": 0.014705882352941176,
+    "n_accepted_and_crossed": 18,
+    "mean_log_target_ratio_crossed": 0.7177681100779566,
+    "mean_log_proposal_ratio_crossed": -692.0411776838631
+  },
+  "dls_policy_gn_mh": {
+    "n_proposals": 300,
+    "accept_rate_overall": 0.13333333333333333,
+    "accept_rate_crossed": 0.10652920962199312,
+    "accept_rate_stayed": 1.0,
+    "n_accepted_and_crossed": 31,
+    "mean_log_target_ratio_crossed": -10.740991966011597,
+    "mean_log_proposal_ratio_crossed": 0.06036493294837139
+  },
+  "dls_random_gn_mh": {
+    "n_proposals": 300,
+    "accept_rate_overall": 0.09666666666666666,
+    "accept_rate_crossed": 0.07191780821917808,
+    "accept_rate_stayed": 1.0,
+    "n_accepted_and_crossed": 21,
+    "mean_log_target_ratio_crossed": -11.414778565707271,
+    "mean_log_proposal_ratio_crossed": 0.0
+  }
+}
