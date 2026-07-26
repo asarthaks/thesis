@@ -1,5 +1,5 @@
 \begin{longtable}{p{0.16\linewidth} p{0.78\linewidth}}
-\caption[On-domain trust-region guided generations.]{On-domain trust-region guided generations. Seeded draws (\texttt{default\_rng(0)}), unfiltered, the first two pairs of each cell. \emph{g} is the guiding classifier's verdict and \emph{j} the independent judge's; NLL is the span negative log-likelihood.}\label{tab:gprime-examples}\\
+\caption[On-domain trust-region guided generations.]{On-domain trust-region guided generations. Seeded draws (\texttt{default\_rng(0)}), unfiltered, the first pair of each cell; the second pair of each cell is retained in the source of this document. \emph{g} is the guiding classifier's verdict and \emph{j} the independent judge's; NLL is the span negative log-likelihood.}\label{tab:gprime-examples}\\
 \toprule
 & \\
 \endfirsthead
@@ -10,39 +10,24 @@
 Prompt & bleakly funny, its characters all the more \\
 Unguided & bleakly funny, its characters all the more often point to negation of value: will you have a sense of humor? or will you have \newline{\small [g:pos, j:neg; NLL 6.57]} \\
 Guided & bleakly funny, its characters all the more so, their than the the- a and b are the moreso. characters than- the the \newline{\small [g:pos, j:pos; NLL 7.92]} \\[2pt]
-Prompt & all that's missing is the spontaneity \\
-Unguided & all that's missing is the spontaneity, and the courage to pick up undercooked stock,and also the fierce muscle of expectation that will \newline{\small [g:pos, j:neg; NLL 7.10]} \\
-Guided & all that's missing is the spontaneity. When they leave the missing is the spontaneity. When they leave doing what they are supposed \newline{\small [g:neg, j:neg; NLL 4.44]} \\[2pt]
 \midrule
 \multicolumn{2}{l}{\textbf{Cell: $\gamma=2$, target positive}} \\ \midrule
 Prompt & you don't have to know about music to \\
 Unguided & you don't have to know about music to be musical-- even if you don't know about music  Audio  1 11 1 \newline{\small [g:neg, j:pos; NLL 5.36]} \\
 Guided & you don't have to know about music to play music you t if you don't listen to music about music music y y y n s y \newline{\small [g:pos, j:neg; NLL 7.10]} \\[2pt]
-Prompt & the emotions are raw and will strike a nerve with \\
-Unguided & the emotions are raw and will strike a nerve with a few steps across the dark for the firstthe bell goes ringing and this quote will be pure in \newline{\small [g:pos, j:pos; NLL 9.96]} \\
-Guided & the emotions are raw and will strike a nerve withthe-number-of-people-who-want-to-make-their-better- \newline{\small [g:pos, j:pos; NLL 5.12]} \\[2pt]
 \midrule
 \multicolumn{2}{l}{\textbf{Cell: $\gamma=4$, target negative}} \\ \midrule
 Prompt & determined to be fun, and bouncy, \\
 Unguided & determined to be fun, and bouncy, and quirky, and exciting, and colourful, and play-determined to be fun-determined \newline{\small [g:pos, j:pos; NLL 4.57]} \\
 Guided & determined to be fun, and bouncy, didn[?] wasd that to to to and havedd andd, wasd of to, \newline{\small [g:pos, j:pos; NLL 10.83]} \\[2pt]
-Prompt & a psychological thriller with a genuinely spooky premise and \\
-Unguided & a psychological thriller with a genuinely spooky premise and it's only since afterhigh" that he's in jail for full house SH NOT FOR SUPIT \newline{\small [g:pos, j:pos; NLL 9.64]} \\
-Guided & a psychological thriller with a genuinely spooky premise and a overall sort of the to the the[?] [?]s n's done" with \newline{\small [g:pos, j:pos; NLL 10.71]} \\[2pt]
 \midrule
 \multicolumn{2}{l}{\textbf{Cell: $\gamma=4$, target positive}} \\ \midrule
 Prompt & pacino is brilliant as the sleep-deprived \\
 Unguided & pacino is brilliant as the sleep-deprived - is adding already of a sleep-deprived (cowned) bristol is brilliant as is \newline{\small [g:neg, j:pos; NLL 8.40]} \\
 Guided & pacino is brilliant as the sleep-deprived-pacino is the sleep-deprivedpacpacpacpacino is brilliant as the - \newline{\small [g:pos, j:neg; NLL 8.92]} \\[2pt]
-Prompt & once ( kim ) begins to overplay the \\
-Unguided & once ( kim ) begins to overplay the BILLJOUSE and, others, plays it entirely. is it every ( kim ) \newline{\small [g:neg, j:neg; NLL 7.05]} \\
-Guided & once ( kim ) begins to overplay the significance of In that regard, it's important away see the first the[?] the interested in \newline{\small [g:pos, j:pos; NLL 10.23]} \\[2pt]
 \end{longtable}
 
-\begin{longtable}{p{0.16\linewidth} p{0.78\linewidth}}
-\caption[Off-domain guidance without a trust region.]{The three highest-NLL guided continuations from the off-domain run, which used no trust region. Compare the on-domain $\gamma=4$ pairs in Table~\ref{tab:gprime-examples}.}\label{tab:gprime-trustregion}\\
-\toprule & \\ \endfirsthead \toprule & \\ \endhead \bottomrule \endfoot
-\midrule
-\midrule
-\midrule
-\end{longtable}
+% REMOVED 2026-07-26: a second longtable declared for the off-domain highest-NLL pairs was
+% empty in the submitted source (header rows only, no data rows) and rendered as three blank
+% rules. Its caption promised content the file never carried, so it is deleted rather than
+% left as a broken float; the off-domain run itself is tabulated in Table~\ref{tab:diffusion-guided}.

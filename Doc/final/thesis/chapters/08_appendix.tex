@@ -10,7 +10,8 @@ This section collects supporting figures referenced in Section~\ref{ch:results}.
 % from results/diagnostics/diag/diag_linearization_gpt2sft.csv (self/future decomposition).
 \begin{figure}[htbp]
     \centering
-    \includegraphics[width=0.68\textwidth]{figures/fig_lin_decomposition.pdf}
+    \includegraphics[width=\textwidth]{figures/fig_lin_decomposition.pdf}
+    % SIZING (A4 print legibility): source 691 x 328pt, aspect 0.475, so full text width is 203pt tall.
     \caption[Self and future terms of the true energy change.]{The true energy change decomposed into its self term and its future term, each plotted against the gradient surrogate, for GPT-2 Large. This figure supports Section~\ref{sec:results-linradius}.}
     \label{fig:lin-decomp}
 \end{figure}
@@ -19,7 +20,7 @@ This section collects supporting figures referenced in Section~\ref{ch:results}.
 % from results/diagnostics/diag/diag_linearization_gpt2sft.csv (top-k recall vs random).
 \begin{figure}[htbp]
     \centering
-    \includegraphics[width=0.68\textwidth]{figures/fig_lin_topk.pdf}
+    \includegraphics[width=0.92\textwidth]{figures/fig_lin_topk.pdf}
     \caption[Top-$k$ recall of gradient ranking against a random baseline.]{Recall of the true top-$k$ token substitutions by the gradient-ranked top-$k$, against a random-ranking baseline, for GPT-2 Large. This figure supports Section~\ref{sec:results-linradius}.}
     \label{fig:lin-topk}
 \end{figure}
@@ -31,7 +32,7 @@ This section collects supporting figures referenced in Section~\ref{ch:results}.
 % a misleading combined bar (stayed 0.064, crossed 0.074); regenerated for one config 2026-07-26.
 \begin{figure}[htbp]
     \centering
-    \includegraphics[width=0.68\textwidth]{figures/fig_mh_accept.pdf}
+    \includegraphics[width=0.92\textwidth]{figures/fig_mh_accept.pdf}
     \caption[Acceptance rate conditioned on boundary crossing.]{Metropolis--Hastings acceptance rate for the continuous policy sampler with gradient normalization off and the correction enabled (configuration \texttt{cls\_policy\_gnoff\_mh}), conditioned on whether the proposal crossed a Voronoi cell boundary. Within-cell moves are accepted essentially never and boundary crossings only $3.7\%$ of the time. This figure supports Section~\ref{sec:results-mh}.}
     \label{fig:mh-accept}
 \end{figure}
@@ -40,7 +41,8 @@ This section collects supporting figures referenced in Section~\ref{ch:results}.
 % from results/diagnostics/diag/diag_likelihood_trap_gpt2sft.csv.
 \begin{figure}[htbp]
     \centering
-    \includegraphics[width=0.68\textwidth]{figures/fig_trap_scatter.pdf}
+    \includegraphics[width=\textwidth]{figures/fig_trap_scatter.pdf}
+    % SIZING (A4 print legibility): source 587 x 322pt, aspect 0.548, so full text width is 234pt tall.
     \caption[Per-token likelihood against repetition and diversity, GPT-2 Large.]{Mean per-token log-probability against 4-gram repetition rate and distinct-2 diversity for GPT-2 Large, one point per generation, coloured by decoding strategy. This figure supports Section~\ref{sec:results-trap}.}
     \label{fig:trap}
 \end{figure}
@@ -49,7 +51,8 @@ This section collects supporting figures referenced in Section~\ref{ch:results}.
 % from results/diagnostics/diag/diag_anisotropy_*_dists.npz.
 \begin{figure}[htbp]
     \centering
-    \includegraphics[width=0.68\textwidth]{figures/fig_aniso_hist.pdf}
+    \includegraphics[width=\textwidth]{figures/fig_aniso_hist.pdf}
+    % SIZING (A4 print legibility): source 603 x 305pt, aspect 0.505, so full text width is 216pt tall.
     \caption[Pairwise token-embedding distance distributions.]{Distributions of pairwise token-embedding distances in GPT-2 Large and Llama-3, plotted on separate scales. This figure supports Section~\ref{sec:results-aniso}.}
     \label{fig:aniso}
 \end{figure}
@@ -58,7 +61,7 @@ This section collects supporting figures referenced in Section~\ref{ch:results}.
 % from results/diagnostics/diag/diag_likelihood_trap_gpt2sft.csv (length vs total logp regression).
 \begin{figure}[htbp]
     \centering
-    \includegraphics[width=0.68\textwidth]{figures/fig_trap_length.pdf}
+    \includegraphics[width=0.92\textwidth]{figures/fig_trap_length.pdf}
     \caption[Total log-likelihood against generated length, GPT-2 Large.]{Total log-likelihood against generated length for GPT-2 Large. The regression is fitted over the three stochastic decoders (ancestral, top-$p$, temperature), where length varies, giving a slope of $-1.12$ nats per token; the deterministic decoders pinned at the length cap carry no length information and are shown faintly but excluded from the fit. This figure supports Section~\ref{sec:results-trap} and Section~\ref{sec:results-gfn}, where the slope and its censoring caveat are discussed.}
     \label{fig:trap-length}
 \end{figure}
@@ -66,7 +69,7 @@ This section collects supporting figures referenced in Section~\ref{ch:results}.
 \clearpage
 \begin{figure}[htbp]
     \centering
-    \includegraphics[width=0.68\textwidth]{figures/gpt2-large.dls.gn.free.s100_new_trajectories.png}
+    \includegraphics[width=0.85\textwidth]{figures/gpt2-large.dls.gn.free.s100_new_trajectories.png}
     % SOURCE: figures/gpt2/gpt2-large.dls.gn.free.s100_new_trajectories.png
     \caption[The same sampler over a 100-step schedule.]{Discrete Langevin Sampler trajectories on GPT-2 Large over a 100-step annealing schedule, averaged across sequences. Panels, axes, line styles and markers as in Figure~\ref{fig:dls-traj-50}.}
     \label{fig:dls-traj-100}
@@ -74,7 +77,7 @@ This section collects supporting figures referenced in Section~\ref{ch:results}.
 
 \begin{figure}[htbp]
     \centering
-    \includegraphics[width=0.68\textwidth]{figures/gpt2-large.dls.nogn.free.s50_companion.png}
+    \includegraphics[width=0.85\textwidth]{figures/gpt2-large.dls.nogn.free.s50_companion.png}
     % SOURCE: figures/gpt2-large.dls.nogn.free.s50_companion.png from
     % revision/plot_dls_trajectories.py draw(50, ..., gn=False), reading the
     % gpt2-large.dls.{policy,grad_norm_preserved_random_dir,random}.{mh,nomh}.nogn.free.s50
@@ -89,7 +92,7 @@ This section collects supporting figures referenced in Section~\ref{ch:results}.
 % SOURCE: figures/compare/final_kl_by_model.csv (all 29 configuration rows x 5 models).
 Table~\ref{tab:full-grid} reports the final KL divergence for a representative subset of the full configuration grid across the four GPT-2-family energy functions, drawn from the aggregated results file \texttt{final\_kl\_by\_model.csv}. The complete grid comprises the factorial combination of sampler (DLS, CLS), proposal method (policy, grad-norm-preserved, random), Metropolis--Hastings correction (on, off), gradient normalization (on, off), and schedule length (50, 100), evaluated on each of the five energy functions, for a total of $145$ configurations.
 
-The count arises as $145 = 5 \times 29$, five energy functions times twenty-nine configurations each, and the twenty-nine is worth setting out because the naive factorial overcounts it. A fully crossed design over the five binary and ternary axes above would give $2 \times 3 \times 2 \times 2 \times 2 = 48$ cells per energy function, or $240$ in total, but two prunings reduce this. The continuous sampler is run for only the policy and random proposal methods, not the grad-norm-preserved method, and across four of the gradient-normalization and schedule variants, giving $8$ CLS configurations per energy function; the discrete sampler is run for all three proposal methods across seven of the correction, normalization, and schedule variants, giving $21$ DLS configurations. The sum is $8 + 21 = 29$ per energy function. The count was verified directly against the result folders, which hold $29$ configurations for GPT-2 Large (\texttt{results/grid/gpt2\_v2}), $29$ for Llama-3 (\texttt{results/grid/llama}), and $87$ across the three GFlowNet variants (\texttt{results/grid/gfn}), and $29 + 29 + 87 = 145$.
+The count arises as $145 = 5 \times 29$, and the twenty-nine is worth setting out because the naive factorial overcounts it. A fully crossed design over the five axes above would give $2 \times 3 \times 2 \times 2 \times 2 = 48$ cells per energy function, but two prunings reduce this: the continuous sampler is run only for the policy and random methods and across four of the gradient-normalization and schedule variants, giving $8$ CLS configurations, while the discrete sampler is run for all three methods across seven of the correction, normalization and schedule variants, giving $21$. The sum is $29$ per energy function, verified against the result folders, which hold $29$ configurations for GPT-2 Large, $29$ for Llama-3 and $87$ across the three GFlowNet variants.
 % SOURCE: REVISION_LOG.md concern 15; run-name counts in results/grid/gpt2_v2 (29),
 % results/grid/llama (29), results/grid/gfn (87). The nominal 2x3x2x2x2x5=240 overcounts because
 % CLS drops the grad-norm-preserved method and some gn/schedule cells.
@@ -120,7 +123,7 @@ The count arises as $145 = 5 \times 29$, five energy functions times twenty-nine
     \label{tab:full-grid}
 \end{table}
 
-This full grid is part of the released artifact set. Under the code-availability statement of Section~\ref{sec:meth-repro}, the complete per-configuration results, the aggregated \texttt{final\_kl\_by\_model.csv} from which this table is drawn, and the artifact map that links every number, table, and figure in this thesis to the script that produces it and the result file it reads are retained with the code, so the entire grid can be regenerated from the recorded seeds rather than reproduced from this representative subset alone.
+The full grid is part of the released artifact set: under the code-availability statement of Section~\ref{sec:meth-repro}, the complete per-configuration results, the aggregated \texttt{final\_kl\_by\_model.csv} from which this table is drawn, and the artifact map are retained with the code, so the entire grid can be regenerated from the recorded seeds rather than reproduced from this subset alone.
 
 \clearpage
 \subsection{Computational Cost}
@@ -161,31 +164,29 @@ The comparison is stark: the gradient-free baselines reach comparable or better 
 \subsection{Geometry of Sampler Trajectories in Embedding Space}
 \label{app:trajectory}
 
-This section examines the spatial paths the samplers trace through the embedding space, which gives a concrete counterpart to the acceptance statistics of Section~\ref{sec:results-mh} and the trajectory summaries of Section~\ref{sec:results-traj}.
-The primary figure is deliberately \emph{not} a projection. A two-dimensional projection of a $1280$-dimensional space cannot carry the argument, as the explained-variance figure below makes plain, so the load-bearing figure reports exact $L2$ distances in the full space and the projection is demoted to a single illustrative panel. All distances and all nearest-token decoding here use the full $50{,}257\times 1280$ embedding matrix of the model, not any subsample.
+This section examines the spatial paths the samplers trace through the embedding space, a concrete counterpart to the acceptance statistics of Section~\ref{sec:results-mh} and the trajectory summaries of Section~\ref{sec:results-traj}. The primary figure is deliberately \emph{not} a projection, since a two-dimensional projection of a $1280$-dimensional space cannot carry the argument; the load-bearing figure reports exact $L2$ distances in the full space, using the full $50{,}257\times 1280$ embedding matrix rather than any subsample, and the projection is demoted to one illustrative panel.
 
-Figure~\ref{fig:traj-distance} is the primary view. For one seeded trace (index $5$, chosen once by \texttt{np.random.default\_rng(0)}), it plots, at every step and on a symmetric-log axis so that exact zeros remain visible, the $L2$ distance from the sampler's state to the ground-truth token embedding, and for the continuous sampler also the distance to the nearest token of any kind, the off-manifold measure.
+Figure~\ref{fig:traj-distance} is the primary view. For one seeded trace (index $5$, chosen once by \texttt{np.random.default\_rng(0)}) it plots, at every step and on a symmetric-log axis so exact zeros remain visible, the $L2$ distance from the sampler's state to the ground-truth token embedding, and for the continuous sampler also the distance to the nearest token of any kind.
 % SOURCE: figures/fig_traj_stats.json (seq_idx_seeded 5) and revision/plot_trajectories.py, from results/diagnostics/diag/traces_gpt2sft_plot_traj.npz.
 Because \texttt{collect\_traces} advances the random-number state across configurations, trace index $5$ is the same source sentence in every panel but its randomly masked position, and hence its ground-truth token, differs by configuration; each panel therefore uses its own exact ground-truth embedding, and the cross-panel claim is about the on-manifold-versus-off-manifold dynamics, which does not require a shared token. The token strip under each axis shows the decoded token at each change, and for the continuous sampler the steps at which the proposal was rejected, inferred exactly from identical consecutive states, are marked as ticks.
 
 \begin{figure}[htbp]
     \centering
-    \includegraphics[width=0.68\textwidth]{figures/fig_traj_distance.png}
+    \includegraphics[width=0.80\textwidth]{figures/fig_traj_distance.png}
     % SOURCE: figures/fig_traj_distance.png from revision/plot_trajectories.py
     % (traces_gpt2sft_plot_traj.npz + full wte from the gpt2sft checkpoint).
     \caption[Full-space distances along one seeded sampling trajectory.]{Full-space distances along the sampling trajectory for one seeded trace, index $5$, on a symmetric-log axis, one panel per configuration. Solid line: $L2$ distance to the ground-truth token embedding. Dashed line, continuous sampler only: $L2$ distance to the nearest token of any kind. Red ticks mark rejected proposals. The discrete sampler's nearest-token distance is identically zero and is therefore not drawn.}
     \label{fig:traj-distance}
 \end{figure}
 
-The distances make the geometry exact. The discrete sampler, policy and random alike, sits at distance zero from the token manifold at every step, because its state is always a genuine token embedding; it visits about five distinct tokens over the run and ends about $2.2$ units from the ground truth, a token or so away.
+The distances, which Section~\ref{sec:results-traj} summarizes, make the geometry exact. The discrete sampler ends about $2.2$ units from the ground truth, a token or so away, and it shows the same dependence on the correction as the continuous one but without the off-manifold cost: with the correction it visits about $5$ of $50$ cells, and with the correction removed about $49$, accepting almost every proposal, yet it never leaves the token manifold, so its wandering is among real tokens rather than through the empty space between them.
 % SOURCE: figures/fig_traj_stats.json per_config dls_policy_gn_mh / dls_random_gn_mh (nearest_token_dist 0.0; distinct_cells_mean 5.3/4.2; final_dist_to_gt_mean 2.16/2.36).
-The continuous sampler with the correction on is frozen in place: its state sits between $118$ and $151$ units from the nearest token across the run and it changes its projected token about twice in fifty steps, the spatial form of the near-total rejection measured in Section~\ref{sec:results-mh}. With the correction off it visits about $45$ of $50$ cells and drifts as far as roughly $980$ units off the manifold before collapsing back to about $17$ units at the end. The discrete sampler shows the same dependence on the correction but without the off-manifold cost: with the correction it visits about $5$ of $50$ cells, and with the correction removed it visits about $49$, accepting almost every proposal, yet it never leaves the token manifold, so its wandering is among real tokens rather than through the empty space between them.
 % SOURCE (Phase 9, author issue list item 23): fig_traj_stats.json per_config
 % dls_policy_gn_mh distinct_cells_mean 5.33 (MH on) and dls_policy_gn_nomh distinct_cells_mean
 % 48.67 (MH off, from traces_gpt2sft_dlsnomh; same 6 source sentences, independently seeded
 % corruption; DLS on-manifold, nearest-token distance 0).
 % SOURCE: figures/fig_traj_stats.json per_config cls_policy_gnoff_mh (nearest 117.6-151.3, distinct_cells 2.2) and cls_policy_gnoff_nomh (nearest max 978.7, distinct_cells 44.7, end_nearest 17.0).
-Against a mean nearest-neighbour token spacing of $1.82$ and a mean pairwise spacing of $2.77$, an off-manifold distance of $120$ to $150$ is a factor of roughly $65$ to $83$ times the spacing between neighbouring tokens, so the continuous state spends its run in essentially empty space where the projected energy is a poor guide, which is why the boundary-crossing correction almost always rejects.
+The continuous state therefore spends its run in essentially empty space where the projected energy is a poor guide, which is why the boundary-crossing correction almost always rejects.
 
 Figure~\ref{fig:traj-pca} is the secondary, illustrative view: the same trace projected onto the first two principal components of the full vocabulary embedding matrix. It is shown for intuition only, and its own caption records why it cannot be the evidence: the two components capture just $3.3\%$ of the embedding variance, so the projection discards almost all of the geometry the distances above measure exactly.
 % SOURCE: figures/fig_traj_stats.json pca_explained_variance_sum 0.0331.
@@ -193,7 +194,7 @@ Read for what it can show, it agrees with the distances: the discrete trajectori
 
 \begin{figure}[htbp]
     \centering
-    \includegraphics[width=0.68\textwidth]{figures/fig_traj_pca.png}
+    \includegraphics[width=0.85\textwidth]{figures/fig_traj_pca.png}
     % SOURCE: figures/fig_traj_pca.png from revision/plot_trajectories.py.
     \caption[PCA projection of the same seeded trace.]{PCA projection of the same seeded trace, one panel per configuration. Grey cloud: the vocabulary embeddings. Open circle: the start state. Filled dot: the end state. Star: the ground-truth token. The two components capture $3.3\%$ of the embedding variance, so this projection is illustration only and the full-space distances of Figure~\ref{fig:traj-distance} carry the argument.}
     \label{fig:traj-pca}
@@ -206,17 +207,17 @@ Read together, the two figures make the central geometric claim visible: the sam
 \label{app:guided}
 
 
-This subsection reports an exploratory follow-up rather than part of the positive control. The control proper is complete at Section~\ref{sec:results-diffusion-hybrid}: the diffusion score carries the local signal the autoregressive gradient lacked, it performs the recovery natively, and it works as a proposal inside the thesis's own exact-energy chain. What follows asks the further question of whether the constructive direction extends to \emph{control}, which broadens the study from a sampling diagnosis into classifier-guided diffusion and evaluator alignment. It is summarized here and reported in full in Appendix~\ref{app:guided}.
+This subsection reports in full the exploratory follow-up summarized in
+Section~\ref{sec:results-guided}. It asks whether the constructive direction of
+Section~\ref{sec:results-ladder} extends to \emph{control}, which broadens the study from a
+sampling diagnosis into classifier-guided diffusion and evaluator alignment, and it is
+reported as exploratory throughout.
 
 A small classifier is trained to read a noisy, partially masked state, the state the diffusion model occupies mid-denoising, by corrupting each labelled example with the model's own forward absorbing process at a noise level drawn uniformly over the schedule. Its held-out accuracy at low noise is $81\%$.
 % SOURCE: noisy_classifier_train.json final_low_noise_acc=80.96.
-During generation it reweights the diffusion model's top thirty-two candidates at each commitment by the probability of the target label, raised to a guidance strength $\gamma$. Steering is scored, exactly as in Section~\ref{sec:results-constrained}, by the frozen-model sentiment judge, so the classifier that guides and the judge that grades are strictly separate. Two settings were run: an off-domain continuation setting on prompts neither classifier was calibrated for, and an on-domain setting on held-out SST-2 prompts with a fluency trust region that caps guidance to candidates within $\delta=5$ nats of the diffusion model's own top choice. Table~\ref{tab:gprime} reports the second.
-
-Four statements summarize both settings. First, the constraint direction carries signal: the guiding classifier's own verdict moves toward the target at every strength and for both labels, by $+9.3$ to $+25.7$ points on-domain and by seven to eighteen points off-domain, with confidence intervals excluding zero.
+During generation it reweights the diffusion model's top thirty-two candidates at each commitment by the probability of the target label, raised to a guidance strength $\gamma$. Steering is scored, exactly as in Section~\ref{sec:results-constrained}, by the frozen-model sentiment judge, so the classifier that guides and the judge that grades are strictly separate. Two settings were run: an off-domain continuation setting on prompts neither classifier was calibrated for, and an on-domain setting on held-out SST-2 prompts with a fluency trust region that caps guidance to candidates within $\delta=5$ nats of the diffusion model's own top choice. Table~\ref{tab:gprime} reports the second, and the sources for the four summary findings are as follows.
 % SOURCE: rev_gprime.json by_cell.*.self_gain_pts and self_gain_ci95; rev_sedd_guided_g{1,2,4}.json by_label.*.self_gain_pts.
-Second, guidance steers the classifier that guides more reliably than it steers an independent judge. Third, transfer to that independent judge is bounded by how far the two instruments agree on the text being scored: agreement climbs from $56$ to $64\%$ off-domain, to $71.7\%$ on unguided on-domain generations, to $79.7\%$ on the held-out sentences themselves, and in each setting the judge moves in one direction only, the negative target off-domain and the positive target on-domain, with the working direction tracking that alignment rather than a fixed reachable sentiment.
 % SOURCE: results/revision/rev_gprime.json diagnosis_unguided_gen_agreement_pct 71.667 [66.667,76.667]; realtext_agreement_pct 79.667 [75,84]; phase4_offdomain_agreement_band_pct [56,64]; by_cell.*.gain_pts and gain_ci95.
-Fourth, the trust region removes the fluency cost: guided span negative log-likelihood stays at or below the unguided value in three of the four on-domain cells and rises by at most $0.26$ nats in the fourth, against a climb from $7.1$ to $11.0$ nats with guidance strength in the off-domain run.
 % SOURCE: rev_gprime.json by_cell.*.nll_cost (-0.74, -1.71, +0.26, -1.00); unguided_span_nll 7.014; rev_sedd_guided_g{1,2,4}.json unguided_span_nll -> guided_span_nll.
 
 \begin{table}[htbp]
@@ -240,29 +241,20 @@ Fourth, the trust region removes the fluency cost: guided span negative log-like
     \label{tab:gprime}
 \end{table}
 
-The claim the data licenses is therefore narrow and setting-contingent: with a single noisy guide at this scale, one-directional transfer to an independent judge is reachable under bounded fluency, while symmetric transfer at both labels is not. Appendix~\ref{app:guided} gives the off-domain table, the full agreement ladder, and the per-class confusion analysis that tests, and does not support, a by-class explanation of which direction transfers; Appendix~\ref{app:gprime-examples} gives representative guided pairs from both settings.
-
-
-
-
-This section holds the detail of the exploratory guidance study summarized in
-Section~\ref{sec:results-diffusion-guided}: the off-domain run, the guide-judge agreement
-ladder, and the per-class confusion analysis.
+The claim the data licenses is therefore narrow and setting-contingent: with a single noisy guide at this scale, one-directional transfer to an independent judge is reachable under bounded fluency, while symmetric transfer at both labels is not. The off-domain run, the full agreement ladder, and the per-class confusion analysis follow; Appendix~\ref{app:gprime-examples} gives representative guided pairs from both settings.
 
 \subsubsection{Off-Domain Guidance Without a Trust Region}
 \label{app:guided-offdomain}
 
-The first setting uses prompts from a MuCoLa-style continuation set that neither the guiding
-classifier nor the judge was trained on, and imposes no fluency constraint.
-Table~\ref{tab:diffusion-guided} reports it. The guidance mechanism works on the instrument
-it optimizes: it moves the guiding classifier's own verdict toward the target at every
-strength and for both labels, by seven to eighteen points. Measured by the independent judge
-it steers monotonically in the negative direction, from a six-point gain at $\gamma=1$ to a
-$16.7$-point gain at $\gamma=4$ whose confidence interval excludes zero, and it does not move
-the judge in the positive direction. The guiding classifier and the judge agree on only
-fifty-six to sixty-four percent of these generated texts, and stronger guidance drives the
-text further off the fluent manifold, with the per-token negative log-likelihood under the
-autoregressive model rising from $7.1$ to $11.0$ as $\gamma$ grows.
+The first setting uses prompts from a MuCoLa-style continuation set that neither classifier
+was trained on, and imposes no fluency constraint. Table~\ref{tab:diffusion-guided} reports
+it. The mechanism works on the instrument it optimizes, moving the guiding classifier's own
+verdict toward the target at every strength and for both labels by seven to eighteen points.
+Measured by the independent judge it steers monotonically in the negative direction, from a
+six-point gain at $\gamma=1$ to a $16.7$-point gain at $\gamma=4$ whose interval excludes zero,
+and it does not move the judge in the positive direction. The two agree on only fifty-six to
+sixty-four percent of these texts, and stronger guidance drives them further off the fluent
+manifold, the per-token negative log-likelihood rising from $7.1$ to $11.0$ as $\gamma$ grows.
 % SOURCE: rev_sedd_guided_g{1,2,4}.json by_label.*.
 Guiding hard toward one classifier's notion of a label therefore need not raise the other's,
 which is the same off-manifold breakdown that Section~\ref{sec:results-constrained} observed
@@ -294,20 +286,18 @@ for the constraint-only arm.
 \subsubsection{The Guide-Judge Agreement Ladder}
 \label{app:guided-ladder}
 
-The off-domain result leaves two explanations entangled. The guidance might steer only in one
+The off-domain result leaves two explanations entangled. Guidance might steer only in one
 fixed direction, or the two independently trained classifiers might disagree on off-domain
 text they were never calibrated for, with stronger guidance driving the text further off the
-fluent manifold where the disagreement is worst. The continuation run varies domain and
-fluency together and so cannot separate them. The on-domain control of
-Section~\ref{sec:results-diffusion-guided} holds fluency fixed and moves the instruments
-on-domain. Its prompts are the first three hundred held-out SST-2 validation sentences of at
-least twelve tokens; neither the guiding classifier nor the judge trained on this split,
-both having only read it under \texttt{no\_grad} for an accuracy readout, so the split is
-calibration-clean by construction. The trust region caps guidance to candidates within
-$\delta=5$ nats of the diffusion model's top choice at each commitment, so a committed token
-is always within $\delta$ nats of the model's own preference and guidance can only reshuffle
-mass among near-equally-fluent options. Unguided and guided generations share a seed per
-prompt, so each pair differs only by the intervention.
+fluent manifold where disagreement is worst. The continuation run varies domain and fluency
+together and cannot separate them. The on-domain control holds fluency fixed and moves the
+instruments on-domain: its prompts are the first three hundred held-out SST-2 validation
+sentences of at least twelve tokens, on which neither classifier trained, both having read
+the split only under \texttt{no\_grad} for an accuracy readout, so it is calibration-clean by
+construction. The trust region caps guidance to candidates within $\delta=5$ nats of the
+diffusion model's top choice at each commitment, so guidance can only reshuffle mass among
+near-equally-fluent options, and unguided and guided generations share a seed per prompt, so
+each pair differs only by the intervention.
 
 The agreement between the guiding classifier and the judge climbs a clean ladder as the text
 they score moves on-domain: from the off-domain band of $56$ to $64\%$, to $71.7\%$
@@ -333,12 +323,11 @@ generated text.
 \label{app:guided-confusion}
 
 One explanation of the flip is that the residual disagreement falls asymmetrically by class,
-so that the guide's positive verdict transfers to the judge more reliably than its negative
-verdict. Table~\ref{tab:confusion} tests that supposition on the unguided on-domain
-generations, which are neutral with respect to the intervention, and does not support it. The
-per-class accuracies rule out a silent label-map flip: the guide is $79.4\%$ accurate on
-negative and $79.9\%$ on positive held-out sentences, the judge $85.8\%$ and $89.9\%$, both
-balanced.
+so that the guide's positive verdict transfers more reliably than its negative one.
+Table~\ref{tab:confusion} tests that on the unguided on-domain generations, which are neutral
+with respect to the intervention, and does not support it. The per-class accuracies rule out a
+silent label-map flip: the guide is $79.4\%$ accurate on negative and $79.9\%$ on positive
+held-out sentences, the judge $85.8\%$ and $89.9\%$, both balanced.
 % SOURCE: results/revision/rev_confusion.json label_alignment_sanity.
 On the unguided generations the judge confirms the guide's positive verdict $67.9\%$ of the
 time and its negative verdict $75.7\%$, a paired difference of $-7.7$ points whose $95\%$
@@ -358,7 +347,7 @@ the alignment gap.
 
 Table~\ref{tab:constrained} gives the raw target-hit gains for the constrained-generation extension. They are placed here rather than in Section~\ref{sec:results-constrained} because that section discounts them: every arm, including the pure-fluency and random-direction baselines, flips sign with the target label, which shows that a fixed unconditional sentiment drift dominates the raw gain. The trustworthy statistic is the paired contrast of Table~\ref{tab:constrained-contrast}, which cancels that shared drift.
 
-\begin{table}[t]
+\begin{table}[htbp]
     \centering
     \small
     \begin{tabular}{lcc}
@@ -380,11 +369,11 @@ Table~\ref{tab:constrained} gives the raw target-hit gains for the constrained-g
 \label{app:gprime-examples}
 \label{app:showcase}
 
-All qualitative material in this thesis is collected here under one selection policy, so that no example shown anywhere was chosen for how well it made a point. Every draw below is seeded with \texttt{np.random.default\_rng(0)} and unfiltered: dull, crude and failing draws are kept, and the only subsequent pruning is deterministic, a fixed positional subset stated at each table and reversible from the source of this document. No number in this thesis is taken from these tables; the statistics are in Table~\ref{tab:baselines}, Table~\ref{tab:diffusion-recovery}, Table~\ref{tab:gprime} and Table~\ref{tab:confusion}. Garbled bytes that the diffusion model emits are shown as \texttt{[?]}.
+All qualitative material in this thesis is collected here under one selection policy, so that no example shown anywhere was chosen for how well it made a point. Every draw below is seeded with \texttt{np.random.default\_rng(0)} and unfiltered: dull, crude and failing draws are kept, and the only subsequent pruning is deterministic, a fixed positional subset stated at each table and reversible from the source of this document. No number in this thesis is taken from these tables; the statistics are in Table~\ref{tab:baselines}, Table~\ref{tab:mlm}, Table~\ref{tab:gprime} and Table~\ref{tab:confusion}. Garbled bytes that the diffusion model emits are shown as \texttt{[?]}.
 
 \subsubsection{Classifier-Guided Generations}
 \label{app:examples-guided}
-The pairs below make the guided steering of Section~\ref{sec:results-diffusion-guided} visible in text. Table~\ref{tab:gprime-examples} gives the on-domain, trust-region generations, two pairs per cell. Table~\ref{tab:gprime-trustregion} gives the highest-fluency-cost pairs from the off-domain run, which used no trust region and where guidance collapses into word salad; the on-domain pairs stay bounded. For each pair \emph{g} is the guiding classifier's verdict and \emph{j} the independent judge's, so a pair where they disagree shows the partial instrument alignment directly.
+The pairs below make the guided steering of Section~\ref{sec:results-guided} visible in text. Table~\ref{tab:gprime-examples} gives the on-domain, trust-region generations, one pair per cell. For each pair \emph{g} is the guiding classifier's verdict and \emph{j} the independent judge's, so a pair where they disagree shows the partial instrument alignment directly.
 \input{chapters/gprime_examples}
 
 \clearpage
@@ -394,10 +383,8 @@ The pairs below make the guided steering of Section~\ref{sec:results-diffusion-g
 \subsection{Use of AI-Tools}
 \label{app:ai-tools}
 
-The author of this thesis has used AI tools, specifically Google AI Studio (Gemini 3.1 Pro) and Claude (Anthropic), in the preparation of this work, and documents their use here as required.
+The author of this thesis has used AI tools, specifically Google AI Studio (Gemini) and Claude (Anthropic), and documents their use here as required.
 
-The tools were used first for code support. When errors were encountered in the implementation of the sampling and evaluation code, they assisted in diagnosing those errors and in checking the code for compliance with the methods described in the accompanying papers. They were used in particular to help write and debug the job-scheduling and GPU-utilization scripts that distribute the experiments across the available hardware, and the diagnostic and plotting scripts. They were also used in the analysis, again as support in implementing the analysis code and resolving the errors encountered in it, and in some cases in assembling the result tables.
-
-In the revision of the manuscript, Claude was additionally used, through an agentic coding interface, to apply a structured and author-specified set of edits to the LaTeX sources of this thesis. That use comprised matching the department template, transcribing verified numerical results from the experimental output files into the tables and the text, adding cross-references and formatting, and copy-editing prose for clarity. Every edit was made against an explicit list of changes prepared by the author, every quantitative claim so transcribed was traced to the result file that produced it and annotated with its source in the document, and the author reviewed the output of each step.
+They were used in three ways. First, for the clarification of concepts encountered in the literature, where an explanation obtained from a tool was checked against the primary sources and other material found online before it was relied upon. Second, to paraphrase and copy-edit drafts of the manuscript written by the author. Third, for engineering support: the tools helped build the infrastructure that runs the experiments across several GPUs in parallel, and that generates the manifest files and the queueing mechanism which make the long configuration grids reported here practical to run.
 
 All other parts of the thesis, including the design of the experiments, the synthesis of the background and related work, the analysis and interpretation of the results, and the arguments and conclusions drawn from them, were carried out solely by the author, who has verified all quantitative claims against the underlying experimental output and assumes full responsibility for the entire content of this work.
