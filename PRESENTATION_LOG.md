@@ -197,3 +197,62 @@ contradicts the likelihood trap. The rest is terminology brought into line: no
 "pre-registered", no "theoretically correct", no "positive control", the token-indicator
 derivative described as a sum rather than a substitution, and the MuCoLa/COLD verdict narrowed
 to the mechanism this study reimplemented. No thesis number was changed by this part.
+
+---
+
+## 2026-07-27  Talk documents added: TALK_TRANSCRIPT.md and TALK_QNA.md
+
+Two markdown companions written into `Doc/final/beamer/`, at the author's request.
+
+### `TALK_TRANSCRIPT.md` (461 lines)
+
+A speakable script for all 15 content slides, keyed to the deck's frame order. Each slide has a
+**Say** block written to be read more or less as written, short sentences on purpose, plus
+**Point at** for what to gesture to, **If asked here** for the question that usually arrives
+mid-slide with its one-line answer, and **Cut first** for what to drop when running long. Ends
+with a timing card summing to 20.0 minutes, a running-long and running-short plan, four sentences
+to have word-perfect, and three phrasings to avoid.
+
+The one standing rule stated at the top: never say "the gradient does not work", always "the
+input-embedding gradient", because the whole contribution lives in that qualifier and the
+unqualified form is refuted by the thesis's own data.
+
+### `TALK_QNA.md` (535 lines)
+
+Derived from `thesis_questions_knowledge_base.md` in the repository root, and it follows that
+document's own ranking: its section 1 "confusion hotspots" become Part 1 here, in the same order,
+because that list is the ranked record of what actually lost a careful reader.
+
+- **Part 1**, the seven hotspots: self-term blindness; "the gradient is noise yet something
+  works"; the slope-versus-zero-gradient paradox; the author's own GFlowNet-framing idea, answered
+  as a considered alternative rather than a misunderstanding; whether a smaller step size fixes
+  the continuous sampler; the statistics paragraph; scale versus anisotropy.
+- **Part 2**, by chapter, following the knowledge base's per-section entries, including the
+  `PUSHBACK` items it records: the MH formula with a good and a bad move, the Taylor surrogate,
+  the KL-is-built-on-likelihood circularity, positional dependence, the corpus split, the missing
+  external-judge configuration, the "left context used for two opposite outcomes" catch, the
+  Figure 1 overlap, and the generator attribution for the degenerate strings.
+- **Part 3**, ten questions the *new* results invite that the knowledge base predates: why the
+  grid is not built on the working derivative, why this is not the ordinary one-hot gradient, why
+  RoBERTa beats SEDD, whether 44.5 percent is leakage, why the temperature flattened everything,
+  the pre-registration wording, the target-not-at-fault versus likelihood-trap tension, the Llama
+  contrast, what to do next, and the one-sentence contribution.
+- **Part 4**, five questions to hold a line on, with the line to hold.
+- A closing coverage table mapping every knowledge-base hotspot and cross-cutting thread to the
+  answer that covers it, and naming the two things deliberately not carried over.
+
+**Supersession handling.** The knowledge base was written against an earlier draft, so several of
+its entries ask about findings the thesis no longer makes. A table at the top of the document
+records the three that changed, quenching, anti-guidance and the objective attribution, and every
+affected answer is tagged `SUPERSEDED` and answered with the current finding rather than the old
+one. This is deliberate: those questions will still be asked by anyone who read the earlier draft,
+and the right answer is the withdrawal plus its evidence.
+
+### Verification
+
+Every headline number in both documents was checked programmatically against the result files:
+22 checks over `rev_klbase_gpt2sft.json`, `rev_mlm_control.json`, `rev_mlm_uniform.json`, the
+flagship and no-correction grid JSONs, `diag_anisotropy_gpt2sft.json`,
+`diag_linearization_gpt2sft.json`, `ohsweep_e10p5_t1p0.json` and `xm_onehot_llama_sharp.json`.
+Zero failures. Slide and backup numbers cross-checked against the deck's frame inventory. No
+em-dashes in either file.

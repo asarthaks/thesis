@@ -7,14 +7,14 @@
 % sequence, which cost four pages to convey forty tokens. The sequence is now given once per
 % block and the rows carry the recovered token alone. No datum was removed: the same four
 % sequences and the same ten methods appear, from the same seeded draw.
-SELECTION POLICY. The ten sequences were drawn once with a fixed rule and never filtered: \texttt{np.random.\allowbreak default\_rng(0).\allowbreak choice(200,\allowbreak 10,\allowbreak replace=False)} over the kl-baselines set (WikiText-2 validation, one random interior mask, \texttt{data\_seed}~0), sorted. Four of those ten, the first, fourth, seventh and tenth of the sorted draw, are shown here; the remaining six are retained in the source of this document. Failures are kept in, and nothing is selected for quality. A check mark means the recovered token equals the ground truth. Numbers cross-reference Sections~\ref{sec:results-baselines} and~\ref{sec:results-ladder}.
+SELECTION POLICY. The ten sequences were drawn once with a fixed rule and never filtered: ten indices sampled without replacement from the two hundred sequences of the reference set (WikiText-2 validation, one random interior mask, corruption seed zero) under a fixed random seed of zero, then sorted. Four of those ten, the first, fourth, seventh and tenth of the sorted draw, are shown here; the remaining six are not shown. Table~\ref{tab:showcase-infill} gives them. Failures are kept in, and nothing is selected for quality. A check mark means the recovered token equals the ground truth. Numbers cross-reference Sections~\ref{sec:results-baselines} and~\ref{sec:results-ladder}.
 
 \begin{center}\footnotesize
 \begin{longtable}{p{0.34\textwidth} p{0.18\textwidth} c p{0.18\textwidth} c}
-\caption[Infill recovery on four seeded sequences.]{Infill recovery on four of the ten seeded sequences, all methods, on the reference sequence set. Each block gives the original sequence, the corrupted token, and the token each method placed at the masked position.}\label{tab:showcase-infill}\\
+\caption[Infill recovery on four seeded sequences.]{Infill recovery on four of the ten seeded sequences, all methods.}\label{tab:showcase-infill}\\
 \toprule Method & Recovered & Hit & Recovered & Hit\\ \midrule
 \endfirsthead \toprule Method & Recovered & Hit & Recovered & Hit\\ \midrule \endhead \bottomrule \endfoot
-\multicolumn{5}{p{0.92\textwidth}}{\textbf{Sequence idx 3}, ground truth \emph{fish}, corrupted to \emph{moments}. \itshape The diet of H. gammarus mostly consists of other benthic invertebrates. These include crabs, molluscs, sea urchins, star\underline{\quad} and polychaete worms. \quad\upshape\textbf{Sequence idx 34}, ground truth \emph{resided}, corrupted to \emph{By}. \itshape Lewis McAllister, a businessman in Tuscaloosa, Alabama, was the first Republican to serve in the Mississippi House of Representatives since Reconstruction, 1962 @-@ 1968 ; he\underline{\quad} in Meridian prior to 1971.}\\
+\multicolumn{5}{p{0.92\textwidth}}{\textbf{Sequence 3}, ground truth \emph{fish}, corrupted to \emph{moments}. \itshape The diet of H. gammarus mostly consists of other benthic invertebrates. These include crabs, molluscs, sea urchins, star\underline{\quad} and polychaete worms. \quad\upshape\textbf{Sequence 34}, ground truth \emph{resided}, corrupted to \emph{By}. \itshape Lewis McAllister, a businessman in Tuscaloosa, Alabama, was the first Republican to serve in the Mississippi House of Representatives since Reconstruction, 1962 @-@ 1968 ; he\underline{\quad} in Meridian prior to 1971.}\\
 \addlinespace[2pt]
 DLS policy (MH, GN) & passages & & Client & \\
 DLS random dir & fossils & & Client & \\
@@ -27,7 +27,7 @@ SEDD-small recovery & lings & & lived & \\
 SEDD-medium recovery & lings & & lived & \\
 Hybrid (SEDD proposal, exact-energy MH) & fish & \checkmark & resided & \checkmark\\
 \midrule
-\multicolumn{5}{p{0.92\textwidth}}{\textbf{Sequence idx 98}, ground truth \emph{a}, corrupted to \emph{it}. \itshape Late in the afternoon, Edson stepped onto\underline{\quad} grenade box and addressed his exhausted troops, saying, \quad\upshape\textbf{Sequence idx 199}, ground truth \emph{1990}, corrupted to \emph{ede}. \itshape = = = Global security, late @-@\underline{\quad}s = = =}\\
+\multicolumn{5}{p{0.92\textwidth}}{\textbf{Sequence 98}, ground truth \emph{a}, corrupted to \emph{it}. \itshape Late in the afternoon, Edson stepped onto\underline{\quad} grenade box and addressed his exhausted troops, saying, \quad\upshape\textbf{Sequence 199}, ground truth \emph{1990}, corrupted to \emph{ede}. \itshape = = = Global security, late @-@\underline{\quad}s = = =}\\
 \addlinespace[2pt]
 DLS policy (MH, GN) & 1 & & OR & \\
 DLS random dir & it & & o & \\

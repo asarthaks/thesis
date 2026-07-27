@@ -1401,3 +1401,584 @@ shift, not a contradiction, and not amended.
 None. `proposal.tex` is byte-identical to its Phase 9 state; the only artefacts touched are the
 regenerated build files. Compiles clean at 12 pages, 0 undefined references, 0 undefined
 citations, max overfull hbox 33.83pt (below the 40pt gate).
+
+---
+
+## 2026-07-27  AUTHOR ROUND 3: code terminology and artifact references removed from the PDF
+
+Two instructions: strip code-level terminology from the rendered text (the author cited the
+`collect_traces` mention on the appendix trajectory page and `dls_policy_gn_mh` in Section 5.2),
+and strip every reference to files that will not be submitted, since only the thesis PDF is
+handed in. Then sweep the whole document for anything similar.
+
+A full inventory was taken first, over `\texttt{}` uses and over file-extension, script-name and
+artifact words in every non-comment line, rather than fixing only the two pages named.
+
+### Code identifiers removed from the rendered text
+
+| what | where | now reads |
+|---|---|---|
+| `dls_policy_gn_mh` | 5.2, the discrete-sampler acceptance sentence | "in the policy configuration with the correction and gradient normalization both enabled" |
+| `cls_policy_gnoff_mh` | caption of the acceptance figure | "with gradient normalization off and the correction enabled, for that single configuration rather than pooled" |
+| `collect_traces` | A.4, the shared-source-sentence explanation | "the trace-collection procedure" |
+| `np.random.default_rng(0)`, `default_rng(0)` | A.4, A.7 opener, guided-examples caption | "a fixed random seed of zero" |
+| `np.random.default_rng(0).choice(200, 10, replace=False)` | showcase selection policy | "ten indices sampled without replacement from the two hundred sequences of the reference set ... under a fixed random seed of zero, then sorted" |
+| `data_seed` | showcase selection policy | "corruption seed zero" |
+| `no_grad` | A.5, the calibration-clean argument | "seen the split only for an accuracy readout with no parameter update" |
+| `--mh_exact_all_arms` | 4.3, the corrected-mode disclosure | the flag name dropped; the mode is described |
+| `len_beta`, 17 occurrences across 4.5, 5.9 and three table blocks | GFlowNet variant names | promoted to thesis notation, $\beta_{\text{len}}$, so the variants read "GFlowNet, $\beta_{\text{len}} = 0$, 500" |
+| `lm_only`, `cons_only`, `full`, `random`, `cons_random` | 4.6, 5.10, Table 14 header and caption, Table 20 rows | renamed to English: fluency-only, constraint-only, combined, fully random, randomized-constraint |
+| `DLS policy, MH, gn, s50` style row labels | Table 15 | expanded to "DLS policy, corr., grad-norm, 50 steps", with the caption defining "corr." and "grad-norm" |
+| `Sequence idx 3` | showcase blocks | "Sequence 3" |
+
+### Artifact and file references removed
+
+The thesis no longer promises or names anything outside the PDF.
+
+- **A.2 opening** dropped "drawn from the aggregated results file `final_kl_by_model.csv`".
+- **A.2 table caption** dropped "from `final_kl_by_model.csv`".
+- **A.2 closing paragraph** was "The full grid is part of the released artifact set: under the
+  code-availability statement of Section 4.8, the complete per-configuration results, the
+  aggregated `final_kl_by_model.csv` from which this table is drawn, and the artifact map are
+  retained with the code, so the entire grid can be regenerated ...". It now explains what the
+  eight rows are a subset of and notes that the arithmetic, not the table, establishes the count.
+- **A.2 count sentence** "verified against the result folders, which hold 29 configurations for
+  GPT-2 Large" became "counting the completed runs confirms it: 29 configurations for GPT-2
+  Large".
+- **4.8** was "The sampler and diagnostic code is retained with the thesis together with the
+  configuration definitions ... and the accompanying documentation links each table and figure to
+  the result file it draws from, so every quantitative claim is traceable from the number in the
+  text to the file on disk." It now says that every configuration is specified by the design axes
+  together with the corruption seed and the schedule, and that each claim is recorded against the
+  run that produced it, so any individual result can be regenerated from the description given in
+  the thesis. The reproducibility statement survives; the promised deliverables do not.
+- **"retained in the source of this document"**, used three times to explain that unshown draws
+  still exist somewhere, became "are not shown". With a PDF-only submission the earlier phrasing
+  pointed at something the reader cannot open.
+
+`% SOURCE:` provenance comments in the `.tex` files are untouched. They never render, so they do
+not reach the submitted PDF, and they remain the traceability trail for the author.
+
+### Verification, against the rendered PDF rather than the source
+
+`pdftotext` over all 130 pages, searched for: `.csv`, `.json`, `.py`, `.npz`, `README`, "artifact
+map", "released artifact", "code availability", `np.random`, `default_rng`, `no_grad`,
+`collect_traces`, `len_beta`, `cons_only`, `cons_random`, `lm_only`, `_gn_mh`, `gnoff`,
+`data_seed`, `verify_equivalence`, `base_sampler`, `run_experiment`, `mask_indices`, "source of
+this document", "retained with the", "traceable", `mh_exact`, `idx`, "on disk", "repository",
+"supplementary", "with the code", "recorded seeds", "kl-baselines", "aggregated results file".
+**Every count is zero.** The only remaining monospace in the document is the garbled-byte marker
+`[?]` and the one infilled-span example, both of which are typesetting conventions rather than
+code.
+
+### Gates
+latexmk exit 0; 130 pages; 0 undefined references or citations; 0 multiply-defined labels; 0 float
+promotions; max overfull hbox 20.34pt (the widened Table 15 briefly pushed this to 30.95pt and the
+row labels were abbreviated to bring it back); abstract on one page; 54 bibliography entries, all
+cited; numbers diff RESULT: ALL OK.
+
+---
+
+## 2026-07-27  NUMERIC AUDIT of the Llama cross-model paragraph (author query)
+
+The author questioned the figure $3.898$ in the closing paragraph of 5.4.1 and then the $4.108$
+in the paragraph after it. Both were traced to source. **The $4.108$ is correct. The $3.898$ is
+correct as a number but was being used to support a comparison the data does not support**, and a
+second, larger problem was found in the same sentence.
+
+### What the sentence said
+
+> "on Llama-3 8B the token-indicator proposal recovers $41.0$ percent at a final KL of $1.908$,
+> the lowest divergence any proposal in this study attains, against $0.0$ percent and $3.898$ for
+> the input-embedding gradient on the same model and sequences."
+
+### Finding 1: the comparison is not configuration-matched, and no matched comparison exists
+
+| arm | source | configuration | result |
+|---|---|---|---|
+| token-indicator | `xm_onehot_llama_sharp.json` | $\epsilon: 10.0 \to 0.1$, $T = 1.0$ | 41.0%, KL 1.908 |
+| input-embedding | `llama3-8b.dls.policy.mh.gn.free.s50.json` | $\epsilon: 0.1 \to 0.001$, $T = 5.0$ | 0.0%, KL 3.898 |
+
+The two cells differ in step size and temperature as well as in the derivative. An exhaustive
+search of `results/grid/**` for a Llama input-embedding run at $T = 1.0$ returns **none**, so the
+matched comparison was never run and cannot be recovered from stored data. "On the same model and
+sequences" was true and therefore not false, but it read as a matched pair and it is not one.
+
+This matters more than usual here because the *very next paragraph* is about exactly this
+confound, that sharpness from the distance term and sharpness from the surrogate are different
+things. The section was arguing against its own preceding sentence.
+
+### Finding 2: the superlative broke the no-shared-axis rule
+
+"the lowest divergence any proposal in this study attains" ranked a Llama divergence against the
+GPT-2 family. Section 4.2 states that Llama "is never placed on a shared numerical axis with the
+GPT-2 family", and 5.3 repeats it. The lowest GPT-2-side divergence is 3.229; the ladder's best
+arm is RoBERTa at 2.737, also on the GPT-2 energy. Ranking 1.908 above those is precisely the
+comparison the thesis forbids elsewhere. The superlative is removed.
+
+### Finding 3: the one matched Llama cell was omitted, and it cuts the other way
+
+At Llama's calibrated setting the two surrogates *are* matched: same model, same sequences, same
+step size and temperature, differing only in the derivative. There the token-indicator proposal is
+**marginally worse**, KL 4.108 against 3.898, with both at 0.0 percent exact. That is the honest
+cross-model datum and it was not stated. It is now, in the paragraph that follows, because it
+strengthens rather than weakens the section's argument: it shows that on Llama the 41.0 percent is
+bought by the derivative and the configuration together, not by the derivative alone.
+
+### Finding 4: the GPT-2 comparison, by contrast, IS matched
+
+Table 8 compares the two surrogates cell for cell over one $(\epsilon, T)$ grid, same corrupted
+sequences, correction on, gradient normalization off. At $\epsilon = 10.5$, $T = 1$ the
+token-indicator arm recovers 40.0 percent and the input-embedding arm 0.0. There the derivative is
+the only variable. The distinction between the strong GPT-2 evidence and the weaker Llama evidence
+is now drawn explicitly wherever the pair of numbers appears.
+
+### Edits applied
+
+- **5.4.1**, closing paragraph rewritten: the superlative removed; the Llama reference restated as
+  "every input-embedding arm in Llama's archived grid recovers 0.0 percent, its best cell reaching
+  a KL of 3.898"; and a new paragraph states both qualifications, the configuration mismatch and
+  the off-axis divergence.
+- **5.4.1**, following paragraph: the matched calibrated cell added, 4.108 against 3.898 with both
+  at zero, and the closing sentence now says why the cross-model claim is conditional.
+- **7, conclusion**: "against at most 2 percent for the input-embedding gradient anywhere in the
+  sweep" became a split statement, cell-for-cell on GPT-2 and "every input-embedding configuration
+  that was run" on Llama.
+- **6.4, limitation 1**: gains the second qualification, that the cross-architecture evidence is
+  weaker than the GPT-2 evidence because no matched Llama run exists.
+- **Beamer slide 13**: "Nothing retrained; only the derivative changed" was false for the Llama
+  column. Now "GPT-2 Large, compared cell for cell over one $(\epsilon, T)$ grid. Llama-3 8B
+  reaches 41.0% where every input-embedding configuration run gives 0.0%."
+- **TALK_TRANSCRIPT.md**: the Say block no longer implies a matched Llama pair, and a new
+  "If asked here" carries the 4.108-against-3.898 cell.
+- **TALK_QNA.md**: new entry N1b, "Is the Llama-3 41 percent a matched comparison?", which
+  volunteers the matched cell and the off-axis caution.
+
+The abstract and 6.1 were checked and needed no change: neither asserts a matched Llama
+comparison, and 6.1 points at the section that qualifies it.
+
+### Gates after the correction
+latexmk exit 0; 131 pages; 0 undefined references or citations; max overfull hbox 20.34pt;
+abstract on one page; numbers diff RESULT: ALL OK. Beamer exit 0, 25 pages.
+
+---
+
+## 2026-07-27  AUDIT of Table 11, the conditioning ladder (author query)
+
+The author asked whether every arm of Table 11 is single-token recovery or something else. Traced
+to source: `results/revision/rev_sedd_hybrid.csv` (1000 rows, five arms x 200 sequences),
+`rev_mlm_control.json`, `rev_mlm_uniform.json`, and the code paths in
+`diagnostics/run_sedd_cap.py` and `diagnostics/run_mlm_control.py`.
+
+### Answer: yes, all seven rows are single-token recovery
+
+Verified rather than assumed:
+
+- Both harnesses call the grid's own `build_corruption` with `num_masks = 1`, so exactly one
+  interior position is corrupted per sequence, chosen by the same deterministic rule seeded on the
+  sample index.
+- In the hybrid CSV, every one of the 200 sample indices has **exactly one** masked position, and
+  all arms agree on it: 0 samples where the arms disagree.
+- All arms: $n = 200$, the same WikiText-2 sequence set, corruption seed 0, 50 steps, and the same
+  exact GPT-2 Large sequence-log-likelihood energy for acceptance.
+
+So the answer to the question as asked is that the table is homogeneous in task.
+
+### But the audit surfaced an over-claim in the caption, now corrected
+
+The caption said "Every proposal run inside the same Metropolis--Hastings chain ... **Only the
+proposal differs.**" That is exact for five of the seven rows and **not** for the other two.
+
+| rows | chain |
+|---|---|
+| uniform draw, AR conditional, SEDD-small, SEDD-medium, RoBERTa | position-wise **independence** Metropolis-Hastings, differing only in the proposal distribution |
+| input-embedding gradient, norm-matched random | the thesis's own `DiscreteLangevinSampler`, that is the Equation (6) proposal with the correction, $\epsilon: 10.5 \to 0.1$, $T = 5$, gradient normalization on |
+
+These differ in the transition **kernel**, not only in the proposal. The code confirms it
+independently: the hybrid CSV records an acceptance rate for the five independence arms and leaves
+the field empty for the two Langevin arms, because they are not independence chains.
+
+This matters for the same reason the Llama audit did: the caption asserted a controlled comparison
+that is controlled across five rows and not across seven, and the section text repeated it
+("differences between arms are differences in what the proposal can see, and nothing else").
+
+### Edits applied
+
+- **Ladder opener**: now states the task explicitly, single interior token, same deterministic
+  corruption rule and seed, same 200 sequences, 50 steps, same accepting energy; then states that
+  five arms are independence samplers differing only in the proposal, that the two gradient arms
+  are the Langevin sampler and therefore differ in kernel as well, and why they are nonetheless
+  included, namely to reproduce the null from separate code on this sequence set.
+- **Table 11 caption** rewritten to say the same thing, and retitled from "in the same exact-energy
+  chain" to "accepted by the same exact energy", which is what is actually common to all seven.
+- **The paragraph introducing the table** now describes the two gradient arms as the reference the
+  ladder is read against rather than as rungs of it.
+
+The claim the ladder supports is unaffected: the five controlled rows still run 0.5, 23.5, 38.5,
+39.0 and 44.5 percent under a common kernel, and that ordering is the finding. What changes is that
+the two Langevin rows are no longer presented as though they belonged to the same controlled series.
+
+### One quirk recorded, not used anywhere
+
+In `exp_hybrid_refs` the `top5` column is computed from the autoregressive left-context conditional
+for *every* arm, so it is a property of the sequence rather than of the arm, which is why the
+gradient and left-conditional arms all report 34.5. No surviving table or sentence in the thesis
+quotes a top-5 figure from that file; the removed `tab:diffusion-hybrid` did, and the 34.5 values
+now in the text are the final-position experiment's exact-match rates from a different run.
+
+### Gates
+latexmk exit 0; 131 pages; 0 undefined references or citations; max overfull hbox 20.34pt;
+numbers diff RESULT: ALL OK.
+
+---
+
+## 2026-07-27  TABLE CAPTIONS cut to the Ioanna house style (author-approved)
+
+Applied after an author review of the exact before/after list. Three approved changes: the 20
+caption rewrites, the four abbreviation decoders retained, and the unreferenced showcase table
+given a prose reference.
+
+### The rule, and a correction to how it was justified
+
+The standing rule is `PROMPT_PHASE8` item 12 and the style memo at `REVISION_LOG` ~2276: naming
+clause, plus a legend gloss only if needed; interpretation lives in the prose. The author added a
+stricter condition, that a caption must not repeat a fact the prose already states.
+
+CORRECTION TO AN EARLIER CLAIM IN THIS LOG AND IN THE REVIEW. In proposing the first version I
+wrote that "the IMS checklist wants tables readable as objects" and used it to justify keeping
+caption text. That is wrong. `Checklist_Masterthesis.pdf` mentions tables exactly once, as "Table
+of contents", and says nothing about tables, figures or captions. The document that bears on this
+is `Guidelines_for_academic_thesis_writing_at_the_IMS.pdf` section 2.5, whose three relevant
+bullets are: tables prepared so the reader can easily see how they help answer a research
+question; the reader able to repeat the experiments from the available information; and "Reader
+not left alone with interpreting the results. **I talk them through each table and depiction with
+text.**" The third assigns interpretation to the prose explicitly, so short captions are what the
+guidelines describe rather than a departure from them.
+
+### Redundancy audit
+
+Every caption clause was checked against the prose with comments, captions and float bodies
+stripped. Confirmed already in the prose and therefore cut: `50{,}257`, `10.8249`, "temperature of
+5.0", "standard deviation across the vocabulary", the Equation (6) reference, `n = 200`,
+"grad-norm-preserved ... coincide", "gradient normalization disabled", "50 steps", "policy minus",
+"three sharpest", `n = 50`, "norm-matched random", "never take its gradient", "masked-recovery
+metric", `400{,}000`, `1.94`, "same (eps, T) grid", "changing nothing else", "scored terms",
+"calibrated configuration", `1050`, all three divergence column names, `n = 150`, "percentage
+points", "fifty steps", "two hundred WikiText-2 sequences", "same corruption seed", the S/M/T/k
+definitions, `n = 300`, "trust region", "span negative log-likelihood", `71.7`, and the g/j gloss.
+
+Not in the prose and therefore kept: "lower is better", `100{,}000`, `0.45`, `T = 1`.
+
+### The four decoders, kept, on corrected reasoning
+
+The first justification for keeping them was the false checklist claim. Re-running the search with
+float bodies properly stripped gives the real reason: `Input emb.`, `Token ind.`, `corr.`,
+`self gain`, `judge gain` and `Upper block` appear **nowhere in the prose**. They exist only inside
+the tables, because the prose names the concepts ("the relaxed token-indicator derivative", "the
+guiding classifier's own verdict") and never the printed abbreviations. Removing the decoders would
+leave those strings undefined anywhere in the thesis, which is a real failure of the "easily
+understand" bullet. This is also exactly what Ioanna does ("ASV emb. denotes ASV embedding
+similarity", "DR=dECE speaker rank"). Only `grad-norm` is defined in prose.
+
+### Result
+
+| | before | after | Ioanna |
+|---|---|---|---|
+| mean words | 52.2 | **18.7** | 32.4 |
+| median | ~47 | **15** | ~32 |
+| max | 115 (`tab:gfn-unify`) | **47** (`tab:onehot`) | 64 |
+
+20 of 22 captions rewritten; `tab:diffusion-lin` and `tab:full-grid` unchanged, their content
+being legend that the local prose does not carry. One short caption changed: `tab:mhfix` read "The
+apparent gradient penalty is an artifact of the asymmetric correction", a finding, and therefore
+put a conclusion into the List of Tables; it is now "Final KL under two treatments of the
+reverse-proposal term."
+
+No prose was added or altered to compensate. Every cut clause was verified present in the
+surrounding text before removal.
+
+### The separate guideline violation, fixed
+
+`tab:showcase-infill` was **never referenced in the prose**, the only table in the thesis with zero
+`\ref`. That contravenes "I talk them through each table and depiction with text" independently of
+caption length. The selection-policy paragraph in A.7.2 now opens the second sentence with
+"Table~\ref{tab:showcase-infill} gives them." A re-check confirms every one of the 22 tables is now
+referenced at least once.
+
+### Gates
+latexmk exit 0; **130 pages**, down from 131; 0 undefined references or citations; 0
+multiply-defined labels; max overfull hbox 20.34pt; abstract on one page; List of Tables 22
+entries, one line each; numbers diff RESULT: ALL OK.
+
+---
+
+## 2026-07-27  FIGURE CAPTIONS cut to the same rule (author-approved)
+
+Same treatment as the tables, applied after an author review of the exact before/after list: cut
+any clause the prose already states, keep decoders that appear nowhere else.
+
+### Redundancy audit
+
+Confirmed in the prose and therefore cut: the three panel quantities of Figure 1, "within-cell
+against boundary-crossing", "35 configurations", "$\pm 0.327$", `400{,}000`, `2.35`, the two
+acceptance rates $3.7\%$ and "essentially never", the $-1.12$ slope with its censoring caveat and
+the $0.997$ cap fraction, "unlike the enabled case ... the three methods coincide", "symmetric-log",
+"identically zero", "$3.3\%$ ... illustration only", and six occurrences of the trailing "This
+figure supports Section~X", a construction Ioanna never uses and which duplicates the prose
+sentence that already points at each figure.
+
+Not in the prose and therefore kept: every line-style, panel and colour decoder (solid versus
+long-dashed, marker shape, left versus right panel, grey cloud, open circle, filled dot, star, red
+ticks, the darker colour marking intervals that exclude zero), "percentile-bootstrap", `n = 200`
+per row, the $0.1$ correlation threshold, and "for that single configuration rather than pooled",
+which is the Alarm-1 correction and exists only in that caption.
+
+### Result
+
+| | before | after | Ioanna |
+|---|---|---|---|
+| figure captions, mean | 42.3 | **31.7** | ~15 |
+| median | 44 | **29** | ~11 |
+| max | 67 | **55** | 28 |
+
+14 of 15 rewritten; `fig:dls-traj-100` unchanged. The outcome sits above Ioanna's figure norm and
+that is deliberate: our figures are multi-panel with line-style and marker encodings that hers are
+not, and every surviving word is a decoder that appears nowhere else in the document. Cutting
+further would remove the only definition of what a dashed line or a red tick means.
+
+CORRECTION TO THE PROPOSAL AS FIRST WRITTEN. In the earlier round I recorded that `fig:forest`
+would need a compensating sentence added to Section 5.3. Under the stricter rule it does not:
+"percentile-bootstrap", the $n = 200$ per row and the darker-colour gloss are absent from the prose,
+so they stay in the caption where they belong, and only "35 configurations" and the margin value
+were redundant. No prose was added anywhere.
+
+### The one prose edit
+
+Appendix A.4 said of the PCA panel that "it is shown for intuition only, and **its own caption
+records why** it cannot be the evidence: the two components capture just $3.3\%$ ...". Since the
+caption no longer records it, the pointer became false. The clause now reads "it is shown for
+intuition only, and it cannot be the evidence: the two components capture just $3.3\%$ ...". Five
+words; the fact itself was already in that sentence.
+
+### One pre-existing gap found and NOT yet fixed
+
+`fig:mh-accept` is **never referenced in the prose**. It is the only figure in the thesis with no
+`\ref`, exactly the condition found for `tab:showcase-infill` in the previous round, and it
+contravenes the same guideline bullet, "I talk them through each table and depiction with text".
+
+Verified against the pre-pass backup of `chapters/`: the figure had zero prose references there
+too, so this is pre-existing and was not introduced by removing its "This figure supports Section
+5.2" tail. That tail was a caption pointing at the prose, which is the wrong direction and does not
+satisfy the guideline.
+
+Left unfixed pending the author's decision, since the standing instruction is to ask before
+editing. The fix would be one clause in Section 5.2, where the acceptance split is already
+discussed, for instance appending "(Figure~\ref{fig:mh-accept})" to the sentence reporting the
+$0.03$ to $0.63$ percent within-cell and $3.7$ to $8.6$ percent boundary-crossing rates.
+
+### Gates
+latexmk exit 0; 130 pages; 0 undefined references or citations; 0 multiply-defined labels; 0 float
+promotions; max overfull hbox 20.34pt; abstract on one page; numbers diff RESULT: ALL OK. All 22
+tables referenced in prose; 14 of 15 figures referenced, the exception recorded above.
+
+---
+
+## 2026-07-27  AUTHOR ROUND 4: figure legends, float sizing, Table 21, and A.8
+
+Six author instructions, all applied.
+
+### 1. `fig:mh-accept` referenced in prose
+
+The gap recorded at the end of the figure-caption round is closed. Section 5.2 now ends its
+acceptance-rate sentence with "(Figure~\ref{fig:mh-accept}, Appendix~\ref{app:figures})", placed
+where the $0.03$ to $0.63$ percent within-cell and $3.7$ to $8.6$ percent boundary-crossing rates
+are reported, which is the sentence the figure illustrates.
+
+### 2. Figures 1, 5, 13 and 14: legend text removed from the captions
+
+Verified by rendering each page first: all four plots carry their own in-image legend, so the
+caption was restating a key the reader can already see. Figure 5's plot even prints "mean candidate
+distance = 2.35" and "first bin with rho < 0.1, at 0.89" inside the axes, which the caption was
+duplicating in words.
+
+| figure | removed |
+|---|---|
+| 1 `fig:dls-traj-50` | "Solid lines are runs with the correction, long-dashed lines without it. Marker shape distinguishes the three proposal methods where their curves coincide." |
+| 5 `fig:lin-radius` | "Dashed line: the mean linearization-candidate distance. Dotted line: the smallest binned distance at which the correlation falls below $0.1$." |
+| 13 `fig:dls-traj-nogn` | the line-style clause, keeping "Panels and axes as in Figure~\ref{fig:dls-traj-50}" |
+| 14 `fig:traj-distance` | the solid/dashed/red-tick key and the not-drawn note |
+
+Figure captions now average **22.5 words** (from 31.7 after the previous round, 42.3 originally),
+median 21, max 55. Figures 2 and 15 keep their keys because those plots have no in-image legend.
+
+### 3. Figures 7 and 8 onto one page
+
+Both were at $0.92$ textwidth and each took a page of its own. Sized backwards from the text
+block: sources are $384 \times 272$pt and $415 \times 282$pt, so at $0.70$ textwidth ($299$pt)
+they are $212$ and $204$pt tall, and with both captions the pair occupies about $460$pt of the
+$591.5$pt height. They now share page 108. On-page scale is $0.78$ of source, so the axis labels
+are unchanged in relative size and remain legible in print. Verified by rendering.
+
+### 4. Table 21 matched to Table 22 and fitted on one page
+
+`tab:gprime-examples` was the only table in the document at `\normalsize`; Table 22 uses
+`\footnotesize` and Table 20 `\small`. Wrapped in `\footnotesize` to match Table 22. That alone
+still spilled three lines onto a second page, so three further changes, none of which touches a
+datum:
+
+- The verdict marker was set in `\small`, which inside a `\footnotesize` table is **larger** than
+  the body text. Changed to `\scriptsize`.
+- The marker was preceded by `\newline`, forcing an extra line for each of the eight generation
+  rows. It is now inline and flows with the text.
+- The label column went from $0.16$ to $0.11$ of the line width, giving the text column $0.83$,
+  and the extra $2$pt skip after each pair was dropped.
+
+The table now fits on one page. Page count 130 to **128**.
+
+### 5. Appendix A.8, Use of AI Tools, rewritten to the author's specification
+
+Order and content as dictated: the infrastructure use first and named as the most substantial;
+then debugging, stated as checking that the implemented samplers agreed with the mathematics they
+are derived from and locating where they did not, explicitly after the experimental code had been
+written by the author; then the manuscript work, the agentic coding interface used to edit the
+LaTeX sources and lay the document out quickly after the text had been written by the author, with
+paraphrasing and copy-editing folded into the same clause. The concept-clarification paragraph is
+removed. No gendered pronoun appears; every reference is to "the author". The closing
+responsibility paragraph is unchanged.
+
+### A bug in this log's own verification, corrected
+
+The "never referenced in prose" check used in the previous two rounds stripped LaTeX comments with
+`%.*$`, which also truncates any line containing an escaped percent sign such as `$3.7\%$`. It
+therefore reported `fig:mh-accept` as unreferenced even after the reference had been added, because
+the reference sits on a line that contains `\%`.
+
+Re-run with `(?<!\\)%.*$` and with float environments stripped rather than caption commands:
+
+| | figures unreferenced | tables unreferenced |
+|---|---|---|
+| pre-caption-pass backup | `fig:mh-accept` | `tab:showcase-infill` |
+| current | **NONE** | **NONE** |
+
+So the two gaps reported earlier were real, both are now closed, and all 37 floats are referenced
+in prose. Any earlier statement in this log that rested on the faulty checker should be read
+against this table.
+
+### Gates
+latexmk exit 0; **128 pages**; 0 undefined references or citations; 0 multiply-defined labels; 0
+float promotions; max overfull hbox 20.34pt; abstract on one page; numbers diff RESULT: ALL OK.
+
+---
+
+## 2026-07-27  SESSION CLOSE-OUT: complete change inventory
+
+Written at the author's request, to capture everything from this session that the entries above
+did not record. The entries above cover the substance of each edit; this one covers the file
+inventory, the artifacts, the rollback points, the corrections this log made to itself, and the
+decisions that were taken but deliberately NOT applied. Audited against `git`, not from memory.
+
+### Rollback points
+
+| commit | when | meaning |
+|---|---|---|
+| `087ab37` "evaluated" | before this session | state before any Phase 10 work |
+| `737a5a4` "beamer and thesis final draft" | 2026-07-27 01:59 | author's mid-session commit; everything from Phase 10 through the talk documents is in it |
+
+Work after `737a5a4` (the code-terminology sweep, the Llama and Table 11 audits, the caption
+passes, and author round 4) is uncommitted in the working tree. A copy of `chapters/` as it stood
+immediately before the table-caption pass is in the session scratchpad.
+
+### Every file changed in this session
+
+**Thesis source, all 13 chapter files:** `abstract`, `01_introduction`, `02_background`,
+`03_related_work`, `04_methodology`, `05_results`, `05a_diffusion_control`, `06_discussion`,
+`07_conclusion`, `08_appendix`, `gprime_examples`, `showcase_appendix`, `tab_confusion`.
+
+**Beamer:** `Doc/final/beamer/Presentation.tex`.
+
+**New files created:**
+- `revision/replot_forest_chain.py`, the plot-only redraw of Figure 3 from cached statistics.
+- `Doc/final/beamer/TALK_TRANSCRIPT.md`, the speaker script.
+- `Doc/final/beamer/TALK_QNA.md`, the defence question bank.
+
+**Figures regenerated:** `fig_forest_chain.{pdf,png}` in both `figures/` and `Doc/figures/`. No
+other figure file was regenerated; the print-legibility pass changed `\includegraphics` widths
+only.
+
+### Deliberately NOT touched, and verified so by `git diff`
+
+- `Doc/final/thesis/thesis.tex`, the master and preamble. The template constraint holds: no change
+  to `baselinestretch`, geometry, margins, title page or the Erklaerung.
+- `Doc/final/proposal/proposal.tex` and its bibliography. Part 6 was a verification, not a rewrite,
+  and the file is byte-identical to its Phase 9 state.
+- `references.bib`. No entry added, removed or altered this session; it stands at 54 entries, all
+  cited.
+- `core/`, `diagnostics/`, `scripts/`, `Methods/`. No sampler, harness or experiment code was
+  modified. The only Python written was the new plotting script, which reads a cached JSON.
+- `results/`. No result file was written, regenerated or edited. Every number in the thesis still
+  traces to the artefacts produced before this session.
+- `thesis_questions_knowledge_base.md`, read as the source for the Q&A document and left unchanged.
+
+`refs/evaluation5.md` and `PROMPT_PHASE10_FINAL_REWRITE.md` appear in the session diff but were
+added by the author, not by this pass.
+
+### Proof artefacts
+
+69 rendered PNGs now sit in `Doc/final/proofs/`. They are working evidence for specific decisions
+rather than deliverables, and they group as follows.
+
+| prefix | what it verifies |
+|---|---|
+| `fig3_check`, `fig3_after`, `forest_v2`, `forest_final` | Figure 3 overflowing the folio, and the redraw that fixed it |
+| `apx_*`, `apxv2_*`, `chk_*` | appendix figure sizes before and after the print-legibility pass |
+| `beta_check`, `a2_check`, `a2_v2`, `cons_v2` | the $\beta_{\text{len}}$ notation, and the A.2 and A.6 tables after the artifact-reference sweep |
+| `cap_check48`, `cap_check84` | table captions after the caption pass |
+| `insp_*` | the four figures whose in-image legends were checked before removing the caption keys |
+| `r4_*`, `r5_*` | Figures 7 and 8 sharing a page, and Table 21 fitted to one page |
+| `beamer_slide_*`, `bslide_*`, `bs2_*`, `bs3_*`, `bs4_*`, `bfin_*`, `bdone_*` | beamer slides across the two deck passes |
+
+### Corrections this log made to itself during the session
+
+Recorded together because each supersedes something written earlier in this same file.
+
+1. **The length premise.** The Phase 10 report concluded "the hard limit of 115 to 119 pages is NOT
+   met, seven over". The author then stated that the appendix does not count, which put the
+   countable length at 107 and below the floor. Logged under the correction entry; the conclusion
+   and the "relocation buys nothing" reasoning that followed from it are both withdrawn.
+2. **The IMS justification for long captions.** I wrote that "the IMS checklist wants tables
+   readable as objects" and used it to defend caption text. The checklist mentions tables once, as
+   "Table of contents". The Guidelines section 2.5 in fact assign interpretation to the prose.
+3. **Figure 3 needing a compensating sentence.** Stated twice in the caption proposals; false under
+   the stricter rule, because the bootstrap, the per-row $n$ and the colour gloss are absent from
+   the prose and therefore stay in the caption. No prose was added.
+4. **The unreferenced-float checker.** Its comment stripper truncated any line containing an escaped
+   percent, so it misreported `fig:mh-accept` as unreferenced after the reference had been added.
+   Re-run correctly: both gaps found this session were real, and both are now closed.
+
+### Decisions taken and deliberately NOT applied
+
+These are live options, not oversights. Each is the author's call.
+
+| item | status |
+|---|---|
+| The six length-reduction candidates listed at the end of the Phase 10 report, worth roughly 9.5 pages | not applied; superseded in urgency by the counting-rule correction and then by the author's instruction to prioritise print legibility |
+| Moving Section 5.10, the constrained-generation extension, into the appendix | argued against and not applied: it is the only place the thesis attempts the control its title promises, and both external reviews endorse its current placement |
+| Restoring `tab:crossmodel`, `fig:lasttoken` and the 4.7 harness paragraph into the appendix, now that appendix pages are free | proposed, not applied, awaiting the author |
+| Adding the token-indicator and RoBERTa rows to Tables 21 and 22 | cannot be done from stored data; needs a re-run of two configurations with example logging, which is a GPU job awaiting an explicit go-ahead |
+| Classifier-guided steering with a masked-LM or token-indicator carrier | never run; named in 5.10.1 as not tested rather than silently omitted |
+| Applying the strict no-repetition rule to the four table decoders as well | offered; not applied, because those abbreviations appear nowhere else in the document |
+
+### Outstanding, awaiting the author
+
+1. The page target, pending the supervisor's reply. Current composition: front matter 9, Chapters
+   1 to 7 89, bibliography 7, appendix 23, total 128.
+2. Whether to run the two example-logging jobs for the qualitative tables.
+3. Whether to reinstate the three items listed above into the appendix.
+
+### State at close
+
+latexmk exit 0 on all three documents. Thesis 128 pages, proposal 12, beamer 25. Zero undefined
+references and citations everywhere. Zero multiply-defined labels, zero float promotions, max
+overfull hbox 20.34pt against the 40pt gate. Abstract on one page. All 22 tables and all 15 figures
+referenced in prose. 54 bibliography entries, none uncited. `revision/numbers_diff_phase6.py`
+reports RESULT: ALL OK.

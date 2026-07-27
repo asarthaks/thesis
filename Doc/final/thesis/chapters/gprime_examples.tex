@@ -1,5 +1,6 @@
-\begin{longtable}{p{0.16\linewidth} p{0.78\linewidth}}
-\caption[On-domain trust-region guided generations.]{On-domain trust-region guided generations. Seeded draws (\texttt{default\_rng(0)}), unfiltered, the first pair of each cell; the second pair of each cell is retained in the source of this document. \emph{g} is the guiding classifier's verdict and \emph{j} the independent judge's; NLL is the span negative log-likelihood.}\label{tab:gprime-examples}\\
+{\footnotesize
+\begin{longtable}{p{0.11\linewidth} p{0.83\linewidth}}
+\caption[On-domain trust-region guided generations.]{On-domain trust-region guided generations, the first pair of each cell.}\label{tab:gprime-examples}\\
 \toprule
 & \\
 \endfirsthead
@@ -8,24 +9,24 @@
 \midrule
 \multicolumn{2}{l}{\textbf{Cell: $\gamma=2$, target negative}} \\ \midrule
 Prompt & bleakly funny, its characters all the more \\
-Unguided & bleakly funny, its characters all the more often point to negation of value: will you have a sense of humor? or will you have \newline{\small [g:pos, j:neg; NLL 6.57]} \\
-Guided & bleakly funny, its characters all the more so, their than the the- a and b are the moreso. characters than- the the \newline{\small [g:pos, j:pos; NLL 7.92]} \\[2pt]
+Unguided & bleakly funny, its characters all the more often point to negation of value: will you have a sense of humor? or will you have  {\scriptsize [g:pos, j:neg; NLL 6.57]} \\
+Guided & bleakly funny, its characters all the more so, their than the the- a and b are the moreso. characters than- the the  {\scriptsize [g:pos, j:pos; NLL 7.92]} \\
 \midrule
 \multicolumn{2}{l}{\textbf{Cell: $\gamma=2$, target positive}} \\ \midrule
 Prompt & you don't have to know about music to \\
-Unguided & you don't have to know about music to be musical-- even if you don't know about music  Audio  1 11 1 \newline{\small [g:neg, j:pos; NLL 5.36]} \\
-Guided & you don't have to know about music to play music you t if you don't listen to music about music music y y y n s y \newline{\small [g:pos, j:neg; NLL 7.10]} \\[2pt]
+Unguided & you don't have to know about music to be musical-- even if you don't know about music  Audio  1 11 1  {\scriptsize [g:neg, j:pos; NLL 5.36]} \\
+Guided & you don't have to know about music to play music you t if you don't listen to music about music music y y y n s y  {\scriptsize [g:pos, j:neg; NLL 7.10]} \\
 \midrule
 \multicolumn{2}{l}{\textbf{Cell: $\gamma=4$, target negative}} \\ \midrule
 Prompt & determined to be fun, and bouncy, \\
-Unguided & determined to be fun, and bouncy, and quirky, and exciting, and colourful, and play-determined to be fun-determined \newline{\small [g:pos, j:pos; NLL 4.57]} \\
-Guided & determined to be fun, and bouncy, didn[?] wasd that to to to and havedd andd, wasd of to, \newline{\small [g:pos, j:pos; NLL 10.83]} \\[2pt]
+Unguided & determined to be fun, and bouncy, and quirky, and exciting, and colourful, and play-determined to be fun-determined  {\scriptsize [g:pos, j:pos; NLL 4.57]} \\
+Guided & determined to be fun, and bouncy, didn[?] wasd that to to to and havedd andd, wasd of to,  {\scriptsize [g:pos, j:pos; NLL 10.83]} \\
 \midrule
 \multicolumn{2}{l}{\textbf{Cell: $\gamma=4$, target positive}} \\ \midrule
 Prompt & pacino is brilliant as the sleep-deprived \\
-Unguided & pacino is brilliant as the sleep-deprived - is adding already of a sleep-deprived (cowned) bristol is brilliant as is \newline{\small [g:neg, j:pos; NLL 8.40]} \\
-Guided & pacino is brilliant as the sleep-deprived-pacino is the sleep-deprivedpacpacpacpacino is brilliant as the - \newline{\small [g:pos, j:neg; NLL 8.92]} \\[2pt]
-\end{longtable}
+Unguided & pacino is brilliant as the sleep-deprived - is adding already of a sleep-deprived (cowned) bristol is brilliant as is  {\scriptsize [g:neg, j:pos; NLL 8.40]} \\
+Guided & pacino is brilliant as the sleep-deprived-pacino is the sleep-deprivedpacpacpacpacino is brilliant as the -  {\scriptsize [g:pos, j:neg; NLL 8.92]} \\
+\end{longtable}}
 
 % REMOVED 2026-07-26: a second longtable declared for the off-domain highest-NLL pairs was
 % empty in the submitted source (header rows only, no data rows) and rendered as three blank

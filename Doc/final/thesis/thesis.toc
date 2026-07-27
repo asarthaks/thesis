@@ -23,21 +23,21 @@
 \contentsline {subsection}{\numberline {3.6}The Gap Addressed by This Thesis}{33}{subsection.3.6}%
 \contentsline {section}{\numberline {4}Methodology}{34}{section.4}%
 \contentsline {subsection}{\numberline {4.1}Task: Masked Token Recovery}{34}{subsection.4.1}%
-\contentsline {subsection}{\numberline {4.2}Energy Functions}{36}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.2}Energy Functions}{35}{subsection.4.2}%
 \contentsline {subsection}{\numberline {4.3}Samplers and Configurations}{36}{subsection.4.3}%
-\contentsline {subsection}{\numberline {4.4}Evaluation Metrics}{39}{subsection.4.4}%
+\contentsline {subsection}{\numberline {4.4}Evaluation Metrics}{38}{subsection.4.4}%
 \contentsline {subsection}{\numberline {4.5}GFlowNet Training}{40}{subsection.4.5}%
 \contentsline {subsection}{\numberline {4.6}Constrained Generation Extension}{42}{subsection.4.6}%
-\contentsline {subsection}{\numberline {4.7}Diagnostic Experiments}{43}{subsection.4.7}%
+\contentsline {subsection}{\numberline {4.7}Diagnostic Experiments}{42}{subsection.4.7}%
 \contentsline {subsection}{\numberline {4.8}Reproducibility, Seeds, and Hardware}{44}{subsection.4.8}%
-\contentsline {section}{\numberline {5}Results}{45}{section.5}%
+\contentsline {section}{\numberline {5}Results}{44}{section.5}%
 \contentsline {subsection}{\numberline {5.1}Proposal Calibration and the Near-Uniform Main Grid}{45}{subsection.5.1}%
 \contentsline {subsubsection}{\numberline {5.1.1}The Calibrated Proposal Is Numerically Uniform}{46}{subsubsection.5.1.1}%
-\contentsline {subsection}{\numberline {5.2}The Metropolis--Hastings Breakdown in Continuous Space}{50}{subsection.5.2}%
-\contentsline {subsubsection}{\numberline {5.2.1}The Same Breakdown Read Spatially}{52}{subsubsection.5.2.1}%
+\contentsline {subsection}{\numberline {5.2}The Metropolis--Hastings Breakdown in Continuous Space}{48}{subsection.5.2}%
+\contentsline {subsubsection}{\numberline {5.2.1}The Same Breakdown Read Spatially}{51}{subsubsection.5.2.1}%
 \contentsline {subsection}{\numberline {5.3}Gradient Direction Against a Norm-Matched Random Direction}{52}{subsection.5.3}%
 \contentsline {subsubsection}{\numberline {5.3.1}Robustness of the Null Result}{57}{subsubsection.5.3.1}%
-\contentsline {subsubsection}{\numberline {5.3.2}Does the Null Survive a Load-Bearing Gradient?}{58}{subsubsection.5.3.2}%
+\contentsline {subsubsection}{\numberline {5.3.2}Does the Null Survive a Load-Bearing Gradient?}{57}{subsubsection.5.3.2}%
 \contentsline {subsubsection}{\numberline {5.3.3}Gradient-Free Baselines}{59}{subsubsection.5.3.3}%
 \contentsline {subsubsection}{\numberline {5.3.4}External-Judge Rescoring}{61}{subsubsection.5.3.4}%
 \contentsline {subsection}{\numberline {5.4}Why the Input-Embedding Surrogate Fails}{61}{subsection.5.4}%
@@ -49,7 +49,7 @@
 \contentsline {subsection}{\numberline {5.7}The Likelihood Trap}{77}{subsection.5.7}%
 \contentsline {subsection}{\numberline {5.8}Embedding Anisotropy}{79}{subsection.5.8}%
 \contentsline {subsection}{\numberline {5.9}GFlowNet Fine-Tuning and the Amortized Energy}{80}{subsection.5.9}%
-\contentsline {subsection}{\numberline {5.10}Extension: Constrained Generation with an Additive Sentiment Term}{84}{subsection.5.10}%
+\contentsline {subsection}{\numberline {5.10}Extension: Constrained Generation with an Additive Sentiment Term}{83}{subsection.5.10}%
 \contentsline {subsubsection}{\numberline {5.10.1}Classifier-Guided Steering on a Navigable Landscape}{86}{subsubsection.5.10.1}%
 \contentsline {section}{\numberline {6}Discussion}{87}{section.6}%
 \contentsline {subsection}{\numberline {6.1}Answers to the Research Questions}{87}{subsection.6.1}%
@@ -60,15 +60,15 @@
 \contentsline {section}{\numberline {7}Conclusion}{96}{section.7}%
 \contentsline {section}{\numberline {A}Appendix}{107}{section.A}%
 \contentsline {subsection}{\numberline {A.1}Additional Diagnostic Figures}{107}{subsection.A.1}%
-\contentsline {subsection}{\numberline {A.2}Full Configuration Grid}{112}{subsection.A.2}%
-\contentsline {subsection}{\numberline {A.3}Computational Cost}{115}{subsection.A.3}%
-\contentsline {subsection}{\numberline {A.4}Geometry of Sampler Trajectories in Embedding Space}{116}{subsection.A.4}%
-\contentsline {subsection}{\numberline {A.5}Classifier-Guided Steering: Full Results}{120}{subsection.A.5}%
-\contentsline {subsubsection}{\numberline {A.5.1}Off-Domain Guidance Without a Trust Region}{121}{subsubsection.A.5.1}%
+\contentsline {subsection}{\numberline {A.2}Full Configuration Grid}{111}{subsection.A.2}%
+\contentsline {subsection}{\numberline {A.3}Computational Cost}{114}{subsection.A.3}%
+\contentsline {subsection}{\numberline {A.4}Geometry of Sampler Trajectories in Embedding Space}{115}{subsection.A.4}%
+\contentsline {subsection}{\numberline {A.5}Classifier-Guided Steering: Full Results}{119}{subsection.A.5}%
+\contentsline {subsubsection}{\numberline {A.5.1}Off-Domain Guidance Without a Trust Region}{120}{subsubsection.A.5.1}%
 \contentsline {subsubsection}{\numberline {A.5.2}The Guide-Judge Agreement Ladder}{121}{subsubsection.A.5.2}%
-\contentsline {subsubsection}{\numberline {A.5.3}Per-Class Confusion on the Neutral Calibration Surface}{123}{subsubsection.A.5.3}%
-\contentsline {subsection}{\numberline {A.6}Raw Steering Gains for the Constrained Extension}{124}{subsection.A.6}%
-\contentsline {subsection}{\numberline {A.7}Qualitative Examples}{124}{subsection.A.7}%
-\contentsline {subsubsection}{\numberline {A.7.1}Classifier-Guided Generations}{125}{subsubsection.A.7.1}%
-\contentsline {subsubsection}{\numberline {A.7.2}Infill Recovery on Seeded Sequences}{127}{subsubsection.A.7.2}%
-\contentsline {subsection}{\numberline {A.8}Use of AI-Tools}{129}{subsection.A.8}%
+\contentsline {subsubsection}{\numberline {A.5.3}Per-Class Confusion on the Neutral Calibration Surface}{122}{subsubsection.A.5.3}%
+\contentsline {subsection}{\numberline {A.6}Raw Steering Gains for the Constrained Extension}{123}{subsection.A.6}%
+\contentsline {subsection}{\numberline {A.7}Qualitative Examples}{123}{subsection.A.7}%
+\contentsline {subsubsection}{\numberline {A.7.1}Classifier-Guided Generations}{123}{subsubsection.A.7.1}%
+\contentsline {subsubsection}{\numberline {A.7.2}Infill Recovery on Seeded Sequences}{125}{subsubsection.A.7.2}%
+\contentsline {subsection}{\numberline {A.8}Use of AI-Tools}{127}{subsection.A.8}%

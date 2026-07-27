@@ -1,7 +1,9 @@
 \subsection{The Proposal Ladder}
 \label{sec:results-ladder}
 
-Hypothesis C has two halves. The first, that the information a local proposal needs is present in the frozen model and is discarded by the input-embedding derivative, is settled in Section~\ref{sec:results-onehot}. The second, that a proposal permitted to condition on the right context recovers more still, is what this section tests, under one design throughout: the Metropolis--Hastings chain, the exact autoregressive sequence-log-likelihood energy, the two hundred WikiText-2 sequences and the corruption seed are all held fixed, and only the distribution the proposal draws from changes. Because every arm accepts by the same energy, differences between arms are differences in what the proposal can see.
+Hypothesis C has two halves. The first, that the information a local proposal needs is present in the frozen model and is discarded by the input-embedding derivative, is settled in Section~\ref{sec:results-onehot}. The second, that a proposal permitted to condition on the right context recovers more still, is what this section tests.
+
+The task is the single-token recovery of the rest of the study, run identically for every arm: one interior position per sequence is corrupted, chosen by the same deterministic per-index rule and the same corruption seed as the main grid, over the same two hundred WikiText-2 sequences, for fifty steps, and every arm accepts by the same exact autoregressive sequence-log-likelihood energy. Five of the arms are position-wise independence samplers differing in nothing but the distribution the proposal draws from, which is what makes the comparison among them controlled. The two gradient arms are not: they are the thesis's own discrete Langevin sampler, so they differ from the other five in the transition kernel as well as in the proposal. They are included because reproducing the null from separate code on this sequence set is what anchors the bottom of the ladder, and the difference in kernel is noted here rather than smoothed over.
 
 Two model families serve that purpose, and it matters that they differ from the autoregressive backbone in different ways: a discrete diffusion model is trained with a score objective \emph{and} answers a bidirectional denoising query, so on its own it cannot separate the two, while a masked language model has the second property without the first, so the pair does separate them. The diffusion arms come first, because they were run first and because their two auxiliary measurements place the model on the same axes as the earlier sections. The full ladder, the organizing result of this section, is Table~\ref{tab:mlm}, assembled once and referred back to thereafter.
 
@@ -50,7 +52,7 @@ One control is needed before the result can be read, because a recovery rate far
 % mean_kl[-1] 6.541, accept_rate 9.98). Produced by diagnostics/run_mlm_control.py,
 % which IMPORTS build_corruption from scripts/run_experiment.py rather than reimplementing it.
 
-Table~\ref{tab:mlm} places every proposal run in this chain on one axis, and the ordering is unambiguous. The two arms with no output-side access at all, the input-embedding gradient and its norm-matched random control, sit at zero recovery and are indistinguishable from a uniform draw. Left-only conditioning lifts recovery to $23.5$ percent. Bidirectional conditioning lifts it to $38.5$ and $39.0$ percent with a score-trained model, and to $44.5$ percent with one that is not score-trained.
+Table~\ref{tab:mlm} places every proposal run on this task on one axis, and the ordering is unambiguous. The two arms with no output-side access at all, the input-embedding gradient and its norm-matched random control, sit at zero recovery and are indistinguishable from a uniform draw; those two are the Langevin sampler rather than an independence chain, so they are the reference the ladder is read against rather than a rung of it. Left-only conditioning lifts recovery to $23.5$ percent. Bidirectional conditioning lifts it to $38.5$ and $39.0$ percent with a score-trained model, and to $44.5$ percent with one that is not score-trained.
 % SOURCE: results/revision/rev_mlm_control.json (exact 44.5, ever 59.0, kl_last 2.737,
 % accept 50.27, n 200, bridge 99.95%) and rev_mlm_uniform.json (exact 0.5, kl 6.538,
 % accept 9.48); SEDD arms from rev_sedd_hybrid.json by_arm (hybrid_medium 39.0 / 3.017,
@@ -74,7 +76,7 @@ Table~\ref{tab:mlm} places every proposal run in this chain on one axis, and the
         RoBERTa-large masked LM       & bidirectional & \textbf{no} & $\mathbf{44.5}$ & $\mathbf{2.737}$ \\
         \bottomrule
     \end{tabular}
-    \caption[Proposals in the same exact-energy chain, ordered by conditioning.]{Every proposal run inside the same Metropolis--Hastings chain on the same frozen GPT-2 Large energy, the same $200$ WikiText-2 sequences and the same corruption seed. Only the proposal differs. Recovery tracks what the proposal may condition on, not whether it was trained with a score objective.}
+    \caption[Proposals accepted by the same exact energy, ordered by conditioning.]{Single-token recovery on the same $200$ WikiText-2 sequences, every arm accepting by the same frozen GPT-2 Large energy.}
     \label{tab:mlm}
 \end{table}
 
