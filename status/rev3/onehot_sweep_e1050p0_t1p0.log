@@ -1,0 +1,13 @@
+[onehot_sweep_e1050p0_t1p0] loading /mount/studenten-temp1/users/singhsk/thesis/thesis/gfn-lm-tuning/infill_subj_arithmetic/gpt2_large_sft_output (float32) ...
+[onehot_sweep_e1050p0_t1p0] 282 candidate sentences
+[onehot_sweep_e1050p0_t1p0] 25/200
+[onehot_sweep_e1050p0_t1p0] 50/200
+[onehot_sweep_e1050p0_t1p0] 75/200
+[onehot_sweep_e1050p0_t1p0] 100/200
+[onehot_sweep_e1050p0_t1p0] 125/200
+[onehot_sweep_e1050p0_t1p0] 150/200
+[onehot_sweep_e1050p0_t1p0] 175/200
+[onehot_sweep_e1050p0_t1p0] 200/200
+[onehot_sweep_e1050p0_t1p0] DONE  n=200  acc=25.00%  final_kl=4.535  final_l2=1.604  accept=17.6%
+[onehot_sweep_e1050p0_t1p0] wrote results/grid/rev3/onehot_sweep_e1050p0_t1p0.json
+[onehot_sweep_e1050p0_t1p0] wrote results/grid/rev3/onehot_sweep_e1050p0_t1p0.csv

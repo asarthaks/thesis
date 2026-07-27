@@ -13,14 +13,48 @@ concern-by-concern run notes).
 
 ## The claim map
 
-- **Necessity (the Gradient Fallacy).** The LM likelihood gradient carries no usable
-  directional signal. Policy versus random directions are statistically
-  indistinguishable (paired mean KL diff +0.17, 95% CI [-0.29, +0.62], Wilcoxon p 0.40);
-  the linearized surrogate is uncorrelated with the true energy change (|rho| < 0.06
-  across five models, 400k candidate pairs); and at the final token position the gradient
-  of the sequence log-likelihood with respect to the input embedding is provably exactly
-  zero, while the energy difference between candidate tokens is exactly the model's
-  conditional log-ratio. The gradient is defective; the energy is fine.
+- **Necessity, scoped to the INPUT-EMBEDDING gradient.** Differentiating the frozen
+  likelihood with respect to the input embedding, which is what MuCoLa- and COLD-style
+  samplers do, yields no usable directional signal. Policy versus norm-matched random
+  directions are statistically indistinguishable (paired mean KL diff +0.17, 95% CI
+  [-0.29, +0.62], Wilcoxon p 0.40; on chain statistics +0.002, p 0.75); the linearized
+  surrogate is uncorrelated with the true energy change (|rho| < 0.06 across five models,
+  400k candidate pairs); a 5x5 (epsilon, temperature) sweep spanning proposal entropies
+  from uniform to deterministic finds no configuration where it helps; and at the final
+  token position that gradient is provably exactly zero while the energy difference
+  between candidate tokens is exactly the model's conditional log-ratio.
+- **But the usable direction EXISTS, on the output side.** The one-hot / simplex gradient,
+  which is what the discrete samplers this family adapts actually differentiate, has
+  v-th coordinate log p(v | x_<i) + g^T e(v). Re-analysing the SAME linearization
+  measurements with that surrogate gives Spearman 0.37 to 0.59 overall and 0.60 to 0.73
+  at admissible substitution distances, against ~0 for the input-embedding surrogate
+  (`revision/analyze_onehot_surrogate.py` -> `results/revision/rev_onehot_surrogate.json`).
+  The energy is fine and so is its output-side derivative; the input-embedding Jacobian
+  slice is what discards the signal. This is why top-k rescoring, Gibbs and SEDD all work.
+  DEMONSTRATED AT THE SAMPLER LEVEL: substituting the one-hot surrogate into the same DLS
+  sampler over the same (eps, temperature) sweep reaches 40% exact recovery, against a
+  maximum of 2% for the input-embedding gradient anywhere in that sweep, and comparable to
+  score-trained SEDD at 39%. Cross-model on the GFlowNet energies: 25/21/9% sharp vs 0.5%
+  calibrated. See `revision/analyze_rev3.py` -> `results/revision/rev_rev3_summary.json`.
+- **Bidirectional conditioning, not score training, is the operative variable.** In the same
+  exact-energy MH chain: uniform proposal 0.5%, AR left-conditional 23.5%, SEDD 39%,
+  RoBERTa-large MLM (never score-trained) 44.5%. The uniform arm reproduces the Langevin
+  flagship (0.0%, KL 6.538 vs 6.541, accept 9.48 vs 9.98%) from an independent
+  implementation, confirming the near-uniform-proposal finding. See
+  `diagnostics/run_mlm_control.py` -> `results/revision/rev_mlm_control.json`.
+- **The gradient is NOT actively harmful.** Earlier readings that the true gradient was
+  reliably WORSE than a random direction (the Llama-3 contrast, the sharp sweep cells) were
+  artifacts of applying the MH reverse-proposal term to the policy arm only. With
+  `--mh_exact_all_arms` the effect disappears (+2.34 -> -0.25 nats). The claim is
+  indifference, not anti-guidance.
+- **The proposal is near-uniform in the main grid.** Measured proposal entropy is 10.8248
+  nats against log|V| = 10.8249, with a floor of 10.22 over the whole schedule, so the
+  flagship ablation could not have detected an informative gradient had one been present.
+  Exact recovery is 0.0% in 139 of 145 configurations, and across the sweep the chain never
+  even VISITS the ground-truth token (`ever_accuracy` 0.135% mean). The "quenching effect"
+  formerly reported in Section 5.2 is WITHDRAWN: a bit-identical fresh re-run shows mean KL
+  rising (8.76 -> 9.50), no late convergence, and tokens still changing on 99% of
+  final-decile steps.
 - **The MH breakdown.** In continuous Langevin the Metropolis-Hastings correction rejects
   almost every boundary-crossing move (within-cell acceptance ~100% for DLS but the
   continuous state sits >100 units off a token manifold whose tokens are ~1.8-2.8 apart),
@@ -263,6 +297,13 @@ Anchored on `results/revision/numbers.json` (grid + reconcile, keyed by run_name
 | Figs `fig:traj-dls-pca`, `fig:traj-cls-pca` (Phase 5) | `revision/plot_trajectories.py` | `figures/fig_traj_pca_{dls,cls}.png` from `traces_gpt2sft_plot_traj.npz` |
 | Figs `fig:dls-traj-50/100` | `scripts/run_experiment.py` / `scripts/replot.py` | `figures/gpt2-large.dls.gn.free.s{50,100}_new_trajectories.png` |
 | Fig `fig:lasttoken` | `run_revision.py --exp last_token` | `results/revision/last_token_figure.png` |
+| Table `tab:proposal-sharpness` (entropy, t1/t2) | `scripts/run_experiment.py --log_proposal_stats` | `results/grid/smoke/flagship_stats.json` |
+| Table `tab:chainstats` + Fig `fig:forest` | `revision/analyze_chain_stats.py` | `results/revision/rev_chain_stats.json` |
+| n=1000 certified equivalence (5.5) | `revision/analyze_power.py` | `results/revision/rev_power.json` |
+| Table `tab:onehot` (one-hot surrogate) | `revision/analyze_onehot_surrogate.py` | `results/revision/rev_onehot_surrogate.json` |
+| Tables `tab:mhfix`, `tab:onehot-sweep` (sweeps) | `scripts/gen_manifest_rev3.py` + `revision/analyze_rev3.py` | `results/grid/rev3`; `results/revision/rev_rev3_summary.json` |
+| Table `tab:mlm` (bidirectional MLM control) | `diagnostics/run_mlm_control.py` | `results/revision/rev_mlm_control.json`, `rev_mlm_uniform.json` |
+| Quenching withdrawal (5.2) | `scripts/run_experiment.py` re-run | `results/grid/verify/` (bit-identical to `results/grid/gpt2_v2`) |
 | Appendix showcase (Phase 5) | `build_showcase.py` + `make_showcase_tex.py` | `results/revision/qualitative_showcase.json`, `showcase_appendix.tex` |
 
 ## Known caveats

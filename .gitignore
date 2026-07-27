@@ -3,3 +3,11 @@ wandb/
 **/slurm-logs/
 *.pyc
 **/.ipynb_checkpoints/
+# HuggingFace / dataset caches: multi-GB, reproducible from the model ids in env.sh
+external/hf/
+# per-run scratch logs and smoke tests
+logs/verify/
+results/grid/smoke/
+gfn-lm-tuning/infill_subj_arithmetic/run-logs/
+# merged shard leftovers (the merged JSON/CSV is the artifact)
+*.merged

@@ -33,8 +33,18 @@ class BaseLangevinSampler:
         frac = k / float(self.steps)
         return max(eps0 * (1.0 - frac), eps_min)
 
-    def get_gradient_and_log_joint(self, s, s_idx, base_embs, input_ids, mask_indices_t):
-        """Standardized gradient extraction for (M, D) tensor."""
+    def get_gradient_and_log_joint(self, s, s_idx, base_embs, input_ids, mask_indices_t,
+                                   return_self_logprobs=False):
+        """Standardized gradient extraction for (M, D) tensor.
+
+        With return_self_logprobs the call additionally returns the model's
+        conditional next-token distribution at each masked position m, that is
+        log p(v | x_{<m}) as an (M, V) tensor. This is the "self" half of the
+        one-hot gradient: differentiating the sequence log-likelihood with
+        respect to the ONE-HOT input at position m gives, in coordinate v,
+        exactly log p(v | x_{<m}) plus the embedding-gradient term already
+        returned here. The input-embedding gradient alone discards it.
+        """
         inputs_embeds = base_embs.clone().detach()
         inputs_embeds[0, mask_indices_t, :] = s
         target_ids = input_ids.clone()
@@ -42,11 +52,28 @@ class BaseLangevinSampler:
 
         log_joint = joint_log_prob_from_inputs_embeds(self.model, inputs_embeds, target_ids)
         grad_s = torch.autograd.grad(log_joint, s, retain_graph=False)[0]
-        return grad_s, log_joint
+        if not return_self_logprobs:
+            return grad_s, log_joint
+
+        # One extra forward pass, under no_grad, to read the conditionals that
+        # predict the masked positions. Position m is predicted at index m - 1;
+        # m == 0 has no left context, so its self term is undefined and is
+        # returned as zeros (a constant vector is a no-op inside a softmax).
+        with torch.no_grad():
+            logits = self.model(inputs_embeds=inputs_embeds).logits[0]
+            rows = []
+            for m in mask_indices_t.tolist():
+                if m == 0:
+                    rows.append(torch.zeros(logits.shape[-1], device=logits.device,
+                                            dtype=logits.dtype))
+                else:
+                    rows.append(torch.log_softmax(logits[m - 1].float(), dim=-1))
+            self_logprobs = torch.stack(rows).to(grad_s.dtype)
+        return grad_s, log_joint, self_logprobs
 
     def apply_method_variation(self, raw_grad_s):
         """Applies normalization and direction ablations cleanly to (M, D) tensor."""
-        if self.method == "policy":
+        if self.method in ("policy", "policy_onehot"):
             if self.grad_normalization:
                 grad_norm = raw_grad_s.norm(dim=1, keepdim=True) + 1e-12
                 return raw_grad_s / grad_norm
@@ -141,7 +168,8 @@ class BaseLangevinSampler:
                 "mh_rejected": mh_rejected,
                 "avg_l2_distance": avg_l2,
                 "avg_kl_divergence": avg_kl,
-                "entropy": entropy_t
+                "entropy": entropy_t,
+                "proposal_stats": getattr(self, "_last_proposal_stats", None),
             })
 
         return s_ids_history, metrics_history

@@ -1,0 +1,88 @@
+{
+  "experiment": "pooled_power_flagship",
+  "run_name": "rev_power",
+  "margin": 0.327,
+  "n_boot": 8000,
+  "note": "n comes from independent corruptions of the same 282 WikiText-2 sentences; pairs are on (data_seed, sample_idx).",
+  "n_per_arm": {
+    "policy": 1000,
+    "gnp": 1000,
+    "random": 1000
+  },
+  "contrasts": {
+    "gnp": {
+      "n_paired": 1000,
+      "n_seeds": 5,
+      "last": {
+        "policy_mean": 6.673651524872988,
+        "comparator_mean": 6.540685092008182,
+        "mean_diff": 0.13296643286480622,
+        "ci95": [
+          -0.06258529873524304,
+          0.3254654189722719
+        ],
+        "wilcoxon_p": 0.15424221343863723,
+        "tost_equivalent": true
+      },
+      "chain_mean": {
+        "policy_mean": 6.852845270237795,
+        "comparator_mean": 6.716422699858564,
+        "mean_diff": 0.13642257037923217,
+        "ci95": [
+          -0.01149458438837786,
+          0.28700808131459576
+        ],
+        "wilcoxon_p": 0.06156808581194796,
+        "tost_equivalent": true
+      },
+      "chain_min": {
+        "policy_mean": 4.6360853996230365,
+        "comparator_mean": 4.603473344534727,
+        "mean_diff": 0.03261205508830858,
+        "ci95": [
+          -0.07900624763363708,
+          0.14515321763588884
+        ],
+        "wilcoxon_p": 0.6198602320456543,
+        "tost_equivalent": true
+      }
+    },
+    "random": {
+      "n_paired": 1000,
+      "n_seeds": 5,
+      "last": {
+        "policy_mean": 6.673651524872988,
+        "comparator_mean": 6.540685092008182,
+        "mean_diff": 0.13296643286480622,
+        "ci95": [
+          -0.06295475431728621,
+          0.32792396602175217
+        ],
+        "wilcoxon_p": 0.15424221343863723,
+        "tost_equivalent": false
+      },
+      "chain_mean": {
+        "policy_mean": 6.852845270237795,
+        "comparator_mean": 6.716422699858564,
+        "mean_diff": 0.13642257037923217,
+        "ci95": [
+          -0.013965129021550768,
+          0.28599505359885885
+        ],
+        "wilcoxon_p": 0.06156808581194796,
+        "tost_equivalent": true
+      },
+      "chain_min": {
+        "policy_mean": 4.6360853996230365,
+        "comparator_mean": 4.603473344534727,
+        "mean_diff": 0.03261205508830858,
+        "ci95": [
+          -0.08088089586855325,
+          0.14334119724761507
+        ],
+        "wilcoxon_p": 0.6198602320456543,
+        "tost_equivalent": true
+      }
+    }
+  }
+}

@@ -52,7 +52,6 @@
     \vfill
 \end{titlepage}
 
-
 % \maketitle
 
 % Start with the section here
@@ -76,7 +75,6 @@
 % Recently, methods inspired by Langevin Dynamics have been proposed to navigate the text generation landscape. However, many existing approaches adopt Langevin-inspired updates but deviate from classical Stochastic Gradient Langevin Dynamics (SGLD) assumptions regarding noise scaling, step-size annealing, or Metropolis-Hastings correction. Consequently, these methods often function more like "noisy gradient descent" rather than true posterior sampling, potentially compromising the trade-off between control adherence and text diversity.
 % This thesis proposes to bridge this gap by implementing and evaluating mathematically rigorous Langevin-based sampling frameworks. By investigating optimization in both discrete token spaces and continuous embedding spaces, this research seeks to determine if a faithful implementation of Langevin Dynamics can improve the reliability and semantic coherence of controllable text generation, particularly in text-infilling tasks.
 
-
 Large Language Models (LLMs) have achieved unprecedented performance in text generation and reasoning. However, despite their fluency, standard autoregressive (AR) decoding provides limited mechanisms for fine-grained, inference-time control. For example, if an autoregressive model generates a fluent but logically inconsistent or toxic phrase, it possesses no mechanism to revise earlier tokens without discarding and regenerating the entire subsequent sequence. Furthermore, enforcing constraints on full sequences is intractable for auto-regressive models, as it requires generating many full sequences in order to pick the one that fulfills the constraints best. While the probabilistic nature of AR decoding is well understood, steering the output to satisfy complex global constraints (such as sentiment, style, or logical consistency) without expensive retraining remains a significant challenge.
 
 % Controllable Text Generation (CTG) aims to ensure model outputs adhere to specific constraints while maintaining fluency. Current alignment techniques like Reinforcement Learning from Human Feedback (RLHF) provide a static "safety layer" but lack the flexibility to adapt to diverse, run-time constraints. A promising alternative is Energy-Based Model (EBM) guidance, where decoding is treated as an optimization problem.
@@ -91,12 +89,10 @@ This thesis proposes to investigate energy-based decoding techniques that allow 
 
 % \hline
 
-
 % in this paragraph we will talk about recent developments in text generation, how it all started (maybe if i want to add that), i'll have to read papers for that. 
 
 % Content:
 % In recent years, autoregressive models have achieved remarkable progress in modern language modelling. \cite{NIPS2017_3f5ee243} introduced the transformer architecture, which is based solely on the attention mechanism, which is more parallelizable and takes less time to train. 
-
 
 % % \hline
 
@@ -107,9 +103,7 @@ This thesis proposes to investigate energy-based decoding techniques that allow 
 
 % \subsection{Controllable Text Generation}
 
-
 % However even after all these developments, in real world applications, the large language models must meet increasingly complex scenarios. LLMs are expected to cater to specific user needs, such as imitating a specific way of writing style or generate text in some poetic way. These different demands and needs have driven the development of the Controllable Text Generation (CTG) techniques, which ensures that the generated text satisfies the predefined control conditions, which may be safety, thematic consistency, sentiment, length constraints, style, all this while maintaining high standards of helpfulness, fluency and diversity.
-
 
 % CTG directs text generation to follow predefined control conditions, such as sentiment or safety, while maintaining qualities like fluency or diversity.
 
@@ -149,7 +143,6 @@ This thesis proposes to investigate energy-based decoding techniques that allow 
 % 1) Prompt Engineering: We give a prompt to the large language model to generate text satisfying the prompt instructions, the prompts can be hard prompts or soft prompts (continuous vector) to flexibly steer the generation process. 
 % One of the most common techniques for controlling LLMs is prompting \cite{ouyang2022traininglanguagemodelsfollow}. However, prompting cannot help people understand and interpret the generation process of LLMs, which is crucial for exerting precise control over the outputs.
 
-
 % 2) Latent Space Manipulation: 
 % Latent spaces in LLMs are outputs of intermediate layers during computation, and server as vital latent representations that encode the information and understanding LLMs utilize during text generation. These latent spaces convey various aspects of language, such as semantics, logics (\cite{chen2024stateshiddenhiddenstates}) and hallucinations (\cite{duan2024llmsknowhallucinationempirical}), and are crucial for the model's ability to generate coherent and contextually appropriate responses. 
 % Control the generated text by adjusting activation states within the model's hidden layers. By adding or modifying latent vectors, this approach allows for precise control of the text generation process without altering the model's weights. 
@@ -170,19 +163,15 @@ This thesis proposes to investigate energy-based decoding techniques that allow 
 
 % FUDGE by \cite{Yang_2021} offers a simpler and more effective approach than PPLM by dynamically adjusting the probability distribution during generation.
 
-
 % 2) Class Conditioned Language Model Guidance: Class-Conditioned Language Models use pre-trained or fine-tuned models during decoding to control the attributes of generated text. 
 
 % GeDi (Generative Discriminator) \cite{krause-etal-2021-gedi-generative} is a method that uses class-conditioned langauge models for text generation control. It fine tunes a CC-LM using control codes, allowing it to distinguish and generate text with desired attributes.
 
 % DExperts (Decoding time Experts) \cite{liu-etal-2021-dexperts} offers a more straightforward contrastive decoding approach by modifying a pretrained LM's prediction using expert and anti-expert models.
 
-
-
 % 3) Self Feedback Guidance: Self feedback guidance utilizes the internal knowledge of pre-trained language models to control and guide text generation \cite{liang2024internalconsistencyselffeedbacklarge}
 
 % Inverse prompting \cite{10.1145/3447548.3467418} enhances consistency in text generation by using the generated text to inversely predict the prompt during the generation process. It calculates the conditional probability of the original prompt under the inverse prompt to insure high consistency between the generated text and the initial prompt.
-
 
 % 4) Energy-Based Model Guidance: Energy based model guidance methods control the attributes of generated text by optimizing an energy function during the generation process. 
 
@@ -190,12 +179,9 @@ This thesis proposes to investigate energy-based decoding techniques that allow 
 
 % COLD (Constrained Decoding with Langevin Dynamics) \cite{10.5555/3600270.3600963} also employs Langevin Dynamics, Iteratively updating to generate text that meets specific constraints. 
 
-
-
 % 5) External Knowledge Guidance: External knowledge guidance enhances text generation by integrating information from external knowledge bases or retrieval mechanisms. 
 % K2T (Keyword to Text) \cite{pascual-etal-2021-plug-play} ensures the inclusion of specific keywords by adjusting log probabilities based on cosine similarity between words and keywords at each generation step. 
 % LM-Steer \cite{han2024wordembeddingssteerslanguage} enables flexible and interpretable control over language model generation styles by applying a learnable linear transformation to output word embeddings.
-
 
 % 6) Diffusion Models: Add papers about diffusion models here
 % \cite{ICLR2025_535baca3} uses energy functions to improve text generation in diffusion models for text Generation
@@ -220,7 +206,6 @@ This thesis proposes to investigate energy-based decoding techniques that allow 
 
 % NEW LITERATURE REVIEW _ ILIKE IT
 \section{Literature Review}
-
 
 The field of Controllable Text Generation (CTG) has evolved from simple heuristic-based filtering to complex probabilistic modeling. This section categorizes existing approaches based on the stage of intervention and the nature of the applied constraints, followed by a detailed examination of Langevin Dynamics as the theoretical foundation for this research.
 
@@ -281,7 +266,6 @@ Stochastic Gradient Langevin Dynamics (SGLD) updates parameters according to
 \end{equation}
 where $\epsilon_t$ is the step size and $\eta_t \sim \mathcal{N}(0, \epsilon_t)$ is Gaussian noise.
 
-
 In the context of controlled generation, the term 
 \(\sum_{i=1}^{N} \nabla \log p(x_i \mid \theta_t)\)
 represents the data likelihood (token probabilities). To adapt this framework for controllable generation, we augment the update rule by adding the gradient of an unnormalized, differentiable constraint function (such as a sentiment classifier), which actively guides the sampling toward the desired attribute.
@@ -311,10 +295,6 @@ Parallel to Langevin-based EBMs, diffusion models have emerged as a non-autoregr
 
 In contrast, the Langevin-based approach explored in this thesis enables zero-shot transfer. It operates directly on the latent space of a frozen, pre-trained language model at inference time, requiring only the definition of an energy function. This offers a more lightweight and flexible mechanism for controllable generation without the need for task-specific parameter updates.
 
- 
-
-
-
 % \section{related work}
 % % \newpage
 % % \textbf{NOTE}In this paragraph, we will talk about conditional text generation here again and what resources and stuff we have right now and the related works
@@ -334,7 +314,6 @@ In contrast, the Langevin-based approach explored in this thesis enables zero-sh
 % % \newpage
 % % \textbf{NOTE} We will talk about current methods and what they are lacking right now, what problems do they have and what problems they have tried to tackle
 
-
 % % Then we will build upon a motivation for this study in this paragraph
 
 % % I also have to talk about metrics somewhere in here because we are still not sure about the metrics and I think our will be motivated by the paper presentaiton that I did in the journal club. Where they found the bounds of the partition function to calculate bits per character and perplexity for the methods where partition function is cancelled out.
@@ -345,7 +324,6 @@ In contrast, the Langevin-based approach explored in this thesis enables zero-sh
 % COLD - by Qin et al 2022, they propose a decoding framework which unifies constrained generation as specifying constraints through an energy function, then performing efficient differentiable reasoning over the constraints through gradient-based sampling.
 
 % But the problem with these methods is that they don't actually perform Langevin dynamics; when looking into the code, they basically perform a gradient descent update with some noise added after every few iterations. which somehow "works".
-
 
 \section{Goal and research questions}
 % \newpage
@@ -405,14 +383,11 @@ Can the proposed rigorous Langevin frameworks satisfy predefined control conditi
 % \paragraph{RQ2b}
 % In the context of gradient-guided editing (text infilling), does energy-based sampling recover semantic coherence more accurately than standard autoregressive decoding?
 
-
-
 \section{Methods}
 The objective of this research is to move beyond ``noisy gradient descent'' and implement a mathematically sound sampling framework for Controllable Text Generation (CTG). The study will focus on Energy-Based Model (EBM) guidance, where the goal is to sample from a target distribution $p(x) \propto \exp(-E(x))$ defined by an energy function $E(x)$.
 \subsection{Baseline 1  - Discrete Langevin Sampler (DLS)}
 
 % \textbf{NOTE} This paragraph will talk about baseline, but our baseline is not ready for conditional text generation yet,
-
 
 To address RQ1a, this work will implement the gradient-based proposal for discrete variables proposed by \cite{zhang2022langevinlikesamplerdiscretedistributions}. Unlike standard Langevin which requires a continuous space, this sampler operates in the discrete token space $\Theta$.
 
@@ -427,14 +402,12 @@ Since the token space $\Theta$ is discrete, we cannot directly compute the gradi
 
 We define a local proposal distribution $q(\theta' \mid \theta)$ by scoring candidate tokens based on the inner product between their embeddings and the energy gradient, thereby biasing the selection toward tokens that minimize the energy.
 
-
 \paragraph{Transition Kernel:} 
 The next discrete state $\theta'$ is sampled based on the proposal distribution:
 \[
 q(\theta^{\prime}|\theta)=\frac{\exp(-\frac{1}{2\alpha}||\theta^{\prime}-\theta+\frac{\alpha}{2}\nabla U(\theta)||_{2}^{2})}{Z_{\Theta}(\theta)}
 \]
 The proposal is centred on the descent direction $-\nabla U(\theta)$, so the drift moves toward lower energy, that is, higher probability under the target $p(\theta)\propto\exp(-U(\theta))$. This follows the discrete-Langevin proposal of \cite{zhang2022langevinlikesamplerdiscretedistributions}, which is written there in terms of the log-density gradient $\nabla\log p(\theta)=-\nabla U(\theta)$; the earlier draft centred the proposal on $+\nabla U$, which would have ascended the energy.
-
 
 \paragraph{Normalizing Constant:} 
 The term $Z_{\Theta}(\theta)$ is calculated by summing over the discrete vocabulary space $\Theta$.
@@ -444,8 +417,6 @@ The term $Z_{\Theta}(\theta)$ is calculated by summing over the discrete vocabul
 U(\theta) = -\log p(\theta) + \lambda C(\theta)
 \], where $\lambda$ is a fixed constraint weight (a penalty weight, not a Lagrange multiplier, since nothing in the procedure solves for $\lambda$ against a constraint).
 
-
- 
 % As a starting point, the proposed baseline will be by \cite{zhang2022langevinlikesamplerdiscretedistributions}. They propose a sampler which works in discrete space and Langevin dynamics to calculate which next discrete point it should move to based on the formula 
 
 % \[
@@ -484,7 +455,6 @@ and recovers the Gaussian proposal
 in the standard Langevin algorithm. When \(\Theta\) is a discrete
 space, we naturally obtain a gradient-based proposal for
 discrete variables.
-
 
 % Here, we will add the next step that will be about adding conditional generation capability for that
 
@@ -536,7 +506,6 @@ m_t,\,
 \right).
 \]
 
-
 \subsection{Metropolis-Hastings (MH) Correction}
 To address RQ1, we integrate an MH correction step. Standard Langevin-inspired methods (like \cite{10.5555/3600270.3600963}) omit this, leading to discretization bias where the sampler may drift away from the true posterior. This involves calculating an acceptance probability:
 $$A(\theta'|\theta) = \min\left(1, \frac{p(\theta')q(\theta|\theta')}{p(\theta)q(\theta'|\theta)}\right)$$
@@ -558,7 +527,6 @@ As the quality floor for RQ2, standard Autoregressive (AR) decoding methods, suc
 % We might add this later
 % \subsection{Supervised Alignment (SFT) Baseline}
 % Finally, the proposed inference-time intervention will be compared against a model that has already undergone Supervised Fine-Tuning (SFT) or alignment, such as Llama-3-Instruct. This comparison will determine if Langevin-based decoding at inference time can outperform or effectively augment models already optimized for instruction following and style adherence.
-
 
 \section{Experiment}
 
@@ -590,18 +558,13 @@ The following list represents a comprehensive set of potential metrics. During t
     \item \textbf{Efficiency:} Number of Function Evaluations (NFE) to quantify the latency cost of Langevin sampling compared to autoregressive decoding.
 \end{itemize}
 
-
-
 \section{Timeline}
-
 
 % Please add the following required packages to your document preamble:
 % \usepackage{booktabs}
 \begin{table}[!h]
 \small
 \setlength{\tabcolsep}{4pt}
-% Phase 9 (Part 7 gate): column widths reduced from 6cm/10.5cm (16.5cm, wider than the 15cm
-% text block, a 49.9pt overfull) to 4.2cm/9.8cm so the table fits the margins. Content unchanged.
 \begin{tabular}{|p{4.2cm}|p{9.8cm}|}
 \hline
 Month                                             & Working Packages / Milestones                                                                                                                                                                                                                                \\ \hline
@@ -626,13 +589,7 @@ Under this branch the diffusion discussion of the competitive-landscape section 
 
 Two reservations are stated in advance. First, the datasets and metrics may be adjusted as the diagnostic questions sharpen, as the evaluation plan of Section~\ref{subsec:evaluation_metrics} already anticipates in reserving the choice of the most relevant subset. Second, under the diagnostic branch the research questions will be sharpened into diagnostic form while preserving their substance: RQ1 becomes whether and why the gradient is usable, RQ2 becomes whether steering is possible on the landscape as it stands, and RQ3 becomes whether amortization repairs it, so that each question is answered as the characterization of a mechanism rather than as the demonstration of a working system.
 
-
-
 \bibliographystyle{apalike}
 \bibliography{ref}
-
-
-
-
 
 \end{document}

@@ -1,0 +1,7 @@
+[sweep_random_e10p5_t5p0] loading /mount/studenten-temp1/users/singhsk/thesis/thesis/gfn-lm-tuning/infill_subj_arithmetic/gpt2_large_sft_output (float32) ...
+[sweep_random_e10p5_t5p0] 282 candidate sentences
+[sweep_random_e10p5_t5p0] 25/50
+[sweep_random_e10p5_t5p0] 50/50
+[sweep_random_e10p5_t5p0] DONE  n=50  acc=0.00%  final_kl=5.584  final_l2=2.378  accept=10.6%
+[sweep_random_e10p5_t5p0] wrote results/grid/rev3/sweep_random_e10p5_t5p0.json
+[sweep_random_e10p5_t5p0] wrote results/grid/rev3/sweep_random_e10p5_t5p0.csv

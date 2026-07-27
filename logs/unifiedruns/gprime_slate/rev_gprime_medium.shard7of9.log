@@ -1,0 +1,45 @@
+/mount/studenten-temp1/users/singhsk/thesis/thesis/gfn-lm-tuning/gfn/lib64/python3.11/site-packages/huggingface_hub/file_download.py:949: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+  warnings.warn(
+[gprime] loaded models + 300 held-out SST-2 prompts (shard 7: 33) in 19.7s
+/mount/studenten-temp1/users/singhsk/thesis/thesis/Score-Entropy-Discrete-Diffusion/model/utils.py:44: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with torch.cuda.amp.autocast(dtype=torch.bfloat16):
+/mount/studenten-temp1/users/singhsk/thesis/thesis/Score-Entropy-Discrete-Diffusion/model/transformer.py:286: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with torch.cuda.amp.autocast(dtype=torch.bfloat16):
+/mount/studenten-temp1/users/singhsk/thesis/thesis/Score-Entropy-Discrete-Diffusion/model/transformer.py:45: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with torch.cuda.amp.autocast(enabled=False):
+/mount/studenten-temp1/users/singhsk/thesis/thesis/Score-Entropy-Discrete-Diffusion/model/transformer.py:176: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with torch.cuda.amp.autocast(enabled=False):
+[gprime shard7] prompt 7 done (0.5m)
+[gprime shard7] prompt 16 done (0.7m)
+[gprime shard7] prompt 25 done (0.9m)
+[gprime shard7] prompt 34 done (1.1m)
+[gprime shard7] prompt 43 done (1.3m)
+[gprime shard7] prompt 52 done (1.5m)
+[gprime shard7] prompt 61 done (1.7m)
+[gprime shard7] prompt 70 done (1.9m)
+[gprime shard7] prompt 79 done (2.0m)
+[gprime shard7] prompt 88 done (2.2m)
+[gprime shard7] prompt 97 done (2.4m)
+[gprime shard7] prompt 106 done (2.6m)
+[gprime shard7] prompt 115 done (2.8m)
+[gprime shard7] prompt 124 done (3.0m)
+[gprime shard7] prompt 133 done (3.2m)
+[gprime shard7] prompt 142 done (3.4m)
+[gprime shard7] prompt 151 done (3.5m)
+[gprime shard7] prompt 160 done (3.7m)
+[gprime shard7] prompt 169 done (3.9m)
+[gprime shard7] prompt 178 done (4.1m)
+[gprime shard7] prompt 187 done (4.3m)
+[gprime shard7] prompt 196 done (4.5m)
+[gprime shard7] prompt 205 done (4.7m)
+[gprime shard7] prompt 214 done (4.8m)
+[gprime shard7] prompt 223 done (5.0m)
+[gprime shard7] prompt 232 done (5.2m)
+[gprime shard7] prompt 241 done (5.4m)
+[gprime shard7] prompt 250 done (5.6m)
+[gprime shard7] prompt 259 done (5.8m)
+[gprime shard7] prompt 268 done (6.0m)
+[gprime shard7] prompt 277 done (6.2m)
+[gprime shard7] prompt 286 done (6.3m)
+[gprime shard7] prompt 295 done (6.5m)
+[done] results_revision/rev_gprime_medium.shard7of9.json (6.5 min); mean_eligible=29.24 frac_le1=0.021

@@ -1,0 +1,19 @@
+\babel@toc {english}{}\relax 
+\babel@toc {german}{}\relax 
+\babel@toc {english}{}\relax 
+\babel@toc {greek}{}\relax 
+\babel@toc {english}{}\relax 
+\contentsline {figure}{\numberline {1}{\ignorespaces Linkability as a function of the number of enrollment speakers $N'$ for different conversation lengths $L$, for all three systems STTTS, NAC and ASRBN.}}{49}{figure.caption.14}%
+\contentsline {figure}{\numberline {2}{\ignorespaces Singling Out score as a function of speaker population size $N$ for different conversation lengths $L$. The dotted line indicates the random predicate $\exp (-1) \approx 0.3679$.}}{52}{figure.caption.16}%
+\contentsline {figure}{\numberline {3}{\ignorespaces ZEBRA ECE curves for STTTS on the development partitions.}}{73}{figure.caption.21}%
+\contentsline {figure}{\numberline {4}{\ignorespaces ZEBRA ECE curves for STTTS on the test partitions.}}{74}{figure.caption.22}%
+\contentsline {figure}{\numberline {5}{\ignorespaces ZEBRA ECE curves for NAC on the development partitions.}}{74}{figure.caption.23}%
+\contentsline {figure}{\numberline {6}{\ignorespaces ZEBRA ECE curves for NAC on the test partitions.}}{75}{figure.caption.24}%
+\contentsline {figure}{\numberline {7}{\ignorespaces ZEBRA ECE curves for ASRBN on the development partitions.}}{75}{figure.caption.25}%
+\contentsline {figure}{\numberline {8}{\ignorespaces ZEBRA ECE curves for ASRBN on the test partitions.}}{76}{figure.caption.26}%
+\contentsline {figure}{\numberline {9}{\ignorespaces Speaker-level preservation features sorted by B3 EER on the development partitions.}}{77}{figure.caption.27}%
+\contentsline {figure}{\numberline {10}{\ignorespaces Speaker-level preservation features sorted by B3 EER on the test partitions.}}{78}{figure.caption.28}%
+\contentsline {figure}{\numberline {11}{\ignorespaces Speaker-level preservation features sorted by B4 EER on the development partitions.}}{79}{figure.caption.29}%
+\contentsline {figure}{\numberline {12}{\ignorespaces Speaker-level preservation features sorted by B4 EER on the test partitions.}}{80}{figure.caption.30}%
+\contentsline {figure}{\numberline {13}{\ignorespaces Speaker-level preservation features sorted by B5 EER on the development partitions.}}{81}{figure.caption.31}%
+\contentsline {figure}{\numberline {14}{\ignorespaces Speaker-level preservation features sorted by B5 EER on the test partitions.}}{82}{figure.caption.32}%

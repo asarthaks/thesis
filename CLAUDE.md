@@ -7,12 +7,36 @@ already been run. Do not re-run a completed job.
 
 ## What this project is
 
-A master's thesis with a diagnostic, negative-result thesis: frozen
-autoregressive LM likelihoods are not usable energy functions for gradient-guided
-or amortized sampling on discrete text. The two load-bearing claims are the
-Gradient Fallacy (the LM likelihood gradient carries no usable directional signal;
-policy vs random direction is statistically indistinguishable) and the MH
-Breakdown (near-total rejection of boundary-crossing moves in continuous Langevin).
+A master's thesis with a diagnostic, negative-result thesis. AS OF THE 2026-07-26
+evaluation3 pass the central claim is SCOPED and partly CONSTRUCTIVE: the
+INPUT-EMBEDDING gradient of a frozen autoregressive likelihood, which is what
+MuCoLa/COLD-style samplers differentiate, carries no usable directional signal, but
+the ONE-HOT gradient of the same likelihood does (Spearman 0.60-0.73 at admissible
+distances vs ~0), so the signal is discarded by the choice of derivative rather than
+absent from the model. This is now demonstrated at the SAMPLER level too: substituting
+the one-hot surrogate into the same discrete sampler reaches 40% exact recovery where
+the input-embedding gradient never exceeds 2% anywhere in the same (eps, T) sweep,
+comparable to score-trained SEDD at 39%, using only the frozen AR model. Do NOT state the old blanket form ("the LM likelihood gradient
+carries no usable directional signal"); it is refuted by this project's own data.
+Three further corrections from that pass, all load-bearing:
+  (a) The DLS proposal is numerically UNIFORM over the vocabulary in every main-grid
+      configuration (entropy floor 10.22 vs log|V| 10.825), so the flagship ablation
+      bounds what it could detect rather than establishing the null. The (epsilon,
+      temperature) sweep in results/grid/rev3 is what establishes it.
+  (b) The "quenching effect" of Section 5.2 is WITHDRAWN. A bit-identical fresh
+      re-run (results/grid/verify/) shows mean KL RISING and tokens changing on 99%
+      of final-decile steps. This overrides PROMPT_PHASE9_FINAL_DOCS Part 2 item 20.
+  (c) Claims that the gradient is reliably WORSE than random were artifacts of
+      applying the MH reverse-proposal term to the policy arm only. Fixed by
+      --mh_exact_all_arms; the supported claim is indifference, not anti-guidance.
+  (d) The operative variable behind the diffusion control is BIDIRECTIONAL CONDITIONING,
+      not score training. A RoBERTa MLM (never score-trained) reaches 44.5% in the same
+      exact-energy chain, beating SEDD's 39%; a uniform proposal reaches 0.5% and thereby
+      reproduces the Langevin sampler (0.0%, KL 6.538 vs 6.541) from separate code.
+  (e) Temperature, not the model, was the binding constraint on the whole grid: at the
+      calibrated T=5 even the one-hot proposal collapses to 2%.
+The MH Breakdown (near-total rejection of boundary-crossing moves in continuous
+Langevin) stands unchanged.
 The current work is a revision pass answering 19 examiner concerns. The plan is in
 `thesis_revision_plan.md`. The run guide with exact commands is `REVISION_README.md`.
 

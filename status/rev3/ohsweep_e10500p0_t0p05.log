@@ -1,0 +1,7 @@
+[ohsweep_e10500p0_t0p05] loading /mount/studenten-temp1/users/singhsk/thesis/thesis/gfn-lm-tuning/infill_subj_arithmetic/gpt2_large_sft_output (float32) ...
+[ohsweep_e10500p0_t0p05] 282 candidate sentences
+[ohsweep_e10500p0_t0p05] 25/50
+[ohsweep_e10500p0_t0p05] 50/50
+[ohsweep_e10500p0_t0p05] DONE  n=50  acc=0.00%  final_kl=8.583  final_l2=2.548  accept=0.0%
+[ohsweep_e10500p0_t0p05] wrote results/grid/rev3/ohsweep_e10500p0_t0p05.json
+[ohsweep_e10500p0_t0p05] wrote results/grid/rev3/ohsweep_e10500p0_t0p05.csv

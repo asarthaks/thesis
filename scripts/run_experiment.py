@@ -118,8 +118,19 @@ def main():
     # what to run
     p.add_argument("--sampler", choices=["dls", "cls"], required=True)
     p.add_argument("--method", default="policy",
-                   choices=["policy", "grad_norm_preserved_random_dir", "random"])
+                   choices=["policy", "grad_norm_preserved_random_dir", "random",
+                            "policy_onehot"])
     p.add_argument("--mh", action="store_true")
+    p.add_argument("--mh_exact_all_arms", action="store_true",
+                   help="compute the exact reverse-proposal term for EVERY arm, not only "
+                        "policy. Off by default so the archived grid reproduces.")
+    p.add_argument("--shard_idx", type=int, default=0,
+                   help="this shard's index; shards split the SAME sample set the unsharded "
+                        "run would use, so results stay comparable. Merge with revision/merge_shards.py.")
+    p.add_argument("--num_shards", type=int, default=1)
+    p.add_argument("--log_proposal_stats", action="store_true",
+                   help="record per-step proposal entropy, t1_std, t2_std and t2_over_t1 "
+                        "into the result JSON.")
     p.add_argument("--grad_norm", action="store_true")
     p.add_argument("--oracle", action="store_true")
     p.add_argument("--steps", type=int, default=50)
@@ -158,6 +169,8 @@ def main():
     dtype = {"float32": torch.float32, "float16": torch.float16, "bfloat16": torch.bfloat16}[args.dtype]
     seed_all(1234)
 
+    if args.num_shards > 1 and args.run_name:
+        args.run_name = f"{args.run_name}.shard{args.shard_idx}of{args.num_shards}"
     run_name = args.run_name or f"{args.model_tag}.{args.sampler}.{args.method}." \
                                 f"{'mh' if args.mh else 'nomh'}.{'gn' if args.grad_norm else 'nogn'}." \
                                 f"{'oracle' if args.oracle else 'free'}.s{args.steps}"
@@ -207,7 +220,10 @@ def main():
     rejects = 0
     reject_slots = 0
     correct = 0
+    ever_correct = 0
     total_masks = 0
+    prop_keys = ("entropy", "t1_std", "t2_std", "t2_over_t1", "logit_std")
+    sum_prop = {k: np.zeros(n_steps) for k in prop_keys}
     examples = []
     csv_rows = []   # per-sample rows in the legacy schema the notebook's prepare_dataset reads
 
@@ -215,14 +231,30 @@ def main():
     # a copy of the embedding matrix, so rebuilding per sample would re-copy that
     # (multiple GB on Llama) for nothing. optimize() takes the input per call.
     sampler = make_sampler(args, model, tokenizer)
+    sampler.mh_exact_all_arms = bool(args.mh_exact_all_arms)
+    sampler.record_proposal_stats = bool(args.log_proposal_stats)
+
+    # Resolve the sample set FIRST, exactly as the unsharded run would: walk texts in order,
+    # keep the cases that yield a valid corruption, stop at n_samples. build_corruption needs
+    # only the tokenizer, so this is cheap. Sharding then partitions that resolved list, which
+    # is why a sharded run covers precisely the same sequences as an unsharded one.
+    plan = []
+    ti = 0
+    while len(plan) < args.n_samples and ti < len(texts):
+        case = build_corruption(tokenizer, texts[ti], args.num_masks, args.data_seed + ti, device)
+        if case is not None:
+            plan.append((ti, case))
+        ti += 1
+    if args.num_shards > 1:
+        plan = [(k, t, c) for k, (t, c) in enumerate(plan) if k % args.num_shards == args.shard_idx]
+        print(f"[{run_name}] shard {args.shard_idx}/{args.num_shards}: "
+              f"{len(plan)} of the run's samples", flush=True)
+    else:
+        plan = [(k, t, c) for k, (t, c) in enumerate(plan)]
 
     done = 0
-    ti = 0
-    while done < args.n_samples and ti < len(texts):
-        case = build_corruption(tokenizer, texts[ti], args.num_masks, args.data_seed + ti, device)
-        ti += 1
-        if case is None:
-            continue
+    for global_idx, ti, case in plan:
+        ti = ti + 1   # preserve the original seeding convention: seed_all(data_seed + ti)
         corrupted, mask_indices, orig_ids = case
 
         seed_all(args.data_seed + ti)  # reproducible sampling per sentence
@@ -233,6 +265,18 @@ def main():
         sample_correct = sum(int(pi == ti_) for pi, ti_ in zip(final_tokens, gt))
         correct += sample_correct
         total_masks += len(gt)
+        # Chain statistic: did the chain EVER visit the ground-truth token at each
+        # masked position, at any step? A final-iterate exact-match of zero is
+        # compatible with a chain that passes through the answer and walks away;
+        # this separates the two readings.
+        for j in range(len(gt)):
+            ever_correct += int(any(m["token_ids"][j] == gt[j] for m in metrics))
+
+        if args.log_proposal_stats:
+            for k, m in enumerate(metrics[:n_steps]):
+                st = m.get("proposal_stats") or {}
+                for key in prop_keys:
+                    sum_prop[key][k] += float(st.get(key, float("nan")))
 
         for k, m in enumerate(metrics[:n_steps]):
             cnt[k] += 1
@@ -252,7 +296,7 @@ def main():
         } for k, m in enumerate(metrics)]
         final = metrics[-1]
         csv_rows.append({
-            "sample_idx": done,
+            "sample_idx": global_idx,
             "method": args.method,
             "mh_enabled": bool(args.mh),
             "trajectory": str(compact_traj),
@@ -270,13 +314,15 @@ def main():
 
         done += 1
         if done % 25 == 0:
-            print(f"[{run_name}] {done}/{args.n_samples}", flush=True)
+            print(f"[{run_name}] {done}/{len(plan)}", flush=True)
 
     cnt = np.maximum(cnt, 1)
     mean_l2 = sum_l2 / cnt
     mean_kl = sum_kl / cnt
     mean_ent = sum_ent / cnt
     accuracy = 100.0 * correct / max(total_masks, 1)
+    ever_accuracy = 100.0 * ever_correct / max(total_masks, 1)
+    mean_prop = {k: (sum_prop[k] / cnt).tolist() for k in prop_keys} if args.log_proposal_stats else None
     accept_rate = 100.0 * (1 - rejects / max(reject_slots, 1)) if args.mh else float("nan")
 
     print(f"[{run_name}] DONE  n={done}  acc={accuracy:.2f}%  "
@@ -290,10 +336,12 @@ def main():
         "config": vars(args),
         "n": done,
         "accuracy": accuracy,
+        "ever_accuracy": ever_accuracy,
         "accept_rate": accept_rate,
         "mean_l2": mean_l2.tolist(),
         "mean_kl": mean_kl.tolist(),
         "mean_entropy": mean_ent.tolist(),
+        "proposal_stats": mean_prop,
         "examples": examples,
     }
     tmp_path = out_path + ".tmp"

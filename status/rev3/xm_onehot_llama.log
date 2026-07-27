@@ -1,0 +1,15 @@
+[xm_onehot_llama] loading /mount/arbeitsdaten31/studenten1/singhsk/models/llama3-8b (float32) ...
+Special tokens have been added in the vocabulary, make sure the associated word embeddings are fine-tuned or trained.
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:00<00:02,  1.36it/s]Loading checkpoint shards:  50%|█████     | 2/4 [00:01<00:01,  1.36it/s]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:02<00:00,  1.37it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:02<00:00,  1.87it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:02<00:00,  1.65it/s]
+[xm_onehot_llama] 282 candidate sentences
+[xm_onehot_llama] 25/200
+[xm_onehot_llama] 50/200
+[xm_onehot_llama] 75/200
+[xm_onehot_llama] 100/200
+[xm_onehot_llama] 125/200
+[xm_onehot_llama] 150/200
+[xm_onehot_llama] 175/200
+[xm_onehot_llama] 200/200
+[xm_onehot_llama] DONE  n=200  acc=0.00%  final_kl=4.108  final_l2=0.693  accept=18.7%
+[xm_onehot_llama] wrote results/grid/rev3/xm_onehot_llama.json
+[xm_onehot_llama] wrote results/grid/rev3/xm_onehot_llama.csv

@@ -1,18 +1,18 @@
 \babel@toc {english}{}\relax 
 \babel@toc {german}{}\relax 
 \babel@toc {english}{}\relax 
-\contentsline {figure}{\numberline {1}{\ignorespaces Discrete Langevin Sampler trajectories, 50-step schedule.}}{49}{figure.caption.5}%
-\contentsline {figure}{\numberline {2}{\ignorespaces The same sampler over a 100-step schedule.}}{50}{figure.caption.6}%
-\contentsline {figure}{\numberline {3}{\ignorespaces The three proposal arms with gradient normalization disabled.}}{51}{figure.caption.7}%
-\contentsline {figure}{\numberline {4}{\ignorespaces Decomposition of the acceptance ratio in the continuous sampler.}}{53}{figure.caption.8}%
-\contentsline {figure}{\numberline {5}{\ignorespaces Gradient surrogate against the true energy change.}}{61}{figure.caption.11}%
-\contentsline {figure}{\numberline {6}{\ignorespaces Surrogate-to-truth correlation by candidate embedding distance.}}{62}{figure.caption.12}%
-\contentsline {figure}{\numberline {7}{\ignorespaces Gradient norm and energy-only acceptance against downstream context length.}}{76}{figure.caption.19}%
-\contentsline {figure}{\numberline {8}{\ignorespaces Self and future terms of the true energy change.}}{100}{figure.caption.29}%
-\contentsline {figure}{\numberline {9}{\ignorespaces Top-$k$ recall of gradient ranking against a random baseline.}}{100}{figure.caption.30}%
-\contentsline {figure}{\numberline {10}{\ignorespaces Acceptance rate conditioned on boundary crossing.}}{101}{figure.caption.31}%
-\contentsline {figure}{\numberline {11}{\ignorespaces Per-token likelihood against repetition and diversity, GPT-2 Large.}}{101}{figure.caption.32}%
-\contentsline {figure}{\numberline {12}{\ignorespaces Pairwise token-embedding distance distributions.}}{102}{figure.caption.33}%
-\contentsline {figure}{\numberline {13}{\ignorespaces Total log-likelihood against generated length, GPT-2 Large.}}{103}{figure.caption.34}%
-\contentsline {figure}{\numberline {14}{\ignorespaces Full-space distances along one seeded sampling trajectory.}}{109}{figure.caption.37}%
-\contentsline {figure}{\numberline {15}{\ignorespaces PCA projection of the same seeded trace.}}{110}{figure.caption.38}%
+\contentsline {figure}{\numberline {1}{\ignorespaces Discrete Langevin Sampler trajectories, 50-step schedule.}}{49}{figure.caption.6}%
+\contentsline {figure}{\numberline {2}{\ignorespaces Decomposition of the acceptance ratio in the continuous sampler.}}{51}{figure.caption.7}%
+\contentsline {figure}{\numberline {3}{\ignorespaces Paired gradient-minus-random contrast across the grid.}}{55}{figure.caption.9}%
+\contentsline {figure}{\numberline {4}{\ignorespaces Gradient surrogate against the true energy change.}}{62}{figure.caption.13}%
+\contentsline {figure}{\numberline {5}{\ignorespaces Surrogate-to-truth correlation by candidate embedding distance.}}{63}{figure.caption.14}%
+\contentsline {figure}{\numberline {6}{\ignorespaces Self and future terms of the true energy change.}}{107}{figure.caption.31}%
+\contentsline {figure}{\numberline {7}{\ignorespaces Top-$k$ recall of gradient ranking against a random baseline.}}{108}{figure.caption.32}%
+\contentsline {figure}{\numberline {8}{\ignorespaces Acceptance rate conditioned on boundary crossing.}}{108}{figure.caption.33}%
+\contentsline {figure}{\numberline {9}{\ignorespaces Per-token likelihood against repetition and diversity, GPT-2 Large.}}{109}{figure.caption.34}%
+\contentsline {figure}{\numberline {10}{\ignorespaces Pairwise token-embedding distance distributions.}}{109}{figure.caption.35}%
+\contentsline {figure}{\numberline {11}{\ignorespaces Total log-likelihood against generated length, GPT-2 Large.}}{110}{figure.caption.36}%
+\contentsline {figure}{\numberline {12}{\ignorespaces The same sampler over a 100-step schedule.}}{111}{figure.caption.37}%
+\contentsline {figure}{\numberline {13}{\ignorespaces The three proposal arms with gradient normalization disabled.}}{112}{figure.caption.38}%
+\contentsline {figure}{\numberline {14}{\ignorespaces Full-space distances along one seeded sampling trajectory.}}{116}{figure.caption.41}%
+\contentsline {figure}{\numberline {15}{\ignorespaces PCA projection of the same seeded trace.}}{117}{figure.caption.42}%

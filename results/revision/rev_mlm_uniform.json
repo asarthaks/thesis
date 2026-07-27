@@ -1,0 +1,33 @@
+{
+  "experiment": "bidirectional_mlm_control",
+  "run_name": "rev_mlm_uniform",
+  "mlm": "roberta-large",
+  "uniform_proposal_control": true,
+  "energy": "/mount/studenten-temp1/users/singhsk/thesis/thesis/gfn-lm-tuning/infill_subj_arithmetic/gpt2_large_sft_output",
+  "n": 200,
+  "steps": 50,
+  "top_k": 0,
+  "bridge_tokens": 50240,
+  "bridge_coverage_pct": 99.9502636029046,
+  "gt_unreachable_n": 0,
+  "exact_match_pct": 0.5,
+  "ever_visited_pct": 0.5,
+  "exact_match_pct_reachable_only": 0.5,
+  "mean_kl_last": 6.538385199557964,
+  "mean_kl_chain_second_half": 6.675334366475766,
+  "accept_rate_pct": 9.48,
+  "wall_time_sec": 546.8626446723938,
+  "argv": {
+    "gpt2_path": "/mount/studenten-temp1/users/singhsk/thesis/thesis/gfn-lm-tuning/infill_subj_arithmetic/gpt2_large_sft_output",
+    "mlm_path": "roberta-large",
+    "run_name": "rev_mlm_uniform",
+    "out_dir": "results/revision",
+    "n_samples": 200,
+    "steps": 50,
+    "min_words": 10,
+    "max_words": 40,
+    "data_seed": 0,
+    "uniform_proposal": true,
+    "top_k": 0
+  }
+}
