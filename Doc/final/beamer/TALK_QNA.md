@@ -525,15 +525,24 @@ every arm turns a gap of plus 2.34 nats into minus 0.25. The supported claim is 
 
 | question | the trap | hold this line |
 |---|---|---|
-| "So gradient-guided controllable generation is dead?" | inviting the unscoped claim | "Embedding-space gradient guidance of a frozen autoregressive likelihood, as in the MuCoLa and COLD family, is what I refute. Gradient-guided discrete sampling as such is not, and my own token-indicator result is a counterexample." |
+| "So gradient-guided controllable generation is dead?" | inviting the unscoped claim | "What I refute is differentiating the input embedding of a likelihood whose target token enters as a discrete index, which is the energy I implemented. Gradient-guided discrete sampling as such is not refuted, and my own token-indicator result is a counterexample. Nor does it cover MuCoLa and COLD, which relax the target as well: backup 33." |
 | "You have reinterpreted COLD and MuCoLa as not really sampling." | broader than the evidence | "I measured the mechanism as I reimplemented it. Their published results involve tasks, tuning, constraints and evaluation procedures I did not reproduce, and I make no claim about those." |
 
-**If the comparison to MuCoLa is pressed in detail, go to backup 33.** It is the four-row table:
-MuCoLa and COLD differentiate the input embedding and discard the self term, exactly as the
-samplers here do; Grathwohl and Zhang differentiate the one-hot and keep it. The gap is a
-borrowing from the wrong side of the literature, not a defect peculiar to either paper. Two
-deviations are ours and should be volunteered: the constraint enters as a weighted sum rather
-than MuCoLa's Lagrangian with epsilon thresholds, and the correction is applied exactly.
+**If the comparison to MuCoLa is pressed in detail, go to backup 33, and know this cold.** MuCoLa
+and COLD do **not** share the self-term blindness. MuCoLa replaces the target embedding in the
+softmax numerator with the continuous one, so the token's own score is differentiable, and the
+paper states that the vector receives gradients directly from minus log P as well as through the
+later hidden states. COLD's soft sequence is a per-position logit vector and its fluency term is a
+soft cross-entropy, differentiable in the same way. The self-term-blind object is *this*
+implementation's energy, which gathers the masked position's score at the projected token id.
+
+Volunteer the constructive half in the same breath: MuCoLa's self-gradient is the hidden state, so
+it ranks candidates by the logit difference, and that is the token-indicator self term up to a
+shared denominator that cancels. The term worth zero to forty percent is the one MuCoLa already
+had. What this thesis reimplemented faithfully is their sampler geometry, continuous embedding
+state and nearest-neighbour projection, plus the Metropolis correction they omit; not their energy.
+Two further deviations are ours: the constraint enters as a weighted sum rather than MuCoLa's
+Lagrangian with epsilon thresholds, and the correction is applied exactly.
 | "Your models are small." | true, and fine to concede | "774 million parameters with an 8-billion cross-architecture control. Every qualitative finding holds on both, and the token-indicator result is 40 percent on one and 41 on the other, but scale is a genuine limitation and it is stated as one." |
 | "Is n = 50 per cell enough for the sweep?" | conceding too much | "For the sweep, yes, because it is asked to detect a *presence*, and 40 percent recovery in a cell where the alternative shows zero does not need a large sample. The flagship *equivalence* claim is where power matters, and that is the one at a thousand pairs." |
 | "Why should I believe a negative result?" | defensiveness | "Because the same design also produces positive results on the same energy and the same chain: 33 percent for rescoring, 40 for the token-indicator arm, 44.5 for the masked LM. An instrument that only ever returns zero is suspect. Mine does not." |

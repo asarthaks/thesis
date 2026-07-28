@@ -4,10 +4,21 @@ The thesis measures the linearization quality of
 
     Dhat_emb(v) = g^T ( e(v) - e(x_i) ),          g = d log p(x) / d e_i
 
-which is the surrogate MuCoLa- and COLD-style samplers actually use, because they
-differentiate with respect to the INPUT EMBEDDING. Grathwohl et al. (2021) and
-Zhang et al. (2022) instead differentiate with respect to the ONE-HOT (or
-simplex-relaxed) input. For an autoregressive language model the token index
+which is the surrogate THIS repository's energy induces: it differentiates with
+respect to the INPUT EMBEDDING while the target token enters as a discrete index
+(see core/prep.py:joint_log_prob_from_inputs_embeds and core/base_sampler.py:50-53).
+
+CORRECTION 2026-07-28: an earlier version of this docstring attributed that
+surrogate to MuCoLa and COLD. That is wrong, verified against both papers.
+MuCoLa (Kumar et al. 2022, sec. 3) substitutes the continuous vector into the
+output softmax numerator, so its self term is differentiable; COLD (Qin et al.
+2022, eq. 3) carries per-position vocabulary logits and a soft cross-entropy,
+likewise. Grathwohl et al. (2021) and Zhang et al. (2022) differentiate the
+ONE-HOT (or simplex-relaxed) input, which also keeps the self term. The
+self-term-blind object is this repository's energy, not theirs. The measured
+results below are unaffected; only the attribution was.
+
+For an autoregressive language model the token index
 enters the energy twice, through the embedding lookup and through the output
 softmax that scores it as a target, so the one-hot gradient's v-th coordinate is
 

@@ -85,11 +85,38 @@ import os
 import matplotlib
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
+from matplotlib.ticker import FuncFormatter, MaxNLocator
 import numpy as np
 import pandas as pd
 
+# G2 (supervisor figure-quality pass, 2026-07-28): figures are drawn at the width they are
+# printed at, so a declared point size is the printed point size. TEXTWIDTH_IN is the thesis
+# text block (a4paper, left=3cm, right=3cm -> 15cm). fig_mh_decomposition was authored at
+# 9.6in and included at 0.95\textwidth (5.6in), which put its 10pt tick labels near 6pt.
+TEXTWIDTH_IN = 5.90
+
+
+def figsize(width_frac, aspect):
+    """Figure size in inches for a float included at width_frac x \textwidth."""
+    w = TEXTWIDTH_IN * width_frac
+    return (w, w * aspect)
+
+
+def thousands(x, _pos):
+    """F1: render large tick values compactly so they cannot collide."""
+    if x == 0:
+        return "0"
+    if abs(x) >= 1000:
+        v = x / 1000.0
+        return f"{v:.0f}k" if abs(v) >= 1 else f"{v:.1f}k"
+    return f"{x:.0f}"
+
+
 plt.rcParams.update({
-    "font.family": "serif", "font.size": 10,
+    "font.family": "serif", "font.size": 9.5,
+    "axes.labelsize": 9.5, "axes.titlesize": 10,
+    "xtick.labelsize": 9, "ytick.labelsize": 9, "legend.fontsize": 8.5,
+    "figure.titlesize": 10,
     "axes.grid": True, "grid.alpha": 0.25,
     "axes.spines.top": False, "axes.spines.right": False,
     "savefig.bbox": "tight",
@@ -156,26 +183,29 @@ def main():
     print("=" * 68)
 
     # ---------- Plot 2A ----------
-    fig, ax = plt.subplots(figsize=(5.4, 4.0))
+    fig, ax = plt.subplots(figsize=figsize(0.70, 0.74))
     labels = ["stayed in cell\n(move changes nothing)",
               "crossed a boundary\n(move changes a token)"]
     vals = [acc_stay, acc_cross]
     bars = ax.bar(labels, vals, color=[C_OK, C_BAD], width=0.55)
     for b, v in zip(bars, vals):
         ax.text(b.get_x() + b.get_width() / 2, v + 0.015, f"{v:.3f}",
-                ha="center", fontsize=11, fontweight="bold")
+                ha="center", fontsize=9.5, fontweight="bold")
     ax.set_ylabel("Metropolis-Hastings acceptance rate")
     ax.set_ylim(0, max(1.0, max(v for v in vals if not np.isnan(v)) * 1.2))
     ax.set_title("Acceptance rate by whether the proposal crossed a cell boundary")  # Phase 8: was a verdict
     save(fig, args.fig_dir, "fig_mh_accept")
 
     # ---------- Plot 2B ----------
-    fig, axes = plt.subplots(1, 2, figsize=(9.6, 3.9))
+    fig, axes = plt.subplots(1, 2, figsize=figsize(0.95, 0.56))
+    # G2: the difference-of-logs labels were wider than their panels and the right one was
+    # clipped at the figure edge. The equivalent log-ratio form is the same quantity, is what
+    # the running text calls it ("target log-ratio", "proposal log-ratio"), and fits.
     for ax, col, title in [
         (axes[0], "log_target_ratio",
-         r"target term:  $\log\pi(s') - \log\pi(s)$"),
+         r"target log-ratio  $\log\,\pi(s')/\pi(s)$"),
         (axes[1], "log_proposal_ratio",
-         r"proposal term:  $\log q(s\mid s') - \log q(s'\mid s)$"),
+         r"proposal log-ratio  $\log\,q(s\mid s')/q(s'\mid s)$"),
     ]:
         lo = np.nanpercentile(df[col], 1)
         hi = np.nanpercentile(df[col], 99)
@@ -190,17 +220,31 @@ def main():
             ax.hist(crossed[col].clip(lo, hi), bins=bins, histtype="step",
                     color=C_BAD, label="crossed a boundary", linewidth=1.6, zorder=3)
         ax.axvline(0, color="0.3", lw=0.9)
-        ax.set_xlabel(title)
+        # G2: these two axis labels are long formulas. At the printed panel width they ran
+        # into each other and the right one was clipped, so they are set smaller and the
+        # panels are given more gutter below.
+        ax.set_xlabel(title, fontsize=8)
         ax.set_ylabel("Count")
-        ax.legend(frameon=False, fontsize=8.5)
-    fig.suptitle("Metropolis--Hastings acceptance ratio, target and proposal terms, "
-                 "by whether the proposal crossed a Voronoi cell boundary", y=1.03, fontsize=10.5)
+        # G2: the legend sat on top of the histogram in the left panel. Pin it to the upper
+        # left, where both panels are empty, and add headroom so it cannot touch the data.
+        ax.set_ylim(0, ax.get_ylim()[1] * 1.22)
+        ax.legend(frameon=False, loc="upper left")
+        # F1 (supervisor remark on this figure: "overlapping numbers" on the proposal-term
+        # x-axis). The proposal term runs to about -60000, and the default locator packed
+        # seven five-digit labels into the panel, which ran together into an unreadable
+        # block. Cap the tick count and print the magnitudes in thousands.
+        ax.xaxis.set_major_locator(MaxNLocator(nbins=4, steps=[1, 2, 2.5, 5, 10]))
+        if np.nanmax(np.abs(df[col])) >= 1000:
+            ax.xaxis.set_major_formatter(FuncFormatter(thousands))
+    # G2: the suptitle restated the caption verbatim at a size that printed near 6pt. The
+    # caption carries the naming; the running text carries the walkthrough.
+    fig.subplots_adjust(wspace=0.34)
     save(fig, args.fig_dir, "fig_mh_decomposition")
 
     # ---------- optional DLS contrast ----------
     if args.dls_csv and os.path.exists(args.dls_csv):
         d2 = pd.read_csv(args.dls_csv)
-        fig, ax = plt.subplots(figsize=(5.0, 3.8))
+        fig, ax = plt.subplots(figsize=figsize(0.70, 0.74))
         ax.bar(["DLS\n(discrete)", "CLS\n(continuous)"],
                [d2.accepted.mean(), df.accepted.mean()],
                color=[C_OK, C_BAD], width=0.5)

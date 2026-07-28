@@ -275,3 +275,120 @@ latexmk exit 0, 33 pages, zero undefined references. Five overfull boxes, all pr
 slide 15 section rewritten to the new marks, timing card updated, and the Q&A given a pointer to
 backup 33 on the MuCoLa deflection row. Baseline 25.25 min, short set 20.25, unchanged by this
 round.
+
+---
+
+## 2026-07-28 CORRECTION: the MuCoLa attribution is wrong, verified against both papers
+
+The round-7 backup slide asserted that MuCoLa and COLD differentiate the input embedding of a
+hard-target likelihood and therefore discard the self term. That was flagged as unverified. It has
+now been checked against the papers and it is FALSE for both.
+
+### MuCoLa, Kumar, Paria and Tsvetkov 2022, section 3, "Energy as a function of embeddings"
+
+Verbatim: the softmax probability is computed as
+
+    P(y_{n+1} | y_{1:n}, x) = exp(h_n^T e_{n+1} + b_{n+1}) / sum_j exp(h_n^T e_j + b_j)
+
+"By replacing e_{n+1} with e~_{n+1}, we convert the above probability to P(e~_{n+1} | e~_{1:n}, x).
+For each position n+1, e~_{n+1} receives gradients, (a) directly from -log P function and
+(b) through h_{n+1} via back-propagation through the network layers."
+
+Their (a) IS the self term. They relax the TARGET as well as the input, which is exactly the
+design the round-7 slide named as "what would change it". The self-gradient is h_n, so their
+implied candidate ranking is h_n^T(e(v) - e(x_i)), the logit difference.
+
+### COLD, Qin, Welleck, Khashabi and Choi 2022, equation 3
+
+    f_LM(y~) = sum_t sum_v p_LM(v | y~_<t) log softmax(y~_t(v))
+
+The state is a per-position LOGIT vector over the vocabulary, and the fluency term is a soft
+cross-entropy between softmax(y~_t) and the model's reference distribution. Differentiable in
+y~_t. Self term kept. COLD's coordinates are closer to this thesis's token-indicator coordinates
+than to its input-embedding ones.
+
+### What is actually self-term-blind
+
+This repository's own energy. `core/base_sampler.py` lines 50-53 set
+`target_ids[0, mask_indices_t] = s_idx`, the PROJECTED discrete index, and call
+`core/prep.py:joint_log_prob_from_inputs_embeds`, which is `CrossEntropyLoss` over
+`logits[:, :-1]` against `target_ids[:, 1:]`. Hard target, gathered at an index. So the measured
+gradient really does discard the self term and every empirical result stands. What does not stand
+is the attribution of that object to MuCoLa and COLD.
+
+### What this changes, and what it does not
+
+Unaffected: the null, the certified equivalence, the token-indicator recovery (0 to 40 percent),
+the final-position theorem, the MH breakdown, the conditioning ladder, the constrained-generation
+contrast. Every number was measured on this repository's energy, which is blind as claimed.
+
+Affected, and these are LaTeX edits not yet made:
+  - `05_results.tex` line 462: "the input-embedding Jacobian slice, which is the object the
+    embedding-space samplers of this literature differentiate". Not true of MuCoLa or COLD.
+  - `06_discussion.tex` line 50: "The thesis therefore refutes the premise for embedding-space
+    samplers of the MuCoLa and COLD family". Overreaches; it refutes it for a hard-target energy
+    in embedding coordinates.
+  - `revision/analyze_onehot_surrogate.py` docstring: "which is the surrogate MuCoLa- and
+    COLD-style samplers actually use".
+  - `CLAUDE.md`: "the INPUT-EMBEDDING gradient ... which is what MuCoLa/COLD-style samplers
+    differentiate".
+  - Deck backup 26, "MuCoLa / COLD, and why they appear to work", still says the continuous
+    sampler "follows the COLD/MuCoLa mechanism faithfully". True of the geometry, not the energy.
+
+### The constructive reading, which is stronger than the old one
+
+MuCoLa's self term in candidate-difference form is h_n^T(e(v) - e(x_i)), the logit difference. The
+token-indicator self term is log p(v|x_<i) - log p(x_i|x_<i). These are equal up to the shared
+logsumexp denominator, which cancels in the difference. So the term that takes this sampler from
+0 to 40 percent is the term MuCoLa already had. That converts the finding from "the literature
+rests on a false premise" into "a natural-looking implementation choice, a hard target in
+embedding coordinates, destroys the signal, and the published methods avoid it by relaxing the
+target; here is the measurement of exactly how much that choice is worth." Same evidence, defensible
+attribution, and it explains a design decision in those papers that is otherwise unmotivated.
+
+Caveat on the verification: this is from the papers' stated energies, not from their released code.
+
+### Applied this round
+
+Backup 33 rewritten to the verified facts. Transcript slide 15 "If asked here" inverted, since it
+said "Yes" and the answer is no. The Q&A MuCoLa deflection row rewritten with the constructive half
+attached. Deck compiles, 33 pages, five pre-existing overfulls.
+
+---
+
+## 2026-07-28 CORRECTION APPLIED
+
+All six corrections from MUCOLA_CORRECTION_PROPOSED.md are in, plus three residuals found by
+a repository-wide sweep for the old wording.
+
+Applied:
+  1. `05_results.tex` para at line 462. "the object the embedding-space samplers of this
+     literature differentiate" replaced by "of a likelihood whose target token enters as a
+     discrete index", plus a forward pointer to sec:disc-scope.
+  2. `06_discussion.tex` sec:disc-scope. One sentence expanded into the full scope statement:
+     what MuCoLa and COLD actually do, why the null is about this repository's energy, the
+     reframing, and the convergence result (MuCoLa's self-gradient h_n gives the logit
+     difference; the token-indicator self term is the same up to the shared normalizer).
+  3. `03_related_work.tex`. "implements that shared mechanism faithfully" split into geometry
+     (faithful, including the per-step projection) and energy (different).
+  4. `revision/analyze_onehot_surrogate.py` docstring, with a dated CORRECTION block.
+  5. `CLAUDE.md`. Central-claim sentence rescoped, and a new withdrawal item (f).
+  6. Deck backup 26. Geometry not energy, pointing at backup 33.
+
+Residuals caught by the sweep and also fixed:
+  7. `TALK_QNA.md` line 528, the "is gradient-guided controllable generation dead" deflection
+     row. It still had the speaker saying "as in the MuCoLa and COLD family, is what I refute"
+     out loud. Rewritten to the scoped form with a pointer to backup 33. This was the most
+     dangerous residual, since it was a line to be spoken under pressure.
+  8. `PROMPT_PHASE9_FINAL_DOCS.md` line 127 and `REVISION_WRITING.md` line 287. Marked
+     SUPERSEDED in place rather than rewritten, since they are process records.
+
+Checked and deliberately left alone: `abstract.tex`, `01_introduction.tex`,
+`02_background.tex`, `06_discussion.tex` line 39 (the Metropolis omission, which both papers
+genuinely do omit), `06_discussion.tex` line 43, `07_conclusion.tex` line 10. None attributes
+the coordinate choice to anyone.
+
+Gates: thesis latexmk exit 0, 129 pages, zero undefined references. Beamer exit 0, 33 pages,
+five pre-existing overfulls. No em-dashes in any edited file. No result file, table or figure
+was touched; the sweep found no remaining instance of the four old phrasings outside the
+correction record itself.

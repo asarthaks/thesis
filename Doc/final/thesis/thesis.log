@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.7.4)  28 JUL 2026 19:37
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.7.4)  28 JUL 2026 23:56
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -513,19 +513,19 @@ l.130 \newpage
 
 ] (./chapters/abstract.tex [2]) (./thesis.toc [3
 
-] [4] [5])
+] [4])
 \tf@toc=\write4
 \openout4 = `thesis.toc'.
 
- [6] (./thesis.lof)
+ [5] (./thesis.lof)
 \tf@lof=\write5
 \openout5 = `thesis.lof'.
 
- [7] (./thesis.lot [8])
+ [6] (./thesis.lot [7])
 \tf@lot=\write6
 \openout6 = `thesis.lot'.
 
- [9] (./chapters/01_introduction.tex [10] [11] [12] [13] [14] [15] [16]) (./chapters/02_background.tex [17] [18] [19] [20] [21] [22]
+ [8] (./chapters/01_introduction.tex [9] [10] [11] [12] [13] [14] [15]) (./chapters/02_background.tex [16] [17] [18] [19] [20] [21] [22]
 Underfull \hbox (badness 1642) in paragraph at lines 67--68
 []\T1/cmr/m/n/12 The \T1/cmr/bx/n/12 Con-tin-u-ous Langevin Sam-pler \T1/cmr/m/n/12 (CLS), fol-low-ing the continuous-
  []
@@ -535,142 +535,136 @@ Overfull \hbox (6.7876pt too wide) in paragraph at lines 18--30
  [][] 
  []
 
-[35] [36] [37] [38] [39] [40] [41] [42] [43] [44]) (./chapters/05_results.tex [45] [46] [47] [48]
-<../../figures/gpt2-large.dls.gn.free.s50_new_trajectories.png, id=1042, 444.82185pt x 471.2004pt>
+[35] [36] [37] [38] [39] [40] [41] [42] [43] [44] [45]) (./chapters/05_results.tex [46] [47] [48] [49]
+<../../figures/gpt2-large.dls.gn.free.s50_new_trajectories.png, id=1035, 444.82185pt x 471.2004pt>
 File: ../../figures/gpt2-large.dls.gn.free.s50_new_trajectories.png Graphic file (type png)
 <use ../../figures/gpt2-large.dls.gn.free.s50_new_trajectories.png>
-Package pdftex.def Info: ../../figures/gpt2-large.dls.gn.free.s50_new_trajectories.png  used on input line 66.
+Package pdftex.def Info: ../../figures/gpt2-large.dls.gn.free.s50_new_trajectories.png  used on input line 69.
 (pdftex.def)             Requested size: 392.64725pt x 415.93742pt.
 
-Underfull \hbox (badness 2393) in paragraph at lines 78--78
+Underfull \hbox (badness 2393) in paragraph at lines 81--81
 []\T1/cmr/bx/n/14.4 The Metropolis--Hastings Break-down in Con-tin-u-ous
  []
 
-[49] [50 <../../figures/gpt2-large.dls.gn.free.s50_new_trajectories.png>]
-<../../figures/fig_mh_decomposition.pdf, id=1057, 678.07393pt x 306.8825pt>
+[50 <../../figures/gpt2-large.dls.gn.free.s50_new_trajectories.png>]
+<../../figures/fig_mh_decomposition.pdf, id=1046, 366.1833pt x 218.23625pt>
 File: ../../figures/fig_mh_decomposition.pdf Graphic file (type pdf)
 <use ../../figures/fig_mh_decomposition.pdf>
-Package pdftex.def Info: ../../figures/fig_mh_decomposition.pdf  used on input line 94.
-(pdftex.def)             Requested size: 405.45047pt x 183.49875pt.
- [51 <../../figures/fig_mh_decomposition.pdf>] [52] [53] [54]
-Overfull \hbox (15.15364pt too wide) in paragraph at lines 148--157
+Package pdftex.def Info: ../../figures/fig_mh_decomposition.pdf  used on input line 97.
+(pdftex.def)             Requested size: 405.45047pt x 241.65569pt.
+ [51] [52 <../../figures/fig_mh_decomposition.pdf>] [53] [54]
+Overfull \hbox (15.15364pt too wide) in paragraph at lines 153--162
  [][] 
  []
 
-<../../figures/fig_forest_chain.pdf, id=1173, 578.16pt x 708.24597pt>
+[55]
+<../../figures/fig_forest_chain.pdf, id=1159, 578.16pt x 708.24597pt>
 File: ../../figures/fig_forest_chain.pdf Graphic file (type pdf)
 <use ../../figures/fig_forest_chain.pdf>
-Package pdftex.def Info: ../../figures/fig_forest_chain.pdf  used on input line 165.
+Package pdftex.def Info: ../../figures/fig_forest_chain.pdf  used on input line 170.
 (pdftex.def)             Requested size: 384.1096pt x 470.53456pt.
-[55] [56 <../../figures/fig_forest_chain.pdf>] [57] [58] [59] [60] [61]
-<../../figures/fig_lin_scatter.pdf, id=1265, 391.00449pt x 320.74731pt>
+ [56] [57 <../../figures/fig_forest_chain.pdf>] [58] [59] [60] [61] [62]
+<../../figures/fig_lin_scatter.pdf, id=1251, 357.73117pt x 291.79332pt>
 File: ../../figures/fig_lin_scatter.pdf Graphic file (type pdf)
 <use ../../figures/fig_lin_scatter.pdf>
-Package pdftex.def Info: ../../figures/fig_lin_scatter.pdf  used on input line 327.
-(pdftex.def)             Requested size: 392.64725pt x 322.09732pt.
-<../../figures/fig_lin_radius.pdf, id=1270, 437.94113pt x 317.97133pt>
+Package pdftex.def Info: ../../figures/fig_lin_scatter.pdf  used on input line 332.
+(pdftex.def)             Requested size: 392.64725pt x 320.28351pt.
+ [63 <../../figures/fig_lin_scatter.pdf>]
+<../../figures/fig_lin_radius.pdf, id=1355, 380.16774pt x 270.65868pt>
 File: ../../figures/fig_lin_radius.pdf Graphic file (type pdf)
 <use ../../figures/fig_lin_radius.pdf>
-Package pdftex.def Info: ../../figures/fig_lin_radius.pdf  used on input line 341.
-(pdftex.def)             Requested size: 392.64725pt x 285.08473pt.
- [62] [63 <../../figures/fig_lin_scatter.pdf>] [64 <../../figures/fig_lin_radius.pdf>] [65] [66] [67] [68] [69] [70] [71]
-Overfull \hbox (5.85521pt too wide) in paragraph at lines 479--497
+Package pdftex.def Info: ../../figures/fig_lin_radius.pdf  used on input line 346.
+(pdftex.def)             Requested size: 392.64725pt x 279.5497pt.
+ [64 <../../figures/fig_lin_radius.pdf>] [65] [66] [67] [68] [69] [70] [71] [72]
+Overfull \hbox (5.85521pt too wide) in paragraph at lines 487--505
  [][] 
  []
 
-(./chapters/05a_diffusion_control.tex [72] [73] [74] [75] [76]) [77] [78] [79] [80] [81] [82] [83]
+(./chapters/05a_diffusion_control.tex [73] [74] [75] [76] [77]) [78] [79] [80] [81] [82] [83] [84]
+Underfull \hbox (badness 3271) in paragraph at lines 657--657
+[]\T1/cmr/bx/n/14.4 Extension: Con-strained Gen-er-a-tion and Classifier-
+ []
+
 LaTeX Font Info:    Font shape `T1/cmtt/bx/n' in size <12> not available
-(Font)              Font shape `T1/cmtt/m/n' tried instead on input line 656.
- [84]
-Overfull \hbox (20.34161pt too wide) in paragraph at lines 666--676
+(Font)              Font shape `T1/cmtt/m/n' tried instead on input line 664.
+[85]
+Overfull \hbox (20.34161pt too wide) in paragraph at lines 674--684
  [][] 
  []
 
-[85] [86]) (./chapters/06_discussion.tex [87] [88] [89] [90] [91] [92] [93] [94] [95]) (./chapters/07_conclusion.tex [96] [97] [98]) (./thesis.bbl [99] [100] [101] [102] [103]
-Underfull \hbox (badness 1184) in paragraph at lines 186--190
+[86] [87]) (./chapters/06_discussion.tex [88] [89] [90] [91] [92] [93] [94] [95] [96]) (./chapters/07_conclusion.tex [97] [98] [99] [100]) (./thesis.bbl [101] [102] [103] [104]
+Underfull \hbox (badness 1184) in paragraph at lines 257--262
 []\T1/cmr/m/n/12 Kanika Madan, Jar-rid Rector-Brooks, Maksym Ko-rablyov, et al.  Learn-ing
  []
 
-[104] [105] [106]) (./chapters/08_appendix.tex
-<../../figures/fig_lin_decomposition.pdf, id=1875, 693.99277pt x 329.67165pt>
+[105] [106] [107]) (./chapters/08_appendix.tex [108]
+<../../figures/fig_lin_decomposition.pdf, id=1879, 386.04663pt x 238.07443pt>
 File: ../../figures/fig_lin_decomposition.pdf Graphic file (type pdf)
 <use ../../figures/fig_lin_decomposition.pdf>
 Package pdftex.def Info: ../../figures/fig_lin_decomposition.pdf  used on input line 13.
-(pdftex.def)             Requested size: 426.79135pt x 202.74434pt.
-<../../figures/fig_lin_topk.pdf, id=1876, 385.24928pt x 273.09225pt>
+(pdftex.def)             Requested size: 426.79135pt x 263.2086pt.
+<../../figures/fig_lin_topk.pdf, id=1880, 317.61147pt x 218.99617pt>
 File: ../../figures/fig_lin_topk.pdf Graphic file (type pdf)
 <use ../../figures/fig_lin_topk.pdf>
 Package pdftex.def Info: ../../figures/fig_lin_topk.pdf  used on input line 23.
-(pdftex.def)             Requested size: 298.75264pt x 211.79015pt.
-<../../figures/fig_mh_accept.pdf, id=1877, 416.09515pt x 283.34749pt>
+(pdftex.def)             Requested size: 298.75264pt x 206.00345pt.
+<../../figures/fig_mh_accept.pdf, id=1881, 349.01642pt x 226.8963pt>
 File: ../../figures/fig_mh_accept.pdf Graphic file (type pdf)
 <use ../../figures/fig_mh_accept.pdf>
 Package pdftex.def Info: ../../figures/fig_mh_accept.pdf  used on input line 39.
-(pdftex.def)             Requested size: 298.75264pt x 203.43932pt.
-<../../figures/fig_trap_scatter.pdf, id=1878, 589.17178pt x 322.78995pt>
+(pdftex.def)             Requested size: 298.75264pt x 194.22684pt.
+<../../figures/fig_trap_scatter.pdf, id=1882, 379.83691pt x 238.85861pt>
 File: ../../figures/fig_trap_scatter.pdf Graphic file (type pdf)
 <use ../../figures/fig_trap_scatter.pdf>
 Package pdftex.def Info: ../../figures/fig_trap_scatter.pdf  used on input line 49.
-(pdftex.def)             Requested size: 426.79135pt x 233.83202pt.
-<../../figures/fig_aniso_hist.pdf, id=1879, 605.13768pt x 305.87875pt>
+(pdftex.def)             Requested size: 426.79135pt x 268.40182pt.
+<../../figures/fig_aniso_hist.pdf, id=1883, 415.98067pt x 225.2993pt>
 File: ../../figures/fig_aniso_hist.pdf Graphic file (type pdf)
 <use ../../figures/fig_aniso_hist.pdf>
 Package pdftex.def Info: ../../figures/fig_aniso_hist.pdf  used on input line 59.
-(pdftex.def)             Requested size: 426.79135pt x 215.73322pt.
-<../../figures/fig_trap_length.pdf, id=1880, 400.14809pt x 294.47313pt>
+(pdftex.def)             Requested size: 426.79135pt x 231.16016pt.
+<../../figures/fig_trap_length.pdf, id=1884, 364.63002pt x 269.15402pt>
 File: ../../figures/fig_trap_length.pdf Graphic file (type pdf)
 <use ../../figures/fig_trap_length.pdf>
 Package pdftex.def Info: ../../figures/fig_trap_length.pdf  used on input line 69.
-(pdftex.def)             Requested size: 392.64725pt x 288.96812pt.
- [107] [108 <../../figures/fig_lin_decomposition.pdf> <../../figures/fig_lin_topk.pdf>] [109 <../../figures/fig_mh_accept.pdf> <../../figures/fig_trap_scatter.pdf>] [110 <../../figures/fig_aniso_hist.pdf>] [111 <../../figures/fig_trap_length.pdf>]
-<../../figures/gpt2-large.dls.gn.free.s100_new_trajectories.png, id=2308, 444.82185pt x 471.2004pt>
+(pdftex.def)             Requested size: 392.64725pt x 289.83598pt.
+<../../figures/gpt2-large.dls.gn.free.s100_new_trajectories.png, id=1885, 444.82185pt x 471.2004pt>
 File: ../../figures/gpt2-large.dls.gn.free.s100_new_trajectories.png Graphic file (type png)
 <use ../../figures/gpt2-large.dls.gn.free.s100_new_trajectories.png>
-Package pdftex.def Info: ../../figures/gpt2-large.dls.gn.free.s100_new_trajectories.png  used on input line 77.
+Package pdftex.def Info: ../../figures/gpt2-large.dls.gn.free.s100_new_trajectories.png  used on input line 78.
 (pdftex.def)             Requested size: 362.77525pt x 384.29454pt.
-<../../figures/gpt2-large.dls.nogn.free.s50_companion.png, id=2311, 444.82185pt x 471.2004pt>
+<../../figures/gpt2-large.dls.nogn.free.s50_companion.png, id=1888, 444.82185pt x 471.2004pt>
 File: ../../figures/gpt2-large.dls.nogn.free.s50_companion.png Graphic file (type png)
 <use ../../figures/gpt2-large.dls.nogn.free.s50_companion.png>
-Package pdftex.def Info: ../../figures/gpt2-large.dls.nogn.free.s50_companion.png  used on input line 85.
+Package pdftex.def Info: ../../figures/gpt2-large.dls.nogn.free.s50_companion.png  used on input line 86.
 (pdftex.def)             Requested size: 362.77525pt x 384.29454pt.
- [112
-
- <../../figures/gpt2-large.dls.gn.free.s100_new_trajectories.png>] [113 <../../figures/gpt2-large.dls.nogn.free.s50_companion.png>]
-Overfull \hbox (11.12405pt too wide) in paragraph at lines 109--127
+ [109 <../../figures/fig_lin_decomposition.pdf>] [110 <../../figures/fig_lin_topk.pdf> <../../figures/fig_mh_accept.pdf>]
+Overfull \hbox (11.12405pt too wide) in paragraph at lines 110--128
  [][] 
  []
 
-[114]
-Underfull \hbox (badness 1005) in paragraph at lines 152--153
+[111 <../../figures/fig_trap_scatter.pdf>] [112 <../../figures/fig_aniso_hist.pdf>]
+Underfull \hbox (badness 1005) in paragraph at lines 154--155
 []\T1/cmr/m/n/10.95 extra gra-di-ent at the
  []
 
-[115
-
-]
-<../../figures/fig_traj_distance.png, id=2340, 598.03426pt x 750.1626pt>
+[113 <../../figures/fig_trap_length.pdf>] [114 <../../figures/gpt2-large.dls.gn.free.s100_new_trajectories.png>] [115 <../../figures/gpt2-large.dls.nogn.free.s50_companion.png>] [116]
+<../../figures/fig_traj_distance.png, id=2335, 598.03426pt x 750.1626pt>
 File: ../../figures/fig_traj_distance.png Graphic file (type png)
 <use ../../figures/fig_traj_distance.png>
-Package pdftex.def Info: ../../figures/fig_traj_distance.png  used on input line 180.
-(pdftex.def)             Requested size: 341.43437pt x 428.28392pt.
- [116
-
-] [117 <../../figures/fig_traj_distance.png>]
-<../../figures/fig_traj_pca.png, id=2352, 673.19505pt x 586.47105pt>
+Package pdftex.def Info: ../../figures/fig_traj_distance.png  used on input line 183.
+(pdftex.def)             Requested size: 426.79135pt x 535.3549pt.
+<../../figures/fig_traj_pca.png, id=2338, 673.19505pt x 586.47105pt>
 File: ../../figures/fig_traj_pca.png Graphic file (type png)
 <use ../../figures/fig_traj_pca.png>
-Package pdftex.def Info: ../../figures/fig_traj_pca.png  used on input line 202.
-(pdftex.def)             Requested size: 362.77525pt x 316.03639pt.
- [118 <../../figures/fig_traj_pca.png>] [119] [120
-
-] [121] [122] (./chapters/tab_confusion.tex) [123] (./chapters/gprime_examples.tex [124
-
-]
+Package pdftex.def Info: ../../figures/fig_traj_pca.png  used on input line 214.
+(pdftex.def)             Requested size: 426.79135pt x 371.8054pt.
+ [117] [118 <../../figures/fig_traj_distance.png>] [119 <../../figures/fig_traj_pca.png>] [120] [121] [122] (./chapters/tab_confusion.tex) [123] (./chapters/gprime_examples.tex
 Underfull \hbox (badness 10000) in paragraph at lines 28--29
 []|\T1/cmr/m/n/10 pacino is bril-liant as the sleep-deprived-pacino is the sleep-
  []
 
-) [125] (./chapters/showcase_appendix.tex
+[124]) (./chapters/showcase_appendix.tex
 Underfull \hbox (badness 10000) in paragraph at lines 25--25
 []|\T1/cmr/m/n/10 Left-conditional (in-de-pen-dence
  []
@@ -680,31 +674,27 @@ Underfull \hbox (badness 10000) in paragraph at lines 38--38
 []|\T1/cmr/m/n/10 Left-conditional (in-de-pen-dence
  []
 
-[126
-
-]) [127]) [128
-
-] (./thesis.aux)
+[125] [126])) [127] (./thesis.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2026-03-20>
  ***********
 Package rerunfilecheck Info: File `thesis.out' has not changed.
-(rerunfilecheck)             Checksum: 3B34151E768C7D59B9CB2291D836BEAB;16148.
+(rerunfilecheck)             Checksum: 8A7388C7B29E3838C316322FFCD0ACF2;14763.
  ) 
 Here is how much of TeX's memory you used:
- 14930 strings out of 467356
- 243145 string characters out of 5418692
- 690039 words of memory out of 6000000
- 43432 multiletter control sequences out of 15000+600000
+ 14920 strings out of 467356
+ 242946 string characters out of 5418692
+ 694121 words of memory out of 6000000
+ 43427 multiletter control sequences out of 15000+600000
  657775 words of font info for 120 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 75i,13n,79p,2277b,719s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 75i,13n,79p,4221b,719s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmmib8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/cm-super/sfbx1000.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/cm-super/sfbx1095.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/cm-super/sfbx1728.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/cm-super/sfbx2074.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/cm-super/sfrm0700.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/cm-super/sfrm0800.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/cm-super/sfrm1095.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/cm-super/sfrm1440.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/cm-super/sfti1000.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/cm-super/sfti1200.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/cm-super/sftt1200.pfb>
-Output written on thesis.pdf (129 pages, 3097565 bytes).
+Output written on thesis.pdf (128 pages, 2327660 bytes).
 PDF statistics:
- 2644 PDF objects out of 2984 (max. 8388607)
- 1875 compressed objects within 19 object streams
- 322 named destinations out of 1000 (max. 500000)
- 644 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 2630 PDF objects out of 2984 (max. 8388607)
+ 1874 compressed objects within 19 object streams
+ 317 named destinations out of 1000 (max. 500000)
+ 604 words of extra memory for PDF output out of 10000 (max. 10000000)
 

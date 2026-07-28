@@ -124,7 +124,8 @@ full provenance for each.
     not adopted for the samplers because it would dissolve the revision
     capability under study rather than repair its metric.
 17. MUCOLA/COLD: state explicitly in related work and once in results that
-    the CLS implementation follows the COLD/MuCoLa mechanism faithfully and
+    [SUPERSEDED 2026-07-28, see CLAUDE.md item (f): faithful to their GEOMETRY, not their
+    ENERGY] the CLS implementation follows the COLD/MuCoLa mechanism faithfully and
     the constrained "mucola" arm is that comparison; one sentence on why
     original-code task-level comparisons were out of scope. Mine the
     knowledge base thread D for the "how did they work without MH" answer

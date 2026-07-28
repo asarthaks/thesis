@@ -498,9 +498,13 @@ stopped doing energy-based sampling?"* No. It is one of the two terms of the ene
 derivative, not a substitute for the energy. The suffix term is still there and still comes from
 the gradient. The constraint still enters the same way.
 
-**If asked here:** *"Does MuCoLa have the same problem?"* Yes, and backup 33 is the table. They
-differentiate the input embedding, so they discard the same term. Say it as a structural
-consequence, not as a criticism of the paper.
+**If asked here:** *"Does MuCoLa have the same problem?"* **No, and say so immediately.** Backup 33
+is the table. MuCoLa relaxes the target as well as the input, so its self term is differentiable;
+COLD's soft sequence does the same. What is blind is *my* energy, which gathers at the projected
+token id. Then give the constructive half: MuCoLa's self-gradient is the hidden state, so it ranks
+candidates by the logit difference, which is the token-indicator self term up to a shared
+denominator. The term worth zero to forty percent is the one they already had. Do not let this
+question be answered with a yes.
 
 **Cut first.** The 24.2 and 15.0 decomposition, then the "barked" sentence. The picture carries
 the argument without either.

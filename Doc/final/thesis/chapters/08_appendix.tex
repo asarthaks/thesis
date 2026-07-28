@@ -71,7 +71,8 @@ This section collects supporting figures referenced in Section~\ref{ch:results}.
     \label{fig:trap-length}
 \end{figure}
 
-\clearpage
+% CUT (page ledger, ranked cut list: appendix detail first): forced \clearpage removed so
+% the subsection may share a page with what precedes it. No content removed.
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=0.85\textwidth]{figures/gpt2-large.dls.gn.free.s100_new_trajectories.png}
@@ -130,7 +131,8 @@ The count arises as $145 = 5 \times 29$, and the twenty-nine is worth setting ou
 
 The eight rows above are a subset chosen to show the axes that matter, the two samplers against the two settings of the correction and of gradient normalization. The remaining configurations behave as these do, and the arithmetic above rather than the table is what establishes the count of $145$.
 
-\clearpage
+% CUT (page ledger, ranked cut list: appendix detail first): forced \clearpage removed so
+% the subsection may share a page with what precedes it. No content removed.
 \subsection{Computational Cost}
 \label{app:cost}
 
@@ -165,11 +167,12 @@ The measured wall-clock times are consistent with this accounting and give a sen
 % rev_judge_score_gpt2sft.json wall_time_sec 24.8 (n=600 judge forward passes).
 The comparison is stark: the gradient-free baselines reach comparable or better recovery quality at a fraction of the per-sequence cost, because they never pay for the backward pass whose product this thesis finds to be uninformative.
 
-\clearpage
+% CUT (page ledger, ranked cut list: appendix detail first): forced \clearpage removed so
+% the subsection may share a page with what precedes it. No content removed.
 \subsection{Geometry of Sampler Trajectories in Embedding Space}
 \label{app:trajectory}
 
-This section examines the spatial paths the samplers trace through the embedding space, a concrete counterpart to the acceptance statistics of Section~\ref{sec:results-mh} and the trajectory summaries of Section~\ref{sec:results-traj}. The primary figure is deliberately \emph{not} a projection, since a two-dimensional projection of a $1280$-dimensional space cannot carry the argument; the load-bearing figure reports exact $L2$ distances in the full space, using the full $50{,}257\times 1280$ embedding matrix rather than any subsample, and the projection is demoted to one illustrative panel.
+This section examines the spatial paths the samplers trace through the embedding space, a concrete counterpart to the acceptance statistics and trajectory summaries of Section~\ref{sec:results-mh}. The primary figure is deliberately \emph{not} a projection, since a two-dimensional projection of a $1280$-dimensional space cannot carry the argument; the load-bearing figure reports exact $L2$ distances in the full space, using the full $50{,}257\times 1280$ embedding matrix rather than any subsample, and the projection is demoted to one illustrative panel.
 
 Figure~\ref{fig:traj-distance} is the primary view. For one trace, index $5$, drawn once under a fixed random seed of zero and not reselected, it plots at every step, on a symmetric-log axis so exact zeros remain visible, the $L2$ distance from the sampler's state to the ground-truth token embedding, and for the continuous sampler also the distance to the nearest token of any kind.
 % SOURCE: figures/fig_traj_stats.json (seq_idx_seeded 5) and revision/plot_trajectories.py, from results/diagnostics/diag/traces_gpt2sft_plot_traj.npz.
@@ -177,9 +180,18 @@ Because the trace-collection procedure advances the random-number state from one
 
 \begin{figure}[htbp]
     \centering
-    \includegraphics[width=0.80\textwidth]{figures/fig_traj_distance.png}
+    \includegraphics[width=\textwidth]{figures/fig_traj_distance.png}
     % SOURCE: figures/fig_traj_distance.png from revision/plot_trajectories.py
     % (traces_gpt2sft_plot_traj.npz + full wte from the gpt2sft checkpoint).
+    % G2 (2026-07-28), PARTIAL FIX, and the limitation is recorded rather than hidden. This
+    % figure is authored at 8.4in and was printed at 0.80\textwidth (4.7in), a 0.56x
+    % reduction that put its 9pt axis labels near 5pt and its 7pt legend near 4pt. The proper
+    % fix is to redraw it at the printed width, but revision/plot_trajectories.py needs the
+    % full 50257x1280 embedding matrix from the GPT-2 Large SFT checkpoint, and that
+    % checkpoint is no longer on disk (gfn-lm-tuning/gpt2_large_sft_output is empty), so the
+    % figure cannot be regenerated in this pass. Widening it to the full text block is the
+    % available mitigation: it raises the effective sizes by a quarter, to roughly 6.3pt and
+    % 4.9pt, which is better but still under the 8pt floor. Flagged for the author.
     \caption[Full-space distances along one seeded sampling trajectory.]{Full-space distances along the sampling trajectory for one trace, index $5$, one panel per configuration.}
     \label{fig:traj-distance}
 \end{figure}
@@ -199,15 +211,19 @@ Read for what it can show, it agrees with the distances: the discrete trajectori
 
 \begin{figure}[htbp]
     \centering
-    \includegraphics[width=0.85\textwidth]{figures/fig_traj_pca.png}
+    \includegraphics[width=\textwidth]{figures/fig_traj_pca.png}
     % SOURCE: figures/fig_traj_pca.png from revision/plot_trajectories.py.
+    % G2 (2026-07-28), PARTIAL FIX, same cause and same limitation as Figure 14 above:
+    % authored at 9.2in, printed at 0.85\textwidth. Widened to the full text block; it cannot
+    % be redrawn without the missing checkpoint.
     \caption[PCA projection of the same seeded trace.]{PCA projection of the same trace, one panel per configuration. Grey cloud: the vocabulary embeddings. Open circle: the start state. Filled dot: the end state. Star: the ground-truth token.}
     \label{fig:traj-pca}
 \end{figure}
 
 Read together, the two figures make the central geometric claim visible: the samplers either fail to move in any directed way, the discrete sampler and the free continuous sampler both wandering without bending toward the ground-truth token, or fail to move at all, the corrected continuous sampler frozen far off the manifold, and in neither case does the path converge on the target, which is the spatial signature of a gradient that carries no directional signal.
 
-\clearpage
+% CUT (page ledger, ranked cut list: appendix detail first): forced \clearpage removed so
+% the subsection may share a page with what precedes it. No content removed.
 \subsection{Classifier-Guided Steering: Full Results}
 \label{app:guided}
 
@@ -288,8 +304,9 @@ for the constraint-only arm.
     \label{tab:diffusion-guided}
 \end{table}
 
-\subsubsection{The Guide-Judge Agreement Ladder}
+\subsubsection{The Guide-Judge Agreement Ladder and Per-Class Confusion}
 \label{app:guided-ladder}
+\label{app:guided-confusion}
 
 The off-domain result leaves two explanations entangled. Guidance might steer only in one
 fixed direction, or the two independently trained classifiers might disagree on off-domain
@@ -324,9 +341,11 @@ still disagree on about $28\%$ of the on-domain generations, and steering toward
 classifier's notion of a label registers on the other only where the two align on the
 generated text.
 
-\subsubsection{Per-Class Confusion on the Neutral Calibration Surface}
-\label{app:guided-confusion}
-
+% CUT (page ledger, ranked cut list: appendix detail first). Subsection A.5.3, "Per-Class
+% Confusion on the Neutral Calibration Surface", was merged into A.5.2 here: its heading is
+% removed and its two paragraphs are consolidated into the one below, which had already
+% stated the alignment gap they restated. Every number, the table and the source comments are
+% retained. T1 also applies: the merged heading takes the document's title-case convention.
 One explanation of the flip is that the residual disagreement falls asymmetrically by class,
 so that the guide's positive verdict transfers more reliably than its negative one.
 Table~\ref{tab:confusion} tests that on the unguided on-domain generations, which are neutral
@@ -336,17 +355,16 @@ held-out sentences, the judge $85.8\%$ and $89.9\%$, both balanced.
 % SOURCE: results/revision/rev_confusion.json label_alignment_sanity.
 On the unguided generations the judge confirms the guide's positive verdict $67.9\%$ of the
 time and its negative verdict $75.7\%$, a paired difference of $-7.7$ points whose $95\%$
-confidence interval $[-18.0, +2.6]$ includes zero and leans, if at all, the other way.
+confidence interval $[-18.0, +2.6]$ includes zero, so the two conditional agreement rates are
+statistically indistinguishable. No by-class asymmetry explains the transfer direction, which
+is therefore reported as observed and setting-contingent, with no class-level mechanism
+claimed beyond the alignment gap.
 % SOURCE: results/revision/rev_confusion.json confusion_unguided_ondomain: P_judge_pos_given_guide_pos 67.95 [60.4,75.3], P_judge_neg_given_guide_neg 75.69 [68.5,82.4], conditional_diff -7.75 [-18.0,2.6].
-The two conditional agreement rates are statistically indistinguishable. The confusion table
-therefore confirms the overall alignment gap that the ladder measures, and does not identify a
-by-class asymmetry that would explain the transfer direction. The transfer asymmetry is
-reported as observed and setting-contingent, and no class-level mechanism is claimed beyond
-the alignment gap.
 
 \input{chapters/tab_confusion}
 
-\clearpage
+% CUT (page ledger, ranked cut list: appendix detail first): forced \clearpage removed so
+% the subsection may share a page with what precedes it. No content removed.
 \subsection{Raw Steering Gains for the Constrained Extension}
 \label{app:constrained-raw}
 
@@ -381,11 +399,13 @@ All qualitative material in this thesis is collected here under one selection po
 The pairs below make the guided steering of Section~\ref{sec:results-guided} visible in text. Table~\ref{tab:gprime-examples} gives the on-domain, trust-region generations, one pair per cell. For each pair \emph{g} is the guiding classifier's verdict and \emph{j} the independent judge's, so a pair where they disagree shows the partial instrument alignment directly.
 \input{chapters/gprime_examples}
 
-\clearpage
+% CUT (page ledger, ranked cut list: appendix detail first): forced \clearpage removed so
+% the subsection may share a page with what precedes it. No content removed.
 \input{chapters/showcase_appendix}
 
-\clearpage
-\subsection{Use of AI-Tools}
+% CUT (page ledger, ranked cut list: appendix detail first): the last forced \clearpage
+% removed so A.8 may share a page with the showcase tables. No content removed.
+\subsection{Use of AI Tools}
 \label{app:ai-tools}
 
 The author of this thesis has used AI tools, specifically Google AI Studio (Gemini) and Claude (Anthropic), and documents their use here as required.

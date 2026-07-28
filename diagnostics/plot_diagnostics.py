@@ -39,9 +39,29 @@ import numpy as np
 import pandas as pd
 from scipy.stats import spearmanr
 
+# G2 (supervisor figure-quality pass, 2026-07-28): every figure below is now drawn at the
+# width it is actually printed at, so a font size declared here is the font size on the A4
+# page. TEXTWIDTH_IN is the thesis text block (a4paper, left=3cm, right=3cm -> 15cm).
+# Previously several figures were authored at 9.2 to 9.6in and included at \textwidth
+# (5.9in), a 0.6x reduction that put 10pt axis text at about 6pt in print.
+TEXTWIDTH_IN = 5.90
+
+
+def figsize(width_frac, aspect):
+    """Figure size in inches for a float included at width_frac x \textwidth."""
+    w = TEXTWIDTH_IN * width_frac
+    return (w, w * aspect)
+
+
 plt.rcParams.update({
     "font.family": "serif",
-    "font.size": 10,
+    "font.size": 9.5,
+    "axes.labelsize": 9.5,
+    "axes.titlesize": 10,
+    "xtick.labelsize": 9,
+    "ytick.labelsize": 9,
+    "legend.fontsize": 8.5,
+    "figure.titlesize": 10,
     "axes.grid": True,
     "grid.alpha": 0.25,
     "grid.linewidth": 0.5,
@@ -57,8 +77,14 @@ C_NEUTRAL = "#1B1F3B"
 C_ACCENT = "#E8A33D"
 
 
-def save(fig, fig_dir, name):
-    fig.savefig(os.path.join(fig_dir, name + ".pdf"))
+def save(fig, fig_dir, name, raster_dpi=350):
+    # F2 (supervisor remark on the Section 5.3.4 plot): the linearization scatters carry tens
+    # of thousands of points and ARE rasterized; the likelihood-trap and length panels carry a
+    # few thousand and are deliberately left vector, since rasterizing them tripled their size.
+    # of thousands of points. Left as vector art they made a 600 kB page that some viewers
+    # render slowly. Artists marked rasterized=True are flattened at raster_dpi while all
+    # text, axes, ticks and the colourbar frame stay vector, so nothing legible is resampled.
+    fig.savefig(os.path.join(fig_dir, name + ".pdf"), dpi=raster_dpi)
     fig.savefig(os.path.join(fig_dir, name + ".png"), dpi=200)
     plt.close(fig)
     print("wrote", name)
@@ -76,11 +102,12 @@ def plot_linearization(res_dir, fig_dir, model_key="gpt2sft"):
 
     # ---------- 1A: the scatter ----------
     sub = df.sample(min(30000, len(df)), random_state=0)
-    fig, ax = plt.subplots(figsize=(6.0, 4.6))
+    fig, ax = plt.subplots(figsize=figsize(0.92, 0.76))
     sc = ax.scatter(sub.surrogate, sub.true_delta, c=sub.dist,
-                    s=3, alpha=0.35, cmap="viridis", linewidths=0)
+                    s=3, alpha=0.35, cmap="viridis", linewidths=0, rasterized=True)
     cb = fig.colorbar(sc, ax=ax)
-    cb.set_label(r"$\|e(v) - e(x_i)\|_2$  (embedding distance)")
+    cb.set_label(r"$\|e(v) - e(x_i)\|_2$  (embedding distance)", fontsize=9)
+    cb.ax.tick_params(labelsize=8.5)
 
     r_all = spearmanr(df.surrogate, df.true_delta)[0]
     ax.set_xlabel(r"Taylor surrogate  $\hat{\Delta}(v) = \nabla_{e_i}\log p^\top (e(v)-e(x_i))$")
@@ -116,7 +143,7 @@ def plot_linearization(res_dir, fig_dir, model_key="gpt2sft"):
     # floating ax.text labels, which collided with the legend entry at the lower left and
     # with the data line at the top. They are now legend entries, so nothing can overlap,
     # and the title is descriptive rather than a verdict.
-    fig, ax = plt.subplots(figsize=(6.6, 4.6))
+    fig, ax = plt.subplots(figsize=figsize(0.92, 0.70))
     ax.plot(centres, rhos, "o-", color=C_POLICY, lw=2, ms=5,
             label=r"Spearman $\rho$ within distance bin")
     ax.axhline(0, color="0.4", lw=0.8)
@@ -143,18 +170,14 @@ def plot_linearization(res_dir, fig_dir, model_key="gpt2sft"):
               "and it would contradict the thesis. Check the data before writing.")
 
     ax.set_ylim(ylo, yhi + 0.30 * (yhi - ylo))
-    ax.set_xlabel(r"Embedding distance of the candidate token, $\|e(v)-e(x_i)\|_2$",
-                  fontsize=11)
-    ax.set_ylabel(r"Spearman $\rho$ (surrogate vs. true energy change)", fontsize=11)
-    ax.set_title("Surrogate-to-truth correlation by candidate embedding distance",
-                 fontsize=11)
-    ax.tick_params(labelsize=10)
-    ax.legend(loc="upper right", fontsize=9, frameon=True, framealpha=0.95,
-              edgecolor="0.8")
+    ax.set_xlabel(r"Embedding distance of the candidate token, $\|e(v)-e(x_i)\|_2$")
+    ax.set_ylabel(r"Spearman $\rho$ (surrogate vs. true energy change)")
+    ax.set_title("Surrogate-to-truth correlation by candidate embedding distance")
+    ax.legend(loc="upper right", frameon=True, framealpha=0.95, edgecolor="0.8")
     save(fig, fig_dir, "fig_lin_radius")
 
     # ---------- 1C: the decomposition ----------
-    fig, axes = plt.subplots(1, 2, figsize=(9.2, 4.0))
+    fig, axes = plt.subplots(1, 2, figsize=figsize(1.0, 0.50))
     for ax, col, lab, col_c in [
         (axes[0], "true_delta_self",
          r"self term:  $\log p(x_i \mid x_{<i})$", C_BAD),
@@ -162,20 +185,22 @@ def plot_linearization(res_dir, fig_dir, model_key="gpt2sft"):
          r"future term:  $\sum_{t>i} \log p(x_t \mid x_{<t})$", C_POLICY),
     ]:
         s = df.sample(min(20000, len(df)), random_state=0)
-        ax.scatter(s.surrogate, s[col], s=3, alpha=0.3, color=col_c, linewidths=0)
+        ax.scatter(s.surrogate, s[col], s=3, alpha=0.3, color=col_c, linewidths=0,
+                   rasterized=True)
         rho = spearmanr(df.surrogate, df[col])[0]
         ax.set_xlabel("Taylor surrogate")
         ax.set_ylabel(lab)
         ax.set_title(rf"$\rho$ = {rho:.3f}")
 
-    fig.suptitle("Surrogate against the self and future terms of the true change",
-                 y=1.02, fontsize=11)  # Phase 8: was a verdict
-    fig.text(0.5, -0.06,
-             f"mean |self| = {df.true_delta_self.abs().mean():.2f} nats,   "
-             f"mean |future| = {df.true_delta_future.abs().mean():.2f} nats.   "
-             r"$\nabla_{e_i}\log p$ cannot see the self term at all, because "
-             r"$\log p(x_i \mid x_{<i})$ depends on $x_i$ through a discrete index.",
-             ha="center", fontsize=8.5)
+    # G2 (2026-07-28): a one-line footnote string used to be drawn under the axes. It was far
+    # wider than the panels, so savefig(bbox="tight") widened the saved figure to contain it
+    # and \includegraphics[width=\textwidth] then shrank the whole thing, which is why this
+    # figure printed at roughly 60 percent of the text block with unreadable axis text. Its
+    # content (mean |self| 15.02 nats, mean |future| 24.21 nats, and why the input-embedding
+    # gradient cannot see the self term) is already stated in the running text of Section 5.4,
+    # which is where the walkthrough belongs.
+    fig.suptitle("Surrogate against the self and future terms of the true change", y=1.02)
+    fig.subplots_adjust(wspace=0.42)
     save(fig, fig_dir, "fig_lin_decomposition")
 
     # ---------- 1D: top-k recall ----------
@@ -195,14 +220,14 @@ def plot_linearization(res_dir, fig_dir, model_key="gpt2sft"):
         grad_rec.append(np.mean(g)); rand_rec.append(np.mean(r))
 
     x = np.arange(len(ks)); w = 0.36
-    fig, ax = plt.subplots(figsize=(5.4, 3.8))
+    fig, ax = plt.subplots(figsize=figsize(0.70, 0.70))
     ax.bar(x - w/2, grad_rec, w, color=C_POLICY, label="ranked by the LM gradient")
     ax.bar(x + w/2, rand_rec, w, color="0.65", label="ranked at random")
     ax.set_xticks(x); ax.set_xticklabels([f"top-{k}" for k in ks])
     ax.set_ylabel("Recall of the true top-$k$ tokens")
     ax.set_xlabel("Cutoff")
-    ax.set_title("Top-$k$ recall of gradient ranking against a random ranker")  # Phase 8: was a verdict
-    ax.legend(frameon=False, fontsize=9)
+    ax.set_title("Top-$k$ recall of gradient ranking against a random ranker")
+    ax.legend(frameon=False)
     save(fig, fig_dir, "fig_lin_topk")
 
 
@@ -333,7 +358,7 @@ def plot_likelihood_trap(res_dir, fig_dir, model_key="gpt2sft"):
             "temp07": "#2E7D77", "topp90": "#1F6FB2", "ancestral": "#2B2B2B"}
 
     # ---------- 4A ----------
-    fig, axes = plt.subplots(1, 2, figsize=(9.6, 4.2))
+    fig, axes = plt.subplots(1, 2, figsize=figsize(1.0, 0.50))
     for name in order:
         s = df[df.strategy == name]
         if len(s) == 0:
@@ -345,11 +370,20 @@ def plot_likelihood_trap(res_dir, fig_dir, model_key="gpt2sft"):
 
     for ax, ylab in [(axes[0], "4-gram repetition rate  (lower is better)"),
                      (axes[1], "distinct-2  (higher is better)")]:
-        ax.set_xlabel(r"mean per-token $\log p$   (higher = lower energy)")
+        # G2: the full label, "mean per-token log p (higher = lower energy)", was wider than
+        # the panel; the two panels' labels ran into each other and the right one was clipped.
+        # The energy gloss is given in the running text of Section 5.7.
+        ax.set_xlabel(r"mean per-token $\log p$")
         ax.set_ylabel(ylab)
-    axes[0].legend(frameon=False, fontsize=8, ncol=2)
+        # G2: headroom so the legend cannot sit on the data.
+        lo, hi = ax.get_ylim()
+        ax.set_ylim(lo, hi + 0.34 * (hi - lo))
+    # G2: two columns, so the legend stays inside the left panel; three overflowed into the
+    # right panel and sat on its tick labels.
+    axes[0].legend(frameon=False, fontsize=7.5, ncol=2, loc="upper left")
     fig.suptitle("Per-token likelihood against repetition and diversity",
-                 y=1.02, fontsize=11)  # Phase 8: was a verdict
+                 y=1.02)
+    fig.subplots_adjust(wspace=0.34)
     save(fig, fig_dir, "fig_trap_scatter")
 
     # ---------- 4B ----------
@@ -365,7 +399,7 @@ def plot_likelihood_trap(res_dir, fig_dir, model_key="gpt2sft"):
     sampling = ["ancestral", "topp90", "temp07"]
     fit_df = df[df.strategy.isin(sampling) & (df.scored_len > 0)]
     lr = linregress(fit_df.scored_len, fit_df.total_logp)
-    fig, ax = plt.subplots(figsize=(6.0, 4.2))
+    fig, ax = plt.subplots(figsize=figsize(0.92, 0.70))
     # context: the cap-pinned mass (deterministic decoders, and any sampling
     # generation that ran to the cap), drawn faintly so it does not drive the eye
     capped = df[~df.strategy.isin(sampling)]
@@ -381,7 +415,7 @@ def plot_likelihood_trap(res_dir, fig_dir, model_key="gpt2sft"):
     ax.set_xlabel("Scored sequence length (tokens)")
     ax.set_ylabel(r"Total $\log p$   (the unnormalised GFlowNet reward)")
     ax.set_title("Total log-likelihood against generated length")  # Phase 8: was a verdict
-    ax.legend(frameon=False, fontsize=8)
+    ax.legend(frameon=False)
     save(fig, fig_dir, "fig_trap_length")
 
 
@@ -390,7 +424,7 @@ def plot_likelihood_trap(res_dir, fig_dir, model_key="gpt2sft"):
 # ==========================================================================
 
 def plot_anisotropy(res_dir, fig_dir):
-    fig, axes = plt.subplots(1, 2, figsize=(9.6, 3.9))
+    fig, axes = plt.subplots(1, 2, figsize=figsize(1.0, 0.46))
     for ax, key, name, c in [(axes[0], "gpt2sft", "GPT-2 Large (SFT)", C_POLICY),
                              (axes[1], "llama3-8b", "Llama-3 8B", C_ACCENT)]:
         p = os.path.join(res_dir, f"diag_anisotropy_{key}_dists.npz")
@@ -401,12 +435,15 @@ def plot_anisotropy(res_dir, fig_dir):
         mu = float(z["pairwise_l2"].mean())
         ax.axvline(mu, color=C_BAD, ls="--", lw=1.5)
         ax.text(mu, ax.get_ylim()[1] * 0.9, f"  mean = {mu:.2f}",
-                color=C_BAD, fontsize=9)
+                color=C_BAD, fontsize=8.5)
         ax.set_title(name)
-        ax.set_xlabel(r"Pairwise $L_2$ distance between token embeddings")
+        # G2: the full label was wider than the panel, so the two panels' labels ran into
+        # each other and the right one was clipped. The quantity is named in the caption.
+        ax.set_xlabel(r"Pairwise $L_2$ distance")
         ax.set_ylabel("Count")
     fig.suptitle("Pairwise token-embedding distance distributions, GPT-2 Large and Llama-3",
-                 y=1.03, fontsize=10.5)  # Phase 8: was a verdict
+                 y=1.03)
+    fig.subplots_adjust(wspace=0.34)
     save(fig, fig_dir, "fig_aniso_hist")
 
 

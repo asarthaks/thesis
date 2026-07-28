@@ -9,9 +9,10 @@ already been run. Do not re-run a completed job.
 
 A master's thesis with a diagnostic, negative-result thesis. AS OF THE 2026-07-26
 evaluation3 pass the central claim is SCOPED and partly CONSTRUCTIVE: the
-INPUT-EMBEDDING gradient of a frozen autoregressive likelihood, which is what
-MuCoLa/COLD-style samplers differentiate, carries no usable directional signal, but
-the ONE-HOT gradient of the same likelihood does (Spearman 0.60-0.73 at admissible
+INPUT-EMBEDDING gradient of a frozen autoregressive likelihood whose target token
+enters as a discrete index, which is the energy implemented here (see
+core/prep.py:joint_log_prob_from_inputs_embeds), carries no usable directional
+signal, but the ONE-HOT gradient of the same likelihood does (Spearman 0.60-0.73 at admissible
 distances vs ~0), so the signal is discarded by the choice of derivative rather than
 absent from the model. This is now demonstrated at the SAMPLER level too: substituting
 the one-hot surrogate into the same discrete sampler reaches 40% exact recovery where
@@ -35,6 +36,17 @@ Three further corrections from that pass, all load-bearing:
       reproduces the Langevin sampler (0.0%, KL 6.538 vs 6.541) from separate code.
   (e) Temperature, not the model, was the binding constraint on the whole grid: at the
       calibrated T=5 even the one-hot proposal collapses to 2%.
+  (f) The claim that MuCoLa and COLD differentiate the blind object is WITHDRAWN,
+      verified against both papers on 2026-07-28. MuCoLa substitutes the continuous
+      vector into the output softmax numerator (Kumar et al. 2022, sec. 3, "e~_{n+1}
+      receives gradients (a) directly from -log P") and COLD uses a soft cross-entropy
+      over per-position vocabulary logits (Qin et al. 2022, eq. 3), so BOTH keep the
+      self term. What this repository reproduces faithfully is their projection
+      GEOMETRY (they also project onto the embedding table after every step), not their
+      ENERGY. No measurement changes; only the attribution. Do NOT write that this
+      thesis refutes the premise for the MuCoLa and COLD family; the null is about an
+      input-embedding gradient taken on a HARD-TARGET likelihood, which is this
+      repository's construction. Details in MUCOLA_CORRECTION_PROPOSED.md.
 The MH Breakdown (near-total rejection of boundary-crossing moves in continuous
 Langevin) stands unchanged.
 The current work is a revision pass answering 19 examiner concerns. The plan is in

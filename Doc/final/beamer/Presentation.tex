@@ -730,7 +730,7 @@
 \begin{frame}{Backup: MuCoLa / COLD, and why they appear to work}
   \small
   \begin{itemize}
-    \item The continuous sampler follows the COLD/MuCoLa mechanism faithfully, including the correction those works typically omit.
+    \item The continuous sampler follows their state \emph{geometry} faithfully, a continuous embedding state with a projection after every update, and adds the correction those works omit. It does \emph{not} follow their \emph{energy}: see backup 33.
     \item Without the exact correction the update, \emph{as reimplemented and measured here}, behaves as an early-stopped biased optimizer rather than a sampler from the stated energy. That is a statement about the mechanism, not a reinterpretation of those systems' published results, whose tasks, tuning and evaluation this study did not reproduce.
     \item The constrained \emph{mucola} arm is that comparison, run at the energy level (final KL under the same base model), not the task level.
   \end{itemize}
@@ -791,33 +791,32 @@
   \scriptsize
   \setlength{\tabcolsep}{4pt}
   \begin{center}
-  \begin{tabular}{lllc}
+  \begin{tabular}{llc}
     \toprule
-    Method & differentiates w.r.t. & self term & MH \\
+    Method & how the token's \emph{own} score enters & self term \\
     \midrule
-    MuCoLa, COLD & input embeddings $\bm{e}_i$ & \textcolor{imsred}{discarded} & omitted \\
-    CLS, DLS (this thesis) & input embeddings $\bm{e}_i$ & \textcolor{imsred}{discarded} & exact \\
-    Grathwohl '21, Zhang '22 & the one-hot $\bm{z}_i$ & \textcolor{imsteal}{kept} & exact \\
-    token indicator (ours) & the relaxed $\bm{z}_i$ & \textcolor{imsteal}{kept} & exact \\
+    MuCoLa & softmax numerator $h_n^\top \tilde{\bm{e}}_{n+1}$, target relaxed & \textcolor{imsteal}{kept} \\
+    COLD & $\sum_v p_{\text{LM}}(v\mid\tilde{y}_{<t})\log\mathrm{softmax}(\tilde{y}_t(v))$ & \textcolor{imsteal}{kept} \\
+    CLS, DLS (this thesis) & gather at a hard, projected index & \textcolor{imsred}{discarded} \\
+    token indicator (ours) & $\log p(v\mid \bm{x}_{<i})$, indicator relaxed & \textcolor{imsteal}{kept} \\
     \bottomrule
   \end{tabular}
   \end{center}
   \vspace{0.4em}
   \begin{itemize}
-    \item \structure{Yes, they share the blindness}, and it is not a bug in either. It follows from
-      differentiating with respect to a coordinate that the token's own score does not pass through.
-      Nothing else about their formulation is doing the damage.
-    \item \structure{The gap is a borrowing.} The discrete-EBM literature the DLS proposal comes from
-      differentiates the \emph{one-hot} input, which does carry the self term. The embedding-space
-      text methods differentiate the input embedding, which does not. This thesis's samplers
-      inherited the text-side choice.
-    \item \structure{What would change it.} A method that also relaxes the \emph{target}, scoring a
-      soft vector through the tied output matrix rather than gathering at an index, makes the self
-      term differentiable. That is precisely what the token-indicator derivative recovers.
-    \item \structure{Deviations that are ours, not theirs.} The constraint enters as a weighted sum
-      ($0.8 : 0.2$) rather than MuCoLa's Lagrangian with $\epsilon$ thresholds, and the correction is
-      applied exactly. The comparison is at the level of the shared mechanism as reimplemented here,
-      not a reproduction of their systems' tasks or tuning.
+    \item \structure{No, they do not share the blindness.} Both relax the \emph{target} as well as the
+      input, which is exactly the design that makes the self term differentiable. MuCoLa says so
+      explicitly: $\tilde{\bm{e}}_{n+1}$ receives gradients ``directly from $-\log P$'' as well as
+      through the later hidden states.
+    \item \structure{The blind object is mine.} This implementation scores the masked position by
+      gathering at the projected token id, so $\nabla_{\bm{e}_i}$ reaches the suffix only. The null is
+      about \emph{that} energy in embedding coordinates.
+    \item \structure{And the repair converges with theirs.} MuCoLa's self-gradient is $h_n$, ranking
+      candidates by $h_n^\top(\bm{e}(v)-\bm{e}(x_i))$, the logit difference. The token-indicator self
+      term is $\log p(v\mid\bm{x}_{<i}) - \log p(x_i\mid\bm{x}_{<i})$. Those agree up to the shared
+      denominator, which cancels. The term worth $0 \to 40\%$ is the one MuCoLa already had.
+    \item \structure{What was reimplemented faithfully} is their sampler \emph{geometry}: continuous
+      embedding state, nearest-neighbour projection, plus the correction they omit. Not their energy.
   \end{itemize}
 \end{frame}
 

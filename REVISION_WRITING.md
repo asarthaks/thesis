@@ -284,7 +284,7 @@ Prose/edit items applied:
   left-to-right generation; samplers do in-place bidirectional substitution; compared at the
   energy level, not the task; left-to-right not adopted because it would dissolve the
   revision capability).
-- 17 related work states the CLS implements the COLD/MuCoLa mechanism faithfully, that the
+- 17 [SUPERSEDED 2026-07-28, see CLAUDE.md item (f)] related work states the CLS implements the COLD/MuCoLa mechanism faithfully, that the
   constrained mucola arm is that comparison run at the energy level (task-level original-code
   comparisons out of scope), and the thread-D one-sentence answer (success without an exact
   correction is early-stopped biased optimization plus post-hoc filtering). Results mention
