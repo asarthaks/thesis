@@ -1,7 +1,8 @@
 % Defense talk: Energy-Guided Sampling for Controllable Text Generation.
-% Phase 9, Part 6. Built on the located beamer template (Madrid/whale), adapted for the IMS
-% (title page with institute + two examiners, clean sectioned flow, short-phrase slides).
-% Story arc follows PROMPT_PHASE9_FINAL_DOCS Part 6. Numbers are the verified thesis numbers.
+% Phase 11 restructure (author round 5): Langevin dynamics introduced before the samplers,
+% the hypotheses stated before the experiments, the setup (five energies) stated before the
+% results, the results ordered as in Chapter 5, and controllable generation restored as the
+% closing result. Numbers are the verified thesis numbers.
 % Design notes and the minute budget are in PRESENTATION_LOG.md.
 
 \documentclass{beamer}
@@ -15,6 +16,7 @@
 \usepackage{graphicx}
 \usepackage{booktabs}
 \usepackage{xcolor}
+\usepackage{pifont}
 \usepackage{tikz}
 \usetikzlibrary{positioning,arrows.meta,shapes.geometric,calc,decorations.pathmorphing}
 
@@ -115,51 +117,145 @@
   \end{columns}
 \end{frame}
 
+
+\begin{frame}{The machinery: Langevin dynamics}
+  \begin{columns}[T]
+    \begin{column}{0.52\textwidth}
+      {\small Sample $p(\bm{s}) \propto e^{-E(\bm{s})}$ with a gradient-guided chain:}
+      \[ \bm{s}_{t+1} = \bm{s}_t + \tfrac{\epsilon_t}{2}\,\nabla_{\bm{s}}\log p(\bm{s}_t) + \sqrt{\epsilon_t}\,\bm{\xi}_t \]
+      \vspace{-1.0em}
+      \begin{itemize}\small
+        \item \textbf{Drift}: uphill.
+        \item \textbf{Diffusion}: a \emph{sample}, not a mode.
+        \item Needs a \textbf{Lipschitz} drift.
+      \end{itemize}
+    \end{column}
+    \begin{column}{0.48\textwidth}
+      \begin{center}
+      \begin{tikzpicture}[x=1cm, y=1cm, font=\scriptsize]
+        \draw[imsblue!25, thick] plot[domain=0:4.3, samples=60] (\x, {0.55*sin(1.6*\x r)+0.55});
+        \foreach \i/\xp in {1/0.35, 2/1.15, 3/1.95, 4/2.75, 5/3.6}
+          \fill[imsblue] (\xp, {0.55*sin(1.6*\xp r)+0.55}) circle (1.6pt);
+        \foreach \a/\bb in {0.35/1.15, 1.15/1.95, 1.95/2.75, 2.75/3.6}
+          \draw[-{Latex[length=1.5mm]}, imsblue, thick]
+            (\a, {0.55*sin(1.6*\a r)+0.55}) -- (\bb, {0.55*sin(1.6*\bb r)+0.55});
+        \node[imsred, anchor=west, font=\tiny] at (0.4,1.75) {small steps, smooth surface};
+      \end{tikzpicture}
+      \end{center}
+      \vspace{0.5em}
+      {\small Text is \emph{discrete}: there is no small step.}
+    \end{column}
+  \end{columns}
+  \vspace{0.6em}
+  \begin{center}\small
+  Every method here \structure{forces this update onto discrete tokens}.
+  \end{center}
+\end{frame}
+
+\begin{frame}{Scoring a sequence: two arrays, offset by one}
+  \begin{center}
+  \begin{tikzpicture}[x=1cm, y=1cm, font=\tiny,
+      idk/.style={draw=imsamber, thick, rounded corners, fill=imsamber!22,
+                  minimum width=1.05cm, minimum height=0.4cm, font=\tiny},
+      idd/.style={draw=gray!40, thick, rounded corners, fill=gray!8, text=gray!55,
+                  minimum width=1.05cm, minimum height=0.4cm, font=\tiny},
+      idm/.style={draw=imsred, very thick, rounded corners, fill=imsred!12,
+                  minimum width=1.05cm, minimum height=0.4cm, font=\tiny},
+      lgk/.style={draw=imsblue, thick, rounded corners, fill=imsblue!8,
+                  minimum width=1.05cm, minimum height=0.4cm, font=\tiny},
+      lgd/.style={draw=gray!40, thick, rounded corners, fill=gray!8, text=gray!55,
+                  minimum width=1.05cm, minimum height=0.4cm, font=\tiny}]
+    \def\dx{1.85}
+    \foreach \i/\id/\s in {1/464/idd, 2/3290/idk, 4/17546/idk, 5/780/idk}
+      \node[\s] (t\i) at ({(\i-1)*\dx},3.4) {\id};
+    \node[idm] (t3) at ({2*\dx},3.4) {$\mathrm{id}(\bm{s})$};
+    \foreach \i/\s in {1/lgk, 2/lgk, 3/lgk, 4/lgk, 5/lgd}
+      \node[\s] (z\i) at ({(\i-1)*\dx},2.25) {$\bm{Z}_\i$};
+    \foreach \i/\j in {1/2, 2/3, 3/4, 4/5}
+      \draw[-{Latex[length=1.5mm]}, imsamber, thick] (z\i.north) -- (t\j.south);
+    \node[draw=imsblue, thick, rounded corners, fill=imsblue!6, minimum width=8.45cm,
+          minimum height=0.45cm, font=\scriptsize] (tf) at ({2*\dx},1.2) {Transformer, causal attention};
+    \foreach \i/\w in {1/The, 2/dog, 4/loudly, 5/because}
+      \node[box, font=\tiny, minimum width=1.05cm] (e\i) at ({(\i-1)*\dx},0.1) {$\bm{e}_\i$\\``\w''};
+    \node[draw=imsred, very thick, rounded corners, fill=imsred!12, align=center,
+          inner sep=3pt, font=\tiny, minimum width=1.05cm] (e3) at ({2*\dx},0.1) {$\bm{s}$\\\texttt{[MASK]}};
+    \foreach \i in {1,...,5} {
+      \draw[ar] (e\i) -- (e\i |- tf.south);
+      \draw[ar] (z\i |- tf.north) -- (z\i);
+    }
+    \node[anchor=east] at (-0.75,3.4)  {\texttt{target\_ids}};
+    \node[anchor=east] at (-0.75,2.25) {\texttt{logits}};
+    \node[anchor=east] at (-0.75,0.1)  {\texttt{inputs\_embeds}};
+  \end{tikzpicture}
+  \end{center}
+  \vspace{0.2em}
+  \begin{center}
+  {\tiny\texttt{logits = out.logits[:, :-1, :]}\qquad\texttt{targets = target\_ids[:, 1:]}}\\[0.5em]
+  $E(\bm{x}) \;=\; -\textstyle\sum_t \log\,\mathrm{softmax}(\bm{Z}_t)\big[\,\mathrm{id}_{t+1}\,\big]$\\[0.5em]
+  {\small \textcolor{imsred}{Position 3 is masked}: its embedding is the soft token $\bm{s}$ we optimize.\\
+  \structure{The same sequence enters twice: as continuous vectors, and as integers.}}
+  \end{center}
+\end{frame}
+
 \begin{frame}{Research questions}
-  \begin{enumerate}
-    \item[RQ1] Does the \emph{input-embedding} gradient give a useful proposal direction for token revision, and if not, which local quantities do?
+  \vspace{0.5em}
+  \begin{enumerate}\small
+    \item[RQ1] Does the \emph{input-embedding} gradient give a usable proposal direction? If not, what does?
     \item[RQ2] What does the Metropolis--Hastings correction do in each sampler?
-    \item[RQ3a] Does a GFlowNet on this reward learn a policy that generates high-reward text?
+    \item[RQ3a] Does a GFlowNet on this reward learn a high-reward policy?
     \item[RQ3b] Does its tuned energy become more navigable?
     \item[E] (extension) Can an additive constraint steer generation here?
   \end{enumerate}
-  \vspace{0.5em}
-  \begin{center}\small Three candidate causes, eliminated in order: \structure{A} the target, \structure{B} the model, \structure{C} the derivative and the conditioning.\end{center}
 \end{frame}
 
-\begin{frame}{The proposal the main grid actually draws from}
+\begin{frame}{Three candidate explanations}
+  \vspace{0.6em}
+  {\small Suppose the gradient does not help. \emph{Three} things could be at fault.}
+  \vspace{0.9em}
+  \begin{center}
+  \scriptsize
+  \setlength{\tabcolsep}{5pt}
+  \renewcommand{\arraystretch}{1.5}
+  \begin{tabular}{cll}
+    \toprule
+    & What is at fault & Decided by \\
+    \midrule
+    \structure{\textbf{A}} & the \textbf{target}: the energy itself      & gradient-free search, same energy \\
+    \structure{\textbf{B}} & the \textbf{model}: how it was trained      & a different derivative, same weights \\
+    \structure{\textbf{C}} & the \textbf{parameterization}: which derivative & a ladder of proposals, one chain \\
+    \bottomrule
+  \end{tabular}
+  \end{center}
+  \vspace{1.0em}
+  \begin{center}\small
+  \structure{Everything that follows is that elimination, in that order.}
+  \end{center}
+\end{frame}
+
+\begin{frame}{The setup: one task, five energies, one metric}
   \begin{columns}[T]
-    \begin{column}{0.52\textwidth}
-      Before any ablation: how sharp is the proposal?
-      \begin{block}{Measured entropy, flagship config}
-        \small
-        step 0: $10.8248$ nats\\
-        floor over 50 steps: $10.28$\\
-        uniform ceiling $\log|V| = 10.8249$
-      \end{block}
-      \begin{itemize}
-        \item Effective support $\approx 29{,}000$ tokens at its \emph{sharpest}.
-        \item Gradient term contributes $\approx 0.009$ nats of logit spread.
-      \end{itemize}
-      \structure{The calibrated proposal is numerically uniform.}
-    \end{column}
-    \begin{column}{0.48\textwidth}
+    \begin{column}{0.5\textwidth}
       \small
-      \begin{tabular}{lcc}
-        \toprule
-        Proposal & exact & KL \\
-        \midrule
-        gradient (Langevin) & $0.0\%$ & $6.541$ \\
-        uniform draw (control) & $0.5\%$ & $6.538$ \\
-        \bottomrule
-      \end{tabular}
-      \\[0.4em]{\scriptsize A uniform proposal, in a separate implementation, reproduces the flagship sampler to three significant figures.}
-      \vspace{0.5em}
-      \begin{block}{So the null was re-tested}
-        \scriptsize a $5\times5$ sweep over step size and temperature, spanning entropy $10.82 \to 0.000$. The null holds in every cell; recovery never exceeds $2\%$.
-      \end{block}
+      \structure{Task.} Masked-token recovery: corrupt tokens, ask the sampler to put them back.
+      \vspace{0.3em}
+
+      $200$ sequences per configuration, paired seeds across arms.
+      \vspace{0.6em}
+
+      \structure{Metric.} Mean KL to the ground-truth fill. Floor of $0$.
+    \end{column}
+    \begin{column}{0.5\textwidth}
+      \small
+      \structure{Five energies.}
+      \begin{itemize}\small
+        \item \textbf{GPT-2 Large}, fine-tuned. The reference.
+        \item \textbf{Three GFlowNet-tuned} variants of it.
+        \item \textbf{Llama-3 8B}. Cross-architecture.
+      \end{itemize}
     \end{column}
   \end{columns}
+  \vspace{0.8em}
+  \begin{center}{\footnotesize $145$ configurations. Equivalence margin fixed in advance at $0.327$.}\end{center}
 \end{frame}
 
 % =====================================================================
@@ -167,17 +263,22 @@
 
 \begin{frame}{Two samplers, implemented faithfully}
   \begin{columns}[T]
-    \begin{column}{0.5\textwidth}
-      \begin{itemize}
-        \item \textbf{DLS} (discrete): stays in token space; gradient only builds a proposal.
-        \item \textbf{CLS} (continuous): relaxes into embedding space; projects back to tokens.
-        \item \textbf{Metropolis--Hastings} correction, applied faithfully.
-        \item Step size set by \textbf{oracle calibration} ($\epsilon: 10.5 \to 0.1$).
+    \begin{column}{0.52\textwidth}
+      \begin{itemize}\small
+        \item \textbf{DLS} (discrete): stays in token space.
+        \item \textbf{CLS} (continuous): relaxes into embedding space, projects back.
+        \item \textbf{Metropolis--Hastings} correction, applied exactly.
+        \item Step size by \textbf{oracle calibration}.
       \end{itemize}
       \vspace{0.3em}
-      {\footnotesize 5 energies, 145 configurations, paired seeds, equivalence margin fixed in advance.}
+      {\scriptsize DLS scores a candidate $v$ against $x_i$, with $\bm{g} = \nabla_{\bm{e}_i}\log p_{\text{LM}}$:}
+      {\footnotesize
+      \begin{align*}
+        \log q(v \mid x_i) \propto\;\; & \underbrace{\tfrac{1}{2}\bm{g}^\top\!\big(\bm{e}(v)-\bm{e}(x_i)\big)}_{\text{gradient alignment}} \\[0.2em]
+        -\;\; & \underbrace{\tfrac{1}{2\alpha}\big\lVert \bm{e}(v)-\bm{e}(x_i)\big\rVert^2}_{\text{distance}}
+      \end{align*}}
     \end{column}
-    \begin{column}{0.5\textwidth}
+    \begin{column}{0.48\textwidth}
       \begin{center}
       \begin{tikzpicture}[node distance=6mm and 9mm]
         \node[box] (s) {state};
@@ -188,22 +289,52 @@
         \draw[ar] (g) -- (mh);
         \draw[ar] (mh) -- (p);
         \draw[ar] (p) -- (s);
-        \node[font=\scriptsize, imsred, right=1mm of mh, text width=2.2cm] {the step the field skips};
+        \node[font=\scriptsize, imsred, below=1.5mm of mh, text width=3.2cm, align=center] {the step the field skips};
       \end{tikzpicture}
-      \\[0.3em]{\scriptsize One sampler loop, run to convergence, not stopped early.}
+      \\[0.4em]{\scriptsize A fixed annealed schedule, never stopped early.}
       \end{center}
+      \vspace{0.8em}
+      {\small This $\bm{g}$, the \structure{input-embedding gradient}, is the object under test.}
     \end{column}
   \end{columns}
 \end{frame}
 
+
 % =====================================================================
 \section{The null}
+
+\begin{frame}{First: what does the calibrated proposal actually look like?}
+  \begin{columns}[T]
+    \begin{column}{0.5\textwidth}
+      \small Measure the entropy of the proposal the grid draws from.
+      \begin{block}{Flagship configuration}
+        \small
+        step $0$: $10.8248$ nats\\
+        floor over $50$ steps: $10.28$\\
+        uniform ceiling $\log|V| = 10.8249$
+      \end{block}
+      {\small Gradient term: $\approx 0.009$ nats inside a $10.82$-nat budget.}
+      \vspace{0.4em}
+
+      \structure{The calibrated proposal is numerically uniform.}
+    \end{column}
+    \begin{column}{0.5\textwidth}
+      \begin{alertblock}{Why this comes first}
+        \small
+        Two proposals both within $10^{-4}$ nats of uniform are two draws from the \emph{same} distribution.
+        \vspace{0.4em}
+
+        \structure{A perfectly informative gradient would have produced the same null here.}
+      \end{alertblock}
+      {\small So a $5\times5$ sweep over step size and temperature re-tests it where the gradient \emph{does} shape the proposal.}
+    \end{column}
+  \end{columns}
+\end{frame}
 
 \begin{frame}{The central result: gradient vs.\ a norm-matched random direction}
   \begin{columns}[T]
     \begin{column}{0.56\textwidth}
-      A three-way ablation isolates the gradient's \emph{direction} from its \emph{magnitude}.
-      \vspace{0.3em}
+      \small Isolate the gradient's \emph{direction} from its \emph{magnitude}.
       \begin{block}{Paired contrast, $n = 1000$}
         \scriptsize
         \begin{tabular}{lrl}
@@ -212,7 +343,10 @@
           chain minimum & $+0.033$ & $[-0.079,\,+0.145]$ \\
         \end{tabular}
       \end{block}
-      {\footnotesize All three inside the $\pm 0.327$ margin fixed in advance: \structure{equivalence certified}, not merely non-significant.}
+      {\small All inside the $\pm 0.327$ margin: \structure{equivalence certified}.}
+      \vspace{0.4em}
+
+      {\small In the sweep, recovery never exceeds $2\%$ in any of the $25$ cells.}
     \end{column}
     \begin{column}{0.44\textwidth}
       \scriptsize
@@ -226,27 +360,55 @@
         GFN lb1-500 & $6.008$ & $5.338$ \\
         \bottomrule
       \end{tabular}
-      \\[0.5em]{\scriptsize Final KL (lower better). Differences small and inconsistent in sign.}
+      \\[0.5em]{\scriptsize Final KL, lower better.}
     \end{column}
   \end{columns}
-  \vspace{0.4em}
+  \vspace{0.5em}
   \begin{center}
   \structure{The gradient direction is equivalent to noise of the same norm.}
   \end{center}
 \end{frame}
 
 % =====================================================================
-\section{Why the gradient fails}
+\section{Eliminating the explanations}
+
+\begin{frame}{Hypothesis A: is the target at fault?}
+  \vspace{0.3em}
+  {\small Score the \emph{same} energy without ever taking its gradient:}
+  \vspace{0.7em}
+  \begin{center}
+  \small
+  \begin{tabular}{lc}
+    \toprule
+    Method (no gradient of the energy) & mean KL \\
+    \midrule
+    Ground-truth fill (floor) & $0.00$ \\
+    Corrupted token left in place & $9.14$ \\
+    Best Langevin configuration \emph{(uses the gradient)} & $\sim 6.4$ \\
+    Gradient-free Gibbs sampler & $6.69$ \\
+    Top-$k$ rescore, one forward pass & $\mathbf{4.43}$ \\
+    \bottomrule
+  \end{tabular}
+  \end{center}
+  \vspace{0.8em}
+  \begin{center}
+  \structure{A is rejected: the energy is searchable, just not by this derivative.}
+  \end{center}
+\end{frame}
 
 \begin{frame}{Why, part 1: the linearization fails before the first move}
   \begin{columns}[T]
     \begin{column}{0.46\textwidth}
-      The proposal ranks tokens by a first-order surrogate. It is uncorrelated with the true energy change: $|\rho| < 0.06$ on all five energies ($n=400{,}000$).
-      \vspace{0.5em}
-      \begin{itemize}
-        \item Smallest token move: $1.82$ (nearest-neighbour spacing).
-        \item The surrogate is already uninformative at that distance.
-      \end{itemize}
+      \small
+      \structure{Linearization} means replacing the true change a substitution causes by its first-order Taylor term, which is exactly what the proposal ranks by:
+      \[ \hat{\Delta}(v) = \bm{g}^\top\!\big(\bm{e}(v)-\bm{e}(x_i)\big) \]
+      \[ \Delta_{\text{true}}(v) = \log p(\bm{x}_{i\to v}) - \log p(\bm{x}) \]
+      Correlate the two over $n = 400{,}000$ candidate--sequence pairs.
+      \vspace{0.3em}
+
+      $|\rho| < 0.06$ on \emph{all five} energies.
+      \vspace{0.3em}
+
       \structure{The gradient is inapplicable, not merely imprecise.}
     \end{column}
     \begin{column}{0.54\textwidth}
@@ -261,7 +423,7 @@
         \node[align=center, font=\scriptsize, text width=4.6cm] at (1.4,-2.0) {valid radius $\ll$ smallest admissible substitution};
       \end{tikzpicture}
       \\[0.2em]
-      \includegraphics[width=0.85\textwidth]{fig_lin_radius.pdf}
+      \includegraphics[width=0.84\textwidth]{fig_lin_radius.pdf}
       \end{center}
     \end{column}
   \end{columns}
@@ -291,48 +453,87 @@
   \end{columns}
 \end{frame}
 
-% =====================================================================
-\section{The energy still works}
-
-\begin{frame}{The target is not what fails the recovery}
-  Score the \emph{same} energy without its gradient (GPT-2 Large, masked recovery):
-  \vspace{0.5em}
+\begin{frame}{Back to the two arrays: what the gradient cannot reach}
   \begin{center}
-  \small
-  \begin{tabular}{lc}
-    \toprule
-    Method (no gradient of the energy) & mean KL \\
-    \midrule
-    Ground-truth fill (floor) & $0.00$ \\
-    Best Langevin configuration (uses the gradient) & $\sim 6.4$ \\
-    Gradient-free Gibbs sampler & $6.69$ \\
-    Top-$k$ rescore, one forward pass & \textbf{$4.43$} \\
-    \bottomrule
-  \end{tabular}
+  \begin{tikzpicture}[x=1cm, y=1cm, font=\tiny,
+      idk/.style={draw=imsamber, thick, rounded corners, fill=imsamber!22,
+                  minimum width=1.05cm, minimum height=0.4cm, font=\tiny},
+      idm/.style={draw=imsred, very thick, rounded corners, fill=imsred!12,
+                  minimum width=1.05cm, minimum height=0.4cm, font=\tiny},
+      lgk/.style={draw=imsblue, thick, rounded corners, fill=imsblue!8,
+                  minimum width=1.05cm, minimum height=0.4cm, font=\tiny}]
+    \def\dx{2.1}
+    \node[imsred, font=\tiny, anchor=south, align=center] at ({2*\dx},3.62)
+      {the score of position 3 is a gather at this \textbf{integer}};
+    \node[idk] (t2) at ({1*\dx},3.3) {$\mathrm{id}_2$};
+    \node[idm] (t3) at ({2*\dx},3.3) {$\mathrm{id}(\bm{s})$};
+    \node[idk] (t4) at ({3*\dx},3.3) {$\mathrm{id}_4$};
+    \foreach \i in {1,2,3} \node[lgk] (z\i) at ({(\i-1)*\dx},2.2) {$\bm{Z}_\i$};
+    \draw[-{Latex[length=1.5mm]}, imsamber, thick] (z1.north) -- (t2.south);
+    \draw[-{Latex[length=1.8mm]}, imsred, very thick] (z2.north) -- (t3.south);
+    \draw[-{Latex[length=1.5mm]}, imsamber, thick] (z3.north) -- (t4.south);
+    \node[draw=imsblue, thick, rounded corners, fill=imsblue!6, minimum width=7.4cm,
+          minimum height=0.45cm, font=\scriptsize] (tf) at ({1.5*\dx},1.15) {Transformer, causal attention};
+    \node[box, font=\tiny, minimum width=1.05cm] (e1) at (0,0) {$\bm{e}_1$\\``The''};
+    \node[box, font=\tiny, minimum width=1.05cm] (e2) at ({1*\dx},0) {$\bm{e}_2$\\``dog''};
+    \node[draw=imsred, very thick, rounded corners, fill=imsred!12, align=center,
+          inner sep=3pt, font=\tiny, minimum width=1.05cm] (e3) at ({2*\dx},0) {$\bm{s}$\\\texttt{[MASK]}};
+    \node[box, font=\tiny, minimum width=1.05cm] (e4) at ({3*\dx},0) {$\bm{e}_4$\\``loudly''};
+    \foreach \n in {e1,e2,e4} \draw[ar] (\n) -- (\n |- tf.south);
+    \draw[-{Latex[length=2mm]}, imsteal, very thick] (e3) -- (e3 |- tf.south);
+    \foreach \i in {1,2} \draw[ar] (z\i |- tf.north) -- (z\i);
+    \draw[-{Latex[length=2mm]}, imsteal, very thick] (z3 |- tf.north) -- (z3);
+    \node[imsteal, font=\small] at ({2*\dx+0.32},0.72) {\ding{51}};
+    \node[imsteal, anchor=west, font=\tiny] at ({2*\dx+0.3},1.71) {reaches $\bm{Z}_3$ onward};
+    % causal mask: nothing from position 3 flows left into Z_1, Z_2
+    \draw[imsred, very thick, dashed] ({1.5*\dx},1.42) -- ({1.5*\dx},2.0);
+    \node[imsred, font=\small, fill=white, inner sep=1pt] at ({1.5*\dx},1.71) {\ding{55}};
+    \node[imsred, anchor=east, font=\tiny, align=right] at ({-0.7},1.71) {causal mask:\\nothing flows left};
+  \end{tikzpicture}
+  \end{center}
+  \vspace{0.3em}
+  \begin{center}\small
+  $\bm{Z}_2$ was built from $\bm{e}_1,\bm{e}_2$ alone. The only thing position 3 contributes to
+  \emph{its own} score is that integer, so the derivative is exactly $\bm{0}$.
   \end{center}
   \vspace{0.5em}
   \begin{center}
-  \structure{Hypothesis A rejected: the energy is searchable, just not by this derivative.}\\
-  {\footnotesize Scoped to \emph{this} task. As an objective to \emph{maximize} in free generation the same energy is degenerate (backup: the likelihood trap).}
+  \begin{tikzpicture}[x=1cm, y=1cm]
+    \node[draw=imsblue, rounded corners, fill=imsblue!6, text width=3.6cm, align=center,
+          font=\scriptsize, inner sep=4pt] at (0,0)
+          {future term, what it had\\[0.2em] $\bm{g}^\top\big(\bm{e}(v)-\bm{e}(x_i)\big)$};
+    \node[font=\small] at (2.35,0) {$\bm{+}$};
+    \node[draw=imsamber, very thick, rounded corners, fill=imsamber!25, text width=3.6cm,
+          align=center, font=\scriptsize, inner sep=4pt] at (4.7,0)
+          {self term, read off the logits\\[0.2em] $\log p(v\mid \bm{x}_{<i})$};
+  \end{tikzpicture}
   \end{center}
 \end{frame}
 
-% =====================================================================
-\section{Amortization, and which proposals work}
-
-\begin{frame}{GFlowNet amortization does not escape the failure}
-  A GFlowNet only ever \emph{evaluates} the reward, never differentiates it.
-  \vspace{0.5em}
-  \begin{itemize}
-    \item Three failure modes: \textbf{capacity collapse}, \textbf{length collapse}, \textbf{reward hacking}.
-    \item Tuning moved the energy by $31$--$57$ nats\ldots
-    \item \ldots yet Langevin sampling on the tuned energy is \emph{indistinguishable} from the untuned base.
-  \end{itemize}
+\begin{frame}{Hypothesis B: same model, same sampler, different derivative}
+  \begin{columns}[T]
+    \begin{column}{0.53\textwidth}
+      \small Relax the token indicator $\bm{z}_i$ in \emph{both} of its roles:
+      \[ \frac{\partial \tilde{L}}{\partial \bm{z}_i[v]} = \underbrace{\log p(v\mid \bm{x}_{<i})}_{\text{self, discarded}} + \underbrace{\bm{g}^\top \bm{e}(v)}_{\text{future}} \]
+      {\small Same weights, same sampler, same energy. Only the derivative changes.}
+    \end{column}
+    \begin{column}{0.47\textwidth}
+      \small
+      \begin{tabular}{lcc}
+        \toprule
+        Surrogate & $\rho$ (near) & exact \\
+        \midrule
+        input embedding & $0.03$ & $0.0\%$ \\
+        token indicator & $\mathbf{0.73}$ & $\mathbf{40.0\%}$ \\
+        \bottomrule
+      \end{tabular}
+      \\[0.5em]{\scriptsize Llama-3 8B reaches $41.0\%$ where every input-embedding run gives $0.0\%$.}
+      \vspace{0.5em}
+      \begin{center}\structure{$0 \to 40\%$}\\{\footnotesize B rejected in its strong form}\end{center}
+    \end{column}
+  \end{columns}
   \vspace{0.4em}
-  \begin{center}
-  \structure{Changing the model through this objective did not make the local surrogate useful.}\\
-  {\footnotesize Policy-level (RQ3a) and energy-level (RQ3b) are separate findings, and both are negative.}
-  \end{center}
+  \begin{center}\small At the calibrated $T=5$ even this falls to $2\%$: the \structure{temperature} was the binding constraint.\end{center}
 \end{frame}
 
 \begin{frame}{The exact case: the final-token gradient is zero}
@@ -360,37 +561,12 @@
   \end{columns}
 \end{frame}
 
-\begin{frame}{The headline: same model, same sampler, different derivative}
+\begin{frame}{Hypothesis C: the conditioning ladder}
   \begin{columns}[T]
-    \begin{column}{0.53\textwidth}
-      A token enters the likelihood \emph{twice}: as the input that predicts the suffix, and as the \emph{target} of the previous position's prediction. The input-embedding gradient sees only the first.
-      \[ \frac{\partial \tilde{L}}{\partial \bm{z}_i[v]} = \underbrace{\log p(v\mid \bm{x}_{<i})}_{\text{self, discarded}} + \underbrace{\bm{g}^\top \bm{e}(v)}_{\text{future}} \]
-      \structure{Relaxed token-indicator derivative:} the self term \emph{added to} the same future term, not in place of it. One forward pass, frozen weights.
-    \end{column}
-    \begin{column}{0.47\textwidth}
-      \small
-      \begin{tabular}{lcc}
-        \toprule
-        Surrogate & $\rho$ (near) & exact \\
-        \midrule
-        input embedding & $0.03$ & $0.0\%$ \\
-        token indicator & $\mathbf{0.73}$ & $\mathbf{40.0\%}$ \\
-        \bottomrule
-      \end{tabular}
-      \\[0.5em]{\scriptsize GPT-2 Large, compared cell for cell over one $(\epsilon, T)$ grid. Llama-3 8B reaches $41.0\%$ where every input-embedding configuration run gives $0.0\%$. Nothing retrained.}
-      \vspace{0.5em}
-      \begin{center}\structure{$0 \to 40\%$}\end{center}
-    \end{column}
-  \end{columns}
-  \vspace{0.2em}
-  \begin{center}\small At the calibrated $T=5$ even this proposal falls to $2\%$: the temperature, not the model, was the binding constraint.\end{center}
-\end{frame}
-
-\begin{frame}{The conditioning ladder: what a proposal may look at}
-  \begin{columns}[T]
-    \begin{column}{0.56\textwidth}
+    \begin{column}{0.58\textwidth}
       \scriptsize
-      One Metropolis chain, one exact AR energy, same 200 sequences. \emph{Only the proposal changes.}
+      \setlength{\tabcolsep}{3pt}
+      One Metropolis chain, one exact AR energy. \emph{Only the proposal changes.}
       \begin{tabular}{llc}
         \toprule
         Proposal & conditioning & exact \\
@@ -403,8 +579,10 @@
         RoBERTa MLM \structure{(no score obj.)} & both sides & $\mathbf{44.5\%}$ \\
         \bottomrule
       \end{tabular}
+      \\[0.5em]
+      The uniform draw reproduces the flagship Langevin sampler: KL $6.538$ vs $6.541$.
     \end{column}
-    \begin{column}{0.44\textwidth}
+    \begin{column}{0.42\textwidth}
       \begin{center}
       \begin{tikzpicture}[node distance=7mm, font=\footnotesize]
         \node[op] (prop) {proposal\\(any model)};
@@ -414,24 +592,78 @@
         \draw[ar] (mh) -- (out);
       \end{tikzpicture}
       \end{center}
-      \vspace{0.3em}
-      {\scriptsize Gradient-free comparator on the same task: top-$k$ rescore $33\%$, Gibbs $18.5\%$. So $39\%$ is a gain over $33$, not over nothing.}
+      \vspace{0.5em}
+      {\scriptsize Gradient-free comparator: top-$k$ rescore $33\%$. So $39\%$ is a gain over $33$, not over nothing.}
     \end{column}
   \end{columns}
-  \vspace{0.2em}
-  \begin{center}\structure{Score training is sufficient, not necessary.} {\footnotesize An ordering, not an isolation (backup).}\end{center}
+  \begin{center}\structure{Score training is sufficient, not necessary.}\end{center}
+\end{frame}
+
+% =====================================================================
+\section{Amortization and control}
+
+\begin{frame}{GFlowNet amortization does not escape the failure}
+  \vspace{0.3em}
+  {\small A GFlowNet only ever \emph{evaluates} the reward, never differentiates it.}
+  \vspace{0.8em}
+  \begin{itemize}\small
+    \item Three failure modes: \textbf{capacity collapse}, \textbf{length collapse}, \textbf{reward hacking}.
+    \item Tuning moved the energy by $31$--$57$ nats\ldots
+    \item \ldots yet Langevin sampling on the tuned energy is \emph{indistinguishable} from the untuned base.
+  \end{itemize}
+  \vspace{0.9em}
+  \begin{center}
+  \structure{Changing the model through this objective did not make the local surrogate useful.}
+  \end{center}
+\end{frame}
+
+\begin{frame}{The extension: does an additive constraint steer anything?}
+  \begin{columns}[T]
+    \begin{column}{0.52\textwidth}
+      \small $E = -\log p_{\text{LM}} + \lambda\,C$, sentiment head on the frozen base.
+      \vspace{0.2em}
+
+      {\scriptsize Raw gains are swamped by a sentiment drift, so the statistic is a paired contrast that cancels it.}
+      \vspace{0.4em}
+      \scriptsize
+      \begin{tabular}{llc}
+        \toprule
+        Setup (continuation) & Target & Contrast \\
+        \midrule
+        MuCoLa continuous & negative & $+27.3$ \\
+        MuCoLa continuous & positive & $+36.7$ \\
+        Discrete sampler (ours) & negative & $0.0$ \\
+        Discrete sampler (ours) & positive & $+0.7$ \\
+        \bottomrule
+      \end{tabular}
+    \end{column}
+    \begin{column}{0.48\textwidth}
+      \structure{On a landscape a proposal can navigate:}
+      \begin{itemize}\small
+        \item Guidance moves the classifier's own verdict by $+9.3$ to $+25.7$ points.
+        \item Transfer to an independent judge is bounded by instrument agreement, $56$--$80\%$.
+        \item A trust region removes the fluency cost ($7.1 \to 11.0$ nats without it).
+      \end{itemize}
+    \end{column}
+  \end{columns}
+  \vspace{0.4em}
+  \begin{center}\small
+  \structure{A constraint added to a landscape no sampler can navigate is added to nothing.}
+  \end{center}
 \end{frame}
 
 % =====================================================================
 \section{Takeaways}
 
 \begin{frame}{Takeaways}
-  \begin{enumerate}
-    \item The \emph{input-embedding} gradient is equivalent to a norm-matched random direction, certified over $1000$ paired sequences at a margin fixed in advance.
-    \item Not the target on this task, and not an absence of information in the model: the same frozen weights, differentiated in token-indicator coordinates, recover $40\%$ (GPT-2) and $41\%$ (Llama-3).
-    \item What buys the rest is right-context access, not a score objective: RoBERTa $44.5\%$ $>$ SEDD $39\%$ $>$ AR conditional $23.5\%$.
+  \vspace{0.4em}
+  \begin{enumerate}\small
+    \item \structure{Not the derivative you think.} The \emph{input-embedding} gradient is equivalent to a norm-matched random direction, certified over $1000$ paired sequences.
+    \item \structure{Not the target, and not the model.} The same frozen weights, differentiated in token-indicator coordinates, recover $40\%$ and $41\%$.
+    \item \structure{What buys the rest is right-context access}, not a score objective: RoBERTa $44.5\% >$ SEDD $39\% >$ AR conditional $23.5\%$.
+    \item \structure{Control follows navigation.}
   \end{enumerate}
-  \vspace{0.6em}
+  \vspace{0.9em}
   \begin{center}
   \Large\structure{Differentiate the right object, or propose from the output side.}\\[0.3em]
   \normalsize Not: evaluate rather than differentiate. The derivative was in the wrong coordinates.
@@ -474,6 +706,15 @@
     \item Target ratio: prefers good states. Proposal ratio: enforces reversibility.
     \item MALA needs a Lipschitz drift (Roberts and Tweedie 1996; Dalalyan 2017; Durmus and Moulines 2017).
     \item The projected target is piecewise constant; the differentiable pathway's drift jumps across a cell boundary, so the reverse density vanishes.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Backup: what the sampler does without the correction}
+  \small
+  \begin{itemize}
+    \item Correction off: a uniform random walk that never localizes. Mean KL \emph{rises} from $8.765$ to $9.499$; the chain still changes its token on $99.1\%$ of final-decile steps.
+    \item So the late entropy dip is the annealing floor, not a quench: no freezing, no convergence to a local optimum.
+    \item Correction on: the same uniform proposal becomes an independence sampler, the accept/reject filter does all the work, final KL $6.541$ at a $9.98\%$ acceptance rate.
   \end{itemize}
 \end{frame}
 
@@ -542,6 +783,41 @@
     \item A GFlowNet samples in proportion to reward (not the mode), and never differentiates it, so a gradient pathology would be invisible to it.
     \item It reformulates infilling as left-to-right generation under a restructured prompt; the samplers do in-place bidirectional substitution.
     \item The comparison is therefore run at the energy level, not the task level; the left-to-right reformulation is not adopted for the samplers because it would dissolve the revision capability under study.
+  \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Backup: how this differs from MuCoLa and COLD}
+  \scriptsize
+  \setlength{\tabcolsep}{4pt}
+  \begin{center}
+  \begin{tabular}{lllc}
+    \toprule
+    Method & differentiates w.r.t. & self term & MH \\
+    \midrule
+    MuCoLa, COLD & input embeddings $\bm{e}_i$ & \textcolor{imsred}{discarded} & omitted \\
+    CLS, DLS (this thesis) & input embeddings $\bm{e}_i$ & \textcolor{imsred}{discarded} & exact \\
+    Grathwohl '21, Zhang '22 & the one-hot $\bm{z}_i$ & \textcolor{imsteal}{kept} & exact \\
+    token indicator (ours) & the relaxed $\bm{z}_i$ & \textcolor{imsteal}{kept} & exact \\
+    \bottomrule
+  \end{tabular}
+  \end{center}
+  \vspace{0.4em}
+  \begin{itemize}
+    \item \structure{Yes, they share the blindness}, and it is not a bug in either. It follows from
+      differentiating with respect to a coordinate that the token's own score does not pass through.
+      Nothing else about their formulation is doing the damage.
+    \item \structure{The gap is a borrowing.} The discrete-EBM literature the DLS proposal comes from
+      differentiates the \emph{one-hot} input, which does carry the self term. The embedding-space
+      text methods differentiate the input embedding, which does not. This thesis's samplers
+      inherited the text-side choice.
+    \item \structure{What would change it.} A method that also relaxes the \emph{target}, scoring a
+      soft vector through the tied output matrix rather than gathering at an index, makes the self
+      term differentiable. That is precisely what the token-indicator derivative recovers.
+    \item \structure{Deviations that are ours, not theirs.} The constraint enters as a weighted sum
+      ($0.8 : 0.2$) rather than MuCoLa's Lagrangian with $\epsilon$ thresholds, and the correction is
+      applied exactly. The comparison is at the level of the shared mechanism as reimplemented here,
+      not a reproduction of their systems' tasks or tuning.
   \end{itemize}
 \end{frame}
 

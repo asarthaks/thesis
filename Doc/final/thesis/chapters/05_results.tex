@@ -17,7 +17,7 @@ The trapped sampler follows immediately: a step size calibrated for the tighter 
 
 Two consequences follow. There is no universal step-size schedule for these methods, the correct scale being a property of the model's embedding geometry that must be rediscovered per model, and the step sizes required to make the sampler move at all are much larger than the distances between neighbouring token embeddings, so a method needing this recalibration before it will move is not plug-and-play in the strong, model-agnostic sense. And calibration establishes motion without establishing that the motion is informed. The oracle configuration, which selects the ideal step size at each iteration using knowledge of the ground-truth token, separates the two by establishing the best any schedule could do, so a failure of calibration can be told apart from a failure of guidance.
 
-\subsubsection{The Calibrated Proposal Is Numerically Uniform}
+\subsubsection{The Calibrated Proposal is Numerically Uniform}
 \label{sec:results-quench}
 
 With the step size calibrated, the discrete sampler moves. What it moves \emph{by} is the single most consequential measurement in the study, because it bounds what the ablation of Section~\ref{sec:results-fallacy} could possibly have detected. The proposal of Equation~\eqref{eq:bg-discrete-proposal} draws the next token from a softmax over the sum of a distance term and a gradient-alignment term, divided by a temperature, so its entropy says directly how much either term is shaping the draw. Measured over the whole grid, the answer is that neither does. On the flagship configuration the mean proposal entropy is $10.8248$ nats at the first step against a ceiling of $\log|V| = 10.8249$ for the uniform distribution over the $50{,}257$-token vocabulary, and its \emph{minimum} over the entire fifty-step schedule is $10.2760$ nats, an effective support of roughly $29{,}000$ tokens. Every free-schedule discrete configuration in the grid sits between $10.18$ and $10.28$ at its sharpest, and the oracle-schedule configurations sit at $10.8249$, uniform to floating-point precision.
@@ -66,7 +66,7 @@ One reading of the late entropy dip should be set aside explicitly, because it i
     \includegraphics[width=0.92\textwidth]{figures/gpt2-large.dls.gn.free.s50_new_trajectories.png}
     % SIZING: 0.78 -> 0.92 textwidth (393 x 416pt) for print legibility of the three stacked panels.
     % SOURCE: figures/gpt2/gpt2-large.dls.gn.free.s50_new_trajectories.png
-    \caption[Discrete Langevin Sampler trajectories, 50-step schedule.]{Discrete Langevin Sampler trajectories on GPT-2 Large over a 50-step annealing schedule, averaged across sequences.}
+    \caption[Discrete Langevin sampler trajectories, 50-step schedule.]{Discrete Langevin Sampler trajectories on GPT-2 Large over a 50-step annealing schedule, averaged across sequences.}
     \label{fig:dls-traj-50}
 \end{figure}
 

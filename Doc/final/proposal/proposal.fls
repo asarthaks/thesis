@@ -2,7 +2,7 @@ PWD /mount/studenten-temp1/users/singhsk/thesis/thesis/Doc/final/proposal
 INPUT /usr/share/texlive/texmf-dist/web2c/texmf.cnf
 INPUT /usr/share/texlive/texmf-dist/web2c/texmf.cnf
 INPUT /var/lib/texmf/web2c/pdftex/pdflatex.fmt
-INPUT proposal.tex
+INPUT /mount/studenten-temp1/users/singhsk/thesis/thesis/Doc/final/proposal/proposal.tex
 OUTPUT proposal.log
 INPUT /usr/share/texlive/texmf-dist/tex/latex/base/article.cls
 INPUT /usr/share/texlive/texmf-dist/tex/latex/base/article.cls

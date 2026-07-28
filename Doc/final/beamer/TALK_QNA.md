@@ -56,7 +56,11 @@ where it is an embedding, and as the argument `x_i` of the term `log p(x_i | x_<
 the row you select out of a softmax. Selecting a row is not a differentiable operation in the
 input.
 
-**Backup** 17 (linearization radius and self-term blindness), 23 (what exactly the derivative is).
+**Fastest answer is a gesture.** Go back to slide 5 and trace the two rows: the derivative is
+taken with respect to `inputs_embeds` and the self term enters through `target_ids`, which are
+integers. Slide 15 is that argument already drawn.
+
+**Backup** 23 (linearization radius and self-term blindness), 30 (what exactly the derivative is).
 **Thesis** 5.4 and 5.4.1, Figure 6.
 
 ---
@@ -84,7 +88,8 @@ thousands of tokens, the chain is still changing its token on 99 percent of fina
 and the divergence rises rather than falls. If a reader raises quenching, that is why the section
 now carries an explicit withdrawal.
 
-**Backup** 19 (likelihood is a poor objective yet used everywhere). **Thesis** 5.1.1, 5.6.2.
+**Backup** 25 (what the sampler does without the correction, with the withdrawal numbers on it),
+24 (likelihood is a poor objective yet used everywhere). **Thesis** 5.1.1, 5.6.2.
 
 ---
 
@@ -103,13 +108,13 @@ careful reader.*
 > prediction target. Inside one cell the target is fixed, so that function is smooth and has a
 > well-defined gradient.
 
-**Detail.** The consequence is the entire mechanism of slide 9. Inside a cell the pathway is
+**Detail.** The consequence is the entire mechanism of slide 14. Inside a cell the pathway is
 smooth. Cross a boundary and the *prediction target* changes, so the pathway itself jumps and the
 drift jumps with it. That is the discontinuity that destroys the reverse-proposal term, and it is
 a property of the pathway across boundaries, never a claim about a gradient of the piecewise-constant
 energy, which does not exist.
 
-**Backup** 18 (the MH chain). **Thesis** 2.4, the "two objects must be kept apart" paragraph.
+**Backup** 24 (the MH chain). **Thesis** 2.4, the "two objects must be kept apart" paragraph.
 
 ---
 
@@ -135,7 +140,7 @@ version of that idea that does work, and it needs no prompt restructuring at all
 would dissolve the capability under study, the ability to edit a token in light of both sides. It
 would change the question rather than repair the metric.
 
-**Backup** 25 (why a GFlowNet, and the task-comparability caveat). **Thesis** 4.5, 5.5.
+**Backup** 32 (why a GFlowNet, and the task-comparability caveat). **Thesis** 4.5, 5.5.
 
 ---
 
@@ -244,7 +249,7 @@ proposal ratio minus 1325. The second overwhelms the first and the good move is 
 
 > **Say.** In token space, yes; that is the difficulty the whole thesis is about. The continuous
 > sampler manufactures such a state by relaxing into embedding space, and the price is exactly
-> what slide 9 measures: it leaves the manifold of real tokens, sits over a hundred units from any
+> what slide 14 measures: it leaves the manifold of real tokens, sits over a hundred units from any
 > of them, and then has to either respect the correction and freeze or ignore it and wander.
 
 ## Chapter 3 and the diffusion comparison
@@ -302,7 +307,7 @@ unreliable.*
 > domain, and it does not. The in-domain ROCStories diagnostics reproduce both the null, with the
 > correlation below 0.06 throughout, and the likelihood trap.
 
-**Backup** 21 (task design and corpus). **Thesis** 4.1, Table 1.
+**Backup** 28 (task design and corpus). **Thesis** 4.1, Table 1.
 
 ### "What configuration produced the external judge's numbers?" `5.5.3`, recorded as `MISSING`
 
@@ -420,7 +425,7 @@ figure.
 > the self term. That is why the thesis calls it the relaxed token-indicator derivative rather than
 > "the one-hot gradient", which is ambiguous about exactly this point.
 
-**Backup** 23 has the relaxed objective written out.
+**Backup** 30 has the relaxed objective written out.
 
 ### N3. "Why does RoBERTa beat SEDD? Does that not undermine your story?"
 
@@ -435,7 +440,7 @@ figure.
 scale, corpus and architecture, and only the tokenizer and the chain are held fixed across all of
 them. The thesis says so in the section and again in the limitations.
 
-**Backup** 24.
+**Backup** 31.
 
 ### N4. "Forty-four percent recovery could just be leakage in your pipeline."
 
@@ -461,7 +466,7 @@ enormous; the ratio of surrogate to distance term is only 1.83. In the recoverin
 that ratio is 229 and the proposal is sharp about the *ranking*. Entropy alone would have been the
 wrong diagnostic.
 
-**Backup** 22.
+**Backup** 29.
 
 ### N6. "You call it certified equivalence. Was the margin pre-registered?"
 
@@ -492,7 +497,7 @@ wrong diagnostic.
 an artifact of charging the reversibility term to the policy arm alone; recomputing it exactly for
 every arm turns a gap of plus 2.34 nats into minus 0.25. The supported claim is indifference.
 
-**Backup** 21.
+**Backup** 28.
 
 ### N9. "What would you do differently, and what next?"
 
@@ -522,6 +527,13 @@ every arm turns a gap of plus 2.34 nats into minus 0.25. The supported claim is 
 |---|---|---|
 | "So gradient-guided controllable generation is dead?" | inviting the unscoped claim | "Embedding-space gradient guidance of a frozen autoregressive likelihood, as in the MuCoLa and COLD family, is what I refute. Gradient-guided discrete sampling as such is not, and my own token-indicator result is a counterexample." |
 | "You have reinterpreted COLD and MuCoLa as not really sampling." | broader than the evidence | "I measured the mechanism as I reimplemented it. Their published results involve tasks, tuning, constraints and evaluation procedures I did not reproduce, and I make no claim about those." |
+
+**If the comparison to MuCoLa is pressed in detail, go to backup 33.** It is the four-row table:
+MuCoLa and COLD differentiate the input embedding and discard the self term, exactly as the
+samplers here do; Grathwohl and Zhang differentiate the one-hot and keep it. The gap is a
+borrowing from the wrong side of the literature, not a defect peculiar to either paper. Two
+deviations are ours and should be volunteered: the constraint enters as a weighted sum rather
+than MuCoLa's Lagrangian with epsilon thresholds, and the correction is applied exactly.
 | "Your models are small." | true, and fine to concede | "774 million parameters with an 8-billion cross-architecture control. Every qualitative finding holds on both, and the token-indicator result is 40 percent on one and 41 on the other, but scale is a genuine limitation and it is stated as one." |
 | "Is n = 50 per cell enough for the sweep?" | conceding too much | "For the sweep, yes, because it is asked to detect a *presence*, and 40 percent recovery in a cell where the alternative shows zero does not need a large sample. The flagship *equivalence* claim is where power matters, and that is the one at a thousand pairs." |
 | "Why should I believe a negative result?" | defensiveness | "Because the same design also produces positive results on the same energy and the same chain: 33 percent for rescoring, 40 for the token-indicator arm, 44.5 for the masked LM. An instrument that only ever returns zero is suspect. Mine does not." |

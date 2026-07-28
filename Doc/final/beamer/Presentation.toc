@@ -1,8 +1,7 @@
 \babel@toc {english}{}\relax 
 \beamer@sectionintoc {1}{Motivation}{2}{0}{1}
-\beamer@sectionintoc {2}{The faithful implementation}{6}{0}{2}
-\beamer@sectionintoc {3}{The null}{7}{0}{3}
-\beamer@sectionintoc {4}{Why the gradient fails}{8}{0}{4}
-\beamer@sectionintoc {5}{The energy still works}{10}{0}{5}
-\beamer@sectionintoc {6}{Amortization, and which proposals work}{11}{0}{6}
-\beamer@sectionintoc {7}{Takeaways}{15}{0}{7}
+\beamer@sectionintoc {2}{The faithful implementation}{9}{0}{2}
+\beamer@sectionintoc {3}{The null}{10}{0}{3}
+\beamer@sectionintoc {4}{Eliminating the explanations}{12}{0}{4}
+\beamer@sectionintoc {5}{Amortization and control}{19}{0}{5}
+\beamer@sectionintoc {6}{Takeaways}{21}{0}{6}

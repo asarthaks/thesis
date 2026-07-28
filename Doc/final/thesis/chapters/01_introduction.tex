@@ -7,7 +7,7 @@ That same factorization is the source of a practical limitation. Because generat
 
 The reason control is hard has a precise structure. Many of the properties we care about most, the overall sentiment of a passage, its topical focus, its adherence to a factual constraint, the absence of toxic content, are \textbf{global properties} of a completed sequence rather than local properties of any single token. A greedy, left-to-right decision about the next token cannot see such a property, because the object that would be evaluated against it, the finished text, does not yet exist when the decision is made. Enforcing a global constraint autoregressively therefore requires generating many complete sequences and keeping those that happen to satisfy it, which is wasteful when the constraint is easy to satisfy and effectively impossible when it is not. Steering a language model toward such global objectives while keeping its output fluent is the problem of \textbf{controllable text generation}, and it is the subject of this thesis.
 
-\subsection{Established Routes to Control and Their Costs}
+\subsection{Established Routes to Control Generation and Their Costs}
 \label{sec:intro-routes}
 
 There are, broadly, two established ways of imposing control on a language model, and each carries a cost that motivates the search for a third.
