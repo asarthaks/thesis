@@ -43,8 +43,8 @@
 \author[Sarthak Singh]{Sarthak Singh}
 \institute[IMS Stuttgart]{%
   Institut f\"ur Maschinelle Sprachverarbeitung, Universit\"at Stuttgart\\[0.6em]
-  {\footnotesize Examiners: Prof.\ Dr.\ Ngoc Thang Vu \quad Dr.\ Antje Schweitzer}\\
-  {\footnotesize Supervisor: Prof.\ Dr.\ Ngoc Thang Vu}\\[0.4em]
+  {\footnotesize Examiners: Prof.\ Dr.\ Thang Vu \quad Dr.\ Antje Schweitzer}\\
+  {\footnotesize Supervisor: Lukas Mauch}\\[0.4em]
   {\footnotesize M.Sc.\ Computational Linguistics}}
 \date{Thesis Defense}
 
@@ -155,50 +155,59 @@
 \begin{frame}{Scoring a sequence: two arrays, offset by one}
   \begin{center}
   \begin{tikzpicture}[x=1cm, y=1cm, font=\tiny,
-      idk/.style={draw=imsamber, thick, rounded corners, fill=imsamber!22,
-                  minimum width=1.05cm, minimum height=0.4cm, font=\tiny},
-      idd/.style={draw=gray!40, thick, rounded corners, fill=gray!8, text=gray!55,
-                  minimum width=1.05cm, minimum height=0.4cm, font=\tiny},
-      idm/.style={draw=imsred, very thick, rounded corners, fill=imsred!12,
-                  minimum width=1.05cm, minimum height=0.4cm, font=\tiny},
+      idk/.style={draw=imsamber, thick, rounded corners, fill=imsamber!22, align=center,
+                  minimum width=1.05cm, minimum height=0.36cm, font=\tiny},
+      idd/.style={draw=gray!40, thick, rounded corners, fill=gray!8, text=gray!55, align=center,
+                  minimum width=1.05cm, minimum height=0.36cm, font=\tiny},
+      idm/.style={draw=imsred, very thick, rounded corners, fill=imsred!12, align=center,
+                  minimum width=1.05cm, minimum height=0.36cm, font=\tiny},
       lgk/.style={draw=imsblue, thick, rounded corners, fill=imsblue!8,
-                  minimum width=1.05cm, minimum height=0.4cm, font=\tiny},
+                  minimum width=1.05cm, minimum height=0.36cm, font=\tiny},
       lgd/.style={draw=gray!40, thick, rounded corners, fill=gray!8, text=gray!55,
-                  minimum width=1.05cm, minimum height=0.4cm, font=\tiny}]
+                  minimum width=1.05cm, minimum height=0.36cm, font=\tiny}]
     \def\dx{1.85}
-    \foreach \i/\id/\s in {1/464/idd, 2/3290/idk, 4/17546/idk, 5/780/idk}
-      \node[\s] (t\i) at ({(\i-1)*\dx},3.4) {\id};
-    \node[idm] (t3) at ({2*\dx},3.4) {$\mathrm{id}(\bm{s})$};
-    \foreach \i/\s in {1/lgk, 2/lgk, 3/lgk, 4/lgk, 5/lgd}
-      \node[\s] (z\i) at ({(\i-1)*\dx},2.25) {$\bm{Z}_\i$};
+    \node[idd] (t1) at (0,2.95) {464};
+    \node[idk] (t2) at ({1*\dx},2.95) {3290};
+    \node[idm] (t3) at ({2*\dx},2.95) {8912};
+    \node[idk] (t4) at ({3*\dx},2.95) {17546};
+    \node[idk] (t5) at ({4*\dx},2.95) {780};
+    \foreach \i/\st in {1/lgk, 2/lgk, 3/lgk, 4/lgk, 5/lgd}
+      \node[\st] (z\i) at ({(\i-1)*\dx},1.95) {$\bm{Z}_\i$};
     \foreach \i/\j in {1/2, 2/3, 3/4, 4/5}
       \draw[-{Latex[length=1.5mm]}, imsamber, thick] (z\i.north) -- (t\j.south);
     \node[draw=imsblue, thick, rounded corners, fill=imsblue!6, minimum width=8.45cm,
-          minimum height=0.45cm, font=\scriptsize] (tf) at ({2*\dx},1.2) {Transformer, causal attention};
-    \foreach \i/\w in {1/The, 2/dog, 4/loudly, 5/because}
-      \node[box, font=\tiny, minimum width=1.05cm] (e\i) at ({(\i-1)*\dx},0.1) {$\bm{e}_\i$\\``\w''};
-    \node[draw=imsred, very thick, rounded corners, fill=imsred!12, align=center,
-          inner sep=3pt, font=\tiny, minimum width=1.05cm] (e3) at ({2*\dx},0.1) {$\bm{s}$\\\texttt{[MASK]}};
+          minimum height=0.42cm, font=\scriptsize] (tf) at ({2*\dx},1.0) {Transformer, causal attention};
+    \foreach \i in {1,2,4,5}
+      \node[box, font=\tiny, minimum width=1.05cm, minimum height=0.36cm] (e\i) at ({(\i-1)*\dx},0.05) {$\bm{e}_\i$};
+    \node[draw=imsred, very thick, rounded corners, fill=imsred!12, font=\tiny,
+          minimum width=1.05cm, minimum height=0.36cm] (e3) at ({2*\dx},0.05) {$\bm{s}$};
+    \node[idd, minimum height=0.5cm] (i1) at (0,-1.0) {464\\``The''};
+    \node[idk, minimum height=0.5cm] (i2) at ({1*\dx},-1.0) {3290\\``dog''};
+    \node[idm, minimum height=0.5cm] (i3) at ({2*\dx},-1.0) {8912\\random};
+    \node[idk, minimum height=0.5cm] (i4) at ({3*\dx},-1.0) {17546\\``loudly''};
+    \node[idk, minimum height=0.5cm] (i5) at ({4*\dx},-1.0) {780\\``because''};
+    \foreach \i in {1,2,4,5} \draw[ar] (i\i) -- (e\i);
+    \draw[-{Latex[length=1.8mm]}, imsred, very thick, dashed] (i3) -- (e3);
     \foreach \i in {1,...,5} {
       \draw[ar] (e\i) -- (e\i |- tf.south);
       \draw[ar] (z\i |- tf.north) -- (z\i);
     }
-    \node[anchor=east] at (-0.75,3.4)  {\texttt{target\_ids}};
-    \node[anchor=east] at (-0.75,2.25) {\texttt{logits}};
-    \node[anchor=east] at (-0.75,0.1)  {\texttt{inputs\_embeds}};
+    \node[anchor=east] at (-0.72,2.95)  {\texttt{target\_ids[1:]}};
+    \node[anchor=east] at (-0.72,1.95)  {\texttt{logits[:-1]}};
+    \node[anchor=east] at (-0.72,0.05)  {\texttt{inputs\_embeds}};
+    \node[anchor=east] at (-0.72,-1.0)  {\texttt{input\_ids}};
+    \node[imsred, anchor=west, font=\tiny, align=left] at ({4*\dx+0.72},-0.5) {corrupted\\position};
   \end{tikzpicture}
   \end{center}
   \vspace{0.2em}
   \begin{center}
-  {\tiny\texttt{logits = out.logits[:, :-1, :]}\qquad\texttt{targets = target\_ids[:, 1:]}}\\[0.5em]
-  $E(\bm{x}) \;=\; -\textstyle\sum_t \log\,\mathrm{softmax}(\bm{Z}_t)\big[\,\mathrm{id}_{t+1}\,\big]$\\[0.5em]
-  {\small \textcolor{imsred}{Position 3 is masked}: its embedding is the soft token $\bm{s}$ we optimize.\\
-  \structure{The same sequence enters twice: as continuous vectors, and as integers.}}
+  $E(\bm{x}) \;=\; -\textstyle\sum_t \log\,\mathrm{softmax}(\bm{Z}_t)\big[\,\mathrm{id}_{t+1}\,\big]$\\[0.4em]
+  {\small \structure{The target row is the input row, shifted by one.} The same sequence is present as continuous vectors and as integers.}
   \end{center}
 \end{frame}
 
 \begin{frame}{Research questions}
-  \vspace{0.5em}
+  \vspace{0.3em}
   \begin{enumerate}\small
     \item[RQ1] Does the \emph{input-embedding} gradient give a usable proposal direction? If not, what does?
     \item[RQ2] What does the Metropolis--Hastings correction do in each sampler?
@@ -206,27 +215,40 @@
     \item[RQ3b] Does its tuned energy become more navigable?
     \item[E] (extension) Can an additive constraint steer generation here?
   \end{enumerate}
+  \vspace{1.0em}
+  \begin{center}
+  \begin{minipage}{0.88\textwidth}\small
+  \structure{Two ways out, if the gradient fails.} Repair the search (RQ1, RQ2), or abandon the
+  search and \emph{train a policy} to absorb it (RQ3). The talk takes them in that order.
+  \end{minipage}
+  \end{center}
 \end{frame}
 
 \begin{frame}{Three candidate explanations}
-  \vspace{0.6em}
+  \vspace{0.2em}
   {\small Suppose the gradient does not help. \emph{Three} things could be at fault.}
-  \vspace{0.9em}
+  \vspace{0.5em}
   \begin{center}
   \scriptsize
-  \setlength{\tabcolsep}{5pt}
-  \renewcommand{\arraystretch}{1.5}
-  \begin{tabular}{cll}
+  \setlength{\tabcolsep}{4pt}
+  \renewcommand{\arraystretch}{1.3}
+  \begin{tabular}{lp{4.7cm}p{3.5cm}}
     \toprule
-    & What is at fault & Decided by \\
+    & The claim & Decided by \\
     \midrule
-    \structure{\textbf{A}} & the \textbf{target}: the energy itself      & gradient-free search, same energy \\
-    \structure{\textbf{B}} & the \textbf{model}: how it was trained      & a different derivative, same weights \\
-    \structure{\textbf{C}} & the \textbf{parameterization}: which derivative & a ladder of proposals, one chain \\
+    \structure{\textbf{A}} \textbf{target}
+      & No local search could profit from this likelihood. Then the proposal is beside the point.
+      & search the same energy \emph{without} a gradient \\
+    \structure{\textbf{B}} \textbf{model}
+      & Teacher forcing only ever asks for the next token, never to \emph{rank a substitution}. Then only retraining repairs it.
+      & re-differentiate the \emph{same} frozen weights \\
+    \structure{\textbf{C}} \textbf{coordinates}
+      & The information is there and this derivative discards it. A proposal reading the \emph{output side} recovers it; one seeing the \emph{right context} recovers more.
+      & a ladder of proposals in one exact chain \\
     \bottomrule
   \end{tabular}
   \end{center}
-  \vspace{1.0em}
+  \vspace{0.5em}
   \begin{center}\small
   \structure{Everything that follows is that elimination, in that order.}
   \end{center}
@@ -303,152 +325,181 @@
 % =====================================================================
 \section{The null}
 
-\begin{frame}{First: what does the calibrated proposal actually look like?}
+\begin{frame}{First: what is the proposal we are about to ablate?}
   \begin{columns}[T]
-    \begin{column}{0.5\textwidth}
-      \small Measure the entropy of the proposal the grid draws from.
-      \begin{block}{Flagship configuration}
+    \begin{column}{0.47\textwidth}
+      \small
+      \structure{Entropy} measures how spread out a distribution is, in \emph{nats}.
+      \begin{itemize}\small
+        \item Concentrated on one token: $0$.
+        \item Flat over all $50{,}257$: $\log|V| = 10.825$, the ceiling.
+      \end{itemize}
+      \vspace{0.3em}
+      {\small So entropy answers: \emph{how many tokens is the proposal really choosing between?}}
+    \end{column}
+    \begin{column}{0.53\textwidth}
+      \begin{block}{The calibrated proposal, measured}
         \small
-        step $0$: $10.8248$ nats\\
-        floor over $50$ steps: $10.28$\\
-        uniform ceiling $\log|V| = 10.8249$
+        at its \emph{sharpest}: $10.8248$ nats\\
+        uniform ceiling: $10.8249$ nats
       \end{block}
-      {\small Gradient term: $\approx 0.009$ nats inside a $10.82$-nat budget.}
+      \vspace{-0.2em}
+      {\small Effectively choosing among $\approx 29{,}000$ tokens at every step.}
+      \vspace{0.5em}
+
+      {\small The gradient term spreads the logits by $\approx 0.009$ nats. The softmax that
+      consumes them has a $10.82$-nat budget, so the gradient moves the proposal by about one
+      part in a thousand.}
       \vspace{0.4em}
 
       \structure{The calibrated proposal is numerically uniform.}
     \end{column}
-    \begin{column}{0.5\textwidth}
-      \begin{alertblock}{Why this comes first}
-        \small
-        Two proposals both within $10^{-4}$ nats of uniform are two draws from the \emph{same} distribution.
-        \vspace{0.4em}
-
-        \structure{A perfectly informative gradient would have produced the same null here.}
-      \end{alertblock}
-      {\small So a $5\times5$ sweep over step size and temperature re-tests it where the gradient \emph{does} shape the proposal.}
-    \end{column}
   \end{columns}
+  \vspace{0.4em}
+  \begin{center}\small
+  So a $5\times5$ sweep over step size and temperature re-tests everything below where the gradient \emph{does} shape the proposal.
+  \end{center}
 \end{frame}
 
-\begin{frame}{The central result: gradient vs.\ a norm-matched random direction}
+\begin{frame}{The central result: is the \emph{direction} worth anything?}
   \begin{columns}[T]
-    \begin{column}{0.56\textwidth}
-      \small Isolate the gradient's \emph{direction} from its \emph{magnitude}.
-      \begin{block}{Paired contrast, $n = 1000$}
+    \begin{column}{0.5\textwidth}
+      \small
+      \structure{The control.} Take the true gradient, throw away its direction, keep its length
+      exactly. That is the \emph{norm-matched random} arm. The two differ in direction and in
+      nothing else.
+      \vspace{0.5em}
+
+      \structure{Read the whole chain, not its end.} Three summaries of the same run:
+      \begin{itemize}\small
+        \item \textbf{last step}: where it stopped.
+        \item \textbf{chain mean}: its typical state.
+        \item \textbf{best state}: the best it ever reached.
+      \end{itemize}
+    \end{column}
+    \begin{column}{0.5\textwidth}
+      \begin{block}{Policy minus norm-matched random, $n=1000$ paired}
         \scriptsize
         \begin{tabular}{lrl}
-          last iterate  & $+0.133$ & $[-0.063,\,+0.326]$ \\
-          chain mean    & $+0.136$ & $[-0.012,\,+0.287]$ \\
-          chain minimum & $+0.033$ & $[-0.079,\,+0.145]$ \\
+          last step   & $+0.133$ & $[-0.063,\,+0.326]$ \\
+          chain mean  & $+0.136$ & $[-0.012,\,+0.287]$ \\
+          best state  & $+0.033$ & $[-0.079,\,+0.145]$ \\
         \end{tabular}
       \end{block}
-      {\small All inside the $\pm 0.327$ margin: \structure{equivalence certified}.}
+      \vspace{-0.2em}
+      {\small \structure{Margin $\pm0.327$ nats}, written down \emph{before} the test: any gap
+      smaller than this is too small to matter. All three intervals fit inside it.}
       \vspace{0.4em}
 
-      {\small In the sweep, recovery never exceeds $2\%$ in any of the $25$ cells.}
-    \end{column}
-    \begin{column}{0.44\textwidth}
-      \scriptsize
-      \begin{tabular}{lcc}
-        \toprule
-        Energy & policy & random \\
-        \midrule
-        GPT-2 Large & $6.474$ & $6.430$ \\
-        GFN lb0-500 & $6.009$ & $6.001$ \\
-        GFN lb0-2000 & $6.698$ & $6.552$ \\
-        GFN lb1-500 & $6.008$ & $5.338$ \\
-        \bottomrule
-      \end{tabular}
-      \\[0.5em]{\scriptsize Final KL, lower better.}
+      {\small So this is \structure{certified equivalence}, not ``we failed to find a
+      difference''.}
     \end{column}
   \end{columns}
-  \vspace{0.5em}
-  \begin{center}
-  \structure{The gradient direction is equivalent to noise of the same norm.}
+  \vspace{0.4em}
+  \begin{center}\small
+  Same picture on all five energies, and in the sweep recovery never exceeds $2\%$ in any of the $25$ cells.
   \end{center}
 \end{frame}
 
 % =====================================================================
 \section{Eliminating the explanations}
 
-\begin{frame}{Hypothesis A: is the target at fault?}
-  \vspace{0.3em}
-  {\small Score the \emph{same} energy without ever taking its gradient:}
-  \vspace{0.7em}
+\begin{frame}{Hypothesis A: maybe the energy itself is hopeless?}
+  \vspace{0.2em}
+  {\small Then try something simpler: search the \emph{same} energy without ever differentiating it.}
+  \vspace{0.5em}
+  \begin{columns}[T]
+    \begin{column}{0.63\textwidth}
+      \scriptsize
+      \begin{tabular}{lcc}
+        \toprule
+        Method (no gradient of the energy) & KL & exact \\
+        \midrule
+        Ground-truth fill (floor) & $0.00$ & --- \\
+        Corrupted token left in place & $9.14$ & $0\%$ \\
+        Best Langevin cell \emph{(uses the gradient)} & $\sim6.4$ & $0.0\%$ \\
+        Gradient-free Gibbs sampler & $6.69$ & $18.5\%$ \\
+        Top-$k$ rescore, one forward pass & $\mathbf{4.43}$ & $\mathbf{33\%}$ \\
+        \bottomrule
+      \end{tabular}
+    \end{column}
+    \begin{column}{0.37\textwidth}
+      \begin{block}{}
+      \scriptsize \structure{Gibbs}: blank one position, ask the model for its distribution
+      there, draw a token, move on. Repeat. No gradient anywhere.
+      \end{block}
+    \end{column}
+  \end{columns}
+  \vspace{0.6em}
   \begin{center}
-  \small
-  \begin{tabular}{lc}
-    \toprule
-    Method (no gradient of the energy) & mean KL \\
-    \midrule
-    Ground-truth fill (floor) & $0.00$ \\
-    Corrupted token left in place & $9.14$ \\
-    Best Langevin configuration \emph{(uses the gradient)} & $\sim 6.4$ \\
-    Gradient-free Gibbs sampler & $6.69$ \\
-    Top-$k$ rescore, one forward pass & $\mathbf{4.43}$ \\
-    \bottomrule
-  \end{tabular}
-  \end{center}
-  \vspace{0.8em}
-  \begin{center}
-  \structure{A is rejected: the energy is searchable, just not by this derivative.}
+  \structure{A is rejected: the energy is searchable, just not by this derivative.}\\
+  {\footnotesize And the cheap methods are the good ones: no backward pass at all.}
   \end{center}
 \end{frame}
 
-\begin{frame}{Why, part 1: the linearization fails before the first move}
+\begin{frame}{Why, part 1: the approximation dies before the first step}
   \begin{columns}[T]
-    \begin{column}{0.46\textwidth}
+    \begin{column}{0.44\textwidth}
       \small
-      \structure{Linearization} means replacing the true change a substitution causes by its first-order Taylor term, which is exactly what the proposal ranks by:
+      The proposal ranks a candidate by a \structure{straight-line estimate} of what swapping it in would do:
       \[ \hat{\Delta}(v) = \bm{g}^\top\!\big(\bm{e}(v)-\bm{e}(x_i)\big) \]
-      \[ \Delta_{\text{true}}(v) = \log p(\bm{x}_{i\to v}) - \log p(\bm{x}) \]
-      Correlate the two over $n = 400{,}000$ candidate--sequence pairs.
-      \vspace{0.3em}
+      A straight line only fits a curve \emph{near} the point it is drawn at. So: how far does it stay accurate?
+      \vspace{0.4em}
 
-      $|\rho| < 0.06$ on \emph{all five} energies.
-      \vspace{0.3em}
-
-      \structure{The gradient is inapplicable, not merely imprecise.}
+      \structure{Measured:} correlate the estimate against the truth, \emph{within bins of distance}.
     \end{column}
-    \begin{column}{0.54\textwidth}
+    \begin{column}{0.56\textwidth}
       \begin{center}
-      \begin{tikzpicture}[scale=0.85, font=\scriptsize]
-        \foreach \x/\y in {0/0, 1.6/0.3, 3.0/-0.2, 1.0/1.4, 2.4/1.2, 0.4/-1.2, 2.9/-1.4}{
-          \fill[imsblue] (\x,\y) circle (1.2pt);
-        }
-        \node[circle, draw=imsteal, thick, minimum size=0.5cm] (r) at (0,0) {};
-        \node[imsteal, below=0pt of r, yshift=3pt] {radius};
-        \draw[imsred, thick, -{Latex}] (0,0) -- (1.6,0.3) node[midway, above, sloped, imsred]{smallest move $\approx 1.82$};
-        \node[align=center, font=\scriptsize, text width=4.6cm] at (1.4,-2.0) {valid radius $\ll$ smallest admissible substitution};
-      \end{tikzpicture}
-      \\[0.2em]
-      \includegraphics[width=0.84\textwidth]{fig_lin_radius.pdf}
+      \includegraphics[width=0.86\textwidth]{fig_lin_radius.pdf}
+      \\[0.1em]{\scriptsize Correlation with the true change, by how far the swap moves you.}
       \end{center}
     \end{column}
   \end{columns}
+  \vspace{0.1em}
+  \begin{center}\small
+  It is at zero by distance $\mathbf{1.82}$, which is the average gap between \emph{neighbouring}
+  tokens: the \structure{smallest move that changes any word at all}.\\[0.1em]
+  \structure{Every legal move lies outside the range where the estimate works.}
+  \end{center}
 \end{frame}
 
-\begin{frame}{Why, part 2: the correction breaks the continuous sampler}
+\begin{frame}{RQ2: what does the accept/reject step actually do?}
   \begin{columns}[T]
-    \begin{column}{0.5\textwidth}
-      Decompose the acceptance ratio for boundary-crossing moves:
-      \begin{block}{The two terms}
-        \small
-        target log-ratio $= +4.60$ \structure{(good moves)}\\
-        proposal log-ratio $= -1325$ \structure{(kills them)}
-      \end{block}
-      \begin{itemize}
-        \item The projected drift is not Lipschitz across a cell boundary.
-        \item CLS accepts within-cell moves $\approx 0\%$; DLS, $100\%$.
-      \end{itemize}
-      \structure{The exact correction disables CLS; it rescues DLS.}\\
-      {\scriptsize Exact for the proposal it corrects. What fails is the regularity underneath.}
-    \end{column}
-    \begin{column}{0.5\textwidth}
+    \begin{column}{0.46\textwidth}
       \begin{center}
-      \includegraphics[width=\textwidth]{fig_mh_decomposition.pdf}
+      \begin{tikzpicture}[x=1cm, y=1cm, font=\tiny]
+        \draw[gray!35, thick] (1.75,-0.15) -- (1.75,2.3);
+        \node[gray, anchor=south, font=\tiny] at (1.75,2.3) {cell boundary};
+        \node[font=\scriptsize] at (0.8,2.0) {token ``dog''};
+        \node[font=\scriptsize] at (2.9,2.0) {token ``cat''};
+        \fill[imsblue] (0.9,1.0) circle (2pt) node[below=2pt, font=\tiny] {$\bm{s}_t$};
+        \fill[imsteal] (2.7,1.25) circle (2pt) node[below=2pt, font=\tiny] {$\bm{s}'$};
+        \draw[-{Latex[length=2mm]}, imsteal, very thick] (0.98,1.02) -- (2.6,1.23);
+        \node[imsteal, font=\tiny, anchor=south] at (1.8,1.28) {forward};
+        \draw[-{Latex[length=2mm]}, imsred, very thick, dashed] (2.62,1.19) -- (3.5,0.35);
+        \node[imsred, font=\tiny, anchor=west] at (3.0,0.72) {reverse drift};
+        \node[imsred, font=\tiny, align=center, anchor=north] at (1.9,0.15)
+          {the way back is not\\where the drift points};
+      \end{tikzpicture}
       \end{center}
+      \vspace{0.2em}
+      {\scriptsize Cross a boundary and the projected token changes, so the drift on the far side
+      is computed for a \emph{different} prediction. The reverse move is not proposable.}
+    \end{column}
+    \begin{column}{0.54\textwidth}
+      \small The acceptance ratio is a product of two things:
+      \[ \alpha = \underbrace{\frac{\pi(\bm{s}')}{\pi(\bm{s}_t)}}_{\text{is it better?}}
+                  \cdot \underbrace{\frac{q(\bm{s}_t \mid \bm{s}')}{q(\bm{s}' \mid \bm{s}_t)}}_{\text{could we come back?}} \]
+      \begin{block}{Boundary-crossing moves, measured}
+        \small
+        ``is it better?'' \; $= e^{+4.60}$ \structure{yes}\\
+        ``could we come back?'' \; $= e^{-1325}$
+      \end{block}
+      {\small The second term is $10^{575}$ times smaller. Good moves are rejected for being
+      \emph{unreturnable}, not for being bad.}
+      \vspace{0.4em}
+
+      \structure{Continuous: disabled ($3.7$--$8.6\%$). Discrete: rescued ($100\%$ within-cell).}
     \end{column}
   \end{columns}
 \end{frame}
@@ -466,7 +517,7 @@
     \node[imsred, font=\tiny, anchor=south, align=center] at ({2*\dx},3.62)
       {the score of position 3 is a gather at this \textbf{integer}};
     \node[idk] (t2) at ({1*\dx},3.3) {$\mathrm{id}_2$};
-    \node[idm] (t3) at ({2*\dx},3.3) {$\mathrm{id}(\bm{s})$};
+    \node[idm] (t3) at ({2*\dx},3.3) {$\mathrm{id}_3$};
     \node[idk] (t4) at ({3*\dx},3.3) {$\mathrm{id}_4$};
     \foreach \i in {1,2,3} \node[lgk] (z\i) at ({(\i-1)*\dx},2.2) {$\bm{Z}_\i$};
     \draw[-{Latex[length=1.5mm]}, imsamber, thick] (z1.north) -- (t2.south);
@@ -477,7 +528,7 @@
     \node[box, font=\tiny, minimum width=1.05cm] (e1) at (0,0) {$\bm{e}_1$\\``The''};
     \node[box, font=\tiny, minimum width=1.05cm] (e2) at ({1*\dx},0) {$\bm{e}_2$\\``dog''};
     \node[draw=imsred, very thick, rounded corners, fill=imsred!12, align=center,
-          inner sep=3pt, font=\tiny, minimum width=1.05cm] (e3) at ({2*\dx},0) {$\bm{s}$\\\texttt{[MASK]}};
+          inner sep=3pt, font=\tiny, minimum width=1.05cm] (e3) at ({2*\dx},0) {$\bm{s}$\\{\tiny replaces $\bm{e}_3$}};
     \node[box, font=\tiny, minimum width=1.05cm] (e4) at ({3*\dx},0) {$\bm{e}_4$\\``loudly''};
     \foreach \n in {e1,e2,e4} \draw[ar] (\n) -- (\n |- tf.south);
     \draw[-{Latex[length=2mm]}, imsteal, very thick] (e3) -- (e3 |- tf.south);
@@ -485,7 +536,6 @@
     \draw[-{Latex[length=2mm]}, imsteal, very thick] (z3 |- tf.north) -- (z3);
     \node[imsteal, font=\small] at ({2*\dx+0.32},0.72) {\ding{51}};
     \node[imsteal, anchor=west, font=\tiny] at ({2*\dx+0.3},1.71) {reaches $\bm{Z}_3$ onward};
-    % causal mask: nothing from position 3 flows left into Z_1, Z_2
     \draw[imsred, very thick, dashed] ({1.5*\dx},1.42) -- ({1.5*\dx},2.0);
     \node[imsred, font=\small, fill=white, inner sep=1pt] at ({1.5*\dx},1.71) {\ding{55}};
     \node[imsred, anchor=east, font=\tiny, align=right] at ({-0.7},1.71) {causal mask:\\nothing flows left};
@@ -493,8 +543,8 @@
   \end{center}
   \vspace{0.3em}
   \begin{center}\small
-  $\bm{Z}_2$ was built from $\bm{e}_1,\bm{e}_2$ alone. The only thing position 3 contributes to
-  \emph{its own} score is that integer, so the derivative is exactly $\bm{0}$.
+  $\bm{Z}_2$ was built from $\bm{e}_1,\bm{e}_2$ alone, and $\mathrm{id}_3$ is the \emph{integer} $\bm{s}$
+  stands in for. So that derivative is exactly $\bm{0}$.
   \end{center}
   \vspace{0.5em}
   \begin{center}
@@ -512,12 +562,16 @@
 
 \begin{frame}{Hypothesis B: same model, same sampler, different derivative}
   \begin{columns}[T]
-    \begin{column}{0.53\textwidth}
+    \begin{column}{0.5\textwidth}
       \small Relax the token indicator $\bm{z}_i$ in \emph{both} of its roles:
       \[ \frac{\partial \tilde{L}}{\partial \bm{z}_i[v]} = \underbrace{\log p(v\mid \bm{x}_{<i})}_{\text{self, discarded}} + \underbrace{\bm{g}^\top \bm{e}(v)}_{\text{future}} \]
       {\small Same weights, same sampler, same energy. Only the derivative changes.}
+      \vspace{0.5em}
+
+      {\scriptsize \structure{$\rho$ (near)}: how well the estimate \emph{ranks} candidates against
+      the truth, over the swaps that are actually reachable. $1$ = perfect order, $0$ = no order.}
     \end{column}
-    \begin{column}{0.47\textwidth}
+    \begin{column}{0.5\textwidth}
       \small
       \begin{tabular}{lcc}
         \toprule
@@ -528,21 +582,21 @@
         \bottomrule
       \end{tabular}
       \\[0.5em]{\scriptsize Llama-3 8B reaches $41.0\%$ where every input-embedding run gives $0.0\%$.}
-      \vspace{0.5em}
-      \begin{center}\structure{$0 \to 40\%$}\\{\footnotesize B rejected in its strong form}\end{center}
+      \vspace{0.8em}
+      \begin{center}\structure{\Large $0 \to 40\%$}\\{\footnotesize B rejected in its strong form}\end{center}
     \end{column}
   \end{columns}
-  \vspace{0.4em}
-  \begin{center}\small At the calibrated $T=5$ even this falls to $2\%$: the \structure{temperature} was the binding constraint.\end{center}
 \end{frame}
 
-\begin{frame}{The exact case: the final-token gradient is zero}
+\begin{frame}{A clean confirmation: at the last position the gradient is provably zero}
   \begin{columns}[T]
     \begin{column}{0.56\textwidth}
-      Under causal attention with \texttt{inputs\_embeds}, the gradient of the sequence log-likelihood w.r.t.\ the \emph{final} token's input embedding is
+      \small The final token's embedding feeds no prediction that exists, so
       \[ \nabla_{\bm{e}_L}\log p_{\text{LM}}(\bm{x}) = \bm{0} \quad\text{(exactly)}, \]
-      while the energy \emph{difference} between candidate final tokens is exactly the model's conditional log-ratio.
-      \vspace{0.4em}
+      while the energy \emph{difference} between candidate final tokens is exactly the model's
+      conditional log-ratio.
+      \vspace{0.5em}
+
       \structure{Energy maximally usable; gradient provably useless.}
     \end{column}
     \begin{column}{0.44\textwidth}
@@ -556,47 +610,82 @@
         middle & $>0$ \\
         \bottomrule
       \end{tabular}
-      \\[0.4em]{\scriptsize Langevin recovers $0\%$ at all three positions; exact-energy methods $18$--$55\%$.}
+      \\[0.4em]{\scriptsize Langevin recovers $0\%$ at all three; exact-energy methods $18$--$55\%$.}
     \end{column}
   \end{columns}
 \end{frame}
 
-\begin{frame}{Hypothesis C: the conditioning ladder}
+\begin{frame}{Hypothesis C: swap the proposal, keep everything else}
   \begin{columns}[T]
-    \begin{column}{0.58\textwidth}
+    \begin{column}{0.52\textwidth}
+      \small
+      An autoregressive model can only ever look \structure{left}. To fill a hole it has no path
+      from the words \emph{after} it.
+      \vspace{0.4em}
+
+      Two model families can look both ways:
+      \begin{itemize}\small
+        \item \textbf{SEDD}, a discrete diffusion model: re-mask a position, re-denoise it from both sides.
+        \item \textbf{RoBERTa}, an ordinary masked LM: the same query, and its native training task.
+      \end{itemize}
+    \end{column}
+    \begin{column}{0.48\textwidth}
+      \begin{center}
+      \begin{tikzpicture}[node distance=5mm, font=\scriptsize]
+        \node[op, text width=3.1cm, align=center] (prop) {ask model $M$ for its\\distribution at the hole};
+        \node[box, below=of prop, text width=3.1cm, align=center] (draw) {draw one candidate};
+        \node[box, below=of draw, text width=3.1cm, align=center] (mh) {accept / reject by the\\\textbf{frozen GPT-2 energy}};
+        \draw[ar] (prop) -- (draw);
+        \draw[ar] (draw) -- (mh);
+      \end{tikzpicture}
+      \end{center}
+      \vspace{0.3em}
+      {\scriptsize An \structure{independence sampler}: $M$ only \emph{suggests}. The energy being
+      sampled is still GPT-2's, unchanged. Same $200$ sequences, same corruptions, same metric.}
+    \end{column}
+  \end{columns}
+  \vspace{0.3em}
+  \begin{center}\small
+  \structure{Only the box marked $M$ changes.} So whatever moves is caused by the proposal.
+  \end{center}
+\end{frame}
+
+\begin{frame}{The conditioning ladder}
+  \begin{columns}[T]
+    \begin{column}{0.6\textwidth}
       \scriptsize
       \setlength{\tabcolsep}{3pt}
-      One Metropolis chain, one exact AR energy. \emph{Only the proposal changes.}
       \begin{tabular}{llc}
         \toprule
-        Proposal & conditioning & exact \\
+        Proposal & can see & exact \\
         \midrule
-        input-emb.\ gradient & none & $0.0\%$ \\
-        norm-matched random & none & $0.0\%$ \\
-        uniform draw & none & $0.5\%$ \\
-        AR conditional & left only & $23.5\%$ \\
+        input-emb.\ gradient & nothing & $0.0\%$ \\
+        norm-matched random & nothing & $0.0\%$ \\
+        uniform draw & nothing & $0.5\%$ \\
+        GPT-2's own conditional & left only & $23.5\%$ \\
         SEDD (score-trained) & both sides & $39.0\%$ \\
         RoBERTa MLM \structure{(no score obj.)} & both sides & $\mathbf{44.5\%}$ \\
         \bottomrule
       \end{tabular}
       \\[0.5em]
-      The uniform draw reproduces the flagship Langevin sampler: KL $6.538$ vs $6.541$.
+      The uniform draw reproduces the flagship Langevin sampler, KL $6.538$ vs $6.541$, from
+      separate code. So the pipeline leaks nothing.
     \end{column}
-    \begin{column}{0.42\textwidth}
-      \begin{center}
-      \begin{tikzpicture}[node distance=7mm, font=\footnotesize]
-        \node[op] (prop) {proposal\\(any model)};
-        \node[box, below=of prop] (mh) {MH accept\\by \textbf{frozen AR energy}};
-        \node[box, below=of mh] (out) {recovered\\token};
-        \draw[ar] (prop) -- (mh);
-        \draw[ar] (mh) -- (out);
-      \end{tikzpicture}
-      \end{center}
-      \vspace{0.5em}
-      {\scriptsize Gradient-free comparator: top-$k$ rescore $33\%$. So $39\%$ is a gain over $33$, not over nothing.}
+    \begin{column}{0.4\textwidth}
+      \begin{block}{Two claims, both confirmed}
+      \scriptsize
+      \structure{Output side} beats no side: $0.5 \to 23.5$.
+      \vspace{0.3em}
+
+      \structure{Both sides} beat left only: $23.5 \to 44.5$.
+      \end{block}
+      \vspace{0.2em}
+      {\scriptsize Gradient-free comparator on the same task: top-$k$ rescore $33\%$. So $44.5$ is
+      a gain over $33$, not over nothing.}
     \end{column}
   \end{columns}
-  \begin{center}\structure{Score training is sufficient, not necessary.}\end{center}
+  \vspace{0.2em}
+  \begin{center}\small\structure{What orders this is access to context, not the training objective.}\end{center}
 \end{frame}
 
 % =====================================================================
@@ -617,33 +706,39 @@
   \end{center}
 \end{frame}
 
-\begin{frame}{The extension: does an additive constraint steer anything?}
+\begin{frame}{The extension: can we actually steer it?}
+  \vspace{0.2em}
+  {\small The original promise: $E = -\log p_{\text{LM}} + \lambda\,C$, with $C$ a sentiment
+  classifier. Does adding $C$ move the output?}
+  \vspace{0.5em}
   \begin{columns}[T]
-    \begin{column}{0.52\textwidth}
-      \small $E = -\log p_{\text{LM}} + \lambda\,C$, sentiment head on the frozen base.
-      \vspace{0.2em}
-
-      {\scriptsize Raw gains are swamped by a sentiment drift, so the statistic is a paired contrast that cancels it.}
-      \vspace{0.4em}
+    \begin{column}{0.55\textwidth}
       \scriptsize
       \begin{tabular}{llc}
         \toprule
-        Setup (continuation) & Target & Contrast \\
+        Sampler & Target & Steering \\
         \midrule
-        MuCoLa continuous & negative & $+27.3$ \\
-        MuCoLa continuous & positive & $+36.7$ \\
+        MuCoLa-style continuous & negative & $+27.3$ \\
+        MuCoLa-style continuous & positive & $+36.7$ \\
         Discrete sampler (ours) & negative & $0.0$ \\
         Discrete sampler (ours) & positive & $+0.7$ \\
         \bottomrule
       \end{tabular}
+      \\[0.5em]
+      {\scriptsize Percentage points, \emph{constraint only} minus \emph{randomized constraint}.
+      That subtraction cancels a large sentiment drift present in every arm, including the ones
+      with no constraint at all.}
     \end{column}
-    \begin{column}{0.48\textwidth}
-      \structure{On a landscape a proposal can navigate:}
-      \begin{itemize}\small
-        \item Guidance moves the classifier's own verdict by $+9.3$ to $+25.7$ points.
-        \item Transfer to an independent judge is bounded by instrument agreement, $56$--$80\%$.
-        \item A trust region removes the fluency cost ($7.1 \to 11.0$ nats without it).
-      \end{itemize}
+    \begin{column}{0.45\textwidth}
+      \begin{block}{How to read this}
+      \scriptsize
+      The \structure{constraint} gradient's direction carries signal where the
+      \structure{fluency} gradient's never did.
+      \vspace{0.3em}
+
+      But the arm that steers has no fluency term holding it down, so it drifts off the manifold
+      of real text and the classifier scores something it was never trained on.
+      \end{block}
     \end{column}
   \end{columns}
   \vspace{0.4em}
@@ -652,18 +747,52 @@
   \end{center}
 \end{frame}
 
+\begin{frame}{So put the constraint on a landscape that \emph{is} navigable}
+  \begin{columns}[T]
+    \begin{column}{0.52\textwidth}
+      \small
+      Carry the constraint on the \structure{bidirectional} proposal instead: train a classifier
+      to read the diffusion model's partially masked states, and reweight its candidates at each
+      commitment.
+      \vspace{0.4em}
+
+      {\scriptsize The classifier that \emph{guides} and the judge that \emph{grades} are
+      separate models throughout.}
+    \end{column}
+    \begin{column}{0.48\textwidth}
+      \begin{itemize}\small
+        \item Steering works: $+9.3$ to $+25.7$ points, both labels, every strength.
+        \item It steers its own classifier more reliably than the independent judge.
+        \item Transfer is bounded by how far the two instruments \emph{agree}: $56\% \to 80\%$.
+        \item A trust region removes the fluency cost ($7.1 \to 11.0$ nats without it).
+      \end{itemize}
+    \end{column}
+  \end{columns}
+  \vspace{0.5em}
+  \begin{center}\small
+  \structure{Control follows navigation.} Explored, not settled: a repair on \emph{another}
+  landscape, not an answer about the autoregressive energy.
+  \end{center}
+\end{frame}
+
 % =====================================================================
 \section{Takeaways}
 
 \begin{frame}{Takeaways}
-  \vspace{0.4em}
+  \vspace{0.5em}
   \begin{enumerate}\small
-    \item \structure{Not the derivative you think.} The \emph{input-embedding} gradient is equivalent to a norm-matched random direction, certified over $1000$ paired sequences.
-    \item \structure{Not the target, and not the model.} The same frozen weights, differentiated in token-indicator coordinates, recover $40\%$ and $41\%$.
-    \item \structure{What buys the rest is right-context access}, not a score objective: RoBERTa $44.5\% >$ SEDD $39\% >$ AR conditional $23.5\%$.
-    \item \structure{Control follows navigation.}
+    \item \structure{The direction is worthless, and that is certified.} Replacing the gradient
+      with a random direction of the same length changes nothing, inside a margin fixed in
+      advance, over $1000$ paired sequences.
+    \item \structure{The energy is fine. The model is fine. The \emph{coordinates} were wrong.}
+      A derivative of the same frozen weights, taken with respect to the token's identity rather
+      than its embedding, goes from $0\%$ to $40\%$.
+    \item \structure{The rest is about seeing both sides.} A plain masked language model, never
+      trained on scores, beats a purpose-built diffusion model. Access, not objective.
+    \item \structure{Control follows navigation.} A constraint buys nothing where the proposal
+      cannot move, and buys a lot where it can.
   \end{enumerate}
-  \vspace{0.9em}
+  \vspace{0.8em}
   \begin{center}
   \Large\structure{Differentiate the right object, or propose from the output side.}\\[0.3em]
   \normalsize Not: evaluate rather than differentiate. The derivative was in the wrong coordinates.
@@ -683,7 +812,10 @@
 \appendix
 \section*{Backup}
 
-\begin{frame}{Backup: the linearization radius and self-term blindness}
+% ---- backup slides: excluded from the frame count ----
+\appendix
+
+\begin{frame}[noframenumbering]{Backup: the linearization radius and self-term blindness}
   \begin{columns}[T]
     \begin{column}{0.5\textwidth}
       \small
@@ -699,7 +831,7 @@
   \end{columns}
 \end{frame}
 
-\begin{frame}{Backup: the Metropolis--Hastings chain}
+\begin{frame}[noframenumbering]{Backup: the Metropolis--Hastings chain}
   \small
   \[ \alpha = \min\!\left\{1,\ \frac{p(\bm{s}')\,q(\bm{s}\mid\bm{s}')}{p(\bm{s})\,q(\bm{s}'\mid\bm{s})}\right\} \]
   \begin{itemize}
@@ -709,7 +841,7 @@
   \end{itemize}
 \end{frame}
 
-\begin{frame}{Backup: what the sampler does without the correction}
+\begin{frame}[noframenumbering]{Backup: what the sampler does without the correction}
   \small
   \begin{itemize}
     \item Correction off: a uniform random walk that never localizes. Mean KL \emph{rises} from $8.765$ to $9.499$; the chain still changes its token on $99.1\%$ of final-decile steps.
@@ -718,7 +850,7 @@
   \end{itemize}
 \end{frame}
 
-\begin{frame}{Backup: likelihood is a poor objective, yet used everywhere}
+\begin{frame}[noframenumbering]{Backup: likelihood is a poor objective, yet used everywhere}
   \small
   \begin{itemize}
     \item The \textbf{likelihood trap}: the lowest-energy text is the most degenerate (Holtzman 2020, reproduced here). Within-strategy repetition correlation up to $+0.91$.
@@ -727,7 +859,7 @@
   \end{itemize}
 \end{frame}
 
-\begin{frame}{Backup: MuCoLa / COLD, and why they appear to work}
+\begin{frame}[noframenumbering]{Backup: MuCoLa / COLD, and why they appear to work}
   \small
   \begin{itemize}
     \item The continuous sampler follows their state \emph{geometry} faithfully, a continuous embedding state with a projection after every update, and adds the correction those works omit. It does \emph{not} follow their \emph{energy}: see backup 33.
@@ -736,7 +868,7 @@
   \end{itemize}
 \end{frame}
 
-\begin{frame}{Backup: task design and corpus}
+\begin{frame}[noframenumbering]{Backup: task design and corpus}
   \small
   \begin{itemize}
     \item Masked-token recovery on WikiText-2 validation; the base GPT-2 Large is fine-tuned on ROCStories (out-of-domain test).
@@ -746,7 +878,7 @@
   \end{itemize}
 \end{frame}
 
-\begin{frame}{Backup: why did the temperature flatten everything?}
+\begin{frame}[noframenumbering]{Backup: why did the temperature flatten everything?}
   \small
   \begin{itemize}
     \item Proposal logit $=\ \big[\underbrace{\tfrac12 \bm{g}^\top(\bm{e}(v)-\bm{e}(x_i))}_{t_2} - \underbrace{\tfrac{1}{2\alpha}\lVert \bm{e}(v)-\bm{e}(x_i)\rVert^2}_{t_1}\big] / T$.
@@ -756,7 +888,7 @@
   \end{itemize}
 \end{frame}
 
-\begin{frame}{Backup: what exactly is the token-indicator derivative?}
+\begin{frame}[noframenumbering]{Backup: what exactly is the token-indicator derivative?}
   \small
   Relax the token indicator $\bm{z}_i$ from its simplex vertex, in \emph{both} roles:
   \[ \tilde{L}(\bm{z}_i) = \sum_v \bm{z}_i[v]\log p(v\mid \bm{x}_{<i}) \;+\; L_{\text{future}}(\bm{E}^\top \bm{z}_i) \]
@@ -767,7 +899,7 @@
   \end{itemize}
 \end{frame}
 
-\begin{frame}{Backup: why does RoBERTa beat SEDD?}
+\begin{frame}[noframenumbering]{Backup: why does RoBERTa beat SEDD?}
   \small
   \begin{itemize}
     \item Both are bidirectional; only SEDD is score-trained. RoBERTa $44.5\%$ vs SEDD-medium $39.0\%$, so the score objective is not what buys recovery.
@@ -777,7 +909,7 @@
   \end{itemize}
 \end{frame}
 
-\begin{frame}{Backup: why a GFlowNet, and the task-comparability caveat}
+\begin{frame}[noframenumbering]{Backup: why a GFlowNet, and the task-comparability caveat}
   \small
   \begin{itemize}
     \item A GFlowNet samples in proportion to reward (not the mode), and never differentiates it, so a gradient pathology would be invisible to it.
@@ -787,7 +919,7 @@
 \end{frame}
 
 
-\begin{frame}{Backup: how this differs from MuCoLa and COLD}
+\begin{frame}[noframenumbering]{Backup: how this differs from MuCoLa and COLD}
   \scriptsize
   \setlength{\tabcolsep}{4pt}
   \begin{center}

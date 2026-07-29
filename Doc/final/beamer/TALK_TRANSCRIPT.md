@@ -2,7 +2,8 @@
 
 **Energy-Guided Sampling for Controllable Text Generation: From Langevin Dynamics to Amortized Inference**
 
-Companion to `Presentation.tex` (33 slides: 22 content, 11 backup). Baseline 25.25 minutes, with a
+Companion to `Presentation.tex` (24 numbered slides plus 11 backup slides, which are
+excluded from the on-screen page count). Baseline 25.25 minutes, with a
 marked short set that brings it to 20.25 and a hard-cap variant at 19.75. See the timing card at
 the end.
 
@@ -710,37 +711,36 @@ in minute three; this is where they find out what happened to it.
 | 2 | the revision problem | 1.25 | 0.9 | 1.4 |
 | 3 | the energy promise and its assumption | 1.5 | 1.25 | 2.65 |
 | 4 | the machinery, Langevin dynamics | 1.0 | 0.75 | 3.4 |
-| 5 | scoring a sequence, two arrays offset by one | 1.0 | 0.6 | 4.0 |
-| 6 | research questions | 0.75 | 0.75 | 4.75 |
-| 7 | three candidate explanations | 1.0 | 1.0 | 5.75 |
-| 8 | the setup, five energies | 0.75 | 0.4 | 6.15 |
-| 9 | two samplers, and the DLS proposal | 1.75 | 1.5 | 7.65 |
-| 10 | the proposal is numerically uniform | 1.5 | 1.5 | 9.15 |
-| 11 | the central result, certified equivalence | 1.75 | 1.75 | 10.9 |
-| 12 | Hypothesis A, the target | 1.0 | 0.75 | 11.65 |
-| 13 | why 1, linearization | 1.5 | 1.5 | 13.15 |
-| 14 | why 2, the MH breakdown | 1.5 | 1.0 | 14.15 |
-| 15 | back to the two arrays, what the gradient reaches | 1.5 | 1.0 | 15.15 |
-| 16 | Hypothesis B, different derivative | 1.5 | 1.25 | 16.4 |
-| 17 | the exact final-position case | 1.0 | 0.5 | 16.9 |
-| 18 | Hypothesis C, the conditioning ladder | 1.5 | 1.5 | 18.4 |
-| 19 | GFlowNet | 0.75 | 0.25 | 18.65 |
-| 20 | the extension, constraint steering | 1.25 | 0.6 | 19.25 |
-| 21 | takeaways | 1.0 | 1.0 | 20.25 |
-| | **total** | **25.25** | **20.25** | |
+| 5 | scoring a sequence, two arrays offset by one | 1.25 | 0.75 | 4.15 |
+| 6 | research questions, and the two ways out | 0.75 | 0.75 | 4.9 |
+| 7 | three candidate explanations | 1.0 | 1.0 | 5.9 |
+| 8 | the setup, five energies | 0.75 | 0.4 | 6.3 |
+| 9 | two samplers, and the DLS proposal | 1.75 | 1.5 | 7.8 |
+| 10 | entropy, and what the proposal actually is | 1.25 | 1.0 | 8.8 |
+| 11 | the central result, certified equivalence | 1.75 | 1.5 | 10.3 |
+| 12 | Hypothesis A, try something simpler | 1.0 | 0.75 | 11.05 |
+| 13 | why 1, the approximation dies first | 1.5 | 1.25 | 12.3 |
+| 14 | RQ2, what accept/reject does | 1.5 | 1.0 | 13.3 |
+| 15 | back to the two arrays | 1.5 | 1.0 | 14.3 |
+| 16 | Hypothesis B, different derivative | 1.25 | 1.0 | 15.3 |
+| 17 | the final-position confirmation | 0.75 | 0.4 | 15.7 |
+| 18 | Hypothesis C, swap the proposal | 1.0 | 0.75 | 16.45 |
+| 19 | the conditioning ladder | 1.25 | 1.25 | 17.7 |
+| 20 | GFlowNet | 1.0 | 0.5 | 18.2 |
+| 21 | the extension, constraint steering | 1.25 | 0.75 | 18.95 |
+| 22 | steering on a navigable landscape | 1.0 | 0.6 | 19.55 |
+| 23 | takeaways | 1.0 | 1.0 | 20.55 |
+| | **total** | **26.75** | **20.55** | |
 
-**The short set**, in the order to apply it: slide 19 to one sentence; slide 20 to the table and
-the closing line; slide 17 to the zero-gradient statement alone; slide 14 without the "what that
-means" paragraph; slide 8 read straight off; slide 16 as numbers only, since 15 now carries the
-derivation; slide 2 without the thousand-candidates sentence; slide 5 without the two code lines; slide 12
-without the qualification paragraph; slide 4 without the mode clause and the Lipschitz aside;
-slide 3 without the PPLM contrast.
+**The short set**, in the order to apply it: slide 22 to the four bullets only; slide 21 to the
+table and the closing line; slide 17 to the zero-gradient statement alone; slide 20 to the
+pivot line and the last bullet; slide 14 without the "what that means" paragraph; slide 8 read
+straight off; slide 11 without the three-summaries list; slide 5 without the corruption aside;
+slide 2 without the thousand-candidates sentence; slide 4 without the mode clause and the
+Lipschitz aside; slide 3 without the PPLM contrast.
 
-**Under a hard 20-minute cap**, drop slide 17 entirely, since slide 15 already makes the same
-point qualitatively. That alone lands at 19.75.
-
-**Never compress 7, 10, 15, 16 or 18.** Slide 7 is the frame the whole results section hangs on,
-10 is the honesty that protects the null, and 15, 16 and 18 are the contribution.
+**Never compress 7, 10, 15, 16 or 19.** Slide 7 is the frame the whole results section hangs on,
+10 is the honesty that protects the null, and 15, 16 and 19 are the contribution.
 
 **Running short?** Expand slide 17, which has the most headroom, or bring up the temperature
 backup.
@@ -776,3 +776,164 @@ You will be asked to summarize under pressure. Rehearse these.
   another.
 - **"Evaluate, do not differentiate."** This was the earlier slogan and it is superseded. The
   corrected form is on slide 21.
+
+
+---
+
+# Addendum, round 9: notes for the slides that changed
+
+## Slide 5, the corrupted position
+
+The new bottom row is `input_ids`, the discrete sequence. Read it left to right and then say:
+"position three has been corrupted; a random id, 8912, was written in where the real token was."
+Then move up: "that id is looked up into an embedding, except at the corrupted position, where we
+put **s**, the continuous vector we are going to optimize." Then the top row: "and the target row
+is that same array of ids, shifted by one." Point at 8912 appearing in both rows. That is the
+whole slide.
+
+## Slide 10, entropy
+
+Do the left column as a definition and do not rush it. "Entropy is one number that says how
+spread out a distribution is. Zero means it has made up its mind. The ceiling, ten point eight
+two, means it is choosing uniformly among all fifty thousand tokens."
+
+Then the measurement: "at its sharpest, the proposal we spent the whole grid on sits one
+ten-thousandth of a nat below that ceiling."
+
+Then the sentence that makes 0.009 mean something: "the gradient term spreads the logits it
+contributes by about nine thousandths of a nat. The softmax consuming those logits has a
+ten-point-eight-two nat budget. So the gradient is moving the proposal by about one part in a
+thousand." If someone wants it sharper: it is a signal-to-budget ratio, not a probability.
+
+## Slide 11, the three summaries and the margin
+
+Say the control first and slowly: "I take the true gradient, keep its length exactly, and
+randomize its direction. So the two arms differ in direction and in nothing else." That is the
+norm-matched random arm, and it is the arm in both the table and the paired contrast. The fully
+random arm is a third arm and is not what these numbers compare against; say so only if asked.
+
+The three summaries: a Markov chain is not its last state, so summarizing by the last state
+throws away everything it visited. Last step is where it stopped, chain mean is its typical
+state, best state is the best it ever reached. All three, so nobody can say the summary was
+chosen after the fact.
+
+The margin: "I wrote down before running the test how big a difference would have to be to
+matter, 0.327 nats, five percent of the policy mean. All three intervals fit inside that." Then
+the sentence that earns the slide: "so this is equivalence certified against a threshold, not a
+failure to find a difference. Those are different claims and only the first is worth making."
+
+## Slide 13, the radius, and how to talk the audience through the figure
+
+This is the slide to slow down on for a general audience. Build it in three moves.
+
+1. What the proposal does: "to decide whether to swap in a candidate, it does not evaluate the
+   candidate. It draws the tangent line at the current token and reads off that line."
+2. Why that can fail: "a tangent is only accurate near where you drew it. The question is
+   whether it is still accurate at the distance of the nearest other word."
+3. The figure: x-axis is how far the swap moves you in embedding space, y-axis is how well the
+   estimate agrees with the truth for swaps of that size. "Near zero distance it is weakly
+   positive. By distance one point eight two it is at zero."
+
+Then the punchline, which is the whole slide: "one point eight two is the average distance to the
+nearest other token. That is the smallest move that changes any word at all. So every move the
+sampler is allowed to make is already outside the range where its own estimate carries
+information." Say the word **inapplicable** deliberately: not inaccurate, inapplicable, because
+there is no admissible move inside the valid range.
+
+Layman version if you need one: "it is a map that is only accurate within one metre, and the
+nearest place you could possibly go is a hundred metres away."
+
+## Slide 14, RQ2, and the cell-boundary picture
+
+Frame it as RQ2 out loud: "that was RQ1. RQ2 asks what the accept/reject step does, and it does
+opposite things in my two samplers."
+
+The picture: embedding space is carved into regions, one per token; while you stay inside the
+"dog" region the sequence still reads "dog". So the only moves that matter are the ones that
+cross a boundary.
+
+The equation is two questions. "Is the new state better?" and "could we have come back?"
+Metropolis needs both, because a chain that cannot reverse a move is not sampling, it is
+drifting. Then the numbers: the first term is $e^{+4.60}$, so these are genuinely good moves, the
+distribution wants them. The second is $e^{-1325}$.
+
+If asked why the reverse term is so small: the reverse move's proposal is centred on the drift
+computed on the far side of the boundary, and over there the model is predicting a different
+token, so that drift points somewhere unrelated to where you came from. Your old position lands
+in the far tail of a Gaussian, and the density there is numerically zero.
+
+Close with the split, because it is what makes RQ2 an answer rather than a complaint: "the exact
+correction disables the continuous sampler and rescues the discrete one, where a within-cell move
+is its own reverse and is accepted with probability one."
+
+Do not say the correction is broken. It is exact for the proposal it corrects. What fails is the
+smoothness the Langevin construction assumes underneath it.
+
+## Slide 16, what rho (near) is
+
+"Spearman rho asks: if I sort the candidates by my estimate, and sort them by the truth, do the
+two orders agree? One is a perfect match, zero is no relationship. The proposal only ever uses
+the ordering, so this is exactly the quantity that matters."
+
+"Near" means restricted to the swaps that are actually reachable, mean distance 1.94, which is
+the admissible range slide 13 was about. Measuring over all candidates including absurd ones
+would flatter the number; this is the honest stratum.
+
+## Slides 18 and 19, and what Hypothesis C actually claims
+
+Hypothesis C has two clauses, and the ladder tests them separately. Clause one: the information
+is in the frozen model and the input-embedding derivative discards it, so a proposal that reads
+the **output side** recovers it. That is the jump from 0.5 to 23.5, and it uses GPT-2 itself.
+Clause two: a proposal that can additionally see the **right context** recovers more still. That
+is the jump from 23.5 to 44.5, and it needs a model that can look both ways.
+
+So bidirectionality is not part of the hypothesis's premise. It is the second, weaker clause, and
+the top two rungs are what test it. Say the ladder as two jumps, not as one list.
+
+Slide 18 exists so that 19 is a measurement rather than a magic trick. Spend it on the mechanism:
+GPT-2 cannot look right, these two models can, and the proposal is an independence sampler, which
+means the substitute model only suggests a token and the frozen GPT-2 energy still decides. The
+energy being sampled never changes. Only the box marked M changes.
+
+## The pivot into the GFlowNet, slide 20
+
+The transition from the ladder's 44.5 percent to a failure is the one place the talk can feel
+jarring. Make the audience feel they asked for it.
+
+The seed is already planted on slide 6: two ways out, repair the search or abandon it.
+
+> **Say, coming off slide 19.** So the ladder says that if we want to fix inference-time search,
+> we have to fix the derivative and give the proposal access to the right context. But there is a
+> completely different philosophy in this field. What if inference-time search is simply too
+> expensive? What if you bypass the gradient entirely and train a policy that absorbs the search
+> cost up front? That is what a GFlowNet does, and because it only ever evaluates the reward and
+> never differentiates it, my broken gradient is invisible to it. So it should be fine.
+
+> **Say, opening slide 20.** It is not. It collapses in three distinct ways.
+
+> **Say, closing slide 20.** And here is the part that matters for the thesis. Tuning moved the
+> energy by thirty-one to fifty-seven nats. That is an enormous change. Yet running the same
+> Langevin sampler on the tuned energy is indistinguishable from running it on the base model.
+> Amortized training did not repair the geometry.
+
+If an examiner asks why it collapsed to short sequences, that is the trap you want: go to the
+likelihood-trap backup and give the brevity slope.
+
+## Slides 21 and 22, the constraint
+
+Slide 21 is the honest negative and slide 22 is what to do about it. Do not merge them.
+
+On 21, lead with the subtraction, because the raw numbers are untrustworthy: every arm drifts in
+sentiment, including arms with no constraint at all, so the only trustworthy statistic is
+constraint-only minus randomized-constraint, which cancels the drift. Then the split: the
+constraint gradient's direction carries signal where the fluency gradient's never did, and the
+sampler that cannot move gets nothing from it. Then volunteer the caveat before it is asked: the
+arm that steers has no fluency term holding it on the manifold, so the judge is scoring text
+unlike anything it was trained on.
+
+On 22, be explicit that this is exploration and not a result about the autoregressive energy. The
+useful sentence is the one about agreement: transfer to the independent judge is not bounded by
+some fixed reachable direction, it is bounded by how far the two instruments agree about the text
+at all, and that agreement climbs from 56 percent off-domain to 80 percent on real on-domain
+text. Two carriers found later, the masked language model and the token-indicator proposal, would
+serve the same purpose and were not tested; say so before someone asks.

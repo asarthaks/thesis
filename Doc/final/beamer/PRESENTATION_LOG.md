@@ -392,3 +392,61 @@ Gates: thesis latexmk exit 0, 129 pages, zero undefined references. Beamer exit 
 five pre-existing overfulls. No em-dashes in any edited file. No result file, table or figure
 was touched; the sweep found no remaining instance of the four old phrasings outside the
 correction record itself.
+
+---
+
+## 2026-07-29 AUTHOR ROUND 9: comprehension pass
+
+Standing rule reaffirmed by the author: content slides carry as little text as the argument
+allows, backup slides are exempt, and nothing is added to a content slide unless asked.
+
+### Deck is now 24 numbered slides plus 11 backups
+
+Backups carry `[noframenumbering]` and sit after `\appendix`, so the footer reads `n / 24`
+throughout and the backups all display `24 / 24`. They are still in the PDF.
+
+### Changes
+
+- Slide 5 gains an `input_ids` row at the bottom, so the audience sees the discrete sequence,
+  the embedding lookup, and the target row as the same array shifted by one. The corrupted
+  position carries a random id (8912) in red in both id rows, with the lookup arrow into
+  `inputs_embeds` replaced by a dashed red arrow into s.
+- Slide 6 plants the two-ways-out seed (repair the search, or train a policy) so the GFlowNet
+  pivot at slide 20 is something the audience has been promised.
+- Slide 7 rewritten to the thesis's own definitions of A, B and C, including C's two clauses.
+- Slide 10 now defines entropy before using it, and says what 0.009 nats inside a 10.82-nat
+  budget means: the gradient moves the proposal by about one part in a thousand. The "why this
+  comes first" alert block is removed at the author's request.
+- Slide 11 names the control in words (same length, randomized direction), glosses the three
+  chain summaries, and explains the margin as a threshold fixed in advance. It also states
+  explicitly that both the table and the paired contrast are policy against NORM-MATCHED random,
+  not against the fully random arm.
+- Slide 12 gains a side note on how Gibbs sampling works, and an exact-recovery column.
+- Slide 13 rewritten around the figure: what a first-order estimate is, what the figure's axes
+  are, and why 1.82 makes the estimate inapplicable rather than imprecise.
+- Slide 14 retitled to RQ2 and rebuilt: a cell-boundary picture replacing fig_mh_decomposition,
+  and the acceptance ratio split into "is it better?" and "could we come back?" with the two
+  measured terms underneath.
+- Slide 15 now labels the gathered integer id_3 and marks s as replacing e_3.
+- Slide 16 glosses rho (near) and drops the temperature sentence.
+- Slide 17 retitled as a confirmation and shortened.
+- Hypothesis C split into two slides: 18 introduces the bidirectional models and the
+  independence-sampler mechanism (only the box marked M changes), 19 is the ladder read as two
+  jumps, output side and both sides.
+- Slide 21 (constraint) rewritten around the paired subtraction with the off-manifold caveat on
+  the slide; new slide 22 carries the classifier-guided steering on the diffusion carrier.
+- Takeaways reframed as four plain sentences.
+
+### Transcript
+
+Timing card rebuilt: baseline 26.75, short set 20.55. A long addendum carries the notes the
+author asked for: how to talk through the linearization figure for a general audience, the
+cell-boundary and reversibility explanation, what rho (near) is, what Hypothesis C actually
+claims and where bidirectionality enters it, and the three-part signposted pivot into the
+GFlowNet slide.
+
+### Gates
+
+latexmk exit 0, 35 pages in the file, 24 numbered. Only two overfull boxes remain in the whole
+deck, both pre-existing on the energy-promise slide. Slides 5, 15, 24 and a backup rendered and
+inspected. No em-dashes.

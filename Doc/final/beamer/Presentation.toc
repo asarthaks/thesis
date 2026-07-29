@@ -3,5 +3,5 @@
 \beamer@sectionintoc {2}{The faithful implementation}{9}{0}{2}
 \beamer@sectionintoc {3}{The null}{10}{0}{3}
 \beamer@sectionintoc {4}{Eliminating the explanations}{12}{0}{4}
-\beamer@sectionintoc {5}{Amortization and control}{19}{0}{5}
-\beamer@sectionintoc {6}{Takeaways}{21}{0}{6}
+\beamer@sectionintoc {5}{Amortization and control}{20}{0}{5}
+\beamer@sectionintoc {6}{Takeaways}{23}{0}{6}
