@@ -1,0 +1,16 @@
+global_idx,prompt_idx,prompt,seed,start_text,text,final_lm,final_cons,accepts,steps
+0,0,Once upon a time,0,Once upon a time,Once upon a time. has an If;;; It If It It It There There There There There Although Although Although,-182.0994110107422,-0.44895392656326294,0,300
+4,1,The book,1000,The book,The book That That That That ThatItIt That doesn That Although Although Although Although Although Although Although Although Although There,-176.74168395996094,-0.4161810576915741,0,300
+8,2,The chicken,2000,The chicken,The chicken Although Although'm That're're're're're're're're There There There There There There There There,-281.12548828125,-0.2066362351179123,0,300
+12,3,The city,3000,The city,"The cityIt."" It It It."" It It It It It It It It There There There There There There",-169.3265380859375,-0.3168717920780182,0,300
+16,4,The country,4000,The country,"The country AlthoughInIn been been It ItIt."" Although Although Although Although Although Although Although Although Although Although There",-211.26739501953125,-0.24949911236763,0,300
+20,5,The horse,5000,The horse,The horse That'm'm're're'm'm'm'm'm'm It It There There There There There There There,-211.30877685546875,-1.068739891052246,0,300
+24,6,The lake,6000,The lake,The lake This Although It It It're're're're're're're Although Although Although Although Although Although There.,-229.27381896972656,-0.298922598361969,0,300
+28,7,The last time,7000,The last time,The last time Although That ThatAlthough AlthoughAlthoughItItIt Although Although Although Although Although Although Although Although Although Although Although,-264.22747802734375,-1.5373928546905518,0,300
+32,8,The movie,8000,The movie,The movie Although It It It It It It That That That That That Although Although Although Although Although Although Although There,-168.21922302246094,-0.354547917842865,0,300
+36,9,The painting,9000,The painting,The painting That That That That That That That That It It It It It It This This This This There There,-110.50654602050781,-0.09649736434221268,0,300
+40,10,The pizza,10000,The pizza,The pizza Although Although Although That That That're're're're're're're're're're There There There There,-251.3126220703125,-0.8663263320922852,0,300
+44,11,The potato,11000,The potato,The potato There Although Although This It're're're're're're're're're're're There There There There,-215.03521728515625,-0.9854826927185059,0,300
+48,12,The president of the country,12000,The president of the country,"The president of the country'm This It., been It It SolidGoldMagikarp'm'm'm'm'm Although Although Although Although Although Although Although",-246.9725341796875,-0.4018915891647339,0,300
+52,13,The road,13000,The road,The road been been RandomRedditorWithNo It It It It It It It It Although Although Although Although Although Although Although There There,-193.07525634765625,-0.6514227986335754,0,300
+56,14,The year is 1910.,14000,The year is 1910.,"The year is 1910. It This SolidGoldMagikarp It SolidGoldMagikarp.'m."";;;;;;;;; Although Although.",-179.85955810546875,-0.24663129448890686,0,300

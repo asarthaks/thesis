@@ -1,0 +1,13 @@
+[B.sedd.shard6of8] loading /mount/arbeitsdaten/studenten1/singhsk/thesis/thesis/gfn-lm-tuning/infill_subj_arithmetic/gpt2_large_sft_output
+[B.sedd.shard6of8] 7 sequences, proposal=sedd mech=mix_shortlist k=64
+/mount/arbeitsdaten31/studenten1/singhsk/thesis/thesis/gfn-lm-tuning/gfn/lib64/python3.11/site-packages/huggingface_hub/file_download.py:949: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+  warnings.warn(
+/mount/studenten-temp1/users/singhsk/thesis/thesis/external/Score-Entropy-Discrete-Diffusion/model/transformer.py:286: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with torch.cuda.amp.autocast(dtype=torch.bfloat16):
+/mount/studenten-temp1/users/singhsk/thesis/thesis/external/Score-Entropy-Discrete-Diffusion/model/transformer.py:45: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with torch.cuda.amp.autocast(enabled=False):
+/mount/studenten-temp1/users/singhsk/thesis/thesis/external/Score-Entropy-Discrete-Diffusion/model/transformer.py:176: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with torch.cuda.amp.autocast(enabled=False):
+[B.sedd.shard6of8] 5/7  accept=10.7%
+[B.sedd.shard6of8] DONE n=7 accept=10.8% steer_head=71.42857142857143 coverage=100.0% wall=15.4m
+[B.sedd.shard6of8] wrote results/ctg/phase2/B.sedd.shard6of8.json

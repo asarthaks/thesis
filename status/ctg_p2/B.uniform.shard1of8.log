@@ -1,0 +1,5 @@
+[B.uniform.shard1of8] loading /mount/arbeitsdaten/studenten1/singhsk/thesis/thesis/gfn-lm-tuning/infill_subj_arithmetic/gpt2_large_sft_output
+[B.uniform.shard1of8] 8 sequences, proposal=uniform mech=mix_shortlist k=64
+[B.uniform.shard1of8] 5/8  accept=9.0%
+[B.uniform.shard1of8] DONE n=8 accept=9.1% steer_head=62.5 coverage=100.0% wall=19.1m
+[B.uniform.shard1of8] wrote results/ctg/phase2/B.uniform.shard1of8.json

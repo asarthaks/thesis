@@ -1,0 +1,10 @@
+{
+  "run_name": "Aq.onehot",
+  "stage": "fluency",
+  "judge": "/mount/arbeitsdaten/studenten1/singhsk/models/llama3-8b",
+  "n": 60,
+  "judge_nll_per_token": 8.274958117802937,
+  "judge_perplexity": 3924.358266243878,
+  "judge_nll_sd": 0.9318615632210754,
+  "csv": "results/ctg/phase2/Aq.onehot.csv"
+}

@@ -1,0 +1,14 @@
+{
+  "run_name": "D.cls_thesis.g8.0",
+  "stage": "sentiment",
+  "judge": "siebert/sentiment-roberta-large-english",
+  "n": 60,
+  "target_label": 1,
+  "adherence_pct": 93.33333333333333,
+  "mean_target_prob": 0.927005953155458,
+  "distinct_1": 0.24803921568627452,
+  "distinct_3": 0.25,
+  "self_bleu_4": 1.0,
+  "semantic_spread": 3.973642985026042e-09,
+  "csv": "results/ctg/phase2/D.cls_thesis.g8.0.csv"
+}

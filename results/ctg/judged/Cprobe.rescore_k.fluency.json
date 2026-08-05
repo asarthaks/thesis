@@ -1,0 +1,10 @@
+{
+  "run_name": "Cprobe.rescore_k",
+  "stage": "fluency",
+  "judge": "/mount/arbeitsdaten/studenten1/singhsk/models/llama3-8b",
+  "n": 30,
+  "judge_nll_per_token": 8.853267971674601,
+  "judge_perplexity": 6997.218358287272,
+  "judge_nll_sd": 0.7481535864768573,
+  "csv": "results/ctg/phase2/Cprobe.rescore_k.csv"
+}

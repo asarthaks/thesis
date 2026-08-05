@@ -1,0 +1,10 @@
+{
+  "run_name": "Aq.exact_k",
+  "stage": "fluency",
+  "judge": "/mount/arbeitsdaten/studenten1/singhsk/models/llama3-8b",
+  "n": 60,
+  "judge_nll_per_token": 6.572289975484212,
+  "judge_perplexity": 715.0053144647468,
+  "judge_nll_sd": 1.0170795756385094,
+  "csv": "results/ctg/phase2/Aq.exact_k.csv"
+}

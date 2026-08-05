@@ -1,0 +1,10 @@
+{
+  "run_name": "Cprobe.both",
+  "stage": "fluency",
+  "judge": "/mount/arbeitsdaten/studenten1/singhsk/models/llama3-8b",
+  "n": 30,
+  "judge_nll_per_token": 8.871576770146687,
+  "judge_perplexity": 7126.508985464601,
+  "judge_nll_sd": 0.7939630878043388,
+  "csv": "results/ctg/phase2/Cprobe.both.csv"
+}

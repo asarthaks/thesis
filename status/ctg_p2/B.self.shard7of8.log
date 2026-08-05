@@ -1,0 +1,5 @@
+[B.self.shard7of8] loading /mount/arbeitsdaten/studenten1/singhsk/thesis/thesis/gfn-lm-tuning/infill_subj_arithmetic/gpt2_large_sft_output
+[B.self.shard7of8] 7 sequences, proposal=self mech=mix_shortlist k=64
+[B.self.shard7of8] 5/7  accept=11.2%
+[B.self.shard7of8] DONE n=7 accept=10.7% steer_head=42.857142857142854 coverage=100.0% wall=14.2m
+[B.self.shard7of8] wrote results/ctg/phase2/B.self.shard7of8.json

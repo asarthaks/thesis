@@ -1,0 +1,16 @@
+global_idx,prompt_idx,prompt,seed,start_text,text,final_lm,final_cons,accepts,steps
+0,0,Once upon a time,0,Once upon a time,"Once upon a time, there was a king who ruled over a large land. His subjects were very happy, and he",-22.62493896484375,-0.07516913115978241,0,300
+4,1,The book,1000,The book,The book was about a boy who wanted to be a lawyer. He went to college for law school. After,-15.650213241577148,-1.7273781299591064,0,300
+8,2,The chicken,2000,The chicken,The chicken was ready to be thrown away. It had been in the refrigerator for two weeks. The chicken was,-23.145732879638672,-5.494459629058838,0,300
+12,3,The city,3000,The city,The city was in the midst of a construction boom. The city was building a new water park. The park,-19.93543815612793,-0.432989239692688,0,300
+16,4,The country,4000,The country,The country was in the midst of a civil war. The North was led by a man named John Wilkes,-18.00394058227539,-0.4206106960773468,0,300
+20,5,The horse,5000,The horse,"The horse was tired from being on the trail all day. He wanted to take a nice, relaxing walk.",-22.58639907836914,-1.903096079826355,0,300
+24,6,The lake,6000,The lake,The lake was full of fish. Adam wanted to catch as many as he could. He set up the boat,-19.11724281311035,-1.061033010482788,0,300
+28,7,The last time,7000,The last time,The last time I saw my friend was at the movies. We went to the same theater. He had a date,-16.003135681152344,-0.6709864735603333,0,300
+32,8,The movie,8000,The movie,The movie was about to start and the lights were going down. The lights came back on and the movie started,-14.582489013671875,-1.8739879131317139,0,300
+36,9,The painting,9000,The painting,The painting was done. The client wanted it to go to the museum. They paid for it and took it,-24.557146072387695,-0.3316612243652344,0,300
+40,10,The pizza,10000,The pizza,The pizza was delivered to my door last week. I opened it and saw all my food. I was so,-23.507299423217773,-0.48332056403160095,0,300
+44,11,The potato,11000,The potato,The potato was a very popular food in Ireland. People ate them every day. One day a potato farmer showed,-25.798805236816406,-1.0239545106887817,0,300
+48,12,The president of the country,12000,The president of the country,The president of the country club was having a party. He invited all his friends. They came and they had a great time,-31.497901916503906,-0.29272133111953735,0,300
+52,13,The road,13000,The road,The road was very rough. The car was very slow. We had to brake very hard to avoid a collision,-24.73381233215332,-2.1013596057891846,0,300
+56,14,The year is 1910.,14000,The year is 1910.,The year is 1910. The world is at war. The United States is at war with Germany. The war has been going,-25.2199764251709,-0.7049472332000732,0,300

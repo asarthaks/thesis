@@ -1,0 +1,10 @@
+{
+  "run_name": "Aq.embgrad",
+  "stage": "fluency",
+  "judge": "/mount/arbeitsdaten/studenten1/singhsk/models/llama3-8b",
+  "n": 60,
+  "judge_nll_per_token": 7.708366465568543,
+  "judge_perplexity": 2226.9015650144993,
+  "judge_nll_sd": 0.8363804658271831,
+  "csv": "results/ctg/phase2/Aq.embgrad.csv"
+}

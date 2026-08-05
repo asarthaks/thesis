@@ -30,6 +30,7 @@ import os
 import json
 import argparse
 import random
+import time
 
 import numpy as np
 import torch
@@ -119,7 +120,19 @@ def main():
     p.add_argument("--sampler", choices=["dls", "cls"], required=True)
     p.add_argument("--method", default="policy",
                    choices=["policy", "grad_norm_preserved_random_dir", "random",
-                            "policy_onehot"])
+                            "policy_onehot", "policy_self", "policy_exact_k", "uniform"])
+    p.add_argument("--exact_k", type=int, default=64,
+                   help="policy_exact_k only: shortlist size for the exact future term.")
+    p.add_argument("--proposal_topk", type=int, default=0,
+                   help="restrict EVERY arm's proposal to the top-k candidates by the "
+                        "self term (plus the incumbent). 0 = full vocabulary, the "
+                        "archived behaviour. Use it to compare arms on matched support; "
+                        "requires --mh_exact_all_arms when --mh is on.")
+    p.add_argument("--drop_distance_term", action="store_true",
+                   help="zero the Langevin distance term t1, leaving each arm's own "
+                        "surrogate as the whole proposal score. Off by default. Needed "
+                        "with --proposal_topk, where t1 otherwise pins the chain to its "
+                        "incumbent.")
     p.add_argument("--mh", action="store_true")
     p.add_argument("--mh_exact_all_arms", action="store_true",
                    help="compute the exact reverse-proposal term for EVERY arm, not only "
@@ -233,6 +246,10 @@ def main():
     sampler = make_sampler(args, model, tokenizer)
     sampler.mh_exact_all_arms = bool(args.mh_exact_all_arms)
     sampler.record_proposal_stats = bool(args.log_proposal_stats)
+    sampler.exact_k = int(args.exact_k)
+    sampler.proposal_topk = int(args.proposal_topk)
+    sampler.drop_distance_term = bool(args.drop_distance_term)
+    wall_t0 = time.time()
 
     # Resolve the sample set FIRST, exactly as the unsharded run would: walk texts in order,
     # keep the cases that yield a valid corruption, stop at n_samples. build_corruption needs
@@ -343,6 +360,25 @@ def main():
         "mean_entropy": mean_ent.tolist(),
         "proposal_stats": mean_prop,
         "examples": examples,
+        # CTG phase cost triple. n_forward / n_backward are counted inside the sampler
+        # at every model call, so the cost claim for an arm is read off its own run
+        # rather than asserted. accepted_moves is the denominator for "cost per
+        # accepted move", the quantity Q1 actually trades against quality.
+        "cost": {
+            "n_forward": int(getattr(sampler, "n_forward", 0)),
+            "n_backward": int(getattr(sampler, "n_backward", 0)),
+            "n_exact_candidate_evals": int(getattr(sampler, "n_exact_candidate_evals", 0)),
+            "wall_time_sec": float(time.time() - wall_t0),
+            "n_sequences": int(done),
+            "n_mh_steps": int(reject_slots),
+            "n_accepted_moves": int(reject_slots - rejects) if args.mh else None,
+            "sec_per_accepted_move": (
+                float((time.time() - wall_t0) / max(reject_slots - rejects, 1))
+                if args.mh else None),
+            "forward_equivalents_per_sequence": (
+                float((getattr(sampler, "n_forward", 0)
+                       + 2.0 * getattr(sampler, "n_backward", 0)) / max(done, 1))),
+        },
     }
     tmp_path = out_path + ".tmp"
     with open(tmp_path, "w") as f:

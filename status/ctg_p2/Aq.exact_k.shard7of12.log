@@ -1,0 +1,5 @@
+[Aq.exact_k.shard7of12] loading /mount/arbeitsdaten/studenten1/singhsk/thesis/thesis/gfn-lm-tuning/infill_subj_arithmetic/gpt2_large_sft_output
+[Aq.exact_k.shard7of12] 5 sequences, proposal=exact_k mech=accept_only k=64
+[Aq.exact_k.shard7of12] 5/5  accept=22.8%
+[Aq.exact_k.shard7of12] DONE n=5 accept=22.8% steer_head=60.0 coverage=0.8% wall=53.0m
+[Aq.exact_k.shard7of12] wrote results/ctg/phase2/Aq.exact_k.shard7of12.json

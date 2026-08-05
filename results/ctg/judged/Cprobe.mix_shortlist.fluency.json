@@ -1,0 +1,10 @@
+{
+  "run_name": "Cprobe.mix_shortlist",
+  "stage": "fluency",
+  "judge": "/mount/arbeitsdaten/studenten1/singhsk/models/llama3-8b",
+  "n": 30,
+  "judge_nll_per_token": 8.799036677678426,
+  "judge_perplexity": 6627.856168207359,
+  "judge_nll_sd": 1.1117008726093398,
+  "csv": "results/ctg/phase2/Cprobe.mix_shortlist.csv"
+}

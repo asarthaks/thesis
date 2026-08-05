@@ -87,7 +87,7 @@
   \begin{center}\small Control means steering the \emph{completed} object. That is a global problem.\end{center}
 \end{frame}
 
-\begin{frame}{The energy-based promise, and its one assumption}
+\begin{frame}{The energy-based premise, and its one assumption}
   \begin{columns}[T]
     \begin{column}{0.54\textwidth}
       Treat the frozen likelihood as an \textbf{energy} over sequences and sample from it:
@@ -154,12 +154,14 @@
 
 \begin{frame}{Scoring a sequence: two arrays, offset by one}
   \begin{center}
-  \begin{tikzpicture}[x=1cm, y=1cm, font=\tiny,
+  \begin{tikzpicture}[x=1cm, y=0.86cm, font=\tiny,
       idk/.style={draw=imsamber, thick, rounded corners, fill=imsamber!22, align=center,
                   minimum width=1.05cm, minimum height=0.36cm, font=\tiny},
       idd/.style={draw=gray!40, thick, rounded corners, fill=gray!8, text=gray!55, align=center,
                   minimum width=1.05cm, minimum height=0.36cm, font=\tiny},
       idm/.style={draw=imsred, very thick, rounded corners, fill=imsred!12, align=center,
+                  minimum width=1.05cm, minimum height=0.36cm, font=\tiny},
+      idg/.style={draw=imsteal, very thick, rounded corners, fill=imsteal!14, align=center,
                   minimum width=1.05cm, minimum height=0.36cm, font=\tiny},
       lgk/.style={draw=imsblue, thick, rounded corners, fill=imsblue!8,
                   minimum width=1.05cm, minimum height=0.36cm, font=\tiny},
@@ -168,7 +170,8 @@
     \def\dx{1.85}
     \node[idd] (t1) at (0,2.95) {464};
     \node[idk] (t2) at ({1*\dx},2.95) {3290};
-    \node[idm] (t3) at ({2*\dx},2.95) {8912};
+    \node[idg] (t3) at ({2*\dx},2.95) {8912};
+    \node[imsteal, anchor=south, font=\tiny] at ({2*\dx},3.24) {ground truth, still ``barked''};
     \node[idk] (t4) at ({3*\dx},2.95) {17546};
     \node[idk] (t5) at ({4*\dx},2.95) {780};
     \foreach \i/\st in {1/lgk, 2/lgk, 3/lgk, 4/lgk, 5/lgd}
@@ -183,9 +186,14 @@
           minimum width=1.05cm, minimum height=0.36cm] (e3) at ({2*\dx},0.05) {$\bm{s}$};
     \node[idd, minimum height=0.5cm] (i1) at (0,-1.0) {464\\``The''};
     \node[idk, minimum height=0.5cm] (i2) at ({1*\dx},-1.0) {3290\\``dog''};
-    \node[idm, minimum height=0.5cm] (i3) at ({2*\dx},-1.0) {8912\\random};
+    \node[idm, minimum height=0.5cm] (i3) at ({2*\dx},-1.0) {79\\random};
     \node[idk, minimum height=0.5cm] (i4) at ({3*\dx},-1.0) {17546\\``loudly''};
     \node[idk, minimum height=0.5cm] (i5) at ({4*\dx},-1.0) {780\\``because''};
+    \node[idg, minimum height=0.5cm] (o3) at ({2*\dx},-2.15) {8912\\``barked''};
+    \draw[-{Latex[length=1.8mm]}, imsred, very thick] (o3.north) -- (i3.south);
+    \node[imsred, anchor=north, font=\tiny] at ({2*\dx},-2.5)
+      {corrupted: \ 8912 $\to$ 79, a random token};
+    \node[anchor=east, font=\tiny, text=imsteal] at (-0.72,-2.15) {\texttt{original token}};
     \foreach \i in {1,2,4,5} \draw[ar] (i\i) -- (e\i);
     \draw[-{Latex[length=1.8mm]}, imsred, very thick, dashed] (i3) -- (e3);
     \foreach \i in {1,...,5} {
@@ -506,10 +514,12 @@
 
 \begin{frame}{Back to the two arrays: what the gradient cannot reach}
   \begin{center}
-  \begin{tikzpicture}[x=1cm, y=1cm, font=\tiny,
+  \begin{tikzpicture}[x=1cm, y=0.86cm, font=\tiny,
       idk/.style={draw=imsamber, thick, rounded corners, fill=imsamber!22,
                   minimum width=1.05cm, minimum height=0.4cm, font=\tiny},
       idm/.style={draw=imsred, very thick, rounded corners, fill=imsred!12,
+                  minimum width=1.05cm, minimum height=0.4cm, font=\tiny},
+      idg/.style={draw=imsteal, very thick, rounded corners, fill=imsteal!14, align=center,
                   minimum width=1.05cm, minimum height=0.4cm, font=\tiny},
       lgk/.style={draw=imsblue, thick, rounded corners, fill=imsblue!8,
                   minimum width=1.05cm, minimum height=0.4cm, font=\tiny}]
@@ -517,7 +527,7 @@
     \node[imsred, font=\tiny, anchor=south, align=center] at ({2*\dx},3.62)
       {the score of position 3 is a gather at this \textbf{integer}};
     \node[idk] (t2) at ({1*\dx},3.3) {$\mathrm{id}_2$};
-    \node[idm] (t3) at ({2*\dx},3.3) {$\mathrm{id}_3$};
+    \node[idg] (t3) at ({2*\dx},3.3) {$\mathrm{id}_3 = 8912$};
     \node[idk] (t4) at ({3*\dx},3.3) {$\mathrm{id}_4$};
     \foreach \i in {1,2,3} \node[lgk] (z\i) at ({(\i-1)*\dx},2.2) {$\bm{Z}_\i$};
     \draw[-{Latex[length=1.5mm]}, imsamber, thick] (z1.north) -- (t2.south);
@@ -530,6 +540,11 @@
     \node[draw=imsred, very thick, rounded corners, fill=imsred!12, align=center,
           inner sep=3pt, font=\tiny, minimum width=1.05cm] (e3) at ({2*\dx},0) {$\bm{s}$\\{\tiny replaces $\bm{e}_3$}};
     \node[box, font=\tiny, minimum width=1.05cm] (e4) at ({3*\dx},0) {$\bm{e}_4$\\``loudly''};
+    \node[idg, minimum height=0.5cm] (o3) at ({2*\dx},-1.15) {8912 ``barked''};
+    \draw[-{Latex[length=1.8mm]}, imsred, very thick] (o3.north) -- (e3.south);
+    \node[imsred, anchor=west, font=\tiny, align=left] at ({2*\dx+0.16},-0.58)
+      {corrupted to a random token};
+    \node[imsteal, anchor=east, font=\tiny, align=right] at (-0.7,-1.15) {the token we\\must recover};
     \foreach \n in {e1,e2,e4} \draw[ar] (\n) -- (\n |- tf.south);
     \draw[-{Latex[length=2mm]}, imsteal, very thick] (e3) -- (e3 |- tf.south);
     \foreach \i in {1,2} \draw[ar] (z\i |- tf.north) -- (z\i);
@@ -707,16 +722,29 @@
 \end{frame}
 
 \begin{frame}{The extension: can we actually steer it?}
-  \vspace{0.2em}
-  {\small The original promise: $E = -\log p_{\text{LM}} + \lambda\,C$, with $C$ a sentiment
+  \vspace{0.1em}
+  {\footnotesize The original promise: $E = -\log p_{\text{LM}} + \lambda\,C$, with $C$ a sentiment
   classifier. Does adding $C$ move the output?}
-  \vspace{0.5em}
+  \vspace{0.3em}
+
+  \begin{center}
+  \colorbox{imsamber!18}{\parbox{0.95\textwidth}{\centering\scriptsize
+    \structure{Every number below is a contrast, never a raw gain:}\\[0.1em]
+    $\text{steering} \;=\; \%\,\text{target hit}\big(\textsf{constraint only}\big)
+     \;-\; \%\,\text{target hit}\big(\textsf{randomized constraint}\big)$\\[0.1em]
+    Same constraint, same magnitude, \emph{direction destroyed}. Raw gains are bias-dominated,
+    so only the subtraction isolates the \emph{direction}.}}
+  \end{center}
+  \vspace{0.2em}
+
   \begin{columns}[T]
-    \begin{column}{0.55\textwidth}
+    \begin{column}{0.53\textwidth}
       \scriptsize
+      \setlength{\tabcolsep}{3pt}
       \begin{tabular}{llc}
         \toprule
-        Sampler & Target & Steering \\
+        Sampler & Target & \textsf{cons\_only} \\
+                &        & $-\ $\textsf{cons\_random} \\
         \midrule
         MuCoLa-style continuous & negative & $+27.3$ \\
         MuCoLa-style continuous & positive & $+36.7$ \\
@@ -724,78 +752,152 @@
         Discrete sampler (ours) & positive & $+0.7$ \\
         \bottomrule
       \end{tabular}
-      \\[0.5em]
-      {\scriptsize Percentage points, \emph{constraint only} minus \emph{randomized constraint}.
-      That subtraction cancels a large sentiment drift present in every arm, including the ones
-      with no constraint at all.}
+      \\[0.3em]
+      {\scriptsize Points. The \structure{constraint} gradient's direction carries signal where
+      the \structure{fluency} gradient's never did. But the arm that steers has no fluency term
+      holding it down.}
     \end{column}
-    \begin{column}{0.45\textwidth}
-      \begin{block}{How to read this}
-      \scriptsize
-      The \structure{constraint} gradient's direction carries signal where the
-      \structure{fluency} gradient's never did.
-      \vspace{0.3em}
-
-      But the arm that steers has no fluency term holding it down, so it drifts off the manifold
-      of real text and the classifier scores something it was never trained on.
-      \end{block}
+    \begin{column}{0.47\textwidth}
+      \begin{center}
+      \begin{tikzpicture}[font=\tiny, x=0.85cm, y=0.36cm]
+        \node[anchor=west, font=\tiny] at (0,2.85) {\textsf{constraint only}};
+        \fill[gray!45]    (0,1.7) rectangle (2.4,2.4);
+        \fill[imsteal!80] (2.4,1.7) rectangle (3.6,2.4);
+        \node[anchor=west, font=\tiny] at (0,0.9) {\textsf{randomized constraint}};
+        \fill[gray!45]    (0,-0.25) rectangle (2.4,0.45);
+        \node[anchor=west, font=\tiny, text=imsteal] at (0,-1.05) {\textbf{reported contrast}};
+        \fill[imsteal!80] (0,-2.2) rectangle (1.2,-1.5);
+        \draw[imsblue, semithick, -{Latex[length=1.2mm]}] (3.0,1.6) -- (3.0,-1.85) -- (1.3,-1.85);
+      \end{tikzpicture}
+      \end{center}
+      \vspace{-0.1em}
+      {\scriptsize \textcolor{gray}{Grey}: the shared sentiment drift, present even with no
+      constraint at all, and it cancels. \textcolor{imsteal}{Teal}: what the direction adds.}
     \end{column}
   \end{columns}
-  \vspace{0.4em}
+  \vspace{0.2em}
   \begin{center}\small
   \structure{A constraint added to a landscape no sampler can navigate is added to nothing.}
   \end{center}
 \end{frame}
 
 \begin{frame}{So put the constraint on a landscape that \emph{is} navigable}
-  \begin{columns}[T]
-    \begin{column}{0.52\textwidth}
-      \small
-      Carry the constraint on the \structure{bidirectional} proposal instead: train a classifier
-      to read the diffusion model's partially masked states, and reweight its candidates at each
-      commitment.
-      \vspace{0.4em}
+  \vspace{-0.2em}
+  {\scriptsize Carry the constraint on the \structure{bidirectional} proposal instead.
+  \structure{Three instruments, strictly separated:}}
+  \vspace{0.1em}
 
-      {\scriptsize The classifier that \emph{guides} and the judge that \emph{grades} are
-      separate models throughout.}
+  \begin{center}
+  \begin{tikzpicture}[font=\tiny, x=1cm, y=1cm,
+      st/.style={draw=imsblue, thick, rounded corners, fill=imsblue!7, align=center,
+                 inner sep=3pt, font=\tiny, minimum height=0.62cm},
+      gd/.style={draw=imsamber, very thick, rounded corners, fill=imsamber!22, align=center,
+                 inner sep=3pt, font=\tiny, minimum height=0.62cm},
+      jd/.style={draw=imsteal, very thick, rounded corners, fill=imsteal!12, align=center,
+                 inner sep=3pt, font=\tiny, minimum height=0.62cm}]
+    \node[st] (x)  at (0,0)    {partially\\masked state};
+    \node[st] (sd) at (2.15,0) {\textbf{1. carrier}\\SEDD-medium};
+    \node[st] (tr) at (4.5,0)  {\textbf{trust region}\\top-32, $\delta = 5$ nats};
+    \node[gd] (cl) at (6.95,0) {\textbf{2. guide}\\$\times\ p_{\text{clf}}(\text{target})^{\gamma}$};
+    \node[st] (cm) at (9.0,0)  {commit\\one token};
+    \node[jd] (jg) at (9.0,-1.35) {\textbf{3. judge}\\frozen GPT-2 head};
+    \foreach \a/\b in {x/sd, sd/tr, tr/cl, cl/cm} \draw[ar] (\a) -- (\b);
+    \draw[ar] (cm.south) -- node[right, font=\tiny]{\ finished text} (jg.north);
+    \draw[ar] (cm.north) -- ++(0,0.42) -| node[pos=0.25, above, font=\tiny]{$64$ denoising steps} (x.north);
+    \node[imsteal, anchor=east, font=\tiny, align=right] at (7.7,-1.35)
+      {scores only,\\never in the loop};
+  \end{tikzpicture}
+  \end{center}
+  \vspace{0.1em}
+
+  \begin{columns}[T]
+    \begin{column}{0.44\textwidth}
+      \begin{center}
+      \begin{tikzpicture}[font=\tiny, x=0.30cm, y=0.135cm]
+        \draw[gray!60] (0,0) -- (12.9,0);
+        \foreach \i/\d in {1/0.4, 2/0.9, 3/1.5, 4/2.1, 5/2.7, 6/3.4, 7/4.1, 8/4.8}
+          \fill[imsteal!75] ({\i-0.35},0) rectangle ({\i+0.35},-\d);
+        \foreach \i/\d in {9/5.6, 10/6.6, 11/7.7, 12/8.9}
+          \fill[gray!35] ({\i-0.35},0) rectangle ({\i+0.35},-\d);
+        \draw[imsred, thick, dashed] (0,-5) -- (12.9,-5);
+        \node[imsred, anchor=south west, font=\tiny] at (0.3,-4.9) {$\delta = 5$ nats};
+        \node[anchor=west, font=\tiny, text=imsteal] at (0.4,1.1) {eligible};
+        \node[anchor=west, font=\tiny, text=gray] at (8.4,1.1) {excluded};
+        \node[anchor=north, font=\tiny, align=center] at (6.4,-9.6)
+          {candidates, by log-prob below\\the carrier's own top choice};
+      \end{tikzpicture}
+      \end{center}
     \end{column}
-    \begin{column}{0.48\textwidth}
-      \begin{itemize}\small
-        \item Steering works: $+9.3$ to $+25.7$ points, both labels, every strength.
-        \item It steers its own classifier more reliably than the independent judge.
-        \item Transfer is bounded by how far the two instruments \emph{agree}: $56\% \to 80\%$.
-        \item A trust region removes the fluency cost ($7.1 \to 11.0$ nats without it).
+    \begin{column}{0.56\textwidth}
+      \begin{itemize}\scriptsize
+        \item Steering works \emph{on the instrument it optimizes}: $+9.3$ to $+25.7$ pts, both
+          labels, every $\gamma$.
+        \item Transfer to the judge is bounded by how far the two instruments \emph{agree}:
+          $56 \to 72 \to 80\%$ as the text moves on-domain.
+        \item The trust region keeps $28.4$ of $32$ candidates eligible and removes the fluency
+          cost ($7.1 \to 11.0$ nats without it).
       \end{itemize}
     \end{column}
   \end{columns}
-  \vspace{0.5em}
-  \begin{center}\small
+  \vspace{0.1em}
+  \begin{center}\scriptsize
   \structure{Control follows navigation.} Explored, not settled: a repair on \emph{another}
-  landscape, not an answer about the autoregressive energy.
+  landscape.
   \end{center}
 \end{frame}
 
 % =====================================================================
 \section{Takeaways}
 
-\begin{frame}{Takeaways}
+\begin{frame}{Takeaways: the four questions, answered}
+  \vspace{0.2em}
+  \scriptsize
+  \setlength{\tabcolsep}{5pt}
+  \renewcommand{\arraystretch}{1.35}
+  \begin{tabular}{p{2.5cm}p{8.1cm}}
+    \toprule
+    \structure{RQ1} \textbf{direction}
+      & \textbf{No.} Same length, random direction: indistinguishable, inside a margin fixed in
+        advance, on $1000$ paired sequences. The same frozen weights differentiated at the
+        token's \emph{identity}: $0\% \to 40\%$. \\
+    \structure{RQ2} \textbf{correction}
+      & \textbf{Opposite things in the two samplers.} In the discrete one it supplies all of the
+        selection pressure. In the continuous one it disables the sampler: a good move
+        ($e^{+4.60}$) is rejected because the way back is unproposable ($e^{-1325}$). \\
+    \structure{RQ3} \textbf{amortization}
+      & \textbf{No escape.} The policy reaches high reward by exploiting it, and tuning moved the
+        energy by $31$ to $57$ nats without making the local surrogate any more useful. \\
+    \structure{E} \textbf{control}
+      & \textbf{Only where the proposal can move.} Nothing on the frozen autoregressive
+        landscape; on a bidirectional one the target moves, bounded by how far the guiding and
+        judging instruments agree. \\
+    \bottomrule
+  \end{tabular}
   \vspace{0.5em}
-  \begin{enumerate}\small
-    \item \structure{The direction is worthless, and that is certified.} Replacing the gradient
-      with a random direction of the same length changes nothing, inside a margin fixed in
-      advance, over $1000$ paired sequences.
-    \item \structure{The energy is fine. The model is fine. The \emph{coordinates} were wrong.}
-      A derivative of the same frozen weights, taken with respect to the token's identity rather
-      than its embedding, goes from $0\%$ to $40\%$.
-    \item \structure{The rest is about seeing both sides.} A plain masked language model, never
-      trained on scores, beats a purpose-built diffusion model. Access, not objective.
-    \item \structure{Control follows navigation.} A constraint buys nothing where the proposal
-      cannot move, and buys a lot where it can.
-  \end{enumerate}
-  \vspace{0.8em}
+  \begin{center}\small
+  \structure{One thread through all four:} what a sampler can \emph{condition on} and \emph{read},
+  not how hard it searches.
+  \end{center}
+\end{frame}
+
+\begin{frame}{What it comes down to}
+  \vspace{1.0em}
   \begin{center}
-  \Large\structure{Differentiate the right object, or propose from the output side.}\\[0.3em]
-  \normalsize Not: evaluate rather than differentiate. The derivative was in the wrong coordinates.
+  \Large\structure{The signal was in the model all along.}\\[0.3em]
+  \Large\structure{The derivative threw it away.}
+  \end{center}
+  \vspace{1.2em}
+  \begin{itemize}\small
+    \item Relax the token \emph{indicator} instead of the input embedding, or read the proposal
+      off the model's output side. Same frozen weights, $0\% \to 40\%$.
+    \item Let the proposal see the right context as well, and it goes further:
+      RoBERTa $44.5\%$, never trained on scores.
+  \end{itemize}
+  \vspace{1.0em}
+  \begin{center}
+  {\footnotesize\color{gray!80} Scope: the null is about an input-embedding gradient of a
+  likelihood whose target token enters as a discrete index. MuCoLa and COLD keep that self term,
+  and are not refuted by it.}
   \end{center}
 \end{frame}
 
@@ -814,6 +916,153 @@
 
 % ---- backup slides: excluded from the frame count ----
 \appendix
+
+% ---- the four most likely questions, kept first ----
+
+\begin{frame}[noframenumbering]{Post-submission: MuCoLa's energy in my own code}
+  \scriptsize
+  Identical code, optimizer, projection, initialization, step count and constraint weight. The
+  \emph{only} difference is how the target token enters the language-model term.
+  \vspace{0.3em}
+  \begin{columns}[T]
+    \begin{column}{0.48\textwidth}
+      \begin{block}{\texttt{mucola\_faithful}}
+        \scriptsize ``Once upon a time, there was a king who ruled over a large land. His
+        subjects were very happy, and he''
+      \end{block}
+    \end{column}
+    \begin{column}{0.48\textwidth}
+      \begin{block}{\texttt{cls\_thesis} (my energy)}
+        \scriptsize ``Once upon a time environmentalCNN Unicornrosso PE \#\#YD vitality ped Eh
+        Karn blades\ldots''
+      \end{block}
+    \end{column}
+  \end{columns}
+  \vspace{0.2em}
+  \begin{center}
+  \setlength{\tabcolsep}{4pt}
+  \begin{tabular}{lll}
+    \toprule
+    & \texttt{mucola\_faithful} & \texttt{cls\_thesis} \\
+    \midrule
+    mean final LM log-prob & $\bm{-38.5}$ & $\bm{-353.9}$ \\
+    gradient at last position & $\bm{h}_{n-1}$: norm $50.5592$, cosine $1.000000$ & exactly $\bm{0.000\mathrm{e}{+}00}$ \\
+    steering-head ``accuracy'' & $40.0\%$ & $53.3\%$ \\
+    \bottomrule
+  \end{tabular}
+  \end{center}
+  \vspace{0.2em}
+  \begin{itemize}\scriptsize
+    \item Verified first: the energy at a real token sequence matches the ordinary
+      log-likelihood to $0.000\mathrm{e}{+}00$.
+    \item MuCoLa's energy writes fluent English; the energy I implemented writes word salad, and
+      the final-position identity says exactly why: $50.56$ against exactly zero.
+    \item \structure{Note the trap in the last row.} The blind energy scores \emph{higher} on the
+      steering classifier while producing gibberish. Hence every adherence number here is paired
+      with an external fluency number, and the classifier that steers is never the one that scores.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[noframenumbering]{Backup: the self gain}
+  \scriptsize
+  \begin{center}
+  $\text{self gain (pts)} \;=\; \%\,\text{guided hits the target label}
+   \;-\; \%\,\text{unguided hits it}$, \ \structure{both scored by the guiding classifier}
+  \end{center}
+  {\centering \textcolor{gray}{On-domain trust-region cells, $n=300$ prompt-paired
+  generations each; unguided and guided share a seed per prompt.}\par}
+  \vspace{0.4em}
+  \begin{center}
+  \setlength{\tabcolsep}{4pt}
+  \begin{tabular}{llrrrr}
+    \toprule
+    $\gamma$ & target & unguided & guided & \structure{self gain [CI]} & judge gain [CI] \\
+    \midrule
+    $2$ & negative & $48.0$ & $66.0$ & $\bm{+18.0}\ [12.3, 24.0]$ & $-2.3\ [-7.0, 2.3]$ \\
+    $2$ & positive & $52.0$ & $61.3$ & $\bm{+9.3}\ [3.7, 15.0]$   & $+6.7\ [1.7, 11.7]$ \\
+    $4$ & negative & $48.0$ & $73.7$ & $\bm{+25.7}\ [19.7, 31.7]$ & $-0.7\ [-5.3, 4.0]$ \\
+    $4$ & positive & $52.0$ & $69.7$ & $\bm{+17.7}\ [12.0, 23.3]$ & $+7.3\ [2.7, 12.0]$ \\
+    \bottomrule
+  \end{tabular}
+  \end{center}
+  \vspace{0.3em}
+  \begin{itemize}\scriptsize
+    \item The guide's own verdict. It moves at every strength and for both labels, so the
+      mechanism does what it was built to do.
+    \item The judge is a different instrument, and the two agree on $56\%$ off-domain, $72\%$ on
+      on-domain generations, $80\%$ on real sentences. The judge column tracks that agreement.
+    \item The unguided baselines differ for the same reason: $53.0$ / $47.0$ read by the judge,
+      $48.0$ / $52.0$ read by the guide.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[noframenumbering]{Backup: the two classifiers}
+  \scriptsize
+  \setlength{\tabcolsep}{4pt}
+  \begin{center}
+  \begin{tabular}{p{1.7cm}p{4.4cm}p{4.4cm}}
+    \toprule
+    & \textbf{guiding classifier} (the guide) & \textbf{judge} (independent) \\
+    \midrule
+    reads & token ids \emph{including} MASK: the partially masked state mid-denoising & the frozen GPT-2 Large last hidden states of finished text \\[0.2em]
+    body & own embedding table over $50{,}258$ ids ($50{,}257$ $+$ MASK), mean-pool, Linear-Tanh-Linear, noise level appended as an input feature & mean-pooled linear probe on the frozen backbone: Linear($1280 \to 256$)-Tanh-Linear($256 \to 2$) \\[0.2em]
+    trained on & SST-2, each example corrupted by \emph{SEDD's own} forward absorbing process, $t \sim U(0,1)$, each token $\to$ MASK with probability $(1-\epsilon)t$ & SST-2, clean text, backbone frozen throughout \\[0.2em]
+    accuracy & $81\%$ held out at low noise; $79.7\%$ on the real held-out sentences & $88\%$ on those same sentences \\[0.2em]
+    role & \structure{guides only}: reweights the carrier's top-32 at every commitment & \structure{grades only}: never inside the loop \\
+    \bottomrule
+  \end{tabular}
+  \end{center}
+  \vspace{0.3em}
+  \begin{itemize}\scriptsize
+    \item GPT-2 cannot ingest the MASK id: $50257$ sits outside its embedding table. A classifier
+      that reads mid-denoising states therefore needs its own vocabulary, so the separation is
+      forced by the architecture, and then kept on purpose.
+    \item The guide is trained on exactly the states it is later queried on.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[noframenumbering]{Backup: SEDD and RoBERTa, where the proposal is read and where it enters}
+  \scriptsize
+  \begin{columns}[T]
+    \begin{column}{0.5\textwidth}
+      \structure{Where the proposal is read off}
+      \begin{itemize}\scriptsize
+        \item \textbf{SEDD} (Lou et al.\ 2024), absorbing graph, dim $50{,}258 = 50{,}257 + $ MASK,
+          GPT-2 tokenizer so no retokenization. The raw output $f_\theta(\bm{x},\sigma)$ is
+          \emph{already} a log-space score.
+        \item Read-out: set position $m$ to MASK, one forward at $\sigma = 0.1$, drop the MASK
+          column, log-softmax over the real vocabulary $\Rightarrow \log q(v)$.
+        \item \textbf{RoBERTa-large}, an ordinary MLM, never score-trained: put
+          \texttt{<mask>} at $m$, one forward, log-softmax of the MLM head.
+        \item Tokenizer bridge: RoBERTa id $\to$ GPT-2 id for every token whose surface
+          re-encodes to exactly one GPT-2 token, $99.95\%$ coverage, restricted and renormalized.
+      \end{itemize}
+    \end{column}
+    \begin{column}{0.5\textwidth}
+      \structure{Where it enters the sampler}
+      \vspace{0.2em}
+      \begin{center}
+        {\scriptsize the proposal logit $t_2[v]$, and nothing else}\\[0.2em]
+        $\tfrac12\,\bm{g}^\top\!\big(\bm{e}(v)-\bm{s}\big)$\\[0.15em]
+        {\scriptsize\textcolor{imsred}{$\Downarrow$\ the one thing swapped}}\\[0.15em]
+        $\tfrac12 \log q\big(v \mid \bm{x}_{\setminus m}\big)$
+      \end{center}
+      \vspace{0.2em}
+      \begin{itemize}\scriptsize
+        \item The accept step is \emph{untouched}:
+          $\alpha = \min\{1,\ \tfrac{p(\bm{x}')\,q(\bm{x})}{p(\bm{x})\,q(\bm{x}')}\}$ with $p$ the
+          exact frozen GPT-2 Large sequence likelihood.
+        \item $q$ does not depend on the current token, so this is an \structure{independence
+          sampler} and the Hastings ratio is closed form.
+        \item Same sequences, same per-index corruption seeds, same energy, same KL metric. One
+          variable moves.
+      \end{itemize}
+      \vspace{0.2em}
+      {\scriptsize Exact recovery: gradient $0.0$ $\to$ left-conditional $23.5$ $\to$ SEDD
+      $38.5 / 39.0$ $\to$ RoBERTa $\bm{44.5}$; uniform through the same code $0.5$.}
+    \end{column}
+  \end{columns}
+\end{frame}
 
 \begin{frame}[noframenumbering]{Backup: the linearization radius and self-term blindness}
   \begin{columns}[T]
@@ -950,6 +1199,275 @@
     \item \structure{What was reimplemented faithfully} is their sampler \emph{geometry}: continuous
       embedding state, nearest-neighbour projection, plus the correction they omit. Not their energy.
   \end{itemize}
+\end{frame}
+
+% =====================================================================
+% POST-SUBMISSION BACKUP SLIDES
+% Appended after submission. Source: Doc/final/future_work/experiments.tex,
+% machine-readable record CTG_EXPERIMENTS_LOG.md. Nothing above this line
+% is modified.
+% =====================================================================
+
+\begin{frame}[noframenumbering]{Post-submission: crossing the bridge to controllable generation}
+  \small
+  The thesis diagnoses the null and demonstrates the repair on \emph{one-token recovery}.
+  It never crosses to generation. Four questions were posed after submission, in priority
+  order.
+  \begin{itemize}\small
+    \item \structure{Q1 Cost.} The output-side surrogate splits into a \emph{self} term
+      $\log p(v\mid\bm{x}_{<i})$, already computed by the forward pass, and a \emph{future}
+      term costing a backward pass. Is the future term worth its cost?
+    \item \structure{Q2 Conditioning.} Do bidirectional proposals beat the autoregressive
+      output-side proposal when the attribute is global?
+    \item \structure{Q3 Mechanism.} How should a constraint enter: exact rescoring on a
+      shortlist, a first-order surrogate, both, or the accept step only?
+    \item \structure{Q4 Usefulness.} At matched compute, does the exact-energy chain beat
+      MuCoLa on adherence versus fluency?
+  \end{itemize}
+  \vspace{0.3em}
+  {\footnotesize Q1 and Q3 are answered below. Q2 and Q4 were gated on Q3 and were in
+  flight; they are reported as not done rather than omitted.}
+\end{frame}
+
+\begin{frame}[noframenumbering]{Post-submission: the repair needs \emph{no} gradient at all}
+  \small
+  Same exact-energy Metropolis--Hastings chain, full vocabulary, the cell that produced the
+  headline one-hot result, $n=200$.
+  \begin{center}
+  \scriptsize
+  \setlength{\tabcolsep}{4pt}
+  \begin{tabular}{lrrrrr}
+    \toprule
+    Arm & Exact \% & Final KL & fwd-eq & bwd passes & GPU s/acc. \\
+    \midrule
+    self term only              & $24.5$ & $4.598$ & $\bm{100}$ & $\bm{0}$ & $\bm{0.332}$ \\
+    self $+$ linearized future  & $26.5$ & $4.584$ & $400$ & $10{,}000$ & $0.881$ \\
+    input-embedding gradient    & $0.0$ & $6.243$ & $300$ & $10{,}000$ & $1.391$ \\
+    uniform                     & $0.0$ & $6.671$ & $100$ & $0$ & $0.857$ \\
+    \bottomrule
+  \end{tabular}
+  \end{center}
+  \vspace{0.3em}
+  \begin{itemize}\small
+    \item Paired: one-hot minus self $=+2.0$ exact points $[-0.5,+5.0]$, $\Delta$KL $-0.015$
+      $[-0.361,+0.331]$, for \structure{four times} the compute.
+    \item The self term \structure{never calls autograd once} (the run's own counter certifies
+      it) and still recovers $24.5\%$ where the input-embedding gradient recovers $0.0\%$ on
+      the same sequences.
+    \item Section 5.6.1 leaves open whether self and future ``come apart in the interior''.
+      Measured in the interior: not to any degree the data can resolve.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[noframenumbering]{Post-submission: the $40\%$ headline at $n=200$}
+  \small
+  \begin{center}
+  \begin{tabular}{lrl}
+    \toprule
+    $n$ & Exact recovery & $95\%$ CI \\
+    \midrule
+    $50$ (the sweep cell as published) & $40.0\%$ & $[26.4,\ 53.6]$ \\
+    $200$ (same configuration, rerun)  & $\bm{26.5\%}$ & $[20.4,\ 32.6]$ \\
+    input-embedding gradient, $n=200$  & $0.0\%$ & --- \\
+    \bottomrule
+  \end{tabular}
+  \end{center}
+  \vspace{0.4em}
+  \begin{itemize}\small
+    \item The published number \structure{reproduces exactly}: the same first fifty sequences
+      give $40.0\%$. Nothing is wrong with the code or the data; $40\%$ was an $n=50$ estimate.
+    \item \structure{What does not survive}: the parity claim. SEDD-small $38.5\%$, SEDD-medium
+      $39.0\%$, RoBERTa-large $44.5\%$ were all measured at $n=200$. At equal $n$ this sampler
+      is \emph{below} them, not comparable to them.
+    \item \structure{What does survive, and it is the load-bearing part}: $26.5\%$ against
+      $0.0\%$ on the same sequences, paired gap $24.5$ points, CI $[18.5,30.5]$, now on four
+      times the data. Direction, mechanism and diagnosis untouched.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[noframenumbering]{Post-submission: the floor nobody measured (shortlist width)}
+  \small
+  All arms proposing over the \emph{same} frozen top-$k$ candidate set, $n=200$ per cell.
+  \begin{center}
+  \begin{tabular}{lrrrr}
+    \toprule
+    Arm & Full vocab & $k=256$ & $k=64$ & $k=16$ \\
+    \midrule
+    uniform (no scoring at all) & $0.0$ & $8.0$ & $18.5$ & $\bm{31.5}$ \\
+    input-embedding gradient    & $0.0$ & $8.5$ & $21.5$ & $\bm{30.5}$ \\
+    self term                   & $24.5$ & $26.5$ & $29.5$ & $30.0$ \\
+    \midrule
+    gradient minus uniform (pts) & $0.0$ & $+0.5$ & $+3.0$ & $-1.0$ \\
+    \bottomrule
+  \end{tabular}
+  \end{center}
+  \vspace{0.3em}
+  \begin{itemize}\small
+    \item At $k=16$ every arm lands between $30.0$ and $31.5$ percent, \emph{including the one
+      that scores nothing}: the support and the exact accept step are doing all the work.
+    \item This does \structure{not} rehabilitate the input-embedding gradient. Its correct
+      control is the uniform arm, and it tracks that floor at every width.
+    \item It \structure{strengthens} the null: holding the support fixed rules out the objection
+      that the null was an artifact of proposing over $50{,}257$ candidates. This control was
+      never run in the thesis, and I would add it if I did this again.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[noframenumbering]{Post-submission: a pre-registered prediction that was refuted}
+  \small
+  Exact future term (energy differences on the shortlist) against the self term. Prediction
+  recorded in advance: ``exact scoring buys little for its cost''. \structure{Wrong, and
+  reported as wrong.}
+  \begin{center}
+  \scriptsize
+  \begin{tabular}{lrrrr}
+    \toprule
+    $k$ & $\Delta$KL (exact$_k$ $-$ self) & $\Delta$exact (pts) & Cost, fwd-eq & Cost, wall \\
+    \midrule
+    $16$  & $+0.090\ [-0.264,+0.442]$ & $+0.5\ [-3.0,+4.0]$ & $\times 1.17$ & $\times 1.04$ \\
+    $64$  & $\bm{-0.555\ [-0.977,-0.161]}$ & $+1.5\ [-2.0,+5.5]$ & $\times 1.65$ & $\bm{\times 0.86}$ \\
+    $256$ & $\bm{-0.601\ [-1.008,-0.205]}$ & $\bm{+4.5\ [+0.0,+9.0]}$ & $\times 3.57$ & $\times 1.32$ \\
+    \bottomrule
+  \end{tabular}
+  \end{center}
+  \vspace{0.3em}
+  \begin{itemize}\small
+    \item Once the shortlist is wide enough for ranking to matter it buys about $0.6$ nats, and
+      at $k=64$ it does so at $0.86$ times the \emph{wall-clock}: faster than the arm it beats.
+    \item Why: acceptance $66$--$80\%$ against $23$--$30\%$ for every other arm, so far fewer
+      wasted steps.
+    \item \structure{Caveat I would state unprompted}: with one masked position the $k$ candidate
+      energies do not depend on the current token, so they are computed once per sequence. That
+      economy is task-specific and will not survive to a task where many positions move.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[noframenumbering]{Post-submission: why constraint gradients are weak here}
+  \small
+  At each step: find the token the steering classifier most prefers over the whole vocabulary,
+  then ask where it sits in the likelihood ranking. $n=30$ per cell.
+  \begin{center}
+  \scriptsize
+  \begin{tabular}{lrrrr}
+    \toprule
+    $k$ & Coverage & Chance & Median likelihood rank & Linearization $\rho$ \\
+    \midrule
+    $16$  & $\bm{0.2\%}$ & $0.032\%$ & $29{,}928/50{,}257$ & $+0.019$ \\
+    $64$  & $\bm{0.8\%}$ & $0.127\%$ & $34{,}227/50{,}257$ & $+0.040$ \\
+    $256$ & $\bm{1.7\%}$ & $0.509\%$ & $29{,}866/50{,}257$ & $-0.008$ \\
+    \bottomrule
+  \end{tabular}
+  \end{center}
+  \vspace{0.3em}
+  \begin{itemize}\small
+    \item \structure{The shortlist almost never contains what the constraint wants.} The two
+      rankings are close to independent. Coverage is $3$ to $6$ times chance, so the association
+      is real, but under $2\%$ even at $k=256$: a weak exact-rescoring arm is then a
+      \emph{support} limitation, not a verdict on rescoring. Pre-registered.
+    \item \structure{The constraint-side linearization is in the same condition as the
+      input-embedding gradient.} Spearman against the true change: token-indicator surrogate
+      $+0.60$ to $+0.73$, input-embedding gradient ${\sim}0.0$, \emph{classifier gradient
+      $+0.02$ to $+0.06$}.
+    \item A qualification of concern 11, not a contradiction: a classifier gradient can point
+      usefully in aggregate over many small continuous steps while poorly predicting any single
+      discrete substitution.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[noframenumbering]{Post-submission: Q1 on the generation task}
+  \small
+  Constrained continuation, $n=60$, span $20$, $600$ steps, $k=64$, constraint in the accept
+  step only. Partial: \texttt{exact\_k} and \texttt{uniform} still running.
+  \begin{center}
+  \scriptsize
+  \begin{tabular}{lrrrrr}
+    \toprule
+    Arm & Steer-head acc. & Held-out adherence & Accept \% & fwd-eq/seq & GPU s \\
+    \midrule
+    self    & $36.7\%$ & $46.7\% \pm 12.6$ & $10.3$ & $\bm{635}$ & $\bm{2{,}982}$ \\
+    onehot  & $41.7\%$ & $63.3\% \pm 12.2$ & $10.3$ & $4{,}133$ & $8{,}047$ \\
+    embgrad & $38.3\%$ & $56.7\% \pm 12.5$ & $12.9$ & $4{,}234$ & $10{,}712$ \\
+    \bottomrule
+  \end{tabular}
+  \end{center}
+  \vspace{0.3em}
+  \begin{itemize}\small
+    \item The apparent ordering is \structure{not} a separation: $\pm 12.5$ point intervals that
+      overlap heavily. The better powered paired test puts both differences on zero: onehot minus
+      self $+0.138$ $[-0.186,+0.449]$, embgrad minus self $+0.034$ $[-0.255,+0.320]$.
+    \item So Q1's answer does not change when the task changes from repairing one token to
+      conjuring twenty: the self term matches the full surrogate at $6.5\times$ less compute.
+    \item \structure{One result the other way}: embgrad reaches $+12.52$ nats higher final LM
+      log-probability, CI excluding zero. Not directional signal: all arms share the identical
+      exact accept step and target the identical distribution, so this is \emph{mixing}.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[noframenumbering]{Post-submission: three defects caught before any real run}
+  \small
+  Each would have produced a confident and wrong answer. All three were found by smoke tests.
+  \begin{enumerate}\small
+    \item \structure{Shortlist excludes the incumbent.} The exact arm put zero mass on the token
+      the chain currently held, so the reverse probability was zero, $\log\alpha$ was $-\infty$,
+      acceptance $0.0\%$ on every sequence.
+    \item \structure{The distance term pins a shortlisted chain.} With $k=64$ and $t_1$ present,
+      all five arms returned an identical final KL of $6.777$: $t_1$ scores the incumbent at $0$
+      and every rival negatively. Over $50$k candidates that is one preference among many; over
+      $65$ it is decisive.
+    \item \structure{A state-dependent shortlist is not reversible.} Recomputing ``top-$k$ here
+      plus where I am'' gives the reverse move probability zero as soon as the chain moves.
+      Acceptance $0.0\%$ while the proposal was healthy: $24.6\%$ of proposal mass on the ground
+      truth, the move worth $+19.8$ nats, refused because the reverse term was $-\infty$. Fixed
+      by freezing the support per sequence.
+  \end{enumerate}
+  \vspace{0.2em}
+  {\footnotesize Regression gate after every sampler edit: the flagship archived configuration
+  reproduces bit-identically, maximum absolute difference $0.000\mathrm{e}{+}00$ on all three
+  recorded channels.}
+\end{frame}
+
+\begin{frame}[noframenumbering]{Post-submission: what was \emph{not} done}
+  \small
+  Stated rather than omitted.
+  \begin{itemize}\small
+    \item \structure{Study B} (proposal sources, RoBERTa and SEDD on the constrained task) was
+      gated on the Study C mechanism probe and was not launched. Both proposals are supported by
+      the harness and were validated in the recovery setting.
+    \item \structure{Study C's full mechanism comparison} at scale was in flight; only the
+      coverage half above is complete.
+    \item \structure{Study D's} adherence-fluency curve at matched compute was in flight.
+    \item \structure{Study E} (diversity at matched adherence against a compute-matched
+      best-of-$N$ optimizer) was not reached. The metrics are implemented and validated
+      (distinct-1 $0.929$, distinct-3 $1.00$, self-BLEU $0.000$, semantic spread $0.778$ on one
+      arm) but the \emph{controlled} comparison is the part that matters, so no claim about
+      posterior coverage is made on this evidence.
+  \end{itemize}
+  \vspace{0.3em}
+  {\footnotesize Two harness lessons that generalize: a single-mask diagnostic task hides a class
+  of scaling bug (two defects here were invisible at one masked position, immediate at twenty);
+  and reversibility failures are silent in the worst way, acceptance collapsing to exactly zero
+  while the proposal itself is perfectly healthy.}
+\end{frame}
+
+\begin{frame}[noframenumbering]{Post-submission: five sentences}
+  \small
+  \begin{enumerate}\small
+    \item The constructive half of the thesis \structure{needs no gradient at all}: the self term,
+      which every autoregressive model already exposes, gets the whole effect at a quarter of the
+      cost and zero backward passes.
+    \item The $40$ percent headline is an $n=50$ cell that reproduces exactly; at $n=200$ it is
+      $26.5$ percent, \structure{below} SEDD and RoBERTa rather than at parity. The
+      zero-versus-nonzero contrast the thesis rests on is unaffected and better supported.
+    \item The scope restriction the thesis states about MuCoLa is correct and can now be
+      \structure{demonstrated rather than argued}: the same code with MuCoLa's energy writes
+      fluent English, with mine it writes word salad.
+    \item A shortlisted sampler needs a \structure{uniform-on-the-same-shortlist floor} before any
+      surrogate claim can be read, and that floor was never measured in the thesis.
+    \item Gradient-based constraint guidance is weak here \structure{for a measurable reason}: the
+      classifier's first-order expansion has rank correlation near zero with the change it is
+      expanding, and a likelihood-ranked shortlist almost never contains the token the constraint
+      wants.
+  \end{enumerate}
 \end{frame}
 
 \end{document}

@@ -1,0 +1,16 @@
+global_idx,prompt_idx,prompt,seed,start_text,text,final_lm,final_cons,accepts,steps
+3,0,Once upon a time,3,Once upon a time,"Once upon a time, there was a king who ruled over a large land. His subjects were very happy, and he",-22.62493896484375,-0.07516913115978241,0,300
+7,1,The book,1003,The book,The book was about a boy who wanted to be a lawyer. He went to college for law school. After,-15.650213241577148,-1.7273781299591064,0,300
+11,2,The chicken,2003,The chicken,The chicken was ready to be cooked. It was time to put it in the oven. The chicken was done,-19.736709594726562,-1.1862702369689941,0,300
+15,3,The city,3003,The city,The city was in the middle of a construction project. The street was being repaved. The workers were having,-16.71076011657715,-0.5853030681610107,0,300
+19,4,The country,4003,The country,The country was in the middle of a severe drought. The government had to buy all of the water they needed,-23.752269744873047,-2.0640947818756104,0,300
+23,5,The horse,5003,The horse,The horse was tired from being on the trail all day. He wanted to take a short break. He was,-21.071189880371094,-3.1793341636657715,0,300
+27,6,The lake,6003,The lake,The lake was full of fish. Adam wanted to catch as many as he could. He set up a small,-19.507587432861328,-1.029437780380249,0,300
+31,7,The last time,7003,The last time,The last time I saw my friend was at the movies. We went to the same theater. We sat together and,-14.912778854370117,-0.9340997934341431,0,300
+35,8,The movie,8003,The movie,The movie was about to start. The lights went down and the movie started. The movie was about to start,-16.682058334350586,-2.08005952835083,0,300
+39,9,The painting,9003,The painting,"The painting was done. The only thing left was to hang it. The paint was dry, so it was",-22.351762771606445,-0.8714561462402344,0,300
+43,10,The pizza,10003,The pizza,The pizza was delivered and was very hot. The woman at the restaurant said it would be hot for days.,-23.02472686767578,-1.4778401851654053,0,300
+47,11,The potato,11003,The potato,The potato chip recipe is one of my all time favorite recipes. I have been making it every time I go,-27.54215431213379,-0.10723281651735306,0,300
+51,12,The president of the country,12003,The president of the country,The president of the country club was having a reception for new members. He invited all his friends. They came in large numbers,-28.859525680541992,-0.5297576785087585,0,300
+55,13,The road,13003,The road,The road was very rough. Tom was having a hard time keeping his balance. He fell over several times.,-20.626567840576172,-3.5300309658050537,0,300
+59,14,The year is 1910.,14003,The year is 1910.,The year is 1910. The year is not very good. The city is in the middle of a great fire. The fire,-29.27377700805664,-0.7320942878723145,0,300

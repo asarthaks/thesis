@@ -1,0 +1,5 @@
+[D.cls_thesis.g0.0.shard2of4] variant=cls_thesis 15 sequences, 300 steps
+[D.cls_thesis.g0.0.shard2of4] 5/15
+[D.cls_thesis.g0.0.shard2of4] 10/15
+[D.cls_thesis.g0.0.shard2of4] 15/15
+[D.cls_thesis.g0.0.shard2of4] DONE n=15 steer_head=40.0% lm=-311.5 wall=15.3m

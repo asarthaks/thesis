@@ -1,0 +1,16 @@
+global_idx,prompt_idx,prompt,seed,start_text,text,final_lm,final_cons,accepts,steps
+3,0,Once upon a time,3,Once upon a time,"Once upon a time, there was a king who ruled over a large land. His subjects were very happy, and he",-22.62493896484375,-0.07516913115978241,0,300
+7,1,The book,1003,The book,The book was about a boy who was adopted. The book said he was a great kid. The family took,-24.482364654541016,-0.5613865852355957,0,300
+11,2,The chicken,2003,The chicken,The chicken was ready to be thrown away. It had been in the same spot for years. The farmer wanted,-24.1568660736084,-4.838004112243652,0,300
+15,3,The city,3003,The city,The city was in the middle of a construction project. The street was being repaved. The workers were having,-16.71076011657715,-0.5853030681610107,0,300
+19,4,The country,4003,The country,The country was in the grip of a terrible disease. The doctors said it would kill everyone within a year.,-19.44094467163086,-1.6997267007827759,0,300
+23,5,The horse,5003,The horse,The horse was tired from being on the trail all day. He wanted to take a short break. He was,-21.071189880371094,-3.1793341636657715,0,300
+27,6,The lake,6003,The lake,The lake was full of fish. Adam wanted to catch as many of them as he could. He set up,-17.343759536743164,-0.9801695942878723,0,300
+31,7,The last time,7003,The last time,The last time I saw my friend was at the movies. We went to the same theater. He had a date,-16.003135681152344,-0.6709864735603333,0,300
+35,8,The movie,8003,The movie,The movie was about to start and the lights were going down. The lights came back on and the movie started,-14.582489013671875,-1.8739879131317139,0,300
+39,9,The painting,9003,The painting,The painting was done. The only thing left to do was to hang it. The paint was very hard to,-23.495086669921875,-1.5867879390716553,0,300
+43,10,The pizza,10003,The pizza,The pizza was delivered and was very hot. The woman at the restaurant said it would be hot for days.,-23.02472686767578,-1.4778401851654053,0,300
+47,11,The potato,11003,The potato,The potato was the most popular vegetable in the country. People ate them every day. The government tried to stop,-22.996746063232422,-1.6962178945541382,0,300
+51,12,The president of the country,12003,The president of the country,The president of the country club was having a party. He hired a DJ to play all the music. The club was very,-34.2089729309082,-0.46966227889060974,0,300
+55,13,The road,13003,The road,The road was very rough. We were going at a very slow speed. A truck came at us going 35,-24.70608139038086,-1.6547877788543701,0,300
+59,14,The year is 1910.,14003,The year is 1910.,The year is 1910. The year is not very good. The city is in the middle of a great fire. The fire,-29.27377700805664,-0.7320942878723145,0,300

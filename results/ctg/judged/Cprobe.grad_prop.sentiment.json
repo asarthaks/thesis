@@ -1,0 +1,14 @@
+{
+  "run_name": "Cprobe.grad_prop",
+  "stage": "sentiment",
+  "judge": "siebert/sentiment-roberta-large-english",
+  "n": 30,
+  "target_label": 1,
+  "adherence_pct": 43.333333333333336,
+  "mean_target_prob": 0.43493437917010547,
+  "distinct_1": 0.9792317439629268,
+  "distinct_3": 1.0,
+  "self_bleu_4": 0.0,
+  "semantic_spread": 0.834818160533905,
+  "csv": "results/ctg/phase2/Cprobe.grad_prop.csv"
+}

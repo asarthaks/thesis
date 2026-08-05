@@ -1,0 +1,5 @@
+[Aq.embgrad.shard7of8] loading /mount/arbeitsdaten/studenten1/singhsk/thesis/thesis/gfn-lm-tuning/infill_subj_arithmetic/gpt2_large_sft_output
+[Aq.embgrad.shard7of8] 7 sequences, proposal=embgrad mech=accept_only k=64
+[Aq.embgrad.shard7of8] 5/7  accept=12.9%
+[Aq.embgrad.shard7of8] DONE n=7 accept=13.4% steer_head=42.857142857142854 coverage=2.4% wall=21.6m
+[Aq.embgrad.shard7of8] wrote results/ctg/phase2/Aq.embgrad.shard7of8.json

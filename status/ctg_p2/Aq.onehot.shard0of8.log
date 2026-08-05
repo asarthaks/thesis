@@ -1,0 +1,5 @@
+[Aq.onehot.shard0of8] loading /mount/arbeitsdaten/studenten1/singhsk/thesis/thesis/gfn-lm-tuning/infill_subj_arithmetic/gpt2_large_sft_output
+[Aq.onehot.shard0of8] 8 sequences, proposal=onehot mech=accept_only k=64
+[Aq.onehot.shard0of8] 5/8  accept=10.0%
+[Aq.onehot.shard0of8] DONE n=8 accept=9.5% steer_head=62.5 coverage=1.0% wall=15.3m
+[Aq.onehot.shard0of8] wrote results/ctg/phase2/Aq.onehot.shard0of8.json

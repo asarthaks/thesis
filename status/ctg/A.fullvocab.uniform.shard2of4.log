@@ -1,0 +1,8 @@
+[A.fullvocab.uniform.shard2of4] loading /mount/arbeitsdaten/studenten1/singhsk/thesis/thesis/gfn-lm-tuning/infill_subj_arithmetic/gpt2_large_sft_output (float32) ...
+[A.fullvocab.uniform.shard2of4] 282 candidate sentences
+[A.fullvocab.uniform.shard2of4] shard 2/4: 50 of the run's samples
+[A.fullvocab.uniform.shard2of4] 25/50
+[A.fullvocab.uniform.shard2of4] 50/50
+[A.fullvocab.uniform.shard2of4] DONE  n=50  acc=0.00%  final_kl=6.069  final_l2=2.451  accept=9.8%
+[A.fullvocab.uniform.shard2of4] wrote results/ctg/studyA/A.fullvocab.uniform.shard2of4.json
+[A.fullvocab.uniform.shard2of4] wrote results/ctg/studyA/A.fullvocab.uniform.shard2of4.csv

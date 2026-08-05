@@ -1,0 +1,648 @@
+% experiments.tex
+%
+% Post-submission experiment record: crossing the bridge from the diagnostic recovery
+% task to controllable generation.
+%
+% SCOPE NOTE. This document is a NEW addition under Doc/final/future_work/. It does not
+% modify, include, or depend on anything in Doc/final/thesis/, Doc/final/proposal/ or
+% Doc/final/beamer/, all three of which are unchanged from the submitted state. It is a
+% standalone article and compiles on its own with pdflatex.
+%
+% The authoritative machine-readable record is CTG_EXPERIMENTS_LOG.md in the repository
+% root, and every number below carries the JSON path it came from.
+
+\documentclass[11pt,a4paper]{article}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{bm}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{listings}
+\usepackage[hidelinks]{hyperref}
+
+\lstset{basicstyle=\ttfamily\footnotesize, breaklines=true, frame=single,
+        columns=fullflexible, xleftmargin=0.5em}
+
+\newcommand{\ve}{\bm{e}}
+\newcommand{\vs}{\bm{s}}
+\newcommand{\vx}{\bm{x}}
+\newcommand{\vg}{\bm{g}}
+\newcommand{\vh}{\bm{h}}
+\newcommand{\file}[1]{\texttt{\small #1}}
+
+\title{Post-Submission Experiments:\\
+From the Diagnostic Task to Controllable Generation}
+\author{Experiment record, generated during defense preparation}
+\date{2026-07-29}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+The submitted thesis diagnoses why an input-embedding gradient of a frozen
+autoregressive likelihood carries no usable directional signal, and demonstrates a
+repair, the relaxed token-indicator (one-hot) surrogate, on a single-token recovery
+task. It never crosses the bridge to controllable generation. This document records the
+experiments run after submission to cross that bridge, or to measure exactly why it
+cannot be crossed. Four findings are load-bearing. First, the repair does not need a
+gradient at all: the self term $\log p(v \mid \vx_{<i})$, which the forward pass already
+computes, matches the full token-indicator surrogate at one quarter of the cost, with
+zero backward passes. Second, the thesis's headline $40\%$ recovery figure reproduces
+exactly at its own $n=50$ but settles at $26.5\%$ at $n=200$, which removes the claimed
+parity with a purpose-trained diffusion model while leaving the zero-versus-nonzero
+finding untouched. Third, implementing MuCoLa's actual energy in the same code makes the
+continuous sampler produce fluent text where the thesis's energy produces word salad,
+which confirms the scope restriction the submitted thesis already states. Fourth, a
+likelihood-ranked shortlist and a sentiment constraint want almost unrelated tokens, and
+the classifier's own first-order expansion has a rank correlation near zero with the
+change it is expanding, which supplies a mechanism for the weakness of gradient-based
+constraint guidance in this setting.
+\end{abstract}
+
+\tableofcontents
+
+\section{Purpose, scope and what is authoritative}
+
+The thesis is submitted and nothing in it is changed by this work. This document exists
+so that the author can answer, with numbers, the question the thesis leaves open: is the
+sampler actually useful for controllable generation?
+
+Four questions were posed, in priority order.
+
+\begin{description}
+\item[Q1 Cost.] The output-side surrogate decomposes into a \emph{self} term,
+  $\log p(v \mid \vx_{<i})$, which the energy's own forward pass already computes and
+  which is therefore free, and a \emph{future} term describing how substituting $v$
+  changes everything downstream, which costs either one backward pass (linearized) or
+  $k$ forward passes (exact). Is the future term worth its cost?
+\item[Q2 Conditioning.] Do bidirectional proposals, which see right context, beat the
+  autoregressive output-side proposal when the controlled attribute is global?
+\item[Q3 Mechanism.] How should a constraint enter: exact evaluation on a shortlist, a
+  first-order surrogate of the classifier, both, or only the accept step?
+\item[Q4 Usefulness.] At matched compute, does the exact-energy Metropolis--Hastings
+  chain beat MuCoLa on the adherence-fluency trade-off, and does it produce more
+  distinct valid solutions?
+\end{description}
+
+The authoritative machine-readable record is \file{CTG\_EXPERIMENTS\_LOG.md} in the
+repository root. Every number in this document carries the path of the JSON it came
+from. Suggested defense slides are in \file{SUGGESTED\_BACKUP\_SLIDES.md} and are
+suggestions only; nothing has been inserted into the deck.
+
+\subsection{Relationship to the submitted documents}
+
+This file lives in \file{Doc/final/future\_work/} and is a new addition. It does not
+modify, include or depend on \file{Doc/final/thesis/}, \file{Doc/final/proposal/} or
+\file{Doc/final/beamer/}. Those three directories are byte-for-byte unchanged from the
+submitted state; their checksums are recorded in the repository log.
+
+\section{Part 0: audit of what already existed}
+
+\subsection{The constrained task was reused, not rebuilt}
+
+\file{scripts/run\_constrained.py} already defines the whole constrained-generation
+task, and it was imported rather than reimplemented: the fifteen PPLM discriminator
+prompts verbatim from MuCoLa's repository, the twenty-token continuation span, the
+centroid and random-token initializations, the two setups, the five constraint-mode
+arms, and the sentiment head. Only the sampler and the recording are new.
+
+\subsection{What \texttt{policy\_onehot} actually computes}
+
+This determined the arm list and was established by reading the code rather than from
+memory. In \file{core/dls.py} the proposal logit for candidate $v$ is built as
+\[
+  t_2[v] \;=\; \underbrace{\tfrac{1}{2}\,\vg^\top\!\big(\ve(v) - \vs\big)}_{\text{embedding-gradient (future) term}}
+  \;+\; \underbrace{\tfrac{1}{2}\,\log p(v \mid \vx_{<m})}_{\text{self term, added only for \texttt{policy\_onehot}}}
+\]
+so \texttt{policy\_onehot} is the self term \emph{plus} the input-embedding-gradient
+term, not the self term alone. It costs one forward, one backward and one extra no-grad
+forward per step, and the same again for the Metropolis reverse evaluation.
+
+Consequently the thesis's headline one-hot result had never been decomposed into its two
+halves. Doing so is the first experiment below, and it is cheap.
+
+\section{Study A: is the future term worth its cost?}
+
+\subsection{Arms and pre-registration}
+
+\begin{table}[htbp]
+\centering
+\begin{tabular}{llc}
+\toprule
+Arm & Proposal score for candidate $v$ & Model calls per step \\
+\midrule
+A1 \texttt{policy\_self}    & $\tfrac12 \log p(v \mid \vx_{<m})$ & 1 fwd, 0 bwd \\
+A2 \texttt{policy\_onehot}  & A1 $+\ \tfrac12 \vg^\top(\ve(v)-\vs)$ & 2 fwd, 1 bwd \\
+A3 \texttt{policy\_exact\_k}& $\tfrac12\big(E(v) - E(\text{cur})\big)$ on a shortlist & 1 fwd $+\ k$ fwd \\
+A4 \texttt{policy}          & $\tfrac12 \vg^\top(\ve(v)-\vs)$ alone & 1 fwd, 1 bwd \\
+A5 \texttt{uniform}         & constant & 1 fwd, 0 bwd \\
+\bottomrule
+\end{tabular}
+\caption{Study A arms, all inside the exact-energy Metropolis--Hastings chain.}
+\end{table}
+
+Three predictions were recorded in advance: (1) A1 approximately equals A2 at strictly
+lower cost; (2) A3 buys little over A1 relative to its cost; (3) A4 stays at the floor
+with A5.
+
+\subsection{Two framings}
+
+\textbf{Framing 1, full vocabulary.} Every arm proposes over all $50{,}257$ tokens with
+the Langevin distance term present, in the cell that produced the thesis's headline
+one-hot result ($\epsilon: 10.5 \to 0.1$, $T=1.0$, Metropolis on, gradient normalization
+off). Directly comparable to the published figures. A3 cannot appear here: exact scoring
+of the full vocabulary would cost $50{,}257$ forward passes per step.
+
+\textbf{Framing 2, matched shortlist.} Every arm proposes over the same frozen top-$k$
+candidate set ($k \in \{16,64,256\}$) scored only by its own surrogate, distance term
+dropped. This is the clean comparison, because the exact arm can only ever see a
+shortlist, so the restriction is charged to every arm equally.
+
+\subsection{Three defects found before any real run}
+
+Each of these would have produced a confident and wrong answer, and each was caught by a
+smoke test.
+
+\begin{enumerate}
+\item \textbf{Shortlist excludes the incumbent.} The exact arm put zero mass on the token
+  the chain currently held, so the reverse probability was zero, $\log\alpha$ was
+  $-\infty$, and acceptance was $0.0\%$ on every sequence.
+\item \textbf{The distance term pins a shortlisted chain.} With $k=64$ and the Langevin
+  term $t_1$ present, all five arms returned an identical final KL of $6.777$ and zero
+  exact matches, because $t_1$ scores the incumbent at exactly $0$ and every rival at
+  $-\lVert \ve(v)-\vs \rVert^2 / 2\epsilon$. Over $50$k candidates that is one preference
+  among many; over $65$ it is decisive.
+\item \textbf{A state-dependent shortlist is not reversible.} A shortlist recomputed at
+  each state as ``top-$k$ here plus wherever I am'' gives the reverse move probability
+  zero as soon as the chain leaves its starting token, which it does immediately.
+  Acceptance was again $0.0\%$ while the proposal itself was healthy: measured directly,
+  $24.6\%$ of the proposal mass sat on the ground-truth token and the move was worth
+  $+19.8$ nats, and it was refused because the reverse term was $-\infty$. Fixed by
+  freezing the support per sequence, which makes each arm an independence sampler on a
+  fixed candidate set, a valid Metropolis--Hastings kernel.
+\end{enumerate}
+
+A regression gate was run after every sampler edit: the flagship archived configuration
+reproduces \file{results/grid/gpt2\_v2/} bit-identically, maximum absolute difference
+$0.000\mathrm{e}{+}00$ on all three recorded channels.
+
+\subsection{Result, framing 1 (full vocabulary), $n=200$}
+
+Source: \file{results/ctg/studyA/A.fullvocab.*.json}, index
+\file{results/ctg/studyA\_summary.json}.
+
+\begin{table}[htbp]
+\centering
+\begin{tabular}{lrrrrrr}
+\toprule
+Arm & Exact \% & Final KL & Accept \% & fwd-eq/seq & GPU s/seq & GPU s/accept \\
+\midrule
+A1 \texttt{policy\_self}   & 24.5 & 4.598 & 25.2 & \textbf{100} & \textbf{4.18} & \textbf{0.332} \\
+A2 \texttt{policy\_onehot} & 26.5 & 4.584 & 24.3 & 400 & 10.71 & 0.881 \\
+A4 \texttt{policy}         &  0.0 & 6.243 & 11.1 & 300 &  7.71 & 1.391 \\
+A5 \texttt{uniform}        &  0.0 & 6.671 &  9.9 & 100 &  4.24 & 0.857 \\
+\bottomrule
+\end{tabular}
+\caption{Study A, full vocabulary. Paired bootstrap contrasts against A1:
+A2 gives $\Delta$KL $-0.015$ $[-0.361,+0.331]$ and $\Delta$exact $+2.0$ points
+$[-0.5,+5.0]$ at four times the forward-equivalent cost; A4 gives $-24.5$ points
+$[-30.5,-18.5]$; A5 gives $-24.5$ points $[-30.5,-18.5]$.}
+\end{table}
+
+Prediction 1 is confirmed strongly. The entire linearized future term, the thing that
+costs the backward pass, buys no measurable quality. Put the way a defense question
+wants it: \emph{the thesis's recovery result is obtainable with no backward pass at
+all}. \texttt{policy\_self} never calls autograd once, which the run's own counter
+certifies, and it recovers $24.5\%$ where the input-embedding gradient recovers $0.0\%$
+on the same two hundred sequences.
+
+This also answers a question the submitted thesis explicitly leaves open. Section 5.6.1
+observes that at the final position the future term vanishes so the token-indicator
+derivative reduces exactly to $\log p(v \mid \vx_{<i})$, and adds that ``in the interior
+the two come apart, because the future term is then nonzero''. Measured in the interior,
+they do not come apart to any degree the data can resolve.
+
+\subsection{Result, framing 2 (matched shortlist), $n=200$ per cell}
+
+\begin{table}[htbp]
+\centering
+\begin{tabular}{llrrrrr}
+\toprule
+$k$ & Arm & Exact \% & Final KL & Accept \% & fwd-eq/seq & GPU s/seq \\
+\midrule
+16 & \texttt{policy\_self}    & 30.0 & 4.788 & 30.4 & 100 & 4.22 \\
+16 & \texttt{policy\_onehot}  & 30.0 & 4.948 & 30.4 & 400 & 10.57 \\
+16 & \texttt{policy\_exact\_k}& 30.5 & 4.879 & 80.2 & 117 & 4.41 \\
+16 & \texttt{policy}          & 30.5 & 4.814 & 17.0 & 400 & 10.42 \\
+16 & \texttt{uniform}         & 31.5 & 4.580 & 16.6 & 100 & 5.56 \\
+\midrule
+64 & \texttt{policy\_self}    & 29.5 & 4.706 & 25.9 & 100 & 5.44 \\
+64 & \texttt{policy\_onehot}  & 28.0 & 4.822 & 25.7 & 400 & 10.63 \\
+64 & \texttt{policy\_exact\_k}& \textbf{31.0} & \textbf{4.150} & 73.0 & 165 & \textbf{4.68} \\
+64 & \texttt{policy}          & 21.5 & 4.716 & 12.6 & 400 & 11.66 \\
+64 & \texttt{uniform}         & 18.5 & 4.875 & 13.4 & 100 & 4.26 \\
+\midrule
+256 & \texttt{policy\_self}    & 26.5 & 4.638 & 23.0 & 100 & 4.24 \\
+256 & \texttt{policy\_onehot}  & 25.0 & 4.660 & 22.7 & 400 & 10.91 \\
+256 & \texttt{policy\_exact\_k}& \textbf{31.0} & \textbf{4.037} & 66.6 & 357 & 5.58 \\
+256 & \texttt{policy}          &  8.5 & 5.271 & 11.1 & 400 & 11.42 \\
+256 & \texttt{uniform}         &  8.0 & 5.195 & 12.4 & 100 & 4.22 \\
+\bottomrule
+\end{tabular}
+\caption{Study A, matched shortlist. All arms propose over the same frozen candidate
+set.}
+\end{table}
+
+\begin{table}[htbp]
+\centering
+\begin{tabular}{llrrl}
+\toprule
+$k$ & Contrast & $\Delta$KL & $\Delta$exact (pts) & Cost \\
+\midrule
+16  & onehot $-$ self  & $+0.160\ [-0.011,+0.360]$ & $+0.0\ [-2.0,+2.0]$ & $\times 4.00$ fwd-eq \\
+16  & exact$_k$ $-$ self & $+0.090\ [-0.264,+0.442]$ & $+0.5\ [-3.0,+4.0]$ & $\times 1.17$ fwd-eq \\
+64  & onehot $-$ self  & $+0.116\ [-0.121,+0.363]$ & $-1.5\ [-4.0,+0.5]$ & $\times 4.00$ fwd-eq \\
+64  & \textbf{exact$_k$ $-$ self} & $\bm{-0.555\ [-0.977,-0.161]}$ & $+1.5\ [-2.0,+5.5]$ & $\times1.65$ fwd-eq, $\bm{\times 0.86}$ wall \\
+256 & onehot $-$ self  & $+0.023\ [-0.212,+0.269]$ & $-1.5\ [-4.0,+1.0]$ & $\times 4.00$ fwd-eq \\
+256 & \textbf{exact$_k$ $-$ self} & $\bm{-0.601\ [-1.008,-0.205]}$ & $\bm{+4.5\ [+0.0,+9.0]}$ & $\times 3.57$ fwd-eq \\
+\bottomrule
+\end{tabular}
+\caption{Paired contrasts against the self term, $10{,}000$-sample bootstrap, paired on
+\texttt{sample\_idx}. The corruption is deterministic per index and identical across
+arms, so the pairing needs no rerun.}
+\end{table}
+
+\paragraph{Prediction 2 is refuted, and is reported as refuted.}
+The exact future term does buy a real improvement once the shortlist is wide enough for
+ranking to matter: $-0.555$ nats at $k=64$ and $-0.601$ at $k=256$, both confidence
+intervals excluding zero, plus $+4.5$ exact-match points at $k=256$. It is also cheap,
+which was the unexpected part: at $k=64$ it costs $1.65$ times the forward-equivalents
+and $0.86$ times the wall-clock, that is, it is faster in real time than the arm it
+beats. Two measured reasons: its acceptance rate is $66$ to $80\%$ against $23$ to $30\%$
+for every other arm, so it wastes far fewer steps; and with one masked position the $k$
+candidate energies do not depend on the current token, so they are computed once per
+sequence and reused. That second economy is task-specific and does not survive to a task
+where many positions move.
+
+\subsection{The support, not the scoring rule, is the dominant factor}
+
+\begin{table}[htbp]
+\centering
+\begin{tabular}{lrrrr}
+\toprule
+Arm & Full vocab & $k=256$ & $k=64$ & $k=16$ \\
+\midrule
+\texttt{uniform} (no scoring at all) & 0.0 & 8.0 & 18.5 & \textbf{31.5} \\
+\texttt{policy} (input-embedding gradient) & 0.0 & 8.5 & 21.5 & \textbf{30.5} \\
+\texttt{policy\_self} & 24.5 & 26.5 & 29.5 & 30.0 \\
+\midrule
+gradient minus uniform (points) & 0.0 & $+0.5$ & $+3.0$ & $-1.0$ \\
+\bottomrule
+\end{tabular}
+\caption{Exact recovery by shortlist width. At $k=16$ every arm lands between $30.0$ and
+$31.5$ percent, including the arm that scores nothing.}
+\end{table}
+
+This does \emph{not} rehabilitate the input-embedding gradient. Its correct control is
+the uniform arm, and it tracks that floor at every width, never separating from it. What
+it does mean is that any claim of the form ``surrogate $X$ works in a shortlisted
+sampler'' must be quoted against the uniform-on-the-same-shortlist floor rather than
+against zero. That floor was not measured anywhere in the submitted thesis, and holding
+the support fixed is a stronger statement of the null than the thesis makes, because it
+rules out the objection that the null was an artifact of proposing over $50{,}257$
+candidates.
+
+\section{A correction to a claim the submitted thesis makes}
+\label{sec:contradiction}
+
+The submitted thesis, \file{chapters/05\_results.tex} line 413, states that the
+token-indicator surrogate ``recovers $36$ to $40$ percent of corrupted tokens'', and
+line 462 describes the outcome as ``recovery comparable to a purpose-trained diffusion
+model''.
+
+\begin{table}[htbp]
+\centering
+\begin{tabular}{lrl}
+\toprule
+$n$ & Exact recovery & $95\%$ CI \\
+\midrule
+50 (the sweep cell as published) & $40.0\%$ & $[26.4,\ 53.6]$ \\
+200 (same configuration, rerun) & $\bm{26.5\%}$ & $[20.4,\ 32.6]$ \\
+\bottomrule
+\end{tabular}
+\caption{The same cell at two sample sizes. Sources
+\file{results/grid/rev3/ohsweep\_e10p5\_t1p0.json} and
+\file{results/ctg/studyA/A.fullvocab.policy\_onehot.json}.}
+\end{table}
+
+The published number is reproducible and is not an error: rerunning the configuration
+and taking the same first fifty sequences gives exactly $40.0$ percent. What the larger
+sample shows is that $40.0$ percent was an $n=50$ estimate which regresses to $26.5$
+percent at $n=200$, below the range the text states.
+
+The comparability claim is the part that does not survive. The comparators it is set
+against, SEDD-small $38.5\%$, SEDD-medium $39.0\%$ and RoBERTa-large $44.5\%$, were all
+measured at $n=200$. The thesis therefore matches an $n=50$ estimate against $n=200$
+estimates. At equal $n$ the token-indicator sampler reaches $26.5\%$ $[20.4, 32.6]$ and
+is below both rather than comparable to either.
+
+\paragraph{What survives unchanged, and it is the load-bearing part.}
+The qualitative claim is not weakened and is now measured at four times the sample size:
+the token-indicator surrogate recovers $26.5$ percent where the input-embedding gradient
+recovers $0.0$ percent on the same sequences, a paired difference of $24.5$ points, CI
+$[18.5, 30.5]$. The direction, the mechanism and the diagnosis are untouched. What
+changes is the size of the number and the claim of parity with a diffusion model.
+
+\section{The \texttt{mucola\_faithful} arm}
+
+\subsection{Why it exists}
+
+The thesis's continuous sampler is a variant of MuCoLa, not MuCoLa. Following Kumar,
+Paria and Tsvetkov (2022), section 3, the MuCoLa language-model term is
+\[
+  \log P(\tilde{\ve}_{n+1} \mid \tilde{\ve}_{1:n})
+  = \vh_n^\top \tilde{\ve}_{n+1} + b_{n+1}
+    - \log \sum_j \exp\!\big(\vh_n^\top \ve_j + b_j\big),
+\]
+with the continuous state $\tilde{\ve}$ in the softmax \emph{numerator} and the real
+embedding table in the denominator. GPT-2's output head is tied to the input embedding
+and carries no bias, so $b=0$. The state therefore receives gradient by both paths the
+paper names: directly, with gradient exactly $\vh_n$, and through the following hidden
+states.
+
+The repository's energy instead gathers the score at the projected token \emph{index},
+so the direct path is absent by construction. That is the object the thesis's null
+characterizes.
+
+\subsection{Verification against the paper}
+
+Run before the arm was used for anything.
+
+\begin{table}[htbp]
+\centering
+\begin{tabular}{p{5.6cm}p{4.4cm}p{4.4cm}}
+\toprule
+Check & Expected & Measured \\
+\midrule
+MuCoLa energy at a real token sequence & equals the ordinary sequence log-likelihood, since $\tilde{\ve}=\ve(x)$ recovers the standard softmax & $-46.909576$ vs $-46.909576$, \textbf{abs.\ diff.\ $0.000\mathrm{e}{+}00$} \\
+Gradient at the final position, MuCoLa energy & exactly $\vh_{n-1}$, the paper's direct path & norm $50.5592$ vs $\lVert \vh_{n-1}\rVert = 50.5592$, \textbf{cosine $1.000000$} \\
+Gradient at the final position, thesis energy & exactly zero (the thesis's own theorem) & $\bm{0.000\mathrm{e}{+}00}$ \\
+\bottomrule
+\end{tabular}
+\caption{Verification of the MuCoLa energy implementation.}
+\end{table}
+
+The third row reproduces the thesis's final-position theorem inside this code, and the
+second row is precisely why that theorem does not apply to MuCoLa.
+
+\subsection{The two energies head to head}
+
+Identical code, optimizer, projection, initialization, step count and constraint weight.
+The only difference is how the target token enters the language-model term.
+
+\begin{table}[htbp]
+\centering
+\begin{tabular}{lrr}
+\toprule
+Variant & Steering-head acc. & Mean final LM log-prob \\
+\midrule
+\texttt{mucola\_faithful} & $40.0\%$ & $\bm{-38.5}$ \\
+\texttt{cls\_thesis} & $53.3\%$ & $\bm{-353.9}$ \\
+\bottomrule
+\end{tabular}
+\caption{Smoke scale, $n=15$, 60 steps. The steering-head column is deliberately
+included; see the warning below.}
+\end{table}
+
+First generated continuation from each, same prompt and seed:
+
+\begin{quote}
+\texttt{mucola\_faithful}: ``Once upon a time, there was a king who ruled over a large
+land. His subjects were very happy, and he''
+
+\texttt{cls\_thesis}: ``Once upon a time environmentalCNN Unicornrosso PE \#\#YD vitality
+ped Eh Karn bladesActionCodeStreamerBot Rothido Osborne''
+\end{quote}
+
+MuCoLa's energy produces fluent, coherent English. The energy this repository implements
+produces word salad at a sequence log-probability roughly an order of magnitude worse.
+
+\paragraph{The inverted steering number, and why a held-out judge is mandatory.}
+\texttt{cls\_thesis} scores \emph{higher} on the steering classifier while producing
+gibberish. A pooled sentiment head over hidden states is trivially satisfiable by
+incoherent token soup, so an adherence number reported without a fluency number is
+worthless. Every adherence figure in this programme is paired with an external fluency
+figure for exactly this reason, and the classifier that steers is never the classifier
+that scores.
+
+\subsection{This confirms the submitted thesis rather than contradicting it}
+
+\file{chapters/06\_discussion.tex} line 50 already states that the thesis ``refutes the
+premise for a sampler that differentiates the input embedding of a likelihood whose
+target token enters as a discrete index, and not for gradient-guided discrete sampling
+as such'', and describes MuCoLa's self term correctly. The correction was applied before
+submission. This experiment turns an argument made from the papers' text into a
+measurement: implementing MuCoLa's energy in this repository's own code makes the
+continuous sampler work, and implementing the repository's energy makes it fail, on the
+same task with everything else held fixed.
+
+\section{Study C: how should the constraint enter?}
+
+\subsection{Shortlist coverage, reported before any adherence number}
+
+The diagnostic: at each step, find the candidate the steering classifier most prefers
+over the whole vocabulary, then ask where it falls in the likelihood ranking and whether
+it lies inside the shortlist. Source
+\file{results/ctg/phase2/Ccov.k\{16,64,256\}.json}, $n=30$ each.
+
+\begin{table}[htbp]
+\centering
+\begin{tabular}{lrrrrr}
+\toprule
+$k$ & Coverage & Chance level & Ratio & Median likelihood rank & Linearization $\rho$ \\
+\midrule
+16  & $\bm{0.2\%}$ & $0.032\%$ & ${\sim}6\times$ & $29{,}928 / 50{,}257$ & $+0.019$ \\
+64  & $\bm{0.8\%}$ & $0.127\%$ & ${\sim}6\times$ & $34{,}227 / 50{,}257$ & $+0.040$ \\
+256 & $\bm{1.7\%}$ & $0.509\%$ & ${\sim}3\times$ & $29{,}866 / 50{,}257$ & $-0.008$ \\
+\bottomrule
+\end{tabular}
+\caption{Shortlist coverage and the constraint-side linearization correlation.}
+\end{table}
+
+\paragraph{Finding 1: the shortlist almost never contains what the constraint wants.}
+The median likelihood rank of the constraint's preferred token is around $30{,}000$ out
+of $50{,}257$, the middle of the vocabulary: the two rankings are close to independent.
+Coverage is three to six times chance, so the association is positive and real, but it
+is still under $2$ percent even at $k=256$. Widening the shortlist sixteen-fold moves
+coverage from $0.2$ to $1.7$ percent.
+
+The consequence was pre-registered: any weakness of an exact-rescoring arm is a
+\emph{proposal-support limitation}, not evidence about rescoring as a mechanism, because
+such an arm can only rescore candidates the shortlist contains.
+
+\paragraph{Finding 2: the constraint-side linearization carries no usable signal.}
+The rank correlation between the classifier's first-order surrogate and the true change
+in the classifier's score over the same candidates is $+0.019$, $+0.040$ and $-0.008$,
+indistinguishable from zero.
+
+\begin{table}[htbp]
+\centering
+\begin{tabular}{lr}
+\toprule
+Surrogate & Spearman against the true change \\
+\midrule
+Likelihood, token-indicator, admissible distances & $+0.60$ to $+0.73$ \\
+Likelihood, input-embedding gradient & ${\sim}0.0$ \\
+\textbf{Constraint, first-order classifier gradient} & $\bm{+0.02}$ \textbf{to} $\bm{+0.06}$ \\
+\bottomrule
+\end{tabular}
+\caption{The classifier gradient is in the same condition as the input-embedding
+gradient the thesis's null is about.}
+\end{table}
+
+\paragraph{A qualification, not a contradiction.}
+The repository records the concern-11 reading as ``the constraint gradient's direction
+carries signal, the LM gradient's does not'', resting on a paired contrast of roughly
+$+27$ to $+37$ points on the continuation setup. That contrast is not re-run here and is
+not disputed. What is added is that whatever signal the constraint direction carries is
+not carried by the accuracy of its first-order expansion. A plausible reconciliation,
+offered as a hypothesis rather than a result: a classifier gradient can point usefully in
+the aggregate over many small continuous steps, which is what the continuous sampler
+takes, while being a poor predictor of the effect of any single discrete token
+substitution, which is what this measurement scores.
+
+\paragraph{A tautological number, flagged so it is never misread.}
+The mixture-shortlist arm reports $100.0\%$ coverage by construction, because it builds
+half its shortlist from the constraint's own ranking. It is reported for completeness and
+must never be presented as that arm achieving coverage.
+
+\section{Study A on the constrained-generation task}
+
+Partial at the time of writing; \texttt{exact\_k} and \texttt{uniform} were still
+running. $n=60$ sequences, span $20$, $600$ steps, $k=64$, constraint in the accept step
+only.
+
+\begin{table}[htbp]
+\centering
+\begin{tabular}{lrrrrr}
+\toprule
+Arm & Steer-head acc. & Held-out adherence & Accept \% & fwd-eq/seq & GPU s \\
+\midrule
+\texttt{self}    & $36.7\%$ & $46.7\% \pm 12.6$ & 10.3 & $\bm{635}$ & $\bm{2{,}982}$ \\
+\texttt{onehot}  & $41.7\%$ & $63.3\% \pm 12.2$ & 10.3 & $4{,}133$ & $8{,}047$ \\
+\texttt{embgrad} & $38.3\%$ & $56.7\% \pm 12.5$ & 12.9 & $4{,}234$ & $10{,}712$ \\
+\bottomrule
+\end{tabular}
+\caption{Held-out adherence is scored by an off-the-shelf sentiment classifier with no
+connection to this project.}
+\end{table}
+
+The three adherence figures have $95\%$ intervals of roughly $\pm 12.5$ points on $n=60$
+and overlap heavily, so the apparent ordering is \emph{not} a separation. The better
+powered paired test, on the same prompt and seed across arms, puts both differences on
+zero: \texttt{onehot} $-$ \texttt{self} gives $+0.138$ $[-0.186,+0.449]$ on the steering
+log-probability, and \texttt{embgrad} $-$ \texttt{self} gives $+0.034$ $[-0.255,+0.320]$.
+
+Consistent with the recovery result: the self term matches the full surrogate at $6.5$
+times less compute. Q1's answer does not change when the task changes from repairing one
+token to conjuring twenty.
+
+\paragraph{One result that goes the other way.}
+\texttt{embgrad} attains a higher final LM log-probability, $+12.52$ nats with a CI
+excluding zero. This is not evidence of directional signal: every arm uses the identical
+exact accept step and therefore targets the identical distribution, so a difference in
+final energy is a difference in \emph{mixing}, and \texttt{embgrad}'s acceptance rate is
+indeed higher. It is recorded rather than filtered out.
+
+\section{Incidents, defects and harness lessons}
+
+\subsection{Out-of-memory in the nearest-embedding projection}
+
+Six jobs failed with CUDA out-of-memory at \file{core/prep.py} line 41. The shared
+projection helper forms the difference tensor explicitly, of shape
+$(M, V, D)$. At one masked position that is $0.26$ GB, which is why the entire
+$145$-configuration recovery grid never touched it; at the twenty positions of the
+continuation task it is $4.79$ GB in a single allocation, every step.
+
+The fix is a local low-memory projection using $\lVert \vs - \ve \rVert^2 =
+\lVert \vs\rVert^2 + \lVert \ve\rVert^2 - 2\vs^\top\ve$ and dropping the term constant in
+the candidate. \file{core/prep.py} is deliberately not changed, because it is on the
+archived path. Equivalence was verified on CPU over $120$ projections in three regimes:
+\emph{zero mismatches}.
+
+\subsection{A constraint-weight sweep that ran backwards}
+
+The continuous-optimizer arms initially showed the steering score getting \emph{worse} as
+the constraint weight increased, $-1.240 \to -1.268 \to -1.614$ at gains $0.5$, $2.0$,
+$4.0$, with the generated text identical across gains. The cause is plain gradient ascent
+without normalization: the gradient norm scales with the weights, so the step length
+scales with the constraint weight and the iterate overshoots at the schedule's initial
+step size, projecting to unrelated tokens.
+
+The fix is to unit-norm the combined gradient per position before stepping. This leaves
+the direction, and hence the weighting between the two terms, untouched, and makes the
+step length independent of the weight. With it the sweep behaves monotonically
+($73.3\% \to 80.0\% \to 80.0\%$ at gains $0.5$, $4.0$, $8.0$). This matters for fairness:
+an unnormalized sweep would have understated MuCoLa's arm, which is the arm this
+programme is at pains to represent fairly.
+
+\subsection{Lessons that generalize}
+
+\begin{itemize}
+\item A single-mask diagnostic task hides a class of scaling bug. Two separate defects
+  here were invisible at one masked position and appeared immediately at twenty.
+\item Reversibility failures are silent in the worst way: acceptance collapses to exactly
+  zero while the proposal itself is perfectly healthy. The diagnosis required measuring
+  the proposal mass and the energy gain of the refused move.
+\item The manifest is a priority list and can be reordered live; workers re-read it each
+  pass. A gating experiment stuck behind a long family is a scheduling problem, not a
+  compute problem.
+\item Worker counts should be set by measurement. Two workers per card left the GPUs at
+  $15$ to $43$ percent utilization on these chains; four per card reached $100$ percent.
+\end{itemize}
+
+\section{What was not done, stated rather than omitted}
+
+\begin{itemize}
+\item \textbf{Study B} (proposal sources including RoBERTa and SEDD on the constrained
+  task) was gated on the Study C mechanism probe and was not launched. The harness
+  supports both proposals and both were validated in the recovery setting by the earlier
+  revision work.
+\item \textbf{Study C's full mechanism comparison} at scale was in flight; only the
+  coverage half is reported above as complete.
+\item \textbf{Study D's} full adherence-fluency curve at matched compute was in flight.
+\item \textbf{Study E}, diversity at matched adherence against a compute-matched
+  best-of-$N$ optimizer, was not reached. The metrics are implemented and validated
+  (distinct-1 $0.929$, distinct-3 $1.00$, self-BLEU $0.000$, semantic spread $0.778$ on
+  one arm) but the controlled comparison is the part that matters, so no claim about
+  posterior coverage is made on this evidence.
+\end{itemize}
+
+\section{Summary for the defense}
+
+\begin{enumerate}
+\item The constructive half of the thesis needs no gradient at all. The self term, which
+  every autoregressive model already exposes, gets the whole effect at a quarter of the
+  cost and zero backward passes.
+\item The $40$ percent headline is an $n=50$ cell that reproduces exactly; at $n=200$ it
+  is $26.5$ percent, so the honest claim is zero to roughly a quarter recovered, below
+  SEDD and RoBERTa rather than at parity with them. The zero-versus-nonzero contrast,
+  which is what the thesis rests on, is unaffected and better supported.
+\item The scope restriction the thesis states about MuCoLa is correct, and can now be
+  demonstrated rather than argued: the same code with MuCoLa's energy writes fluent
+  English and with the thesis's energy writes word salad.
+\item A shortlisted sampler needs a uniform-on-the-same-shortlist floor before any
+  surrogate claim can be read, and that floor was never measured in the thesis.
+\item Gradient-based constraint guidance is weak here for a measurable reason: the
+  classifier's first-order expansion has a rank correlation near zero with the change it
+  is expanding, and a likelihood-ranked shortlist almost never contains the token the
+  constraint wants.
+\end{enumerate}
+
+\end{document}

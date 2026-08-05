@@ -1,0 +1,14 @@
+{
+  "run_name": "D.mucola_faithful.g0.0",
+  "stage": "sentiment",
+  "judge": "siebert/sentiment-roberta-large-english",
+  "n": 60,
+  "target_label": 1,
+  "adherence_pct": 46.666666666666664,
+  "mean_target_prob": 0.4689002089823286,
+  "distinct_1": 0.22040763673890612,
+  "distinct_3": 0.25,
+  "self_bleu_4": 1.0,
+  "semantic_spread": 3.973642985026042e-09,
+  "csv": "results/ctg/phase2/D.mucola_faithful.g0.0.csv"
+}

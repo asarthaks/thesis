@@ -1,0 +1,7 @@
+[B.roberta.shard1of8] loading /mount/arbeitsdaten/studenten1/singhsk/thesis/thesis/gfn-lm-tuning/infill_subj_arithmetic/gpt2_large_sft_output
+[B.roberta.shard1of8] 8 sequences, proposal=roberta mech=mix_shortlist k=64
+/mount/arbeitsdaten31/studenten1/singhsk/thesis/thesis/gfn-lm-tuning/gfn/lib64/python3.11/site-packages/huggingface_hub/file_download.py:949: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+  warnings.warn(
+[B.roberta.shard1of8] 5/8  accept=10.6%
+[B.roberta.shard1of8] DONE n=8 accept=10.5% steer_head=62.5 coverage=100.0% wall=18.8m
+[B.roberta.shard1of8] wrote results/ctg/phase2/B.roberta.shard1of8.json

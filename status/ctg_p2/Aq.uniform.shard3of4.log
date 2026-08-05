@@ -1,0 +1,7 @@
+[Aq.uniform.shard3of4] loading /mount/arbeitsdaten/studenten1/singhsk/thesis/thesis/gfn-lm-tuning/infill_subj_arithmetic/gpt2_large_sft_output
+[Aq.uniform.shard3of4] 15 sequences, proposal=uniform mech=accept_only k=64
+[Aq.uniform.shard3of4] 5/15  accept=12.7%
+[Aq.uniform.shard3of4] 10/15  accept=13.2%
+[Aq.uniform.shard3of4] 15/15  accept=13.4%
+[Aq.uniform.shard3of4] DONE n=15 accept=13.4% steer_head=66.66666666666666 coverage=1.9% wall=9.4m
+[Aq.uniform.shard3of4] wrote results/ctg/phase2/Aq.uniform.shard3of4.json

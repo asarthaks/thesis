@@ -1,0 +1,10 @@
+{
+  "run_name": "Ccov.k64",
+  "stage": "fluency",
+  "judge": "/mount/arbeitsdaten/studenten1/singhsk/models/llama3-8b",
+  "n": 30,
+  "judge_nll_per_token": 8.945003239313762,
+  "judge_perplexity": 7669.473433861284,
+  "judge_nll_sd": 0.9697631452701556,
+  "csv": "results/ctg/phase2/Ccov.k64.csv"
+}

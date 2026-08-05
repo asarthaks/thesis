@@ -1,0 +1,10 @@
+{
+  "run_name": "Cprobe.grad_prop",
+  "stage": "fluency",
+  "judge": "/mount/arbeitsdaten/studenten1/singhsk/models/llama3-8b",
+  "n": 30,
+  "judge_nll_per_token": 8.588184595108032,
+  "judge_perplexity": 5367.8599853646165,
+  "judge_nll_sd": 1.046325746775746,
+  "csv": "results/ctg/phase2/Cprobe.grad_prop.csv"
+}

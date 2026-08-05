@@ -1,0 +1,10 @@
+{
+  "run_name": "Aq.self",
+  "stage": "fluency",
+  "judge": "/mount/arbeitsdaten/studenten1/singhsk/models/llama3-8b",
+  "n": 60,
+  "judge_nll_per_token": 8.06272292137146,
+  "judge_perplexity": 3173.9207153751827,
+  "judge_nll_sd": 1.005210780617748,
+  "csv": "results/ctg/phase2/Aq.self.csv"
+}

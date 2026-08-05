@@ -1,0 +1,5 @@
+[D.mucola_faithful.g0.5.shard1of4] variant=mucola_faithful 15 sequences, 300 steps
+[D.mucola_faithful.g0.5.shard1of4] 5/15
+[D.mucola_faithful.g0.5.shard1of4] 10/15
+[D.mucola_faithful.g0.5.shard1of4] 15/15
+[D.mucola_faithful.g0.5.shard1of4] DONE n=15 steer_head=46.7% lm=-21.8 wall=8.0m

@@ -1,0 +1,7 @@
+[Cprobe.grad_prop.shard1of2] loading /mount/arbeitsdaten/studenten1/singhsk/thesis/thesis/gfn-lm-tuning/infill_subj_arithmetic/gpt2_large_sft_output
+[Cprobe.grad_prop.shard1of2] 15 sequences, proposal=self mech=grad_prop k=64
+[Cprobe.grad_prop.shard1of2] 5/15  accept=15.0%
+[Cprobe.grad_prop.shard1of2] 10/15  accept=15.8%
+[Cprobe.grad_prop.shard1of2] 15/15  accept=15.7%
+[Cprobe.grad_prop.shard1of2] DONE n=15 accept=15.7% steer_head=26.666666666666668 coverage=1.0% wall=16.9m
+[Cprobe.grad_prop.shard1of2] wrote results/ctg/phase2/Cprobe.grad_prop.shard1of2.json

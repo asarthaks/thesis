@@ -1,0 +1,14 @@
+{
+  "run_name": "Aq.self",
+  "stage": "sentiment",
+  "judge": "siebert/sentiment-roberta-large-english",
+  "n": 60,
+  "target_label": 1,
+  "adherence_pct": 46.666666666666664,
+  "mean_target_prob": 0.4699230889159177,
+  "distinct_1": 0.9288539959056556,
+  "distinct_3": 1.0,
+  "self_bleu_4": 0.0,
+  "semantic_spread": 0.7777287383874256,
+  "csv": "results/ctg/phase2/Aq.self.csv"
+}

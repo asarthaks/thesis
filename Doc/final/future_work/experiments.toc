@@ -1,0 +1,35 @@
+\contentsline {section}{\numberline {1}Purpose, scope and what is authoritative}{2}{section.1}%
+\contentsline {subsection}{\numberline {1.1}Relationship to the submitted documents}{2}{subsection.1.1}%
+\contentsline {section}{\numberline {2}Part 0: audit of what already existed}{3}{section.2}%
+\contentsline {subsection}{\numberline {2.1}The constrained task was reused, not rebuilt}{3}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}What \texttt {policy\_onehot} actually computes}{3}{subsection.2.2}%
+\contentsline {section}{\numberline {3}Study A: is the future term worth its cost?}{3}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Arms and pre-registration}{3}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}Two framings}{3}{subsection.3.2}%
+\contentsline {subsection}{\numberline {3.3}Three defects found before any real run}{4}{subsection.3.3}%
+\contentsline {subsection}{\numberline {3.4}Result, framing 1 (full vocabulary), $n=200$}{4}{subsection.3.4}%
+\contentsline {subsection}{\numberline {3.5}Result, framing 2 (matched shortlist), $n=200$ per cell}{6}{subsection.3.5}%
+\contentsline {paragraph}{Prediction 2 is refuted, and is reported as refuted.}{6}{section*.2}%
+\contentsline {subsection}{\numberline {3.6}The support, not the scoring rule, is the dominant factor}{6}{subsection.3.6}%
+\contentsline {section}{\numberline {4}A correction to a claim the submitted thesis makes}{6}{section.4}%
+\contentsline {paragraph}{What survives unchanged, and it is the load-bearing part.}{7}{section*.3}%
+\contentsline {section}{\numberline {5}The \texttt {mucola\_faithful} arm}{7}{section.5}%
+\contentsline {subsection}{\numberline {5.1}Why it exists}{7}{subsection.5.1}%
+\contentsline {subsection}{\numberline {5.2}Verification against the paper}{7}{subsection.5.2}%
+\contentsline {subsection}{\numberline {5.3}The two energies head to head}{7}{subsection.5.3}%
+\contentsline {paragraph}{The inverted steering number, and why a held-out judge is mandatory.}{8}{section*.4}%
+\contentsline {subsection}{\numberline {5.4}This confirms the submitted thesis rather than contradicting it}{8}{subsection.5.4}%
+\contentsline {section}{\numberline {6}Study C: how should the constraint enter?}{8}{section.6}%
+\contentsline {subsection}{\numberline {6.1}Shortlist coverage, reported before any adherence number}{8}{subsection.6.1}%
+\contentsline {paragraph}{Finding 1: the shortlist almost never contains what the constraint wants.}{8}{section*.5}%
+\contentsline {paragraph}{Finding 2: the constraint-side linearization carries no usable signal.}{9}{section*.6}%
+\contentsline {paragraph}{A qualification, not a contradiction.}{9}{section*.7}%
+\contentsline {paragraph}{A tautological number, flagged so it is never misread.}{9}{section*.8}%
+\contentsline {section}{\numberline {7}Study A on the constrained-generation task}{9}{section.7}%
+\contentsline {paragraph}{One result that goes the other way.}{10}{section*.9}%
+\contentsline {section}{\numberline {8}Incidents, defects and harness lessons}{10}{section.8}%
+\contentsline {subsection}{\numberline {8.1}Out-of-memory in the nearest-embedding projection}{10}{subsection.8.1}%
+\contentsline {subsection}{\numberline {8.2}A constraint-weight sweep that ran backwards}{10}{subsection.8.2}%
+\contentsline {subsection}{\numberline {8.3}Lessons that generalize}{10}{subsection.8.3}%
+\contentsline {section}{\numberline {9}What was not done, stated rather than omitted}{11}{section.9}%
+\contentsline {section}{\numberline {10}Summary for the defense}{11}{section.10}%

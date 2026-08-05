@@ -1,0 +1,10 @@
+{
+  "run_name": "D.mucola_faithful.g1.0",
+  "stage": "fluency",
+  "judge": "/mount/arbeitsdaten/studenten1/singhsk/models/llama3-8b",
+  "n": 60,
+  "judge_nll_per_token": 3.1792096376419066,
+  "judge_perplexity": 24.027755411918985,
+  "judge_nll_sd": 0.4633909471728128,
+  "csv": "results/ctg/phase2/D.mucola_faithful.g1.0.csv"
+}

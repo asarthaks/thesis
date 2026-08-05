@@ -1,0 +1,10 @@
+{
+  "run_name": "Aq.uniform",
+  "stage": "fluency",
+  "judge": "/mount/arbeitsdaten/studenten1/singhsk/models/llama3-8b",
+  "n": 60,
+  "judge_nll_per_token": 7.303987161318461,
+  "judge_perplexity": 1486.2139043504676,
+  "judge_nll_sd": 0.9429247287929547,
+  "csv": "results/ctg/phase2/Aq.uniform.csv"
+}

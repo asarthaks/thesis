@@ -1,0 +1,16 @@
+global_idx,prompt_idx,prompt,seed,start_text,text,final_lm,final_cons,accepts,steps
+0,0,Once upon a time,0,Once upon a time,Once upon a time If'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm,-179.79092407226562,-0.1218450590968132,0,300
+4,1,The book,1000,The book,The book'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm,-163.26046752929688,-0.3001039922237396,0,300
+8,2,The chicken,2000,The chicken,The chicken'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm,-86.15289306640625,-0.5620570778846741,0,300
+12,3,The city,3000,The city,The city'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm,-99.14306640625,-0.45630142092704773,0,300
+16,4,The country,4000,The country,The country'm'm'm'm'm'm'm It'm'm'm'm'm'm'm'm'm'm'm'm,-173.44895935058594,-0.2537054419517517,0,300
+20,5,The horse,5000,The horse,The horseAlthough'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm,-201.36361694335938,-0.23810315132141113,0,300
+24,6,The lake,6000,The lake,The lake'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm,-90.41663360595703,-0.12271227687597275,0,300
+28,7,The last time,7000,The last time,The last time;'m'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm,-113.08065795898438,-0.1758526861667633,0,300
+32,8,The movie,8000,The movie,The movie'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm,-134.03018188476562,-0.6612343192100525,0,300
+36,9,The painting,9000,The painting,The painting'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm It It'm,-135.8355712890625,-0.04311181232333183,0,300
+40,10,The pizza,10000,The pizza,The pizza'm'm'm'm'm Although Although'm'm'm'm'm'm'm'm'm'm'm It'm,-198.9864044189453,-0.21913151443004608,0,300
+44,11,The potato,11000,The potato,The potato It'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm,-134.13192749023438,-0.7543466091156006,0,300
+48,12,The president of the country,12000,The president of the country,"The president of the country This If."".,'m It It Although Although doesn doesn doesn doesn doesn doesn doesn doesn doesn'm'm",-318.4290466308594,-0.15839128196239471,0,300
+52,13,The road,13000,The road,The road'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm,-114.07318878173828,-0.5341030359268188,0,300
+56,14,The year is 1910.,14000,The year is 1910.,The year is 1910.'mIt'm'm'm'm'm'm'm'm'm'm doesn Although Although Although'm'm SolidGoldMagikarp'm,-255.97084045410156,-0.5370355844497681,0,300

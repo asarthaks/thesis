@@ -1,0 +1,8 @@
+[A.k64.policy.shard0of4] loading /mount/arbeitsdaten/studenten1/singhsk/thesis/thesis/gfn-lm-tuning/infill_subj_arithmetic/gpt2_large_sft_output (float32) ...
+[A.k64.policy.shard0of4] 282 candidate sentences
+[A.k64.policy.shard0of4] shard 0/4: 50 of the run's samples
+[A.k64.policy.shard0of4] 25/50
+[A.k64.policy.shard0of4] 50/50
+[A.k64.policy.shard0of4] DONE  n=50  acc=24.00%  final_kl=3.758  final_l2=1.551  accept=11.6%
+[A.k64.policy.shard0of4] wrote results/ctg/studyA/A.k64.policy.shard0of4.json
+[A.k64.policy.shard0of4] wrote results/ctg/studyA/A.k64.policy.shard0of4.csv

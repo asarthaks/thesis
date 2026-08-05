@@ -1,0 +1,8 @@
+[A.fullvocab.policy.shard3of4] loading /mount/arbeitsdaten/studenten1/singhsk/thesis/thesis/gfn-lm-tuning/infill_subj_arithmetic/gpt2_large_sft_output (float32) ...
+[A.fullvocab.policy.shard3of4] 282 candidate sentences
+[A.fullvocab.policy.shard3of4] shard 3/4: 50 of the run's samples
+[A.fullvocab.policy.shard3of4] 25/50
+[A.fullvocab.policy.shard3of4] 50/50
+[A.fullvocab.policy.shard3of4] DONE  n=50  acc=0.00%  final_kl=7.028  final_l2=2.358  accept=12.0%
+[A.fullvocab.policy.shard3of4] wrote results/ctg/studyA/A.fullvocab.policy.shard3of4.json
+[A.fullvocab.policy.shard3of4] wrote results/ctg/studyA/A.fullvocab.policy.shard3of4.csv

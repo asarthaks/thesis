@@ -1,0 +1,10 @@
+{
+  "run_name": "D.cls_thesis.g2.0",
+  "stage": "fluency",
+  "judge": "/mount/arbeitsdaten/studenten1/singhsk/models/llama3-8b",
+  "n": 60,
+  "judge_nll_per_token": 10.567994753519693,
+  "judge_perplexity": 38870.65028784555,
+  "judge_nll_sd": 0.908940024539945,
+  "csv": "results/ctg/phase2/D.cls_thesis.g2.0.csv"
+}

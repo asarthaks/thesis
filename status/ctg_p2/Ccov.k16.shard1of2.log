@@ -1,0 +1,7 @@
+[Ccov.k16.shard1of2] loading /mount/arbeitsdaten/studenten1/singhsk/thesis/thesis/gfn-lm-tuning/infill_subj_arithmetic/gpt2_large_sft_output
+[Ccov.k16.shard1of2] 15 sequences, proposal=self mech=accept_only k=16
+[Ccov.k16.shard1of2] 5/15  accept=15.9%
+[Ccov.k16.shard1of2] 10/15  accept=15.9%
+[Ccov.k16.shard1of2] 15/15  accept=17.0%
+[Ccov.k16.shard1of2] DONE n=15 accept=17.0% steer_head=40.0 coverage=0.2% wall=7.1m
+[Ccov.k16.shard1of2] wrote results/ctg/phase2/Ccov.k16.shard1of2.json

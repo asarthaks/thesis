@@ -1,0 +1,7 @@
+[Cprobe.mix_shortlist.shard0of2] loading /mount/arbeitsdaten/studenten1/singhsk/thesis/thesis/gfn-lm-tuning/infill_subj_arithmetic/gpt2_large_sft_output
+[Cprobe.mix_shortlist.shard0of2] 15 sequences, proposal=self mech=mix_shortlist k=64
+[Cprobe.mix_shortlist.shard0of2] 5/15  accept=17.3%
+[Cprobe.mix_shortlist.shard0of2] 10/15  accept=15.7%
+[Cprobe.mix_shortlist.shard0of2] 15/15  accept=15.8%
+[Cprobe.mix_shortlist.shard0of2] DONE n=15 accept=15.8% steer_head=33.33333333333333 coverage=100.0% wall=18.7m
+[Cprobe.mix_shortlist.shard0of2] wrote results/ctg/phase2/Cprobe.mix_shortlist.shard0of2.json

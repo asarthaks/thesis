@@ -1,0 +1,16 @@
+global_idx,prompt_idx,prompt,seed,start_text,text,final_lm,final_cons,accepts,steps
+1,0,Once upon a time,1,Once upon a time,"Once upon a time, there was a king who ruled over a large land. His subjects were free to do as they",-19.315242767333984,-0.1273655891418457,0,300
+5,1,The book,1001,The book,The book was about a boy who got lost in the woods one day. He was lost for days until he,-18.114421844482422,-3.5926544666290283,0,300
+9,2,The chicken,2001,The chicken,The chicken was ready to be thrown away. It had been in the refrigerator for two days. The chicken was,-22.73088836669922,-5.615923881530762,0,300
+13,3,The city,3001,The city,The city was in the midst of a construction project. The workers were having a hard time keeping the site clean,-18.248416900634766,-0.6434687376022339,0,300
+17,4,The country,4001,The country,The country was in the grip of a terrible blizzard. The weatherman said it would continue all night.,-15.402366638183594,-3.4802117347717285,0,300
+21,5,The horse,5001,The horse,"The horse was tired from being on the trail for hours. He wanted to take a nice, long rest.",-21.997159957885742,-2.2088818550109863,0,300
+25,6,The lake,6001,The lake,The lake was full of fish. Timmy was fishing and his line was caught in the lake. He had,-24.647436141967773,-1.9924861192703247,0,300
+29,7,The last time,7001,The last time,The last time I saw my friend was at the movies. We went to the same theater. He had a date,-16.003135681152344,-0.6709864735603333,0,300
+33,8,The movie,8001,The movie,The movie was about to start and the lights were going down. The movie was going to be a scary one,-18.745922088623047,-2.0746049880981445,0,300
+37,9,The painting,9001,The painting,The painting was done. The client wanted it to be hung in their living room. They asked me to help,-22.838970184326172,-0.3477099537849426,0,300
+41,10,The pizza,10001,The pizza,The pizza delivery man came to your door. He looked hungry so you gave him a small gift. The man,-20.01117706298828,-0.24515558779239655,0,300
+45,11,The potato,11001,The potato,The potato was the most popular vegetable in the country. People ate them every day. The government tried to stop,-22.996746063232422,-1.6962178945541382,0,300
+49,12,The president of the country,12001,The president of the country,The president of the country club was having a reception for new members. He invited all his friends. They came in large numbers,-28.859525680541992,-0.5297576785087585,0,300
+53,13,The road,13001,The road,The road was very rough. The car was very slow. We had almost hit a car ahead. The car,-27.2895565032959,-2.679482936859131,0,300
+57,14,The year is 1910.,14001,The year is 1910.,The year is 1910. The world is at war. The United States is at war with Germany. The war has been going,-25.2199764251709,-0.7049472332000732,0,300

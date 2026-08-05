@@ -1,0 +1,5 @@
+[Aq.embgrad.shard3of8] loading /mount/arbeitsdaten/studenten1/singhsk/thesis/thesis/gfn-lm-tuning/infill_subj_arithmetic/gpt2_large_sft_output
+[Aq.embgrad.shard3of8] 8 sequences, proposal=embgrad mech=accept_only k=64
+[Aq.embgrad.shard3of8] 5/8  accept=13.4%
+[Aq.embgrad.shard3of8] DONE n=8 accept=12.5% steer_head=37.5 coverage=2.6% wall=22.8m
+[Aq.embgrad.shard3of8] wrote results/ctg/phase2/Aq.embgrad.shard3of8.json

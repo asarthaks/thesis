@@ -1,0 +1,7 @@
+[Cprobe.accept_only.shard0of2] loading /mount/arbeitsdaten/studenten1/singhsk/thesis/thesis/gfn-lm-tuning/infill_subj_arithmetic/gpt2_large_sft_output
+[Cprobe.accept_only.shard0of2] 15 sequences, proposal=self mech=accept_only k=64
+[Cprobe.accept_only.shard0of2] 5/15  accept=14.3%
+[Cprobe.accept_only.shard0of2] 10/15  accept=15.8%
+[Cprobe.accept_only.shard0of2] 15/15  accept=16.2%
+[Cprobe.accept_only.shard0of2] DONE n=15 accept=16.2% steer_head=46.666666666666664 coverage=0.7% wall=8.0m
+[Cprobe.accept_only.shard0of2] wrote results/ctg/phase2/Cprobe.accept_only.shard0of2.json

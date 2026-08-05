@@ -29,6 +29,13 @@ class BaseLangevinSampler:
         self.emb_matrix = get_embedding_matrix(model).to(self.device)
         self.emb_matrix_sq_norm = torch.sum(self.emb_matrix ** 2, dim=1) # Pre-calc for efficiency
 
+        # Cost accounting for the CTG phase (Q1: is the future term worth its cost?).
+        # Every model call increments one of these, so a run can report the cost triple
+        # (forward passes, backward passes, wall-clock) alongside its quality numbers.
+        # Purely additive; nothing reads them unless asked.
+        self.n_forward = 0
+        self.n_backward = 0
+
     def linear_epsilon_schedule(self, k, eps0=10.5, eps_min=1e-1):
         frac = k / float(self.steps)
         return max(eps0 * (1.0 - frac), eps_min)
@@ -51,7 +58,9 @@ class BaseLangevinSampler:
         target_ids[0, mask_indices_t] = s_idx
 
         log_joint = joint_log_prob_from_inputs_embeds(self.model, inputs_embeds, target_ids)
+        self.n_forward += 1
         grad_s = torch.autograd.grad(log_joint, s, retain_graph=False)[0]
+        self.n_backward += 1
         if not return_self_logprobs:
             return grad_s, log_joint
 
@@ -61,6 +70,7 @@ class BaseLangevinSampler:
         # returned as zeros (a constant vector is a no-op inside a softmax).
         with torch.no_grad():
             logits = self.model(inputs_embeds=inputs_embeds).logits[0]
+            self.n_forward += 1
             rows = []
             for m in mask_indices_t.tolist():
                 if m == 0:
@@ -70,6 +80,38 @@ class BaseLangevinSampler:
                     rows.append(torch.log_softmax(logits[m - 1].float(), dim=-1))
             self_logprobs = torch.stack(rows).to(grad_s.dtype)
         return grad_s, log_joint, self_logprobs
+
+    def log_joint_and_self_logprobs(self, s, s_idx, base_embs, input_ids, mask_indices_t):
+        """The GRADIENT-FREE half of get_gradient_and_log_joint: ONE forward pass, no
+        backward pass at all.
+
+        Returns (log_joint, self_logprobs). This is what the Study A "self term only"
+        arm needs: the self half of the one-hot gradient, log p(v | x_{<m}), is read
+        off the very same forward pass that evaluates the energy, so it is free.
+        Nothing here calls autograd, so `n_backward` stays at zero for such an arm and
+        the cost claim is auditable from the run JSON rather than asserted.
+        """
+        with torch.no_grad():
+            inputs_embeds = base_embs.clone().detach()
+            inputs_embeds[0, mask_indices_t, :] = s.detach()
+            target_ids = input_ids.clone()
+            target_ids[0, mask_indices_t] = s_idx
+
+            out = self.model(inputs_embeds=inputs_embeds, return_dict=True)
+            self.n_forward += 1
+            logits = out.logits[0]
+            lp = torch.log_softmax(logits[:-1].float(), dim=-1)
+            log_joint = lp.gather(1, target_ids[0, 1:].unsqueeze(1)).sum()
+
+            rows = []
+            for m in mask_indices_t.tolist():
+                if m == 0:
+                    rows.append(torch.zeros(logits.shape[-1], device=logits.device,
+                                            dtype=torch.float32))
+                else:
+                    rows.append(lp[m - 1])
+            self_logprobs = torch.stack(rows).to(self.emb_matrix.dtype)
+        return log_joint, self_logprobs
 
     def apply_method_variation(self, raw_grad_s):
         """Applies normalization and direction ablations cleanly to (M, D) tensor."""

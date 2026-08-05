@@ -1,0 +1,14 @@
+{
+  "run_name": "Aq.uniform",
+  "stage": "sentiment",
+  "judge": "siebert/sentiment-roberta-large-english",
+  "n": 60,
+  "target_label": 1,
+  "adherence_pct": 60.0,
+  "mean_target_prob": 0.6025675440372046,
+  "distinct_1": 0.9409167605408882,
+  "distinct_3": 1.0,
+  "self_bleu_4": 0.0,
+  "semantic_spread": 0.8986859109666613,
+  "csv": "results/ctg/phase2/Aq.uniform.csv"
+}
